@@ -14,4 +14,4 @@
 - **Dev:** Nguyễn Văn Huấn (19521556) 
 - **UX/UI:** Lê Trung Hiếu (19521499)
 # Thông tin thêm
-- **Giảng viên hướng dẫn:** Nguyễn Văn Toàn
+- **Giảng viên hướng dẫn:** Nguyễn Tấn Toàn
