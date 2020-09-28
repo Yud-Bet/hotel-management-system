@@ -13,3 +13,5 @@
 - **Leader:** Lê Thanh Dàn (19521311)
 - **Dev:** Nguyễn Văn Huấn (19521556) 
 - **UX/UI:** Lê Trung Hiếu (19521499)
+# Thông tin thêm
+- **Giảng viên hướng dẫn:** Nguyễn Văn Toàn
