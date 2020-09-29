@@ -15,6 +15,7 @@
 - Lưu trữ thông tin hóa đơn.
 - Lưu trữ thông tin dịch vụ.
 - Lưu trữ thông tin phiếu thuê, nhận và trả phòng.
+- Lưu trữ thông tin kho hàng.
 
 **2. Yêu cầu nghiệp vụ:**
 - Quản lí nhân viên.
