@@ -8,7 +8,27 @@
 - Người quản lý.
 - Bộ phận lễ tân của khách sạn.
 ## Chức năng
-*Đang cập nhật...*
+**1. Yêu cầu lưu trữ:**
+- Lưu trữ thông tin nhân viên.
+- Lưu trữ thông tin khách hàng.
+- Lưu trữ thông tin phòng.
+- Lưu trữ thông tin hóa đơn.
+- Lưu trữ thông tin dịch vụ.
+- Lưu trữ thông tin phiếu thuê, nhận và trả phòng.
+
+**2. Yêu cầu nghiệp vụ:**
+- Quản lí nhân viên.
+- Quản lí khách hàng.
+- Quản lí phòng.
+- Quản lí hóa đơn.
+- Quản lí dịch vụ.
+- Quản lí phiếu đăng kí thuê, nhận và trả phòng.
+
+**3. Yêu cầu báo biểu:**
+- In hóa đơn.
+- Thống kê doanh thu khách sạn theo ngày, tháng và năm.
+
+*Đang cập nhật thêm...*
 # Tác giả
 - **Leader:** Lê Thanh Dàn (19521311)
 - **Dev:** Nguyễn Văn Huấn (19521556) 
