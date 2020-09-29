@@ -15,7 +15,7 @@
 - Lưu trữ thông tin hóa đơn.
 - Lưu trữ thông tin dịch vụ.
 - Lưu trữ thông tin phiếu thuê, nhận và trả phòng.
-- Lưu trữ thông tin kho hàng.
+- Lưu trữ thông tin hàng/sản phẩm.
 
 **2. Yêu cầu nghiệp vụ:**
 - Quản lí nhân viên.
@@ -27,6 +27,7 @@
 
 **3. Yêu cầu báo biểu:**
 - In hóa đơn.
+- Báo cáo thông tin kho hàng.
 - Thống kê doanh thu khách sạn theo ngày, tháng và năm.
 
 *Đang cập nhật thêm...*
