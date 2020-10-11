@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Xamarin.Forms.3.3.0.912540\build\Xamarin.Forms.props" Condition="Exists('..\packages\Xamarin.Forms.3.3.0.912540\build\Xamarin.Forms.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -12,6 +13,8 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -33,6 +36,22 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Bunifu_UI_v1.5.3, Version=1.5.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Bunifu\Bunifu_UI_v1.5.3.dll</HintPath>
+    </Reference>
+    <Reference Include="MaterialSkin, Version=2.1.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialSkin.2.2.1.3\lib\net461\MaterialSkin.dll</HintPath>
+    </Reference>
+    <Reference Include="MetroFramework, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="MetroFramework.Design, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="MetroFramework.Fonts, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.Fonts.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -44,16 +63,49 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="Xamarin.Forms.Core, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xamarin.Forms.3.3.0.912540\lib\netstandard2.0\Xamarin.Forms.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Platform, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xamarin.Forms.3.3.0.912540\lib\netstandard2.0\Xamarin.Forms.Platform.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Xaml, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xamarin.Forms.3.3.0.912540\lib\netstandard2.0\Xamarin.Forms.Xaml.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="UI\Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UI\Form_Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Form_Login.Designer.cs">
+      <DependentUpon>Form_Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Form_Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Form_Main.Designer.cs">
+      <DependentUpon>Form_Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Form_Room.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Form_Room.Designer.cs">
+      <DependentUpon>Form_Room.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Form_RoomInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Form_RoomInfo.Designer.cs">
+      <DependentUpon>Form_RoomInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Room.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Room.Designer.cs">
+      <DependentUpon>Room.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -62,7 +114,24 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="UI\Form_Login.resx">
+      <DependentUpon>Form_Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Form_Main.resx">
+      <DependentUpon>Form_Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Form_Room.resx">
+      <DependentUpon>Form_Room.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Form_RoomInfo.resx">
+      <DependentUpon>Form_RoomInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Room.resx">
+      <DependentUpon>Room.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -80,5 +149,121 @@
     <Folder Include="Business\" />
     <Folder Include="DataAcess\" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bongform.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icArrowBack.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icBaoCao.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icDaThueDoi.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icDaThueDon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icDichVu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icDichVuAn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icDichVucon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icDoanhThu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icDonDep.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icDVGiatUi.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icHoaDon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icKhachHang.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icKho.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icLeTan.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icNhanVien.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icPhongDoi.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icPhongDon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icQuanLy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icRoom.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icSuaChua.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icTenDoc.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icTenNgang.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icTimKiem.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icThanhToan.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icVip.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icXoa.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icYes.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imgNen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imgHotelLogin.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\test.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icPassLogin1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icUserLogin1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icPassLogin2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icUserLogin2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icLogOut.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Xamarin.Forms.3.3.0.912540\build\Xamarin.Forms.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Xamarin.Forms.3.3.0.912540\build\Xamarin.Forms.props'))" />
+    <Error Condition="!Exists('..\packages\Xamarin.Forms.3.3.0.912540\build\Xamarin.Forms.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Xamarin.Forms.3.3.0.912540\build\Xamarin.Forms.targets'))" />
+  </Target>
+  <Import Project="..\packages\Xamarin.Forms.3.3.0.912540\build\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.3.3.0.912540\build\Xamarin.Forms.targets')" />
 </Project>
