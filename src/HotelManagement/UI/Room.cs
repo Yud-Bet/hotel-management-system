@@ -158,35 +158,68 @@ namespace HotelManagement.UI
 
         private void pbRoomType_Click(object sender, EventArgs e)
         {
-            if (RoomStatus == 3)
+            MouseEventArgs mouseEventArgs = (MouseEventArgs) e;
+            if(mouseEventArgs.Button== MouseButtons.Right)
             {
-                DialogResult result = MessageBox.Show("Xác nhận đã dọn phòng xong?", "", MessageBoxButtons.YesNo);
-                if (result == DialogResult.No)
+                showMenu();
+            } else
+            {
+                if (RoomStatus == 3)
                 {
-                    return;
+                    DialogResult result = MessageBox.Show("Xác nhận đã dọn phòng xong?", "", MessageBoxButtons.YesNo);
+                    if (result == DialogResult.No)
+                    {
+                        return;
+                    }
+                    else
+                    {
+                        this._RoomStatus = 1;
+                    }
                 }
-                else
+
+                if (RoomStatus == 4)
                 {
-                    this._RoomStatus = 1;
+                    DialogResult result = MessageBox.Show("Xác nhận đã sửa phòng xong?", "", MessageBoxButtons.YesNo);
+                    if (result == DialogResult.No)
+                    {
+                        return;
+                    }
+                    else
+                    {
+                        this._RoomStatus = 1;
+                    }
                 }
+
+                Form_RoomInfo temp = new Form_RoomInfo(this);
+                this.Parent._pnToAddARoomInfo.BringToFront();
+                this.Parent._pnToAddARoomInfo.Controls.Add(temp);
+            }
+            
+        }
+
+        void showMenu()
+        {
+            zeroitMaterialContextMenuStrip1.Items[0].Visible = false;
+            zeroitMaterialContextMenuStrip1.Items[1].Visible = false;
+            zeroitMaterialContextMenuStrip1.Items[2].Visible = false;
+            zeroitMaterialContextMenuStrip1.Items[3].Visible = false;
+
+            if (this.RoomStatus == 3)
+            {
+                zeroitMaterialContextMenuStrip1.Items[0].Visible = true;
+                zeroitMaterialContextMenuStrip1.Items[3].Visible = true;
+            }
+            else if (this.RoomStatus == 4)
+            {
+                zeroitMaterialContextMenuStrip1.Items[1].Visible = true;
+                zeroitMaterialContextMenuStrip1.Items[2].Visible = true;
+            } else
+            {
+                zeroitMaterialContextMenuStrip1.Items[0].Visible = true;
+                zeroitMaterialContextMenuStrip1.Items[2].Visible = true;
             }
 
-            if (RoomStatus == 4)
-            {
-                DialogResult result = MessageBox.Show("Xác nhận đã sửa phòng xong?", "", MessageBoxButtons.YesNo);
-                if (result == DialogResult.No)
-                {
-                    return;
-                }
-                else
-                {
-                    this._RoomStatus = 1;
-                }
-            }
-
-            Form_RoomInfo temp = new Form_RoomInfo(this);
-            this.Parent._pnToAddARoomInfo.BringToFront();
-            this.Parent._pnToAddARoomInfo.Controls.Add(temp);
+            zeroitMaterialContextMenuStrip1.Show(MousePosition);
         }
     }
 }

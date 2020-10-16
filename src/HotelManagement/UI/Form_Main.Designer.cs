@@ -76,7 +76,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.lbDuty = new System.Windows.Forms.Label();
             this.lbStaffname = new System.Windows.Forms.Label();
@@ -114,7 +113,6 @@
             this.btRoom.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbStaffAvatar)).BeginInit();
             this.SuspendLayout();
             // 
@@ -771,7 +769,6 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Controls.Add(this.panel3);
             this.panel2.Controls.Add(this.lbDuty);
             this.panel2.Controls.Add(this.lbStaffname);
@@ -781,18 +778,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(300, 190);
             this.panel2.TabIndex = 0;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox1.Image = global::HotelManagement.Properties.Resources.icLogOut;
-            this.pictureBox1.Location = new System.Drawing.Point(260, 10);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(35, 35);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 6;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // panel3
             // 
@@ -837,9 +822,9 @@
             // 
             // panel4
             // 
-            this.panel4.Location = new System.Drawing.Point(321, 18);
+            this.panel4.Location = new System.Drawing.Point(325, 31);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(987, 680);
+            this.panel4.Size = new System.Drawing.Size(988, 679);
             this.panel4.TabIndex = 1;
             // 
             // Form_Main
@@ -901,7 +886,6 @@
             this.btRoom.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbStaffAvatar)).EndInit();
             this.ResumeLayout(false);
 
@@ -962,6 +946,5 @@
         private System.Windows.Forms.Label lbStaffname;
         private System.Windows.Forms.PictureBox pbStaffAvatar;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
