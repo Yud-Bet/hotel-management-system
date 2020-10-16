@@ -25,7 +25,7 @@ namespace HotelManagement.UI
 
         private void Form_RoomInfo_Load(object sender, EventArgs e)
         {
-            
+            tbCustomerName.Focus();
         }
 
         private void Load_Data()
@@ -46,17 +46,73 @@ namespace HotelManagement.UI
         {
             this.Parent.Parent._pnToAddARoomInfo.Controls.Remove(this);
             this.Parent.Parent._pnToAddARoomInfo.SendToBack();
+            
         }
 
-        private void cbCheckoutDate_OnChange(object sender, EventArgs e)
+        private void cbCheckOutDate_Click(object sender, EventArgs e)
         {
-            if (cbCheckoutDate.Checked == true)
+            if (cbCheckOutDate.Checked == true)
             {
-                dtCheckoutDate.Enabled = true;
-            } else
-            {
-                dtCheckoutDate.Enabled = false;
+                dtpCheckOutDate.Enabled = true;
             }
+            else
+            {
+                dtpCheckOutDate.Enabled = false;
+            }
+        }
+
+        private void cbIDNo_Click(object sender, EventArgs e)
+        {
+            if (cbIDNo.Checked == true)
+            {
+                cbPassport.Checked = false;
+                tbIDNo.Enabled = true;
+                tbPassport.Enabled = false;
+                tbPassport.Text = "";
+            }
+            else
+            {
+                cbPassport.Checked = true;
+                tbIDNo.Enabled = false;
+                tbIDNo.Text = "";
+                tbPassport.Enabled = true;
+            }
+        }
+
+        private void cbPassport_Click(object sender, EventArgs e)
+        {
+            if (cbPassport.Checked == true)
+            {
+                cbIDNo.Checked = false;
+                tbIDNo.Enabled = false;
+                tbIDNo.Text = "";
+                tbPassport.Enabled = true;
+            }
+            else
+            {
+                cbIDNo.Checked = true;
+                tbIDNo.Enabled = true;
+                tbPassport.Enabled = false;
+                tbPassport.Text = "";
+            }
+        }
+
+        private void btBookRoom_Click(object sender, EventArgs e)
+        {
+            this.Parent._RoomStatus = 2;
+            pbArrowBack_Click(sender, e);
+        }
+
+        private void btPay_Click(object sender, EventArgs e)
+        {
+            this.Parent._RoomStatus = 3;
+            pbArrowBack_Click(sender, e);
+        }
+
+        private void btSettingRoom_Click(object sender, EventArgs e)
+        {
+            Form_AddEditRoom form_AddEditRoom = new Form_AddEditRoom();
+            form_AddEditRoom.ShowDialog();
         }
     }
 }

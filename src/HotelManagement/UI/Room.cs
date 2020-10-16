@@ -160,11 +160,12 @@ namespace HotelManagement.UI
         {
             if (RoomStatus == 3)
             {
-                DialogResult result = MessageBox.Show("Xác nhận dọn phòng xong?", "", MessageBoxButtons.YesNo);
+                DialogResult result = MessageBox.Show("Xác nhận đã dọn phòng xong?", "", MessageBoxButtons.YesNo);
                 if (result == DialogResult.No)
                 {
                     return;
-                } else
+                }
+                else
                 {
                     this._RoomStatus = 1;
                 }
@@ -172,7 +173,15 @@ namespace HotelManagement.UI
 
             if (RoomStatus == 4)
             {
-
+                DialogResult result = MessageBox.Show("Xác nhận đã sửa phòng xong?", "", MessageBoxButtons.YesNo);
+                if (result == DialogResult.No)
+                {
+                    return;
+                }
+                else
+                {
+                    this._RoomStatus = 1;
+                }
             }
 
             Form_RoomInfo temp = new Form_RoomInfo(this);
