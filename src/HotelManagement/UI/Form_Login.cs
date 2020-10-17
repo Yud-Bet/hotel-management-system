@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Zeroit.Framework.Transitions;
 
 namespace HotelManagement.UI
 {
@@ -99,10 +100,17 @@ namespace HotelManagement.UI
 
         private void btLogin_Click(object sender, EventArgs e)
         {
-            Form_Main temp = new Form_Main();
-            this.Hide();
-            temp.ShowDialog();
-            this.Show();
+            if (DataAccess.Account.Login(tbUsername.Text, tbPassword.Text))
+            {
+                Form_Main temp = new Form_Main();
+                this.Hide();
+                temp.ShowDialog();
+                this.Show();
+            }
+            else
+            {
+                MessageBox.Show("Incorrect account", "Error");
+            }
         }
 
         private void btExit_Click(object sender, EventArgs e)
