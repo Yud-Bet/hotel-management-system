@@ -32,89 +32,87 @@
             this.pnSubMenu_Manage = new System.Windows.Forms.Panel();
             this.btService_manage = new System.Windows.Forms.Panel();
             this.label15 = new System.Windows.Forms.Label();
+            this.pictureBox15 = new System.Windows.Forms.PictureBox();
             this.btStaff = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
+            this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.btWarehouse = new System.Windows.Forms.Panel();
             this.label10 = new System.Windows.Forms.Label();
+            this.pictureBox11 = new System.Windows.Forms.PictureBox();
             this.btCustomer = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
+            this.pictureBox12 = new System.Windows.Forms.PictureBox();
             this.btManage = new System.Windows.Forms.Panel();
             this.pnTickChooseBtManage = new System.Windows.Forms.Panel();
+            this.pbArrow_Manage = new System.Windows.Forms.PictureBox();
             this.label11 = new System.Windows.Forms.Label();
+            this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.pnSubMenu_Report = new System.Windows.Forms.Panel();
             this.pnBill = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.btRevenue = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.btReport = new System.Windows.Forms.Panel();
             this.pnTickChooseBtReport = new System.Windows.Forms.Panel();
+            this.pbArrow_Report = new System.Windows.Forms.PictureBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.pnSubMenu_Service = new System.Windows.Forms.Panel();
             this.btLaundryService = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.btEatService = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.btService = new System.Windows.Forms.Panel();
+            this.pbArrow_Service = new System.Windows.Forms.PictureBox();
             this.pnTickChooseBtService = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.btRoom = new System.Windows.Forms.Panel();
             this.pnTickChooseBtRoom = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.lbDuty = new System.Windows.Forms.Label();
             this.lbStaffname = new System.Windows.Forms.Label();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.pictureBox15 = new System.Windows.Forms.PictureBox();
-            this.pictureBox10 = new System.Windows.Forms.PictureBox();
-            this.pictureBox11 = new System.Windows.Forms.PictureBox();
-            this.pictureBox12 = new System.Windows.Forms.PictureBox();
-            this.pbArrow_Manage = new System.Windows.Forms.PictureBox();
-            this.pictureBox9 = new System.Windows.Forms.PictureBox();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
-            this.pictureBox8 = new System.Windows.Forms.PictureBox();
-            this.pbArrow_Report = new System.Windows.Forms.PictureBox();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pbArrow_Service = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pbStaffAvatar = new System.Windows.Forms.PictureBox();
+            this.panel4 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.pnSubMenu_Manage.SuspendLayout();
             this.btService_manage.SuspendLayout();
-            this.btStaff.SuspendLayout();
-            this.btWarehouse.SuspendLayout();
-            this.btCustomer.SuspendLayout();
-            this.btManage.SuspendLayout();
-            this.pnSubMenu_Report.SuspendLayout();
-            this.pnBill.SuspendLayout();
-            this.btRevenue.SuspendLayout();
-            this.btReport.SuspendLayout();
-            this.pnSubMenu_Service.SuspendLayout();
-            this.btLaundryService.SuspendLayout();
-            this.btEatService.SuspendLayout();
-            this.btService.SuspendLayout();
-            this.btRoom.SuspendLayout();
-            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).BeginInit();
+            this.btStaff.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
+            this.btWarehouse.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
+            this.btCustomer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
+            this.btManage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbArrow_Manage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
+            this.pnSubMenu_Report.SuspendLayout();
+            this.pnBill.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
+            this.btRevenue.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
+            this.btReport.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbArrow_Report)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
+            this.pnSubMenu_Service.SuspendLayout();
+            this.btLaundryService.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            this.btEatService.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            this.btService.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbArrow_Service)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            this.btRoom.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbStaffAvatar)).BeginInit();
             this.SuspendLayout();
             // 
@@ -176,6 +174,20 @@
             this.label15.MouseLeave += new System.EventHandler(this.btService_manage_MouseLeave);
             this.label15.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btService_manage_MouseMove);
             // 
+            // pictureBox15
+            // 
+            this.pictureBox15.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox15.Image = global::HotelManagement.Properties.Resources.icSubService;
+            this.pictureBox15.Location = new System.Drawing.Point(75, 7);
+            this.pictureBox15.Name = "pictureBox15";
+            this.pictureBox15.Size = new System.Drawing.Size(26, 26);
+            this.pictureBox15.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox15.TabIndex = 0;
+            this.pictureBox15.TabStop = false;
+            this.pictureBox15.Click += new System.EventHandler(this.btService_manage_Click);
+            this.pictureBox15.MouseLeave += new System.EventHandler(this.btService_manage_MouseLeave);
+            this.pictureBox15.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btService_manage_MouseMove);
+            // 
             // btStaff
             // 
             this.btStaff.BackColor = System.Drawing.Color.WhiteSmoke;
@@ -204,6 +216,20 @@
             this.label8.Click += new System.EventHandler(this.btStaff_Click);
             this.label8.MouseLeave += new System.EventHandler(this.btStaff_MouseLeave);
             this.label8.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btStaff_MouseMove);
+            // 
+            // pictureBox10
+            // 
+            this.pictureBox10.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox10.Image = global::HotelManagement.Properties.Resources.icStaff;
+            this.pictureBox10.Location = new System.Drawing.Point(75, 7);
+            this.pictureBox10.Name = "pictureBox10";
+            this.pictureBox10.Size = new System.Drawing.Size(26, 26);
+            this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox10.TabIndex = 0;
+            this.pictureBox10.TabStop = false;
+            this.pictureBox10.Click += new System.EventHandler(this.btStaff_Click);
+            this.pictureBox10.MouseLeave += new System.EventHandler(this.btStaff_MouseLeave);
+            this.pictureBox10.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btStaff_MouseMove);
             // 
             // btWarehouse
             // 
@@ -234,6 +260,20 @@
             this.label10.MouseLeave += new System.EventHandler(this.btWarehouse_MouseLeave);
             this.label10.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btWarehouse_MouseMove);
             // 
+            // pictureBox11
+            // 
+            this.pictureBox11.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox11.Image = global::HotelManagement.Properties.Resources.icWarehouse;
+            this.pictureBox11.Location = new System.Drawing.Point(75, 7);
+            this.pictureBox11.Name = "pictureBox11";
+            this.pictureBox11.Size = new System.Drawing.Size(26, 26);
+            this.pictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox11.TabIndex = 0;
+            this.pictureBox11.TabStop = false;
+            this.pictureBox11.Click += new System.EventHandler(this.btWarehouse_Click);
+            this.pictureBox11.MouseLeave += new System.EventHandler(this.btWarehouse_MouseLeave);
+            this.pictureBox11.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btWarehouse_MouseMove);
+            // 
             // btCustomer
             // 
             this.btCustomer.BackColor = System.Drawing.Color.WhiteSmoke;
@@ -263,6 +303,20 @@
             this.label9.MouseLeave += new System.EventHandler(this.btCustomer_MouseLeave);
             this.label9.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btCustomer_MouseMove);
             // 
+            // pictureBox12
+            // 
+            this.pictureBox12.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox12.Image = global::HotelManagement.Properties.Resources.icCustomer;
+            this.pictureBox12.Location = new System.Drawing.Point(75, 7);
+            this.pictureBox12.Name = "pictureBox12";
+            this.pictureBox12.Size = new System.Drawing.Size(26, 26);
+            this.pictureBox12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox12.TabIndex = 0;
+            this.pictureBox12.TabStop = false;
+            this.pictureBox12.Click += new System.EventHandler(this.btCustomer_Click);
+            this.pictureBox12.MouseLeave += new System.EventHandler(this.btCustomer_MouseLeave);
+            this.pictureBox12.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btCustomer_MouseMove);
+            // 
             // btManage
             // 
             this.btManage.Controls.Add(this.pnTickChooseBtManage);
@@ -288,6 +342,20 @@
             this.pnTickChooseBtManage.Size = new System.Drawing.Size(8, 40);
             this.pnTickChooseBtManage.TabIndex = 2;
             // 
+            // pbArrow_Manage
+            // 
+            this.pbArrow_Manage.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbArrow_Manage.Image = global::HotelManagement.Properties.Resources.icHorizontalArrow;
+            this.pbArrow_Manage.Location = new System.Drawing.Point(260, 15);
+            this.pbArrow_Manage.Name = "pbArrow_Manage";
+            this.pbArrow_Manage.Size = new System.Drawing.Size(20, 20);
+            this.pbArrow_Manage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbArrow_Manage.TabIndex = 0;
+            this.pbArrow_Manage.TabStop = false;
+            this.pbArrow_Manage.Click += new System.EventHandler(this.btManage_Click);
+            this.pbArrow_Manage.MouseLeave += new System.EventHandler(this.btManage_MouseLeave);
+            this.pbArrow_Manage.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btManage_MouseMove);
+            // 
             // label11
             // 
             this.label11.AutoSize = true;
@@ -302,6 +370,20 @@
             this.label11.Click += new System.EventHandler(this.btManage_Click);
             this.label11.MouseLeave += new System.EventHandler(this.btManage_MouseLeave);
             this.label11.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btManage_MouseMove);
+            // 
+            // pictureBox9
+            // 
+            this.pictureBox9.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox9.Image = global::HotelManagement.Properties.Resources.icManage;
+            this.pictureBox9.Location = new System.Drawing.Point(40, 6);
+            this.pictureBox9.Name = "pictureBox9";
+            this.pictureBox9.Size = new System.Drawing.Size(35, 35);
+            this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox9.TabIndex = 0;
+            this.pictureBox9.TabStop = false;
+            this.pictureBox9.Click += new System.EventHandler(this.btManage_Click);
+            this.pictureBox9.MouseLeave += new System.EventHandler(this.btManage_MouseLeave);
+            this.pictureBox9.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btManage_MouseMove);
             // 
             // pnSubMenu_Report
             // 
@@ -342,6 +424,20 @@
             this.label7.MouseLeave += new System.EventHandler(this.pnBill_MouseLeave);
             this.label7.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pnBill_MouseMove);
             // 
+            // pictureBox7
+            // 
+            this.pictureBox7.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox7.Image = global::HotelManagement.Properties.Resources.icBill;
+            this.pictureBox7.Location = new System.Drawing.Point(75, 7);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(26, 26);
+            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox7.TabIndex = 0;
+            this.pictureBox7.TabStop = false;
+            this.pictureBox7.Click += new System.EventHandler(this.pnBill_Click);
+            this.pictureBox7.MouseLeave += new System.EventHandler(this.pnBill_MouseLeave);
+            this.pictureBox7.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pnBill_MouseMove);
+            // 
             // btRevenue
             // 
             this.btRevenue.BackColor = System.Drawing.Color.WhiteSmoke;
@@ -371,6 +467,20 @@
             this.label6.MouseLeave += new System.EventHandler(this.btRevenue_MouseLeave);
             this.label6.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btRevenue_MouseMove);
             // 
+            // pictureBox8
+            // 
+            this.pictureBox8.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox8.Image = global::HotelManagement.Properties.Resources.icRevenue;
+            this.pictureBox8.Location = new System.Drawing.Point(75, 7);
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.Size = new System.Drawing.Size(26, 26);
+            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox8.TabIndex = 0;
+            this.pictureBox8.TabStop = false;
+            this.pictureBox8.Click += new System.EventHandler(this.btRevenue_Click);
+            this.pictureBox8.MouseLeave += new System.EventHandler(this.btRevenue_MouseLeave);
+            this.pictureBox8.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btRevenue_MouseMove);
+            // 
             // btReport
             // 
             this.btReport.Controls.Add(this.pnTickChooseBtReport);
@@ -396,6 +506,20 @@
             this.pnTickChooseBtReport.Size = new System.Drawing.Size(8, 40);
             this.pnTickChooseBtReport.TabIndex = 2;
             // 
+            // pbArrow_Report
+            // 
+            this.pbArrow_Report.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbArrow_Report.Image = global::HotelManagement.Properties.Resources.icHorizontalArrow;
+            this.pbArrow_Report.Location = new System.Drawing.Point(260, 15);
+            this.pbArrow_Report.Name = "pbArrow_Report";
+            this.pbArrow_Report.Size = new System.Drawing.Size(20, 20);
+            this.pbArrow_Report.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbArrow_Report.TabIndex = 0;
+            this.pbArrow_Report.TabStop = false;
+            this.pbArrow_Report.Click += new System.EventHandler(this.btReport_Click);
+            this.pbArrow_Report.MouseLeave += new System.EventHandler(this.btReport_MouseLeave);
+            this.pbArrow_Report.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btReport_MouseMove);
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -410,6 +534,20 @@
             this.label5.Click += new System.EventHandler(this.btReport_Click);
             this.label5.MouseLeave += new System.EventHandler(this.btReport_MouseLeave);
             this.label5.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btReport_MouseMove);
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox6.Image = global::HotelManagement.Properties.Resources.icReport;
+            this.pictureBox6.Location = new System.Drawing.Point(40, 7);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(35, 35);
+            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox6.TabIndex = 0;
+            this.pictureBox6.TabStop = false;
+            this.pictureBox6.Click += new System.EventHandler(this.btReport_Click);
+            this.pictureBox6.MouseLeave += new System.EventHandler(this.btReport_MouseLeave);
+            this.pictureBox6.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btReport_MouseMove);
             // 
             // pnSubMenu_Service
             // 
@@ -451,6 +589,20 @@
             this.label4.MouseLeave += new System.EventHandler(this.btLaundryService_MouseLeave);
             this.label4.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btLaundryService_MouseMove);
             // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox5.Image = global::HotelManagement.Properties.Resources.icLaundryService;
+            this.pictureBox5.Location = new System.Drawing.Point(75, 7);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(26, 26);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox5.TabIndex = 0;
+            this.pictureBox5.TabStop = false;
+            this.pictureBox5.Click += new System.EventHandler(this.btLaundryService_Click);
+            this.pictureBox5.MouseLeave += new System.EventHandler(this.btLaundryService_MouseLeave);
+            this.pictureBox5.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btLaundryService_MouseMove);
+            // 
             // btEatService
             // 
             this.btEatService.BackColor = System.Drawing.Color.WhiteSmoke;
@@ -480,6 +632,20 @@
             this.label3.MouseLeave += new System.EventHandler(this.btEatService_MouseLeave);
             this.label3.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btEatService_MouseMove);
             // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox4.Image = global::HotelManagement.Properties.Resources.icEatService;
+            this.pictureBox4.Location = new System.Drawing.Point(75, 7);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(26, 26);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox4.TabIndex = 0;
+            this.pictureBox4.TabStop = false;
+            this.pictureBox4.Click += new System.EventHandler(this.btEatService_Click);
+            this.pictureBox4.MouseLeave += new System.EventHandler(this.btEatService_MouseLeave);
+            this.pictureBox4.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btEatService_MouseMove);
+            // 
             // btService
             // 
             this.btService.Controls.Add(this.pbArrow_Service);
@@ -495,6 +661,20 @@
             this.btService.Click += new System.EventHandler(this.btService_Click);
             this.btService.MouseLeave += new System.EventHandler(this.btService_MouseLeave);
             this.btService.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btService_MouseMove);
+            // 
+            // pbArrow_Service
+            // 
+            this.pbArrow_Service.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbArrow_Service.Image = global::HotelManagement.Properties.Resources.icHorizontalArrow;
+            this.pbArrow_Service.Location = new System.Drawing.Point(260, 15);
+            this.pbArrow_Service.Name = "pbArrow_Service";
+            this.pbArrow_Service.Size = new System.Drawing.Size(20, 20);
+            this.pbArrow_Service.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbArrow_Service.TabIndex = 3;
+            this.pbArrow_Service.TabStop = false;
+            this.pbArrow_Service.Click += new System.EventHandler(this.btService_Click);
+            this.pbArrow_Service.MouseLeave += new System.EventHandler(this.btService_MouseLeave);
+            this.pbArrow_Service.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btService_MouseMove);
             // 
             // pnTickChooseBtService
             // 
@@ -519,6 +699,20 @@
             this.label2.Click += new System.EventHandler(this.btService_Click);
             this.label2.MouseLeave += new System.EventHandler(this.btService_MouseLeave);
             this.label2.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btService_MouseMove);
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox3.Image = global::HotelManagement.Properties.Resources.icSevice;
+            this.pictureBox3.Location = new System.Drawing.Point(40, 7);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(35, 35);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox3.TabIndex = 0;
+            this.pictureBox3.TabStop = false;
+            this.pictureBox3.Click += new System.EventHandler(this.btService_Click);
+            this.pictureBox3.MouseLeave += new System.EventHandler(this.btService_MouseLeave);
+            this.pictureBox3.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btService_MouseMove);
             // 
             // btRoom
             // 
@@ -559,9 +753,22 @@
             this.label1.MouseLeave += new System.EventHandler(this.btRoom_MouseLeave);
             this.label1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btRoom_MouseMove);
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox2.Image = global::HotelManagement.Properties.Resources.icRoom;
+            this.pictureBox2.Location = new System.Drawing.Point(40, 7);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(35, 35);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 0;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.btRoom_Click);
+            this.pictureBox2.MouseLeave += new System.EventHandler(this.btRoom_MouseLeave);
+            this.pictureBox2.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btRoom_MouseMove);
+            // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Controls.Add(this.panel3);
             this.panel2.Controls.Add(this.lbDuty);
             this.panel2.Controls.Add(this.lbStaffname);
@@ -605,235 +812,6 @@
             this.lbStaffname.Text = "Tên Nhân Viên";
             this.lbStaffname.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // panel4
-            // 
-            this.panel4.Location = new System.Drawing.Point(321, 18);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(987, 680);
-            this.panel4.TabIndex = 1;
-            // 
-            // pictureBox15
-            // 
-            this.pictureBox15.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox15.Image = global::HotelManagement.Properties.Resources.icSubService;
-            this.pictureBox15.Location = new System.Drawing.Point(75, 7);
-            this.pictureBox15.Name = "pictureBox15";
-            this.pictureBox15.Size = new System.Drawing.Size(26, 26);
-            this.pictureBox15.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox15.TabIndex = 0;
-            this.pictureBox15.TabStop = false;
-            this.pictureBox15.Click += new System.EventHandler(this.btService_manage_Click);
-            this.pictureBox15.MouseLeave += new System.EventHandler(this.btService_manage_MouseLeave);
-            this.pictureBox15.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btService_manage_MouseMove);
-            // 
-            // pictureBox10
-            // 
-            this.pictureBox10.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox10.Image = global::HotelManagement.Properties.Resources.icStaff;
-            this.pictureBox10.Location = new System.Drawing.Point(75, 7);
-            this.pictureBox10.Name = "pictureBox10";
-            this.pictureBox10.Size = new System.Drawing.Size(26, 26);
-            this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox10.TabIndex = 0;
-            this.pictureBox10.TabStop = false;
-            this.pictureBox10.Click += new System.EventHandler(this.btStaff_Click);
-            this.pictureBox10.MouseLeave += new System.EventHandler(this.btStaff_MouseLeave);
-            this.pictureBox10.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btStaff_MouseMove);
-            // 
-            // pictureBox11
-            // 
-            this.pictureBox11.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox11.Image = global::HotelManagement.Properties.Resources.icWarehouse;
-            this.pictureBox11.Location = new System.Drawing.Point(75, 7);
-            this.pictureBox11.Name = "pictureBox11";
-            this.pictureBox11.Size = new System.Drawing.Size(26, 26);
-            this.pictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox11.TabIndex = 0;
-            this.pictureBox11.TabStop = false;
-            this.pictureBox11.Click += new System.EventHandler(this.btWarehouse_Click);
-            this.pictureBox11.MouseLeave += new System.EventHandler(this.btWarehouse_MouseLeave);
-            this.pictureBox11.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btWarehouse_MouseMove);
-            // 
-            // pictureBox12
-            // 
-            this.pictureBox12.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox12.Image = global::HotelManagement.Properties.Resources.icCustomer;
-            this.pictureBox12.Location = new System.Drawing.Point(75, 7);
-            this.pictureBox12.Name = "pictureBox12";
-            this.pictureBox12.Size = new System.Drawing.Size(26, 26);
-            this.pictureBox12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox12.TabIndex = 0;
-            this.pictureBox12.TabStop = false;
-            this.pictureBox12.Click += new System.EventHandler(this.btCustomer_Click);
-            this.pictureBox12.MouseLeave += new System.EventHandler(this.btCustomer_MouseLeave);
-            this.pictureBox12.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btCustomer_MouseMove);
-            // 
-            // pbArrow_Manage
-            // 
-            this.pbArrow_Manage.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbArrow_Manage.Image = global::HotelManagement.Properties.Resources.icHorizontalArrow;
-            this.pbArrow_Manage.Location = new System.Drawing.Point(260, 15);
-            this.pbArrow_Manage.Name = "pbArrow_Manage";
-            this.pbArrow_Manage.Size = new System.Drawing.Size(20, 20);
-            this.pbArrow_Manage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbArrow_Manage.TabIndex = 0;
-            this.pbArrow_Manage.TabStop = false;
-            this.pbArrow_Manage.Click += new System.EventHandler(this.btManage_Click);
-            this.pbArrow_Manage.MouseLeave += new System.EventHandler(this.btManage_MouseLeave);
-            this.pbArrow_Manage.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btManage_MouseMove);
-            // 
-            // pictureBox9
-            // 
-            this.pictureBox9.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox9.Image = global::HotelManagement.Properties.Resources.icManage;
-            this.pictureBox9.Location = new System.Drawing.Point(40, 6);
-            this.pictureBox9.Name = "pictureBox9";
-            this.pictureBox9.Size = new System.Drawing.Size(35, 35);
-            this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox9.TabIndex = 0;
-            this.pictureBox9.TabStop = false;
-            this.pictureBox9.Click += new System.EventHandler(this.btManage_Click);
-            this.pictureBox9.MouseLeave += new System.EventHandler(this.btManage_MouseLeave);
-            this.pictureBox9.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btManage_MouseMove);
-            // 
-            // pictureBox7
-            // 
-            this.pictureBox7.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox7.Image = global::HotelManagement.Properties.Resources.icBill;
-            this.pictureBox7.Location = new System.Drawing.Point(75, 7);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(26, 26);
-            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox7.TabIndex = 0;
-            this.pictureBox7.TabStop = false;
-            this.pictureBox7.Click += new System.EventHandler(this.pnBill_Click);
-            this.pictureBox7.MouseLeave += new System.EventHandler(this.pnBill_MouseLeave);
-            this.pictureBox7.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pnBill_MouseMove);
-            // 
-            // pictureBox8
-            // 
-            this.pictureBox8.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox8.Image = global::HotelManagement.Properties.Resources.icRevenue;
-            this.pictureBox8.Location = new System.Drawing.Point(75, 7);
-            this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(26, 26);
-            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox8.TabIndex = 0;
-            this.pictureBox8.TabStop = false;
-            this.pictureBox8.Click += new System.EventHandler(this.btRevenue_Click);
-            this.pictureBox8.MouseLeave += new System.EventHandler(this.btRevenue_MouseLeave);
-            this.pictureBox8.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btRevenue_MouseMove);
-            // 
-            // pbArrow_Report
-            // 
-            this.pbArrow_Report.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbArrow_Report.Image = global::HotelManagement.Properties.Resources.icHorizontalArrow;
-            this.pbArrow_Report.Location = new System.Drawing.Point(260, 15);
-            this.pbArrow_Report.Name = "pbArrow_Report";
-            this.pbArrow_Report.Size = new System.Drawing.Size(20, 20);
-            this.pbArrow_Report.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbArrow_Report.TabIndex = 0;
-            this.pbArrow_Report.TabStop = false;
-            this.pbArrow_Report.Click += new System.EventHandler(this.btReport_Click);
-            this.pbArrow_Report.MouseLeave += new System.EventHandler(this.btReport_MouseLeave);
-            this.pbArrow_Report.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btReport_MouseMove);
-            // 
-            // pictureBox6
-            // 
-            this.pictureBox6.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox6.Image = global::HotelManagement.Properties.Resources.icReport;
-            this.pictureBox6.Location = new System.Drawing.Point(40, 7);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(35, 35);
-            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox6.TabIndex = 0;
-            this.pictureBox6.TabStop = false;
-            this.pictureBox6.Click += new System.EventHandler(this.btReport_Click);
-            this.pictureBox6.MouseLeave += new System.EventHandler(this.btReport_MouseLeave);
-            this.pictureBox6.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btReport_MouseMove);
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox5.Image = global::HotelManagement.Properties.Resources.icLaundryService;
-            this.pictureBox5.Location = new System.Drawing.Point(75, 7);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(26, 26);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox5.TabIndex = 0;
-            this.pictureBox5.TabStop = false;
-            this.pictureBox5.Click += new System.EventHandler(this.btLaundryService_Click);
-            this.pictureBox5.MouseLeave += new System.EventHandler(this.btLaundryService_MouseLeave);
-            this.pictureBox5.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btLaundryService_MouseMove);
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox4.Image = global::HotelManagement.Properties.Resources.icEatService;
-            this.pictureBox4.Location = new System.Drawing.Point(75, 7);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(26, 26);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox4.TabIndex = 0;
-            this.pictureBox4.TabStop = false;
-            this.pictureBox4.Click += new System.EventHandler(this.btEatService_Click);
-            this.pictureBox4.MouseLeave += new System.EventHandler(this.btEatService_MouseLeave);
-            this.pictureBox4.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btEatService_MouseMove);
-            // 
-            // pbArrow_Service
-            // 
-            this.pbArrow_Service.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbArrow_Service.Image = global::HotelManagement.Properties.Resources.icHorizontalArrow;
-            this.pbArrow_Service.Location = new System.Drawing.Point(260, 15);
-            this.pbArrow_Service.Name = "pbArrow_Service";
-            this.pbArrow_Service.Size = new System.Drawing.Size(20, 20);
-            this.pbArrow_Service.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbArrow_Service.TabIndex = 3;
-            this.pbArrow_Service.TabStop = false;
-            this.pbArrow_Service.Click += new System.EventHandler(this.btService_Click);
-            this.pbArrow_Service.MouseLeave += new System.EventHandler(this.btService_MouseLeave);
-            this.pbArrow_Service.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btService_MouseMove);
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox3.Image = global::HotelManagement.Properties.Resources.icSevice;
-            this.pictureBox3.Location = new System.Drawing.Point(40, 7);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(35, 35);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox3.TabIndex = 0;
-            this.pictureBox3.TabStop = false;
-            this.pictureBox3.Click += new System.EventHandler(this.btService_Click);
-            this.pictureBox3.MouseLeave += new System.EventHandler(this.btService_MouseLeave);
-            this.pictureBox3.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btService_MouseMove);
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox2.Image = global::HotelManagement.Properties.Resources.icRoom;
-            this.pictureBox2.Location = new System.Drawing.Point(40, 7);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(35, 35);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 0;
-            this.pictureBox2.TabStop = false;
-            this.pictureBox2.Click += new System.EventHandler(this.btRoom_Click);
-            this.pictureBox2.MouseLeave += new System.EventHandler(this.btRoom_MouseLeave);
-            this.pictureBox2.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btRoom_MouseMove);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox1.Image = global::HotelManagement.Properties.Resources.icLogOut;
-            this.pictureBox1.Location = new System.Drawing.Point(260, 10);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(35, 35);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 6;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
-            // 
             // pbStaffAvatar
             // 
             this.pbStaffAvatar.Location = new System.Drawing.Point(115, 10);
@@ -841,6 +819,13 @@
             this.pbStaffAvatar.Size = new System.Drawing.Size(70, 70);
             this.pbStaffAvatar.TabIndex = 0;
             this.pbStaffAvatar.TabStop = false;
+            // 
+            // panel4
+            // 
+            this.panel4.Location = new System.Drawing.Point(325, 31);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(988, 679);
+            this.panel4.TabIndex = 1;
             // 
             // Form_Main
             // 
@@ -861,47 +846,46 @@
             this.pnSubMenu_Manage.ResumeLayout(false);
             this.btService_manage.ResumeLayout(false);
             this.btService_manage.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).EndInit();
             this.btStaff.ResumeLayout(false);
             this.btStaff.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
             this.btWarehouse.ResumeLayout(false);
             this.btWarehouse.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
             this.btCustomer.ResumeLayout(false);
             this.btCustomer.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
             this.btManage.ResumeLayout(false);
             this.btManage.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbArrow_Manage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             this.pnSubMenu_Report.ResumeLayout(false);
             this.pnBill.ResumeLayout(false);
             this.pnBill.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             this.btRevenue.ResumeLayout(false);
             this.btRevenue.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             this.btReport.ResumeLayout(false);
             this.btReport.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbArrow_Report)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             this.pnSubMenu_Service.ResumeLayout(false);
             this.btLaundryService.ResumeLayout(false);
             this.btLaundryService.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.btEatService.ResumeLayout(false);
             this.btEatService.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.btService.ResumeLayout(false);
             this.btService.PerformLayout();
-            this.btRoom.ResumeLayout(false);
-            this.btRoom.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbArrow_Manage)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbArrow_Report)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbArrow_Service)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            this.btRoom.ResumeLayout(false);
+            this.btRoom.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbStaffAvatar)).EndInit();
             this.ResumeLayout(false);
 
@@ -962,6 +946,5 @@
         private System.Windows.Forms.Label lbStaffname;
         private System.Windows.Forms.PictureBox pbStaffAvatar;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

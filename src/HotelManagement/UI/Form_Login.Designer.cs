@@ -44,7 +44,7 @@
             // 
             // tbUsername
             // 
-            this.tbUsername.BackColor = System.Drawing.SystemColors.Control;
+            this.tbUsername.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
             this.tbUsername.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tbUsername.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbUsername.Location = new System.Drawing.Point(131, 145);
@@ -63,7 +63,7 @@
             // 
             // tbPassword
             // 
-            this.tbPassword.BackColor = System.Drawing.SystemColors.Control;
+            this.tbPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
             this.tbPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tbPassword.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbPassword.Location = new System.Drawing.Point(131, 231);
@@ -97,7 +97,7 @@
             // lbUsername
             // 
             this.lbUsername.AutoSize = true;
-            this.lbUsername.BackColor = System.Drawing.SystemColors.Control;
+            this.lbUsername.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
             this.lbUsername.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(170)))), ((int)(((byte)(160)))));
             this.lbUsername.Location = new System.Drawing.Point(122, 129);
             this.lbUsername.Name = "lbUsername";
@@ -108,7 +108,7 @@
             // lbPassword
             // 
             this.lbPassword.AutoSize = true;
-            this.lbPassword.BackColor = System.Drawing.SystemColors.Control;
+            this.lbPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
             this.lbPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(170)))), ((int)(((byte)(160)))));
             this.lbPassword.Location = new System.Drawing.Point(122, 215);
             this.lbPassword.Name = "lbPassword";
@@ -154,7 +154,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
             this.ClientSize = new System.Drawing.Size(566, 424);
             this.Controls.Add(this.lbPassword);
             this.Controls.Add(this.lbUsername);
@@ -167,10 +167,10 @@
             this.Controls.Add(this.pbPass);
             this.Controls.Add(this.pbUser);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.MinimumSize = new System.Drawing.Size(126, 39);
             this.Name = "Form_Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "UI_Form_Login";
-            this.TransparencyKey = System.Drawing.SystemColors.ActiveBorder;
+            this.Text = "zeroitSeaBlueForm1";
             ((System.ComponentModel.ISupportInitialize)(this.pbPass)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbUser)).EndInit();
             this.ResumeLayout(false);

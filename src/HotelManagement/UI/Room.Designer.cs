@@ -37,12 +37,18 @@
             this.label1 = new System.Windows.Forms.Label();
             this.lbRoomCount = new System.Windows.Forms.Label();
             this.pbShadow = new System.Windows.Forms.PictureBox();
+            this.zeroitMaterialContextMenuStrip1 = new Zeroit.Framework.MaterialDesign.Controls.ZeroitMaterialContextMenuStrip();
+            this.menuItemFixRoom = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuItemEndFixRoom = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuItemCleanRoom = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuItemEndCleanRoom = new System.Windows.Forms.ToolStripMenuItem();
             this.pnBackground.SuspendLayout();
             this.pnBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbRoomType)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbVip)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbRoomStatus)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbShadow)).BeginInit();
+            this.zeroitMaterialContextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // lbRoomStatus
@@ -166,6 +172,43 @@
             this.pbShadow.TabIndex = 6;
             this.pbShadow.TabStop = false;
             // 
+            // zeroitMaterialContextMenuStrip1
+            // 
+            this.zeroitMaterialContextMenuStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.zeroitMaterialContextMenuStrip1.Depth = 0;
+            this.zeroitMaterialContextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuItemFixRoom,
+            this.menuItemEndFixRoom,
+            this.menuItemCleanRoom,
+            this.menuItemEndCleanRoom});
+            this.zeroitMaterialContextMenuStrip1.MouseState = Zeroit.Framework.MaterialDesign.MouseState.HOVER;
+            this.zeroitMaterialContextMenuStrip1.Name = "zeroitMaterialContextMenuStrip1";
+            this.zeroitMaterialContextMenuStrip1.Size = new System.Drawing.Size(181, 114);
+            // 
+            // menuItemFixRoom
+            // 
+            this.menuItemFixRoom.Name = "menuItemFixRoom";
+            this.menuItemFixRoom.Size = new System.Drawing.Size(180, 22);
+            this.menuItemFixRoom.Text = "Sửa phòng";
+            // 
+            // menuItemEndFixRoom
+            // 
+            this.menuItemEndFixRoom.Name = "menuItemEndFixRoom";
+            this.menuItemEndFixRoom.Size = new System.Drawing.Size(180, 22);
+            this.menuItemEndFixRoom.Text = "Kết thúc sửa phòng";
+            // 
+            // menuItemCleanRoom
+            // 
+            this.menuItemCleanRoom.Name = "menuItemCleanRoom";
+            this.menuItemCleanRoom.Size = new System.Drawing.Size(180, 22);
+            this.menuItemCleanRoom.Text = "Dọn phòng";
+            // 
+            // menuItemEndCleanRoom
+            // 
+            this.menuItemEndCleanRoom.Name = "menuItemEndCleanRoom";
+            this.menuItemEndCleanRoom.Size = new System.Drawing.Size(180, 22);
+            this.menuItemEndCleanRoom.Text = "Kết thúc dọn phòng";
+            // 
             // Room
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -182,6 +225,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbVip)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbRoomStatus)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbShadow)).EndInit();
+            this.zeroitMaterialContextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -197,5 +241,10 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lbRoomCount;
         private System.Windows.Forms.PictureBox pbShadow;
+        private Zeroit.Framework.MaterialDesign.Controls.ZeroitMaterialContextMenuStrip zeroitMaterialContextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem menuItemFixRoom;
+        private System.Windows.Forms.ToolStripMenuItem menuItemEndFixRoom;
+        private System.Windows.Forms.ToolStripMenuItem menuItemCleanRoom;
+        private System.Windows.Forms.ToolStripMenuItem menuItemEndCleanRoom;
     }
 }
