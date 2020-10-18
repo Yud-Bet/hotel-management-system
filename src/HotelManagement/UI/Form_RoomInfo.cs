@@ -70,6 +70,33 @@ namespace HotelManagement.UI
                 rbtNor.Checked = true;
                 rbtSingle.Checked = true;
             }
+
+            if (this.Parent._RoomStatus == RoomStatus.Rented)
+            {
+                data = DataAccess.CustomerDA.GetCustomerInfo(Convert.ToInt32(lbRoomID.Text));
+                tbCustomerName.Text = data.Rows[0].ItemArray[0].ToString();
+                dtpCustomerBirthday.Value = Convert.ToDateTime(data.Rows[0].ItemArray[1]);
+                tbCustomerPhoneNum.Text = data.Rows[0].ItemArray[2].ToString();
+                if ((Sex)Convert.ToInt32(data.Rows[0].ItemArray[3]) == Sex.Female)
+                {
+                    rdbFemale.Checked = true;
+                }
+                else
+                {
+                    rbtMale.Checked = true;
+                }
+                if (data.Rows[0].ItemArray[4] != null)
+                {
+                    tbIDNo.Text = data.Rows[0].ItemArray[4].ToString();
+                }
+                if (data.Rows[0].ItemArray[5] != null)
+                {
+                    tbPassport.Text = data.Rows[0].ItemArray[5].ToString();
+                }
+                tbCustomerAddress.Text = data.Rows[0].ItemArray[6].ToString();
+                tbNote.Text = data.Rows[0].ItemArray[7].ToString();
+                dtpCheckInDate.Value = Convert.ToDateTime(data.Rows[0].ItemArray[8]);
+            }
         }
 
         private void pbArrowBack_Click(object sender, EventArgs e)
