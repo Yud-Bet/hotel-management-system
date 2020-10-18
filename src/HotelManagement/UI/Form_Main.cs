@@ -321,7 +321,7 @@ namespace HotelManagement.UI
 
         private void btService_manage_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         private void btService_manage_MouseMove(object sender, MouseEventArgs e)

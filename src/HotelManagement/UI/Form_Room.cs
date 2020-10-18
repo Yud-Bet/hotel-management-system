@@ -25,21 +25,21 @@ namespace HotelManagement.UI
 
         private void Load_Data()
         {
-            int n = 10;
+            DataTable data = DataAccess.RoomDA.GetAllRoom();
+
+            int n = data.Rows.Count;
             lbNumberOfRoom.Text = n.ToString();
 
             int[] count = new int[5];
-            Random rd = new Random();
 
             for (int i = 0; i < n; i++)
             {
                 Room newRoom = new Room(this);
-                int trd = rd.Next(1, 5);
-                count[trd]++;
 
-                newRoom._RoomCount = rd.Next(100, 120);
-                newRoom._RoomStatus = trd;
-                newRoom._RoomType = trd;
+                newRoom._RoomID = Convert.ToInt32(data.Rows[i].ItemArray[0]);
+                newRoom._RoomStatus = (RoomStatus)Convert.ToInt32(data.Rows[i].ItemArray[1]);
+                count[(int)newRoom._RoomStatus]++;
+                newRoom._RoomType = (RoomType)Convert.ToInt32(data.Rows[i].ItemArray[2]);
 
                 this.pnToAddRoom.Controls.Add(newRoom);
             }

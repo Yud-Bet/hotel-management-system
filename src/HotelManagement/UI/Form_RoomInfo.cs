@@ -26,19 +26,49 @@ namespace HotelManagement.UI
         private void Form_RoomInfo_Load(object sender, EventArgs e)
         {
             tbCustomerName.Focus();
+            pnVip_Nor.Enabled = false;
+            pnSignle_Dou.Enabled = false;
+            tbRoomsize.Enabled = false;
+            tbRoomPrice.Enabled = false;
         }
 
         private void Load_Data()
         {
-            lbRoomCount.Text= this.Parent._RoomCount.ToString();
+            lbRoomID.Text= this.Parent._RoomID.ToString();
 
-            if (this.Parent._RoomStatus == 1)
+            if (this.Parent._RoomStatus == RoomStatus.Empty)
             {
                 btPay.Hide();
             }
             else
             {
                 btBookRoom.Hide();
+            }
+
+
+            DataTable data = DataAccess.RoomDA.GetRoomInfo(Convert.ToInt32(lbRoomID.Text));
+            RoomType temp = (RoomType)Convert.ToInt32(data.Rows[0].ItemArray[0]);
+            tbRoomsize.Text = data.Rows[0].ItemArray[1].ToString();
+            tbRoomPrice.Text = Convert.ToInt32(data.Rows[0].ItemArray[2]).ToString();
+            if (temp == RoomType.DoubleVIP)
+            {
+                rbtVip.Checked = true;
+                rbtDouble.Checked = true;
+            }
+            else if (temp == RoomType.Double)
+            {
+                rbtNor.Checked = true;
+                rbtDouble.Checked = true;
+            }
+            else if (temp == RoomType.SingleVIP)
+            {
+                rbtVip.Checked = true;
+                rbtSingle.Checked = true;
+            }
+            else
+            {
+                rbtNor.Checked = true;
+                rbtSingle.Checked = true;
             }
         }
 
@@ -99,19 +129,71 @@ namespace HotelManagement.UI
 
         private void btBookRoom_Click(object sender, EventArgs e)
         {
-            this.Parent._RoomStatus = 2;
+            if (tbCustomerName.Text == "")
+            {
+                MessageBox.Show("Vui lòng nhập tên khách hàng.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                tbCustomerName.Focus();
+                return;
+            }
+
+            if ((DateTime.Today - dtpCustomerBirthday.Value).TotalDays < 365 * 16)
+            {
+                MessageBox.Show("Khách hàng chưa đủ tuổi.\nVui lòng kiểm tra lại ngày sinh khách hàng.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            if (tbCustomerPhoneNum.Text == "")
+            {
+                MessageBox.Show("Vui lòng nhập số điện thoại.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                tbCustomerPhoneNum.Focus();
+                return;
+            }
+
+            if(rbtMale.Checked==false && rdbFemale.Checked == false)
+            {
+                MessageBox.Show("Vui lòng chọn giới tính.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            if (cbIDNo.Checked == true)
+            {
+                if (tbIDNo.Text == "")
+                {
+                    MessageBox.Show("Vui lòng nhập số CMDD.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    tbIDNo.Focus();
+                    return;
+                }
+            } else
+            {
+                if (tbPassport.Text == "")
+                {
+                    MessageBox.Show("Vui lòng nhập số hộ chiếu.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    tbPassport.Focus();
+                    return;
+                }
+            }
+
+            if (tbCustomerAddress.Text == "")
+            {
+                MessageBox.Show("Vui lòng nhập địa chỉ khách hàng.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                tbCustomerAddress.Focus();
+                return;
+            }
+
+            this.Parent._RoomStatus = RoomStatus.Rented;
             pbArrowBack_Click(sender, e);
         }
 
         private void btPay_Click(object sender, EventArgs e)
         {
-            this.Parent._RoomStatus = 3;
+            this.Parent._RoomStatus = RoomStatus.Cleaning;
             pbArrowBack_Click(sender, e);
         }
 
         private void btSettingRoom_Click(object sender, EventArgs e)
         {
             Form_AddEditRoom form_AddEditRoom = new Form_AddEditRoom();
+            form_AddEditRoom._btAdd.Hide();
             form_AddEditRoom.ShowDialog();
         }
     }

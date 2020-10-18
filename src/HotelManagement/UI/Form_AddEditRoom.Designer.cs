@@ -37,9 +37,9 @@
             this.rbtVip = new MetroFramework.Controls.MetroRadioButton();
             this.rbtNor = new MetroFramework.Controls.MetroRadioButton();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.label13 = new System.Windows.Forms.Label();
+            this.lbVND = new System.Windows.Forms.Label();
             this.lbRoomPrice = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
+            this.lbM2 = new System.Windows.Forms.Label();
             this.lbRoomCount = new System.Windows.Forms.Label();
             this.lbRoomSize = new System.Windows.Forms.Label();
             this.tbRoomPrice = new Zeroit.Framework.Metro.ZeroitMetroTextbox();
@@ -66,9 +66,9 @@
             this.panel4.Controls.Add(this.flowLayoutPanel3);
             this.panel4.Controls.Add(this.flowLayoutPanel2);
             this.panel4.Controls.Add(this.panel5);
-            this.panel4.Controls.Add(this.label13);
+            this.panel4.Controls.Add(this.lbVND);
             this.panel4.Controls.Add(this.lbRoomPrice);
-            this.panel4.Controls.Add(this.label11);
+            this.panel4.Controls.Add(this.lbM2);
             this.panel4.Controls.Add(this.lbRoomCount);
             this.panel4.Controls.Add(this.lbRoomSize);
             this.panel4.Controls.Add(this.tbRoomPrice);
@@ -146,22 +146,22 @@
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(212)))), ((int)(((byte)(207)))));
-            this.panel5.Location = new System.Drawing.Point(255, 86);
+            this.panel5.Location = new System.Drawing.Point(257, 84);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(3, 30);
             this.panel5.TabIndex = 3;
             // 
-            // label13
+            // lbVND
             // 
-            this.label13.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Calibri", 17F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
-            this.label13.Location = new System.Drawing.Point(476, 189);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(42, 21);
-            this.label13.TabIndex = 2;
-            this.label13.Text = "VNĐ";
+            this.lbVND.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbVND.AutoSize = true;
+            this.lbVND.Font = new System.Drawing.Font("Calibri", 17F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.lbVND.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
+            this.lbVND.Location = new System.Drawing.Point(476, 189);
+            this.lbVND.Name = "lbVND";
+            this.lbVND.Size = new System.Drawing.Size(42, 21);
+            this.lbVND.TabIndex = 2;
+            this.lbVND.Text = "VNĐ";
             // 
             // lbRoomPrice
             // 
@@ -174,17 +174,17 @@
             this.lbRoomPrice.TabIndex = 2;
             this.lbRoomPrice.Text = "Đơn giá";
             // 
-            // label11
+            // lbM2
             // 
-            this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Calibri", 17F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
-            this.label11.Location = new System.Drawing.Point(476, 138);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(41, 21);
-            this.label11.TabIndex = 2;
-            this.label11.Text = "m^2";
+            this.lbM2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbM2.AutoSize = true;
+            this.lbM2.Font = new System.Drawing.Font("Calibri", 17F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.lbM2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
+            this.lbM2.Location = new System.Drawing.Point(476, 138);
+            this.lbM2.Name = "lbM2";
+            this.lbM2.Size = new System.Drawing.Size(41, 21);
+            this.lbM2.TabIndex = 2;
+            this.lbM2.Text = "m^2";
             // 
             // lbRoomCount
             // 
@@ -227,6 +227,7 @@
             this.tbRoomPrice.PasswordChar = '\0';
             this.tbRoomPrice.Size = new System.Drawing.Size(362, 32);
             this.tbRoomPrice.TabIndex = 11;
+            this.tbRoomPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // tbRoomCount
             // 
@@ -267,6 +268,7 @@
             this.tbRoomsize.PasswordChar = '\0';
             this.tbRoomsize.Size = new System.Drawing.Size(362, 32);
             this.tbRoomsize.TabIndex = 10;
+            this.tbRoomsize.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // lbRoomType
             // 
@@ -389,9 +391,9 @@
         private MetroFramework.Controls.MetroRadioButton rbtVip;
         private MetroFramework.Controls.MetroRadioButton rbtNor;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label lbVND;
         private System.Windows.Forms.Label lbRoomPrice;
-        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label lbM2;
         private System.Windows.Forms.Label lbRoomCount;
         private System.Windows.Forms.Label lbRoomSize;
         private Zeroit.Framework.Metro.ZeroitMetroTextbox tbRoomPrice;

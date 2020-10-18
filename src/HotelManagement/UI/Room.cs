@@ -25,27 +25,27 @@ namespace HotelManagement.UI
         /// <summary>
         /// RoomType: 1.Single-Vip 2.Double-Vip 3.Single-Normal 4.Double-Normal
         /// </summary>
-        private int RoomType;
+        private RoomType roomType;
 
-        public int _RoomType
+        public RoomType _RoomType
         {
-            get { return RoomType; }
+            get { return roomType; }
             set {
-                RoomType = value;
-                switch (RoomType)
+                roomType = value;
+                switch (roomType)
                 {
-                    case 1:
+                    case RoomType.SingleVIP:
                         pbVip.Image = Resources.icVip;
                         pbRoomType.Image = Resources.icSingleRoom;
                         break;
-                    case 2:
+                    case RoomType.DoubleVIP:
                         pbVip.Image = Resources.icVip;
                         pbRoomType.Image = Resources.icDoubleRoom;
                         break;
-                    case 3:
+                    case RoomType.Single:
                         pbRoomType.Image = Resources.icSingleRoom;
                         break;
-                    case 4:
+                    case RoomType.Double:
                         pbRoomType.Image = Resources.icDoubleRoom;
                         break;
                 }
@@ -54,39 +54,39 @@ namespace HotelManagement.UI
         /// <summary>
         /// Roomstatus: 1.Empty 2.Rented 3.Cleaning 4.Fixing
         /// </summary>
-        private int RoomStatus;
+        private RoomStatus roomStatus;
 
-        public int _RoomStatus
+        public RoomStatus _RoomStatus
         {
-            get { return RoomStatus; }
+            get { return roomStatus; }
             set { 
-                RoomStatus = value;
+                roomStatus = value;
                 switch (value)
                 {
-                    case 1:
+                    case RoomStatus.Empty:
                         SetEmptyStatus();
                         break;
-                    case 2:
+                    case RoomStatus.Rented:
                         SetRentedStatus();
                         break;
-                    case 3:
+                    case RoomStatus.Cleaning:
                         SetCleaningStatus();
                         break;
-                    case 4:
+                    case RoomStatus.Repairing:
                         SetFixingStatus();
                         break;
                 }
             }
         }
 
-        private int RoomCount;
+        private int RoomID;
 
-        public int _RoomCount
+        public int _RoomID
         {
-            get { return RoomCount; }
+            get { return RoomID; }
             set { 
-                RoomCount = value;
-                lbRoomCount.Text = RoomCount.ToString();
+                RoomID = value;
+                lbRoomID.Text = RoomID.ToString();
             }
         }
 
@@ -105,7 +105,7 @@ namespace HotelManagement.UI
             lbRoomStatus.BackColor = Color.FromArgb(181, 235, 220);
             pbRoomStatus.BackColor = Color.FromArgb(181, 235, 220);
             pnBackground.BackColor = Color.FromArgb(181, 235, 220);
-            lbRoomCount.BackColor = Color.FromArgb(181, 235, 220);
+            lbRoomID.BackColor = Color.FromArgb(181, 235, 220);
             label1.BackColor = Color.FromArgb(181, 235, 220);
             pnBar.BackColor = Color.FromArgb(103, 222, 190); 
         }
@@ -113,11 +113,11 @@ namespace HotelManagement.UI
         public void SetRentedStatus()
         {
             lbRoomStatus.Text = "Đã thuê";
-            pbRoomStatus.Image = (RoomType == 1 || RoomType == 3) ? Resources.icRented_SR : Resources.icRented_DB;
+            pbRoomStatus.Image = (roomType == RoomType.SingleVIP || roomType == RoomType.Single) ? Resources.icRented_SR : Resources.icRented_DB;
             lbRoomStatus.BackColor = Color.FromArgb(255, 200, 227);
             pbRoomStatus.BackColor = Color.FromArgb(255, 200, 227);
             pnBackground.BackColor = Color.FromArgb(255, 200, 227);
-            lbRoomCount.BackColor = Color.FromArgb(255, 200, 227);
+            lbRoomID.BackColor = Color.FromArgb(255, 200, 227);
             label1.BackColor = Color.FromArgb(255, 200, 227);
             pnBar.BackColor = Color.FromArgb(255, 113, 184);
         }
@@ -129,7 +129,7 @@ namespace HotelManagement.UI
             lbRoomStatus.BackColor = Color.FromArgb(150, 228, 252);
             pbRoomStatus.BackColor = Color.FromArgb(150, 228, 252);
             pnBackground.BackColor = Color.FromArgb(150, 228, 252);
-            lbRoomCount.BackColor = Color.FromArgb(150, 228, 252);
+            lbRoomID.BackColor = Color.FromArgb(150, 228, 252);
             label1.BackColor = Color.FromArgb(150, 228, 252);
             pnBar.BackColor = Color.FromArgb(0, 194, 255);
         }
@@ -141,7 +141,7 @@ namespace HotelManagement.UI
             lbRoomStatus.BackColor = Color.FromArgb(247, 249, 194);
             pbRoomStatus.BackColor = Color.FromArgb(247, 249, 194);
             pnBackground.BackColor = Color.FromArgb(247, 249, 194);
-            lbRoomCount.BackColor = Color.FromArgb(247, 249, 194);
+            lbRoomID.BackColor = Color.FromArgb(247, 249, 194);
             label1.BackColor = Color.FromArgb(247, 249, 194);
             pnBar.BackColor = Color.FromArgb(244, 251, 53);  
         }
@@ -164,7 +164,7 @@ namespace HotelManagement.UI
                 showMenu();
             } else
             {
-                if (RoomStatus == 3)
+                if (roomStatus == RoomStatus.Cleaning)
                 {
                     DialogResult result = MessageBox.Show("Xác nhận đã dọn phòng xong?", "", MessageBoxButtons.YesNo);
                     if (result == DialogResult.No)
@@ -173,11 +173,11 @@ namespace HotelManagement.UI
                     }
                     else
                     {
-                        this._RoomStatus = 1;
+                        this._RoomStatus = RoomStatus.Empty;
                     }
                 }
 
-                if (RoomStatus == 4)
+                if (roomStatus == RoomStatus.Repairing)
                 {
                     DialogResult result = MessageBox.Show("Xác nhận đã sửa phòng xong?", "", MessageBoxButtons.YesNo);
                     if (result == DialogResult.No)
@@ -186,7 +186,7 @@ namespace HotelManagement.UI
                     }
                     else
                     {
-                        this._RoomStatus = 1;
+                        this._RoomStatus = RoomStatus.Empty;
                     }
                 }
 
@@ -204,12 +204,12 @@ namespace HotelManagement.UI
             zeroitMaterialContextMenuStrip1.Items[2].Visible = false;
             zeroitMaterialContextMenuStrip1.Items[3].Visible = false;
 
-            if (this.RoomStatus == 3)
+            if (this.roomStatus == RoomStatus.Cleaning)
             {
                 zeroitMaterialContextMenuStrip1.Items[0].Visible = true;
                 zeroitMaterialContextMenuStrip1.Items[3].Visible = true;
             }
-            else if (this.RoomStatus == 4)
+            else if (this.roomStatus == RoomStatus.Repairing)
             {
                 zeroitMaterialContextMenuStrip1.Items[1].Visible = true;
                 zeroitMaterialContextMenuStrip1.Items[2].Visible = true;
@@ -221,5 +221,6 @@ namespace HotelManagement.UI
 
             zeroitMaterialContextMenuStrip1.Show(MousePosition);
         }
+
     }
 }

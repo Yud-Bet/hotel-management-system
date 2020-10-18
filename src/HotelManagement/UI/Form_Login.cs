@@ -113,18 +113,28 @@ namespace HotelManagement.UI
                 tbPassword.Focus();
                 return;
             }
-
-            if (DataAccess.Account.Login(tbUsername.Text, tbPassword.Text))
+            try
             {
-                Form_Main temp = new Form_Main();
-                this.Hide();
-                temp.ShowDialog();
-                this.Show();
+                if (DataAccess.Account.Login(tbUsername.Text, tbPassword.Text))
+                {
+                    Form_Main temp = new Form_Main();
+                    this.Hide();
+                    temp.ShowDialog();
+                    this.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Tài khoản không đúng.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    tbUsername.Focus();
+                }
             }
-            else
+            catch (InvalidOperationException ex)
             {
-                MessageBox.Show("Tài khoản không đúng.", "Thông báo" , MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                tbUsername.Focus();
+                MessageBox.Show(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
 

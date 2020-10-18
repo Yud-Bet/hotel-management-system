@@ -30,8 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_RoomInfo));
             this.panel2 = new System.Windows.Forms.Panel();
-            this.lbRoomCount = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.lbRoomID = new System.Windows.Forms.Label();
+            this.pnCustomerInfo = new System.Windows.Forms.Panel();
             this.cbPassport = new Zeroit.Framework.MaterialDesign.Controls.ZeroitMaterialCheckBox();
             this.cbIDNo = new Zeroit.Framework.MaterialDesign.Controls.ZeroitMaterialCheckBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
@@ -54,11 +54,11 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
+            this.pnRoomInfo = new System.Windows.Forms.Panel();
+            this.pnSignle_Dou = new System.Windows.Forms.FlowLayoutPanel();
             this.rbtSingle = new MetroFramework.Controls.MetroRadioButton();
-            this.rdbDouble = new MetroFramework.Controls.MetroRadioButton();
-            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.rbtDouble = new MetroFramework.Controls.MetroRadioButton();
+            this.pnVip_Nor = new System.Windows.Forms.FlowLayoutPanel();
             this.rbtVip = new MetroFramework.Controls.MetroRadioButton();
             this.rbtNor = new MetroFramework.Controls.MetroRadioButton();
             this.panel5 = new System.Windows.Forms.Panel();
@@ -70,7 +70,7 @@
             this.tbRoomsize = new Zeroit.Framework.Metro.ZeroitMetroTextbox();
             this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
-            this.panel6 = new System.Windows.Forms.Panel();
+            this.pnBookingInfo = new System.Windows.Forms.Panel();
             this.cbCheckOutDate = new Zeroit.Framework.MaterialDesign.Controls.ZeroitMaterialCheckBox();
             this.dtpCheckOutDate = new MetroFramework.Controls.MetroDateTime();
             this.dtpCheckInDate = new MetroFramework.Controls.MetroDateTime();
@@ -91,12 +91,12 @@
             this.btPay = new XanderUI.XUIButton();
             this.btSettingRoom = new XanderUI.XUIButton();
             this.btDeleteRoom = new XanderUI.XUIButton();
-            this.panel1.SuspendLayout();
+            this.pnCustomerInfo.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
-            this.panel4.SuspendLayout();
-            this.flowLayoutPanel3.SuspendLayout();
-            this.flowLayoutPanel2.SuspendLayout();
-            this.panel6.SuspendLayout();
+            this.pnRoomInfo.SuspendLayout();
+            this.pnSignle_Dou.SuspendLayout();
+            this.pnVip_Nor.SuspendLayout();
+            this.pnBookingInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbArrowBack)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -112,44 +112,44 @@
             this.panel2.Size = new System.Drawing.Size(10, 61);
             this.panel2.TabIndex = 5;
             // 
-            // lbRoomCount
+            // lbRoomID
             // 
-            this.lbRoomCount.AutoSize = true;
-            this.lbRoomCount.Font = new System.Drawing.Font("Calibri", 50F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.lbRoomCount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
-            this.lbRoomCount.Location = new System.Drawing.Point(3, 0);
-            this.lbRoomCount.Name = "lbRoomCount";
-            this.lbRoomCount.Size = new System.Drawing.Size(52, 61);
-            this.lbRoomCount.TabIndex = 0;
-            this.lbRoomCount.Text = "0";
-            this.lbRoomCount.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lbRoomID.AutoSize = true;
+            this.lbRoomID.Font = new System.Drawing.Font("Calibri", 50F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.lbRoomID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
+            this.lbRoomID.Location = new System.Drawing.Point(3, 0);
+            this.lbRoomID.Name = "lbRoomID";
+            this.lbRoomID.Size = new System.Drawing.Size(52, 61);
+            this.lbRoomID.TabIndex = 0;
+            this.lbRoomID.Text = "0";
+            this.lbRoomID.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // panel1
+            // pnCustomerInfo
             // 
-            this.panel1.Controls.Add(this.cbPassport);
-            this.panel1.Controls.Add(this.cbIDNo);
-            this.panel1.Controls.Add(this.flowLayoutPanel1);
-            this.panel1.Controls.Add(this.dtpCustomerBirthday);
-            this.panel1.Controls.Add(this.tbPassport);
-            this.panel1.Controls.Add(this.tbNote);
-            this.panel1.Controls.Add(this.tbCustomerAddress);
-            this.panel1.Controls.Add(this.tbIDNo);
-            this.panel1.Controls.Add(this.tbCustomerPhoneNum);
-            this.panel1.Controls.Add(this.tbCustomerName);
-            this.panel1.Controls.Add(this.label8);
-            this.panel1.Controls.Add(this.label10);
-            this.panel1.Controls.Add(this.label9);
-            this.panel1.Controls.Add(this.label7);
-            this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.panel3);
-            this.panel1.Location = new System.Drawing.Point(14, 81);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(491, 467);
-            this.panel1.TabIndex = 8;
+            this.pnCustomerInfo.Controls.Add(this.cbPassport);
+            this.pnCustomerInfo.Controls.Add(this.cbIDNo);
+            this.pnCustomerInfo.Controls.Add(this.flowLayoutPanel1);
+            this.pnCustomerInfo.Controls.Add(this.dtpCustomerBirthday);
+            this.pnCustomerInfo.Controls.Add(this.tbPassport);
+            this.pnCustomerInfo.Controls.Add(this.tbNote);
+            this.pnCustomerInfo.Controls.Add(this.tbCustomerAddress);
+            this.pnCustomerInfo.Controls.Add(this.tbIDNo);
+            this.pnCustomerInfo.Controls.Add(this.tbCustomerPhoneNum);
+            this.pnCustomerInfo.Controls.Add(this.tbCustomerName);
+            this.pnCustomerInfo.Controls.Add(this.label8);
+            this.pnCustomerInfo.Controls.Add(this.label10);
+            this.pnCustomerInfo.Controls.Add(this.label9);
+            this.pnCustomerInfo.Controls.Add(this.label7);
+            this.pnCustomerInfo.Controls.Add(this.label6);
+            this.pnCustomerInfo.Controls.Add(this.label5);
+            this.pnCustomerInfo.Controls.Add(this.label4);
+            this.pnCustomerInfo.Controls.Add(this.label3);
+            this.pnCustomerInfo.Controls.Add(this.label1);
+            this.pnCustomerInfo.Controls.Add(this.panel3);
+            this.pnCustomerInfo.Location = new System.Drawing.Point(14, 81);
+            this.pnCustomerInfo.Name = "pnCustomerInfo";
+            this.pnCustomerInfo.Size = new System.Drawing.Size(491, 467);
+            this.pnCustomerInfo.TabIndex = 8;
             // 
             // cbPassport
             // 
@@ -435,32 +435,32 @@
             this.panel3.Size = new System.Drawing.Size(350, 3);
             this.panel3.TabIndex = 3;
             // 
-            // panel4
+            // pnRoomInfo
             // 
-            this.panel4.Controls.Add(this.flowLayoutPanel3);
-            this.panel4.Controls.Add(this.flowLayoutPanel2);
-            this.panel4.Controls.Add(this.panel5);
-            this.panel4.Controls.Add(this.label13);
-            this.panel4.Controls.Add(this.label12);
-            this.panel4.Controls.Add(this.label11);
-            this.panel4.Controls.Add(this.label2);
-            this.panel4.Controls.Add(this.tbRoomPrice);
-            this.panel4.Controls.Add(this.tbRoomsize);
-            this.panel4.Controls.Add(this.label18);
-            this.panel4.Controls.Add(this.label19);
-            this.panel4.Location = new System.Drawing.Point(539, 81);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(403, 183);
-            this.panel4.TabIndex = 10;
+            this.pnRoomInfo.Controls.Add(this.pnSignle_Dou);
+            this.pnRoomInfo.Controls.Add(this.pnVip_Nor);
+            this.pnRoomInfo.Controls.Add(this.panel5);
+            this.pnRoomInfo.Controls.Add(this.label13);
+            this.pnRoomInfo.Controls.Add(this.label12);
+            this.pnRoomInfo.Controls.Add(this.label11);
+            this.pnRoomInfo.Controls.Add(this.label2);
+            this.pnRoomInfo.Controls.Add(this.tbRoomPrice);
+            this.pnRoomInfo.Controls.Add(this.tbRoomsize);
+            this.pnRoomInfo.Controls.Add(this.label18);
+            this.pnRoomInfo.Controls.Add(this.label19);
+            this.pnRoomInfo.Location = new System.Drawing.Point(539, 81);
+            this.pnRoomInfo.Name = "pnRoomInfo";
+            this.pnRoomInfo.Size = new System.Drawing.Size(403, 183);
+            this.pnRoomInfo.TabIndex = 10;
             // 
-            // flowLayoutPanel3
+            // pnSignle_Dou
             // 
-            this.flowLayoutPanel3.Controls.Add(this.rbtSingle);
-            this.flowLayoutPanel3.Controls.Add(this.rdbDouble);
-            this.flowLayoutPanel3.Location = new System.Drawing.Point(246, 44);
-            this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(104, 22);
-            this.flowLayoutPanel3.TabIndex = 8;
+            this.pnSignle_Dou.Controls.Add(this.rbtSingle);
+            this.pnSignle_Dou.Controls.Add(this.rbtDouble);
+            this.pnSignle_Dou.Location = new System.Drawing.Point(246, 44);
+            this.pnSignle_Dou.Name = "pnSignle_Dou";
+            this.pnSignle_Dou.Size = new System.Drawing.Size(104, 22);
+            this.pnSignle_Dou.TabIndex = 8;
             // 
             // rbtSingle
             // 
@@ -473,25 +473,25 @@
             this.rbtSingle.Text = "Đơn";
             this.rbtSingle.UseSelectable = true;
             // 
-            // rdbDouble
+            // rbtDouble
             // 
-            this.rdbDouble.AutoSize = true;
-            this.rdbDouble.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
-            this.rdbDouble.Location = new System.Drawing.Point(54, 3);
-            this.rdbDouble.Name = "rdbDouble";
-            this.rdbDouble.Size = new System.Drawing.Size(41, 15);
-            this.rdbDouble.TabIndex = 5;
-            this.rdbDouble.Text = "Đôi";
-            this.rdbDouble.UseSelectable = true;
+            this.rbtDouble.AutoSize = true;
+            this.rbtDouble.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
+            this.rbtDouble.Location = new System.Drawing.Point(54, 3);
+            this.rbtDouble.Name = "rbtDouble";
+            this.rbtDouble.Size = new System.Drawing.Size(41, 15);
+            this.rbtDouble.TabIndex = 5;
+            this.rbtDouble.Text = "Đôi";
+            this.rbtDouble.UseSelectable = true;
             // 
-            // flowLayoutPanel2
+            // pnVip_Nor
             // 
-            this.flowLayoutPanel2.Controls.Add(this.rbtVip);
-            this.flowLayoutPanel2.Controls.Add(this.rbtNor);
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(108, 44);
-            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(118, 22);
-            this.flowLayoutPanel2.TabIndex = 8;
+            this.pnVip_Nor.Controls.Add(this.rbtVip);
+            this.pnVip_Nor.Controls.Add(this.rbtNor);
+            this.pnVip_Nor.Location = new System.Drawing.Point(108, 44);
+            this.pnVip_Nor.Name = "pnVip_Nor";
+            this.pnVip_Nor.Size = new System.Drawing.Size(118, 22);
+            this.pnVip_Nor.TabIndex = 8;
             // 
             // rbtVip
             // 
@@ -583,6 +583,7 @@
             this.tbRoomPrice.PasswordChar = '\0';
             this.tbRoomPrice.Size = new System.Drawing.Size(170, 32);
             this.tbRoomPrice.TabIndex = 11;
+            this.tbRoomPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // tbRoomsize
             // 
@@ -600,6 +601,7 @@
             this.tbRoomsize.PasswordChar = '\0';
             this.tbRoomsize.Size = new System.Drawing.Size(170, 32);
             this.tbRoomsize.TabIndex = 10;
+            this.tbRoomsize.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label18
             // 
@@ -623,23 +625,23 @@
             this.label19.TabIndex = 2;
             this.label19.Text = "Thông tin phòng";
             // 
-            // panel6
+            // pnBookingInfo
             // 
-            this.panel6.Controls.Add(this.cbCheckOutDate);
-            this.panel6.Controls.Add(this.dtpCheckOutDate);
-            this.panel6.Controls.Add(this.dtpCheckInDate);
-            this.panel6.Controls.Add(this.label20);
-            this.panel6.Controls.Add(this.label15);
-            this.panel6.Controls.Add(this.label17);
-            this.panel6.Controls.Add(this.label16);
-            this.panel6.Controls.Add(this.label23);
-            this.panel6.Controls.Add(this.zeroitMetroTextbox10);
-            this.panel6.Controls.Add(this.zeroitMetroTextbox9);
-            this.panel6.Controls.Add(this.panel7);
-            this.panel6.Location = new System.Drawing.Point(539, 274);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(403, 199);
-            this.panel6.TabIndex = 12;
+            this.pnBookingInfo.Controls.Add(this.cbCheckOutDate);
+            this.pnBookingInfo.Controls.Add(this.dtpCheckOutDate);
+            this.pnBookingInfo.Controls.Add(this.dtpCheckInDate);
+            this.pnBookingInfo.Controls.Add(this.label20);
+            this.pnBookingInfo.Controls.Add(this.label15);
+            this.pnBookingInfo.Controls.Add(this.label17);
+            this.pnBookingInfo.Controls.Add(this.label16);
+            this.pnBookingInfo.Controls.Add(this.label23);
+            this.pnBookingInfo.Controls.Add(this.zeroitMetroTextbox10);
+            this.pnBookingInfo.Controls.Add(this.zeroitMetroTextbox9);
+            this.pnBookingInfo.Controls.Add(this.panel7);
+            this.pnBookingInfo.Location = new System.Drawing.Point(539, 274);
+            this.pnBookingInfo.Name = "pnBookingInfo";
+            this.pnBookingInfo.Size = new System.Drawing.Size(403, 199);
+            this.pnBookingInfo.TabIndex = 12;
             // 
             // cbCheckOutDate
             // 
@@ -669,6 +671,7 @@
             // 
             // dtpCheckInDate
             // 
+            this.dtpCheckInDate.Enabled = false;
             this.dtpCheckInDate.Location = new System.Drawing.Point(27, 57);
             this.dtpCheckInDate.MinimumSize = new System.Drawing.Size(0, 29);
             this.dtpCheckInDate.Name = "dtpCheckInDate";
@@ -680,7 +683,7 @@
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Calibri", 17F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.label20.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
-            this.label20.Location = new System.Drawing.Point(30, 165);
+            this.label20.Location = new System.Drawing.Point(27, 154);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(75, 21);
             this.label20.TabIndex = 2;
@@ -741,7 +744,7 @@
             this.zeroitMetroTextbox10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
             this.zeroitMetroTextbox10.HideSelection = false;
             this.zeroitMetroTextbox10.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(168)))), ((int)(((byte)(144)))));
-            this.zeroitMetroTextbox10.Location = new System.Drawing.Point(108, 154);
+            this.zeroitMetroTextbox10.Location = new System.Drawing.Point(108, 143);
             this.zeroitMetroTextbox10.Name = "zeroitMetroTextbox10";
             this.zeroitMetroTextbox10.PasswordChar = '\0';
             this.zeroitMetroTextbox10.Size = new System.Drawing.Size(139, 32);
@@ -761,7 +764,7 @@
             this.zeroitMetroTextbox9.Location = new System.Drawing.Point(108, 95);
             this.zeroitMetroTextbox9.Name = "zeroitMetroTextbox9";
             this.zeroitMetroTextbox9.PasswordChar = '\0';
-            this.zeroitMetroTextbox9.Size = new System.Drawing.Size(54, 32);
+            this.zeroitMetroTextbox9.Size = new System.Drawing.Size(139, 32);
             this.zeroitMetroTextbox9.TabIndex = 14;
             // 
             // panel7
@@ -799,7 +802,7 @@
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
             this.pictureBox2.Location = new System.Drawing.Point(539, 80);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(410, 188);
+            this.pictureBox2.Size = new System.Drawing.Size(410, 190);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 9;
             this.pictureBox2.TabStop = false;
@@ -923,29 +926,29 @@
             this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.flowLayoutPanel4);
             this.Controls.Add(this.pbArrowBack);
-            this.Controls.Add(this.panel6);
+            this.Controls.Add(this.pnBookingInfo);
             this.Controls.Add(this.pictureBox3);
-            this.Controls.Add(this.panel4);
+            this.Controls.Add(this.pnRoomInfo);
             this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.pnCustomerInfo);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.lbRoomCount);
+            this.Controls.Add(this.lbRoomID);
             this.Name = "Form_RoomInfo";
             this.Size = new System.Drawing.Size(968, 575);
             this.Load += new System.EventHandler(this.Form_RoomInfo_Load);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.pnCustomerInfo.ResumeLayout(false);
+            this.pnCustomerInfo.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
-            this.flowLayoutPanel3.ResumeLayout(false);
-            this.flowLayoutPanel3.PerformLayout();
-            this.flowLayoutPanel2.ResumeLayout(false);
-            this.flowLayoutPanel2.PerformLayout();
-            this.panel6.ResumeLayout(false);
-            this.panel6.PerformLayout();
+            this.pnRoomInfo.ResumeLayout(false);
+            this.pnRoomInfo.PerformLayout();
+            this.pnSignle_Dou.ResumeLayout(false);
+            this.pnSignle_Dou.PerformLayout();
+            this.pnVip_Nor.ResumeLayout(false);
+            this.pnVip_Nor.PerformLayout();
+            this.pnBookingInfo.ResumeLayout(false);
+            this.pnBookingInfo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbArrowBack)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
@@ -959,9 +962,9 @@
         #endregion
 
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label lbRoomCount;
+        private System.Windows.Forms.Label lbRoomID;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel pnCustomerInfo;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
@@ -972,7 +975,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel pnRoomInfo;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
@@ -981,7 +984,7 @@
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Panel pnBookingInfo;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label16;
@@ -1007,10 +1010,10 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private MetroFramework.Controls.MetroRadioButton rbtMale;
         private MetroFramework.Controls.MetroRadioButton rdbFemale;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
+        private System.Windows.Forms.FlowLayoutPanel pnSignle_Dou;
         private MetroFramework.Controls.MetroRadioButton rbtSingle;
-        private MetroFramework.Controls.MetroRadioButton rdbDouble;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
+        private MetroFramework.Controls.MetroRadioButton rbtDouble;
+        private System.Windows.Forms.FlowLayoutPanel pnVip_Nor;
         private MetroFramework.Controls.MetroRadioButton rbtVip;
         private MetroFramework.Controls.MetroRadioButton rbtNor;
         private Zeroit.Framework.MaterialDesign.Controls.ZeroitMaterialCheckBox cbPassport;
