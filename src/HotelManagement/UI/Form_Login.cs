@@ -100,16 +100,27 @@ namespace HotelManagement.UI
 
         private void btLogin_Click(object sender, EventArgs e)
         {
-            if (DataAccess.Account.Login(tbUsername.Text, tbPassword.Text))
+            try
             {
-                Form_Main temp = new Form_Main();
-                this.Hide();
-                temp.ShowDialog();
-                this.Show();
+                if (DataAccess.Account.Login(tbUsername.Text, tbPassword.Text))
+                {
+                    Form_Main temp = new Form_Main();
+                    this.Hide();
+                    temp.ShowDialog();
+                    this.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Incorrect account", "Error");
+                }
             }
-            else
+            catch (InvalidOperationException ex)
             {
-                MessageBox.Show("Incorrect account", "Error");
+                MessageBox.Show(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
 

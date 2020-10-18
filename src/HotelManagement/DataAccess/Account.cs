@@ -6,7 +6,6 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web.UI.Design.WebControls;
-using System.Windows.Forms;
 
 namespace HotelManagement.DataAccess
 {
@@ -24,8 +23,13 @@ namespace HotelManagement.DataAccess
         public static bool Login(string Username, string Password)
         {
             string EncryptedPass = Encrypt(Password);
-            DataTable data = ExecuteQuery.ExecuteReader("QLKS_SearchAccount @Username , @Password", new object[] { Username, EncryptedPass });
+            DataTable data = ExecuteQuery.ExecuteReader("QLKS_SearchAccount @Username , @Password", new object[] { Username, /*EncryptedPass*/Password });
             return data.Rows.Count == 1;
+        }
+        public static bool ChangePassword(string Username, string Password)
+        {
+            string EncryptedPass = Encrypt(Password);
+            return ExecuteQuery.ExecuteNoneQuery("QLKS_ChangePassword @Username , @Password", new object[] { Username, EncryptedPass }) > 0;
         }
     }
 }

@@ -30,15 +30,41 @@ namespace HotelManagement.UI
 
         private void Load_Data()
         {
-            lbRoomCount.Text= this.Parent._RoomCount.ToString();
+            lbRoomID.Text= this.Parent._RoomID.ToString();
 
-            if (this.Parent._RoomStatus == 1)
+            if (this.Parent._RoomStatus == RoomStatus.Empty)
             {
                 btPay.Hide();
             }
             else
             {
                 btBookRoom.Hide();
+            }
+
+
+            DataTable data = DataAccess.RoomDA.GetRoomInfo(Convert.ToInt32(lbRoomID.Text));
+            RoomType temp = (RoomType)Convert.ToInt32(data.Rows[0].ItemArray[0]);
+            tbRoomsize.Text = data.Rows[0].ItemArray[1].ToString();
+            tbRoomPrice.Text = Convert.ToInt32(data.Rows[0].ItemArray[2]).ToString();
+            if (temp == RoomType.DoubleVIP)
+            {
+                rbtVip.Checked = true;
+                rbtDouble.Checked = true;
+            }
+            else if (temp == RoomType.Double)
+            {
+                rbtNor.Checked = true;
+                rbtDouble.Checked = true;
+            }
+            else if (temp == RoomType.SingleVIP)
+            {
+                rbtVip.Checked = true;
+                rbtSingle.Checked = true;
+            }
+            else
+            {
+                rbtNor.Checked = true;
+                rbtSingle.Checked = true;
             }
         }
 
@@ -99,13 +125,13 @@ namespace HotelManagement.UI
 
         private void btBookRoom_Click(object sender, EventArgs e)
         {
-            this.Parent._RoomStatus = 2;
+            this.Parent._RoomStatus = RoomStatus.Rented;
             pbArrowBack_Click(sender, e);
         }
 
         private void btPay_Click(object sender, EventArgs e)
         {
-            this.Parent._RoomStatus = 3;
+            this.Parent._RoomStatus = RoomStatus.Cleaning;
             pbArrowBack_Click(sender, e);
         }
 

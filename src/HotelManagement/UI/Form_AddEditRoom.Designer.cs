@@ -295,9 +295,9 @@
             this.flowLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.flowLayoutPanel1.Controls.Add(this.btAddRoom);
             this.flowLayoutPanel1.Controls.Add(this.btSave);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(430, 294);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(432, 294);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(137, 56);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(135, 56);
             this.flowLayoutPanel1.TabIndex = 13;
             // 
             // btAddRoom

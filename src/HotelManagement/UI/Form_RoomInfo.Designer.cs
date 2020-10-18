@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_RoomInfo));
             this.panel2 = new System.Windows.Forms.Panel();
-            this.lbRoomCount = new System.Windows.Forms.Label();
+            this.lbRoomID = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.cbPassport = new Zeroit.Framework.MaterialDesign.Controls.ZeroitMaterialCheckBox();
             this.cbIDNo = new Zeroit.Framework.MaterialDesign.Controls.ZeroitMaterialCheckBox();
@@ -57,7 +57,7 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.rbtSingle = new MetroFramework.Controls.MetroRadioButton();
-            this.rdbDouble = new MetroFramework.Controls.MetroRadioButton();
+            this.rbtDouble = new MetroFramework.Controls.MetroRadioButton();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.rbtVip = new MetroFramework.Controls.MetroRadioButton();
             this.rbtNor = new MetroFramework.Controls.MetroRadioButton();
@@ -113,17 +113,17 @@
             this.panel2.Size = new System.Drawing.Size(10, 61);
             this.panel2.TabIndex = 5;
             // 
-            // lbRoomCount
+            // lbRoomID
             // 
-            this.lbRoomCount.AutoSize = true;
-            this.lbRoomCount.Font = new System.Drawing.Font("Calibri", 50F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.lbRoomCount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
-            this.lbRoomCount.Location = new System.Drawing.Point(3, 0);
-            this.lbRoomCount.Name = "lbRoomCount";
-            this.lbRoomCount.Size = new System.Drawing.Size(52, 61);
-            this.lbRoomCount.TabIndex = 0;
-            this.lbRoomCount.Text = "0";
-            this.lbRoomCount.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lbRoomID.AutoSize = true;
+            this.lbRoomID.Font = new System.Drawing.Font("Calibri", 50F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.lbRoomID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
+            this.lbRoomID.Location = new System.Drawing.Point(3, 0);
+            this.lbRoomID.Name = "lbRoomID";
+            this.lbRoomID.Size = new System.Drawing.Size(52, 61);
+            this.lbRoomID.TabIndex = 0;
+            this.lbRoomID.Text = "0";
+            this.lbRoomID.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // panel1
             // 
@@ -458,7 +458,7 @@
             // flowLayoutPanel3
             // 
             this.flowLayoutPanel3.Controls.Add(this.rbtSingle);
-            this.flowLayoutPanel3.Controls.Add(this.rdbDouble);
+            this.flowLayoutPanel3.Controls.Add(this.rbtDouble);
             this.flowLayoutPanel3.Location = new System.Drawing.Point(246, 44);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
             this.flowLayoutPanel3.Size = new System.Drawing.Size(104, 22);
@@ -475,16 +475,16 @@
             this.rbtSingle.Text = "Đơn";
             this.rbtSingle.UseSelectable = true;
             // 
-            // rdbDouble
+            // rbtDouble
             // 
-            this.rdbDouble.AutoSize = true;
-            this.rdbDouble.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
-            this.rdbDouble.Location = new System.Drawing.Point(54, 3);
-            this.rdbDouble.Name = "rdbDouble";
-            this.rdbDouble.Size = new System.Drawing.Size(41, 15);
-            this.rdbDouble.TabIndex = 5;
-            this.rdbDouble.Text = "Đôi";
-            this.rdbDouble.UseSelectable = true;
+            this.rbtDouble.AutoSize = true;
+            this.rbtDouble.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
+            this.rbtDouble.Location = new System.Drawing.Point(54, 3);
+            this.rbtDouble.Name = "rbtDouble";
+            this.rbtDouble.Size = new System.Drawing.Size(41, 15);
+            this.rbtDouble.TabIndex = 5;
+            this.rbtDouble.Text = "Đôi";
+            this.rbtDouble.UseSelectable = true;
             // 
             // flowLayoutPanel2
             // 
@@ -943,7 +943,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.lbRoomCount);
+            this.Controls.Add(this.lbRoomID);
             this.Name = "Form_RoomInfo";
             this.Size = new System.Drawing.Size(968, 575);
             this.Load += new System.EventHandler(this.Form_RoomInfo_Load);
@@ -972,7 +972,7 @@
         #endregion
 
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label lbRoomCount;
+        private System.Windows.Forms.Label lbRoomID;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label8;
@@ -1023,7 +1023,7 @@
         private MetroFramework.Controls.MetroRadioButton rdbFemale;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
         private MetroFramework.Controls.MetroRadioButton rbtSingle;
-        private MetroFramework.Controls.MetroRadioButton rdbDouble;
+        private MetroFramework.Controls.MetroRadioButton rbtDouble;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         private MetroFramework.Controls.MetroRadioButton rbtVip;
         private MetroFramework.Controls.MetroRadioButton rbtNor;

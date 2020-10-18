@@ -35,7 +35,7 @@
             this.pbVip = new System.Windows.Forms.PictureBox();
             this.pbRoomStatus = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.lbRoomCount = new System.Windows.Forms.Label();
+            this.lbRoomID = new System.Windows.Forms.Label();
             this.pbShadow = new System.Windows.Forms.PictureBox();
             this.zeroitMaterialContextMenuStrip1 = new Zeroit.Framework.MaterialDesign.Controls.ZeroitMaterialContextMenuStrip();
             this.menuItemFixRoom = new System.Windows.Forms.ToolStripMenuItem();
@@ -73,7 +73,7 @@
             this.pnBackground.Controls.Add(this.pnBar);
             this.pnBackground.Controls.Add(this.pbRoomStatus);
             this.pnBackground.Controls.Add(this.label1);
-            this.pnBackground.Controls.Add(this.lbRoomCount);
+            this.pnBackground.Controls.Add(this.lbRoomID);
             this.pnBackground.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pnBackground.Location = new System.Drawing.Point(0, 0);
             this.pnBackground.Name = "pnBackground";
@@ -148,19 +148,19 @@
             this.label1.MouseLeave += new System.EventHandler(this.pnBackground_MouseLeave);
             this.label1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pnBackground_MouseMove);
             // 
-            // lbRoomCount
+            // lbRoomID
             // 
-            this.lbRoomCount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(235)))), ((int)(((byte)(220)))));
-            this.lbRoomCount.Font = new System.Drawing.Font("Calibri", 25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbRoomCount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
-            this.lbRoomCount.Location = new System.Drawing.Point(101, 0);
-            this.lbRoomCount.Name = "lbRoomCount";
-            this.lbRoomCount.Size = new System.Drawing.Size(70, 41);
-            this.lbRoomCount.TabIndex = 1;
-            this.lbRoomCount.Text = "101";
-            this.lbRoomCount.Click += new System.EventHandler(this.pbRoomType_Click);
-            this.lbRoomCount.MouseLeave += new System.EventHandler(this.pnBackground_MouseLeave);
-            this.lbRoomCount.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pnBackground_MouseMove);
+            this.lbRoomID.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(235)))), ((int)(((byte)(220)))));
+            this.lbRoomID.Font = new System.Drawing.Font("Calibri", 25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbRoomID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
+            this.lbRoomID.Location = new System.Drawing.Point(101, 0);
+            this.lbRoomID.Name = "lbRoomID";
+            this.lbRoomID.Size = new System.Drawing.Size(70, 41);
+            this.lbRoomID.TabIndex = 1;
+            this.lbRoomID.Text = "101";
+            this.lbRoomID.Click += new System.EventHandler(this.pbRoomType_Click);
+            this.lbRoomID.MouseLeave += new System.EventHandler(this.pnBackground_MouseLeave);
+            this.lbRoomID.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pnBackground_MouseMove);
             // 
             // pbShadow
             // 
@@ -183,7 +183,7 @@
             this.menuItemEndCleanRoom});
             this.zeroitMaterialContextMenuStrip1.MouseState = Zeroit.Framework.MaterialDesign.MouseState.HOVER;
             this.zeroitMaterialContextMenuStrip1.Name = "zeroitMaterialContextMenuStrip1";
-            this.zeroitMaterialContextMenuStrip1.Size = new System.Drawing.Size(181, 114);
+            this.zeroitMaterialContextMenuStrip1.Size = new System.Drawing.Size(181, 92);
             // 
             // menuItemFixRoom
             // 
@@ -239,7 +239,7 @@
         private System.Windows.Forms.PictureBox pbVip;
         private System.Windows.Forms.PictureBox pbRoomStatus;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label lbRoomCount;
+        private System.Windows.Forms.Label lbRoomID;
         private System.Windows.Forms.PictureBox pbShadow;
         private Zeroit.Framework.MaterialDesign.Controls.ZeroitMaterialContextMenuStrip zeroitMaterialContextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem menuItemFixRoom;

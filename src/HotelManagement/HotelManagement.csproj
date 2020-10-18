@@ -89,6 +89,8 @@
   <ItemGroup>
     <Compile Include="DataAccess\Account.cs" />
     <Compile Include="DataAccess\ExecuteQuery.cs" />
+    <Compile Include="DataAccess\RoomDA.cs" />
+    <Compile Include="EnumDefinition.cs" />
     <Compile Include="Helper.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
