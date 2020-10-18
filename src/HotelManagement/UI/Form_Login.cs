@@ -94,12 +94,26 @@ namespace HotelManagement.UI
         {
             if (kea.KeyCode == Keys.Enter)
             {
-                btLogin.Focus();
+                btLogin_Click(sender, kea);
             }
         }
 
         private void btLogin_Click(object sender, EventArgs e)
         {
+            if (tbUsername.Text == "Tên đăng nhập" || tbUsername.Text == "")
+            {
+                MessageBox.Show("Tên đăng nhập không được để trống.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                tbUsername.Focus();
+                return;
+            }
+
+            if (tbPassword.Text == "Mật khẩu" || tbPassword.Text == "")
+            {
+                MessageBox.Show("Mật khẩu không được để trống.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                tbPassword.Focus();
+                return;
+            }
+
             if (DataAccess.Account.Login(tbUsername.Text, tbPassword.Text))
             {
                 Form_Main temp = new Form_Main();
@@ -109,7 +123,8 @@ namespace HotelManagement.UI
             }
             else
             {
-                MessageBox.Show("Incorrect account", "Error");
+                MessageBox.Show("Tài khoản không đúng.", "Thông báo" , MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                tbUsername.Focus();
             }
         }
 

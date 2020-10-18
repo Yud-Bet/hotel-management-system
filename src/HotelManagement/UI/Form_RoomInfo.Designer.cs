@@ -63,7 +63,6 @@
             this.rbtNor = new MetroFramework.Controls.MetroRadioButton();
             this.panel5 = new System.Windows.Forms.Panel();
             this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -442,7 +441,6 @@
             this.panel4.Controls.Add(this.flowLayoutPanel2);
             this.panel4.Controls.Add(this.panel5);
             this.panel4.Controls.Add(this.label13);
-            this.panel4.Controls.Add(this.label14);
             this.panel4.Controls.Add(this.label12);
             this.panel4.Controls.Add(this.label11);
             this.panel4.Controls.Add(this.label2);
@@ -452,7 +450,7 @@
             this.panel4.Controls.Add(this.label19);
             this.panel4.Location = new System.Drawing.Point(539, 81);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(403, 235);
+            this.panel4.Size = new System.Drawing.Size(403, 183);
             this.panel4.TabIndex = 10;
             // 
             // flowLayoutPanel3
@@ -535,17 +533,6 @@
             this.label13.Size = new System.Drawing.Size(42, 21);
             this.label13.TabIndex = 2;
             this.label13.Text = "VNĐ";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Calibri", 17F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
-            this.label14.Location = new System.Drawing.Point(3, 195);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(81, 21);
-            this.label14.TabIndex = 2;
-            this.label14.Text = "Tình trạng";
             // 
             // label12
             // 
@@ -649,9 +636,9 @@
             this.panel6.Controls.Add(this.zeroitMetroTextbox10);
             this.panel6.Controls.Add(this.zeroitMetroTextbox9);
             this.panel6.Controls.Add(this.panel7);
-            this.panel6.Location = new System.Drawing.Point(539, 336);
+            this.panel6.Location = new System.Drawing.Point(539, 274);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(403, 141);
+            this.panel6.Size = new System.Drawing.Size(403, 199);
             this.panel6.TabIndex = 12;
             // 
             // cbCheckOutDate
@@ -693,7 +680,7 @@
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Calibri", 17F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.label20.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
-            this.label20.Location = new System.Drawing.Point(168, 106);
+            this.label20.Location = new System.Drawing.Point(30, 165);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(75, 21);
             this.label20.TabIndex = 2;
@@ -754,7 +741,7 @@
             this.zeroitMetroTextbox10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
             this.zeroitMetroTextbox10.HideSelection = false;
             this.zeroitMetroTextbox10.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(168)))), ((int)(((byte)(144)))));
-            this.zeroitMetroTextbox10.Location = new System.Drawing.Point(246, 95);
+            this.zeroitMetroTextbox10.Location = new System.Drawing.Point(108, 154);
             this.zeroitMetroTextbox10.Name = "zeroitMetroTextbox10";
             this.zeroitMetroTextbox10.PasswordChar = '\0';
             this.zeroitMetroTextbox10.Size = new System.Drawing.Size(139, 32);
@@ -800,9 +787,9 @@
             // pictureBox3
             // 
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(539, 336);
+            this.pictureBox3.Location = new System.Drawing.Point(539, 274);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(410, 147);
+            this.pictureBox3.Size = new System.Drawing.Size(410, 205);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox3.TabIndex = 11;
             this.pictureBox3.TabStop = false;
@@ -810,9 +797,9 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(539, 81);
+            this.pictureBox2.Location = new System.Drawing.Point(539, 80);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(410, 242);
+            this.pictureBox2.Size = new System.Drawing.Size(410, 188);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 9;
             this.pictureBox2.TabStop = false;
@@ -987,7 +974,6 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label2;
