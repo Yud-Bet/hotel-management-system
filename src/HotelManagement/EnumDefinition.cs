@@ -20,4 +20,14 @@ namespace HotelManagement
         Cleaning = 3,
         Repairing = 4
     }
+    public enum Sex
+    {
+        Male = 0,
+        Female = 1
+    }
+    public enum StaffPosition
+    {
+        Manager = 0,
+        Receptionist = 1
+    }
 }

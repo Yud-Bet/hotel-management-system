@@ -88,6 +88,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataAccess\Account.cs" />
+    <Compile Include="DataAccess\CustomerDA.cs" />
     <Compile Include="DataAccess\ExecuteQuery.cs" />
     <Compile Include="DataAccess\RoomDA.cs" />
     <Compile Include="EnumDefinition.cs" />

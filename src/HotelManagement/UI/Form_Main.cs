@@ -16,6 +16,7 @@ namespace HotelManagement.UI
         public Form_Main()
         {
             InitializeComponent();
+
         }
 
         private bool isChoosebtRoom = false, isChoosebtService = false, isChoosebtReport = false, isChoosebtManage = false;
