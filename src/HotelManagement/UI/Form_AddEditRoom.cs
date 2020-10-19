@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
 
 namespace HotelManagement.UI
 {
@@ -26,6 +27,8 @@ namespace HotelManagement.UI
         public Form_AddEditRoom()
         {
             InitializeComponent();
+            loadData();
+
             //get roomcount properties
             float[] sizeRoomCount = { lbRoomCount.Top , lbRoomCount.Font.Size, tbRoomCount.Font.Size, tbRoomCount.Top,
                                         tbRoomCount.Left, tbRoomCount.Height, tbRoomCount.Width};
@@ -77,5 +80,85 @@ namespace HotelManagement.UI
             panel.Left = (int)((float)(flowLayoutPanel2.Left + flowLayoutPanel1.Left + flowLayoutPanel1.Width) / 2);
         }
 
+        void loadData()
+        {
+
+        }
+
+        private void btSave_Click(object sender, EventArgs e)
+        {
+            if (!checkEmptyValue()) return;
+            if (!checkValidityOfValue()) return;
+
+            //
+            // code
+            //
+
+            this.Close();
+        }
+
+        bool checkEmptyValue()
+        {
+            if (tbRoomCount.Text == "")
+            {
+                MessageBox.Show("Vui lòng nhập số phòng.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                tbRoomCount.Focus();
+                return false;
+            }
+
+            if(!rbtVip.Checked && !rbtNor.Checked)
+            {
+                MessageBox.Show("Vui lòng chọn loại phòng Vip hoặc Thường.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return false;
+            }
+
+            if (!rbtSingle.Checked && !rbtDouble.Checked)
+            {
+                MessageBox.Show("Vui lòng chọn loại phòng Đơn hoặc Đôi.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return false;
+            }
+
+            if (tbRoomsize.Text == "")
+            {
+                MessageBox.Show("Vui lòng nhập diện tích phòng.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                tbRoomsize.Focus();
+                return false;
+            }
+
+            if (tbRoomPrice.Text == "")
+            {
+                MessageBox.Show("Vui lòng nhập giá phòng.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                tbRoomPrice.Focus();
+                return false;
+            }
+
+            return true;
+        }
+
+        bool checkValidityOfValue()
+        {
+            if(!Regex.IsMatch(tbRoomCount.Text, @"^[0-9]+$"))
+            {
+                MessageBox.Show("Mã phòng là số nguyên.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                tbRoomCount.Focus();
+                return false;
+            }
+
+            if (!Regex.IsMatch(tbRoomsize.Text, @"^[0-9]+$"))
+            {
+                MessageBox.Show("Diện tích phòng là số nguyên.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                tbRoomsize.Focus();
+                return false;
+            }
+
+            if (!Regex.IsMatch(tbRoomPrice.Text, @"^[0-9]+$"))
+            {
+                MessageBox.Show("Giá phòng là số nguyên.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                tbRoomPrice.Focus();
+                return false;
+            }
+
+            return true;
+        }
     }
 }

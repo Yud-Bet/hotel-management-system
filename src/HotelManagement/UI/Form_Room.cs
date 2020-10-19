@@ -17,12 +17,38 @@ namespace HotelManagement.UI
             InitializeComponent();
             Load_Data();
         }
-
+        #region Properties
         public Panel _pnToAddARoomInfo
         {
             get { return pnToAddARoomInfo; }
         }
+        
+        public Label _lbNumberOfEmptyRoom
+        {
+            get { return lbNumberOfEmptyRoom; }
+        }
 
+        public Label _lbNumberOfRentedRoom
+        {
+            get { return lbNumberOfRentedRoom; }
+        }
+
+        public Label _lbNumberOfRepairingRoom
+        {
+            get { return lbNumberOfRepairingRoom; }
+        }
+
+        public Label _lbNumberOfCleaningRoom
+        {
+            get { return lbNumberOfCleaningRoom; }
+        }
+
+        public Label _lbNumberOfRoom
+        {
+            get { return lbNumberOfRoom; }
+        }
+
+        #endregion
         private void Load_Data()
         {
             DataTable data = DataAccess.RoomDA.GetAllRoom();
@@ -47,7 +73,7 @@ namespace HotelManagement.UI
             lbNumberOfEmptyRoom.Text = count[1].ToString();
             lbNumberOfRentedRoom.Text = count[2].ToString();
             lbNumberOfCleaningRoom.Text = count[3].ToString();
-            lbNumberOfFixingRoom.Text = count[4].ToString();
+            lbNumberOfRepairingRoom.Text = count[4].ToString();
         }
     }
 }
