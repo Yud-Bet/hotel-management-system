@@ -30,7 +30,7 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.pnToAddRoom = new System.Windows.Forms.FlowLayoutPanel();
-            this.lbNumberOfFixingRoom = new System.Windows.Forms.Label();
+            this.lbNumberOfRepairingRoom = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.lbNumberOfCleaningRoom = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -68,7 +68,7 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
             this.panel1.Controls.Add(this.pnToAddRoom);
-            this.panel1.Controls.Add(this.lbNumberOfFixingRoom);
+            this.panel1.Controls.Add(this.lbNumberOfRepairingRoom);
             this.panel1.Controls.Add(this.label10);
             this.panel1.Controls.Add(this.lbNumberOfCleaningRoom);
             this.panel1.Controls.Add(this.label8);
@@ -105,17 +105,17 @@
             this.pnToAddRoom.Size = new System.Drawing.Size(905, 492);
             this.pnToAddRoom.TabIndex = 23;
             // 
-            // lbNumberOfFixingRoom
+            // lbNumberOfRepairingRoom
             // 
-            this.lbNumberOfFixingRoom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(251)))), ((int)(((byte)(53)))));
-            this.lbNumberOfFixingRoom.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbNumberOfFixingRoom.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
-            this.lbNumberOfFixingRoom.Location = new System.Drawing.Point(844, 97);
-            this.lbNumberOfFixingRoom.Name = "lbNumberOfFixingRoom";
-            this.lbNumberOfFixingRoom.Size = new System.Drawing.Size(50, 25);
-            this.lbNumberOfFixingRoom.TabIndex = 21;
-            this.lbNumberOfFixingRoom.Text = "0";
-            this.lbNumberOfFixingRoom.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbNumberOfRepairingRoom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(251)))), ((int)(((byte)(53)))));
+            this.lbNumberOfRepairingRoom.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbNumberOfRepairingRoom.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
+            this.lbNumberOfRepairingRoom.Location = new System.Drawing.Point(844, 97);
+            this.lbNumberOfRepairingRoom.Name = "lbNumberOfRepairingRoom";
+            this.lbNumberOfRepairingRoom.Size = new System.Drawing.Size(50, 25);
+            this.lbNumberOfRepairingRoom.TabIndex = 21;
+            this.lbNumberOfRepairingRoom.Text = "0";
+            this.lbNumberOfRepairingRoom.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label10
             // 
@@ -408,7 +408,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label lbNumberOfFixingRoom;
+        private System.Windows.Forms.Label lbNumberOfRepairingRoom;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label lbNumberOfCleaningRoom;
         private System.Windows.Forms.Label label8;
