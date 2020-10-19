@@ -189,7 +189,7 @@ namespace HotelManagement.UI
                 return false;
             }
 
-            if(rbtMale.Checked==false && rdtFemale.Checked == false)
+            if(rbtMale.Checked==false && rbtFemale.Checked == false)
             {
                 MessageBox.Show("Vui lòng chọn giới tính.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return false;
@@ -247,8 +247,7 @@ namespace HotelManagement.UI
                 return false;
             }
 
-            this.Parent._RoomStatus = RoomStatus.Rented;
-            pbArrowBack_Click(sender, e);
+            return true;
         }
 
         private void btPay_Click(object sender, EventArgs e)
