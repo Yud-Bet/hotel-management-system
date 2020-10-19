@@ -174,6 +174,8 @@ namespace HotelManagement.UI
                     else
                     {
                         this._RoomStatus = RoomStatus.Empty;
+                        this.Parent._lbNumberOfEmptyRoom.Text = (Convert.ToInt32(this.Parent._lbNumberOfEmptyRoom.Text) + 1).ToString();
+                        this.Parent._lbNumberOfCleaningRoom.Text = (Convert.ToInt32(this.Parent._lbNumberOfCleaningRoom.Text) - 1).ToString();
                     }
                 }
 
@@ -187,6 +189,8 @@ namespace HotelManagement.UI
                     else
                     {
                         this._RoomStatus = RoomStatus.Empty;
+                        this.Parent._lbNumberOfEmptyRoom.Text = (Convert.ToInt32(this.Parent._lbNumberOfEmptyRoom.Text) + 1).ToString();
+                        this.Parent._lbNumberOfRepairingRoom.Text = (Convert.ToInt32(this.Parent._lbNumberOfRepairingRoom.Text) - 1).ToString();
                     }
                 }
 
