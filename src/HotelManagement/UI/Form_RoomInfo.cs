@@ -158,13 +158,17 @@ namespace HotelManagement.UI
         {
             if (!checkEmptyValue()) return;
             if (!checkValidityOfValue()) return;
-            //
-            // Huấn code
-            //
-            this.Parent.Parent._lbNumberOfEmptyRoom.Text = (Convert.ToInt32(this.Parent.Parent._lbNumberOfEmptyRoom.Text) - 1).ToString();
-            this.Parent.Parent._lbNumberOfRentedRoom.Text = (Convert.ToInt32(this.Parent.Parent._lbNumberOfRentedRoom.Text) + 1).ToString();
-            this.Parent._RoomStatus = RoomStatus.Rented;
-            pbArrowBack_Click(sender, e);
+            int RowsAffected = DataAccess.CustomerDA.AddReservation(Convert.ToInt32(lbRoomID.Text), tbCustomerName.Text,
+                dtpCustomerBirthday.Value, tbCustomerPhoneNum.Text, rbtMale.Checked ? Sex.Male : Sex.Female, tbIDNo.Text,
+                tbPassport.Text, tbCustomerAddress.Text, dtpCheckInDate.Value, tbNote.Text);
+            if (RowsAffected > 0)
+            {
+                this.Parent.Parent._lbNumberOfEmptyRoom.Text = (Convert.ToInt32(this.Parent.Parent._lbNumberOfEmptyRoom.Text) - 1).ToString();
+                this.Parent.Parent._lbNumberOfRentedRoom.Text = (Convert.ToInt32(this.Parent.Parent._lbNumberOfRentedRoom.Text) + 1).ToString();
+                this.Parent._RoomStatus = RoomStatus.Rented;
+                pbArrowBack_Click(sender, e);
+            }
+            else MessageBox.Show("Lỗi");
         }
 
         bool checkEmptyValue()
