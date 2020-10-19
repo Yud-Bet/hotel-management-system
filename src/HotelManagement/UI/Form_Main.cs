@@ -13,14 +13,28 @@ namespace HotelManagement.UI
 {
     public partial class Form_Main : Form
     {
-        public Form_Main()
+        private string Username;
+        public Form_Main(string Username)
         {
             InitializeComponent();
-
+            this.Username = Username;
+            LoadStaffInfo();
         }
 
         private bool isChoosebtRoom = false, isChoosebtService = false, isChoosebtReport = false, isChoosebtManage = false;
 
+        private void LoadStaffInfo()
+        {
+            DataTable data = DataAccess.Account.GetStaffInfor(Username);
+            if (data.Rows.Count > 0)
+            {
+                lbStaffname.Text = data.Rows[0].ItemArray[0].ToString();
+                lbDuty.Text = ((StaffPosition)Convert.ToInt32(data.Rows[0].ItemArray[1]) == StaffPosition.Manager) ?
+                    "Manager" : "Receptionist";
+            }
+            else MessageBox.Show("Lỗi khi tải thông tin  nhân viên");
+            
+        }
         private void Form_Main_Load(object sender, EventArgs e)
         {
             isChoosebtRoom = true;

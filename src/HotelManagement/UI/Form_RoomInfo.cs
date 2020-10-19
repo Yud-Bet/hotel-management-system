@@ -79,7 +79,7 @@ namespace HotelManagement.UI
                 tbCustomerPhoneNum.Text = data.Rows[0].ItemArray[2].ToString();
                 if ((Sex)Convert.ToInt32(data.Rows[0].ItemArray[3]) == Sex.Female)
                 {
-                    rdbFemale.Checked = true;
+                    rbtFemale.Checked = true;
                 }
                 else
                 {
@@ -168,7 +168,7 @@ namespace HotelManagement.UI
                 MessageBox.Show("Khách hàng chưa đủ tuổi.\nVui lòng kiểm tra lại ngày sinh khách hàng.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
-
+            
             if (tbCustomerPhoneNum.Text == "")
             {
                 MessageBox.Show("Vui lòng nhập số điện thoại.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -176,7 +176,7 @@ namespace HotelManagement.UI
                 return;
             }
 
-            if(rbtMale.Checked==false && rdbFemale.Checked == false)
+            if(rbtMale.Checked==false && rbtFemale.Checked == false)
             {
                 MessageBox.Show("Vui lòng chọn giới tính.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
@@ -207,8 +207,15 @@ namespace HotelManagement.UI
                 return;
             }
 
-            this.Parent._RoomStatus = RoomStatus.Rented;
-            pbArrowBack_Click(sender, e);
+            //int x = DataAccess.CustomerDA.AddReservation(Convert.ToInt32(lbRoomID.Text), tbCustomerName.Text, dtpCustomerBirthday.Value,
+            //    tbCustomerPhoneNum.Text, (Sex)Convert.ToInt32(rbtFemale.Checked), tbIDNo.Text, tbPassport.Text, tbCustomerAddress.Text, dtpCheckInDate.Value, tbNote.Text);
+            //if (x > 0)
+            //{
+            //    this.Parent._RoomStatus = RoomStatus.Rented;
+            //    pbArrowBack_Click(sender, e);
+            //    MessageBox.Show("Đặt phòng thành công!");
+            //}
+            //else MessageBox.Show("Lỗi");
         }
 
         private void btPay_Click(object sender, EventArgs e)

@@ -17,5 +17,10 @@ namespace HotelManagement.DataAccess
         {
             return DataAccess.ExecuteQuery.ExecuteReader("QLKS_GetAllRoom");
         }
+        public static int EditRoomInfo(int RoomID, RoomType roomType, int Area, int Price)
+        {
+            return ExecuteQuery.ExecuteNoneQuery("QLKS_EditRoom @ID , @Type , @Area , @Price",
+                new object[] { RoomID, roomType, Area, Price });
+        }
     }
 }

@@ -14,8 +14,8 @@ namespace HotelManagement.DataAccess
             ///return Name, birthday, PhoneNumber, Sex, IdentityNumber, Passport, Addr, Note, ArrivalDate
             return ExecuteQuery.ExecuteReader("QLKS_GetCustomerInfo @ID", new object[] { RoomID });
         }
-        public static int AddReservation(int RoomID, string Name, string Birthday, string Phone,
-            Sex sex, string IdeNum, string Passport, string Addr, string ArrivalDate, string Note = null)
+        public static int AddReservation(int RoomID, string Name, DateTime Birthday, string Phone,
+            Sex sex, string IdeNum, string Passport, string Addr, DateTime ArrivalDate, string Note = null)
         {
             string query = "QLKS_AddReservation @RoomID , @Name , @Birthday , @Phone , @Sex , @IdeNum , @Passport , @Addr , @Note , @ArrivalDate";
             return ExecuteQuery.ExecuteNoneQuery(query,
