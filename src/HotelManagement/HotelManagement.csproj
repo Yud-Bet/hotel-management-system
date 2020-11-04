@@ -91,6 +91,7 @@
     <Compile Include="DataAccess\CustomerDA.cs" />
     <Compile Include="DataAccess\ExecuteQuery.cs" />
     <Compile Include="DataAccess\RoomDA.cs" />
+    <Compile Include="DTO\StaffOverview.cs" />
     <Compile Include="EnumDefinition.cs" />
     <Compile Include="Helper.cs" />
     <Compile Include="Program.cs" />

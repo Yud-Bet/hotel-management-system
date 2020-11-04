@@ -25,15 +25,9 @@ namespace HotelManagement.UI
 
         private void LoadStaffInfo()
         {
-            DataTable data = DataAccess.Account.GetStaffInfor(Username);
-            if (data.Rows.Count > 0)
-            {
-                lbStaffname.Text = data.Rows[0].ItemArray[0].ToString();
-                lbPosition.Text = ((StaffPosition)Convert.ToInt32(data.Rows[0].ItemArray[1]) == StaffPosition.Manager) ?
-                    "Manager" : "Receptionist";
-            }
-            else MessageBox.Show("Lỗi khi tải thông tin  nhân viên");
-            
+            DTO.StaffOverview staff = new DTO.StaffOverview(Username);
+            lbStaffname.Text = staff.Name;
+            lbStaffPosition.Text = staff.Position;
         }
         private void Form_Main_Load(object sender, EventArgs e)
         {
