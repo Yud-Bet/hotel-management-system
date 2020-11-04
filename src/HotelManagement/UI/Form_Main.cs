@@ -29,7 +29,7 @@ namespace HotelManagement.UI
             if (data.Rows.Count > 0)
             {
                 lbStaffname.Text = data.Rows[0].ItemArray[0].ToString();
-                lbDuty.Text = ((StaffPosition)Convert.ToInt32(data.Rows[0].ItemArray[1]) == StaffPosition.Manager) ?
+                lbPosition.Text = ((StaffPosition)Convert.ToInt32(data.Rows[0].ItemArray[1]) == StaffPosition.Manager) ?
                     "Manager" : "Receptionist";
             }
             else MessageBox.Show("Lỗi khi tải thông tin  nhân viên");
