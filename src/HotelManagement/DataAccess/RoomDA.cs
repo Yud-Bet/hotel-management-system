@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Data;
 
 namespace HotelManagement.DataAccess
 {
@@ -11,11 +6,11 @@ namespace HotelManagement.DataAccess
     {
         public static DataTable GetRoomInfo(int IDRoom)
         {
-            return DataAccess.ExecuteQuery.ExecuteReader("QLKS_GetRoomInfo @ID", new object[] { IDRoom });
+            return ExecuteQuery.ExecuteReader("QLKS_GetRoomInfo @ID", new object[] { IDRoom });
         }
         public static DataTable GetAllRoom()
         {
-            return DataAccess.ExecuteQuery.ExecuteReader("QLKS_GetAllRoom");
+            return ExecuteQuery.ExecuteReader("QLKS_GetAllRoom");
         }
         public static int EditRoomInfo(int RoomID, RoomType roomType, int Area, int Price)
         {
