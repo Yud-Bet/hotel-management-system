@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
+using HotelManagement.DTO;
 
 namespace HotelManagement.UI
 {
@@ -33,10 +34,23 @@ namespace HotelManagement.UI
             tbRoomPrice.Enabled = false;
         }
 
+        private void setRoomType(RoomType type)
+        {
+            rbtNor.Checked = (type == RoomType.Single || type == RoomType.Double) ? true : false;
+            rbtVip.Checked = (type == RoomType.SingleVIP || type == RoomType.DoubleVIP) ? true : false;
+            rbtSingle.Checked = (type == RoomType.Single || type == RoomType.SingleVIP) ? true : false;
+            rbtDouble.Checked = (type == RoomType.Double || type == RoomType.DoubleVIP) ? true : false;
+        }
+
+        private void setSexOfCustomer(Sex sex)
+        {
+            rbtMale.Checked = (sex == Sex.Male) ? true : false;
+            rbtFemale.Checked = (sex == Sex.Female) ? true : false;
+        }
+
         private void Load_Data()
         {
             lbRoomID.Text = this.Parent._RoomID.ToString();
-
             if (this.Parent._RoomStatus == RoomStatus.Empty)
             {
                 btPay.Hide();
@@ -46,56 +60,23 @@ namespace HotelManagement.UI
                 btBookRoom.Hide();
             }
 
-            DataTable data = DataAccess.RoomDA.GetRoomInfo(Convert.ToInt32(lbRoomID.Text));
-            RoomType temp = (RoomType)Convert.ToInt32(data.Rows[0].ItemArray[0]);
-            tbRoomsize.Text = data.Rows[0].ItemArray[1].ToString();
-            tbRoomPrice.Text = Convert.ToInt32(data.Rows[0].ItemArray[2]).ToString();
-            if (temp == RoomType.DoubleVIP)
-            {
-                rbtVip.Checked = true;
-                rbtDouble.Checked = true;
-            }
-            else if (temp == RoomType.Double)
-            {
-                rbtNor.Checked = true;
-                rbtDouble.Checked = true;
-            }
-            else if (temp == RoomType.SingleVIP)
-            {
-                rbtVip.Checked = true;
-                rbtSingle.Checked = true;
-            }
-            else
-            {
-                rbtNor.Checked = true;
-                rbtSingle.Checked = true;
-            }
+            RoomDetail room = new RoomDetail(Convert.ToInt32(lbRoomID.Text));
+            tbRoomsize.Text = room.Size;
+            tbRoomPrice.Text = room.Price;
+            setRoomType(room.Type);
 
             if (this.Parent._RoomStatus == RoomStatus.Rented)
             {
-                data = DataAccess.CustomerDA.GetCustomerInfo(Convert.ToInt32(lbRoomID.Text));
-                tbCustomerName.Text = data.Rows[0].ItemArray[0].ToString();
-                dtpCustomerBirthday.Value = Convert.ToDateTime(data.Rows[0].ItemArray[1]);
-                tbCustomerPhoneNum.Text = data.Rows[0].ItemArray[2].ToString();
-                if ((Sex)Convert.ToInt32(data.Rows[0].ItemArray[3]) == Sex.Female)
-                {
-                    rbtFemale.Checked = true;
-                }
-                else
-                {
-                    rbtMale.Checked = true;
-                }
-                if (data.Rows[0].ItemArray[4] != null)
-                {
-                    tbIDNo.Text = data.Rows[0].ItemArray[4].ToString();
-                }
-                if (data.Rows[0].ItemArray[5] != null)
-                {
-                    tbPassport.Text = data.Rows[0].ItemArray[5].ToString();
-                }
-                tbCustomerAddress.Text = data.Rows[0].ItemArray[6].ToString();
-                tbNote.Text = data.Rows[0].ItemArray[7].ToString();
-                dtpCheckInDate.Value = Convert.ToDateTime(data.Rows[0].ItemArray[8]);
+                CustomerInfo customer = new CustomerInfo(Convert.ToInt32(lbRoomID.Text));
+                tbCustomerName.Text = customer.Name;
+                dtpCustomerBirthday.Value = customer.Birthday;
+                tbCustomerPhoneNum.Text = customer.PhoneNumber;
+                setSexOfCustomer(customer.sex);
+                tbIDNo.Text = customer.IDNumber;
+                tbPassport.Text = customer.Passport;
+                tbCustomerAddress.Text = customer.Addr;
+                tbNote.Text = customer.Note;
+                dtpCheckInDate.Value = customer.CheckInDate;
             }
         }
 
