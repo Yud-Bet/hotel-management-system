@@ -36,7 +36,7 @@
             this.cbIDNo = new Zeroit.Framework.MaterialDesign.Controls.ZeroitMaterialCheckBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.rbtMale = new MetroFramework.Controls.MetroRadioButton();
-            this.rdbFemale = new MetroFramework.Controls.MetroRadioButton();
+            this.rbtFemale = new MetroFramework.Controls.MetroRadioButton();
             this.dtpCustomerBirthday = new MetroFramework.Controls.MetroDateTime();
             this.tbPassport = new Zeroit.Framework.Metro.ZeroitMetroTextbox();
             this.tbNote = new Zeroit.Framework.Metro.ZeroitMetroTextbox();
@@ -189,7 +189,7 @@
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.Controls.Add(this.rbtMale);
-            this.flowLayoutPanel1.Controls.Add(this.rdbFemale);
+            this.flowLayoutPanel1.Controls.Add(this.rbtFemale);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(310, 151);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(104, 22);
@@ -206,16 +206,16 @@
             this.rbtMale.Text = "Nam";
             this.rbtMale.UseSelectable = true;
             // 
-            // rdbFemale
+            // rbtFemale
             // 
-            this.rdbFemale.AutoSize = true;
-            this.rdbFemale.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
-            this.rdbFemale.Location = new System.Drawing.Point(58, 3);
-            this.rdbFemale.Name = "rdbFemale";
-            this.rdbFemale.Size = new System.Drawing.Size(39, 15);
-            this.rdbFemale.TabIndex = 5;
-            this.rdbFemale.Text = "Nữ";
-            this.rdbFemale.UseSelectable = true;
+            this.rbtFemale.AutoSize = true;
+            this.rbtFemale.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
+            this.rbtFemale.Location = new System.Drawing.Point(58, 3);
+            this.rbtFemale.Name = "rbtFemale";
+            this.rbtFemale.Size = new System.Drawing.Size(39, 15);
+            this.rbtFemale.TabIndex = 5;
+            this.rbtFemale.Text = "Nữ";
+            this.rbtFemale.UseSelectable = true;
             // 
             // dtpCustomerBirthday
             // 
@@ -1032,7 +1032,7 @@
         private MetroFramework.Controls.MetroDateTime dtpCheckInDate;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private MetroFramework.Controls.MetroRadioButton rbtMale;
-        private MetroFramework.Controls.MetroRadioButton rdbFemale;
+        private MetroFramework.Controls.MetroRadioButton rbtFemale;
         private System.Windows.Forms.FlowLayoutPanel pnSignle_Dou;
         private MetroFramework.Controls.MetroRadioButton rbtSingle;
         private MetroFramework.Controls.MetroRadioButton rbtDouble;

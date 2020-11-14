@@ -117,7 +117,7 @@ namespace HotelManagement.UI
             {
                 if (DataAccess.Account.Login(tbUsername.Text, tbPassword.Text))
                 {
-                    Form_Main temp = new Form_Main();
+                    Form_Main temp = new Form_Main(tbUsername.Text);
                     this.Hide();
                     temp.ShowDialog();
                     this.Show();

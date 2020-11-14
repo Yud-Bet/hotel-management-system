@@ -13,14 +13,22 @@ namespace HotelManagement.UI
 {
     public partial class Form_Main : Form
     {
-        public Form_Main()
+        private string Username;
+        public Form_Main(string Username)
         {
             InitializeComponent();
-
+            this.Username = Username;
+            LoadStaffInfo();
         }
 
         private bool isChoosebtRoom = false, isChoosebtService = false, isChoosebtReport = false, isChoosebtManage = false;
 
+        private void LoadStaffInfo()
+        {
+            DTO.StaffOverview staff = new DTO.StaffOverview(Username);
+            lbStaffname.Text = staff.Name;
+            lbStaffPosition.Text = staff.Position;
+        }
         private void Form_Main_Load(object sender, EventArgs e)
         {
             isChoosebtRoom = true;

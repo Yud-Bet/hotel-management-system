@@ -51,29 +51,23 @@ namespace HotelManagement.UI
         #endregion
         private void Load_Data()
         {
-            DataTable data = DataAccess.RoomDA.GetAllRoom();
-
-            int n = data.Rows.Count;
-            lbNumberOfRoom.Text = n.ToString();
-
-            int[] count = new int[5];
-
-            for (int i = 0; i < n; i++)
+            DTO.RoomOverview room = new DTO.RoomOverview();
+            lbNumberOfRoom.Text = room.RoomCount[0].ToString();
+            for (int i = 0; i < room.RoomCount[0]; i++)
             {
                 Room newRoom = new Room(this);
 
-                newRoom._RoomID = Convert.ToInt32(data.Rows[i].ItemArray[0]);
-                newRoom._RoomStatus = (RoomStatus)Convert.ToInt32(data.Rows[i].ItemArray[1]);
-                count[(int)newRoom._RoomStatus]++;
-                newRoom._RoomType = (RoomType)Convert.ToInt32(data.Rows[i].ItemArray[2]);
+                newRoom._RoomID = room.Rooms[i].ID;
+                newRoom._RoomStatus = room.Rooms[i].Status;
+                newRoom._RoomType = room.Rooms[i].Type;
 
                 this.pnToAddRoom.Controls.Add(newRoom);
             }
 
-            lbNumberOfEmptyRoom.Text = count[1].ToString();
-            lbNumberOfRentedRoom.Text = count[2].ToString();
-            lbNumberOfCleaningRoom.Text = count[3].ToString();
-            lbNumberOfRepairingRoom.Text = count[4].ToString();
+            lbNumberOfEmptyRoom.Text = room.RoomCount[(int)RoomStatus.Empty].ToString();
+            lbNumberOfRentedRoom.Text = room.RoomCount[(int)RoomStatus.Rented].ToString();
+            lbNumberOfCleaningRoom.Text = room.RoomCount[(int)RoomStatus.Cleaning].ToString();
+            lbNumberOfRepairingRoom.Text = room.RoomCount[(int)RoomStatus.Repairing].ToString();
         }
     }
 }

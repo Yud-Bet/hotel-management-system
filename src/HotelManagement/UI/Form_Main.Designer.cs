@@ -78,7 +78,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.pbLogOut = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.lbDuty = new System.Windows.Forms.Label();
+            this.lbStaffPosition = new System.Windows.Forms.Label();
             this.lbStaffname = new System.Windows.Forms.Label();
             this.pbStaffAvatar = new System.Windows.Forms.PictureBox();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -773,7 +773,7 @@
             // 
             this.panel2.Controls.Add(this.pbLogOut);
             this.panel2.Controls.Add(this.panel3);
-            this.panel2.Controls.Add(this.lbDuty);
+            this.panel2.Controls.Add(this.lbStaffPosition);
             this.panel2.Controls.Add(this.lbStaffname);
             this.panel2.Controls.Add(this.pbStaffAvatar);
             this.panel2.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -805,15 +805,15 @@
             // 
             // lbDuty
             // 
-            this.lbDuty.Cursor = System.Windows.Forms.Cursors.Default;
-            this.lbDuty.Font = new System.Drawing.Font("Calibri", 17F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbDuty.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(148)))), ((int)(((byte)(148)))));
-            this.lbDuty.Location = new System.Drawing.Point(0, 115);
-            this.lbDuty.Name = "lbDuty";
-            this.lbDuty.Size = new System.Drawing.Size(300, 35);
-            this.lbDuty.TabIndex = 3;
-            this.lbDuty.Text = "Chức Vụ";
-            this.lbDuty.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbStaffPosition.Cursor = System.Windows.Forms.Cursors.Default;
+            this.lbStaffPosition.Font = new System.Drawing.Font("Calibri", 17F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbStaffPosition.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(148)))), ((int)(((byte)(148)))));
+            this.lbStaffPosition.Location = new System.Drawing.Point(0, 115);
+            this.lbStaffPosition.Name = "lbDuty";
+            this.lbStaffPosition.Size = new System.Drawing.Size(300, 35);
+            this.lbStaffPosition.TabIndex = 3;
+            this.lbStaffPosition.Text = "Chức Vụ";
+            this.lbStaffPosition.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lbStaffname
             // 
@@ -958,7 +958,7 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Label lbDuty;
+        private System.Windows.Forms.Label lbStaffPosition;
         private System.Windows.Forms.Label lbStaffname;
         private System.Windows.Forms.PictureBox pbStaffAvatar;
         private System.Windows.Forms.Panel panel4;
