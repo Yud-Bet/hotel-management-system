@@ -177,7 +177,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <None Include="Resources\bongform.png" />
   </ItemGroup>
@@ -272,18 +271,6 @@
     <None Include="Resources\test.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\icPassLogin1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icUserLogin1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icPassLogin2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icUserLogin2.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\icLogOut.png" />
   </ItemGroup>
   <ItemGroup>
@@ -291,6 +278,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icSave.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icUserLogin1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icUserLogin2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icPassLogin1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icPassLogin2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\profile-user.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

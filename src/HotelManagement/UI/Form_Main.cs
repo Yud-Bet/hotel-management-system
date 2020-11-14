@@ -11,14 +11,14 @@ using System.Windows.Forms;
 
 namespace HotelManagement.UI
 {
-    public partial class Form_Main : Form
+    public partial class Form_Main : MetroFramework.Forms.MetroForm
     {
         private string Username;
         public Form_Main(string Username)
         {
             InitializeComponent();
-            this.Username = Username;
-            LoadStaffInfo();
+            //this.Username = Username;
+            //LoadStaffInfo();
         }
 
         private bool isChoosebtRoom = false, isChoosebtService = false, isChoosebtReport = false, isChoosebtManage = false;

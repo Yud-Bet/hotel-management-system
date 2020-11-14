@@ -38,7 +38,7 @@ namespace HotelManagement.UI
                 tbUsername.Text = "";
             }
 
-            pnUsernameLine.BackColor = Color.FromArgb(37, 170, 160);
+            pnUsernameLine.BackColor = Color.FromArgb(27, 152, 224);
             lbUsername.Show();
             pbUser.Image = Resources.icUserLogin2;
 
@@ -51,7 +51,7 @@ namespace HotelManagement.UI
                 tbUsername.Text = "Tên đăng nhập";
             }
 
-            pnUsernameLine.BackColor = Color.FromArgb(102, 102, 120);
+            pnUsernameLine.BackColor = Color.FromArgb(36, 123, 160);
             lbUsername.Hide();
             pbUser.Image = Resources.icUserLogin1;
         }
@@ -64,7 +64,7 @@ namespace HotelManagement.UI
                 tbPassword.PasswordChar = '●';
             }
 
-            pnPasswordLine.BackColor = Color.FromArgb(37, 170, 160);
+            pnPasswordLine.BackColor = Color.FromArgb(27, 152, 224);
             lbPassword.Show();
             pbPass.Image = Resources.icPassLogin2;
         }
@@ -77,7 +77,7 @@ namespace HotelManagement.UI
                 tbPassword.PasswordChar = (char)0;
             }
 
-            pnPasswordLine.BackColor = Color.FromArgb(102, 102, 120);
+            pnPasswordLine.BackColor = Color.FromArgb(36, 123, 160);
             lbPassword.Hide();
             pbPass.Image = Resources.icPassLogin1;
         }
@@ -140,7 +140,8 @@ namespace HotelManagement.UI
 
         private void btExit_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            timer1.Tick += delegate { Application.Exit(); };
         }
+
     }
 }

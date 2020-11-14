@@ -76,7 +76,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.pbLogOut = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.lbStaffPosition = new System.Windows.Forms.Label();
             this.lbStaffname = new System.Windows.Forms.Label();
@@ -114,7 +113,6 @@
             this.btRoom.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbLogOut)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbStaffAvatar)).BeginInit();
             this.SuspendLayout();
             // 
@@ -130,9 +128,9 @@
             this.panel1.Controls.Add(this.btRoom);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Location = new System.Drawing.Point(20, 60);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(300, 710);
+            this.panel1.Size = new System.Drawing.Size(300, 630);
             this.panel1.TabIndex = 0;
             // 
             // pnSubMenu_Manage
@@ -771,7 +769,6 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.pbLogOut);
             this.panel2.Controls.Add(this.panel3);
             this.panel2.Controls.Add(this.lbStaffPosition);
             this.panel2.Controls.Add(this.lbStaffname);
@@ -783,17 +780,6 @@
             this.panel2.Size = new System.Drawing.Size(300, 190);
             this.panel2.TabIndex = 0;
             // 
-            // pbLogOut
-            // 
-            this.pbLogOut.Image = global::HotelManagement.Properties.Resources.icLogOut;
-            this.pbLogOut.Location = new System.Drawing.Point(264, 3);
-            this.pbLogOut.Name = "pbLogOut";
-            this.pbLogOut.Size = new System.Drawing.Size(33, 29);
-            this.pbLogOut.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbLogOut.TabIndex = 6;
-            this.pbLogOut.TabStop = false;
-            this.pbLogOut.Click += new System.EventHandler(this.pictureBox1_Click_1);
-            // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.DimGray;
@@ -803,33 +789,33 @@
             this.panel3.Size = new System.Drawing.Size(230, 2);
             this.panel3.TabIndex = 5;
             // 
-            // lbDuty
+            // lbStaffPosition
             // 
             this.lbStaffPosition.Cursor = System.Windows.Forms.Cursors.Default;
-            this.lbStaffPosition.Font = new System.Drawing.Font("Calibri", 17F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbStaffPosition.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbStaffPosition.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(148)))), ((int)(((byte)(148)))));
-            this.lbStaffPosition.Location = new System.Drawing.Point(0, 115);
-            this.lbStaffPosition.Name = "lbDuty";
-            this.lbStaffPosition.Size = new System.Drawing.Size(300, 35);
+            this.lbStaffPosition.Location = new System.Drawing.Point(82, 42);
+            this.lbStaffPosition.Name = "lbStaffPosition";
+            this.lbStaffPosition.Size = new System.Drawing.Size(102, 35);
             this.lbStaffPosition.TabIndex = 3;
             this.lbStaffPosition.Text = "Chức Vụ";
-            this.lbStaffPosition.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbStaffPosition.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lbStaffname
             // 
             this.lbStaffname.Cursor = System.Windows.Forms.Cursors.Default;
-            this.lbStaffname.Font = new System.Drawing.Font("Calibri", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbStaffname.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbStaffname.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
-            this.lbStaffname.Location = new System.Drawing.Point(0, 80);
+            this.lbStaffname.Location = new System.Drawing.Point(84, 7);
             this.lbStaffname.Name = "lbStaffname";
-            this.lbStaffname.Size = new System.Drawing.Size(300, 35);
+            this.lbStaffname.Size = new System.Drawing.Size(177, 35);
             this.lbStaffname.TabIndex = 4;
             this.lbStaffname.Text = "Tên Nhân Viên";
-            this.lbStaffname.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbStaffname.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // pbStaffAvatar
             // 
-            this.pbStaffAvatar.Location = new System.Drawing.Point(115, 10);
+            this.pbStaffAvatar.Location = new System.Drawing.Point(6, 7);
             this.pbStaffAvatar.Name = "pbStaffAvatar";
             this.pbStaffAvatar.Size = new System.Drawing.Size(70, 70);
             this.pbStaffAvatar.TabIndex = 0;
@@ -846,16 +832,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.ClientSize = new System.Drawing.Size(1320, 710);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.MaximumSize = new System.Drawing.Size(1320, 710);
             this.MinimumSize = new System.Drawing.Size(1320, 710);
             this.Name = "Form_Main";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form_Main";
             this.Load += new System.EventHandler(this.Form_Main_Load);
             this.panel1.ResumeLayout(false);
             this.pnSubMenu_Manage.ResumeLayout(false);
@@ -901,7 +882,6 @@
             this.btRoom.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pbLogOut)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbStaffAvatar)).EndInit();
             this.ResumeLayout(false);
 
@@ -962,6 +942,5 @@
         private System.Windows.Forms.Label lbStaffname;
         private System.Windows.Forms.PictureBox pbStaffAvatar;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.PictureBox pbLogOut;
     }
 }
