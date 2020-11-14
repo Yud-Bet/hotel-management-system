@@ -51,11 +51,11 @@
             // 
             // tbUsername
             // 
-            this.tbUsername.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
+            this.tbUsername.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(241)))), ((int)(((byte)(242)))));
             this.tbUsername.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tbUsername.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbUsername.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(123)))), ((int)(((byte)(160)))));
-            this.tbUsername.Location = new System.Drawing.Point(142, 174);
+            this.tbUsername.Location = new System.Drawing.Point(87, 188);
             this.tbUsername.Name = "tbUsername";
             this.tbUsername.Size = new System.Drawing.Size(319, 25);
             this.tbUsername.TabIndex = 1;
@@ -64,18 +64,18 @@
             // pnUsernameLine
             // 
             this.pnUsernameLine.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(123)))), ((int)(((byte)(160)))));
-            this.pnUsernameLine.Location = new System.Drawing.Point(111, 205);
+            this.pnUsernameLine.Location = new System.Drawing.Point(56, 219);
             this.pnUsernameLine.Name = "pnUsernameLine";
             this.pnUsernameLine.Size = new System.Drawing.Size(350, 5);
             this.pnUsernameLine.TabIndex = 3;
             // 
             // tbPassword
             // 
-            this.tbPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
+            this.tbPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(241)))), ((int)(((byte)(242)))));
             this.tbPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tbPassword.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(123)))), ((int)(((byte)(160)))));
-            this.tbPassword.Location = new System.Drawing.Point(142, 260);
+            this.tbPassword.Location = new System.Drawing.Point(87, 274);
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.Size = new System.Drawing.Size(319, 25);
             this.tbPassword.TabIndex = 2;
@@ -84,7 +84,7 @@
             // pnPasswordLine
             // 
             this.pnPasswordLine.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(123)))), ((int)(((byte)(160)))));
-            this.pnPasswordLine.Location = new System.Drawing.Point(111, 288);
+            this.pnPasswordLine.Location = new System.Drawing.Point(56, 302);
             this.pnPasswordLine.Name = "pnPasswordLine";
             this.pnPasswordLine.Size = new System.Drawing.Size(350, 5);
             this.pnPasswordLine.TabIndex = 3;
@@ -92,9 +92,9 @@
             // lbUsername
             // 
             this.lbUsername.AutoSize = true;
-            this.lbUsername.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
+            this.lbUsername.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(241)))), ((int)(((byte)(242)))));
             this.lbUsername.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
-            this.lbUsername.Location = new System.Drawing.Point(139, 158);
+            this.lbUsername.Location = new System.Drawing.Point(84, 172);
             this.lbUsername.Name = "lbUsername";
             this.lbUsername.Size = new System.Drawing.Size(81, 13);
             this.lbUsername.TabIndex = 4;
@@ -103,9 +103,9 @@
             // lbPassword
             // 
             this.lbPassword.AutoSize = true;
-            this.lbPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
+            this.lbPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(241)))), ((int)(((byte)(242)))));
             this.lbPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
-            this.lbPassword.Location = new System.Drawing.Point(139, 244);
+            this.lbPassword.Location = new System.Drawing.Point(84, 258);
             this.lbPassword.Name = "lbPassword";
             this.lbPassword.Size = new System.Drawing.Size(52, 13);
             this.lbPassword.TabIndex = 4;
@@ -131,7 +131,7 @@
             this.btLogin.Image = null;
             this.btLogin.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btLogin.ImageSize = new System.Drawing.Size(0, 0);
-            this.btLogin.Location = new System.Drawing.Point(111, 319);
+            this.btLogin.Location = new System.Drawing.Point(56, 333);
             this.btLogin.Name = "btLogin";
             this.btLogin.PolygonRadius = 10;
             this.btLogin.PolygonSides = 3;
@@ -169,7 +169,7 @@
             this.btExit.Image = null;
             this.btExit.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btExit.ImageSize = new System.Drawing.Size(0, 0);
-            this.btExit.Location = new System.Drawing.Point(297, 319);
+            this.btExit.Location = new System.Drawing.Point(242, 333);
             this.btExit.Name = "btExit";
             this.btExit.PolygonRadius = 10;
             this.btExit.PolygonSides = 3;
@@ -203,7 +203,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::HotelManagement.Properties.Resources.profile_user;
-            this.pictureBox1.Location = new System.Drawing.Point(227, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(172, 26);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(125, 125);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -213,7 +213,7 @@
             // pbPass
             // 
             this.pbPass.Image = ((System.Drawing.Image)(resources.GetObject("pbPass.Image")));
-            this.pbPass.Location = new System.Drawing.Point(111, 260);
+            this.pbPass.Location = new System.Drawing.Point(56, 274);
             this.pbPass.Name = "pbPass";
             this.pbPass.Size = new System.Drawing.Size(25, 25);
             this.pbPass.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -223,7 +223,7 @@
             // pbUser
             // 
             this.pbUser.Image = ((System.Drawing.Image)(resources.GetObject("pbUser.Image")));
-            this.pbUser.Location = new System.Drawing.Point(111, 174);
+            this.pbUser.Location = new System.Drawing.Point(56, 188);
             this.pbUser.Name = "pbUser";
             this.pbUser.Size = new System.Drawing.Size(25, 25);
             this.pbUser.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -239,8 +239,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
-            this.ClientSize = new System.Drawing.Size(566, 424);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(241)))), ((int)(((byte)(242)))));
+            this.ClientSize = new System.Drawing.Size(464, 434);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btExit);
             this.Controls.Add(this.btLogin);
