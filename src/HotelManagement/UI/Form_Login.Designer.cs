@@ -129,7 +129,7 @@
             // pbUser
             // 
             this.pbUser.Image = global::HotelManagement.Properties.Resources.icUserLogin1;
-            this.pbUser.Location = new System.Drawing.Point(77, 135);
+            this.pbUser.Location = new System.Drawing.Point(68, 113);
             this.pbUser.Name = "pbUser";
             this.pbUser.Size = new System.Drawing.Size(48, 43);
             this.pbUser.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;

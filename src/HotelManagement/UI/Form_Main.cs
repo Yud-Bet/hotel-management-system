@@ -325,6 +325,11 @@ namespace HotelManagement.UI
             
         }
 
+        private void pictureBox1_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
         private void btService_manage_MouseMove(object sender, MouseEventArgs e)
         {
             btService_manage.BackColor = Color.FromArgb(220, 220, 220);

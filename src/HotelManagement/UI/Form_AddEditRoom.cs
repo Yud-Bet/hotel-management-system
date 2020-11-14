@@ -28,7 +28,6 @@ namespace HotelManagement.UI
         {
             InitializeComponent();
             loadData();
-
             //get roomcount properties
             float[] sizeRoomCount = { lbRoomCount.Top , lbRoomCount.Font.Size, tbRoomCount.Font.Size, tbRoomCount.Top,
                                         tbRoomCount.Left, tbRoomCount.Height, tbRoomCount.Width};

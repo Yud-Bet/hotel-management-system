@@ -76,6 +76,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.pbLogOut = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.lbDuty = new System.Windows.Forms.Label();
             this.lbStaffname = new System.Windows.Forms.Label();
@@ -113,6 +114,7 @@
             this.btRoom.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbLogOut)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbStaffAvatar)).BeginInit();
             this.SuspendLayout();
             // 
@@ -769,15 +771,28 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.pbLogOut);
             this.panel2.Controls.Add(this.panel3);
             this.panel2.Controls.Add(this.lbDuty);
             this.panel2.Controls.Add(this.lbStaffname);
             this.panel2.Controls.Add(this.pbStaffAvatar);
+            this.panel2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(300, 190);
             this.panel2.TabIndex = 0;
+            // 
+            // pbLogOut
+            // 
+            this.pbLogOut.Image = global::HotelManagement.Properties.Resources.icLogOut;
+            this.pbLogOut.Location = new System.Drawing.Point(264, 3);
+            this.pbLogOut.Name = "pbLogOut";
+            this.pbLogOut.Size = new System.Drawing.Size(33, 29);
+            this.pbLogOut.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbLogOut.TabIndex = 6;
+            this.pbLogOut.TabStop = false;
+            this.pbLogOut.Click += new System.EventHandler(this.pictureBox1_Click_1);
             // 
             // panel3
             // 
@@ -886,6 +901,7 @@
             this.btRoom.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbLogOut)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbStaffAvatar)).EndInit();
             this.ResumeLayout(false);
 
@@ -946,5 +962,6 @@
         private System.Windows.Forms.Label lbStaffname;
         private System.Windows.Forms.PictureBox pbStaffAvatar;
         private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.PictureBox pbLogOut;
     }
 }
