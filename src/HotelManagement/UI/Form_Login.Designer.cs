@@ -38,12 +38,14 @@
             this.lbPassword = new System.Windows.Forms.Label();
             this.btLogin = new Zeroit.Framework.Button.ZeroitDummyControl();
             this.btExit = new Zeroit.Framework.Button.ZeroitDummyControl();
-            this.clickAnimator1 = new Zeroit.Framework.Metro.ClickAnimator();
-            this.clickAnimator2 = new Zeroit.Framework.Metro.ClickAnimator();
+            this.LoginClickAnimator = new Zeroit.Framework.Metro.ClickAnimator();
+            this.ExitClickAnimator = new Zeroit.Framework.Metro.ClickAnimator();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pbPass = new System.Windows.Forms.PictureBox();
             this.pbUser = new System.Windows.Forms.PictureBox();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.ExitTimer = new System.Windows.Forms.Timer(this.components);
+            this.LoginBGWorker = new System.ComponentModel.BackgroundWorker();
+            this.StatusLabel = new Zeroit.Framework.MiscControls.ZeroitLabel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPass)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbUser)).BeginInit();
@@ -55,7 +57,7 @@
             this.tbUsername.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tbUsername.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbUsername.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(123)))), ((int)(((byte)(160)))));
-            this.tbUsername.Location = new System.Drawing.Point(87, 188);
+            this.tbUsername.Location = new System.Drawing.Point(87, 191);
             this.tbUsername.Name = "tbUsername";
             this.tbUsername.Size = new System.Drawing.Size(319, 25);
             this.tbUsername.TabIndex = 1;
@@ -64,7 +66,7 @@
             // pnUsernameLine
             // 
             this.pnUsernameLine.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(123)))), ((int)(((byte)(160)))));
-            this.pnUsernameLine.Location = new System.Drawing.Point(56, 219);
+            this.pnUsernameLine.Location = new System.Drawing.Point(56, 222);
             this.pnUsernameLine.Name = "pnUsernameLine";
             this.pnUsernameLine.Size = new System.Drawing.Size(350, 5);
             this.pnUsernameLine.TabIndex = 3;
@@ -75,7 +77,7 @@
             this.tbPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tbPassword.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(123)))), ((int)(((byte)(160)))));
-            this.tbPassword.Location = new System.Drawing.Point(87, 274);
+            this.tbPassword.Location = new System.Drawing.Point(87, 277);
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.Size = new System.Drawing.Size(319, 25);
             this.tbPassword.TabIndex = 2;
@@ -84,7 +86,7 @@
             // pnPasswordLine
             // 
             this.pnPasswordLine.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(123)))), ((int)(((byte)(160)))));
-            this.pnPasswordLine.Location = new System.Drawing.Point(56, 302);
+            this.pnPasswordLine.Location = new System.Drawing.Point(56, 305);
             this.pnPasswordLine.Name = "pnPasswordLine";
             this.pnPasswordLine.Size = new System.Drawing.Size(350, 5);
             this.pnPasswordLine.TabIndex = 3;
@@ -94,7 +96,7 @@
             this.lbUsername.AutoSize = true;
             this.lbUsername.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(241)))), ((int)(((byte)(242)))));
             this.lbUsername.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
-            this.lbUsername.Location = new System.Drawing.Point(84, 172);
+            this.lbUsername.Location = new System.Drawing.Point(84, 175);
             this.lbUsername.Name = "lbUsername";
             this.lbUsername.Size = new System.Drawing.Size(81, 13);
             this.lbUsername.TabIndex = 4;
@@ -105,7 +107,7 @@
             this.lbPassword.AutoSize = true;
             this.lbPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(241)))), ((int)(((byte)(242)))));
             this.lbPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
-            this.lbPassword.Location = new System.Drawing.Point(84, 258);
+            this.lbPassword.Location = new System.Drawing.Point(84, 261);
             this.lbPassword.Name = "lbPassword";
             this.lbPassword.Size = new System.Drawing.Size(52, 13);
             this.lbPassword.TabIndex = 4;
@@ -118,7 +120,7 @@
             this.btLogin.BorderColor = System.Drawing.Color.DeepSkyBlue;
             this.btLogin.BorderWidth = 2;
             this.btLogin.ClickMaxOffset = 10;
-            this.btLogin.ClickOffset = 1;
+            this.btLogin.ClickOffset = 0;
             this.btLogin.ClickSpeed = 1;
             this.btLogin.ColorShape = true;
             this.btLogin.Curve = 3;
@@ -131,7 +133,7 @@
             this.btLogin.Image = null;
             this.btLogin.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btLogin.ImageSize = new System.Drawing.Size(0, 0);
-            this.btLogin.Location = new System.Drawing.Point(56, 333);
+            this.btLogin.Location = new System.Drawing.Point(56, 336);
             this.btLogin.Name = "btLogin";
             this.btLogin.PolygonRadius = 10;
             this.btLogin.PolygonSides = 3;
@@ -148,6 +150,7 @@
             this.btLogin.TextAlign = System.Drawing.StringAlignment.Center;
             this.btLogin.UpperLeftCurve = 12;
             this.btLogin.UpperRightCurve = 12;
+            this.btLogin.Click += new System.EventHandler(this.btLogin_Click);
             // 
             // btExit
             // 
@@ -156,7 +159,7 @@
             this.btExit.BorderColor = System.Drawing.Color.DeepSkyBlue;
             this.btExit.BorderWidth = 2;
             this.btExit.ClickMaxOffset = 10;
-            this.btExit.ClickOffset = 1;
+            this.btExit.ClickOffset = 0;
             this.btExit.ClickSpeed = 1;
             this.btExit.ColorShape = true;
             this.btExit.Curve = 10;
@@ -169,7 +172,7 @@
             this.btExit.Image = null;
             this.btExit.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btExit.ImageSize = new System.Drawing.Size(0, 0);
-            this.btExit.Location = new System.Drawing.Point(242, 333);
+            this.btExit.Location = new System.Drawing.Point(242, 336);
             this.btExit.Name = "btExit";
             this.btExit.PolygonRadius = 10;
             this.btExit.PolygonSides = 3;
@@ -188,22 +191,22 @@
             this.btExit.UpperRightCurve = 8;
             this.btExit.Click += new System.EventHandler(this.btExit_Click);
             // 
-            // clickAnimator1
+            // LoginClickAnimator
             // 
-            this.clickAnimator1.ClickControl = this.btLogin;
-            this.clickAnimator1.Shape = Zeroit.Framework.Metro.ClickAnimator.DrawMode.Circle;
-            this.clickAnimator1.Speed = 16;
+            this.LoginClickAnimator.ClickControl = this.btLogin;
+            this.LoginClickAnimator.Shape = Zeroit.Framework.Metro.ClickAnimator.DrawMode.Circle;
+            this.LoginClickAnimator.Speed = 25;
             // 
-            // clickAnimator2
+            // ExitClickAnimator
             // 
-            this.clickAnimator2.ClickControl = this.btExit;
-            this.clickAnimator2.Shape = Zeroit.Framework.Metro.ClickAnimator.DrawMode.Circle;
-            this.clickAnimator2.Speed = 17;
+            this.ExitClickAnimator.ClickControl = this.btExit;
+            this.ExitClickAnimator.Shape = Zeroit.Framework.Metro.ClickAnimator.DrawMode.Circle;
+            this.ExitClickAnimator.Speed = 17;
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::HotelManagement.Properties.Resources.profile_user;
-            this.pictureBox1.Location = new System.Drawing.Point(172, 26);
+            this.pictureBox1.Location = new System.Drawing.Point(172, 29);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(125, 125);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -213,7 +216,7 @@
             // pbPass
             // 
             this.pbPass.Image = ((System.Drawing.Image)(resources.GetObject("pbPass.Image")));
-            this.pbPass.Location = new System.Drawing.Point(56, 274);
+            this.pbPass.Location = new System.Drawing.Point(56, 277);
             this.pbPass.Name = "pbPass";
             this.pbPass.Size = new System.Drawing.Size(25, 25);
             this.pbPass.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -223,17 +226,34 @@
             // pbUser
             // 
             this.pbUser.Image = ((System.Drawing.Image)(resources.GetObject("pbUser.Image")));
-            this.pbUser.Location = new System.Drawing.Point(56, 188);
+            this.pbUser.Location = new System.Drawing.Point(56, 191);
             this.pbUser.Name = "pbUser";
             this.pbUser.Size = new System.Drawing.Size(25, 25);
             this.pbUser.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbUser.TabIndex = 1;
             this.pbUser.TabStop = false;
             // 
-            // timer1
+            // ExitTimer
             // 
-            this.timer1.Enabled = true;
-            this.timer1.Interval = 800;
+            this.ExitTimer.Enabled = true;
+            this.ExitTimer.Interval = 800;
+            // 
+            // LoginBGWorker
+            // 
+            this.LoginBGWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.LoginBGWorker_DoWork);
+            this.LoginBGWorker.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.LoginBGWorker_ProgressChanged);
+            this.LoginBGWorker.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.LoginBGWorker_RunWorkerCompleted);
+            // 
+            // StatusLabel
+            // 
+            this.StatusLabel.AutoSize = true;
+            this.StatusLabel.BackColor = System.Drawing.Color.Transparent;
+            this.StatusLabel.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.StatusLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(142)))), ((int)(((byte)(142)))));
+            this.StatusLabel.Location = new System.Drawing.Point(12, 406);
+            this.StatusLabel.Name = "StatusLabel";
+            this.StatusLabel.Size = new System.Drawing.Size(0, 19);
+            this.StatusLabel.TabIndex = 6;
             // 
             // Form_Login
             // 
@@ -241,6 +261,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(241)))), ((int)(((byte)(242)))));
             this.ClientSize = new System.Drawing.Size(464, 434);
+            this.Controls.Add(this.StatusLabel);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btExit);
             this.Controls.Add(this.btLogin);
@@ -276,9 +297,11 @@
         private System.Windows.Forms.Label lbPassword;
         private Zeroit.Framework.Button.ZeroitDummyControl btLogin;
         private Zeroit.Framework.Button.ZeroitDummyControl btExit;
-        private Zeroit.Framework.Metro.ClickAnimator clickAnimator1;
-        private Zeroit.Framework.Metro.ClickAnimator clickAnimator2;
+        private Zeroit.Framework.Metro.ClickAnimator LoginClickAnimator;
+        private Zeroit.Framework.Metro.ClickAnimator ExitClickAnimator;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Timer ExitTimer;
+        private System.ComponentModel.BackgroundWorker LoginBGWorker;
+        private Zeroit.Framework.MiscControls.ZeroitLabel StatusLabel;
     }
 }

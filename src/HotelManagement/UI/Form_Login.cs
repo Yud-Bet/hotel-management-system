@@ -1,19 +1,15 @@
 ﻿using HotelManagement.Properties;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Zeroit.Framework.Transitions;
 
 namespace HotelManagement.UI
 {
     public partial class Form_Login : Form
     {
+        LoginState loginState;
         public Form_Login()
         {
             InitializeComponent();
@@ -28,7 +24,7 @@ namespace HotelManagement.UI
 
             lbPassword.Hide();
             lbUsername.Hide();
-
+            LoginBGWorker.WorkerReportsProgress = true;
         }
 
         private void OnFocusTbUsername()
@@ -98,35 +94,29 @@ namespace HotelManagement.UI
             }
         }
 
-        private void btLogin_Click(object sender, EventArgs e)
+        private async void btLogin_Click(object sender, EventArgs e)
         {
-            if (tbUsername.Text == "Tên đăng nhập" || tbUsername.Text == "")
+            await Task.Run(() =>
             {
-                MessageBox.Show("Tên đăng nhập không được để trống.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                tbUsername.Focus();
-                return;
-            }
-
-            if (tbPassword.Text == "Mật khẩu" || tbPassword.Text == "")
-            {
-                MessageBox.Show("Mật khẩu không được để trống.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                tbPassword.Focus();
-                return;
-            }
+                if (tbUsername.Text == "Tên đăng nhập" || tbUsername.Text == "")
+                {
+                    MessageBox.Show("Tên đăng nhập không được để trống.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    tbUsername.Focus();
+                    return;
+                }
+                if (tbPassword.Text == "Mật khẩu" || tbPassword.Text == "")
+                {
+                    MessageBox.Show("Mật khẩu không được để trống.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    tbPassword.Focus();
+                    return;
+                }
+            });
             try
             {
-                if (DataAccess.Account.Login(tbUsername.Text, tbPassword.Text))
-                {
-                    Form_Main temp = new Form_Main(tbUsername.Text);
-                    this.Hide();
-                    temp.ShowDialog();
-                    this.Show();
-                }
-                else
-                {
-                    MessageBox.Show("Tài khoản không đúng.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    tbUsername.Focus();
-                }
+                LoginBGWorker.RunWorkerAsync();
+                StatusLabel.Text = "Đang đăng nhập...";
+                tbUsername.ReadOnly = true;
+                tbPassword.ReadOnly = true;
             }
             catch (InvalidOperationException ex)
             {
@@ -140,8 +130,61 @@ namespace HotelManagement.UI
 
         private void btExit_Click(object sender, EventArgs e)
         {
-            timer1.Tick += delegate { Application.Exit(); };
+            ExitTimer.Tick += delegate { Application.Exit(); };
         }
 
+        private void LoginBGWorker_DoWork(object sender, DoWorkEventArgs e)
+        {
+            try
+            {
+                bool LoginSuccessful = DataAccess.Account.Login(tbUsername.Text, tbPassword.Text);
+                if (LoginSuccessful) LoginBGWorker.ReportProgress(100);
+                else LoginBGWorker.ReportProgress(50);
+            }
+            catch (System.Data.SqlClient.SqlException)
+            {
+                LoginBGWorker.ReportProgress(0);
+            }
+        }
+
+        private void LoginBGWorker_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            if (e.ProgressPercentage == 0)
+            {
+                loginState = LoginState.CantConnect;
+                StatusLabel.Text = "Không thể kết nối đến server";
+            }
+            else if (e.ProgressPercentage == 50)
+            {
+                loginState = LoginState.Failed;
+                StatusLabel.Text = "Đăng nhập thất bại";
+            }
+            else if (e.ProgressPercentage == 100)
+            {
+                loginState = LoginState.Successful;
+            }
+        }
+
+        private void LoginBGWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            if (loginState == LoginState.CantConnect)
+            {
+                MessageBox.Show("Không thể kết nối đến server!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (loginState == LoginState.Successful)
+            {
+                Form_Main main = new Form_Main(tbUsername.Text);
+                this.Hide();
+                main.ShowDialog();
+                this.Show();
+                StatusLabel.Text = "";
+            }
+            else if (loginState == LoginState.Failed)
+            {
+                MessageBox.Show("Tên tài khoản hoặc mật khẩu không đúng", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            tbUsername.ReadOnly = false;
+            tbPassword.ReadOnly = false;
+        }
     }
 }

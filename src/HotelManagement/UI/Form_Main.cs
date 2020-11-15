@@ -1,12 +1,6 @@
 ﻿using HotelManagement.Properties;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace HotelManagement.UI
@@ -17,8 +11,8 @@ namespace HotelManagement.UI
         public Form_Main(string Username)
         {
             InitializeComponent();
-            //this.Username = Username;
-            //LoadStaffInfo();
+            this.Username = Username;
+            LoadStaffInfo();
         }
 
         private bool isChoosebtRoom = false, isChoosebtService = false, isChoosebtReport = false, isChoosebtManage = false;

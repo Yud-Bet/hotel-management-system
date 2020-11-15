@@ -30,4 +30,10 @@ namespace HotelManagement
         Manager = 0,
         Receptionist = 1
     }
+    public enum LoginState
+    {
+        CantConnect = 0,
+        Successful = 1,
+        Failed =2
+    }
 }
