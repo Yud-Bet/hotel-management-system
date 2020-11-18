@@ -94,7 +94,7 @@
             // lbUsername
             // 
             this.lbUsername.AutoSize = true;
-            this.lbUsername.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(241)))), ((int)(((byte)(242)))));
+            this.lbUsername.BackColor = System.Drawing.Color.Transparent;
             this.lbUsername.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
             this.lbUsername.Location = new System.Drawing.Point(84, 175);
             this.lbUsername.Name = "lbUsername";
@@ -105,7 +105,7 @@
             // lbPassword
             // 
             this.lbPassword.AutoSize = true;
-            this.lbPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(241)))), ((int)(((byte)(242)))));
+            this.lbPassword.BackColor = System.Drawing.Color.Transparent;
             this.lbPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
             this.lbPassword.Location = new System.Drawing.Point(84, 261);
             this.lbPassword.Name = "lbPassword";
@@ -128,7 +128,7 @@
             this.btLogin.DownRightCurve = 12;
             this.btLogin.DrawBorder = false;
             this.btLogin.EndAngle = 90F;
-            this.btLogin.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btLogin.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btLogin.ForeColor = System.Drawing.Color.White;
             this.btLogin.Image = null;
             this.btLogin.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -167,7 +167,7 @@
             this.btExit.DownRightCurve = 8;
             this.btExit.DrawBorder = false;
             this.btExit.EndAngle = 90F;
-            this.btExit.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btExit.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btExit.ForeColor = System.Drawing.Color.White;
             this.btExit.Image = null;
             this.btExit.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;

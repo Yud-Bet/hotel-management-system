@@ -96,23 +96,25 @@ namespace HotelManagement.UI
 
         private async void btLogin_Click(object sender, EventArgs e)
         {
-            await Task.Run(() =>
+            if (tbUsername.Text == "Tên đăng nhập" || tbUsername.Text == "")
             {
-                if (tbUsername.Text == "Tên đăng nhập" || tbUsername.Text == "")
-                {
+                await Task.Run(() => {
                     MessageBox.Show("Tên đăng nhập không được để trống.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     tbUsername.Focus();
-                    return;
-                }
-                if (tbPassword.Text == "Mật khẩu" || tbPassword.Text == "")
-                {
+                });
+                return;
+            }
+            if (tbPassword.Text == "Mật khẩu" || tbPassword.Text == "")
+            {
+                await Task.Run(() => {
                     MessageBox.Show("Mật khẩu không được để trống.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     tbPassword.Focus();
-                    return;
-                }
-            });
+                });
+                return;
+            }
             try
             {
+                if (LoginBGWorker.IsBusy) return;
                 LoginBGWorker.RunWorkerAsync();
                 StatusLabel.Text = "Đang đăng nhập...";
                 tbUsername.ReadOnly = true;
