@@ -103,6 +103,16 @@ namespace HotelManagement.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icBill2 {
+            get {
+                object obj = ResourceManager.GetObject("icBill2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icClean {
             get {
                 object obj = ResourceManager.GetObject("icClean", resourceCulture);
@@ -116,6 +126,16 @@ namespace HotelManagement.Properties {
         internal static System.Drawing.Bitmap icCustomer {
             get {
                 object obj = ResourceManager.GetObject("icCustomer", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icCustomer2 {
+            get {
+                object obj = ResourceManager.GetObject("icCustomer2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -153,6 +173,16 @@ namespace HotelManagement.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icEatService2 {
+            get {
+                object obj = ResourceManager.GetObject("icEatService2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icFix {
             get {
                 object obj = ResourceManager.GetObject("icFix", resourceCulture);
@@ -173,9 +203,29 @@ namespace HotelManagement.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icHorizontalArrow2 {
+            get {
+                object obj = ResourceManager.GetObject("icHorizontalArrow2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icLaundryService {
             get {
                 object obj = ResourceManager.GetObject("icLaundryService", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icLaundryService2 {
+            get {
+                object obj = ResourceManager.GetObject("icLaundryService2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -196,6 +246,16 @@ namespace HotelManagement.Properties {
         internal static System.Drawing.Bitmap icManage {
             get {
                 object obj = ResourceManager.GetObject("icManage", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icManage2 {
+            get {
+                object obj = ResourceManager.GetObject("icManage2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -273,6 +333,16 @@ namespace HotelManagement.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icReport2 {
+            get {
+                object obj = ResourceManager.GetObject("icReport2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icRevenue {
             get {
                 object obj = ResourceManager.GetObject("icRevenue", resourceCulture);
@@ -283,9 +353,29 @@ namespace HotelManagement.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icRevenue2 {
+            get {
+                object obj = ResourceManager.GetObject("icRevenue2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icRoom {
             get {
                 object obj = ResourceManager.GetObject("icRoom", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icRoom2 {
+            get {
+                object obj = ResourceManager.GetObject("icRoom2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -323,6 +413,16 @@ namespace HotelManagement.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icSevice2 {
+            get {
+                object obj = ResourceManager.GetObject("icSevice2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icSingleRoom {
             get {
                 object obj = ResourceManager.GetObject("icSingleRoom", resourceCulture);
@@ -343,9 +443,29 @@ namespace HotelManagement.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icStaff2 {
+            get {
+                object obj = ResourceManager.GetObject("icStaff2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icSubService {
             get {
                 object obj = ResourceManager.GetObject("icSubService", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icSubService2 {
+            get {
+                object obj = ResourceManager.GetObject("icSubService2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -383,6 +503,16 @@ namespace HotelManagement.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icVerticalArrow2 {
+            get {
+                object obj = ResourceManager.GetObject("icVerticalArrow2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icVip {
             get {
                 object obj = ResourceManager.GetObject("icVip", resourceCulture);
@@ -396,6 +526,16 @@ namespace HotelManagement.Properties {
         internal static System.Drawing.Bitmap icWarehouse {
             get {
                 object obj = ResourceManager.GetObject("icWarehouse", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icWarehouse2 {
+            get {
+                object obj = ResourceManager.GetObject("icWarehouse2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
