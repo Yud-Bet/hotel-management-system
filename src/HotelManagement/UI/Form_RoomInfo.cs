@@ -27,20 +27,6 @@ namespace HotelManagement.UI
             tbRoomPrice.Enabled = false;
         }
 
-        private void setRoomType(RoomType type)
-        {
-            rbtNor.Checked = (type == RoomType.Single || type == RoomType.Double) ? true : false;
-            rbtVip.Checked = (type == RoomType.SingleVIP || type == RoomType.DoubleVIP) ? true : false;
-            rbtSingle.Checked = (type == RoomType.Single || type == RoomType.SingleVIP) ? true : false;
-            rbtDouble.Checked = (type == RoomType.Double || type == RoomType.DoubleVIP) ? true : false;
-        }
-
-        private void setSexOfCustomer(Sex sex)
-        {
-            rbtMale.Checked = (sex == Sex.Male) ? true : false;
-            rbtFemale.Checked = (sex == Sex.Female) ? true : false;
-        }
-
         private void Load_Data()
         {
             lbRoomID.Text = this.Parent._RoomID.ToString();
@@ -56,7 +42,7 @@ namespace HotelManagement.UI
             RoomDetail room = new RoomDetail(Convert.ToInt32(lbRoomID.Text));
             tbRoomsize.Text = room.Size;
             tbRoomPrice.Text = room.Price;
-            setRoomType(room.Type);
+            SetValueForControl.SetRoomType(room.Type, rbtNor, rbtVip, rbtSingle, rbtDouble);
 
             if (this.Parent._RoomStatus == RoomStatus.Rented)
             {
@@ -64,7 +50,7 @@ namespace HotelManagement.UI
                 tbCustomerName.Text = customer.Name;
                 dtpCustomerBirthday.Value = customer.Birthday;
                 tbCustomerPhoneNum.Text = customer.PhoneNumber;
-                setSexOfCustomer(customer.sex);
+                SetValueForControl.SetSex(customer.sex, rbtMale, rbtFemale);
                 tbIDNo.Text = customer.IDNumber;
                 tbPassport.Text = customer.Passport;
                 tbCustomerAddress.Text = customer.Addr;

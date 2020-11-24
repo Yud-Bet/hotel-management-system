@@ -129,12 +129,14 @@
     <Compile Include="UI\Form_RoomInfo.Designer.cs">
       <DependentUpon>Form_RoomInfo.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\GetValueOfControl.cs" />
     <Compile Include="UI\Room.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UI\Room.Designer.cs">
       <DependentUpon>Room.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\SetValueForControl.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
