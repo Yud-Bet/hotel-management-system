@@ -227,9 +227,15 @@ namespace HotelManagement.UI
 
         private void btSettingRoom_Click(object sender, EventArgs e)
         {
-            Form_AddEditRoom form_AddEditRoom = new Form_AddEditRoom();
-            form_AddEditRoom._btAdd.Hide();
-            form_AddEditRoom.ShowDialog();
+            Form_AddEditRoom form_AddEditRoom = new Form_AddEditRoom(Convert.ToInt32(lbRoomID.Text));
+            form_AddEditRoom._btAdd.Hide();//??????????
+            if (form_AddEditRoom.ShowDialog() == DialogResult.OK)
+            {
+                RoomDetail room = new RoomDetail(Convert.ToInt32(lbRoomID.Text));
+                tbRoomsize.Text = room.Size;
+                tbRoomPrice.Text = room.Price;
+                SetValueForControl.SetRoomType(room.Type, rbtNor, rbtVip, rbtSingle, rbtDouble);
+            }
         }
     }
 }

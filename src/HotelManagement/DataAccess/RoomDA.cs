@@ -17,5 +17,9 @@ namespace HotelManagement.DataAccess
             return ExecuteQuery.ExecuteNoneQuery("QLKS_EditRoom @ID , @Type , @Area , @Price",
                 new object[] { RoomID, roomType, Area, Price });
         }
+        public static int SetRoomStatus(int RoomID, RoomStatus status)
+        {
+            return ExecuteQuery.ExecuteNoneQuery("QLKS_SetRoomStatus @ID , @Status", new object[] { RoomID, status });
+        }
     }
 }

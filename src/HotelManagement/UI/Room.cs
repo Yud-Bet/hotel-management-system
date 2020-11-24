@@ -170,6 +170,8 @@ namespace HotelManagement.UI
                         this._RoomStatus = RoomStatus.Empty;
                         this.Parent._lbNumberOfEmptyRoom.Text = (Convert.ToInt32(this.Parent._lbNumberOfEmptyRoom.Text) + 1).ToString();
                         this.Parent._lbNumberOfCleaningRoom.Text = (Convert.ToInt32(this.Parent._lbNumberOfCleaningRoom.Text) - 1).ToString();
+
+                        DataAccess.RoomDA.SetRoomStatus(RoomID, RoomStatus.Empty);
                     }
                 }
 
@@ -185,6 +187,8 @@ namespace HotelManagement.UI
                         this._RoomStatus = RoomStatus.Empty;
                         this.Parent._lbNumberOfEmptyRoom.Text = (Convert.ToInt32(this.Parent._lbNumberOfEmptyRoom.Text) + 1).ToString();
                         this.Parent._lbNumberOfRepairingRoom.Text = (Convert.ToInt32(this.Parent._lbNumberOfRepairingRoom.Text) - 1).ToString();
+
+                        DataAccess.RoomDA.SetRoomStatus(RoomID, RoomStatus.Empty);
                     }
                 }
 
@@ -197,28 +201,47 @@ namespace HotelManagement.UI
 
         void showMenu()
         {
-            zeroitMaterialContextMenuStrip1.Items[0].Visible = false;
-            zeroitMaterialContextMenuStrip1.Items[1].Visible = false;
-            zeroitMaterialContextMenuStrip1.Items[2].Visible = false;
-            zeroitMaterialContextMenuStrip1.Items[3].Visible = false;
+            RightClickMenu.Items[0].Visible = false;
+            RightClickMenu.Items[1].Visible = false;
+            RightClickMenu.Items[2].Visible = false;
+            RightClickMenu.Items[3].Visible = false;
 
             if (this.roomStatus == RoomStatus.Cleaning)
             {
-                zeroitMaterialContextMenuStrip1.Items[0].Visible = true;
-                zeroitMaterialContextMenuStrip1.Items[3].Visible = true;
+                RightClickMenu.Items[0].Visible = true;
+                RightClickMenu.Items[3].Visible = true;
             }
             else if (this.roomStatus == RoomStatus.Repairing)
             {
-                zeroitMaterialContextMenuStrip1.Items[1].Visible = true;
-                zeroitMaterialContextMenuStrip1.Items[2].Visible = true;
+                RightClickMenu.Items[1].Visible = true;
+                RightClickMenu.Items[2].Visible = true;
             } else
             {
-                zeroitMaterialContextMenuStrip1.Items[0].Visible = true;
-                zeroitMaterialContextMenuStrip1.Items[2].Visible = true;
+                RightClickMenu.Items[0].Visible = true;
+                RightClickMenu.Items[2].Visible = true;
             }
 
-            zeroitMaterialContextMenuStrip1.Show(MousePosition);
+            RightClickMenu.Show(MousePosition);
         }
 
+        private void menuItemRepairRoom_Click(object sender, EventArgs e)
+        {
+            DataAccess.RoomDA.SetRoomStatus(RoomID, RoomStatus.Repairing);
+        }
+
+        private void menuItemEndRepairRoom_Click(object sender, EventArgs e)
+        {
+            DataAccess.RoomDA.SetRoomStatus(RoomID, RoomStatus.Empty);
+        }
+
+        private void menuItemCleanRoom_Click(object sender, EventArgs e)
+        {
+            DataAccess.RoomDA.SetRoomStatus(RoomID, RoomStatus.Cleaning);
+        }
+
+        private void menuItemEndCleanRoom_Click(object sender, EventArgs e)
+        {
+            DataAccess.RoomDA.SetRoomStatus(RoomID, RoomStatus.Empty);
+        }
     }
 }
