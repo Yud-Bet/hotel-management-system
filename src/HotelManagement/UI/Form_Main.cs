@@ -13,9 +13,13 @@ namespace HotelManagement.UI
             InitializeComponent();
             this.Username = Username;
             LoadStaffInfo();
+
         }
 
-        private bool isChoosebtRoom = false, isChoosebtService = false, isChoosebtReport = false, isChoosebtManage = false;
+        private bool isChoosebtRoom = false, isChoosebtService = false, isChoosebtReport = false, isChoosebtManage = false,
+                    isChoosebtEatService = false, isChoosebtLaundryService = false, isChoosebtRevenue = false, isChoosebtBill = false,
+                    isChoosebtStaff = false, isChoosebtCustomer = false, isChoosebtWarehouse = false, isChoosebtSubService = false;
+        private Color colorChoose = Color.FromArgb(27, 152, 224), colorNChoose = Color.FromArgb(102, 102, 102);
 
         private void LoadStaffInfo()
         {
@@ -27,11 +31,41 @@ namespace HotelManagement.UI
         {
             isChoosebtRoom = true;
             ChooseAButton();
+            setStatus(pbRoom, lbRoom, pnTickChooseBtRoom, Resources.icRoom2, true);
             pnSubMenu_Service.Hide();
             pnSubMenu_Report.Hide();
             pnSubMenu_Manage.Hide();
             Form_Room temp = new Form_Room();
             panel4.Controls.Add(temp);
+        }
+
+        private void setStatus(PictureBox pb, Label lb, Panel pn, Image img, bool stt)
+        {
+            if (stt)
+            {
+                pn.Show();
+                pb.Image = img;
+                lb.ForeColor = colorChoose;
+            } else
+            {
+                pn.Hide();
+                pb.Image = img;
+                lb.ForeColor = colorNChoose;
+            }
+        }
+
+        private void setStatus(PictureBox pb, Label lb, Image img, bool stt)
+        {
+            if (stt)
+            {
+                pb.Image = img;
+                lb.ForeColor = colorChoose;
+            }
+            else
+            {
+                pb.Image = img;
+                lb.ForeColor = colorNChoose;
+            }
         }
 
         private void ChooseAButton()
@@ -54,33 +88,67 @@ namespace HotelManagement.UI
             }
         }
 
+        private void resetServiceSubmenu()
+        {
+            isChoosebtEatService = false;
+            isChoosebtLaundryService = false;
+            setStatus(pbEatService, lbEatService, Resources.icEatService, false);
+            setStatus(pbLaundryService, lbLaundryService, Resources.icLaundryService, false);
+        }
+
+        private void resetReportSubmenu()
+        {
+            isChoosebtRevenue = false;
+            isChoosebtBill = false;
+            setStatus(pbRevenue, lbRevenue, Resources.icRevenue, false);
+            setStatus(pbBill, lbBill, Resources.icBill, false);
+        }
+
+        private void resetManageSubmenu()
+        {
+            isChoosebtStaff = false;
+            isChoosebtCustomer = false;
+            isChoosebtWarehouse = false;
+            isChoosebtSubService = false;
+            setStatus(pbStaff, lbStaff, Resources.icStaff, false);
+            setStatus(pbCustomer, lbCustomer, Resources.icCustomer, false);
+            setStatus(pbWarehouse, lbWarehouse, Resources.icWarehouse, false);
+            setStatus(pbSubService, lbSubService, Resources.icSubService, false);
+        }
+
         private void ResetStatus()
         {
             if (isChoosebtRoom)
             {
                 isChoosebtRoom = false;
                 pnTickChooseBtRoom.Hide();
+                pbRoom.Image = Resources.icRoom;
+                lbRoom.ForeColor = Color.FromArgb(102, 102, 102);
             }
             if (isChoosebtService)
             {
                 isChoosebtService = false;
-                pnTickChooseBtService.Hide();
+                setStatus(pbService, lbService, pnTickChooseBtService, Resources.icSevice, false);
                 pbArrow_Service.Image = Resources.icHorizontalArrow;
                 pnSubMenu_Service.Hide();
+                resetServiceSubmenu();
             }
             if (isChoosebtReport)
             {
                 isChoosebtReport = false;
-                pnTickChooseBtReport.Hide();
+                setStatus(pbReport, lbReport, pnTickChooseBtReport, Resources.icReport, false);
                 pbArrow_Report.Image = Resources.icHorizontalArrow;
                 pnSubMenu_Report.Hide();
+                resetReportSubmenu();
+                
             }
             if (isChoosebtManage)
             {
                 isChoosebtManage = false;
-                pnTickChooseBtManage.Hide();
+                setStatus(pbManage, lbManage, pnTickChooseBtManage, Resources.icManage, false);
                 pbArrow_Manage.Image = Resources.icHorizontalArrow;
                 pnSubMenu_Manage.Hide();
+                resetManageSubmenu();
             }
         }
 
@@ -88,27 +156,28 @@ namespace HotelManagement.UI
 
         private void btRoom_Click(object sender, EventArgs e)
         {
-            ResetStatus();
-            isChoosebtRoom = true;
-            pnTickChooseBtRoom.Show();
+            if (!isChoosebtRoom)
+            {
+                ResetStatus();
+                isChoosebtRoom = true;
+                setStatus(pbRoom, lbRoom, pnTickChooseBtRoom, Resources.icRoom2, true);
+            }
         }
 
         private void btRoom_MouseMove(object sender, MouseEventArgs e)
         {
             if (!isChoosebtRoom)
             {
-                pnTickChooseBtRoom.Show();
+                setStatus(pbRoom, lbRoom, pnTickChooseBtRoom, Resources.icRoom2, true);
             }
-            btRoom.BackColor = Color.FromArgb(246, 246, 246);
         }
 
         private void btRoom_MouseLeave(object sender, EventArgs e)
         {
             if (!isChoosebtRoom)
             {
-                pnTickChooseBtRoom.Hide();
+                setStatus(pbRoom, lbRoom, pnTickChooseBtRoom, Resources.icRoom, false);
             }
-            btRoom.BackColor = Color.White;
         }
 
         #endregion
@@ -117,29 +186,32 @@ namespace HotelManagement.UI
 
         private void btService_Click(object sender, EventArgs e)
         {
-            ResetStatus();
-            isChoosebtService = true;
-            pnTickChooseBtService.Show();
-            pbArrow_Service.Image = Resources.icVerticalArrow;
-            pnSubMenu_Service.Show();
+            if (!isChoosebtService)
+            {
+                ResetStatus();
+                isChoosebtService = true;
+                setStatus(pbService, lbService, pnTickChooseBtService, Resources.icSevice2, true);
+                pbArrow_Service.Image = Resources.icVerticalArrow2;
+                pnSubMenu_Service.Show();
+            }
         }
 
         private void btService_MouseMove(object sender, MouseEventArgs e)
         {
             if (!isChoosebtService)
             {
-                pnTickChooseBtService.Show();
+                setStatus(pbService, lbService, pnTickChooseBtService, Resources.icSevice2, true);
+                pbArrow_Service.Image = Resources.icHorizontalArrow2;
             }
-            btService.BackColor = Color.FromArgb(246, 246, 246);
         }
 
         private void btService_MouseLeave(object sender, EventArgs e)
         {
             if (!isChoosebtService)
             {
-                pnTickChooseBtService.Hide();
+                setStatus(pbService, lbService, pnTickChooseBtService, Resources.icSevice, false);
+                pbArrow_Service.Image = Resources.icHorizontalArrow;
             }
-            btService.BackColor = Color.White;
         }
 
         #endregion
@@ -149,29 +221,32 @@ namespace HotelManagement.UI
 
         private void btReport_Click(object sender, EventArgs e)
         {
-            ResetStatus();
-            isChoosebtReport = true;
-            pnTickChooseBtReport.Show();
-            pbArrow_Report.Image = Resources.icVerticalArrow;
-            pnSubMenu_Report.Show();
+            if (!isChoosebtReport)
+            {
+                ResetStatus();
+                isChoosebtReport = true;
+                setStatus(pbReport, lbReport, pnTickChooseBtReport, Resources.icReport2, true);
+                pbArrow_Report.Image = Resources.icVerticalArrow2;
+                pnSubMenu_Report.Show();
+            }        
         }
 
         private void btReport_MouseMove(object sender, MouseEventArgs e)
         {
             if (!isChoosebtReport)
             {
-                pnTickChooseBtReport.Show();
+                setStatus(pbReport, lbReport, pnTickChooseBtReport, Resources.icReport2, true);
+                pbArrow_Report.Image = Resources.icHorizontalArrow2;
             }
-            btReport.BackColor = Color.FromArgb(246, 246, 246);
         }
 
         private void btReport_MouseLeave(object sender, EventArgs e)
         {
             if (!isChoosebtReport)
             {
-                pnTickChooseBtReport.Hide();
+                setStatus(pbReport, lbReport, pnTickChooseBtReport, Resources.icReport, false);
+                pbArrow_Report.Image = Resources.icHorizontalArrow;
             }
-            btReport.BackColor = Color.White;
         }
 
         #endregion
@@ -180,29 +255,32 @@ namespace HotelManagement.UI
 
         private void btManage_Click(object sender, EventArgs e)
         {
-            ResetStatus();
-            isChoosebtManage = true;
-            pnTickChooseBtManage.Show();
-            pbArrow_Manage.Image = Resources.icVerticalArrow;
-            pnSubMenu_Manage.Show();
+            if (!isChoosebtManage)
+            {
+                ResetStatus();
+                isChoosebtManage = true;
+                setStatus(pbManage, lbManage, pnTickChooseBtManage, Resources.icManage2, true);
+                pbArrow_Manage.Image = Resources.icVerticalArrow2;
+                pnSubMenu_Manage.Show();
+            }
         }
 
         private void btManage_MouseMove(object sender, MouseEventArgs e)
         {
             if (!isChoosebtManage)
             {
-                pnTickChooseBtManage.Show();
+                setStatus(pbManage, lbManage, pnTickChooseBtManage, Resources.icManage2, true);
+                pbArrow_Manage.Image = Resources.icHorizontalArrow2;
             }
-            btManage.BackColor = Color.FromArgb(246, 246, 246);
         }
 
         private void btManage_MouseLeave(object sender, EventArgs e)
         {
             if (!isChoosebtManage)
             {
-                pnTickChooseBtManage.Hide();
+                setStatus(pbManage, lbManage, pnTickChooseBtManage, Resources.icManage, false);
+                pbArrow_Manage.Image = Resources.icHorizontalArrow;
             }
-            btManage.BackColor = Color.White;
         }
 
         #endregion
@@ -211,32 +289,54 @@ namespace HotelManagement.UI
 
         private void btEatService_Click(object sender, EventArgs e)
         {
-
+            if (!isChoosebtEatService)
+            {
+                resetServiceSubmenu();
+                isChoosebtEatService = true;
+                setStatus(pbEatService, lbEatService, Resources.icEatService2, true);
+            }
         }
 
         private void btEatService_MouseMove(object sender, MouseEventArgs e)
         {
-            btEatService.BackColor = Color.FromArgb(220, 220, 220);
+            if (!isChoosebtEatService)
+            {
+                setStatus(pbEatService, lbEatService, Resources.icEatService2, true);
+            }
         }
 
         private void btEatService_MouseLeave(object sender, EventArgs e)
         {
-            btEatService.BackColor = Color.FromArgb(245, 245, 245);
+            if (!isChoosebtEatService)
+            {
+                setStatus(pbEatService, lbEatService, Resources.icEatService, false);
+            }
         }
 
         private void btLaundryService_Click(object sender, EventArgs e)
         {
-
+            if (!isChoosebtLaundryService)
+            {
+                resetServiceSubmenu();
+                isChoosebtLaundryService = true;
+                setStatus(pbLaundryService, lbLaundryService, Resources.icLaundryService2, true);
+            }
         }
 
         private void btLaundryService_MouseMove(object sender, MouseEventArgs e)
         {
-            btLaundryService.BackColor = Color.FromArgb(220, 220, 220);
+            if (!isChoosebtLaundryService)
+            {
+                setStatus(pbLaundryService, lbLaundryService, Resources.icLaundryService2, true);
+            }
         }
 
         private void btLaundryService_MouseLeave(object sender, EventArgs e)
         {
-            btLaundryService.BackColor = Color.FromArgb(245, 245, 245);
+            if (!isChoosebtLaundryService)
+            {
+                setStatus(pbLaundryService, lbLaundryService, Resources.icLaundryService, false);
+            }
         }
 
         #endregion
@@ -245,32 +345,59 @@ namespace HotelManagement.UI
 
         private void btRevenue_Click(object sender, EventArgs e)
         {
-
+            if (!isChoosebtRevenue)
+            {
+                resetReportSubmenu();
+                isChoosebtRevenue = true;
+                setStatus(pbRevenue, lbRevenue, Resources.icRevenue2, true);
+            }
         }
 
         private void btRevenue_MouseMove(object sender, MouseEventArgs e)
         {
-            btRevenue.BackColor = Color.FromArgb(220, 220, 220);
+            if (!isChoosebtRevenue)
+            {
+                setStatus(pbRevenue, lbRevenue, Resources.icRevenue2, true);
+            }
         }
 
         private void btRevenue_MouseLeave(object sender, EventArgs e)
         {
-            btRevenue.BackColor = Color.FromArgb(245, 245, 245);
+            if (!isChoosebtRevenue)
+            {
+                setStatus(pbRevenue, lbRevenue, Resources.icRevenue, false);
+            }
         }
 
         private void pnBill_Click(object sender, EventArgs e)
         {
-
+            if (!isChoosebtBill)
+            {
+                resetReportSubmenu();
+                isChoosebtBill = true;
+                setStatus(pbBill, lbBill, Resources.icBill2, true);
+            }
         }
 
         private void pnBill_MouseMove(object sender, MouseEventArgs e)
         {
-            pnBill.BackColor = Color.FromArgb(220, 220, 220);
+            if (!isChoosebtBill)
+            {
+                setStatus(pbBill, lbBill, Resources.icBill2, true);
+            }
         }
 
         private void pnBill_MouseLeave(object sender, EventArgs e)
         {
-            pnBill.BackColor = Color.FromArgb(245, 245, 245);
+            if (!isChoosebtBill)
+            {
+                setStatus(pbBill, lbBill, Resources.icBill, false);
+            }
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
         }
 
         #endregion
@@ -279,74 +406,108 @@ namespace HotelManagement.UI
 
         private void btStaff_Click(object sender, EventArgs e)
         {
-
+            if (!isChoosebtStaff)
+            {
+                resetManageSubmenu();
+                isChoosebtStaff = true;
+                setStatus(pbStaff, lbStaff, Resources.icStaff2, true);
+            }
         }
 
         private void btStaff_MouseMove(object sender, MouseEventArgs e)
         {
-            btStaff.BackColor = Color.FromArgb(220, 220, 220);
+            if (!isChoosebtStaff)
+            {
+                setStatus(pbStaff, lbStaff, Resources.icStaff2, true);
+            }
         }
 
         private void btStaff_MouseLeave(object sender, EventArgs e)
         {
-            btStaff.BackColor = Color.FromArgb(245, 245, 245);
+            if (!isChoosebtStaff)
+            {
+                setStatus(pbStaff, lbStaff, Resources.icStaff, false);
+            }
         }
 
         private void btCustomer_Click(object sender, EventArgs e)
         {
-
+            if (!isChoosebtCustomer)
+            {
+                resetManageSubmenu();
+                isChoosebtCustomer = true;
+                setStatus(pbCustomer, lbCustomer, Resources.icCustomer2, true);
+            }
         }
 
         private void btCustomer_MouseMove(object sender, MouseEventArgs e)
         {
-            btCustomer.BackColor = Color.FromArgb(220, 220, 220);
+            if (!isChoosebtCustomer)
+            {
+                setStatus(pbCustomer, lbCustomer, Resources.icCustomer2, true);
+            }
         }
 
         private void btCustomer_MouseLeave(object sender, EventArgs e)
         {
-            btCustomer.BackColor = Color.FromArgb(245, 245, 245);
+            if (!isChoosebtCustomer)
+            {
+                setStatus(pbCustomer, lbCustomer, Resources.icCustomer, false);
+            }
         }
 
         private void btWarehouse_Click(object sender, EventArgs e)
         {
-
+            if (!isChoosebtWarehouse)
+            {
+                resetManageSubmenu();
+                isChoosebtWarehouse = true;
+                setStatus(pbWarehouse, lbWarehouse, Resources.icWarehouse2, true);
+            }
         }
 
         private void btWarehouse_MouseMove(object sender, MouseEventArgs e)
         {
-            btWarehouse.BackColor = Color.FromArgb(220, 220, 220);
+            if (!isChoosebtWarehouse)
+            {
+                setStatus(pbWarehouse, lbWarehouse, Resources.icWarehouse2, true);
+            }
         }
 
         private void btWarehouse_MouseLeave(object sender, EventArgs e)
         {
-            btWarehouse.BackColor = Color.FromArgb(245, 245, 245);
+            if (!isChoosebtWarehouse)
+            {
+                setStatus(pbWarehouse, lbWarehouse, Resources.icWarehouse, false);
+            }
         }
 
         private void btService_manage_Click(object sender, EventArgs e)
         {
-            
-        }
-
-        private void pictureBox1_Click_1(object sender, EventArgs e)
-        {
-            this.Close();
+            if (!isChoosebtSubService)
+            {
+                resetManageSubmenu();
+                isChoosebtSubService = true;
+                setStatus(pbSubService, lbSubService, Resources.icSubService2, true);
+            }
         }
 
         private void btService_manage_MouseMove(object sender, MouseEventArgs e)
         {
-            btService_manage.BackColor = Color.FromArgb(220, 220, 220);
+            if (!isChoosebtSubService)
+            {
+                setStatus(pbSubService, lbSubService, Resources.icSubService2, true);
+            }
         }
 
         private void btService_manage_MouseLeave(object sender, EventArgs e)
         {
-            btService_manage.BackColor = Color.FromArgb(245, 245, 245);
+            if (!isChoosebtSubService)
+            {
+                setStatus(pbSubService, lbSubService, Resources.icSubService, false);
+            }
         }
 
         #endregion
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
     }
 }

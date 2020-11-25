@@ -8,6 +8,7 @@ namespace HotelManagement.UI
         {
             InitializeComponent();
             Load_Data();
+            this.Dock = DockStyle.Fill;
         }
         #region Properties
         public Panel _pnToAddARoomInfo

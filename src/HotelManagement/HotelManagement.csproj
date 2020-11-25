@@ -296,5 +296,47 @@
   <ItemGroup>
     <None Include="Resources\profile-user.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icSubService2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icWarehouse2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icCustomer2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icStaff2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icManage2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icBill2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icRevenue2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icReport2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icLaundryService2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icEatService2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icSevice2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icRoom2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icHorizontalArrow2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icVerticalArrow2.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
