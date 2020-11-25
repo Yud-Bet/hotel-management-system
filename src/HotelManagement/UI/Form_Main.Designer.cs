@@ -821,7 +821,7 @@
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.panel4.Location = new System.Drawing.Point(270, 27);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(968, 665);
+            this.panel4.Size = new System.Drawing.Size(976, 665);
             this.panel4.TabIndex = 1;
             // 
             // Form_Main
