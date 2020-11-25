@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
 using HotelManagement.DTO;
+using System.Drawing;
 
 namespace HotelManagement.UI
 {
@@ -227,15 +228,29 @@ namespace HotelManagement.UI
 
         private void btSettingRoom_Click(object sender, EventArgs e)
         {
-            Form_AddEditRoom form_AddEditRoom = new Form_AddEditRoom(Convert.ToInt32(lbRoomID.Text));
-            form_AddEditRoom._btAdd.Hide();//??????????
-            if (form_AddEditRoom.ShowDialog() == DialogResult.OK)
-            {
-                RoomDetail room = new RoomDetail(Convert.ToInt32(lbRoomID.Text));
-                tbRoomsize.Text = room.Size;
-                tbRoomPrice.Text = room.Price;
-                SetValueForControl.SetRoomType(room.Type, rbtNor, rbtVip, rbtSingle, rbtDouble);
-            }
+            printPreviewDialogBill.Document = bill;
+            printPreviewDialogBill.ShowDialog();
+            //Form_AddEditRoom form_AddEditRoom = new Form_AddEditRoom(Convert.ToInt32(lbRoomID.Text));
+            //form_AddEditRoom._btAdd.Hide();//??????????
+            //if (form_AddEditRoom.ShowDialog() == DialogResult.OK)
+            //{
+            //    RoomDetail room = new RoomDetail(Convert.ToInt32(lbRoomID.Text));
+            //    tbRoomsize.Text = room.Size;
+            //    tbRoomPrice.Text = room.Price;
+            //    SetValueForControl.SetRoomType(room.Type, rbtNor, rbtVip, rbtSingle, rbtDouble);
+            //}
+        }
+
+        private void bill_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            drawBill drawBill = new drawBill(e.Graphics);
+            drawBill.drawBillHeader();
+            drawBill.drawCustomerInfo("Nguyễn Văn Huấn", 302, "12344435", "dfgdfgdfgdf", dtpCheckInDate.Text, dtpCheckOutDate.Text);
+            drawBill.drawItem("Phòng", 12, 10000);
+            drawBill.drawItem("Cola", 10000, 1000000000);
+            drawBill.drawItem("Phòng", 12, 10000);
+            drawBill.drawItem("Cola", 10000, 1000000000);
+            drawBill.drawEndOfBill("Lê Thanh Dàn", 10000000, 10);
         }
     }
 }

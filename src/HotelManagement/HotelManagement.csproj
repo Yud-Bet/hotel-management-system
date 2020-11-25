@@ -99,6 +99,7 @@
     <Compile Include="Helper.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UI\drawBill.cs" />
     <Compile Include="UI\Form_AddEditRoom.cs">
       <SubType>Form</SubType>
     </Compile>

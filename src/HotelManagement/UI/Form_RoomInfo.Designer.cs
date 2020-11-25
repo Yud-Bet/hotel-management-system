@@ -92,6 +92,8 @@
             this.btPay = new XanderUI.XUIButton();
             this.btSettingRoom = new XanderUI.XUIButton();
             this.btDeleteRoom = new XanderUI.XUIButton();
+            this.bill = new System.Drawing.Printing.PrintDocument();
+            this.printPreviewDialogBill = new System.Windows.Forms.PrintPreviewDialog();
             this.pnCustomerInfo.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.pnRoomInfo.SuspendLayout();
@@ -943,6 +945,20 @@
             this.btDeleteRoom.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
             this.btDeleteRoom.Vertical_Alignment = System.Drawing.StringAlignment.Center;
             // 
+            // bill
+            // 
+            this.bill.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.bill_PrintPage);
+            // 
+            // printPreviewDialogBill
+            // 
+            this.printPreviewDialogBill.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.printPreviewDialogBill.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.printPreviewDialogBill.ClientSize = new System.Drawing.Size(400, 300);
+            this.printPreviewDialogBill.Enabled = true;
+            this.printPreviewDialogBill.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialogBill.Icon")));
+            this.printPreviewDialogBill.Name = "printPreviewDialogBill";
+            this.printPreviewDialogBill.Visible = false;
+            // 
             // Form_RoomInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1048,5 +1064,7 @@
         private XanderUI.XUIButton btSettingRoom;
         private XanderUI.XUIButton btDeleteRoom;
         private System.Windows.Forms.Label label14;
+        private System.Drawing.Printing.PrintDocument bill;
+        private System.Windows.Forms.PrintPreviewDialog printPreviewDialogBill;
     }
 }
