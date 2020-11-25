@@ -24,8 +24,8 @@ namespace HotelManagement.UI
             tbCustomerName.Focus();
             pnVip_Nor.Enabled = false;
             pnSignle_Dou.Enabled = false;
-            tbRoomsize.Enabled = false;
-            tbRoomPrice.Enabled = false;
+            tbRoomsize.IsEnabled = false;
+            tbRoomPrice.IsEnabled = false;
         }
 
         private void setRoomType(RoomType type)
@@ -98,16 +98,16 @@ namespace HotelManagement.UI
             if (cbIDNo.Checked == true)
             {
                 cbPassport.Checked = false;
-                tbIDNo.Enabled = true;
-                tbPassport.Enabled = false;
+                tbIDNo.IsEnabled = true;
+                tbPassport.IsEnabled = false;
                 tbPassport.Text = "";
             }
             else
             {
                 cbPassport.Checked = true;
-                tbIDNo.Enabled = false;
+                tbIDNo.IsEnabled = false;
                 tbIDNo.Text = "";
-                tbPassport.Enabled = true;
+                tbPassport.IsEnabled = true;
             }
         }
 
@@ -116,15 +116,15 @@ namespace HotelManagement.UI
             if (cbPassport.Checked == true)
             {
                 cbIDNo.Checked = false;
-                tbIDNo.Enabled = false;
+                tbIDNo.IsEnabled = false;
                 tbIDNo.Text = "";
-                tbPassport.Enabled = true;
+                tbPassport.IsEnabled = true;
             }
             else
             {
                 cbIDNo.Checked = true;
-                tbIDNo.Enabled = true;
-                tbPassport.Enabled = false;
+                tbIDNo.IsEnabled = true;
+                tbPassport.IsEnabled = false;
                 tbPassport.Text = "";
             }
         }

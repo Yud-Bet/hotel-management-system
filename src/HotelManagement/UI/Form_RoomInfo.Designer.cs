@@ -32,18 +32,18 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.lbRoomID = new System.Windows.Forms.Label();
             this.pnCustomerInfo = new System.Windows.Forms.Panel();
+            this.tbNote = new Zeroit.Framework.Labels.ZeroitUltraTextBox();
+            this.tbCustomerAddress = new Zeroit.Framework.Labels.ZeroitUltraTextBox();
+            this.tbPassport = new Zeroit.Framework.Labels.ZeroitUltraTextBox();
+            this.tbIDNo = new Zeroit.Framework.Labels.ZeroitUltraTextBox();
+            this.tbCustomerPhoneNum = new Zeroit.Framework.Labels.ZeroitUltraTextBox();
+            this.tbCustomerName = new Zeroit.Framework.Labels.ZeroitUltraTextBox();
             this.cbPassport = new Zeroit.Framework.MaterialDesign.Controls.ZeroitMaterialCheckBox();
             this.cbIDNo = new Zeroit.Framework.MaterialDesign.Controls.ZeroitMaterialCheckBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.rbtMale = new MetroFramework.Controls.MetroRadioButton();
-            this.rbtFemale = new MetroFramework.Controls.MetroRadioButton();
+            this.rbtMale = new MaterialSkin.Controls.MaterialRadioButton();
+            this.rbtFemale = new MaterialSkin.Controls.MaterialRadioButton();
             this.dtpCustomerBirthday = new MetroFramework.Controls.MetroDateTime();
-            this.tbPassport = new Zeroit.Framework.Metro.ZeroitMetroTextbox();
-            this.tbNote = new Zeroit.Framework.Metro.ZeroitMetroTextbox();
-            this.tbCustomerAddress = new Zeroit.Framework.Metro.ZeroitMetroTextbox();
-            this.tbIDNo = new Zeroit.Framework.Metro.ZeroitMetroTextbox();
-            this.tbCustomerPhoneNum = new Zeroit.Framework.Metro.ZeroitMetroTextbox();
-            this.tbCustomerName = new Zeroit.Framework.Metro.ZeroitMetroTextbox();
             this.label8 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -56,20 +56,19 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.pnRoomInfo = new System.Windows.Forms.Panel();
             this.pnSignle_Dou = new System.Windows.Forms.FlowLayoutPanel();
-            this.rbtSingle = new MetroFramework.Controls.MetroRadioButton();
-            this.rbtDouble = new MetroFramework.Controls.MetroRadioButton();
+            this.rbtSingle = new MaterialSkin.Controls.MaterialRadioButton();
+            this.rbtDouble = new MaterialSkin.Controls.MaterialRadioButton();
             this.pnVip_Nor = new System.Windows.Forms.FlowLayoutPanel();
-            this.rbtVip = new MetroFramework.Controls.MetroRadioButton();
-            this.rbtNor = new MetroFramework.Controls.MetroRadioButton();
+            this.rbtVip = new MaterialSkin.Controls.MaterialRadioButton();
+            this.rbtNor = new MaterialSkin.Controls.MaterialRadioButton();
             this.panel5 = new System.Windows.Forms.Panel();
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.tbRoomPrice = new Zeroit.Framework.Metro.ZeroitMetroTextbox();
-            this.tbRoomsize = new Zeroit.Framework.Metro.ZeroitMetroTextbox();
             this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.pnBookingInfo = new System.Windows.Forms.Panel();
             this.cbCheckOutDate = new Zeroit.Framework.MaterialDesign.Controls.ZeroitMaterialCheckBox();
             this.dtpCheckOutDate = new MetroFramework.Controls.MetroDateTime();
@@ -80,8 +79,6 @@
             this.label17 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
-            this.tbTotalMoney = new Zeroit.Framework.Metro.ZeroitMetroTextbox();
-            this.tbNumberDay = new Zeroit.Framework.Metro.ZeroitMetroTextbox();
             this.panel7 = new System.Windows.Forms.Panel();
             this.pbArrowBack = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
@@ -94,6 +91,11 @@
             this.btDeleteRoom = new XanderUI.XUIButton();
             this.bill = new System.Drawing.Printing.PrintDocument();
             this.printPreviewDialogBill = new System.Windows.Forms.PrintPreviewDialog();
+            this.tbRoomsize = new Zeroit.Framework.Labels.ZeroitUltraTextBox();
+            this.tbRoomPrice = new Zeroit.Framework.Labels.ZeroitUltraTextBox();
+            this.label21 = new System.Windows.Forms.Label();
+            this.tbNumberDay = new Zeroit.Framework.Labels.ZeroitUltraTextBox();
+            this.tbTotalMoney = new Zeroit.Framework.Labels.ZeroitUltraTextBox();
             this.pnCustomerInfo.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.pnRoomInfo.SuspendLayout();
@@ -129,16 +131,16 @@
             // 
             // pnCustomerInfo
             // 
+            this.pnCustomerInfo.Controls.Add(this.tbNote);
+            this.pnCustomerInfo.Controls.Add(this.tbCustomerAddress);
+            this.pnCustomerInfo.Controls.Add(this.tbPassport);
+            this.pnCustomerInfo.Controls.Add(this.tbIDNo);
+            this.pnCustomerInfo.Controls.Add(this.tbCustomerPhoneNum);
+            this.pnCustomerInfo.Controls.Add(this.tbCustomerName);
             this.pnCustomerInfo.Controls.Add(this.cbPassport);
             this.pnCustomerInfo.Controls.Add(this.cbIDNo);
             this.pnCustomerInfo.Controls.Add(this.flowLayoutPanel1);
             this.pnCustomerInfo.Controls.Add(this.dtpCustomerBirthday);
-            this.pnCustomerInfo.Controls.Add(this.tbPassport);
-            this.pnCustomerInfo.Controls.Add(this.tbNote);
-            this.pnCustomerInfo.Controls.Add(this.tbCustomerAddress);
-            this.pnCustomerInfo.Controls.Add(this.tbIDNo);
-            this.pnCustomerInfo.Controls.Add(this.tbCustomerPhoneNum);
-            this.pnCustomerInfo.Controls.Add(this.tbCustomerName);
             this.pnCustomerInfo.Controls.Add(this.label8);
             this.pnCustomerInfo.Controls.Add(this.label10);
             this.pnCustomerInfo.Controls.Add(this.label9);
@@ -153,6 +155,156 @@
             this.pnCustomerInfo.Name = "pnCustomerInfo";
             this.pnCustomerInfo.Size = new System.Drawing.Size(491, 467);
             this.pnCustomerInfo.TabIndex = 8;
+            // 
+            // tbNote
+            // 
+            this.tbNote.DisabledStringColor = System.Drawing.Color.Black;
+            this.tbNote.DisabledUnFocusedColor = System.Drawing.Color.Silver;
+            this.tbNote.EnabledUnFocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.tbNote.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
+            this.tbNote.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.tbNote.ForeColor = System.Drawing.Color.Black;
+            this.tbNote.IsEnabled = true;
+            this.tbNote.Location = new System.Drawing.Point(17, 364);
+            this.tbNote.MaxLength = 32767;
+            this.tbNote.Multiline = true;
+            this.tbNote.Name = "tbNote";
+            this.tbNote.PasswordChar = '\0';
+            this.tbNote.Placeholder = true;
+            this.tbNote.PlaceHolderText = "";
+            this.tbNote.PlaceHolderTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
+            this.tbNote.ReadOnly = false;
+            this.tbNote.Size = new System.Drawing.Size(440, 81);
+            this.tbNote.TabIndex = 5;
+            this.tbNote.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left;
+            this.tbNote.TextBackgroundColor = System.Drawing.SystemColors.Control;
+            this.tbNote.UseSystemPasswordChar = false;
+            this.tbNote.WordWrap = true;
+            // 
+            // tbCustomerAddress
+            // 
+            this.tbCustomerAddress.DisabledStringColor = System.Drawing.Color.Black;
+            this.tbCustomerAddress.DisabledUnFocusedColor = System.Drawing.Color.Silver;
+            this.tbCustomerAddress.EnabledUnFocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.tbCustomerAddress.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
+            this.tbCustomerAddress.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.tbCustomerAddress.ForeColor = System.Drawing.Color.Black;
+            this.tbCustomerAddress.IsEnabled = true;
+            this.tbCustomerAddress.Location = new System.Drawing.Point(17, 304);
+            this.tbCustomerAddress.MaxLength = 32767;
+            this.tbCustomerAddress.Multiline = false;
+            this.tbCustomerAddress.Name = "tbCustomerAddress";
+            this.tbCustomerAddress.PasswordChar = '\0';
+            this.tbCustomerAddress.Placeholder = true;
+            this.tbCustomerAddress.PlaceHolderText = "";
+            this.tbCustomerAddress.PlaceHolderTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
+            this.tbCustomerAddress.ReadOnly = false;
+            this.tbCustomerAddress.Size = new System.Drawing.Size(440, 24);
+            this.tbCustomerAddress.TabIndex = 4;
+            this.tbCustomerAddress.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left;
+            this.tbCustomerAddress.TextBackgroundColor = System.Drawing.SystemColors.Control;
+            this.tbCustomerAddress.UseSystemPasswordChar = false;
+            this.tbCustomerAddress.WordWrap = true;
+            // 
+            // tbPassport
+            // 
+            this.tbPassport.DisabledStringColor = System.Drawing.Color.Black;
+            this.tbPassport.DisabledUnFocusedColor = System.Drawing.Color.Silver;
+            this.tbPassport.EnabledUnFocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.tbPassport.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
+            this.tbPassport.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.tbPassport.ForeColor = System.Drawing.Color.Black;
+            this.tbPassport.IsEnabled = false;
+            this.tbPassport.Location = new System.Drawing.Point(252, 233);
+            this.tbPassport.MaxLength = 32767;
+            this.tbPassport.Multiline = false;
+            this.tbPassport.Name = "tbPassport";
+            this.tbPassport.PasswordChar = '\0';
+            this.tbPassport.Placeholder = true;
+            this.tbPassport.PlaceHolderText = "";
+            this.tbPassport.PlaceHolderTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
+            this.tbPassport.ReadOnly = true;
+            this.tbPassport.Size = new System.Drawing.Size(205, 24);
+            this.tbPassport.TabIndex = 3;
+            this.tbPassport.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left;
+            this.tbPassport.TextBackgroundColor = System.Drawing.SystemColors.Control;
+            this.tbPassport.UseSystemPasswordChar = false;
+            this.tbPassport.WordWrap = true;
+            // 
+            // tbIDNo
+            // 
+            this.tbIDNo.DisabledStringColor = System.Drawing.Color.Black;
+            this.tbIDNo.DisabledUnFocusedColor = System.Drawing.Color.Silver;
+            this.tbIDNo.EnabledUnFocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.tbIDNo.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
+            this.tbIDNo.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.tbIDNo.ForeColor = System.Drawing.Color.Black;
+            this.tbIDNo.IsEnabled = true;
+            this.tbIDNo.Location = new System.Drawing.Point(17, 233);
+            this.tbIDNo.MaxLength = 32767;
+            this.tbIDNo.Multiline = false;
+            this.tbIDNo.Name = "tbIDNo";
+            this.tbIDNo.PasswordChar = '\0';
+            this.tbIDNo.Placeholder = true;
+            this.tbIDNo.PlaceHolderText = "";
+            this.tbIDNo.PlaceHolderTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
+            this.tbIDNo.ReadOnly = false;
+            this.tbIDNo.Size = new System.Drawing.Size(205, 24);
+            this.tbIDNo.TabIndex = 3;
+            this.tbIDNo.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left;
+            this.tbIDNo.TextBackgroundColor = System.Drawing.SystemColors.Control;
+            this.tbIDNo.UseSystemPasswordChar = false;
+            this.tbIDNo.WordWrap = true;
+            // 
+            // tbCustomerPhoneNum
+            // 
+            this.tbCustomerPhoneNum.DisabledStringColor = System.Drawing.Color.Black;
+            this.tbCustomerPhoneNum.DisabledUnFocusedColor = System.Drawing.Color.Silver;
+            this.tbCustomerPhoneNum.EnabledUnFocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.tbCustomerPhoneNum.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
+            this.tbCustomerPhoneNum.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.tbCustomerPhoneNum.ForeColor = System.Drawing.Color.Black;
+            this.tbCustomerPhoneNum.IsEnabled = true;
+            this.tbCustomerPhoneNum.Location = new System.Drawing.Point(17, 156);
+            this.tbCustomerPhoneNum.MaxLength = 32767;
+            this.tbCustomerPhoneNum.Multiline = false;
+            this.tbCustomerPhoneNum.Name = "tbCustomerPhoneNum";
+            this.tbCustomerPhoneNum.PasswordChar = '\0';
+            this.tbCustomerPhoneNum.Placeholder = true;
+            this.tbCustomerPhoneNum.PlaceHolderText = "";
+            this.tbCustomerPhoneNum.PlaceHolderTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
+            this.tbCustomerPhoneNum.ReadOnly = false;
+            this.tbCustomerPhoneNum.Size = new System.Drawing.Size(267, 24);
+            this.tbCustomerPhoneNum.TabIndex = 2;
+            this.tbCustomerPhoneNum.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left;
+            this.tbCustomerPhoneNum.TextBackgroundColor = System.Drawing.SystemColors.Control;
+            this.tbCustomerPhoneNum.UseSystemPasswordChar = false;
+            this.tbCustomerPhoneNum.WordWrap = true;
+            // 
+            // tbCustomerName
+            // 
+            this.tbCustomerName.DisabledStringColor = System.Drawing.Color.Black;
+            this.tbCustomerName.DisabledUnFocusedColor = System.Drawing.Color.Silver;
+            this.tbCustomerName.EnabledUnFocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.tbCustomerName.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
+            this.tbCustomerName.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.tbCustomerName.ForeColor = System.Drawing.Color.Black;
+            this.tbCustomerName.IsEnabled = true;
+            this.tbCustomerName.Location = new System.Drawing.Point(17, 77);
+            this.tbCustomerName.MaxLength = 32767;
+            this.tbCustomerName.Multiline = false;
+            this.tbCustomerName.Name = "tbCustomerName";
+            this.tbCustomerName.PasswordChar = '\0';
+            this.tbCustomerName.Placeholder = true;
+            this.tbCustomerName.PlaceHolderText = "";
+            this.tbCustomerName.PlaceHolderTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
+            this.tbCustomerName.ReadOnly = false;
+            this.tbCustomerName.Size = new System.Drawing.Size(267, 24);
+            this.tbCustomerName.TabIndex = 1;
+            this.tbCustomerName.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left;
+            this.tbCustomerName.TextBackgroundColor = System.Drawing.SystemColors.Control;
+            this.tbCustomerName.UseSystemPasswordChar = false;
+            this.tbCustomerName.WordWrap = true;
             // 
             // cbPassport
             // 
@@ -194,149 +346,52 @@
             this.flowLayoutPanel1.Controls.Add(this.rbtFemale);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(310, 151);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(104, 22);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(178, 32);
             this.flowLayoutPanel1.TabIndex = 8;
             // 
             // rbtMale
             // 
             this.rbtMale.AutoSize = true;
-            this.rbtMale.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
-            this.rbtMale.Location = new System.Drawing.Point(3, 3);
+            this.rbtMale.Depth = 0;
+            this.rbtMale.Font = new System.Drawing.Font("Roboto", 10F);
+            this.rbtMale.Location = new System.Drawing.Point(0, 0);
+            this.rbtMale.Margin = new System.Windows.Forms.Padding(0);
+            this.rbtMale.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.rbtMale.MouseState = MaterialSkin.MouseState.HOVER;
             this.rbtMale.Name = "rbtMale";
-            this.rbtMale.Size = new System.Drawing.Size(49, 15);
-            this.rbtMale.TabIndex = 4;
+            this.rbtMale.Ripple = true;
+            this.rbtMale.Size = new System.Drawing.Size(58, 30);
+            this.rbtMale.TabIndex = 6;
+            this.rbtMale.TabStop = true;
             this.rbtMale.Text = "Nam";
-            this.rbtMale.UseSelectable = true;
+            this.rbtMale.UseVisualStyleBackColor = true;
             // 
             // rbtFemale
             // 
             this.rbtFemale.AutoSize = true;
-            this.rbtFemale.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
-            this.rbtFemale.Location = new System.Drawing.Point(58, 3);
+            this.rbtFemale.Depth = 0;
+            this.rbtFemale.Font = new System.Drawing.Font("Roboto", 10F);
+            this.rbtFemale.Location = new System.Drawing.Point(58, 0);
+            this.rbtFemale.Margin = new System.Windows.Forms.Padding(0);
+            this.rbtFemale.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.rbtFemale.MouseState = MaterialSkin.MouseState.HOVER;
             this.rbtFemale.Name = "rbtFemale";
-            this.rbtFemale.Size = new System.Drawing.Size(39, 15);
-            this.rbtFemale.TabIndex = 5;
+            this.rbtFemale.Ripple = true;
+            this.rbtFemale.Size = new System.Drawing.Size(47, 30);
+            this.rbtFemale.TabIndex = 6;
+            this.rbtFemale.TabStop = true;
             this.rbtFemale.Text = "Nữ";
-            this.rbtFemale.UseSelectable = true;
+            this.rbtFemale.UseVisualStyleBackColor = true;
             // 
             // dtpCustomerBirthday
             // 
+            this.dtpCustomerBirthday.CalendarForeColor = System.Drawing.Color.Coral;
             this.dtpCustomerBirthday.CalendarMonthBackground = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.dtpCustomerBirthday.Location = new System.Drawing.Point(310, 75);
             this.dtpCustomerBirthday.MinimumSize = new System.Drawing.Size(0, 29);
             this.dtpCustomerBirthday.Name = "dtpCustomerBirthday";
             this.dtpCustomerBirthday.Size = new System.Drawing.Size(162, 29);
             this.dtpCustomerBirthday.TabIndex = 2;
-            // 
-            // tbPassport
-            // 
-            this.tbPassport.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.tbPassport.Border = 3;
-            this.tbPassport.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
-            this.tbPassport.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.tbPassport.DefaultColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.tbPassport.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
-            this.tbPassport.Enabled = false;
-            this.tbPassport.Font = new System.Drawing.Font("Calibri", 13F);
-            this.tbPassport.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
-            this.tbPassport.HideSelection = false;
-            this.tbPassport.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(168)))), ((int)(((byte)(144)))));
-            this.tbPassport.Location = new System.Drawing.Point(252, 227);
-            this.tbPassport.Name = "tbPassport";
-            this.tbPassport.PasswordChar = '\0';
-            this.tbPassport.Size = new System.Drawing.Size(205, 32);
-            this.tbPassport.TabIndex = 7;
-            // 
-            // tbNote
-            // 
-            this.tbNote.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.tbNote.Border = 3;
-            this.tbNote.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
-            this.tbNote.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.tbNote.DefaultColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.tbNote.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
-            this.tbNote.Font = new System.Drawing.Font("Calibri", 13F);
-            this.tbNote.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
-            this.tbNote.HideSelection = false;
-            this.tbNote.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(168)))), ((int)(((byte)(144)))));
-            this.tbNote.Location = new System.Drawing.Point(17, 364);
-            this.tbNote.Multiline = true;
-            this.tbNote.Name = "tbNote";
-            this.tbNote.PasswordChar = '\0';
-            this.tbNote.Size = new System.Drawing.Size(440, 90);
-            this.tbNote.TabIndex = 9;
-            // 
-            // tbCustomerAddress
-            // 
-            this.tbCustomerAddress.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.tbCustomerAddress.Border = 3;
-            this.tbCustomerAddress.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
-            this.tbCustomerAddress.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.tbCustomerAddress.DefaultColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.tbCustomerAddress.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
-            this.tbCustomerAddress.Font = new System.Drawing.Font("Calibri", 13F);
-            this.tbCustomerAddress.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
-            this.tbCustomerAddress.HideSelection = false;
-            this.tbCustomerAddress.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(168)))), ((int)(((byte)(144)))));
-            this.tbCustomerAddress.Location = new System.Drawing.Point(17, 298);
-            this.tbCustomerAddress.Name = "tbCustomerAddress";
-            this.tbCustomerAddress.PasswordChar = '\0';
-            this.tbCustomerAddress.Size = new System.Drawing.Size(440, 32);
-            this.tbCustomerAddress.TabIndex = 8;
-            // 
-            // tbIDNo
-            // 
-            this.tbIDNo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.tbIDNo.Border = 3;
-            this.tbIDNo.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
-            this.tbIDNo.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.tbIDNo.DefaultColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.tbIDNo.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
-            this.tbIDNo.Font = new System.Drawing.Font("Calibri", 13F);
-            this.tbIDNo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
-            this.tbIDNo.HideSelection = false;
-            this.tbIDNo.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(168)))), ((int)(((byte)(144)))));
-            this.tbIDNo.Location = new System.Drawing.Point(17, 227);
-            this.tbIDNo.Name = "tbIDNo";
-            this.tbIDNo.PasswordChar = '\0';
-            this.tbIDNo.Size = new System.Drawing.Size(205, 32);
-            this.tbIDNo.TabIndex = 6;
-            // 
-            // tbCustomerPhoneNum
-            // 
-            this.tbCustomerPhoneNum.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.tbCustomerPhoneNum.Border = 3;
-            this.tbCustomerPhoneNum.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
-            this.tbCustomerPhoneNum.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.tbCustomerPhoneNum.DefaultColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.tbCustomerPhoneNum.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
-            this.tbCustomerPhoneNum.Font = new System.Drawing.Font("Calibri", 13F);
-            this.tbCustomerPhoneNum.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
-            this.tbCustomerPhoneNum.HideSelection = false;
-            this.tbCustomerPhoneNum.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(168)))), ((int)(((byte)(144)))));
-            this.tbCustomerPhoneNum.Location = new System.Drawing.Point(17, 151);
-            this.tbCustomerPhoneNum.Name = "tbCustomerPhoneNum";
-            this.tbCustomerPhoneNum.PasswordChar = '\0';
-            this.tbCustomerPhoneNum.Size = new System.Drawing.Size(267, 32);
-            this.tbCustomerPhoneNum.TabIndex = 3;
-            // 
-            // tbCustomerName
-            // 
-            this.tbCustomerName.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.tbCustomerName.Border = 3;
-            this.tbCustomerName.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
-            this.tbCustomerName.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.tbCustomerName.DefaultColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.tbCustomerName.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
-            this.tbCustomerName.Font = new System.Drawing.Font("Calibri", 13F);
-            this.tbCustomerName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
-            this.tbCustomerName.HideSelection = false;
-            this.tbCustomerName.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(168)))), ((int)(((byte)(144)))));
-            this.tbCustomerName.Location = new System.Drawing.Point(17, 72);
-            this.tbCustomerName.Name = "tbCustomerName";
-            this.tbCustomerName.PasswordChar = '\0';
-            this.tbCustomerName.Size = new System.Drawing.Size(267, 32);
-            this.tbCustomerName.TabIndex = 1;
             // 
             // label8
             // 
@@ -439,7 +494,7 @@
             // 
             // panel3
             // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(212)))), ((int)(((byte)(207)))));
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
             this.panel3.Location = new System.Drawing.Point(7, 27);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(350, 3);
@@ -447,17 +502,19 @@
             // 
             // pnRoomInfo
             // 
+            this.pnRoomInfo.Controls.Add(this.label21);
+            this.pnRoomInfo.Controls.Add(this.label11);
             this.pnRoomInfo.Controls.Add(this.pnSignle_Dou);
             this.pnRoomInfo.Controls.Add(this.pnVip_Nor);
             this.pnRoomInfo.Controls.Add(this.panel5);
-            this.pnRoomInfo.Controls.Add(this.label13);
-            this.pnRoomInfo.Controls.Add(this.label12);
-            this.pnRoomInfo.Controls.Add(this.label11);
-            this.pnRoomInfo.Controls.Add(this.label2);
             this.pnRoomInfo.Controls.Add(this.tbRoomPrice);
             this.pnRoomInfo.Controls.Add(this.tbRoomsize);
+            this.pnRoomInfo.Controls.Add(this.label13);
+            this.pnRoomInfo.Controls.Add(this.label12);
+            this.pnRoomInfo.Controls.Add(this.label2);
             this.pnRoomInfo.Controls.Add(this.label18);
             this.pnRoomInfo.Controls.Add(this.label19);
+            this.pnRoomInfo.Controls.Add(this.panel1);
             this.pnRoomInfo.Location = new System.Drawing.Point(539, 81);
             this.pnRoomInfo.Name = "pnRoomInfo";
             this.pnRoomInfo.Size = new System.Drawing.Size(403, 183);
@@ -467,63 +524,87 @@
             // 
             this.pnSignle_Dou.Controls.Add(this.rbtSingle);
             this.pnSignle_Dou.Controls.Add(this.rbtDouble);
-            this.pnSignle_Dou.Location = new System.Drawing.Point(246, 44);
+            this.pnSignle_Dou.Location = new System.Drawing.Point(241, 40);
             this.pnSignle_Dou.Name = "pnSignle_Dou";
-            this.pnSignle_Dou.Size = new System.Drawing.Size(104, 22);
+            this.pnSignle_Dou.Size = new System.Drawing.Size(144, 31);
             this.pnSignle_Dou.TabIndex = 8;
             // 
             // rbtSingle
             // 
             this.rbtSingle.AutoSize = true;
-            this.rbtSingle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
-            this.rbtSingle.Location = new System.Drawing.Point(3, 3);
+            this.rbtSingle.Depth = 0;
+            this.rbtSingle.Font = new System.Drawing.Font("Roboto", 10F);
+            this.rbtSingle.Location = new System.Drawing.Point(0, 0);
+            this.rbtSingle.Margin = new System.Windows.Forms.Padding(0);
+            this.rbtSingle.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.rbtSingle.MouseState = MaterialSkin.MouseState.HOVER;
             this.rbtSingle.Name = "rbtSingle";
-            this.rbtSingle.Size = new System.Drawing.Size(45, 15);
-            this.rbtSingle.TabIndex = 5;
+            this.rbtSingle.Ripple = true;
+            this.rbtSingle.Size = new System.Drawing.Size(54, 30);
+            this.rbtSingle.TabIndex = 8;
+            this.rbtSingle.TabStop = true;
             this.rbtSingle.Text = "Đơn";
-            this.rbtSingle.UseSelectable = true;
+            this.rbtSingle.UseVisualStyleBackColor = true;
             // 
             // rbtDouble
             // 
             this.rbtDouble.AutoSize = true;
-            this.rbtDouble.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
-            this.rbtDouble.Location = new System.Drawing.Point(54, 3);
+            this.rbtDouble.Depth = 0;
+            this.rbtDouble.Font = new System.Drawing.Font("Roboto", 10F);
+            this.rbtDouble.Location = new System.Drawing.Point(54, 0);
+            this.rbtDouble.Margin = new System.Windows.Forms.Padding(0);
+            this.rbtDouble.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.rbtDouble.MouseState = MaterialSkin.MouseState.HOVER;
             this.rbtDouble.Name = "rbtDouble";
-            this.rbtDouble.Size = new System.Drawing.Size(41, 15);
-            this.rbtDouble.TabIndex = 5;
+            this.rbtDouble.Ripple = true;
+            this.rbtDouble.Size = new System.Drawing.Size(49, 30);
+            this.rbtDouble.TabIndex = 9;
+            this.rbtDouble.TabStop = true;
             this.rbtDouble.Text = "Đôi";
-            this.rbtDouble.UseSelectable = true;
+            this.rbtDouble.UseVisualStyleBackColor = true;
             // 
             // pnVip_Nor
             // 
             this.pnVip_Nor.Controls.Add(this.rbtVip);
             this.pnVip_Nor.Controls.Add(this.rbtNor);
-            this.pnVip_Nor.Location = new System.Drawing.Point(108, 44);
+            this.pnVip_Nor.Location = new System.Drawing.Point(95, 40);
             this.pnVip_Nor.Name = "pnVip_Nor";
-            this.pnVip_Nor.Size = new System.Drawing.Size(118, 22);
+            this.pnVip_Nor.Size = new System.Drawing.Size(131, 31);
             this.pnVip_Nor.TabIndex = 8;
             // 
             // rbtVip
             // 
             this.rbtVip.AutoSize = true;
-            this.rbtVip.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
-            this.rbtVip.Location = new System.Drawing.Point(3, 3);
+            this.rbtVip.Depth = 0;
+            this.rbtVip.Font = new System.Drawing.Font("Roboto", 10F);
+            this.rbtVip.Location = new System.Drawing.Point(0, 0);
+            this.rbtVip.Margin = new System.Windows.Forms.Padding(0);
+            this.rbtVip.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.rbtVip.MouseState = MaterialSkin.MouseState.HOVER;
             this.rbtVip.Name = "rbtVip";
-            this.rbtVip.Size = new System.Drawing.Size(40, 15);
-            this.rbtVip.TabIndex = 5;
+            this.rbtVip.Ripple = true;
+            this.rbtVip.Size = new System.Drawing.Size(49, 30);
+            this.rbtVip.TabIndex = 7;
+            this.rbtVip.TabStop = true;
             this.rbtVip.Text = "Vip";
-            this.rbtVip.UseSelectable = true;
+            this.rbtVip.UseVisualStyleBackColor = true;
             // 
             // rbtNor
             // 
             this.rbtNor.AutoSize = true;
-            this.rbtNor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
-            this.rbtNor.Location = new System.Drawing.Point(49, 3);
+            this.rbtNor.Depth = 0;
+            this.rbtNor.Font = new System.Drawing.Font("Roboto", 10F);
+            this.rbtNor.Location = new System.Drawing.Point(49, 0);
+            this.rbtNor.Margin = new System.Windows.Forms.Padding(0);
+            this.rbtNor.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.rbtNor.MouseState = MaterialSkin.MouseState.HOVER;
             this.rbtNor.Name = "rbtNor";
-            this.rbtNor.Size = new System.Drawing.Size(64, 15);
-            this.rbtNor.TabIndex = 5;
+            this.rbtNor.Ripple = true;
+            this.rbtNor.Size = new System.Drawing.Size(77, 30);
+            this.rbtNor.TabIndex = 7;
+            this.rbtNor.TabStop = true;
             this.rbtNor.Text = "Thường";
-            this.rbtNor.UseSelectable = true;
+            this.rbtNor.UseVisualStyleBackColor = true;
             // 
             // panel5
             // 
@@ -560,11 +641,11 @@
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Calibri", 17F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
-            this.label11.Location = new System.Drawing.Point(306, 92);
+            this.label11.Location = new System.Drawing.Point(307, 92);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(41, 21);
+            this.label11.Size = new System.Drawing.Size(24, 21);
             this.label11.TabIndex = 2;
-            this.label11.Text = "m^2";
+            this.label11.Text = "m";
             // 
             // label2
             // 
@@ -576,44 +657,6 @@
             this.label2.Size = new System.Drawing.Size(73, 21);
             this.label2.TabIndex = 2;
             this.label2.Text = "Diện tích";
-            // 
-            // tbRoomPrice
-            // 
-            this.tbRoomPrice.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.tbRoomPrice.Border = 3;
-            this.tbRoomPrice.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
-            this.tbRoomPrice.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.tbRoomPrice.DefaultColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.tbRoomPrice.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
-            this.tbRoomPrice.Font = new System.Drawing.Font("Calibri", 13F);
-            this.tbRoomPrice.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
-            this.tbRoomPrice.HideSelection = false;
-            this.tbRoomPrice.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(168)))), ((int)(((byte)(144)))));
-            this.tbRoomPrice.Location = new System.Drawing.Point(130, 132);
-            this.tbRoomPrice.Name = "tbRoomPrice";
-            this.tbRoomPrice.PasswordChar = '\0';
-            this.tbRoomPrice.Size = new System.Drawing.Size(170, 32);
-            this.tbRoomPrice.TabIndex = 11;
-            this.tbRoomPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // tbRoomsize
-            // 
-            this.tbRoomsize.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.tbRoomsize.Border = 3;
-            this.tbRoomsize.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
-            this.tbRoomsize.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.tbRoomsize.DefaultColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.tbRoomsize.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
-            this.tbRoomsize.Font = new System.Drawing.Font("Calibri", 13F);
-            this.tbRoomsize.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
-            this.tbRoomsize.HideSelection = false;
-            this.tbRoomsize.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(168)))), ((int)(((byte)(144)))));
-            this.tbRoomsize.Location = new System.Drawing.Point(130, 81);
-            this.tbRoomsize.Name = "tbRoomsize";
-            this.tbRoomsize.PasswordChar = '\0';
-            this.tbRoomsize.Size = new System.Drawing.Size(170, 32);
-            this.tbRoomsize.TabIndex = 10;
-            this.tbRoomsize.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label18
             // 
@@ -637,6 +680,14 @@
             this.label19.TabIndex = 2;
             this.label19.Text = "Thông tin phòng";
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
+            this.panel1.Location = new System.Drawing.Point(7, 27);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(200, 3);
+            this.panel1.TabIndex = 3;
+            // 
             // pnBookingInfo
             // 
             this.pnBookingInfo.Controls.Add(this.cbCheckOutDate);
@@ -645,11 +696,11 @@
             this.pnBookingInfo.Controls.Add(this.label14);
             this.pnBookingInfo.Controls.Add(this.label20);
             this.pnBookingInfo.Controls.Add(this.label15);
+            this.pnBookingInfo.Controls.Add(this.tbTotalMoney);
+            this.pnBookingInfo.Controls.Add(this.tbNumberDay);
             this.pnBookingInfo.Controls.Add(this.label17);
             this.pnBookingInfo.Controls.Add(this.label16);
             this.pnBookingInfo.Controls.Add(this.label23);
-            this.pnBookingInfo.Controls.Add(this.tbTotalMoney);
-            this.pnBookingInfo.Controls.Add(this.tbNumberDay);
             this.pnBookingInfo.Controls.Add(this.panel7);
             this.pnBookingInfo.Location = new System.Drawing.Point(539, 274);
             this.pnBookingInfo.Name = "pnBookingInfo";
@@ -757,45 +808,9 @@
             this.label23.TabIndex = 2;
             this.label23.Text = "Thông tin đặt phòng";
             // 
-            // tbTotalMoney
-            // 
-            this.tbTotalMoney.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.tbTotalMoney.Border = 3;
-            this.tbTotalMoney.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
-            this.tbTotalMoney.DefaultColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.tbTotalMoney.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
-            this.tbTotalMoney.Enabled = false;
-            this.tbTotalMoney.Font = new System.Drawing.Font("Calibri", 13F);
-            this.tbTotalMoney.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
-            this.tbTotalMoney.HideSelection = false;
-            this.tbTotalMoney.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(168)))), ((int)(((byte)(144)))));
-            this.tbTotalMoney.Location = new System.Drawing.Point(108, 143);
-            this.tbTotalMoney.Name = "tbTotalMoney";
-            this.tbTotalMoney.PasswordChar = '\0';
-            this.tbTotalMoney.Size = new System.Drawing.Size(233, 32);
-            this.tbTotalMoney.TabIndex = 15;
-            // 
-            // tbNumberDay
-            // 
-            this.tbNumberDay.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.tbNumberDay.Border = 3;
-            this.tbNumberDay.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
-            this.tbNumberDay.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.tbNumberDay.DefaultColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.tbNumberDay.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
-            this.tbNumberDay.Font = new System.Drawing.Font("Calibri", 13F);
-            this.tbNumberDay.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
-            this.tbNumberDay.HideSelection = false;
-            this.tbNumberDay.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(168)))), ((int)(((byte)(144)))));
-            this.tbNumberDay.Location = new System.Drawing.Point(108, 95);
-            this.tbNumberDay.Name = "tbNumberDay";
-            this.tbNumberDay.PasswordChar = '\0';
-            this.tbNumberDay.Size = new System.Drawing.Size(139, 32);
-            this.tbNumberDay.TabIndex = 14;
-            // 
             // panel7
             // 
-            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(212)))), ((int)(((byte)(207)))));
+            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
             this.panel7.Location = new System.Drawing.Point(7, 27);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(300, 3);
@@ -959,6 +974,118 @@
             this.printPreviewDialogBill.Name = "printPreviewDialogBill";
             this.printPreviewDialogBill.Visible = false;
             // 
+            // tbRoomsize
+            // 
+            this.tbRoomsize.DisabledStringColor = System.Drawing.Color.Black;
+            this.tbRoomsize.DisabledUnFocusedColor = System.Drawing.Color.Silver;
+            this.tbRoomsize.EnabledUnFocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.tbRoomsize.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
+            this.tbRoomsize.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.tbRoomsize.ForeColor = System.Drawing.Color.Black;
+            this.tbRoomsize.IsEnabled = true;
+            this.tbRoomsize.Location = new System.Drawing.Point(130, 89);
+            this.tbRoomsize.MaxLength = 32767;
+            this.tbRoomsize.Multiline = false;
+            this.tbRoomsize.Name = "tbRoomsize";
+            this.tbRoomsize.PasswordChar = '\0';
+            this.tbRoomsize.Placeholder = true;
+            this.tbRoomsize.PlaceHolderText = "";
+            this.tbRoomsize.PlaceHolderTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
+            this.tbRoomsize.ReadOnly = false;
+            this.tbRoomsize.Size = new System.Drawing.Size(170, 24);
+            this.tbRoomsize.TabIndex = 3;
+            this.tbRoomsize.TextAlignment = System.Windows.Forms.HorizontalAlignment.Right;
+            this.tbRoomsize.TextBackgroundColor = System.Drawing.SystemColors.Control;
+            this.tbRoomsize.UseSystemPasswordChar = false;
+            this.tbRoomsize.WordWrap = true;
+            // 
+            // tbRoomPrice
+            // 
+            this.tbRoomPrice.DisabledStringColor = System.Drawing.Color.Black;
+            this.tbRoomPrice.DisabledUnFocusedColor = System.Drawing.Color.Silver;
+            this.tbRoomPrice.EnabledUnFocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.tbRoomPrice.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
+            this.tbRoomPrice.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.tbRoomPrice.ForeColor = System.Drawing.Color.Black;
+            this.tbRoomPrice.IsEnabled = true;
+            this.tbRoomPrice.Location = new System.Drawing.Point(130, 140);
+            this.tbRoomPrice.MaxLength = 32767;
+            this.tbRoomPrice.Multiline = false;
+            this.tbRoomPrice.Name = "tbRoomPrice";
+            this.tbRoomPrice.PasswordChar = '\0';
+            this.tbRoomPrice.Placeholder = true;
+            this.tbRoomPrice.PlaceHolderText = "";
+            this.tbRoomPrice.PlaceHolderTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
+            this.tbRoomPrice.ReadOnly = false;
+            this.tbRoomPrice.Size = new System.Drawing.Size(170, 24);
+            this.tbRoomPrice.TabIndex = 3;
+            this.tbRoomPrice.TextAlignment = System.Windows.Forms.HorizontalAlignment.Right;
+            this.tbRoomPrice.TextBackgroundColor = System.Drawing.SystemColors.Control;
+            this.tbRoomPrice.UseSystemPasswordChar = false;
+            this.tbRoomPrice.WordWrap = true;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.BackColor = System.Drawing.Color.Transparent;
+            this.label21.Font = new System.Drawing.Font("Calibri", 17F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.label21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
+            this.label21.Location = new System.Drawing.Point(325, 89);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(19, 21);
+            this.label21.TabIndex = 2;
+            this.label21.Text = "2";
+            // 
+            // tbNumberDay
+            // 
+            this.tbNumberDay.DisabledStringColor = System.Drawing.Color.Black;
+            this.tbNumberDay.DisabledUnFocusedColor = System.Drawing.Color.Silver;
+            this.tbNumberDay.EnabledUnFocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.tbNumberDay.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
+            this.tbNumberDay.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.tbNumberDay.ForeColor = System.Drawing.Color.Black;
+            this.tbNumberDay.IsEnabled = true;
+            this.tbNumberDay.Location = new System.Drawing.Point(108, 103);
+            this.tbNumberDay.MaxLength = 32767;
+            this.tbNumberDay.Multiline = false;
+            this.tbNumberDay.Name = "tbNumberDay";
+            this.tbNumberDay.PasswordChar = '\0';
+            this.tbNumberDay.Placeholder = true;
+            this.tbNumberDay.PlaceHolderText = "";
+            this.tbNumberDay.PlaceHolderTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
+            this.tbNumberDay.ReadOnly = false;
+            this.tbNumberDay.Size = new System.Drawing.Size(139, 24);
+            this.tbNumberDay.TabIndex = 3;
+            this.tbNumberDay.TextAlignment = System.Windows.Forms.HorizontalAlignment.Right;
+            this.tbNumberDay.TextBackgroundColor = System.Drawing.SystemColors.Control;
+            this.tbNumberDay.UseSystemPasswordChar = false;
+            this.tbNumberDay.WordWrap = true;
+            // 
+            // tbTotalMoney
+            // 
+            this.tbTotalMoney.DisabledStringColor = System.Drawing.Color.Black;
+            this.tbTotalMoney.DisabledUnFocusedColor = System.Drawing.Color.Silver;
+            this.tbTotalMoney.EnabledUnFocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.tbTotalMoney.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
+            this.tbTotalMoney.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.tbTotalMoney.ForeColor = System.Drawing.Color.Black;
+            this.tbTotalMoney.IsEnabled = false;
+            this.tbTotalMoney.Location = new System.Drawing.Point(108, 151);
+            this.tbTotalMoney.MaxLength = 32767;
+            this.tbTotalMoney.Multiline = false;
+            this.tbTotalMoney.Name = "tbTotalMoney";
+            this.tbTotalMoney.PasswordChar = '\0';
+            this.tbTotalMoney.Placeholder = true;
+            this.tbTotalMoney.PlaceHolderText = "";
+            this.tbTotalMoney.PlaceHolderTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
+            this.tbTotalMoney.ReadOnly = true;
+            this.tbTotalMoney.Size = new System.Drawing.Size(233, 24);
+            this.tbTotalMoney.TabIndex = 3;
+            this.tbTotalMoney.TextAlignment = System.Windows.Forms.HorizontalAlignment.Right;
+            this.tbTotalMoney.TextBackgroundColor = System.Drawing.SystemColors.Control;
+            this.tbTotalMoney.UseSystemPasswordChar = false;
+            this.tbTotalMoney.WordWrap = true;
+            // 
             // Form_RoomInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1034,28 +1161,12 @@
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.PictureBox pbArrowBack;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel4;
-        private Zeroit.Framework.Metro.ZeroitMetroTextbox tbPassport;
-        private Zeroit.Framework.Metro.ZeroitMetroTextbox tbNote;
-        private Zeroit.Framework.Metro.ZeroitMetroTextbox tbCustomerAddress;
-        private Zeroit.Framework.Metro.ZeroitMetroTextbox tbIDNo;
-        private Zeroit.Framework.Metro.ZeroitMetroTextbox tbCustomerPhoneNum;
-        private Zeroit.Framework.Metro.ZeroitMetroTextbox tbCustomerName;
-        private Zeroit.Framework.Metro.ZeroitMetroTextbox tbRoomPrice;
-        private Zeroit.Framework.Metro.ZeroitMetroTextbox tbRoomsize;
-        private Zeroit.Framework.Metro.ZeroitMetroTextbox tbTotalMoney;
-        private Zeroit.Framework.Metro.ZeroitMetroTextbox tbNumberDay;
         private MetroFramework.Controls.MetroDateTime dtpCustomerBirthday;
         private MetroFramework.Controls.MetroDateTime dtpCheckOutDate;
         private MetroFramework.Controls.MetroDateTime dtpCheckInDate;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private MetroFramework.Controls.MetroRadioButton rbtMale;
-        private MetroFramework.Controls.MetroRadioButton rbtFemale;
         private System.Windows.Forms.FlowLayoutPanel pnSignle_Dou;
-        private MetroFramework.Controls.MetroRadioButton rbtSingle;
-        private MetroFramework.Controls.MetroRadioButton rbtDouble;
         private System.Windows.Forms.FlowLayoutPanel pnVip_Nor;
-        private MetroFramework.Controls.MetroRadioButton rbtVip;
-        private MetroFramework.Controls.MetroRadioButton rbtNor;
         private Zeroit.Framework.MaterialDesign.Controls.ZeroitMaterialCheckBox cbPassport;
         private Zeroit.Framework.MaterialDesign.Controls.ZeroitMaterialCheckBox cbIDNo;
         private Zeroit.Framework.MaterialDesign.Controls.ZeroitMaterialCheckBox cbCheckOutDate;
@@ -1066,5 +1177,23 @@
         private System.Windows.Forms.Label label14;
         private System.Drawing.Printing.PrintDocument bill;
         private System.Windows.Forms.PrintPreviewDialog printPreviewDialogBill;
+        private MaterialSkin.Controls.MaterialRadioButton rbtMale;
+        private MaterialSkin.Controls.MaterialRadioButton rbtFemale;
+        private MaterialSkin.Controls.MaterialRadioButton rbtSingle;
+        private MaterialSkin.Controls.MaterialRadioButton rbtDouble;
+        private MaterialSkin.Controls.MaterialRadioButton rbtVip;
+        private MaterialSkin.Controls.MaterialRadioButton rbtNor;
+        private System.Windows.Forms.Panel panel1;
+        private Zeroit.Framework.Labels.ZeroitUltraTextBox tbCustomerName;
+        private Zeroit.Framework.Labels.ZeroitUltraTextBox tbNote;
+        private Zeroit.Framework.Labels.ZeroitUltraTextBox tbCustomerAddress;
+        private Zeroit.Framework.Labels.ZeroitUltraTextBox tbPassport;
+        private Zeroit.Framework.Labels.ZeroitUltraTextBox tbIDNo;
+        private Zeroit.Framework.Labels.ZeroitUltraTextBox tbCustomerPhoneNum;
+        private Zeroit.Framework.Labels.ZeroitUltraTextBox tbRoomPrice;
+        private Zeroit.Framework.Labels.ZeroitUltraTextBox tbRoomsize;
+        private System.Windows.Forms.Label label21;
+        private Zeroit.Framework.Labels.ZeroitUltraTextBox tbTotalMoney;
+        private Zeroit.Framework.Labels.ZeroitUltraTextBox tbNumberDay;
     }
 }
