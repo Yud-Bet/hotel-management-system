@@ -155,8 +155,10 @@ namespace HotelManagement.UI
             MouseEventArgs mouseEventArgs = (MouseEventArgs) e;
             if(mouseEventArgs.Button== MouseButtons.Right)
             {
-                showMenu();
-            } else
+                if (roomStatus != RoomStatus.Rented)
+                    showMenu();
+            }
+            else
             {
                 if (roomStatus == RoomStatus.Cleaning)
                 {
@@ -226,21 +228,51 @@ namespace HotelManagement.UI
 
         private void menuItemRepairRoom_Click(object sender, EventArgs e)
         {
+            if (roomStatus == RoomStatus.Empty)
+            {
+                _RoomStatus = RoomStatus.Repairing;
+                Parent._lbNumberOfEmptyRoom.Text = (Convert.ToInt32(Parent._lbNumberOfEmptyRoom.Text) - 1).ToString();
+                Parent._lbNumberOfRepairingRoom.Text = (Convert.ToInt32(Parent._lbNumberOfRepairingRoom.Text) + 1).ToString();
+            }
+            else if (roomStatus == RoomStatus.Cleaning)
+            {
+                _RoomStatus = RoomStatus.Repairing;
+                Parent._lbNumberOfCleaningRoom.Text = (Convert.ToInt32(Parent._lbNumberOfCleaningRoom.Text) - 1).ToString();
+                Parent._lbNumberOfRepairingRoom.Text = (Convert.ToInt32(Parent._lbNumberOfRepairingRoom.Text) + 1).ToString();
+            }
             DataAccess.RoomDA.SetRoomStatus(RoomID, RoomStatus.Repairing);
         }
 
         private void menuItemEndRepairRoom_Click(object sender, EventArgs e)
         {
+            _RoomStatus = RoomStatus.Empty;
+            Parent._lbNumberOfRepairingRoom.Text = (Convert.ToInt32(Parent._lbNumberOfRepairingRoom.Text) - 1).ToString();
+            Parent._lbNumberOfEmptyRoom.Text = (Convert.ToInt32(Parent._lbNumberOfEmptyRoom.Text) + 1).ToString();
             DataAccess.RoomDA.SetRoomStatus(RoomID, RoomStatus.Empty);
         }
 
         private void menuItemCleanRoom_Click(object sender, EventArgs e)
         {
+            if (roomStatus == RoomStatus.Repairing)
+            {
+                _RoomStatus = RoomStatus.Cleaning;
+                Parent._lbNumberOfRepairingRoom.Text = (Convert.ToInt32(Parent._lbNumberOfRepairingRoom.Text) - 1).ToString();
+                Parent._lbNumberOfCleaningRoom.Text = (Convert.ToInt32(Parent._lbNumberOfCleaningRoom.Text) + 1).ToString();
+            }
+            else if (roomStatus == RoomStatus.Empty)
+            {
+                _RoomStatus = RoomStatus.Cleaning;
+                Parent._lbNumberOfEmptyRoom.Text = (Convert.ToInt32(Parent._lbNumberOfEmptyRoom.Text) - 1).ToString();
+                Parent._lbNumberOfCleaningRoom.Text = (Convert.ToInt32(Parent._lbNumberOfCleaningRoom.Text) + 1).ToString();
+            }
             DataAccess.RoomDA.SetRoomStatus(RoomID, RoomStatus.Cleaning);
         }
 
         private void menuItemEndCleanRoom_Click(object sender, EventArgs e)
         {
+            _RoomStatus = RoomStatus.Empty;
+            Parent._lbNumberOfCleaningRoom.Text = (Convert.ToInt32(Parent._lbNumberOfCleaningRoom.Text) - 1).ToString();
+            Parent._lbNumberOfEmptyRoom.Text = (Convert.ToInt32(Parent._lbNumberOfEmptyRoom.Text) + 1).ToString();
             DataAccess.RoomDA.SetRoomStatus(RoomID, RoomStatus.Empty);
         }
     }
