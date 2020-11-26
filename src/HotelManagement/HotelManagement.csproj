@@ -96,6 +96,12 @@
     <Compile Include="DTO\RoomOverview.cs" />
     <Compile Include="DTO\StaffOverview.cs" />
     <Compile Include="EnumDefinition.cs" />
+    <Compile Include="UI\Form_EatService.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Form_EatService.Designer.cs">
+      <DependentUpon>Form_EatService.cs</DependentUpon>
+    </Compile>
     <Compile Include="Helper.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -129,12 +135,27 @@
     <Compile Include="UI\Form_RoomInfo.Designer.cs">
       <DependentUpon>Form_RoomInfo.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Item_EatService1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Item_EatService1.Designer.cs">
+      <DependentUpon>Item_EatService1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Item_EatService2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Item_EatService2.Designer.cs">
+      <DependentUpon>Item_EatService2.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Room.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UI\Room.Designer.cs">
       <DependentUpon>Room.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UI\Form_EatService.resx">
+      <DependentUpon>Form_EatService.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -159,6 +180,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Form_RoomInfo.resx">
       <DependentUpon>Form_RoomInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Item_EatService1.resx">
+      <DependentUpon>Item_EatService1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Item_EatService2.resx">
+      <DependentUpon>Item_EatService2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Room.resx">
       <DependentUpon>Room.cs</DependentUpon>
