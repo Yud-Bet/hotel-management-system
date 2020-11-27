@@ -8,6 +8,7 @@ namespace HotelManagement.UI
 {
     public partial class Form_RoomInfo : UserControl
     {
+        DTO.CustomerInfo Customer;
         public Form_RoomInfo(Room parent)
         {
             InitializeComponent();
@@ -47,17 +48,28 @@ namespace HotelManagement.UI
 
             if (this.Parent._RoomStatus == RoomStatus.Rented)
             {
-                CustomerInfo customer = new CustomerInfo(Convert.ToInt32(lbRoomID.Text));
-                tbCustomerName.Text = customer.Name;
-                dtpCustomerBirthday.Value = customer.Birthday;
-                tbCustomerPhoneNum.Text = customer.PhoneNumber;
-                SetValueForControl.SetSex(customer.sex, rbtMale, rbtFemale);
-                tbIDNo.Text = customer.IDNumber;
-                tbPassport.Text = customer.Passport;
-                tbCustomerAddress.Text = customer.Addr;
-                tbNote.Text = customer.Note;
-                dtpCheckInDate.Value = customer.CheckInDate;
+                Customer = new CustomerInfo(Convert.ToInt32(lbRoomID.Text));
+                tbCustomerName.Text = Customer.Name;
+                dtpCustomerBirthday.Value = Customer.Birthday;
+                tbCustomerPhoneNum.Text = Customer.PhoneNumber;
+                SetValueForControl.SetSex(Customer.sex, rbtMale, rbtFemale);
+                if (Customer.IDNumber.Length != 0)
+                {
+                    tbIDNo.Text = Customer.IDNumber;
+                }
+                else
+                {
+                    tbPassport.Text = Customer.Passport;
+                    tbIDNo.Enabled = false;
+                    cbIDNo.Checked = false;
+                    cbPassport.Checked = true;
+                    tbPassport.Enabled = true;
+                }
+                tbCustomerAddress.Text = Customer.Addr;
+                tbNote.Text = Customer.Note;
+                dtpCheckInDate.Value = Customer.CheckInDate;
             }
+            else Customer = null;
         }
 
         private void pbArrowBack_Click(object sender, EventArgs e)
@@ -243,9 +255,10 @@ namespace HotelManagement.UI
 
         private void bill_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
-            drawBill drawBill = new drawBill(e.Graphics);
+            DrawBill drawBill = new DrawBill(e.Graphics);
             drawBill.drawBillHeader();
-            drawBill.drawCustomerInfo("Nguyễn Văn Huấn", 302, "12344435", "dfgdfgdfgdf", dtpCheckInDate.Text, dtpCheckOutDate.Text);
+            drawBill.drawCustomerInfo(Customer.Name, Convert.ToInt32(lbRoomID.Text), Customer.PhoneNumber, Customer.Addr,
+                dtpCheckInDate.Text, dtpCheckOutDate.Text);
             drawBill.drawItem("Phòng", 12, 10000);
             drawBill.drawItem("Cola", 10000, 1000000000);
             drawBill.drawItem("Phòng", 12, 10000);
