@@ -22,5 +22,10 @@ namespace HotelManagement.DataAccess
             string Query = "QLKS_InsertNewBill @RoomID";
             return ExecuteQuery.ExecuteNoneQuery(Query, new object[] { RoomID });
         }
+        public static int Pay(int RoomID)
+        {
+            string Query = "QLKS_Payment @RoomID";
+            return ExecuteQuery.ExecuteNoneQuery(Query, new object[] { RoomID });
+        }
     }
 }
