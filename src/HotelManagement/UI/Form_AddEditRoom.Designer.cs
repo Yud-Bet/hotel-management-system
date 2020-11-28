@@ -264,7 +264,7 @@
             this.lbVND.AutoSize = true;
             this.lbVND.Font = new System.Drawing.Font("Segoe UI", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.lbVND.ForeColor = System.Drawing.Color.Black;
-            this.lbVND.Location = new System.Drawing.Point(473, 249);
+            this.lbVND.Location = new System.Drawing.Point(473, 186);
             this.lbVND.Name = "lbVND";
             this.lbVND.Size = new System.Drawing.Size(46, 23);
             this.lbVND.TabIndex = 2;
@@ -287,7 +287,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(493, 192);
+            this.label1.Location = new System.Drawing.Point(493, 129);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(19, 23);
             this.label1.TabIndex = 2;
@@ -299,7 +299,7 @@
             this.lbM2.AutoSize = true;
             this.lbM2.Font = new System.Drawing.Font("Segoe UI", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.lbM2.ForeColor = System.Drawing.Color.Black;
-            this.lbM2.Location = new System.Drawing.Point(473, 198);
+            this.lbM2.Location = new System.Drawing.Point(473, 135);
             this.lbM2.Name = "lbM2";
             this.lbM2.Size = new System.Drawing.Size(25, 23);
             this.lbM2.TabIndex = 2;
