@@ -33,7 +33,6 @@
             this.lbTitle = new System.Windows.Forms.Label();
             this.pnBookingInfo = new System.Windows.Forms.Panel();
             this.pnItem1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.zeroitPictureBox1 = new Zeroit.Framework.MiscControls.ZeroitPictureBox();
             this.tbSearch = new Zeroit.Framework.Labels.ZeroitUltraTextBox();
             this.label23 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
@@ -58,10 +57,11 @@
             this.label8 = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
             this.btPay = new XanderUI.XUIButton();
+            this.zeroitPictureBox1 = new Zeroit.Framework.MiscControls.ZeroitPictureBox();
             this.pnBookingInfo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.zeroitPictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.zeroitPictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
@@ -103,17 +103,6 @@
             this.pnItem1.Name = "pnItem1";
             this.pnItem1.Size = new System.Drawing.Size(485, 487);
             this.pnItem1.TabIndex = 6;
-            // 
-            // zeroitPictureBox1
-            // 
-            this.zeroitPictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.zeroitPictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("zeroitPictureBox1.Image")));
-            this.zeroitPictureBox1.Location = new System.Drawing.Point(466, 5);
-            this.zeroitPictureBox1.Name = "zeroitPictureBox1";
-            this.zeroitPictureBox1.Size = new System.Drawing.Size(22, 24);
-            this.zeroitPictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.zeroitPictureBox1.TabIndex = 4;
-            this.zeroitPictureBox1.TabStop = false;
             // 
             // tbSearch
             // 
@@ -379,24 +368,35 @@
             // btPay
             // 
             this.btPay.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
-            this.btPay.ButtonImage = ((System.Drawing.Image)(resources.GetObject("btPay.ButtonImage")));
+            this.btPay.ButtonImage = global::HotelManagement.Properties.Resources.icPayment;
             this.btPay.ButtonStyle = XanderUI.XUIButton.Style.MaterialRounded;
             this.btPay.ButtonText = "Thanh Toán";
             this.btPay.ClickBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(161)))));
-            this.btPay.ClickTextColor = System.Drawing.Color.Black;
+            this.btPay.ClickTextColor = System.Drawing.Color.White;
             this.btPay.CornerRadius = 5;
             this.btPay.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btPay.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btPay.Horizontal_Alignment = System.Drawing.StringAlignment.Near;
             this.btPay.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
-            this.btPay.HoverTextColor = System.Drawing.Color.Black;
+            this.btPay.HoverTextColor = System.Drawing.Color.White;
             this.btPay.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
             this.btPay.Location = new System.Drawing.Point(236, 117);
             this.btPay.Name = "btPay";
             this.btPay.Size = new System.Drawing.Size(165, 50);
             this.btPay.TabIndex = 17;
-            this.btPay.TextColor = System.Drawing.Color.Black;
+            this.btPay.TextColor = System.Drawing.Color.White;
             this.btPay.Vertical_Alignment = System.Drawing.StringAlignment.Center;
+            // 
+            // zeroitPictureBox1
+            // 
+            this.zeroitPictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.zeroitPictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("zeroitPictureBox1.Image")));
+            this.zeroitPictureBox1.Location = new System.Drawing.Point(466, 5);
+            this.zeroitPictureBox1.Name = "zeroitPictureBox1";
+            this.zeroitPictureBox1.Size = new System.Drawing.Size(22, 24);
+            this.zeroitPictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.zeroitPictureBox1.TabIndex = 4;
+            this.zeroitPictureBox1.TabStop = false;
             // 
             // Form_EatService
             // 
@@ -411,11 +411,11 @@
             this.Size = new System.Drawing.Size(968, 665);
             this.pnBookingInfo.ResumeLayout(false);
             this.pnBookingInfo.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.zeroitPictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.zeroitPictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

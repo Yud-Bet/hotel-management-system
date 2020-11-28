@@ -374,9 +374,6 @@
     <None Include="Resources\icCustomer.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\icManage.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\icBill.png" />
   </ItemGroup>
   <ItemGroup>
@@ -401,19 +398,10 @@
     <None Include="Resources\icHorizontalArrow.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\icAddRoom.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icSave.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\icRented_SR.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icRented_DB.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icPayment.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\magnifying-glass.png" />
@@ -425,22 +413,40 @@
     <None Include="Resources\icDoubleRoom.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\icDelete.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\icClean.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icBackArrow.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\icYes.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\icVip.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icSingleRoom.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icDelete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icYes.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icPayment.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icSave.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icAddRoom.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icManage3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icManage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icManage1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

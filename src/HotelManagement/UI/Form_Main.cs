@@ -159,6 +159,9 @@ namespace HotelManagement.UI
                 ResetStatus();
                 isChoosebtRoom = true;
                 setStatus(pbRoom, lbRoom, pnTickChooseBtRoom, Resources.icRoom2, true);
+
+                panel4.Controls.Clear();
+                panel4.Controls.Add(new Form_Room());
             }
         }
 
@@ -321,6 +324,9 @@ namespace HotelManagement.UI
                 resetServiceSubmenu();
                 isChoosebtLaundryService = true;
                 setStatus(pbLaundryService, lbLaundryService, Resources.icLaundryService2, true);
+
+                panel4.Controls.Clear();
+                panel4.Controls.Add(new Form_LaundryService());
             }
         }
 

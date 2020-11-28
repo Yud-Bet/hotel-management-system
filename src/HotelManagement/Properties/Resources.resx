@@ -172,6 +172,9 @@
   <data name="icManage" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icManage.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="icManage1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icManage1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="icManage2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icManage2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>

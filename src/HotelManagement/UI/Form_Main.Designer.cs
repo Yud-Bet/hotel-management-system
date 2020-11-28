@@ -832,6 +832,8 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel1);
+            this.MaximumSize = new System.Drawing.Size(1229, 710);
+            this.MinimumSize = new System.Drawing.Size(1229, 710);
             this.Name = "Form_Main";
             this.ShadowType = MetroFramework.Forms.MetroFormShadowType.DropShadow;
             this.Load += new System.EventHandler(this.Form_Main_Load);
