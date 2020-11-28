@@ -94,6 +94,7 @@
     <Compile Include="DTO\CustomerInfo.cs" />
     <Compile Include="DTO\RoomDetail.cs" />
     <Compile Include="DTO\RoomOverview.cs" />
+    <Compile Include="DTO\RoomServices.cs" />
     <Compile Include="DTO\StaffOverview.cs" />
     <Compile Include="EnumDefinition.cs" />
     <Compile Include="Helper.cs" />

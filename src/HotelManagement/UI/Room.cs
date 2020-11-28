@@ -10,11 +10,11 @@ namespace HotelManagement.UI
         public Room(Form_Room parent)
         {
             InitializeComponent();
-            this.Parent = parent;
+            this.ParentRef = parent;
         }
 
         #region Properties
-        public Form_Room Parent;
+        public Form_Room ParentRef;
 
         /// <summary>
         /// RoomType: 1.Single-Vip 2.Double-Vip 3.Single-Normal 4.Double-Normal
@@ -170,8 +170,8 @@ namespace HotelManagement.UI
                     else
                     {
                         this._RoomStatus = RoomStatus.Empty;
-                        this.Parent._lbNumberOfEmptyRoom.Text = (Convert.ToInt32(this.Parent._lbNumberOfEmptyRoom.Text) + 1).ToString();
-                        this.Parent._lbNumberOfCleaningRoom.Text = (Convert.ToInt32(this.Parent._lbNumberOfCleaningRoom.Text) - 1).ToString();
+                        this.ParentRef._lbNumberOfEmptyRoom.Text = (Convert.ToInt32(this.ParentRef._lbNumberOfEmptyRoom.Text) + 1).ToString();
+                        this.ParentRef._lbNumberOfCleaningRoom.Text = (Convert.ToInt32(this.ParentRef._lbNumberOfCleaningRoom.Text) - 1).ToString();
 
                         DataAccess.RoomDA.SetRoomStatus(RoomID, RoomStatus.Empty);
                     }
@@ -187,16 +187,16 @@ namespace HotelManagement.UI
                     else
                     {
                         this._RoomStatus = RoomStatus.Empty;
-                        this.Parent._lbNumberOfEmptyRoom.Text = (Convert.ToInt32(this.Parent._lbNumberOfEmptyRoom.Text) + 1).ToString();
-                        this.Parent._lbNumberOfRepairingRoom.Text = (Convert.ToInt32(this.Parent._lbNumberOfRepairingRoom.Text) - 1).ToString();
+                        this.ParentRef._lbNumberOfEmptyRoom.Text = (Convert.ToInt32(this.ParentRef._lbNumberOfEmptyRoom.Text) + 1).ToString();
+                        this.ParentRef._lbNumberOfRepairingRoom.Text = (Convert.ToInt32(this.ParentRef._lbNumberOfRepairingRoom.Text) - 1).ToString();
 
                         DataAccess.RoomDA.SetRoomStatus(RoomID, RoomStatus.Empty);
                     }
                 }
 
                 Form_RoomInfo temp = new Form_RoomInfo(this);
-                this.Parent._pnToAddARoomInfo.BringToFront();
-                this.Parent._pnToAddARoomInfo.Controls.Add(temp);
+                this.ParentRef._pnToAddARoomInfo.BringToFront();
+                this.ParentRef._pnToAddARoomInfo.Controls.Add(temp);
             }
             
         }
@@ -231,14 +231,14 @@ namespace HotelManagement.UI
             if (roomStatus == RoomStatus.Empty)
             {
                 _RoomStatus = RoomStatus.Repairing;
-                Parent._lbNumberOfEmptyRoom.Text = (Convert.ToInt32(Parent._lbNumberOfEmptyRoom.Text) - 1).ToString();
-                Parent._lbNumberOfRepairingRoom.Text = (Convert.ToInt32(Parent._lbNumberOfRepairingRoom.Text) + 1).ToString();
+                ParentRef._lbNumberOfEmptyRoom.Text = (Convert.ToInt32(ParentRef._lbNumberOfEmptyRoom.Text) - 1).ToString();
+                ParentRef._lbNumberOfRepairingRoom.Text = (Convert.ToInt32(ParentRef._lbNumberOfRepairingRoom.Text) + 1).ToString();
             }
             else if (roomStatus == RoomStatus.Cleaning)
             {
                 _RoomStatus = RoomStatus.Repairing;
-                Parent._lbNumberOfCleaningRoom.Text = (Convert.ToInt32(Parent._lbNumberOfCleaningRoom.Text) - 1).ToString();
-                Parent._lbNumberOfRepairingRoom.Text = (Convert.ToInt32(Parent._lbNumberOfRepairingRoom.Text) + 1).ToString();
+                ParentRef._lbNumberOfCleaningRoom.Text = (Convert.ToInt32(ParentRef._lbNumberOfCleaningRoom.Text) - 1).ToString();
+                ParentRef._lbNumberOfRepairingRoom.Text = (Convert.ToInt32(ParentRef._lbNumberOfRepairingRoom.Text) + 1).ToString();
             }
             DataAccess.RoomDA.SetRoomStatus(RoomID, RoomStatus.Repairing);
         }
@@ -246,8 +246,8 @@ namespace HotelManagement.UI
         private void menuItemEndRepairRoom_Click(object sender, EventArgs e)
         {
             _RoomStatus = RoomStatus.Empty;
-            Parent._lbNumberOfRepairingRoom.Text = (Convert.ToInt32(Parent._lbNumberOfRepairingRoom.Text) - 1).ToString();
-            Parent._lbNumberOfEmptyRoom.Text = (Convert.ToInt32(Parent._lbNumberOfEmptyRoom.Text) + 1).ToString();
+            ParentRef._lbNumberOfRepairingRoom.Text = (Convert.ToInt32(ParentRef._lbNumberOfRepairingRoom.Text) - 1).ToString();
+            ParentRef._lbNumberOfEmptyRoom.Text = (Convert.ToInt32(ParentRef._lbNumberOfEmptyRoom.Text) + 1).ToString();
             DataAccess.RoomDA.SetRoomStatus(RoomID, RoomStatus.Empty);
         }
 
@@ -256,14 +256,14 @@ namespace HotelManagement.UI
             if (roomStatus == RoomStatus.Repairing)
             {
                 _RoomStatus = RoomStatus.Cleaning;
-                Parent._lbNumberOfRepairingRoom.Text = (Convert.ToInt32(Parent._lbNumberOfRepairingRoom.Text) - 1).ToString();
-                Parent._lbNumberOfCleaningRoom.Text = (Convert.ToInt32(Parent._lbNumberOfCleaningRoom.Text) + 1).ToString();
+                ParentRef._lbNumberOfRepairingRoom.Text = (Convert.ToInt32(ParentRef._lbNumberOfRepairingRoom.Text) - 1).ToString();
+                ParentRef._lbNumberOfCleaningRoom.Text = (Convert.ToInt32(ParentRef._lbNumberOfCleaningRoom.Text) + 1).ToString();
             }
             else if (roomStatus == RoomStatus.Empty)
             {
                 _RoomStatus = RoomStatus.Cleaning;
-                Parent._lbNumberOfEmptyRoom.Text = (Convert.ToInt32(Parent._lbNumberOfEmptyRoom.Text) - 1).ToString();
-                Parent._lbNumberOfCleaningRoom.Text = (Convert.ToInt32(Parent._lbNumberOfCleaningRoom.Text) + 1).ToString();
+                ParentRef._lbNumberOfEmptyRoom.Text = (Convert.ToInt32(ParentRef._lbNumberOfEmptyRoom.Text) - 1).ToString();
+                ParentRef._lbNumberOfCleaningRoom.Text = (Convert.ToInt32(ParentRef._lbNumberOfCleaningRoom.Text) + 1).ToString();
             }
             DataAccess.RoomDA.SetRoomStatus(RoomID, RoomStatus.Cleaning);
         }
@@ -271,8 +271,8 @@ namespace HotelManagement.UI
         private void menuItemEndCleanRoom_Click(object sender, EventArgs e)
         {
             _RoomStatus = RoomStatus.Empty;
-            Parent._lbNumberOfCleaningRoom.Text = (Convert.ToInt32(Parent._lbNumberOfCleaningRoom.Text) - 1).ToString();
-            Parent._lbNumberOfEmptyRoom.Text = (Convert.ToInt32(Parent._lbNumberOfEmptyRoom.Text) + 1).ToString();
+            ParentRef._lbNumberOfCleaningRoom.Text = (Convert.ToInt32(ParentRef._lbNumberOfCleaningRoom.Text) - 1).ToString();
+            ParentRef._lbNumberOfEmptyRoom.Text = (Convert.ToInt32(ParentRef._lbNumberOfEmptyRoom.Text) + 1).ToString();
             DataAccess.RoomDA.SetRoomStatus(RoomID, RoomStatus.Empty);
         }
     }

@@ -35,7 +35,7 @@ namespace HotelManagement.UI
             pnSubMenu_Service.Hide();
             pnSubMenu_Report.Hide();
             pnSubMenu_Manage.Hide();
-            Form_Room temp = new Form_Room();
+            Form_Room temp = new Form_Room(Username);
             panel4.Controls.Add(temp);
         }
 

@@ -4,11 +4,13 @@ namespace HotelManagement.UI
 {
     public partial class Form_Room : UserControl
     {
-        public Form_Room()
+        public string Username;
+        public Form_Room(string Username)
         {
             InitializeComponent();
             Load_Data();
             this.Dock = DockStyle.Fill;
+            this.Username = Username;
         }
         #region Properties
         public Panel _pnToAddARoomInfo
