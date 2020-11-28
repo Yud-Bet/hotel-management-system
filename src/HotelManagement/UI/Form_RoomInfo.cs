@@ -135,7 +135,7 @@ namespace HotelManagement.UI
             int a = DataAccess.CustomerDA.AddReservation(RoomID, tbCustomerName.Text,
                 dtpCustomerBirthday.Value, tbCustomerPhoneNum.Text, rbtMale.Checked ? Sex.Male : Sex.Female, tbIDNo.Text,
                 tbPassport.Text, tbCustomerAddress.Text, dtpCheckInDate.Value, tbNote.Text);
-            int b = DataAccess.CustomerDA.AddBill(RoomID);
+            int b = DataAccess.CustomerDA.AddBill(RoomID, ParentRef.ParentRef.Username);
             if (a > 0 && b > 0)
             {
                 this.ParentRef.ParentRef._lbNumberOfEmptyRoom.Text = (Convert.ToInt32(this.ParentRef.ParentRef._lbNumberOfEmptyRoom.Text) - 1).ToString();
