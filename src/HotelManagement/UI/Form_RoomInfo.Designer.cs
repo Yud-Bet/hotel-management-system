@@ -824,7 +824,7 @@
             // btBookRoom
             // 
             this.btBookRoom.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
-            this.btBookRoom.ButtonImage = global::HotelManagement.Properties.Resources.icYes;
+            this.btBookRoom.ButtonImage = global::HotelManagement.Properties.Resources.icYes1;
             this.btBookRoom.ButtonStyle = XanderUI.XUIButton.Style.MaterialRounded;
             this.btBookRoom.ButtonText = "Đặt Phòng";
             this.btBookRoom.ClickBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(130)))), ((int)(((byte)(200)))));
