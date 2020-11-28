@@ -53,7 +53,7 @@
             // lbPrice
             // 
             this.lbPrice.BackColor = System.Drawing.Color.Transparent;
-            this.lbPrice.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lbPrice.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.lbPrice.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbPrice.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
             this.lbPrice.Location = new System.Drawing.Point(88, 158);
@@ -62,7 +62,6 @@
             this.lbPrice.TabIndex = 2;
             this.lbPrice.Text = "Price";
             this.lbPrice.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.lbPrice.Click += new System.EventHandler(this.pbImage_Click);
             // 
             // zeroitClickAnimator1
             // 
@@ -74,7 +73,7 @@
             // 
             this.zeroitRectShadowPanel1.BorderColor = System.Drawing.Color.Black;
             this.zeroitRectShadowPanel1.Color = System.Drawing.SystemColors.Control;
-            this.zeroitRectShadowPanel1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.zeroitRectShadowPanel1.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.zeroitRectShadowPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.zeroitRectShadowPanel1.Location = new System.Drawing.Point(0, 0);
             this.zeroitRectShadowPanel1.Name = "zeroitRectShadowPanel1";
@@ -92,7 +91,7 @@
             // lbName
             // 
             this.lbName.AllowTransparency = true;
-            this.lbName.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lbName.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.lbName.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbName.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lbName.Location = new System.Drawing.Point(3, 128);
@@ -102,7 +101,6 @@
             this.lbName.Name = "lbName";
             this.lbName.Size = new System.Drawing.Size(221, 35);
             this.lbName.TabIndex = 4;
-            this.lbName.Click += new System.EventHandler(this.pbImage_Click);
             // 
             // Item_EatService1
             // 
@@ -115,7 +113,6 @@
             this.DoubleBuffered = true;
             this.Name = "Item_EatService1";
             this.Size = new System.Drawing.Size(227, 187);
-            this.Click += new System.EventHandler(this.pbImage_Click);
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).EndInit();
             this.ResumeLayout(false);
 

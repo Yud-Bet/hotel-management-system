@@ -111,6 +111,12 @@
     <Compile Include="UI\Form_AddEditRoom.Designer.cs">
       <DependentUpon>Form_AddEditRoom.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Form_LaundryService.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Form_LaundryService.Designer.cs">
+      <DependentUpon>Form_LaundryService.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Form_Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -168,6 +174,9 @@
     </Compile>
     <EmbeddedResource Include="UI\Form_AddEditRoom.resx">
       <DependentUpon>Form_AddEditRoom.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Form_LaundryService.resx">
+      <DependentUpon>Form_LaundryService.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Form_Login.resx">
       <DependentUpon>Form_Login.cs</DependentUpon>

@@ -795,7 +795,7 @@
             // 
             this.lbStaffname.Cursor = System.Windows.Forms.Cursors.Default;
             this.lbStaffname.Font = new System.Drawing.Font("Calibri", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbStaffname.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
+            this.lbStaffname.ForeColor = System.Drawing.Color.Black;
             this.lbStaffname.Location = new System.Drawing.Point(66, 16);
             this.lbStaffname.Name = "lbStaffname";
             this.lbStaffname.Size = new System.Drawing.Size(177, 35);

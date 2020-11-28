@@ -48,6 +48,13 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.lbTotalMoney = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -255,12 +262,96 @@
             // 
             // panel5
             // 
+            this.panel5.Controls.Add(this.label7);
+            this.panel5.Controls.Add(this.label12);
+            this.panel5.Controls.Add(this.label11);
+            this.panel5.Controls.Add(this.label6);
+            this.panel5.Controls.Add(this.label10);
+            this.panel5.Controls.Add(this.lbTotalMoney);
+            this.panel5.Controls.Add(this.label5);
             this.panel5.Controls.Add(this.label8);
             this.panel5.Controls.Add(this.panel8);
             this.panel5.Location = new System.Drawing.Point(521, 464);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(433, 183);
             this.panel5.TabIndex = 16;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Calibri", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.label7.ForeColor = System.Drawing.Color.Black;
+            this.label7.Location = new System.Drawing.Point(5, 87);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(120, 24);
+            this.label7.TabIndex = 2;
+            this.label7.Text = "Tổng phải trả";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Calibri", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.label12.ForeColor = System.Drawing.Color.Black;
+            this.label12.Location = new System.Drawing.Point(352, 44);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(30, 24);
+            this.label12.TabIndex = 2;
+            this.label12.Text = "10";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Calibri", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.label11.ForeColor = System.Drawing.Color.Black;
+            this.label11.Location = new System.Drawing.Point(398, 44);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(25, 24);
+            this.label11.TabIndex = 2;
+            this.label11.Text = "%";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Calibri", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.label6.ForeColor = System.Drawing.Color.Black;
+            this.label6.Location = new System.Drawing.Point(257, 44);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(83, 24);
+            this.label6.TabIndex = 2;
+            this.label6.Text = "Giảm giá";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Calibri", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.label10.ForeColor = System.Drawing.Color.Black;
+            this.label10.Location = new System.Drawing.Point(131, 87);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(20, 24);
+            this.label10.TabIndex = 2;
+            this.label10.Text = "0";
+            // 
+            // lbTotalMoney
+            // 
+            this.lbTotalMoney.AutoSize = true;
+            this.lbTotalMoney.Font = new System.Drawing.Font("Calibri", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.lbTotalMoney.ForeColor = System.Drawing.Color.Black;
+            this.lbTotalMoney.Location = new System.Drawing.Point(131, 44);
+            this.lbTotalMoney.Name = "lbTotalMoney";
+            this.lbTotalMoney.Size = new System.Drawing.Size(20, 24);
+            this.lbTotalMoney.TabIndex = 2;
+            this.lbTotalMoney.Text = "0";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Calibri", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.label5.ForeColor = System.Drawing.Color.Black;
+            this.label5.Location = new System.Drawing.Point(5, 44);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(87, 24);
+            this.label5.TabIndex = 2;
+            this.label5.Text = "Tổng tiền";
             // 
             // label8
             // 
@@ -269,16 +360,16 @@
             this.label8.ForeColor = System.Drawing.Color.Black;
             this.label8.Location = new System.Drawing.Point(3, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(169, 24);
+            this.label8.Size = new System.Drawing.Size(107, 24);
             this.label8.TabIndex = 2;
-            this.label8.Text = "Danh sách đã chọn";
+            this.label8.Text = "Thanh toán";
             // 
             // panel8
             // 
             this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
             this.panel8.Location = new System.Drawing.Point(7, 27);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(250, 3);
+            this.panel8.Size = new System.Drawing.Size(150, 3);
             this.panel8.TabIndex = 3;
             // 
             // pictureBox2
@@ -344,5 +435,12 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label lbTotalMoney;
+        private System.Windows.Forms.Label label5;
     }
 }

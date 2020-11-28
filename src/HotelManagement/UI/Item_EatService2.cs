@@ -69,10 +69,12 @@ namespace HotelManagement.UI
 
         #endregion
 
+
         private void btPlus_Click(object sender, EventArgs e)
         {
             count++;
             lbCount.Text = count.ToString();
+            this.parent._totalMoney += this.price;
         }
 
         private void removeItem()
@@ -96,12 +98,19 @@ namespace HotelManagement.UI
             }
             count--;
             lbCount.Text = count.ToString();
+            this.parent._totalMoney -= this.price;
         }
 
         private void Item_EatService2_MouseMove(object sender, MouseEventArgs e)
         {
             zeroitUltraTextBox1.IsEnabled = true;
             zeroitUltraTextBox1.Focus();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            removeItem();
+            this.parent.calcTotalMoney();
         }
     }
 }

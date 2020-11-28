@@ -87,6 +87,7 @@ namespace HotelManagement.UI
                 this.parent._item_EatService2s.Add(temp);
                 this.parent._panelItem2.Controls.Add(temp);
             }
+            this.parent.calcTotalMoney();
         }
     }
 }

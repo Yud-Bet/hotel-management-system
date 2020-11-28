@@ -36,7 +36,7 @@ namespace HotelManagement.UI
             pnSubMenu_Report.Hide();
             pnSubMenu_Manage.Hide();
             Form_Room temp = new Form_Room();
-            panel4.Controls.Add(new Form_EatService());
+            panel4.Controls.Add(new Form_Room());
         }
 
         private void setStatus(PictureBox pb, Label lb, Panel pn, Image img, bool stt)
@@ -294,6 +294,9 @@ namespace HotelManagement.UI
                 resetServiceSubmenu();
                 isChoosebtEatService = true;
                 setStatus(pbEatService, lbEatService, Resources.icEatService2, true);
+
+                panel4.Controls.Clear();
+                panel4.Controls.Add(new Form_EatService());
             }
         }
 

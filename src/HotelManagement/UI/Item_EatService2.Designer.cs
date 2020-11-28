@@ -36,6 +36,7 @@
             this.zeroitUltraTextBox1 = new Zeroit.Framework.Labels.ZeroitUltraTextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lbName = new Zeroit.Framework.Labels.ZeroitMultiFormatLabel();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.btPlus)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btMinus)).BeginInit();
             this.panel1.SuspendLayout();
@@ -118,7 +119,7 @@
             this.zeroitUltraTextBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
             this.zeroitUltraTextBox1.IsEnabled = false;
             this.zeroitUltraTextBox1.Location = new System.Drawing.Point(-3, 9);
-            this.zeroitUltraTextBox1.MaxLength = 32767;
+            this.zeroitUltraTextBox1.MaxLength = 0;
             this.zeroitUltraTextBox1.Multiline = false;
             this.zeroitUltraTextBox1.Name = "zeroitUltraTextBox1";
             this.zeroitUltraTextBox1.PasswordChar = '\0';
@@ -137,6 +138,7 @@
             // panel1
             // 
             this.panel1.Controls.Add(this.lbName);
+            this.panel1.Controls.Add(this.label1);
             this.panel1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -150,14 +152,29 @@
             this.lbName.AllowTransparency = true;
             this.lbName.Font = new System.Drawing.Font("Calibri", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbName.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.lbName.Location = new System.Drawing.Point(3, 1);
+            this.lbName.Location = new System.Drawing.Point(18, 1);
             this.lbName.MainText = "Name";
             this.lbName.MainTextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lbName.MainTextPadding = new System.Windows.Forms.Padding(0);
             this.lbName.Name = "lbName";
-            this.lbName.Size = new System.Drawing.Size(201, 31);
+            this.lbName.Size = new System.Drawing.Size(183, 31);
             this.lbName.TabIndex = 0;
             this.lbName.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Item_EatService2_MouseMove);
+            // 
+            // label1
+            // 
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label1.Font = new System.Drawing.Font("San Francisco Text Regular", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label1.Location = new System.Drawing.Point(-1, 4);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(19, 24);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "x";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label1.Click += new System.EventHandler(this.label1_Click);
+            this.label1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Item_EatService2_MouseMove);
             // 
             // Item_EatService2
             // 
@@ -187,5 +204,6 @@
         private Zeroit.Framework.Labels.ZeroitUltraTextBox zeroitUltraTextBox1;
         private System.Windows.Forms.Panel panel1;
         private Zeroit.Framework.Labels.ZeroitMultiFormatLabel lbName;
+        private System.Windows.Forms.Label label1;
     }
 }
