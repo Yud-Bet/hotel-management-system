@@ -146,7 +146,7 @@
             // 
             // btService_manage
             // 
-            this.btService_manage.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btService_manage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.btService_manage.Controls.Add(this.lbSubService);
             this.btService_manage.Controls.Add(this.pbSubService);
             this.btService_manage.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -189,7 +189,7 @@
             // 
             // btStaff
             // 
-            this.btStaff.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btStaff.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.btStaff.Controls.Add(this.lbStaff);
             this.btStaff.Controls.Add(this.pbStaff);
             this.btStaff.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -232,7 +232,7 @@
             // 
             // btWarehouse
             // 
-            this.btWarehouse.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btWarehouse.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.btWarehouse.Controls.Add(this.lbWarehouse);
             this.btWarehouse.Controls.Add(this.pbWarehouse);
             this.btWarehouse.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -275,7 +275,7 @@
             // 
             // btCustomer
             // 
-            this.btCustomer.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btCustomer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.btCustomer.Controls.Add(this.lbCustomer);
             this.btCustomer.Controls.Add(this.pbCustomer);
             this.btCustomer.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -396,7 +396,7 @@
             // 
             // pnBill
             // 
-            this.pnBill.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.pnBill.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.pnBill.Controls.Add(this.lbBill);
             this.pnBill.Controls.Add(this.pbBill);
             this.pnBill.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -439,7 +439,7 @@
             // 
             // btRevenue
             // 
-            this.btRevenue.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btRevenue.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.btRevenue.Controls.Add(this.lbRevenue);
             this.btRevenue.Controls.Add(this.pbRevenue);
             this.btRevenue.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -561,7 +561,7 @@
             // 
             // btLaundryService
             // 
-            this.btLaundryService.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btLaundryService.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.btLaundryService.Controls.Add(this.lbLaundryService);
             this.btLaundryService.Controls.Add(this.pbLaundryService);
             this.btLaundryService.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -604,7 +604,7 @@
             // 
             // btEatService
             // 
-            this.btEatService.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btEatService.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.btEatService.Controls.Add(this.lbEatService);
             this.btEatService.Controls.Add(this.pbEatService);
             this.btEatService.Cursor = System.Windows.Forms.Cursors.Hand;

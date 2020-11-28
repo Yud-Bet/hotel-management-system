@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
 using HotelManagement.DTO;
+using System.Drawing;
 
 namespace HotelManagement.UI
 {
@@ -23,8 +24,8 @@ namespace HotelManagement.UI
             tbCustomerName.Focus();
             pnVip_Nor.Enabled = false;
             pnSignle_Dou.Enabled = false;
-            tbRoomsize.Enabled = false;
-            tbRoomPrice.Enabled = false;
+            tbRoomsize.IsEnabled = false;
+            tbRoomPrice.IsEnabled = false;
         }
 
         private void setRoomType(RoomType type)
@@ -97,16 +98,16 @@ namespace HotelManagement.UI
             if (cbIDNo.Checked == true)
             {
                 cbPassport.Checked = false;
-                tbIDNo.Enabled = true;
-                tbPassport.Enabled = false;
+                tbIDNo.IsEnabled = true;
+                tbPassport.IsEnabled = false;
                 tbPassport.Text = "";
             }
             else
             {
                 cbPassport.Checked = true;
-                tbIDNo.Enabled = false;
+                tbIDNo.IsEnabled = false;
                 tbIDNo.Text = "";
-                tbPassport.Enabled = true;
+                tbPassport.IsEnabled = true;
             }
         }
 
@@ -115,15 +116,15 @@ namespace HotelManagement.UI
             if (cbPassport.Checked == true)
             {
                 cbIDNo.Checked = false;
-                tbIDNo.Enabled = false;
+                tbIDNo.IsEnabled = false;
                 tbIDNo.Text = "";
-                tbPassport.Enabled = true;
+                tbPassport.IsEnabled = true;
             }
             else
             {
                 cbIDNo.Checked = true;
-                tbIDNo.Enabled = true;
-                tbPassport.Enabled = false;
+                tbIDNo.IsEnabled = true;
+                tbPassport.IsEnabled = false;
                 tbPassport.Text = "";
             }
         }
@@ -241,9 +242,23 @@ namespace HotelManagement.UI
 
         private void btSettingRoom_Click(object sender, EventArgs e)
         {
-            Form_AddEditRoom form_AddEditRoom = new Form_AddEditRoom();
-            form_AddEditRoom._btAdd.Hide();
-            form_AddEditRoom.ShowDialog();
+            printPreviewDialogBill.Document = bill;
+            printPreviewDialogBill.ShowDialog();
+            //Form_AddEditRoom form_AddEditRoom = new Form_AddEditRoom();
+            //form_AddEditRoom._btAdd.Hide();
+            //form_AddEditRoom.ShowDialog();
+        }
+
+        private void bill_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            drawBill drawBill = new drawBill(e.Graphics);
+            drawBill.drawBillHeader();
+            drawBill.drawCustomerInfo("Nguyễn Văn Huấn", 302, "12344435", "dfgdfgdfgdf", dtpCheckInDate.Text, dtpCheckOutDate.Text);
+            drawBill.drawItem("Phòng", 12, 10000);
+            drawBill.drawItem("Cola", 10000, 1000000000);
+            drawBill.drawItem("Phòng", 12, 10000);
+            drawBill.drawItem("Cola", 10000, 1000000000);
+            drawBill.drawEndOfBill("Lê Thanh Dàn", 10000000, 10);
         }
     }
 }
