@@ -43,7 +43,7 @@
             this.lbRoomCount = new System.Windows.Forms.Label();
             this.lbRoomSize = new System.Windows.Forms.Label();
             this.tbRoomPrice = new Zeroit.Framework.Metro.ZeroitMetroTextbox();
-            this.tbRoomCount = new Zeroit.Framework.Metro.ZeroitMetroTextbox();
+            this.tbRoomID = new Zeroit.Framework.Metro.ZeroitMetroTextbox();
             this.tbRoomsize = new Zeroit.Framework.Metro.ZeroitMetroTextbox();
             this.lbRoomType = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
@@ -72,7 +72,7 @@
             this.panel4.Controls.Add(this.lbRoomCount);
             this.panel4.Controls.Add(this.lbRoomSize);
             this.panel4.Controls.Add(this.tbRoomPrice);
-            this.panel4.Controls.Add(this.tbRoomCount);
+            this.panel4.Controls.Add(this.tbRoomID);
             this.panel4.Controls.Add(this.tbRoomsize);
             this.panel4.Controls.Add(this.lbRoomType);
             this.panel4.Controls.Add(this.label19);
@@ -234,26 +234,26 @@
             this.tbRoomPrice.TabIndex = 3;
             this.tbRoomPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // tbRoomCount
+            // tbRoomID
             // 
-            this.tbRoomCount.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.tbRoomID.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbRoomCount.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.tbRoomCount.Border = 3;
-            this.tbRoomCount.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
-            this.tbRoomCount.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.tbRoomCount.DefaultColor = System.Drawing.Color.White;
-            this.tbRoomCount.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.tbRoomCount.Font = new System.Drawing.Font("Calibri", 13F);
-            this.tbRoomCount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
-            this.tbRoomCount.HideSelection = false;
-            this.tbRoomCount.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(168)))), ((int)(((byte)(144)))));
-            this.tbRoomCount.Location = new System.Drawing.Point(108, 38);
-            this.tbRoomCount.Name = "tbRoomCount";
-            this.tbRoomCount.PasswordChar = '\0';
-            this.tbRoomCount.Size = new System.Drawing.Size(404, 32);
-            this.tbRoomCount.TabIndex = 1;
+            this.tbRoomID.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.tbRoomID.Border = 3;
+            this.tbRoomID.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
+            this.tbRoomID.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.tbRoomID.DefaultColor = System.Drawing.Color.White;
+            this.tbRoomID.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.tbRoomID.Font = new System.Drawing.Font("Calibri", 13F);
+            this.tbRoomID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
+            this.tbRoomID.HideSelection = false;
+            this.tbRoomID.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(168)))), ((int)(((byte)(144)))));
+            this.tbRoomID.Location = new System.Drawing.Point(108, 38);
+            this.tbRoomID.Name = "tbRoomID";
+            this.tbRoomID.PasswordChar = '\0';
+            this.tbRoomID.Size = new System.Drawing.Size(404, 32);
+            this.tbRoomID.TabIndex = 1;
             // 
             // tbRoomsize
             // 
@@ -405,7 +405,7 @@
         private System.Windows.Forms.Label lbRoomCount;
         private System.Windows.Forms.Label lbRoomSize;
         private Zeroit.Framework.Metro.ZeroitMetroTextbox tbRoomPrice;
-        private Zeroit.Framework.Metro.ZeroitMetroTextbox tbRoomCount;
+        private Zeroit.Framework.Metro.ZeroitMetroTextbox tbRoomID;
         private Zeroit.Framework.Metro.ZeroitMetroTextbox tbRoomsize;
         private System.Windows.Forms.Label lbRoomType;
         private System.Windows.Forms.Label label19;

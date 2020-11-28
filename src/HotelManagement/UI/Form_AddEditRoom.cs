@@ -7,6 +7,8 @@ namespace HotelManagement.UI
 {
     public partial class Form_AddEditRoom : MetroFramework.Forms.MetroForm
     {
+        private int RoomID;
+
         public XanderUI.XUIButton _btAdd
         {
             get { return btAddRoom; }
@@ -17,13 +19,14 @@ namespace HotelManagement.UI
             get { return btSave; }
         }
 
-        public Form_AddEditRoom()
+        public Form_AddEditRoom(int RoomID)
         {
             InitializeComponent();
+            this.RoomID = RoomID;
             loadData();
             //get roomcount properties
-            float[] sizeRoomCount = { lbRoomCount.Top , lbRoomCount.Font.Size, tbRoomCount.Font.Size, tbRoomCount.Top,
-                                        tbRoomCount.Left, tbRoomCount.Height, tbRoomCount.Width};
+            float[] sizeRoomCount = { lbRoomCount.Top , lbRoomCount.Font.Size, tbRoomID.Font.Size, tbRoomID.Top,
+                                        tbRoomID.Left, tbRoomID.Height, tbRoomID.Width};
             //get roomsize properties
             float[] sizeRoomSize = { lbRoomSize.Top , lbRoomSize.Font.Size, tbRoomsize.Font.Size, tbRoomsize.Top,
                                         tbRoomsize.Left, tbRoomsize.Height, tbRoomsize.Width, lbM2.Top, lbM2.Left, lbM2.Font.Size};
@@ -36,7 +39,7 @@ namespace HotelManagement.UI
 
             this.SizeChanged += (s, e) =>
              {
-                 reSize(lbRoomCount, tbRoomCount, sizeRoomCount);
+                 reSize(lbRoomCount, tbRoomID, sizeRoomCount);
                  reSize(lbRoomSize, tbRoomsize, sizeRoomSize, lbM2);
                  reSize(lbRoomPrice, tbRoomPrice, sizeRoomPrice, lbVND);
                  reSize(lbRoomType, flowLayoutPanel2, panel5, flowLayoutPanel3, sizeRoomType);
@@ -74,7 +77,11 @@ namespace HotelManagement.UI
 
         void loadData()
         {
-
+            DTO.RoomDetail room = new DTO.RoomDetail(RoomID);
+            tbRoomID.Text = RoomID.ToString();
+            tbRoomsize.Text = room.Size;
+            tbRoomPrice.Text = room.Price;
+            SetValueForControl.SetRoomType(room.Type, rbtNor, rbtVip, rbtSingle, rbtDouble);
         }
 
         private void btSave_Click(object sender, EventArgs e)
@@ -82,19 +89,19 @@ namespace HotelManagement.UI
             if (!checkEmptyValue()) return;
             if (!checkValidityOfValue()) return;
 
-            //
-            // code
-            //
+            DataAccess.RoomDA.EditRoomInfo(Convert.ToInt32(tbRoomID.Text), GetValueOfControl.GetRoomType(rbtNor, rbtVip, rbtSingle, rbtDouble),
+                Convert.ToInt32(tbRoomsize.Text), Convert.ToInt32(tbRoomPrice.Text));
+            DialogResult = DialogResult.OK;
 
             this.Close();
         }
 
         bool checkEmptyValue()
         {
-            if (tbRoomCount.Text == "")
+            if (tbRoomID.Text == "")
             {
                 MessageBox.Show("Vui lòng nhập số phòng.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                tbRoomCount.Focus();
+                tbRoomID.Focus();
                 return false;
             }
 
@@ -129,10 +136,10 @@ namespace HotelManagement.UI
 
         bool checkValidityOfValue()
         {
-            if(!Regex.IsMatch(tbRoomCount.Text, @"^[0-9]+$"))
+            if(!Regex.IsMatch(tbRoomID.Text, @"^[0-9]+$"))
             {
                 MessageBox.Show("Mã phòng là số nguyên.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                tbRoomCount.Focus();
+                tbRoomID.Focus();
                 return false;
             }
 

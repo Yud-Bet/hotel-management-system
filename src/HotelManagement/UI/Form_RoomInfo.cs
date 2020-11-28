@@ -1,21 +1,23 @@
 ﻿using System;
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
-using HotelManagement.DTO;
+using System.Drawing;
 
 namespace HotelManagement.UI
 {
     public partial class Form_RoomInfo : UserControl
     {
+        private DTO.CustomerInfo Customer;
+        private int RoomID;
         public Form_RoomInfo(Room parent)
         {
             InitializeComponent();
-            this.Parent = parent;
+            this.ParentRef = parent;
             Load_Data();
         }
 
         #region Properties
-        public Room Parent;
+        public Room ParentRef;
         #endregion
 
         private void Form_RoomInfo_Load(object sender, EventArgs e)
@@ -27,24 +29,11 @@ namespace HotelManagement.UI
             tbRoomPrice.Enabled = false;
         }
 
-        private void setRoomType(RoomType type)
-        {
-            rbtNor.Checked = (type == RoomType.Single || type == RoomType.Double) ? true : false;
-            rbtVip.Checked = (type == RoomType.SingleVIP || type == RoomType.DoubleVIP) ? true : false;
-            rbtSingle.Checked = (type == RoomType.Single || type == RoomType.SingleVIP) ? true : false;
-            rbtDouble.Checked = (type == RoomType.Double || type == RoomType.DoubleVIP) ? true : false;
-        }
-
-        private void setSexOfCustomer(Sex sex)
-        {
-            rbtMale.Checked = (sex == Sex.Male) ? true : false;
-            rbtFemale.Checked = (sex == Sex.Female) ? true : false;
-        }
-
         private void Load_Data()
         {
-            lbRoomID.Text = this.Parent._RoomID.ToString();
-            if (this.Parent._RoomStatus == RoomStatus.Empty)
+            RoomID = this.ParentRef._RoomID;
+            lbRoomID.Text = RoomID.ToString();
+            if (this.ParentRef._RoomStatus == RoomStatus.Empty)
             {
                 btPay.Hide();
             }
@@ -53,30 +42,41 @@ namespace HotelManagement.UI
                 btBookRoom.Hide();
             }
 
-            RoomDetail room = new RoomDetail(Convert.ToInt32(lbRoomID.Text));
+            DTO.RoomDetail room = new DTO.RoomDetail(RoomID);
             tbRoomsize.Text = room.Size;
             tbRoomPrice.Text = room.Price;
-            setRoomType(room.Type);
+            SetValueForControl.SetRoomType(room.Type, rbtNor, rbtVip, rbtSingle, rbtDouble);
 
-            if (this.Parent._RoomStatus == RoomStatus.Rented)
+            if (this.ParentRef._RoomStatus == RoomStatus.Rented)
             {
-                CustomerInfo customer = new CustomerInfo(Convert.ToInt32(lbRoomID.Text));
-                tbCustomerName.Text = customer.Name;
-                dtpCustomerBirthday.Value = customer.Birthday;
-                tbCustomerPhoneNum.Text = customer.PhoneNumber;
-                setSexOfCustomer(customer.sex);
-                tbIDNo.Text = customer.IDNumber;
-                tbPassport.Text = customer.Passport;
-                tbCustomerAddress.Text = customer.Addr;
-                tbNote.Text = customer.Note;
-                dtpCheckInDate.Value = customer.CheckInDate;
+                Customer = new DTO.CustomerInfo(RoomID);
+                tbCustomerName.Text = Customer.Name;
+                dtpCustomerBirthday.Value = Customer.Birthday;
+                tbCustomerPhoneNum.Text = Customer.PhoneNumber;
+                SetValueForControl.SetSex(Customer.sex, rbtMale, rbtFemale);
+                if (Customer.IDNumber.Length != 0)
+                {
+                    tbIDNo.Text = Customer.IDNumber;
+                }
+                else
+                {
+                    tbPassport.Text = Customer.Passport;
+                    tbIDNo.Enabled = false;
+                    cbIDNo.Checked = false;
+                    cbPassport.Checked = true;
+                    tbPassport.Enabled = true;
+                }
+                tbCustomerAddress.Text = Customer.Addr;
+                tbNote.Text = Customer.Note;
+                dtpCheckInDate.Value = Customer.CheckInDate;
             }
+            else Customer = null;
         }
 
         private void pbArrowBack_Click(object sender, EventArgs e)
         {
-            this.Parent.Parent._pnToAddARoomInfo.Controls.Remove(this);
-            this.Parent.Parent._pnToAddARoomInfo.SendToBack();
+            this.ParentRef.ParentRef._pnToAddARoomInfo.Controls.Remove(this);
+            this.ParentRef.ParentRef._pnToAddARoomInfo.SendToBack();
             
         }
 
@@ -132,17 +132,18 @@ namespace HotelManagement.UI
         {
             if (!checkEmptyValue()) return;
             if (!checkValidityOfValue()) return;
-            int RowsAffected = DataAccess.CustomerDA.AddReservation(Convert.ToInt32(lbRoomID.Text), tbCustomerName.Text,
+            int a = DataAccess.CustomerDA.AddReservation(RoomID, tbCustomerName.Text,
                 dtpCustomerBirthday.Value, tbCustomerPhoneNum.Text, rbtMale.Checked ? Sex.Male : Sex.Female, tbIDNo.Text,
                 tbPassport.Text, tbCustomerAddress.Text, dtpCheckInDate.Value, tbNote.Text);
-            if (RowsAffected > 0)
+            int b = DataAccess.CustomerDA.AddBill(RoomID);
+            if (a > 0 && b > 0)
             {
-                this.Parent.Parent._lbNumberOfEmptyRoom.Text = (Convert.ToInt32(this.Parent.Parent._lbNumberOfEmptyRoom.Text) - 1).ToString();
-                this.Parent.Parent._lbNumberOfRentedRoom.Text = (Convert.ToInt32(this.Parent.Parent._lbNumberOfRentedRoom.Text) + 1).ToString();
-                this.Parent._RoomStatus = RoomStatus.Rented;
+                this.ParentRef.ParentRef._lbNumberOfEmptyRoom.Text = (Convert.ToInt32(this.ParentRef.ParentRef._lbNumberOfEmptyRoom.Text) - 1).ToString();
+                this.ParentRef.ParentRef._lbNumberOfRentedRoom.Text = (Convert.ToInt32(this.ParentRef.ParentRef._lbNumberOfRentedRoom.Text) + 1).ToString();
+                this.ParentRef._RoomStatus = RoomStatus.Rented;
                 pbArrowBack_Click(sender, e);
             }
-            else MessageBox.Show("Lỗi");
+            else MessageBox.Show("Lỗi khi đăt phòng");
         }
 
         bool checkEmptyValue()
@@ -230,20 +231,44 @@ namespace HotelManagement.UI
 
         private void btPay_Click(object sender, EventArgs e)
         {
-            //
-            // Huấn code
-            //
-            this.Parent.Parent._lbNumberOfCleaningRoom.Text = (Convert.ToInt32(this.Parent.Parent._lbNumberOfCleaningRoom.Text) + 1).ToString();
-            this.Parent.Parent._lbNumberOfRentedRoom.Text = (Convert.ToInt32(this.Parent.Parent._lbNumberOfRentedRoom.Text) - 1).ToString();
-            this.Parent._RoomStatus = RoomStatus.Cleaning;
+            printPreviewDialogBill.Document = bill;
+            printPreviewDialogBill.ShowDialog();
+
+            this.ParentRef.ParentRef._lbNumberOfCleaningRoom.Text = (Convert.ToInt32(this.ParentRef.ParentRef._lbNumberOfCleaningRoom.Text) + 1).ToString();
+            this.ParentRef.ParentRef._lbNumberOfRentedRoom.Text = (Convert.ToInt32(this.ParentRef.ParentRef._lbNumberOfRentedRoom.Text) - 1).ToString();
+            this.ParentRef._RoomStatus = RoomStatus.Cleaning;
             pbArrowBack_Click(sender, e);
         }
 
         private void btSettingRoom_Click(object sender, EventArgs e)
         {
-            Form_AddEditRoom form_AddEditRoom = new Form_AddEditRoom();
+            Form_AddEditRoom form_AddEditRoom = new Form_AddEditRoom(RoomID);
             form_AddEditRoom._btAdd.Hide();
-            form_AddEditRoom.ShowDialog();
+            if (form_AddEditRoom.ShowDialog() == DialogResult.OK)
+            {
+                DTO.RoomDetail room = new DTO.RoomDetail(RoomID);
+                tbRoomsize.Text = room.Size;
+                tbRoomPrice.Text = room.Price;
+                SetValueForControl.SetRoomType(room.Type, rbtNor, rbtVip, rbtSingle, rbtDouble);
+            }
+        }
+
+        private void bill_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            DTO.RoomServices svc = new DTO.RoomServices(RoomID, this.ParentRef.ParentRef.Username);
+            DrawBill drawBill = new DrawBill(e.Graphics);
+            drawBill.drawBillHeader();
+            drawBill.drawCustomerInfo(Customer.Name, RoomID, Customer.PhoneNumber, Customer.Addr,
+                dtpCheckInDate.Text, dtpCheckOutDate.Text);
+            drawBill.drawItem("Phòng", 1, Convert.ToInt32(tbRoomPrice.Text));
+            int TotalMoney = Convert.ToInt32(tbRoomPrice.Text) * (dtpCheckOutDate.Value - dtpCheckInDate.Value).Days;
+            for (int i = 0; i < svc.services.Count; i++)
+            {
+                drawBill.drawItem(svc.services[i].Name, svc.services[i].Count, svc.services[i].Price);
+                TotalMoney += svc.services[i].Count * svc.services[i].Price;
+            }
+            DTO.StaffOverview staff = new DTO.StaffOverview(this.ParentRef.ParentRef.Username);
+            drawBill.drawEndOfBill(staff.Name, TotalMoney, 0);
         }
     }
 }

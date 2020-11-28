@@ -94,11 +94,13 @@
     <Compile Include="DTO\CustomerInfo.cs" />
     <Compile Include="DTO\RoomDetail.cs" />
     <Compile Include="DTO\RoomOverview.cs" />
+    <Compile Include="DTO\RoomServices.cs" />
     <Compile Include="DTO\StaffOverview.cs" />
     <Compile Include="EnumDefinition.cs" />
     <Compile Include="Helper.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UI\DrawBill.cs" />
     <Compile Include="UI\Form_AddEditRoom.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -129,12 +131,14 @@
     <Compile Include="UI\Form_RoomInfo.Designer.cs">
       <DependentUpon>Form_RoomInfo.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\GetValueOfControl.cs" />
     <Compile Include="UI\Room.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UI\Room.Designer.cs">
       <DependentUpon>Room.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\SetValueForControl.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -293,6 +297,48 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\profile-user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icSubService2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icWarehouse2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icCustomer2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icStaff2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icManage2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icBill2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icRevenue2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icReport2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icLaundryService2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icEatService2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icSevice2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icRoom2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icHorizontalArrow2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icVerticalArrow2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

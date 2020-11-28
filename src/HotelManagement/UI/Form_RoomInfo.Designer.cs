@@ -74,6 +74,7 @@
             this.cbCheckOutDate = new Zeroit.Framework.MaterialDesign.Controls.ZeroitMaterialCheckBox();
             this.dtpCheckOutDate = new MetroFramework.Controls.MetroDateTime();
             this.dtpCheckInDate = new MetroFramework.Controls.MetroDateTime();
+            this.label14 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
@@ -91,7 +92,8 @@
             this.btPay = new XanderUI.XUIButton();
             this.btSettingRoom = new XanderUI.XUIButton();
             this.btDeleteRoom = new XanderUI.XUIButton();
-            this.label14 = new System.Windows.Forms.Label();
+            this.bill = new System.Drawing.Printing.PrintDocument();
+            this.printPreviewDialogBill = new System.Windows.Forms.PrintPreviewDialog();
             this.pnCustomerInfo.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.pnRoomInfo.SuspendLayout();
@@ -219,6 +221,7 @@
             // 
             // dtpCustomerBirthday
             // 
+            this.dtpCustomerBirthday.CalendarMonthBackground = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.dtpCustomerBirthday.Location = new System.Drawing.Point(310, 75);
             this.dtpCustomerBirthday.MinimumSize = new System.Drawing.Size(0, 29);
             this.dtpCustomerBirthday.Name = "dtpCustomerBirthday";
@@ -231,8 +234,8 @@
             this.tbPassport.Border = 3;
             this.tbPassport.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
             this.tbPassport.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.tbPassport.DefaultColor = System.Drawing.Color.White;
-            this.tbPassport.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.tbPassport.DefaultColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.tbPassport.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
             this.tbPassport.Enabled = false;
             this.tbPassport.Font = new System.Drawing.Font("Calibri", 13F);
             this.tbPassport.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
@@ -250,8 +253,8 @@
             this.tbNote.Border = 3;
             this.tbNote.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
             this.tbNote.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.tbNote.DefaultColor = System.Drawing.Color.White;
-            this.tbNote.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.tbNote.DefaultColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.tbNote.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
             this.tbNote.Font = new System.Drawing.Font("Calibri", 13F);
             this.tbNote.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
             this.tbNote.HideSelection = false;
@@ -269,8 +272,8 @@
             this.tbCustomerAddress.Border = 3;
             this.tbCustomerAddress.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
             this.tbCustomerAddress.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.tbCustomerAddress.DefaultColor = System.Drawing.Color.White;
-            this.tbCustomerAddress.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.tbCustomerAddress.DefaultColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.tbCustomerAddress.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
             this.tbCustomerAddress.Font = new System.Drawing.Font("Calibri", 13F);
             this.tbCustomerAddress.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
             this.tbCustomerAddress.HideSelection = false;
@@ -287,8 +290,8 @@
             this.tbIDNo.Border = 3;
             this.tbIDNo.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
             this.tbIDNo.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.tbIDNo.DefaultColor = System.Drawing.Color.White;
-            this.tbIDNo.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.tbIDNo.DefaultColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.tbIDNo.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
             this.tbIDNo.Font = new System.Drawing.Font("Calibri", 13F);
             this.tbIDNo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
             this.tbIDNo.HideSelection = false;
@@ -305,8 +308,8 @@
             this.tbCustomerPhoneNum.Border = 3;
             this.tbCustomerPhoneNum.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
             this.tbCustomerPhoneNum.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.tbCustomerPhoneNum.DefaultColor = System.Drawing.Color.White;
-            this.tbCustomerPhoneNum.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.tbCustomerPhoneNum.DefaultColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.tbCustomerPhoneNum.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
             this.tbCustomerPhoneNum.Font = new System.Drawing.Font("Calibri", 13F);
             this.tbCustomerPhoneNum.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
             this.tbCustomerPhoneNum.HideSelection = false;
@@ -323,8 +326,8 @@
             this.tbCustomerName.Border = 3;
             this.tbCustomerName.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
             this.tbCustomerName.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.tbCustomerName.DefaultColor = System.Drawing.Color.White;
-            this.tbCustomerName.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.tbCustomerName.DefaultColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.tbCustomerName.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
             this.tbCustomerName.Font = new System.Drawing.Font("Calibri", 13F);
             this.tbCustomerName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
             this.tbCustomerName.HideSelection = false;
@@ -580,8 +583,8 @@
             this.tbRoomPrice.Border = 3;
             this.tbRoomPrice.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
             this.tbRoomPrice.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.tbRoomPrice.DefaultColor = System.Drawing.Color.White;
-            this.tbRoomPrice.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.tbRoomPrice.DefaultColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.tbRoomPrice.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
             this.tbRoomPrice.Font = new System.Drawing.Font("Calibri", 13F);
             this.tbRoomPrice.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
             this.tbRoomPrice.HideSelection = false;
@@ -599,8 +602,8 @@
             this.tbRoomsize.Border = 3;
             this.tbRoomsize.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
             this.tbRoomsize.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.tbRoomsize.DefaultColor = System.Drawing.Color.White;
-            this.tbRoomsize.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.tbRoomsize.DefaultColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.tbRoomsize.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
             this.tbRoomsize.Font = new System.Drawing.Font("Calibri", 13F);
             this.tbRoomsize.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
             this.tbRoomsize.HideSelection = false;
@@ -688,6 +691,17 @@
             this.dtpCheckInDate.Size = new System.Drawing.Size(162, 29);
             this.dtpCheckInDate.TabIndex = 12;
             // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Calibri", 17F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
+            this.label14.Location = new System.Drawing.Point(347, 154);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(42, 21);
+            this.label14.TabIndex = 2;
+            this.label14.Text = "VNĐ";
+            // 
             // label20
             // 
             this.label20.AutoSize = true;
@@ -748,8 +762,8 @@
             this.tbTotalMoney.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.tbTotalMoney.Border = 3;
             this.tbTotalMoney.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
-            this.tbTotalMoney.DefaultColor = System.Drawing.Color.White;
-            this.tbTotalMoney.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.tbTotalMoney.DefaultColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.tbTotalMoney.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
             this.tbTotalMoney.Enabled = false;
             this.tbTotalMoney.Font = new System.Drawing.Font("Calibri", 13F);
             this.tbTotalMoney.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
@@ -767,8 +781,8 @@
             this.tbNumberDay.Border = 3;
             this.tbNumberDay.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
             this.tbNumberDay.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.tbNumberDay.DefaultColor = System.Drawing.Color.White;
-            this.tbNumberDay.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.tbNumberDay.DefaultColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.tbNumberDay.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
             this.tbNumberDay.Font = new System.Drawing.Font("Calibri", 13F);
             this.tbNumberDay.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
             this.tbNumberDay.HideSelection = false;
@@ -931,22 +945,25 @@
             this.btDeleteRoom.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
             this.btDeleteRoom.Vertical_Alignment = System.Drawing.StringAlignment.Center;
             // 
-            // label14
+            // bill
             // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Calibri", 17F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
-            this.label14.Location = new System.Drawing.Point(347, 154);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(42, 21);
-            this.label14.TabIndex = 2;
-            this.label14.Text = "VNĐ";
+            this.bill.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.bill_PrintPage);
+            // 
+            // printPreviewDialogBill
+            // 
+            this.printPreviewDialogBill.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.printPreviewDialogBill.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.printPreviewDialogBill.ClientSize = new System.Drawing.Size(400, 300);
+            this.printPreviewDialogBill.Enabled = true;
+            this.printPreviewDialogBill.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialogBill.Icon")));
+            this.printPreviewDialogBill.Name = "printPreviewDialogBill";
+            this.printPreviewDialogBill.Visible = false;
             // 
             // Form_RoomInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.Controls.Add(this.flowLayoutPanel4);
             this.Controls.Add(this.pbArrowBack);
             this.Controls.Add(this.pnBookingInfo);
@@ -1047,5 +1064,7 @@
         private XanderUI.XUIButton btSettingRoom;
         private XanderUI.XUIButton btDeleteRoom;
         private System.Windows.Forms.Label label14;
+        private System.Drawing.Printing.PrintDocument bill;
+        private System.Windows.Forms.PrintPreviewDialog printPreviewDialogBill;
     }
 }
