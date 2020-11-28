@@ -244,11 +244,11 @@ namespace HotelManagement.UI
 
         private void btSettingRoom_Click(object sender, EventArgs e)
         {
-            printPreviewDialogBill.Document = bill;
-            printPreviewDialogBill.ShowDialog();
-            //Form_AddEditRoom form_AddEditRoom = new Form_AddEditRoom();
-            //form_AddEditRoom._btAdd.Hide();
-            //form_AddEditRoom.ShowDialog();
+            //printPreviewDialogBill.Document = bill;
+            //printPreviewDialogBill.ShowDialog();
+            Form_AddEditRoom form_AddEditRoom = new Form_AddEditRoom();
+            form_AddEditRoom._btAdd.Hide();
+            form_AddEditRoom.ShowDialog();
         }
 
         private void bill_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)

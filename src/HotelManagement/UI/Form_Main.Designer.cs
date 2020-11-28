@@ -162,11 +162,11 @@
             // 
             this.lbSubService.AutoSize = true;
             this.lbSubService.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lbSubService.Font = new System.Drawing.Font("Calibri", 23F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            this.lbSubService.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
             this.lbSubService.ForeColor = System.Drawing.Color.Black;
             this.lbSubService.Location = new System.Drawing.Point(77, 6);
             this.lbSubService.Name = "lbSubService";
-            this.lbSubService.Size = new System.Drawing.Size(83, 28);
+            this.lbSubService.Size = new System.Drawing.Size(71, 25);
             this.lbSubService.TabIndex = 1;
             this.lbSubService.Text = "Dịch vụ";
             this.lbSubService.Click += new System.EventHandler(this.btService_manage_Click);
@@ -205,11 +205,11 @@
             // 
             this.lbStaff.AutoSize = true;
             this.lbStaff.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lbStaff.Font = new System.Drawing.Font("Calibri", 23F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            this.lbStaff.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
             this.lbStaff.ForeColor = System.Drawing.Color.Black;
             this.lbStaff.Location = new System.Drawing.Point(77, 6);
             this.lbStaff.Name = "lbStaff";
-            this.lbStaff.Size = new System.Drawing.Size(108, 28);
+            this.lbStaff.Size = new System.Drawing.Size(91, 25);
             this.lbStaff.TabIndex = 1;
             this.lbStaff.Text = "Nhân viên";
             this.lbStaff.Click += new System.EventHandler(this.btStaff_Click);
@@ -248,11 +248,11 @@
             // 
             this.lbWarehouse.AutoSize = true;
             this.lbWarehouse.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lbWarehouse.Font = new System.Drawing.Font("Calibri", 23F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            this.lbWarehouse.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
             this.lbWarehouse.ForeColor = System.Drawing.Color.Black;
             this.lbWarehouse.Location = new System.Drawing.Point(77, 6);
             this.lbWarehouse.Name = "lbWarehouse";
-            this.lbWarehouse.Size = new System.Drawing.Size(100, 28);
+            this.lbWarehouse.Size = new System.Drawing.Size(88, 25);
             this.lbWarehouse.TabIndex = 1;
             this.lbWarehouse.Text = "Kho hàng";
             this.lbWarehouse.Click += new System.EventHandler(this.btWarehouse_Click);
@@ -291,11 +291,11 @@
             // 
             this.lbCustomer.AutoSize = true;
             this.lbCustomer.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lbCustomer.Font = new System.Drawing.Font("Calibri", 23F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            this.lbCustomer.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
             this.lbCustomer.ForeColor = System.Drawing.Color.Black;
             this.lbCustomer.Location = new System.Drawing.Point(77, 6);
             this.lbCustomer.Name = "lbCustomer";
-            this.lbCustomer.Size = new System.Drawing.Size(121, 28);
+            this.lbCustomer.Size = new System.Drawing.Size(104, 25);
             this.lbCustomer.TabIndex = 1;
             this.lbCustomer.Text = "Khách hàng";
             this.lbCustomer.Click += new System.EventHandler(this.btCustomer_Click);
@@ -359,11 +359,11 @@
             // 
             this.lbManage.AutoSize = true;
             this.lbManage.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lbManage.Font = new System.Drawing.Font("Calibri", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbManage.Font = new System.Drawing.Font("Segoe UI", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbManage.ForeColor = System.Drawing.Color.Black;
-            this.lbManage.Location = new System.Drawing.Point(81, 8);
+            this.lbManage.Location = new System.Drawing.Point(81, 7);
             this.lbManage.Name = "lbManage";
-            this.lbManage.Size = new System.Drawing.Size(101, 33);
+            this.lbManage.Size = new System.Drawing.Size(92, 31);
             this.lbManage.TabIndex = 1;
             this.lbManage.Text = "Quản lý";
             this.lbManage.Click += new System.EventHandler(this.btManage_Click);
@@ -412,11 +412,11 @@
             // 
             this.lbBill.AutoSize = true;
             this.lbBill.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lbBill.Font = new System.Drawing.Font("Calibri", 23F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            this.lbBill.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
             this.lbBill.ForeColor = System.Drawing.Color.Black;
             this.lbBill.Location = new System.Drawing.Point(77, 6);
             this.lbBill.Name = "lbBill";
-            this.lbBill.Size = new System.Drawing.Size(95, 28);
+            this.lbBill.Size = new System.Drawing.Size(82, 25);
             this.lbBill.TabIndex = 1;
             this.lbBill.Text = "Hóa đơn";
             this.lbBill.Click += new System.EventHandler(this.pnBill_Click);
@@ -455,11 +455,11 @@
             // 
             this.lbRevenue.AutoSize = true;
             this.lbRevenue.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lbRevenue.Font = new System.Drawing.Font("Calibri", 23F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            this.lbRevenue.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
             this.lbRevenue.ForeColor = System.Drawing.Color.Black;
             this.lbRevenue.Location = new System.Drawing.Point(77, 6);
             this.lbRevenue.Name = "lbRevenue";
-            this.lbRevenue.Size = new System.Drawing.Size(111, 28);
+            this.lbRevenue.Size = new System.Drawing.Size(96, 25);
             this.lbRevenue.TabIndex = 1;
             this.lbRevenue.Text = "Doanh thu";
             this.lbRevenue.Click += new System.EventHandler(this.btRevenue_Click);
@@ -523,11 +523,11 @@
             // 
             this.lbReport.AutoSize = true;
             this.lbReport.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lbReport.Font = new System.Drawing.Font("Calibri", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbReport.Font = new System.Drawing.Font("Segoe UI", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbReport.ForeColor = System.Drawing.Color.Black;
-            this.lbReport.Location = new System.Drawing.Point(81, 7);
+            this.lbReport.Location = new System.Drawing.Point(81, 6);
             this.lbReport.Name = "lbReport";
-            this.lbReport.Size = new System.Drawing.Size(103, 33);
+            this.lbReport.Size = new System.Drawing.Size(94, 31);
             this.lbReport.TabIndex = 1;
             this.lbReport.Text = "Báo cáo";
             this.lbReport.Click += new System.EventHandler(this.btReport_Click);
@@ -577,11 +577,11 @@
             // 
             this.lbLaundryService.AutoSize = true;
             this.lbLaundryService.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lbLaundryService.Font = new System.Drawing.Font("Calibri", 23F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            this.lbLaundryService.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
             this.lbLaundryService.ForeColor = System.Drawing.Color.Black;
             this.lbLaundryService.Location = new System.Drawing.Point(77, 6);
             this.lbLaundryService.Name = "lbLaundryService";
-            this.lbLaundryService.Size = new System.Drawing.Size(75, 28);
+            this.lbLaundryService.Size = new System.Drawing.Size(62, 25);
             this.lbLaundryService.TabIndex = 1;
             this.lbLaundryService.Text = "Giặt ủi";
             this.lbLaundryService.Click += new System.EventHandler(this.btLaundryService_Click);
@@ -620,11 +620,11 @@
             // 
             this.lbEatService.AutoSize = true;
             this.lbEatService.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lbEatService.Font = new System.Drawing.Font("Calibri", 23F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            this.lbEatService.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
             this.lbEatService.ForeColor = System.Drawing.Color.Black;
             this.lbEatService.Location = new System.Drawing.Point(77, 6);
             this.lbEatService.Name = "lbEatService";
-            this.lbEatService.Size = new System.Drawing.Size(90, 28);
+            this.lbEatService.Size = new System.Drawing.Size(81, 25);
             this.lbEatService.TabIndex = 1;
             this.lbEatService.Text = "Ăn uống";
             this.lbEatService.Click += new System.EventHandler(this.btEatService_Click);
@@ -688,11 +688,11 @@
             // 
             this.lbService.AutoSize = true;
             this.lbService.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lbService.Font = new System.Drawing.Font("Calibri", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbService.Font = new System.Drawing.Font("Segoe UI", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbService.ForeColor = System.Drawing.Color.Black;
-            this.lbService.Location = new System.Drawing.Point(81, 7);
+            this.lbService.Location = new System.Drawing.Point(81, 6);
             this.lbService.Name = "lbService";
-            this.lbService.Size = new System.Drawing.Size(97, 33);
+            this.lbService.Size = new System.Drawing.Size(90, 31);
             this.lbService.TabIndex = 1;
             this.lbService.Text = "Dịch vụ";
             this.lbService.Click += new System.EventHandler(this.btService_Click);
@@ -742,11 +742,11 @@
             // 
             this.lbRoom.AutoSize = true;
             this.lbRoom.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lbRoom.Font = new System.Drawing.Font("Calibri", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbRoom.Font = new System.Drawing.Font("Segoe UI", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbRoom.ForeColor = System.Drawing.Color.Black;
-            this.lbRoom.Location = new System.Drawing.Point(81, 7);
+            this.lbRoom.Location = new System.Drawing.Point(81, 6);
             this.lbRoom.Name = "lbRoom";
-            this.lbRoom.Size = new System.Drawing.Size(85, 33);
+            this.lbRoom.Size = new System.Drawing.Size(80, 31);
             this.lbRoom.TabIndex = 1;
             this.lbRoom.Text = "Phòng";
             this.lbRoom.Click += new System.EventHandler(this.btRoom_Click);

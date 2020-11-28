@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_AddEditRoom));
             this.panel4 = new System.Windows.Forms.Panel();
             this.tbRoomPrice = new Zeroit.Framework.Labels.ZeroitUltraTextBox();
             this.tbRoomID = new Zeroit.Framework.Labels.ZeroitUltraTextBox();
@@ -39,6 +38,7 @@
             this.pnVip_Nor = new System.Windows.Forms.FlowLayoutPanel();
             this.rbtVip = new MaterialSkin.Controls.MaterialRadioButton();
             this.rbtNor = new MaterialSkin.Controls.MaterialRadioButton();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.lbVND = new System.Windows.Forms.Label();
             this.lbRoomPrice = new System.Windows.Forms.Label();
@@ -51,24 +51,22 @@
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.btAddRoom = new XanderUI.XUIButton();
             this.btSave = new XanderUI.XUIButton();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel4.SuspendLayout();
             this.pnSignle_Dou.SuspendLayout();
             this.pnVip_Nor.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // panel4
             // 
-            this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this.panel4.Controls.Add(this.flowLayoutPanel1);
             this.panel4.Controls.Add(this.tbRoomPrice);
             this.panel4.Controls.Add(this.tbRoomID);
             this.panel4.Controls.Add(this.tbRoomSize);
             this.panel4.Controls.Add(this.pnSignle_Dou);
             this.panel4.Controls.Add(this.pnVip_Nor);
+            this.panel4.Controls.Add(this.panel1);
             this.panel4.Controls.Add(this.panel5);
             this.panel4.Controls.Add(this.lbVND);
             this.panel4.Controls.Add(this.lbRoomPrice);
@@ -78,9 +76,9 @@
             this.panel4.Controls.Add(this.lbRoomSize);
             this.panel4.Controls.Add(this.lbRoomType);
             this.panel4.Controls.Add(this.label19);
-            this.panel4.Location = new System.Drawing.Point(17, 33);
+            this.panel4.Location = new System.Drawing.Point(5, 25);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(540, 250);
+            this.panel4.Size = new System.Drawing.Size(537, 310);
             this.panel4.TabIndex = 12;
             // 
             // tbRoomPrice
@@ -171,7 +169,7 @@
             // 
             this.rbtSingle.AutoSize = true;
             this.rbtSingle.Depth = 0;
-            this.rbtSingle.Font = new System.Drawing.Font("Roboto", 10F);
+            this.rbtSingle.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.rbtSingle.Location = new System.Drawing.Point(0, 0);
             this.rbtSingle.Margin = new System.Windows.Forms.Padding(0);
             this.rbtSingle.MouseLocation = new System.Drawing.Point(-1, -1);
@@ -188,7 +186,7 @@
             // 
             this.rbtDouble.AutoSize = true;
             this.rbtDouble.Depth = 0;
-            this.rbtDouble.Font = new System.Drawing.Font("Roboto", 10F);
+            this.rbtDouble.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.rbtDouble.Location = new System.Drawing.Point(54, 0);
             this.rbtDouble.Margin = new System.Windows.Forms.Padding(0);
             this.rbtDouble.MouseLocation = new System.Drawing.Point(-1, -1);
@@ -214,7 +212,7 @@
             // 
             this.rbtVip.AutoSize = true;
             this.rbtVip.Depth = 0;
-            this.rbtVip.Font = new System.Drawing.Font("Roboto", 10F);
+            this.rbtVip.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.rbtVip.Location = new System.Drawing.Point(0, 0);
             this.rbtVip.Margin = new System.Windows.Forms.Padding(0);
             this.rbtVip.MouseLocation = new System.Drawing.Point(-1, -1);
@@ -231,7 +229,7 @@
             // 
             this.rbtNor.AutoSize = true;
             this.rbtNor.Depth = 0;
-            this.rbtNor.Font = new System.Drawing.Font("Roboto", 10F);
+            this.rbtNor.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.rbtNor.Location = new System.Drawing.Point(49, 0);
             this.rbtNor.Margin = new System.Windows.Forms.Padding(0);
             this.rbtNor.MouseLocation = new System.Drawing.Point(-1, -1);
@@ -243,6 +241,14 @@
             this.rbtNor.TabStop = true;
             this.rbtNor.Text = "Thường";
             this.rbtNor.UseVisualStyleBackColor = true;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
+            this.panel1.Location = new System.Drawing.Point(8, 30);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(200, 3);
+            this.panel1.TabIndex = 3;
             // 
             // panel5
             // 
@@ -256,22 +262,22 @@
             // 
             this.lbVND.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lbVND.AutoSize = true;
-            this.lbVND.Font = new System.Drawing.Font("Calibri", 17F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.lbVND.Font = new System.Drawing.Font("Segoe UI", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.lbVND.ForeColor = System.Drawing.Color.Black;
-            this.lbVND.Location = new System.Drawing.Point(476, 189);
+            this.lbVND.Location = new System.Drawing.Point(473, 249);
             this.lbVND.Name = "lbVND";
-            this.lbVND.Size = new System.Drawing.Size(42, 21);
+            this.lbVND.Size = new System.Drawing.Size(46, 23);
             this.lbVND.TabIndex = 2;
             this.lbVND.Text = "VNĐ";
             // 
             // lbRoomPrice
             // 
             this.lbRoomPrice.AutoSize = true;
-            this.lbRoomPrice.Font = new System.Drawing.Font("Calibri", 13F, System.Drawing.FontStyle.Bold);
+            this.lbRoomPrice.Font = new System.Drawing.Font("Segoe UI", 13F);
             this.lbRoomPrice.ForeColor = System.Drawing.Color.Black;
-            this.lbRoomPrice.Location = new System.Drawing.Point(3, 189);
+            this.lbRoomPrice.Location = new System.Drawing.Point(3, 183);
             this.lbRoomPrice.Name = "lbRoomPrice";
-            this.lbRoomPrice.Size = new System.Drawing.Size(69, 22);
+            this.lbRoomPrice.Size = new System.Drawing.Size(75, 25);
             this.lbRoomPrice.TabIndex = 2;
             this.lbRoomPrice.Text = "Đơn giá";
             // 
@@ -279,11 +285,11 @@
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Calibri", 17F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(496, 132);
+            this.label1.Location = new System.Drawing.Point(493, 192);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(19, 21);
+            this.label1.Size = new System.Drawing.Size(19, 23);
             this.label1.TabIndex = 2;
             this.label1.Text = "2";
             // 
@@ -291,55 +297,55 @@
             // 
             this.lbM2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lbM2.AutoSize = true;
-            this.lbM2.Font = new System.Drawing.Font("Calibri", 17F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.lbM2.Font = new System.Drawing.Font("Segoe UI", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.lbM2.ForeColor = System.Drawing.Color.Black;
-            this.lbM2.Location = new System.Drawing.Point(476, 138);
+            this.lbM2.Location = new System.Drawing.Point(473, 198);
             this.lbM2.Name = "lbM2";
-            this.lbM2.Size = new System.Drawing.Size(24, 21);
+            this.lbM2.Size = new System.Drawing.Size(25, 23);
             this.lbM2.TabIndex = 2;
             this.lbM2.Text = "m";
             // 
             // lbRoomCount
             // 
             this.lbRoomCount.AutoSize = true;
-            this.lbRoomCount.Font = new System.Drawing.Font("Calibri", 13F, System.Drawing.FontStyle.Bold);
+            this.lbRoomCount.Font = new System.Drawing.Font("Segoe UI", 13F);
             this.lbRoomCount.ForeColor = System.Drawing.Color.Black;
-            this.lbRoomCount.Location = new System.Drawing.Point(3, 49);
+            this.lbRoomCount.Location = new System.Drawing.Point(3, 43);
             this.lbRoomCount.Name = "lbRoomCount";
-            this.lbRoomCount.Size = new System.Drawing.Size(82, 22);
+            this.lbRoomCount.Size = new System.Drawing.Size(91, 25);
             this.lbRoomCount.TabIndex = 2;
             this.lbRoomCount.Text = "Số phòng";
             // 
             // lbRoomSize
             // 
             this.lbRoomSize.AutoSize = true;
-            this.lbRoomSize.Font = new System.Drawing.Font("Calibri", 13F, System.Drawing.FontStyle.Bold);
+            this.lbRoomSize.Font = new System.Drawing.Font("Segoe UI", 13F);
             this.lbRoomSize.ForeColor = System.Drawing.Color.Black;
-            this.lbRoomSize.Location = new System.Drawing.Point(3, 138);
+            this.lbRoomSize.Location = new System.Drawing.Point(3, 132);
             this.lbRoomSize.Name = "lbRoomSize";
-            this.lbRoomSize.Size = new System.Drawing.Size(77, 22);
+            this.lbRoomSize.Size = new System.Drawing.Size(81, 25);
             this.lbRoomSize.TabIndex = 2;
             this.lbRoomSize.Text = "Diện tích";
             // 
             // lbRoomType
             // 
             this.lbRoomType.AutoSize = true;
-            this.lbRoomType.Font = new System.Drawing.Font("Calibri", 13F, System.Drawing.FontStyle.Bold);
+            this.lbRoomType.Font = new System.Drawing.Font("Segoe UI", 13F);
             this.lbRoomType.ForeColor = System.Drawing.Color.Black;
-            this.lbRoomType.Location = new System.Drawing.Point(3, 90);
+            this.lbRoomType.Location = new System.Drawing.Point(3, 84);
             this.lbRoomType.Name = "lbRoomType";
-            this.lbRoomType.Size = new System.Drawing.Size(94, 22);
+            this.lbRoomType.Size = new System.Drawing.Size(102, 25);
             this.lbRoomType.TabIndex = 2;
             this.lbRoomType.Text = "Loại phòng";
             // 
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Calibri", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.label19.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.label19.ForeColor = System.Drawing.Color.Black;
             this.label19.Location = new System.Drawing.Point(3, 0);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(148, 24);
+            this.label19.Size = new System.Drawing.Size(159, 28);
             this.label19.TabIndex = 2;
             this.label19.Text = "Thông tin phòng";
             // 
@@ -348,22 +354,22 @@
             this.flowLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.flowLayoutPanel1.Controls.Add(this.btAddRoom);
             this.flowLayoutPanel1.Controls.Add(this.btSave);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(432, 294);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(383, 236);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(135, 56);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(136, 56);
             this.flowLayoutPanel1.TabIndex = 13;
             // 
             // btAddRoom
             // 
             this.btAddRoom.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
-            this.btAddRoom.ButtonImage = ((System.Drawing.Image)(resources.GetObject("btAddRoom.ButtonImage")));
+            this.btAddRoom.ButtonImage = global::HotelManagement.Properties.Resources.icAddRoom;
             this.btAddRoom.ButtonStyle = XanderUI.XUIButton.Style.MaterialRounded;
             this.btAddRoom.ButtonText = "Thêm Phòng";
             this.btAddRoom.ClickBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(130)))), ((int)(((byte)(200)))));
             this.btAddRoom.ClickTextColor = System.Drawing.Color.White;
             this.btAddRoom.CornerRadius = 5;
             this.btAddRoom.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btAddRoom.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btAddRoom.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btAddRoom.Horizontal_Alignment = System.Drawing.StringAlignment.Near;
             this.btAddRoom.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
             this.btAddRoom.HoverTextColor = System.Drawing.Color.White;
@@ -378,14 +384,14 @@
             // btSave
             // 
             this.btSave.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
-            this.btSave.ButtonImage = ((System.Drawing.Image)(resources.GetObject("btSave.ButtonImage")));
+            this.btSave.ButtonImage = global::HotelManagement.Properties.Resources.icSave;
             this.btSave.ButtonStyle = XanderUI.XUIButton.Style.MaterialRounded;
             this.btSave.ButtonText = "Lưu";
             this.btSave.ClickBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(130)))), ((int)(((byte)(200)))));
             this.btSave.ClickTextColor = System.Drawing.Color.White;
             this.btSave.CornerRadius = 5;
             this.btSave.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btSave.Font = new System.Drawing.Font("Calibri", 17F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btSave.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btSave.Horizontal_Alignment = System.Drawing.StringAlignment.Near;
             this.btSave.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
             this.btSave.HoverTextColor = System.Drawing.Color.White;
@@ -398,28 +404,12 @@
             this.btSave.Vertical_Alignment = System.Drawing.StringAlignment.Center;
             this.btSave.Click += new System.EventHandler(this.btSave_Click);
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(17, 33);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(550, 258);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 11;
-            this.pictureBox2.TabStop = false;
-            // 
             // Form_AddEditRoom
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(580, 356);
-            this.Controls.Add(this.flowLayoutPanel1);
+            this.ClientSize = new System.Drawing.Size(547, 340);
             this.Controls.Add(this.panel4);
-            this.Controls.Add(this.pictureBox2);
-            this.MinimumSize = new System.Drawing.Size(580, 356);
             this.Name = "Form_AddEditRoom";
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
@@ -428,7 +418,6 @@
             this.pnVip_Nor.ResumeLayout(false);
             this.pnVip_Nor.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -444,7 +433,6 @@
         private System.Windows.Forms.Label lbRoomSize;
         private System.Windows.Forms.Label lbRoomType;
         private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private XanderUI.XUIButton btAddRoom;
         private XanderUI.XUIButton btSave;
@@ -458,5 +446,6 @@
         private Zeroit.Framework.Labels.ZeroitUltraTextBox tbRoomPrice;
         private Zeroit.Framework.Labels.ZeroitUltraTextBox tbRoomID;
         private Zeroit.Framework.Labels.ZeroitUltraTextBox tbRoomSize;
+        private System.Windows.Forms.Panel panel1;
     }
 }
