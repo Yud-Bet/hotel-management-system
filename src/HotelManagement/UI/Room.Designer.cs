@@ -55,11 +55,11 @@
             // 
             this.lbRoomStatus.AutoSize = true;
             this.lbRoomStatus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(235)))), ((int)(((byte)(220)))));
-            this.lbRoomStatus.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbRoomStatus.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbRoomStatus.ForeColor = System.Drawing.Color.Black;
             this.lbRoomStatus.Location = new System.Drawing.Point(58, 61);
             this.lbRoomStatus.Name = "lbRoomStatus";
-            this.lbRoomStatus.Size = new System.Drawing.Size(112, 29);
+            this.lbRoomStatus.Size = new System.Drawing.Size(121, 32);
             this.lbRoomStatus.TabIndex = 3;
             this.lbRoomStatus.Text = "Trạng thái";
             this.lbRoomStatus.Click += new System.EventHandler(this.pbRoomType_Click);
