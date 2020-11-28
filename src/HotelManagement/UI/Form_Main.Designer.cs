@@ -127,9 +127,9 @@
             this.panel1.Controls.Add(this.pnSubMenu_Service);
             this.panel1.Controls.Add(this.btService);
             this.panel1.Controls.Add(this.btRoom);
-            this.panel1.Location = new System.Drawing.Point(11, 130);
+            this.panel1.Location = new System.Drawing.Point(6, 130);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(243, 562);
+            this.panel1.Size = new System.Drawing.Size(243, 563);
             this.panel1.TabIndex = 0;
             // 
             // pnSubMenu_Manage
@@ -163,7 +163,7 @@
             this.lbSubService.AutoSize = true;
             this.lbSubService.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbSubService.Font = new System.Drawing.Font("Calibri", 23F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
-            this.lbSubService.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
+            this.lbSubService.ForeColor = System.Drawing.Color.Black;
             this.lbSubService.Location = new System.Drawing.Point(77, 6);
             this.lbSubService.Name = "lbSubService";
             this.lbSubService.Size = new System.Drawing.Size(83, 28);
@@ -206,7 +206,7 @@
             this.lbStaff.AutoSize = true;
             this.lbStaff.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbStaff.Font = new System.Drawing.Font("Calibri", 23F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
-            this.lbStaff.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
+            this.lbStaff.ForeColor = System.Drawing.Color.Black;
             this.lbStaff.Location = new System.Drawing.Point(77, 6);
             this.lbStaff.Name = "lbStaff";
             this.lbStaff.Size = new System.Drawing.Size(108, 28);
@@ -249,7 +249,7 @@
             this.lbWarehouse.AutoSize = true;
             this.lbWarehouse.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbWarehouse.Font = new System.Drawing.Font("Calibri", 23F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
-            this.lbWarehouse.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
+            this.lbWarehouse.ForeColor = System.Drawing.Color.Black;
             this.lbWarehouse.Location = new System.Drawing.Point(77, 6);
             this.lbWarehouse.Name = "lbWarehouse";
             this.lbWarehouse.Size = new System.Drawing.Size(100, 28);
@@ -292,7 +292,7 @@
             this.lbCustomer.AutoSize = true;
             this.lbCustomer.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbCustomer.Font = new System.Drawing.Font("Calibri", 23F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
-            this.lbCustomer.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
+            this.lbCustomer.ForeColor = System.Drawing.Color.Black;
             this.lbCustomer.Location = new System.Drawing.Point(77, 6);
             this.lbCustomer.Name = "lbCustomer";
             this.lbCustomer.Size = new System.Drawing.Size(121, 28);
@@ -360,7 +360,7 @@
             this.lbManage.AutoSize = true;
             this.lbManage.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbManage.Font = new System.Drawing.Font("Calibri", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbManage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
+            this.lbManage.ForeColor = System.Drawing.Color.Black;
             this.lbManage.Location = new System.Drawing.Point(81, 8);
             this.lbManage.Name = "lbManage";
             this.lbManage.Size = new System.Drawing.Size(101, 33);
@@ -413,7 +413,7 @@
             this.lbBill.AutoSize = true;
             this.lbBill.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbBill.Font = new System.Drawing.Font("Calibri", 23F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
-            this.lbBill.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
+            this.lbBill.ForeColor = System.Drawing.Color.Black;
             this.lbBill.Location = new System.Drawing.Point(77, 6);
             this.lbBill.Name = "lbBill";
             this.lbBill.Size = new System.Drawing.Size(95, 28);
@@ -456,7 +456,7 @@
             this.lbRevenue.AutoSize = true;
             this.lbRevenue.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbRevenue.Font = new System.Drawing.Font("Calibri", 23F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
-            this.lbRevenue.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
+            this.lbRevenue.ForeColor = System.Drawing.Color.Black;
             this.lbRevenue.Location = new System.Drawing.Point(77, 6);
             this.lbRevenue.Name = "lbRevenue";
             this.lbRevenue.Size = new System.Drawing.Size(111, 28);
@@ -524,7 +524,7 @@
             this.lbReport.AutoSize = true;
             this.lbReport.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbReport.Font = new System.Drawing.Font("Calibri", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbReport.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
+            this.lbReport.ForeColor = System.Drawing.Color.Black;
             this.lbReport.Location = new System.Drawing.Point(81, 7);
             this.lbReport.Name = "lbReport";
             this.lbReport.Size = new System.Drawing.Size(103, 33);
@@ -578,7 +578,7 @@
             this.lbLaundryService.AutoSize = true;
             this.lbLaundryService.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbLaundryService.Font = new System.Drawing.Font("Calibri", 23F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
-            this.lbLaundryService.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
+            this.lbLaundryService.ForeColor = System.Drawing.Color.Black;
             this.lbLaundryService.Location = new System.Drawing.Point(77, 6);
             this.lbLaundryService.Name = "lbLaundryService";
             this.lbLaundryService.Size = new System.Drawing.Size(75, 28);
@@ -621,7 +621,7 @@
             this.lbEatService.AutoSize = true;
             this.lbEatService.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbEatService.Font = new System.Drawing.Font("Calibri", 23F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
-            this.lbEatService.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
+            this.lbEatService.ForeColor = System.Drawing.Color.Black;
             this.lbEatService.Location = new System.Drawing.Point(77, 6);
             this.lbEatService.Name = "lbEatService";
             this.lbEatService.Size = new System.Drawing.Size(90, 28);
@@ -689,7 +689,7 @@
             this.lbService.AutoSize = true;
             this.lbService.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbService.Font = new System.Drawing.Font("Calibri", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbService.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
+            this.lbService.ForeColor = System.Drawing.Color.Black;
             this.lbService.Location = new System.Drawing.Point(81, 7);
             this.lbService.Name = "lbService";
             this.lbService.Size = new System.Drawing.Size(97, 33);
@@ -725,6 +725,7 @@
             this.btRoom.Size = new System.Drawing.Size(243, 50);
             this.btRoom.TabIndex = 3;
             this.btRoom.Click += new System.EventHandler(this.btRoom_Click);
+            this.btRoom.Paint += new System.Windows.Forms.PaintEventHandler(this.btRoom_Paint);
             this.btRoom.MouseLeave += new System.EventHandler(this.btRoom_MouseLeave);
             this.btRoom.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btRoom_MouseMove);
             // 
@@ -742,7 +743,7 @@
             this.lbRoom.AutoSize = true;
             this.lbRoom.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbRoom.Font = new System.Drawing.Font("Calibri", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbRoom.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
+            this.lbRoom.ForeColor = System.Drawing.Color.Black;
             this.lbRoom.Location = new System.Drawing.Point(81, 7);
             this.lbRoom.Name = "lbRoom";
             this.lbRoom.Size = new System.Drawing.Size(85, 33);
@@ -773,9 +774,9 @@
             this.panel2.Controls.Add(this.lbStaffname);
             this.panel2.Controls.Add(this.pbStaffAvatar);
             this.panel2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.panel2.Location = new System.Drawing.Point(11, 27);
+            this.panel2.Location = new System.Drawing.Point(6, 27);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(243, 86);
+            this.panel2.Size = new System.Drawing.Size(243, 97);
             this.panel2.TabIndex = 0;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
@@ -784,7 +785,7 @@
             this.lbStaffPosition.Cursor = System.Windows.Forms.Cursors.Default;
             this.lbStaffPosition.Font = new System.Drawing.Font("Calibri", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbStaffPosition.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(148)))), ((int)(((byte)(148)))));
-            this.lbStaffPosition.Location = new System.Drawing.Point(66, 42);
+            this.lbStaffPosition.Location = new System.Drawing.Point(66, 48);
             this.lbStaffPosition.Name = "lbStaffPosition";
             this.lbStaffPosition.Size = new System.Drawing.Size(102, 35);
             this.lbStaffPosition.TabIndex = 3;
@@ -796,7 +797,7 @@
             this.lbStaffname.Cursor = System.Windows.Forms.Cursors.Default;
             this.lbStaffname.Font = new System.Drawing.Font("Calibri", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbStaffname.ForeColor = System.Drawing.Color.Black;
-            this.lbStaffname.Location = new System.Drawing.Point(66, 16);
+            this.lbStaffname.Location = new System.Drawing.Point(66, 22);
             this.lbStaffname.Name = "lbStaffname";
             this.lbStaffname.Size = new System.Drawing.Size(177, 35);
             this.lbStaffname.TabIndex = 4;
@@ -806,7 +807,7 @@
             // pbStaffAvatar
             // 
             this.pbStaffAvatar.Image = global::HotelManagement.Properties.Resources.profile_user;
-            this.pbStaffAvatar.Location = new System.Drawing.Point(6, 16);
+            this.pbStaffAvatar.Location = new System.Drawing.Point(6, 22);
             this.pbStaffAvatar.Name = "pbStaffAvatar";
             this.pbStaffAvatar.Size = new System.Drawing.Size(58, 56);
             this.pbStaffAvatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -818,7 +819,7 @@
             this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.panel4.Location = new System.Drawing.Point(270, 27);
+            this.panel4.Location = new System.Drawing.Point(255, 27);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(968, 666);
             this.panel4.TabIndex = 1;
@@ -827,7 +828,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1249, 710);
+            this.ClientSize = new System.Drawing.Size(1229, 710);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel1);

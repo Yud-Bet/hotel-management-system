@@ -233,16 +233,6 @@ namespace HotelManagement.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap icLogOut {
-            get {
-                object obj = ResourceManager.GetObject("icLogOut", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap icManage {
             get {
                 object obj = ResourceManager.GetObject("icManage", resourceCulture);
@@ -486,16 +476,6 @@ namespace HotelManagement.Properties {
         internal static System.Drawing.Bitmap icUserLogin2 {
             get {
                 object obj = ResourceManager.GetObject("icUserLogin2", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap icVerticalArrow {
-            get {
-                object obj = ResourceManager.GetObject("icVerticalArrow", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -275,9 +275,6 @@
     <None Include="Resources\icQuanLy.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\icRoom.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\icSuaChua.png" />
   </ItemGroup>
   <ItemGroup>
@@ -293,13 +290,7 @@
     <None Include="Resources\icThanhToan.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\icVip.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\icXoa.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icYes.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\imgNen.png" />
@@ -312,12 +303,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icLogOut.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icAddRoom.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icSave.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icUserLogin1.png" />
@@ -375,6 +360,87 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icVerticalArrow2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icRoom.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icSubService.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icWarehouse.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icCustomer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icManage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icBill.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icRevenue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icReport.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icLaundryService.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icEatService.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icSevice.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icStaff.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icHorizontalArrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icAddRoom.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icSave.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icRented_SR.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icRented_DB.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icPayment.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\magnifying-glass.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icFix.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icDoubleRoom.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icDelete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icClean.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icBackArrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icYes.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icVip.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icSingleRoom.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -12,6 +12,7 @@ namespace HotelManagement.UI
         {
             InitializeComponent();
             this.Parent = parent;
+            this.Parent.Parent._lbRoomID.Show();
             Load_Data();
         }
 
@@ -44,7 +45,7 @@ namespace HotelManagement.UI
 
         private void Load_Data()
         {
-            lbRoomID.Text = this.Parent._RoomID.ToString();
+            this.Parent.Parent._lbRoomID.Text = this.Parent._RoomID.ToString();
             if (this.Parent._RoomStatus == RoomStatus.Empty)
             {
                 btPay.Hide();
@@ -54,14 +55,14 @@ namespace HotelManagement.UI
                 btBookRoom.Hide();
             }
 
-            RoomDetail room = new RoomDetail(Convert.ToInt32(lbRoomID.Text));
+            RoomDetail room = new RoomDetail(Convert.ToInt32(this.Parent.Parent._lbRoomID.Text));
             tbRoomsize.Text = room.Size;
             tbRoomPrice.Text = room.Price;
             setRoomType(room.Type);
 
             if (this.Parent._RoomStatus == RoomStatus.Rented)
             {
-                CustomerInfo customer = new CustomerInfo(Convert.ToInt32(lbRoomID.Text));
+                CustomerInfo customer = new CustomerInfo(Convert.ToInt32(this.Parent.Parent._lbRoomID.Text));
                 tbCustomerName.Text = customer.Name;
                 dtpCustomerBirthday.Value = customer.Birthday;
                 tbCustomerPhoneNum.Text = customer.PhoneNumber;
@@ -76,6 +77,7 @@ namespace HotelManagement.UI
 
         private void pbArrowBack_Click(object sender, EventArgs e)
         {
+            this.Parent.Parent._lbRoomID.Hide();
             this.Parent.Parent._pnToAddARoomInfo.Controls.Remove(this);
             this.Parent.Parent._pnToAddARoomInfo.SendToBack();
             
@@ -133,7 +135,7 @@ namespace HotelManagement.UI
         {
             if (!checkEmptyValue()) return;
             if (!checkValidityOfValue()) return;
-            int RowsAffected = DataAccess.CustomerDA.AddReservation(Convert.ToInt32(lbRoomID.Text), tbCustomerName.Text,
+            int RowsAffected = DataAccess.CustomerDA.AddReservation(Convert.ToInt32(this.Parent.Parent._lbRoomID.Text), tbCustomerName.Text,
                 dtpCustomerBirthday.Value, tbCustomerPhoneNum.Text, rbtMale.Checked ? Sex.Male : Sex.Female, tbIDNo.Text,
                 tbPassport.Text, tbCustomerAddress.Text, dtpCheckInDate.Value, tbNote.Text);
             if (RowsAffected > 0)

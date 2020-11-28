@@ -30,32 +30,33 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_AddEditRoom));
             this.panel4 = new System.Windows.Forms.Panel();
-            this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
-            this.rbtSingle = new MetroFramework.Controls.MetroRadioButton();
-            this.rbtDouble = new MetroFramework.Controls.MetroRadioButton();
-            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.rbtVip = new MetroFramework.Controls.MetroRadioButton();
-            this.rbtNor = new MetroFramework.Controls.MetroRadioButton();
             this.panel5 = new System.Windows.Forms.Panel();
             this.lbVND = new System.Windows.Forms.Label();
             this.lbRoomPrice = new System.Windows.Forms.Label();
             this.lbM2 = new System.Windows.Forms.Label();
             this.lbRoomCount = new System.Windows.Forms.Label();
             this.lbRoomSize = new System.Windows.Forms.Label();
-            this.tbRoomPrice = new Zeroit.Framework.Metro.ZeroitMetroTextbox();
-            this.tbRoomCount = new Zeroit.Framework.Metro.ZeroitMetroTextbox();
-            this.tbRoomsize = new Zeroit.Framework.Metro.ZeroitMetroTextbox();
             this.lbRoomType = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.btAddRoom = new XanderUI.XUIButton();
             this.btSave = new XanderUI.XUIButton();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.pnSignle_Dou = new System.Windows.Forms.FlowLayoutPanel();
+            this.rbtSingle = new MaterialSkin.Controls.MaterialRadioButton();
+            this.rbtDouble = new MaterialSkin.Controls.MaterialRadioButton();
+            this.pnVip_Nor = new System.Windows.Forms.FlowLayoutPanel();
+            this.rbtVip = new MaterialSkin.Controls.MaterialRadioButton();
+            this.rbtNor = new MaterialSkin.Controls.MaterialRadioButton();
+            this.tbRoomPrice = new Zeroit.Framework.Labels.ZeroitUltraTextBox();
+            this.tbRoomSize = new Zeroit.Framework.Labels.ZeroitUltraTextBox();
+            this.tbRoomID = new Zeroit.Framework.Labels.ZeroitUltraTextBox();
             this.panel4.SuspendLayout();
-            this.flowLayoutPanel3.SuspendLayout();
-            this.flowLayoutPanel2.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.pnSignle_Dou.SuspendLayout();
+            this.pnVip_Nor.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel4
@@ -63,17 +64,18 @@
             this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel4.Controls.Add(this.flowLayoutPanel3);
-            this.panel4.Controls.Add(this.flowLayoutPanel2);
+            this.panel4.Controls.Add(this.tbRoomPrice);
+            this.panel4.Controls.Add(this.tbRoomID);
+            this.panel4.Controls.Add(this.tbRoomSize);
+            this.panel4.Controls.Add(this.pnSignle_Dou);
+            this.panel4.Controls.Add(this.pnVip_Nor);
             this.panel4.Controls.Add(this.panel5);
             this.panel4.Controls.Add(this.lbVND);
             this.panel4.Controls.Add(this.lbRoomPrice);
+            this.panel4.Controls.Add(this.label1);
             this.panel4.Controls.Add(this.lbM2);
             this.panel4.Controls.Add(this.lbRoomCount);
             this.panel4.Controls.Add(this.lbRoomSize);
-            this.panel4.Controls.Add(this.tbRoomPrice);
-            this.panel4.Controls.Add(this.tbRoomCount);
-            this.panel4.Controls.Add(this.tbRoomsize);
             this.panel4.Controls.Add(this.lbRoomType);
             this.panel4.Controls.Add(this.label19);
             this.panel4.Location = new System.Drawing.Point(17, 33);
@@ -81,75 +83,9 @@
             this.panel4.Size = new System.Drawing.Size(540, 250);
             this.panel4.TabIndex = 12;
             // 
-            // flowLayoutPanel3
-            // 
-            this.flowLayoutPanel3.Controls.Add(this.rbtSingle);
-            this.flowLayoutPanel3.Controls.Add(this.rbtDouble);
-            this.flowLayoutPanel3.Location = new System.Drawing.Point(269, 89);
-            this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(104, 22);
-            this.flowLayoutPanel3.TabIndex = 8;
-            // 
-            // rbtSingle
-            // 
-            this.rbtSingle.AutoSize = true;
-            this.rbtSingle.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.rbtSingle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
-            this.rbtSingle.Location = new System.Drawing.Point(3, 3);
-            this.rbtSingle.Name = "rbtSingle";
-            this.rbtSingle.Size = new System.Drawing.Size(45, 15);
-            this.rbtSingle.TabIndex = 5;
-            this.rbtSingle.Text = "Đơn";
-            this.rbtSingle.UseSelectable = true;
-            // 
-            // rbtDouble
-            // 
-            this.rbtDouble.AutoSize = true;
-            this.rbtDouble.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.rbtDouble.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
-            this.rbtDouble.Location = new System.Drawing.Point(54, 3);
-            this.rbtDouble.Name = "rbtDouble";
-            this.rbtDouble.Size = new System.Drawing.Size(41, 15);
-            this.rbtDouble.TabIndex = 5;
-            this.rbtDouble.Text = "Đôi";
-            this.rbtDouble.UseSelectable = true;
-            // 
-            // flowLayoutPanel2
-            // 
-            this.flowLayoutPanel2.Controls.Add(this.rbtVip);
-            this.flowLayoutPanel2.Controls.Add(this.rbtNor);
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(131, 89);
-            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(118, 22);
-            this.flowLayoutPanel2.TabIndex = 8;
-            // 
-            // rbtVip
-            // 
-            this.rbtVip.AutoSize = true;
-            this.rbtVip.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.rbtVip.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
-            this.rbtVip.Location = new System.Drawing.Point(3, 3);
-            this.rbtVip.Name = "rbtVip";
-            this.rbtVip.Size = new System.Drawing.Size(40, 15);
-            this.rbtVip.TabIndex = 5;
-            this.rbtVip.Text = "Vip";
-            this.rbtVip.UseSelectable = true;
-            // 
-            // rbtNor
-            // 
-            this.rbtNor.AutoSize = true;
-            this.rbtNor.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.rbtNor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
-            this.rbtNor.Location = new System.Drawing.Point(49, 3);
-            this.rbtNor.Name = "rbtNor";
-            this.rbtNor.Size = new System.Drawing.Size(64, 15);
-            this.rbtNor.TabIndex = 5;
-            this.rbtNor.Text = "Thường";
-            this.rbtNor.UseSelectable = true;
-            // 
             // panel5
             // 
-            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(212)))), ((int)(((byte)(207)))));
+            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
             this.panel5.Location = new System.Drawing.Point(257, 84);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(3, 30);
@@ -160,7 +96,7 @@
             this.lbVND.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lbVND.AutoSize = true;
             this.lbVND.Font = new System.Drawing.Font("Calibri", 17F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.lbVND.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
+            this.lbVND.ForeColor = System.Drawing.Color.Black;
             this.lbVND.Location = new System.Drawing.Point(476, 189);
             this.lbVND.Name = "lbVND";
             this.lbVND.Size = new System.Drawing.Size(42, 21);
@@ -171,7 +107,7 @@
             // 
             this.lbRoomPrice.AutoSize = true;
             this.lbRoomPrice.Font = new System.Drawing.Font("Calibri", 13F, System.Drawing.FontStyle.Bold);
-            this.lbRoomPrice.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
+            this.lbRoomPrice.ForeColor = System.Drawing.Color.Black;
             this.lbRoomPrice.Location = new System.Drawing.Point(3, 189);
             this.lbRoomPrice.Name = "lbRoomPrice";
             this.lbRoomPrice.Size = new System.Drawing.Size(69, 22);
@@ -183,18 +119,18 @@
             this.lbM2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lbM2.AutoSize = true;
             this.lbM2.Font = new System.Drawing.Font("Calibri", 17F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.lbM2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
+            this.lbM2.ForeColor = System.Drawing.Color.Black;
             this.lbM2.Location = new System.Drawing.Point(476, 138);
             this.lbM2.Name = "lbM2";
-            this.lbM2.Size = new System.Drawing.Size(41, 21);
+            this.lbM2.Size = new System.Drawing.Size(24, 21);
             this.lbM2.TabIndex = 2;
-            this.lbM2.Text = "m^2";
+            this.lbM2.Text = "m";
             // 
             // lbRoomCount
             // 
             this.lbRoomCount.AutoSize = true;
             this.lbRoomCount.Font = new System.Drawing.Font("Calibri", 13F, System.Drawing.FontStyle.Bold);
-            this.lbRoomCount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
+            this.lbRoomCount.ForeColor = System.Drawing.Color.Black;
             this.lbRoomCount.Location = new System.Drawing.Point(3, 49);
             this.lbRoomCount.Name = "lbRoomCount";
             this.lbRoomCount.Size = new System.Drawing.Size(82, 22);
@@ -205,83 +141,18 @@
             // 
             this.lbRoomSize.AutoSize = true;
             this.lbRoomSize.Font = new System.Drawing.Font("Calibri", 13F, System.Drawing.FontStyle.Bold);
-            this.lbRoomSize.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
+            this.lbRoomSize.ForeColor = System.Drawing.Color.Black;
             this.lbRoomSize.Location = new System.Drawing.Point(3, 138);
             this.lbRoomSize.Name = "lbRoomSize";
             this.lbRoomSize.Size = new System.Drawing.Size(77, 22);
             this.lbRoomSize.TabIndex = 2;
             this.lbRoomSize.Text = "Diện tích";
             // 
-            // tbRoomPrice
-            // 
-            this.tbRoomPrice.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbRoomPrice.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.tbRoomPrice.Border = 3;
-            this.tbRoomPrice.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
-            this.tbRoomPrice.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.tbRoomPrice.DefaultColor = System.Drawing.Color.White;
-            this.tbRoomPrice.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.tbRoomPrice.Font = new System.Drawing.Font("Calibri", 13F);
-            this.tbRoomPrice.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
-            this.tbRoomPrice.HideSelection = false;
-            this.tbRoomPrice.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(168)))), ((int)(((byte)(144)))));
-            this.tbRoomPrice.Location = new System.Drawing.Point(108, 178);
-            this.tbRoomPrice.Name = "tbRoomPrice";
-            this.tbRoomPrice.PasswordChar = '\0';
-            this.tbRoomPrice.Size = new System.Drawing.Size(362, 32);
-            this.tbRoomPrice.TabIndex = 3;
-            this.tbRoomPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // tbRoomCount
-            // 
-            this.tbRoomCount.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbRoomCount.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.tbRoomCount.Border = 3;
-            this.tbRoomCount.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
-            this.tbRoomCount.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.tbRoomCount.DefaultColor = System.Drawing.Color.White;
-            this.tbRoomCount.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.tbRoomCount.Font = new System.Drawing.Font("Calibri", 13F);
-            this.tbRoomCount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
-            this.tbRoomCount.HideSelection = false;
-            this.tbRoomCount.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(168)))), ((int)(((byte)(144)))));
-            this.tbRoomCount.Location = new System.Drawing.Point(108, 38);
-            this.tbRoomCount.Name = "tbRoomCount";
-            this.tbRoomCount.PasswordChar = '\0';
-            this.tbRoomCount.Size = new System.Drawing.Size(404, 32);
-            this.tbRoomCount.TabIndex = 1;
-            // 
-            // tbRoomsize
-            // 
-            this.tbRoomsize.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbRoomsize.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.tbRoomsize.Border = 3;
-            this.tbRoomsize.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
-            this.tbRoomsize.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.tbRoomsize.DefaultColor = System.Drawing.Color.White;
-            this.tbRoomsize.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.tbRoomsize.Font = new System.Drawing.Font("Calibri", 13F);
-            this.tbRoomsize.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
-            this.tbRoomsize.HideSelection = false;
-            this.tbRoomsize.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(168)))), ((int)(((byte)(144)))));
-            this.tbRoomsize.Location = new System.Drawing.Point(108, 127);
-            this.tbRoomsize.Name = "tbRoomsize";
-            this.tbRoomsize.PasswordChar = '\0';
-            this.tbRoomsize.Size = new System.Drawing.Size(362, 32);
-            this.tbRoomsize.TabIndex = 2;
-            this.tbRoomsize.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
             // lbRoomType
             // 
             this.lbRoomType.AutoSize = true;
             this.lbRoomType.Font = new System.Drawing.Font("Calibri", 13F, System.Drawing.FontStyle.Bold);
-            this.lbRoomType.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
+            this.lbRoomType.ForeColor = System.Drawing.Color.Black;
             this.lbRoomType.Location = new System.Drawing.Point(3, 90);
             this.lbRoomType.Name = "lbRoomType";
             this.lbRoomType.Size = new System.Drawing.Size(94, 22);
@@ -292,7 +163,7 @@
             // 
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Calibri", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.label19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
+            this.label19.ForeColor = System.Drawing.Color.Black;
             this.label19.Location = new System.Drawing.Point(3, 0);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(148, 24);
@@ -304,53 +175,53 @@
             this.flowLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.flowLayoutPanel1.Controls.Add(this.btAddRoom);
             this.flowLayoutPanel1.Controls.Add(this.btSave);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(431, 294);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(432, 294);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(136, 56);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(135, 56);
             this.flowLayoutPanel1.TabIndex = 13;
             // 
             // btAddRoom
             // 
-            this.btAddRoom.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(222)))), ((int)(((byte)(190)))));
+            this.btAddRoom.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
             this.btAddRoom.ButtonImage = global::HotelManagement.Properties.Resources.icAddRoom;
             this.btAddRoom.ButtonStyle = XanderUI.XUIButton.Style.MaterialRounded;
             this.btAddRoom.ButtonText = "Thêm Phòng";
-            this.btAddRoom.ClickBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(168)))), ((int)(((byte)(144)))));
-            this.btAddRoom.ClickTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
+            this.btAddRoom.ClickBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(130)))), ((int)(((byte)(200)))));
+            this.btAddRoom.ClickTextColor = System.Drawing.Color.Black;
             this.btAddRoom.CornerRadius = 5;
             this.btAddRoom.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btAddRoom.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btAddRoom.Horizontal_Alignment = System.Drawing.StringAlignment.Near;
-            this.btAddRoom.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(222)))), ((int)(((byte)(190)))));
-            this.btAddRoom.HoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
+            this.btAddRoom.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
+            this.btAddRoom.HoverTextColor = System.Drawing.Color.Black;
             this.btAddRoom.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
             this.btAddRoom.Location = new System.Drawing.Point(3, 3);
             this.btAddRoom.Name = "btAddRoom";
             this.btAddRoom.Size = new System.Drawing.Size(131, 50);
             this.btAddRoom.TabIndex = 17;
-            this.btAddRoom.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
+            this.btAddRoom.TextColor = System.Drawing.Color.Black;
             this.btAddRoom.Vertical_Alignment = System.Drawing.StringAlignment.Center;
             // 
             // btSave
             // 
-            this.btSave.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(251)))), ((int)(((byte)(53)))));
+            this.btSave.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
             this.btSave.ButtonImage = global::HotelManagement.Properties.Resources.icSave;
             this.btSave.ButtonStyle = XanderUI.XUIButton.Style.MaterialRounded;
             this.btSave.ButtonText = "Lưu";
-            this.btSave.ClickBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(178)))), ((int)(((byte)(183)))), ((int)(((byte)(43)))));
-            this.btSave.ClickTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
+            this.btSave.ClickBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(130)))), ((int)(((byte)(200)))));
+            this.btSave.ClickTextColor = System.Drawing.Color.Black;
             this.btSave.CornerRadius = 5;
             this.btSave.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btSave.Font = new System.Drawing.Font("Calibri", 17F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btSave.Horizontal_Alignment = System.Drawing.StringAlignment.Near;
-            this.btSave.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(251)))), ((int)(((byte)(53)))));
-            this.btSave.HoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
+            this.btSave.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
+            this.btSave.HoverTextColor = System.Drawing.Color.Black;
             this.btSave.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
             this.btSave.Location = new System.Drawing.Point(3, 59);
             this.btSave.Name = "btSave";
             this.btSave.Size = new System.Drawing.Size(131, 50);
             this.btSave.TabIndex = 18;
-            this.btSave.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
+            this.btSave.TextColor = System.Drawing.Color.Black;
             this.btSave.Vertical_Alignment = System.Drawing.StringAlignment.Center;
             this.btSave.Click += new System.EventHandler(this.btSave_Click);
             // 
@@ -367,6 +238,179 @@
             this.pictureBox2.TabIndex = 11;
             this.pictureBox2.TabStop = false;
             // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Calibri", 17F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(496, 132);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(19, 21);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "2";
+            // 
+            // pnSignle_Dou
+            // 
+            this.pnSignle_Dou.Controls.Add(this.rbtSingle);
+            this.pnSignle_Dou.Controls.Add(this.rbtDouble);
+            this.pnSignle_Dou.Location = new System.Drawing.Point(267, 83);
+            this.pnSignle_Dou.Name = "pnSignle_Dou";
+            this.pnSignle_Dou.Size = new System.Drawing.Size(144, 31);
+            this.pnSignle_Dou.TabIndex = 9;
+            // 
+            // rbtSingle
+            // 
+            this.rbtSingle.AutoSize = true;
+            this.rbtSingle.Depth = 0;
+            this.rbtSingle.Font = new System.Drawing.Font("Roboto", 10F);
+            this.rbtSingle.Location = new System.Drawing.Point(0, 0);
+            this.rbtSingle.Margin = new System.Windows.Forms.Padding(0);
+            this.rbtSingle.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.rbtSingle.MouseState = MaterialSkin.MouseState.HOVER;
+            this.rbtSingle.Name = "rbtSingle";
+            this.rbtSingle.Ripple = true;
+            this.rbtSingle.Size = new System.Drawing.Size(54, 30);
+            this.rbtSingle.TabIndex = 8;
+            this.rbtSingle.TabStop = true;
+            this.rbtSingle.Text = "Đơn";
+            this.rbtSingle.UseVisualStyleBackColor = true;
+            // 
+            // rbtDouble
+            // 
+            this.rbtDouble.AutoSize = true;
+            this.rbtDouble.Depth = 0;
+            this.rbtDouble.Font = new System.Drawing.Font("Roboto", 10F);
+            this.rbtDouble.Location = new System.Drawing.Point(54, 0);
+            this.rbtDouble.Margin = new System.Windows.Forms.Padding(0);
+            this.rbtDouble.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.rbtDouble.MouseState = MaterialSkin.MouseState.HOVER;
+            this.rbtDouble.Name = "rbtDouble";
+            this.rbtDouble.Ripple = true;
+            this.rbtDouble.Size = new System.Drawing.Size(49, 30);
+            this.rbtDouble.TabIndex = 9;
+            this.rbtDouble.TabStop = true;
+            this.rbtDouble.Text = "Đôi";
+            this.rbtDouble.UseVisualStyleBackColor = true;
+            // 
+            // pnVip_Nor
+            // 
+            this.pnVip_Nor.Controls.Add(this.rbtVip);
+            this.pnVip_Nor.Controls.Add(this.rbtNor);
+            this.pnVip_Nor.Location = new System.Drawing.Point(121, 83);
+            this.pnVip_Nor.Name = "pnVip_Nor";
+            this.pnVip_Nor.Size = new System.Drawing.Size(131, 31);
+            this.pnVip_Nor.TabIndex = 10;
+            // 
+            // rbtVip
+            // 
+            this.rbtVip.AutoSize = true;
+            this.rbtVip.Depth = 0;
+            this.rbtVip.Font = new System.Drawing.Font("Roboto", 10F);
+            this.rbtVip.Location = new System.Drawing.Point(0, 0);
+            this.rbtVip.Margin = new System.Windows.Forms.Padding(0);
+            this.rbtVip.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.rbtVip.MouseState = MaterialSkin.MouseState.HOVER;
+            this.rbtVip.Name = "rbtVip";
+            this.rbtVip.Ripple = true;
+            this.rbtVip.Size = new System.Drawing.Size(49, 30);
+            this.rbtVip.TabIndex = 7;
+            this.rbtVip.TabStop = true;
+            this.rbtVip.Text = "Vip";
+            this.rbtVip.UseVisualStyleBackColor = true;
+            // 
+            // rbtNor
+            // 
+            this.rbtNor.AutoSize = true;
+            this.rbtNor.Depth = 0;
+            this.rbtNor.Font = new System.Drawing.Font("Roboto", 10F);
+            this.rbtNor.Location = new System.Drawing.Point(49, 0);
+            this.rbtNor.Margin = new System.Windows.Forms.Padding(0);
+            this.rbtNor.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.rbtNor.MouseState = MaterialSkin.MouseState.HOVER;
+            this.rbtNor.Name = "rbtNor";
+            this.rbtNor.Ripple = true;
+            this.rbtNor.Size = new System.Drawing.Size(77, 30);
+            this.rbtNor.TabIndex = 7;
+            this.rbtNor.TabStop = true;
+            this.rbtNor.Text = "Thường";
+            this.rbtNor.UseVisualStyleBackColor = true;
+            // 
+            // tbRoomPrice
+            // 
+            this.tbRoomPrice.DisabledStringColor = System.Drawing.Color.Black;
+            this.tbRoomPrice.DisabledUnFocusedColor = System.Drawing.Color.Silver;
+            this.tbRoomPrice.EnabledUnFocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.tbRoomPrice.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
+            this.tbRoomPrice.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.tbRoomPrice.ForeColor = System.Drawing.Color.Black;
+            this.tbRoomPrice.IsEnabled = true;
+            this.tbRoomPrice.Location = new System.Drawing.Point(108, 185);
+            this.tbRoomPrice.MaxLength = 32767;
+            this.tbRoomPrice.Multiline = false;
+            this.tbRoomPrice.Name = "tbRoomPrice";
+            this.tbRoomPrice.PasswordChar = '\0';
+            this.tbRoomPrice.Placeholder = true;
+            this.tbRoomPrice.PlaceHolderText = "";
+            this.tbRoomPrice.PlaceHolderTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
+            this.tbRoomPrice.ReadOnly = false;
+            this.tbRoomPrice.Size = new System.Drawing.Size(362, 24);
+            this.tbRoomPrice.TabIndex = 11;
+            this.tbRoomPrice.TextAlignment = System.Windows.Forms.HorizontalAlignment.Right;
+            this.tbRoomPrice.TextBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this.tbRoomPrice.UseSystemPasswordChar = false;
+            this.tbRoomPrice.WordWrap = true;
+            // 
+            // tbRoomSize
+            // 
+            this.tbRoomSize.DisabledStringColor = System.Drawing.Color.Black;
+            this.tbRoomSize.DisabledUnFocusedColor = System.Drawing.Color.Silver;
+            this.tbRoomSize.EnabledUnFocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.tbRoomSize.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
+            this.tbRoomSize.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.tbRoomSize.ForeColor = System.Drawing.Color.Black;
+            this.tbRoomSize.IsEnabled = true;
+            this.tbRoomSize.Location = new System.Drawing.Point(108, 134);
+            this.tbRoomSize.MaxLength = 32767;
+            this.tbRoomSize.Multiline = false;
+            this.tbRoomSize.Name = "tbRoomSize";
+            this.tbRoomSize.PasswordChar = '\0';
+            this.tbRoomSize.Placeholder = true;
+            this.tbRoomSize.PlaceHolderText = "";
+            this.tbRoomSize.PlaceHolderTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
+            this.tbRoomSize.ReadOnly = false;
+            this.tbRoomSize.Size = new System.Drawing.Size(362, 24);
+            this.tbRoomSize.TabIndex = 12;
+            this.tbRoomSize.TextAlignment = System.Windows.Forms.HorizontalAlignment.Right;
+            this.tbRoomSize.TextBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this.tbRoomSize.UseSystemPasswordChar = false;
+            this.tbRoomSize.WordWrap = true;
+            // 
+            // tbRoomID
+            // 
+            this.tbRoomID.DisabledStringColor = System.Drawing.Color.Black;
+            this.tbRoomID.DisabledUnFocusedColor = System.Drawing.Color.Silver;
+            this.tbRoomID.EnabledUnFocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.tbRoomID.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
+            this.tbRoomID.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.tbRoomID.ForeColor = System.Drawing.Color.Black;
+            this.tbRoomID.IsEnabled = true;
+            this.tbRoomID.Location = new System.Drawing.Point(108, 47);
+            this.tbRoomID.MaxLength = 32767;
+            this.tbRoomID.Multiline = false;
+            this.tbRoomID.Name = "tbRoomID";
+            this.tbRoomID.PasswordChar = '\0';
+            this.tbRoomID.Placeholder = true;
+            this.tbRoomID.PlaceHolderText = "";
+            this.tbRoomID.PlaceHolderTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
+            this.tbRoomID.ReadOnly = false;
+            this.tbRoomID.Size = new System.Drawing.Size(362, 24);
+            this.tbRoomID.TabIndex = 12;
+            this.tbRoomID.TextAlignment = System.Windows.Forms.HorizontalAlignment.Right;
+            this.tbRoomID.TextBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this.tbRoomID.UseSystemPasswordChar = false;
+            this.tbRoomID.WordWrap = true;
+            // 
             // Form_AddEditRoom
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -379,12 +423,12 @@
             this.Name = "Form_AddEditRoom";
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            this.flowLayoutPanel3.ResumeLayout(false);
-            this.flowLayoutPanel3.PerformLayout();
-            this.flowLayoutPanel2.ResumeLayout(false);
-            this.flowLayoutPanel2.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.pnSignle_Dou.ResumeLayout(false);
+            this.pnSignle_Dou.PerformLayout();
+            this.pnVip_Nor.ResumeLayout(false);
+            this.pnVip_Nor.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -392,26 +436,27 @@
         #endregion
 
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
-        private MetroFramework.Controls.MetroRadioButton rbtSingle;
-        private MetroFramework.Controls.MetroRadioButton rbtDouble;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
-        private MetroFramework.Controls.MetroRadioButton rbtVip;
-        private MetroFramework.Controls.MetroRadioButton rbtNor;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label lbVND;
         private System.Windows.Forms.Label lbRoomPrice;
         private System.Windows.Forms.Label lbM2;
         private System.Windows.Forms.Label lbRoomCount;
         private System.Windows.Forms.Label lbRoomSize;
-        private Zeroit.Framework.Metro.ZeroitMetroTextbox tbRoomPrice;
-        private Zeroit.Framework.Metro.ZeroitMetroTextbox tbRoomCount;
-        private Zeroit.Framework.Metro.ZeroitMetroTextbox tbRoomsize;
         private System.Windows.Forms.Label lbRoomType;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private XanderUI.XUIButton btAddRoom;
         private XanderUI.XUIButton btSave;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.FlowLayoutPanel pnSignle_Dou;
+        private MaterialSkin.Controls.MaterialRadioButton rbtSingle;
+        private MaterialSkin.Controls.MaterialRadioButton rbtDouble;
+        private System.Windows.Forms.FlowLayoutPanel pnVip_Nor;
+        private MaterialSkin.Controls.MaterialRadioButton rbtVip;
+        private MaterialSkin.Controls.MaterialRadioButton rbtNor;
+        private Zeroit.Framework.Labels.ZeroitUltraTextBox tbRoomPrice;
+        private Zeroit.Framework.Labels.ZeroitUltraTextBox tbRoomID;
+        private Zeroit.Framework.Labels.ZeroitUltraTextBox tbRoomSize;
     }
 }

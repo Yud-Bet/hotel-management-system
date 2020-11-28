@@ -45,26 +45,23 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.metroComboBox1 = new MetroFramework.Controls.MetroComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.lbTotalMoney = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.btPay = new XanderUI.XUIButton();
             this.pnBookingInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.zeroitPictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.panel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
@@ -88,12 +85,13 @@
             // 
             // pnBookingInfo
             // 
+            this.pnBookingInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.pnBookingInfo.Controls.Add(this.pnItem1);
             this.pnBookingInfo.Controls.Add(this.zeroitPictureBox1);
             this.pnBookingInfo.Controls.Add(this.tbSearch);
             this.pnBookingInfo.Controls.Add(this.label23);
             this.pnBookingInfo.Controls.Add(this.panel7);
-            this.pnBookingInfo.Location = new System.Drawing.Point(14, 97);
+            this.pnBookingInfo.Location = new System.Drawing.Point(17, 97);
             this.pnBookingInfo.Name = "pnBookingInfo";
             this.pnBookingInfo.Size = new System.Drawing.Size(493, 550);
             this.pnBookingInfo.TabIndex = 14;
@@ -109,7 +107,7 @@
             // zeroitPictureBox1
             // 
             this.zeroitPictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.zeroitPictureBox1.Image = global::HotelManagement.Properties.Resources.icSearch;
+            this.zeroitPictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("zeroitPictureBox1.Image")));
             this.zeroitPictureBox1.Location = new System.Drawing.Point(466, 5);
             this.zeroitPictureBox1.Name = "zeroitPictureBox1";
             this.zeroitPictureBox1.Size = new System.Drawing.Size(22, 24);
@@ -138,7 +136,7 @@
             this.tbSearch.Size = new System.Drawing.Size(175, 24);
             this.tbSearch.TabIndex = 5;
             this.tbSearch.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left;
-            this.tbSearch.TextBackgroundColor = System.Drawing.SystemColors.Control;
+            this.tbSearch.TextBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.tbSearch.UseSystemPasswordChar = false;
             this.tbSearch.WordWrap = true;
             // 
@@ -163,6 +161,7 @@
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label2);
@@ -170,9 +169,9 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.panel4);
             this.panel1.Controls.Add(this.panel3);
-            this.panel1.Location = new System.Drawing.Point(521, 97);
+            this.panel1.Location = new System.Drawing.Point(517, 97);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(433, 346);
+            this.panel1.Size = new System.Drawing.Size(433, 361);
             this.panel1.TabIndex = 14;
             // 
             // label4
@@ -210,7 +209,7 @@
             this.pnItem2.AutoScroll = true;
             this.pnItem2.Location = new System.Drawing.Point(3, 74);
             this.pnItem2.Name = "pnItem2";
-            this.pnItem2.Size = new System.Drawing.Size(428, 268);
+            this.pnItem2.Size = new System.Drawing.Size(428, 284);
             this.pnItem2.TabIndex = 4;
             // 
             // label1
@@ -240,48 +239,42 @@
             this.panel3.Size = new System.Drawing.Size(250, 3);
             this.panel3.TabIndex = 3;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(521, 97);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(440, 355);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 13;
-            this.pictureBox1.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(14, 97);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(501, 563);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 13;
-            this.pictureBox3.TabStop = false;
-            // 
             // panel5
             // 
+            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this.panel5.Controls.Add(this.btPay);
+            this.panel5.Controls.Add(this.metroComboBox1);
             this.panel5.Controls.Add(this.label7);
             this.panel5.Controls.Add(this.label12);
             this.panel5.Controls.Add(this.label11);
             this.panel5.Controls.Add(this.label6);
             this.panel5.Controls.Add(this.label10);
             this.panel5.Controls.Add(this.lbTotalMoney);
+            this.panel5.Controls.Add(this.label9);
             this.panel5.Controls.Add(this.label5);
             this.panel5.Controls.Add(this.label8);
             this.panel5.Controls.Add(this.panel8);
-            this.panel5.Location = new System.Drawing.Point(521, 464);
+            this.panel5.Location = new System.Drawing.Point(517, 464);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(433, 183);
             this.panel5.TabIndex = 16;
+            // 
+            // metroComboBox1
+            // 
+            this.metroComboBox1.FormattingEnabled = true;
+            this.metroComboBox1.ItemHeight = 23;
+            this.metroComboBox1.Location = new System.Drawing.Point(236, 77);
+            this.metroComboBox1.Name = "metroComboBox1";
+            this.metroComboBox1.Size = new System.Drawing.Size(165, 29);
+            this.metroComboBox1.TabIndex = 4;
+            this.metroComboBox1.UseSelectable = true;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Calibri", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(5, 87);
+            this.label7.Location = new System.Drawing.Point(5, 122);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(120, 24);
             this.label7.TabIndex = 2;
@@ -292,7 +285,7 @@
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Calibri", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.label12.ForeColor = System.Drawing.Color.Black;
-            this.label12.Location = new System.Drawing.Point(352, 44);
+            this.label12.Location = new System.Drawing.Point(131, 82);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(30, 24);
             this.label12.TabIndex = 2;
@@ -303,7 +296,7 @@
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Calibri", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.label11.ForeColor = System.Drawing.Color.Black;
-            this.label11.Location = new System.Drawing.Point(398, 44);
+            this.label11.Location = new System.Drawing.Point(167, 82);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(25, 24);
             this.label11.TabIndex = 2;
@@ -314,7 +307,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Calibri", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(257, 44);
+            this.label6.Location = new System.Drawing.Point(5, 82);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(83, 24);
             this.label6.TabIndex = 2;
@@ -325,7 +318,7 @@
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Calibri", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.label10.ForeColor = System.Drawing.Color.Black;
-            this.label10.Location = new System.Drawing.Point(131, 87);
+            this.label10.Location = new System.Drawing.Point(131, 122);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(20, 24);
             this.label10.TabIndex = 2;
@@ -341,6 +334,17 @@
             this.lbTotalMoney.Size = new System.Drawing.Size(20, 24);
             this.lbTotalMoney.TabIndex = 2;
             this.lbTotalMoney.Text = "0";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Calibri", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.label9.ForeColor = System.Drawing.Color.Black;
+            this.label9.Location = new System.Drawing.Point(232, 44);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(112, 24);
+            this.label9.TabIndex = 2;
+            this.label9.Text = "Chọn phòng";
             // 
             // label5
             // 
@@ -372,26 +376,35 @@
             this.panel8.Size = new System.Drawing.Size(150, 3);
             this.panel8.TabIndex = 3;
             // 
-            // pictureBox2
+            // btPay
             // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(521, 460);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(440, 193);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 15;
-            this.pictureBox2.TabStop = false;
+            this.btPay.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
+            this.btPay.ButtonImage = ((System.Drawing.Image)(resources.GetObject("btPay.ButtonImage")));
+            this.btPay.ButtonStyle = XanderUI.XUIButton.Style.MaterialRounded;
+            this.btPay.ButtonText = "Thanh Toán";
+            this.btPay.ClickBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(161)))));
+            this.btPay.ClickTextColor = System.Drawing.Color.Black;
+            this.btPay.CornerRadius = 5;
+            this.btPay.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btPay.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btPay.Horizontal_Alignment = System.Drawing.StringAlignment.Near;
+            this.btPay.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
+            this.btPay.HoverTextColor = System.Drawing.Color.Black;
+            this.btPay.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
+            this.btPay.Location = new System.Drawing.Point(236, 117);
+            this.btPay.Name = "btPay";
+            this.btPay.Size = new System.Drawing.Size(165, 50);
+            this.btPay.TabIndex = 17;
+            this.btPay.TextColor = System.Drawing.Color.Black;
+            this.btPay.Vertical_Alignment = System.Drawing.StringAlignment.Center;
             // 
             // Form_EatService
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panel5);
-            this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.pnBookingInfo);
-            this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.lbTitle);
             this.Name = "Form_EatService";
@@ -401,11 +414,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.zeroitPictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -418,10 +428,8 @@
         private System.Windows.Forms.Panel pnBookingInfo;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.PictureBox pictureBox3;
         private Zeroit.Framework.MiscControls.ZeroitPictureBox zeroitPictureBox1;
         private Zeroit.Framework.Labels.ZeroitUltraTextBox tbSearch;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel3;
@@ -434,7 +442,6 @@
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
@@ -442,5 +449,8 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label lbTotalMoney;
         private System.Windows.Forms.Label label5;
+        private MetroFramework.Controls.MetroComboBox metroComboBox1;
+        private System.Windows.Forms.Label label9;
+        private XanderUI.XUIButton btPay;
     }
 }

@@ -9,8 +9,14 @@ namespace HotelManagement.UI
             InitializeComponent();
             Load_Data();
             this.Dock = DockStyle.Fill;
+            lbRoomID.Hide();
         }
         #region Properties
+        public Label _lbRoomID
+        {
+            get { return lbRoomID; }
+        }
+
         public Panel _pnToAddARoomInfo
         {
             get { return pnToAddARoomInfo; }

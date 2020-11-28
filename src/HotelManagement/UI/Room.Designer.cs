@@ -56,7 +56,7 @@
             this.lbRoomStatus.AutoSize = true;
             this.lbRoomStatus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(235)))), ((int)(((byte)(220)))));
             this.lbRoomStatus.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbRoomStatus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
+            this.lbRoomStatus.ForeColor = System.Drawing.Color.Black;
             this.lbRoomStatus.Location = new System.Drawing.Point(58, 61);
             this.lbRoomStatus.Name = "lbRoomStatus";
             this.lbRoomStatus.Size = new System.Drawing.Size(112, 29);
@@ -138,7 +138,7 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(235)))), ((int)(((byte)(220)))));
             this.label1.Font = new System.Drawing.Font("Calibri", 25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
+            this.label1.ForeColor = System.Drawing.Color.Black;
             this.label1.Location = new System.Drawing.Point(3, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(106, 41);
@@ -152,7 +152,7 @@
             // 
             this.lbRoomID.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(235)))), ((int)(((byte)(220)))));
             this.lbRoomID.Font = new System.Drawing.Font("Calibri", 25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbRoomID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
+            this.lbRoomID.ForeColor = System.Drawing.Color.Black;
             this.lbRoomID.Location = new System.Drawing.Point(101, 0);
             this.lbRoomID.Name = "lbRoomID";
             this.lbRoomID.Size = new System.Drawing.Size(70, 41);

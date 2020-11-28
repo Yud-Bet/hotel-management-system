@@ -19,7 +19,7 @@ namespace HotelManagement.UI
         private bool isChoosebtRoom = false, isChoosebtService = false, isChoosebtReport = false, isChoosebtManage = false,
                     isChoosebtEatService = false, isChoosebtLaundryService = false, isChoosebtRevenue = false, isChoosebtBill = false,
                     isChoosebtStaff = false, isChoosebtCustomer = false, isChoosebtWarehouse = false, isChoosebtSubService = false;
-        private Color colorChoose = Color.FromArgb(27, 152, 224), colorNChoose = Color.FromArgb(102, 102, 102);
+        private Color colorChoose = Color.FromArgb(27, 152, 224), colorNChoose = Color.Black;
 
         private void LoadStaffInfo()
         {
@@ -121,9 +121,7 @@ namespace HotelManagement.UI
             if (isChoosebtRoom)
             {
                 isChoosebtRoom = false;
-                pnTickChooseBtRoom.Hide();
-                pbRoom.Image = Resources.icRoom;
-                lbRoom.ForeColor = Color.FromArgb(102, 102, 102);
+                setStatus(pbRoom, lbRoom, pnTickChooseBtRoom, Resources.icRoom, false);
             }
             if (isChoosebtService)
             {
@@ -399,6 +397,11 @@ namespace HotelManagement.UI
         }
 
         private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btRoom_Paint(object sender, PaintEventArgs e)
         {
 
         }

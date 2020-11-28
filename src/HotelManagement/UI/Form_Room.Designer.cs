@@ -52,6 +52,7 @@
             this.pbSearch = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.lbRoomID = new System.Windows.Forms.Label();
             this.lbTitle = new System.Windows.Forms.Label();
             this.pnToAddARoomInfo = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
@@ -91,6 +92,7 @@
             this.panel1.Controls.Add(this.pbSearch);
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.panel2);
+            this.panel1.Controls.Add(this.lbRoomID);
             this.panel1.Controls.Add(this.lbTitle);
             this.panel1.Controls.Add(this.pnToAddARoomInfo);
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -114,7 +116,7 @@
             this.lbNumberOfRepairingRoom.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lbNumberOfRepairingRoom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(251)))), ((int)(((byte)(53)))));
             this.lbNumberOfRepairingRoom.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbNumberOfRepairingRoom.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
+            this.lbNumberOfRepairingRoom.ForeColor = System.Drawing.Color.Black;
             this.lbNumberOfRepairingRoom.Location = new System.Drawing.Point(844, 97);
             this.lbNumberOfRepairingRoom.Name = "lbNumberOfRepairingRoom";
             this.lbNumberOfRepairingRoom.Size = new System.Drawing.Size(50, 25);
@@ -139,7 +141,7 @@
             this.lbNumberOfCleaningRoom.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lbNumberOfCleaningRoom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(194)))), ((int)(((byte)(255)))));
             this.lbNumberOfCleaningRoom.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbNumberOfCleaningRoom.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
+            this.lbNumberOfCleaningRoom.ForeColor = System.Drawing.Color.Black;
             this.lbNumberOfCleaningRoom.Location = new System.Drawing.Point(726, 97);
             this.lbNumberOfCleaningRoom.Name = "lbNumberOfCleaningRoom";
             this.lbNumberOfCleaningRoom.Size = new System.Drawing.Size(50, 25);
@@ -164,7 +166,7 @@
             this.lbNumberOfRentedRoom.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lbNumberOfRentedRoom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(113)))), ((int)(((byte)(184)))));
             this.lbNumberOfRentedRoom.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbNumberOfRentedRoom.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
+            this.lbNumberOfRentedRoom.ForeColor = System.Drawing.Color.Black;
             this.lbNumberOfRentedRoom.Location = new System.Drawing.Point(607, 97);
             this.lbNumberOfRentedRoom.Name = "lbNumberOfRentedRoom";
             this.lbNumberOfRentedRoom.Size = new System.Drawing.Size(50, 25);
@@ -189,7 +191,7 @@
             this.lbNumberOfEmptyRoom.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lbNumberOfEmptyRoom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(222)))), ((int)(((byte)(190)))));
             this.lbNumberOfEmptyRoom.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbNumberOfEmptyRoom.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
+            this.lbNumberOfEmptyRoom.ForeColor = System.Drawing.Color.Black;
             this.lbNumberOfEmptyRoom.Location = new System.Drawing.Point(487, 97);
             this.lbNumberOfEmptyRoom.Name = "lbNumberOfEmptyRoom";
             this.lbNumberOfEmptyRoom.Size = new System.Drawing.Size(50, 25);
@@ -214,7 +216,7 @@
             this.lbNumberOfRoom.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lbNumberOfRoom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(223)))), ((int)(((byte)(223)))));
             this.lbNumberOfRoom.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbNumberOfRoom.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
+            this.lbNumberOfRoom.ForeColor = System.Drawing.Color.Black;
             this.lbNumberOfRoom.Location = new System.Drawing.Point(368, 97);
             this.lbNumberOfRoom.Name = "lbNumberOfRoom";
             this.lbNumberOfRoom.Size = new System.Drawing.Size(50, 25);
@@ -331,7 +333,7 @@
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
+            this.label1.ForeColor = System.Drawing.Color.Black;
             this.label1.Location = new System.Drawing.Point(303, 102);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(64, 24);
@@ -352,7 +354,7 @@
             // 
             this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
+            this.panel3.BackColor = System.Drawing.Color.Black;
             this.panel3.Location = new System.Drawing.Point(52, 133);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(850, 2);
@@ -360,17 +362,28 @@
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
+            this.panel2.BackColor = System.Drawing.Color.Black;
             this.panel2.Location = new System.Drawing.Point(0, 14);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(10, 61);
             this.panel2.TabIndex = 3;
             // 
+            // lbRoomID
+            // 
+            this.lbRoomID.AutoSize = true;
+            this.lbRoomID.Font = new System.Drawing.Font("Calibri", 50F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.lbRoomID.ForeColor = System.Drawing.Color.Black;
+            this.lbRoomID.Location = new System.Drawing.Point(146, 14);
+            this.lbRoomID.Name = "lbRoomID";
+            this.lbRoomID.Size = new System.Drawing.Size(52, 61);
+            this.lbRoomID.TabIndex = 2;
+            this.lbRoomID.Text = "0";
+            // 
             // lbTitle
             // 
             this.lbTitle.AutoSize = true;
             this.lbTitle.Font = new System.Drawing.Font("Calibri", 50F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.lbTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
+            this.lbTitle.ForeColor = System.Drawing.Color.Black;
             this.lbTitle.Location = new System.Drawing.Point(3, 14);
             this.lbTitle.Name = "lbTitle";
             this.lbTitle.Size = new System.Drawing.Size(159, 61);
@@ -432,5 +445,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.FlowLayoutPanel pnToAddRoom;
         private System.Windows.Forms.Panel pnToAddARoomInfo;
+        private System.Windows.Forms.Label lbRoomID;
     }
 }
