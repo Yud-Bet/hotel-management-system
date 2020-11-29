@@ -135,7 +135,7 @@ namespace HotelManagement.UI
             int a = DataAccess.CustomerDA.AddReservation(RoomID, tbCustomerName.Text,
                 dtpCustomerBirthday.Value, tbCustomerPhoneNum.Text, rbtMale.Checked ? Sex.Male : Sex.Female, tbIDNo.Text,
                 tbPassport.Text, tbCustomerAddress.Text, dtpCheckInDate.Value, tbNote.Text);
-            int b = DataAccess.CustomerDA.AddBill(RoomID);
+            int b = DataAccess.CustomerDA.AddBill(RoomID, ParentRef.ParentRef.Username);
             if (a > 0 && b > 0)
             {
                 this.ParentRef.ParentRef._lbNumberOfEmptyRoom.Text = (Convert.ToInt32(this.ParentRef.ParentRef._lbNumberOfEmptyRoom.Text) - 1).ToString();
@@ -231,13 +231,18 @@ namespace HotelManagement.UI
 
         private void btPay_Click(object sender, EventArgs e)
         {
-            printPreviewDialogBill.Document = bill;
-            printPreviewDialogBill.ShowDialog();
+            int RowEffected = DataAccess.CustomerDA.Pay(RoomID);
+            if (RowEffected > 0)
+            {
+                printPreviewDialogBill.Document = bill;
+                printPreviewDialogBill.ShowDialog();
 
-            this.ParentRef.ParentRef._lbNumberOfCleaningRoom.Text = (Convert.ToInt32(this.ParentRef.ParentRef._lbNumberOfCleaningRoom.Text) + 1).ToString();
-            this.ParentRef.ParentRef._lbNumberOfRentedRoom.Text = (Convert.ToInt32(this.ParentRef.ParentRef._lbNumberOfRentedRoom.Text) - 1).ToString();
-            this.ParentRef._RoomStatus = RoomStatus.Cleaning;
-            pbArrowBack_Click(sender, e);
+                this.ParentRef.ParentRef._lbNumberOfCleaningRoom.Text = (Convert.ToInt32(this.ParentRef.ParentRef._lbNumberOfCleaningRoom.Text) + 1).ToString();
+                this.ParentRef.ParentRef._lbNumberOfRentedRoom.Text = (Convert.ToInt32(this.ParentRef.ParentRef._lbNumberOfRentedRoom.Text) - 1).ToString();
+                this.ParentRef._RoomStatus = RoomStatus.Cleaning;
+                pbArrowBack_Click(sender, e);
+            }
+            else MessageBox.Show("Thanh toán thất bại!", "Lỗi");
         }
 
         private void btSettingRoom_Click(object sender, EventArgs e)
