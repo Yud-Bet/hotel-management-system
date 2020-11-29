@@ -15,22 +15,19 @@ namespace HotelManagement.UI
         public Form_EatService()
         {
             InitializeComponent();
+
             lbDiscount.Text = discount.ToString();
-            Item_EatService1 temp = new Item_EatService1(this);
-            temp._itemID = 10;
-            temp._name = "cola";
-            temp._price = 10;
-            this.pnItem1.Controls.Add(temp);
-            Item_EatService1 temp1 = new Item_EatService1(this);
-            temp1._itemID = 104;
-            temp1._name = "pessi";
-            temp1._price = 40;
-            this.pnItem1.Controls.Add(temp1);
-            Item_EatService1 temp2 = new Item_EatService1(this);
-            temp2._itemID = 50;
-            temp2._name = "Bánh mì";
-            temp2._price = 50;
-            this.pnItem1.Controls.Add(temp2);
+
+            DTO.ServicesInfo services = new DTO.ServicesInfo(ServiceType.Eating);
+            for (int i = 0; i < services.Items.Count; i++)
+            {
+                Item_EatService1 item = new Item_EatService1(this);
+                item._itemID = services.Items[i].ServiceID;
+                item._name = services.Items[i].Name;
+                item._price = services.Items[i].Price;
+                pnItem1.Controls.Add(item);
+            }
+
         }
 
         public void calcTotalMoney()

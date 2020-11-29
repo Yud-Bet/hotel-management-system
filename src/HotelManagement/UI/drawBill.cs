@@ -1,13 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Drawing;
 
 namespace HotelManagement.UI
 {
-    class drawBill
+    class DrawBill
     {
         Brush brush = Brushes.Black;
         Font font60 = new Font("Calibri", 60, FontStyle.Bold);
@@ -17,7 +13,7 @@ namespace HotelManagement.UI
         int posY = 0;
         Graphics g;
 
-        public drawBill(Graphics g)
+        public DrawBill(Graphics g)
         {
             this.g = g;
         }

@@ -264,13 +264,13 @@
             this.btPay.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
             this.btPay.ButtonImage = global::HotelManagement.Properties.Resources.icPayment;
             this.btPay.ButtonStyle = XanderUI.XUIButton.Style.MaterialRounded;
-            this.btPay.ButtonText = "Thanh Toán";
+            this.btPay.ButtonText = "Thanh toán";
             this.btPay.ClickBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(161)))));
             this.btPay.ClickTextColor = System.Drawing.Color.White;
             this.btPay.CornerRadius = 5;
             this.btPay.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btPay.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btPay.Horizontal_Alignment = System.Drawing.StringAlignment.Near;
+            this.btPay.Horizontal_Alignment = System.Drawing.StringAlignment.Center;
             this.btPay.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
             this.btPay.HoverTextColor = System.Drawing.Color.White;
             this.btPay.ImagePosition = XanderUI.XUIButton.imgPosition.Left;

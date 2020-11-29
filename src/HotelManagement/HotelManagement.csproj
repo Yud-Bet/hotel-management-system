@@ -94,9 +94,12 @@
     <Compile Include="DataAccess\CustomerDA.cs" />
     <Compile Include="DataAccess\ExecuteQuery.cs" />
     <Compile Include="DataAccess\RoomDA.cs" />
+    <Compile Include="DataAccess\Services.cs" />
     <Compile Include="DTO\CustomerInfo.cs" />
     <Compile Include="DTO\RoomDetail.cs" />
     <Compile Include="DTO\RoomOverview.cs" />
+    <Compile Include="DTO\RoomServices.cs" />
+    <Compile Include="DTO\ServicesInfo.cs" />
     <Compile Include="DTO\StaffOverview.cs" />
     <Compile Include="EnumDefinition.cs" />
     <Compile Include="UI\Form_EatService.cs">
@@ -108,7 +111,7 @@
     <Compile Include="Helper.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UI\drawBill.cs" />
+    <Compile Include="UI\DrawBill.cs" />
     <Compile Include="UI\Form_AddEditRoom.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -145,6 +148,7 @@
     <Compile Include="UI\Form_RoomInfo.Designer.cs">
       <DependentUpon>Form_RoomInfo.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\GetValueOfControl.cs" />
     <Compile Include="UI\Item_EatService1.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -169,6 +173,7 @@
     <Compile Include="UI\Room.Designer.cs">
       <DependentUpon>Room.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\SetValueForControl.cs" />
     <EmbeddedResource Include="UI\Form_EatService.resx">
       <DependentUpon>Form_EatService.cs</DependentUpon>
     </EmbeddedResource>
