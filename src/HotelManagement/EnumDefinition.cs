@@ -36,4 +36,10 @@ namespace HotelManagement
         Successful = 1,
         Failed =2
     }
+
+    public enum ServiceType
+    {
+        Eating = 1,
+        Laundry = 2
+    }
 }
