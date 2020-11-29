@@ -46,8 +46,8 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.btPay = new XanderUI.XUIButton();
-            this.metroComboBox1 = new MetroFramework.Controls.MetroComboBox();
+            this.btAdd = new XanderUI.XUIButton();
+            this.cbRoomSelection = new MetroFramework.Controls.MetroComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.lbDiscount = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -242,8 +242,8 @@
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
-            this.panel5.Controls.Add(this.btPay);
-            this.panel5.Controls.Add(this.metroComboBox1);
+            this.panel5.Controls.Add(this.btAdd);
+            this.panel5.Controls.Add(this.cbRoomSelection);
             this.panel5.Controls.Add(this.label7);
             this.panel5.Controls.Add(this.lbDiscount);
             this.panel5.Controls.Add(this.label11);
@@ -259,37 +259,38 @@
             this.panel5.Size = new System.Drawing.Size(433, 183);
             this.panel5.TabIndex = 16;
             // 
-            // btPay
+            // btAdd
             // 
-            this.btPay.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
-            this.btPay.ButtonImage = global::HotelManagement.Properties.Resources.icPayment;
-            this.btPay.ButtonStyle = XanderUI.XUIButton.Style.MaterialRounded;
-            this.btPay.ButtonText = "Thêm";
-            this.btPay.ClickBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(161)))));
-            this.btPay.ClickTextColor = System.Drawing.Color.White;
-            this.btPay.CornerRadius = 5;
-            this.btPay.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btPay.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btPay.Horizontal_Alignment = System.Drawing.StringAlignment.Near;
-            this.btPay.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
-            this.btPay.HoverTextColor = System.Drawing.Color.White;
-            this.btPay.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
-            this.btPay.Location = new System.Drawing.Point(256, 95);
-            this.btPay.Name = "btPay";
-            this.btPay.Size = new System.Drawing.Size(112, 50);
-            this.btPay.TabIndex = 17;
-            this.btPay.TextColor = System.Drawing.Color.White;
-            this.btPay.Vertical_Alignment = System.Drawing.StringAlignment.Center;
+            this.btAdd.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
+            this.btAdd.ButtonImage = global::HotelManagement.Properties.Resources.icPayment;
+            this.btAdd.ButtonStyle = XanderUI.XUIButton.Style.MaterialRounded;
+            this.btAdd.ButtonText = "Thêm";
+            this.btAdd.ClickBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(161)))));
+            this.btAdd.ClickTextColor = System.Drawing.Color.White;
+            this.btAdd.CornerRadius = 5;
+            this.btAdd.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btAdd.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btAdd.Horizontal_Alignment = System.Drawing.StringAlignment.Near;
+            this.btAdd.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
+            this.btAdd.HoverTextColor = System.Drawing.Color.White;
+            this.btAdd.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
+            this.btAdd.Location = new System.Drawing.Point(256, 95);
+            this.btAdd.Name = "btAdd";
+            this.btAdd.Size = new System.Drawing.Size(112, 50);
+            this.btAdd.TabIndex = 17;
+            this.btAdd.TextColor = System.Drawing.Color.White;
+            this.btAdd.Vertical_Alignment = System.Drawing.StringAlignment.Center;
+            this.btAdd.Click += new System.EventHandler(this.btAdd_Click);
             // 
-            // metroComboBox1
+            // cbRoomSelection
             // 
-            this.metroComboBox1.FormattingEnabled = true;
-            this.metroComboBox1.ItemHeight = 23;
-            this.metroComboBox1.Location = new System.Drawing.Point(256, 60);
-            this.metroComboBox1.Name = "metroComboBox1";
-            this.metroComboBox1.Size = new System.Drawing.Size(112, 29);
-            this.metroComboBox1.TabIndex = 4;
-            this.metroComboBox1.UseSelectable = true;
+            this.cbRoomSelection.FormattingEnabled = true;
+            this.cbRoomSelection.ItemHeight = 23;
+            this.cbRoomSelection.Location = new System.Drawing.Point(256, 60);
+            this.cbRoomSelection.Name = "cbRoomSelection";
+            this.cbRoomSelection.Size = new System.Drawing.Size(112, 29);
+            this.cbRoomSelection.TabIndex = 4;
+            this.cbRoomSelection.UseSelectable = true;
             // 
             // label7
             // 
@@ -309,9 +310,9 @@
             this.lbDiscount.ForeColor = System.Drawing.Color.Black;
             this.lbDiscount.Location = new System.Drawing.Point(131, 82);
             this.lbDiscount.Name = "lbDiscount";
-            this.lbDiscount.Size = new System.Drawing.Size(37, 23);
+            this.lbDiscount.Size = new System.Drawing.Size(19, 23);
             this.lbDiscount.TabIndex = 2;
-            this.lbDiscount.Text = "100";
+            this.lbDiscount.Text = "0";
             // 
             // label11
             // 
@@ -449,8 +450,8 @@
         private System.Windows.Forms.Label lbTotalPayable;
         private System.Windows.Forms.Label lbTotalMoney;
         private System.Windows.Forms.Label label5;
-        private MetroFramework.Controls.MetroComboBox metroComboBox1;
+        private MetroFramework.Controls.MetroComboBox cbRoomSelection;
         private System.Windows.Forms.Label label9;
-        private XanderUI.XUIButton btPay;
+        private XanderUI.XUIButton btAdd;
     }
 }

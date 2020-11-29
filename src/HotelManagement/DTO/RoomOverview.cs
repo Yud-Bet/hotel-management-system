@@ -6,21 +6,21 @@ namespace HotelManagement.DTO
     class RoomOverview
     {
         public int[] RoomCount;
-        public RoomInfo[] Rooms;
+        public RoomInfo[] Items;
         public RoomOverview()
         {
             RoomCount = new int[5];
             DataTable data = DataAccess.RoomDA.GetAllRoom();
             RoomCount[0] = data.Rows.Count;
-            Rooms = new RoomInfo[RoomCount[0]];
+            Items = new RoomInfo[RoomCount[0]];
 
             for (int i = 0; i < RoomCount[0]; i++)
             {
                 var ID = Convert.ToInt32(data.Rows[i].ItemArray[0]);
                 var Status = (RoomStatus)Convert.ToInt32(data.Rows[i].ItemArray[1]);
                 var Type = (RoomType)Convert.ToInt32(data.Rows[i].ItemArray[2]);
-                Rooms[i] = new RoomInfo(ID, Status, Type);
-                RoomCount[(int)Rooms[i].Status]++;
+                Items[i] = new RoomInfo(ID, Status, Type);
+                RoomCount[(int)Items[i].Status]++;
             }
         }
 

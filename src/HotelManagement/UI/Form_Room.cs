@@ -58,9 +58,9 @@ namespace HotelManagement.UI
             {
                 Room newRoom = new Room(this);
 
-                newRoom._RoomID = room.Rooms[i].ID;
-                newRoom._RoomStatus = room.Rooms[i].Status;
-                newRoom._RoomType = room.Rooms[i].Type;
+                newRoom._RoomID = room.Items[i].ID;
+                newRoom._RoomStatus = room.Items[i].Status;
+                newRoom._RoomType = room.Items[i].Type;
 
                 this.pnToAddRoom.Controls.Add(newRoom);
             }

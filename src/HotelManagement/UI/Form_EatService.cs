@@ -12,6 +12,7 @@ namespace HotelManagement.UI
 {
     public partial class Form_EatService : UserControl
     {
+        DTO.RoomOverview rooms;
         public Form_EatService()
         {
             InitializeComponent();
@@ -27,9 +28,16 @@ namespace HotelManagement.UI
                 item._price = services.Items[i].Price;
                 pnItem1.Controls.Add(item);
             }
-
+            Init_cbRoomSelection();
         }
-
+        private void Init_cbRoomSelection()
+        {
+            rooms = new DTO.RoomOverview();
+            for (int i = 0; i < rooms.Items.Length; i++)
+            {
+                cbRoomSelection.Items.Add(rooms.Items[i].ID);
+            }
+        }
         public void calcTotalMoney()
         {
             int sum = 0;
@@ -54,12 +62,12 @@ namespace HotelManagement.UI
             get { return this.pnItem2; }
         }
 
-        private List<Item_EatService2> item_EatService2s= new List<Item_EatService2>();
+        private List<Item_EatService2> SelectedItems= new List<Item_EatService2>();
 
         public List<Item_EatService2> _item_EatService2s
         {
-            get { return item_EatService2s; }
-            set { item_EatService2s = value; }
+            get { return SelectedItems; }
+            set { SelectedItems = value; }
         }
 
         private int totalMoney;
@@ -76,5 +84,29 @@ namespace HotelManagement.UI
 
         #endregion
 
+        private void btAdd_Click(object sender, EventArgs e)
+        {
+            if (SelectedItems.Count == 0)
+            {
+                MessageBox.Show("Mời chọn ít nhất 1 sản phẩm!", "Lỗi");
+                return;
+            }
+            if (cbRoomSelection.SelectedIndex == -1)
+            {
+                MessageBox.Show("Mời chọn phòng!", "Lỗi");
+                return;
+            }
+            if (rooms.Items[cbRoomSelection.SelectedIndex].Status != RoomStatus.Rented)
+            {
+                MessageBox.Show("Phòng này chưa được thuê!", "Lỗi");
+                return;
+            }
+            for (int i = 0; i < SelectedItems.Count; i++)
+            {
+                int RoomID = rooms.Items[cbRoomSelection.SelectedIndex].ID;
+                DataAccess.Services.InsertServicetoBillDetail(RoomID, SelectedItems[i]._itemID, SelectedItems[i]._count);
+                MessageBox.Show("Thêm thành công!", "Thông báo");
+            }
+        }
     }
 }
