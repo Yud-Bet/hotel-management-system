@@ -30,7 +30,7 @@ namespace HotelManagement.UI
         {
             DTO.RoomDetail room = new DTO.RoomDetail(RoomID);
             tbRoomID.Text = RoomID.ToString();
-            tbRoomsize.Text = room.Size;
+            tbRoomSize.Text = room.Size;
             tbRoomPrice.Text = room.Price;
             SetValueForControl.SetRoomType(room.Type, rbtNor, rbtVip, rbtSingle, rbtDouble);
         }
@@ -41,7 +41,7 @@ namespace HotelManagement.UI
             if (!checkValidityOfValue()) return;
 
             DataAccess.RoomDA.EditRoomInfo(Convert.ToInt32(tbRoomID.Text), GetValueOfControl.GetRoomType(rbtNor, rbtVip, rbtSingle, rbtDouble),
-                Convert.ToInt32(tbRoomsize.Text), Convert.ToInt32(tbRoomPrice.Text));
+                Convert.ToInt32(tbRoomSize.Text), Convert.ToInt32(tbRoomPrice.Text));
             DialogResult = DialogResult.OK;
 
             this.Close();

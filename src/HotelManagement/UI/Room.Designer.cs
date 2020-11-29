@@ -181,9 +181,6 @@
             this.menuItemEndRepairRoom,
             this.menuItemCleanRoom,
             this.menuItemEndCleanRoom});
-            this.zeroitMaterialContextMenuStrip1.MouseState = Zeroit.Framework.MaterialDesign.MouseState.HOVER;
-            this.zeroitMaterialContextMenuStrip1.Name = "zeroitMaterialContextMenuStrip1";
-            this.zeroitMaterialContextMenuStrip1.Size = new System.Drawing.Size(181, 92);
             // 
             // menuItemRepairRoom
             // 

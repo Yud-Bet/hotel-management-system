@@ -1,11 +1,11 @@
-﻿using MetroFramework.Controls;
+﻿using MaterialSkin.Controls;
 
 namespace HotelManagement.UI
 {
     public static class GetValueOfControl
     {
-        public static RoomType GetRoomType(MetroRadioButton normalButton, MetroRadioButton VIPButton,
-            MetroRadioButton singleButton, MetroRadioButton doubleButton)
+        public static RoomType GetRoomType(MaterialRadioButton normalButton, MaterialRadioButton VIPButton,
+            MaterialRadioButton singleButton, MaterialRadioButton doubleButton)
         {
             if (normalButton.Checked && singleButton.Checked) return RoomType.Single;
             else if (normalButton.Checked && doubleButton.Checked) return RoomType.Double;

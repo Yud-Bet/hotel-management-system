@@ -33,7 +33,6 @@ namespace HotelManagement.UI
         private void Load_Data()
         {
             RoomID = this.ParentRef._RoomID;
-            lbRoomID.Text = RoomID.ToString();
             if (this.ParentRef._RoomStatus == RoomStatus.Empty)
             {
                 btPay.Hide();
@@ -132,8 +131,8 @@ namespace HotelManagement.UI
 
         private void btBookRoom_Click(object sender, EventArgs e)
         {
-            if (!checkEmptyValue()) return;
-            if (!checkValidityOfValue()) return;
+            //if (!checkEmptyValue()) return;
+            //if (!checkValidityOfValue()) return;
             int a = DataAccess.CustomerDA.AddReservation(RoomID, tbCustomerName.Text,
                 dtpCustomerBirthday.Value, tbCustomerPhoneNum.Text, rbtMale.Checked ? Sex.Male : Sex.Female, tbIDNo.Text,
                 tbPassport.Text, tbCustomerAddress.Text, dtpCheckInDate.Value, tbNote.Text);

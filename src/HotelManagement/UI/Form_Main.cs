@@ -161,7 +161,7 @@ namespace HotelManagement.UI
                 setStatus(pbRoom, lbRoom, pnTickChooseBtRoom, Resources.icRoom2, true);
 
                 panel4.Controls.Clear();
-                panel4.Controls.Add(new Form_Room());
+                panel4.Controls.Add(new Form_Room(Username));
             }
         }
 
