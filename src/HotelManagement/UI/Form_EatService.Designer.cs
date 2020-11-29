@@ -49,10 +49,10 @@
             this.btPay = new XanderUI.XUIButton();
             this.metroComboBox1 = new MetroFramework.Controls.MetroComboBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
+            this.lbDiscount = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
+            this.lbTotalPayable = new System.Windows.Forms.Label();
             this.lbTotalMoney = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -245,10 +245,10 @@
             this.panel5.Controls.Add(this.btPay);
             this.panel5.Controls.Add(this.metroComboBox1);
             this.panel5.Controls.Add(this.label7);
-            this.panel5.Controls.Add(this.label12);
+            this.panel5.Controls.Add(this.lbDiscount);
             this.panel5.Controls.Add(this.label11);
             this.panel5.Controls.Add(this.label6);
-            this.panel5.Controls.Add(this.label10);
+            this.panel5.Controls.Add(this.lbTotalPayable);
             this.panel5.Controls.Add(this.lbTotalMoney);
             this.panel5.Controls.Add(this.label9);
             this.panel5.Controls.Add(this.label5);
@@ -274,7 +274,7 @@
             this.btPay.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
             this.btPay.HoverTextColor = System.Drawing.Color.White;
             this.btPay.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
-            this.btPay.Location = new System.Drawing.Point(245, 83);
+            this.btPay.Location = new System.Drawing.Point(245, 95);
             this.btPay.Name = "btPay";
             this.btPay.Size = new System.Drawing.Size(178, 50);
             this.btPay.TabIndex = 17;
@@ -302,16 +302,16 @@
             this.label7.TabIndex = 2;
             this.label7.Text = "Tổng phải trả";
             // 
-            // label12
+            // lbDiscount
             // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Segoe UI", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.label12.ForeColor = System.Drawing.Color.Black;
-            this.label12.Location = new System.Drawing.Point(131, 82);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(37, 23);
-            this.label12.TabIndex = 2;
-            this.label12.Text = "100";
+            this.lbDiscount.AutoSize = true;
+            this.lbDiscount.Font = new System.Drawing.Font("Segoe UI", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.lbDiscount.ForeColor = System.Drawing.Color.Black;
+            this.lbDiscount.Location = new System.Drawing.Point(131, 82);
+            this.lbDiscount.Name = "lbDiscount";
+            this.lbDiscount.Size = new System.Drawing.Size(37, 23);
+            this.lbDiscount.TabIndex = 2;
+            this.lbDiscount.Text = "100";
             // 
             // label11
             // 
@@ -335,16 +335,16 @@
             this.label6.TabIndex = 2;
             this.label6.Text = "Giảm giá";
             // 
-            // label10
+            // lbTotalPayable
             // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Segoe UI", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.label10.ForeColor = System.Drawing.Color.Black;
-            this.label10.Location = new System.Drawing.Point(131, 122);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(19, 23);
-            this.label10.TabIndex = 2;
-            this.label10.Text = "0";
+            this.lbTotalPayable.AutoSize = true;
+            this.lbTotalPayable.Font = new System.Drawing.Font("Segoe UI", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.lbTotalPayable.ForeColor = System.Drawing.Color.Black;
+            this.lbTotalPayable.Location = new System.Drawing.Point(131, 122);
+            this.lbTotalPayable.Name = "lbTotalPayable";
+            this.lbTotalPayable.Size = new System.Drawing.Size(19, 23);
+            this.lbTotalPayable.TabIndex = 2;
+            this.lbTotalPayable.Text = "0";
             // 
             // lbTotalMoney
             // 
@@ -443,10 +443,10 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label lbDiscount;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label lbTotalPayable;
         private System.Windows.Forms.Label lbTotalMoney;
         private System.Windows.Forms.Label label5;
         private MetroFramework.Controls.MetroComboBox metroComboBox1;

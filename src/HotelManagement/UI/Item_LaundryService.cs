@@ -10,16 +10,16 @@ using System.Windows.Forms;
 
 namespace HotelManagement.UI
 {
-    public partial class Item_EatService2 : UserControl
+    public partial class Item_LaundryService : UserControl
     {
-        public Item_EatService2(Form_EatService parent)
+        public Item_LaundryService(Form_LaundryService parent)
         {
             InitializeComponent();
             this.parent = parent;
         }
 
         #region properties
-        Form_EatService parent;
+        Form_LaundryService parent;
 
         private int itemID;
 
@@ -38,7 +38,7 @@ namespace HotelManagement.UI
             set
             {
                 name = value;
-                lbName.MainText = value;
+                lbName.Text = value;
             }
         }
 
@@ -69,51 +69,12 @@ namespace HotelManagement.UI
 
         #endregion
 
-
-        private void btPlus_Click(object sender, EventArgs e)
+        private void panel1_MouseMove(object sender, MouseEventArgs e)
         {
-            count++;
-            tbCount.Text = count.ToString();
-            this.parent._totalMoney += this.price;
-        }
-
-        private void removeItem()
-        {
-            for (int i = 0; i < this.parent._item_EatService2s.Count; i++)
-            {
-                if (this.parent._item_EatService2s[i] == this)
-                {
-                    this.parent._item_EatService2s.RemoveAt(i);
-                    this.parent._panelItem2.Controls.Remove(this);
-                    return;
-                }
-            }
-        }
-
-        private void btMinus_Click(object sender, EventArgs e)
-        {
-            if (count == 1)
-            {
-                this.removeItem();
-            }
-            count--;
-            tbCount.Text = count.ToString();
-            this.parent._totalMoney -= this.price;
-        }
-
-        private void Item_EatService2_MouseMove(object sender, MouseEventArgs e)
-        {
-            zeroitUltraTextBox1.IsEnabled = true;
             zeroitUltraTextBox1.Focus();
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-            removeItem();
-            this.parent.calcTotalMoney();
-        }
-
-        private void lbCount_TextChanged(object sender, EventArgs e)
+        private void tbCount_TextChanged(object sender, EventArgs e)
         {
             try
             {

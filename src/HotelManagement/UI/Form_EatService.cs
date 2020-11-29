@@ -15,6 +15,7 @@ namespace HotelManagement.UI
         public Form_EatService()
         {
             InitializeComponent();
+            lbDiscount.Text = discount.ToString();
             Item_EatService1 temp = new Item_EatService1(this);
             temp._itemID = 10;
             temp._name = "cola";
@@ -43,6 +44,9 @@ namespace HotelManagement.UI
         }
 
         #region properties
+
+        int discount = 0;
+
         public FlowLayoutPanel _panelItem1
         {
             get { return this.pnItem1; }
@@ -69,6 +73,7 @@ namespace HotelManagement.UI
             set { 
                 totalMoney = value;
                 lbTotalMoney.Text = value.ToString();
+                lbTotalPayable.Text = (totalMoney - ((float)totalMoney * discount / 100)).ToString();
             }
         }
 

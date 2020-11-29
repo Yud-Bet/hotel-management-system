@@ -157,6 +157,12 @@
     <Compile Include="UI\Item_EatService2.Designer.cs">
       <DependentUpon>Item_EatService2.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Item_LaundryService.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Item_LaundryService.Designer.cs">
+      <DependentUpon>Item_LaundryService.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Room.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -199,6 +205,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Item_EatService2.resx">
       <DependentUpon>Item_EatService2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Item_LaundryService.resx">
+      <DependentUpon>Item_LaundryService.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Room.resx">
       <DependentUpon>Room.cs</DependentUpon>
