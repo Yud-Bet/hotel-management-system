@@ -110,7 +110,7 @@
             this.btPay.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
             this.btPay.ButtonImage = global::HotelManagement.Properties.Resources.icPayment;
             this.btPay.ButtonStyle = XanderUI.XUIButton.Style.MaterialRounded;
-            this.btPay.ButtonText = "Thanh Toán";
+            this.btPay.ButtonText = "Thêm";
             this.btPay.ClickBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(161)))));
             this.btPay.ClickTextColor = System.Drawing.Color.White;
             this.btPay.CornerRadius = 5;
@@ -120,9 +120,9 @@
             this.btPay.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
             this.btPay.HoverTextColor = System.Drawing.Color.White;
             this.btPay.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
-            this.btPay.Location = new System.Drawing.Point(245, 95);
+            this.btPay.Location = new System.Drawing.Point(271, 105);
             this.btPay.Name = "btPay";
-            this.btPay.Size = new System.Drawing.Size(178, 50);
+            this.btPay.Size = new System.Drawing.Size(115, 50);
             this.btPay.TabIndex = 17;
             this.btPay.TextColor = System.Drawing.Color.White;
             this.btPay.Vertical_Alignment = System.Drawing.StringAlignment.Center;
@@ -131,9 +131,9 @@
             // 
             this.metroComboBox1.FormattingEnabled = true;
             this.metroComboBox1.ItemHeight = 23;
-            this.metroComboBox1.Location = new System.Drawing.Point(353, 48);
+            this.metroComboBox1.Location = new System.Drawing.Point(271, 70);
             this.metroComboBox1.Name = "metroComboBox1";
-            this.metroComboBox1.Size = new System.Drawing.Size(70, 29);
+            this.metroComboBox1.Size = new System.Drawing.Size(115, 29);
             this.metroComboBox1.TabIndex = 4;
             this.metroComboBox1.UseSelectable = true;
             // 
@@ -208,7 +208,7 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Segoe UI", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.label9.ForeColor = System.Drawing.Color.Black;
-            this.label9.Location = new System.Drawing.Point(241, 54);
+            this.label9.Location = new System.Drawing.Point(267, 44);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(106, 23);
             this.label9.TabIndex = 2;
