@@ -37,7 +37,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.lbRoomID = new System.Windows.Forms.Label();
             this.pbShadow = new System.Windows.Forms.PictureBox();
-            this.zeroitMaterialContextMenuStrip1 = new Zeroit.Framework.MaterialDesign.Controls.ZeroitMaterialContextMenuStrip();
+            this.RightClickMenu = new Zeroit.Framework.MaterialDesign.Controls.ZeroitMaterialContextMenuStrip();
             this.menuItemRepairRoom = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemEndRepairRoom = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemCleanRoom = new System.Windows.Forms.ToolStripMenuItem();
@@ -48,7 +48,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbVip)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbRoomStatus)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbShadow)).BeginInit();
-            this.zeroitMaterialContextMenuStrip1.SuspendLayout();
+            this.RightClickMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // lbRoomStatus
@@ -172,11 +172,11 @@
             this.pbShadow.TabIndex = 6;
             this.pbShadow.TabStop = false;
             // 
-            // zeroitMaterialContextMenuStrip1
+            // RightClickMenu
             // 
-            this.zeroitMaterialContextMenuStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.zeroitMaterialContextMenuStrip1.Depth = 0;
-            this.zeroitMaterialContextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.RightClickMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.RightClickMenu.Depth = 0;
+            this.RightClickMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuItemRepairRoom,
             this.menuItemEndRepairRoom,
             this.menuItemCleanRoom,
@@ -190,24 +190,28 @@
             this.menuItemRepairRoom.Name = "menuItemRepairRoom";
             this.menuItemRepairRoom.Size = new System.Drawing.Size(180, 22);
             this.menuItemRepairRoom.Text = "Sửa phòng";
+            this.menuItemRepairRoom.Click += new System.EventHandler(this.menuItemRepairRoom_Click);
             // 
             // menuItemEndRepairRoom
             // 
             this.menuItemEndRepairRoom.Name = "menuItemEndRepairRoom";
             this.menuItemEndRepairRoom.Size = new System.Drawing.Size(180, 22);
             this.menuItemEndRepairRoom.Text = "Kết thúc sửa phòng";
+            this.menuItemEndRepairRoom.Click += new System.EventHandler(this.menuItemEndRepairRoom_Click);
             // 
             // menuItemCleanRoom
             // 
             this.menuItemCleanRoom.Name = "menuItemCleanRoom";
             this.menuItemCleanRoom.Size = new System.Drawing.Size(180, 22);
             this.menuItemCleanRoom.Text = "Dọn phòng";
+            this.menuItemCleanRoom.Click += new System.EventHandler(this.menuItemCleanRoom_Click);
             // 
             // menuItemEndCleanRoom
             // 
             this.menuItemEndCleanRoom.Name = "menuItemEndCleanRoom";
             this.menuItemEndCleanRoom.Size = new System.Drawing.Size(180, 22);
             this.menuItemEndCleanRoom.Text = "Kết thúc dọn phòng";
+            this.menuItemEndCleanRoom.Click += new System.EventHandler(this.menuItemEndCleanRoom_Click);
             // 
             // Room
             // 
@@ -225,7 +229,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbVip)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbRoomStatus)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbShadow)).EndInit();
-            this.zeroitMaterialContextMenuStrip1.ResumeLayout(false);
+            this.RightClickMenu.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -241,7 +245,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lbRoomID;
         private System.Windows.Forms.PictureBox pbShadow;
-        private Zeroit.Framework.MaterialDesign.Controls.ZeroitMaterialContextMenuStrip zeroitMaterialContextMenuStrip1;
+        private Zeroit.Framework.MaterialDesign.Controls.ZeroitMaterialContextMenuStrip RightClickMenu;
         private System.Windows.Forms.ToolStripMenuItem menuItemRepairRoom;
         private System.Windows.Forms.ToolStripMenuItem menuItemEndRepairRoom;
         private System.Windows.Forms.ToolStripMenuItem menuItemCleanRoom;

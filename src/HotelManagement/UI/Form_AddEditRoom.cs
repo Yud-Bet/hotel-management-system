@@ -7,6 +7,8 @@ namespace HotelManagement.UI
 {
     public partial class Form_AddEditRoom : MetroFramework.Forms.MetroForm
     {
+        private int RoomID;
+
         public XanderUI.XUIButton _btAdd
         {
             get { return btAddRoom; }
@@ -17,15 +19,20 @@ namespace HotelManagement.UI
             get { return btSave; }
         }
 
-        public Form_AddEditRoom()
+        public Form_AddEditRoom(int RoomID)
         {
             InitializeComponent();
+            this.RoomID = RoomID;
             loadData();
         }
 
         void loadData()
         {
-
+            DTO.RoomDetail room = new DTO.RoomDetail(RoomID);
+            tbRoomID.Text = RoomID.ToString();
+            tbRoomsize.Text = room.Size;
+            tbRoomPrice.Text = room.Price;
+            SetValueForControl.SetRoomType(room.Type, rbtNor, rbtVip, rbtSingle, rbtDouble);
         }
 
         private void btSave_Click(object sender, EventArgs e)
@@ -33,9 +40,9 @@ namespace HotelManagement.UI
             if (!checkEmptyValue()) return;
             if (!checkValidityOfValue()) return;
 
-            //
-            // code
-            //
+            DataAccess.RoomDA.EditRoomInfo(Convert.ToInt32(tbRoomID.Text), GetValueOfControl.GetRoomType(rbtNor, rbtVip, rbtSingle, rbtDouble),
+                Convert.ToInt32(tbRoomsize.Text), Convert.ToInt32(tbRoomPrice.Text));
+            DialogResult = DialogResult.OK;
 
             this.Close();
         }
