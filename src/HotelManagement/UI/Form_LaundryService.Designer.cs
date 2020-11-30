@@ -156,9 +156,9 @@
             this.lbDiscount.ForeColor = System.Drawing.Color.Black;
             this.lbDiscount.Location = new System.Drawing.Point(131, 82);
             this.lbDiscount.Name = "lbDiscount";
-            this.lbDiscount.Size = new System.Drawing.Size(37, 23);
+            this.lbDiscount.Size = new System.Drawing.Size(19, 23);
             this.lbDiscount.TabIndex = 2;
-            this.lbDiscount.Text = "100";
+            this.lbDiscount.Text = "0";
             // 
             // label11
             // 

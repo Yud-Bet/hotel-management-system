@@ -17,6 +17,7 @@ namespace HotelManagement.UI
         {
             InitializeComponent();
 
+            this._discount = 10;
             DTO.ServicesInfo services = new DTO.ServicesInfo(ServiceType.Laundry);
             //label1.Text = services.Items[0].Name.ToString();
             lbLaundryPrice.Text = services.Items[0].Price.ToString();
@@ -26,7 +27,6 @@ namespace HotelManagement.UI
             lbIronPrice.Text = services.Items[1].Price.ToString();
             ironPrice = services.Items[1].Price;
             ironID = services.Items[1].ServiceID;
-
             Init_cbRoomSelection();
         }
 
@@ -34,7 +34,17 @@ namespace HotelManagement.UI
         private int laundryPrice, ironPrice, laundryID, ironID;
         private List<Item_LaundryService> SelectedItems = new List<Item_LaundryService>();
 
-        private int discount = 0;
+        private int discount;
+
+        public int _discount
+        {
+            get { return discount; }
+            set
+            {
+                discount = value;
+                lbDiscount.Text = discount.ToString();
+            }
+        }
 
         private int totalMoney;
 

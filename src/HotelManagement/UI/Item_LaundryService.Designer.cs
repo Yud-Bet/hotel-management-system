@@ -97,13 +97,13 @@
             this.tbCount.ForeColor = System.Drawing.Color.Black;
             this.tbCount.IsEnabled = true;
             this.tbCount.Location = new System.Drawing.Point(322, 4);
-            this.tbCount.MaxLength = 32767;
+            this.tbCount.MaxLength = 2;
             this.tbCount.Multiline = false;
             this.tbCount.Name = "tbCount";
             this.tbCount.PasswordChar = '\0';
             this.tbCount.Placeholder = false;
             this.tbCount.PlaceHolderText = "";
-            this.tbCount.PlaceHolderTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
+            this.tbCount.PlaceHolderTextColor = System.Drawing.Color.Black;
             this.tbCount.ReadOnly = false;
             this.tbCount.Size = new System.Drawing.Size(80, 24);
             this.tbCount.TabIndex = 13;
@@ -113,6 +113,8 @@
             this.tbCount.UseSystemPasswordChar = false;
             this.tbCount.WordWrap = true;
             this.tbCount.TextChanged += new System.EventHandler(this.tbCount_TextChanged);
+            this.tbCount.MouseLeave += new System.EventHandler(this.tbCount_MouseLeave);
+            this.tbCount.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
             // 
             // panel1
             // 
