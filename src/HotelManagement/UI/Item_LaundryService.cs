@@ -78,12 +78,23 @@ namespace HotelManagement.UI
         {
             try
             {
-                this._count = Convert.ToInt32(tbCount.Text);
-                this.parent.calcTotalMoney();
+                if (tbCount.Text != "")
+                {
+                    this._count = Convert.ToInt32(tbCount.Text);
+                    this.parent.calcTotalMoney();
+                }
             }
             catch
             {
                 MessageBox.Show("Vui lòng chỉ nhập số");
+                tbCount.Text = this.count.ToString();
+            }
+        }
+
+        private void tbCount_MouseLeave(object sender, EventArgs e)
+        {
+            if (tbCount.Text == "")
+            {
                 tbCount.Text = this.count.ToString();
             }
         }

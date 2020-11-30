@@ -15,13 +15,24 @@ namespace HotelManagement.UI
         public Form_LaundryService()
         {
             InitializeComponent();
+            this._discount = 10;
         }
 
         #region properties
         private int laundryPrice = 50, ironPrice = 50, laundryID = 1, ironID = 2;
         private List<Item_LaundryService> item_LaundryServices = new List<Item_LaundryService>();
 
-        private int discount = 0;
+        private int discount;
+
+        public int _discount
+        {
+            get { return discount; }
+            set
+            {
+                discount = value;
+                lbDiscount.Text = discount.ToString();
+            }
+        }
 
         private int totalMoney;
 

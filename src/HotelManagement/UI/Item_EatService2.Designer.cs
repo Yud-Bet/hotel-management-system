@@ -66,7 +66,7 @@
             this.tbCount.ForeColor = System.Drawing.Color.Black;
             this.tbCount.IsEnabled = true;
             this.tbCount.Location = new System.Drawing.Point(335, 3);
-            this.tbCount.MaxLength = 32767;
+            this.tbCount.MaxLength = 2;
             this.tbCount.Multiline = false;
             this.tbCount.Name = "tbCount";
             this.tbCount.PasswordChar = '\0';
@@ -82,6 +82,7 @@
             this.tbCount.UseSystemPasswordChar = false;
             this.tbCount.WordWrap = true;
             this.tbCount.TextChanged += new System.EventHandler(this.lbCount_TextChanged);
+            this.tbCount.MouseLeave += new System.EventHandler(this.tbCount_MouseLeave);
             this.tbCount.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Item_EatService2_MouseMove);
             // 
             // zeroitUltraTextBox1

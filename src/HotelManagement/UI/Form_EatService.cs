@@ -50,7 +50,17 @@ namespace HotelManagement.UI
 
         #region properties
 
-        int discount = 0;
+        private int discount;
+
+        public int _discount
+        {
+            get { return discount; }
+            set {
+                discount = value;
+                lbDiscount.Text = discount.ToString();
+            }
+        }
+
 
         public FlowLayoutPanel _panelItem1
         {
