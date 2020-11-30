@@ -13,6 +13,7 @@ namespace HotelManagement.UI
     public partial class Form_EatService : UserControl
     {
         DTO.RoomOverview rooms;
+        
         public Form_EatService()
         {
             InitializeComponent();
@@ -50,7 +51,7 @@ namespace HotelManagement.UI
 
         #region properties
 
-        private int discount;
+        private int discount = 0;
 
         public int _discount
         {

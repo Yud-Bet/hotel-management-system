@@ -266,7 +266,7 @@ namespace HotelManagement.UI
             drawBill.drawBillHeader();
             drawBill.drawCustomerInfo(Customer.Name, RoomID, Customer.PhoneNumber, Customer.Addr,
                 dtpCheckInDate.Text, dtpCheckOutDate.Text);
-            drawBill.drawItem("Phòng", 1, Convert.ToInt32(tbRoomPrice.Text));
+            drawBill.drawItem("Phòng", (dtpCheckOutDate.Value - dtpCheckInDate.Value).Days, Convert.ToInt32(tbRoomPrice.Text));
             int TotalMoney = Convert.ToInt32(tbRoomPrice.Text) * (dtpCheckOutDate.Value - dtpCheckInDate.Value).Days;
             for (int i = 0; i < svc.services.Count; i++)
             {
