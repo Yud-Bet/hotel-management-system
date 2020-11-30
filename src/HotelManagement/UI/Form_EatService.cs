@@ -39,6 +39,9 @@ namespace HotelManagement.UI
                 cbRoomSelection.Items.Add(rooms.Items[i].ID);
             }
         }
+        #region Properties
+        public Room ParentRef;
+        #endregion
         public void calcTotalMoney()
         {
             int sum = 0;
@@ -118,6 +121,52 @@ namespace HotelManagement.UI
                 DataAccess.Services.InsertServicetoBillDetail(RoomID, SelectedItems[i]._itemID, SelectedItems[i]._count);
             }
             MessageBox.Show("Thêm thành công!", "Thông báo");
+        }
+
+        private void btPay_Click(object sender, EventArgs e)
+        {
+            if (SelectedItems.Count == 0)
+            {
+                MessageBox.Show("Mời chọn ít nhất 1 sản phẩm!", "Lỗi");
+                return;
+            }
+            if (cbRoomSelection.SelectedIndex != -1)
+            {
+                MessageBox.Show("Thanh toán trực tiếp, vui lòng không chọn phòng!", "Lỗi");
+                return;
+            }
+            DataAccess.Services.InsertNewBillServiceOnly("a");
+            for (int i = 0; i < SelectedItems.Count; i++)
+            {
+                DataAccess.Services.InsertServiceIntoBillServiceOnlyDetail(SelectedItems[i]._itemID, SelectedItems[i]._count);
+            }
+            int RowEffected = DataAccess.Services.PaymentBillServiceOnly();
+            if (RowEffected > 0)
+            {
+                printPreviewDialogBill.Document = bill;
+                printPreviewDialogBill.ShowDialog();
+            }
+            //MessageBox.Show("Thêm thành công!", "Thông báo");
+        }
+
+        private void bill_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            DTO.RoomServices svc = new DTO.RoomServices();
+            DrawBill drawBill = new DrawBill(e.Graphics);
+            drawBill.drawBillHeader();
+            drawBill.drawServiceInfo();
+            //drawBill.drawCustomerInfo(Customer.Name, RoomID, Customer.PhoneNumber, Customer.Addr,
+            //    dtpCheckInDate.Text, dtpCheckOutDate.Text);
+            //drawBill.drawItem("Phòng", (dtpCheckOutDate.Value - dtpCheckInDate.Value).Days, Convert.ToInt32(tbRoomPrice.Text));
+            //int TotalMoney = Convert.ToInt32(tbRoomPrice.Text) * (dtpCheckOutDate.Value - dtpCheckInDate.Value).Days;
+            int TotalMoney = 0;
+            for (int i = 0; i < svc.services.Count; i++)
+            {
+                drawBill.drawItem(svc.services[i].Name, svc.services[i].Count, svc.services[i].Price);
+                TotalMoney += svc.services[i].Count * svc.services[i].Price;
+            }
+            DTO.StaffOverview staff = new DTO.StaffOverview("a");
+            drawBill.drawEndOfBill(staff.Name, TotalMoney, 0);
         }
     }
 }

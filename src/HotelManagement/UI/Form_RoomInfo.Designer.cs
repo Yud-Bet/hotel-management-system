@@ -83,10 +83,10 @@
             this.btPay = new XanderUI.XUIButton();
             this.btSettingRoom = new XanderUI.XUIButton();
             this.btDeleteRoom = new XanderUI.XUIButton();
+            this.btUpdateInfo = new XanderUI.XUIButton();
             this.bill = new System.Drawing.Printing.PrintDocument();
             this.printPreviewDialogBill = new System.Windows.Forms.PrintPreviewDialog();
             this.pbArrowBack = new System.Windows.Forms.PictureBox();
-            this.btUpdateInfo = new XanderUI.XUIButton();
             this.pnCustomerInfo.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.pnRoomInfo.SuspendLayout();
@@ -915,6 +915,29 @@
             this.btDeleteRoom.TextColor = System.Drawing.Color.White;
             this.btDeleteRoom.Vertical_Alignment = System.Drawing.StringAlignment.Center;
             // 
+            // btUpdateInfo
+            // 
+            this.btUpdateInfo.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
+            this.btUpdateInfo.ButtonImage = global::HotelManagement.Properties.Resources.icYes1;
+            this.btUpdateInfo.ButtonStyle = XanderUI.XUIButton.Style.MaterialRounded;
+            this.btUpdateInfo.ButtonText = "Thay đổi";
+            this.btUpdateInfo.ClickBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(130)))), ((int)(((byte)(200)))));
+            this.btUpdateInfo.ClickTextColor = System.Drawing.Color.White;
+            this.btUpdateInfo.CornerRadius = 5;
+            this.btUpdateInfo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btUpdateInfo.Font = new System.Drawing.Font("Segoe UI", 14F);
+            this.btUpdateInfo.Horizontal_Alignment = System.Drawing.StringAlignment.Near;
+            this.btUpdateInfo.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
+            this.btUpdateInfo.HoverTextColor = System.Drawing.Color.White;
+            this.btUpdateInfo.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
+            this.btUpdateInfo.Location = new System.Drawing.Point(140, 59);
+            this.btUpdateInfo.Name = "btUpdateInfo";
+            this.btUpdateInfo.Size = new System.Drawing.Size(131, 50);
+            this.btUpdateInfo.TabIndex = 16;
+            this.btUpdateInfo.TextColor = System.Drawing.Color.White;
+            this.btUpdateInfo.Vertical_Alignment = System.Drawing.StringAlignment.Center;
+            this.btUpdateInfo.Click += new System.EventHandler(this.btUpdateInfo_Click);
+            // 
             // bill
             // 
             this.bill.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.bill_PrintPage);
@@ -940,29 +963,6 @@
             this.pbArrowBack.TabIndex = 25;
             this.pbArrowBack.TabStop = false;
             this.pbArrowBack.Click += new System.EventHandler(this.pbArrowBack_Click);
-            // 
-            // btUpdateInfo
-            // 
-            this.btUpdateInfo.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
-            this.btUpdateInfo.ButtonImage = global::HotelManagement.Properties.Resources.icYes1;
-            this.btUpdateInfo.ButtonStyle = XanderUI.XUIButton.Style.MaterialRounded;
-            this.btUpdateInfo.ButtonText = "Thay đổi";
-            this.btUpdateInfo.ClickBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(130)))), ((int)(((byte)(200)))));
-            this.btUpdateInfo.ClickTextColor = System.Drawing.Color.White;
-            this.btUpdateInfo.CornerRadius = 5;
-            this.btUpdateInfo.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btUpdateInfo.Font = new System.Drawing.Font("Segoe UI", 14F);
-            this.btUpdateInfo.Horizontal_Alignment = System.Drawing.StringAlignment.Near;
-            this.btUpdateInfo.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
-            this.btUpdateInfo.HoverTextColor = System.Drawing.Color.White;
-            this.btUpdateInfo.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
-            this.btUpdateInfo.Location = new System.Drawing.Point(140, 59);
-            this.btUpdateInfo.Name = "btUpdateInfo";
-            this.btUpdateInfo.Size = new System.Drawing.Size(131, 50);
-            this.btUpdateInfo.TabIndex = 16;
-            this.btUpdateInfo.TextColor = System.Drawing.Color.White;
-            this.btUpdateInfo.Vertical_Alignment = System.Drawing.StringAlignment.Center;
-            this.btUpdateInfo.Click += new System.EventHandler(this.btUpdateInfo_Click);
             // 
             // Form_RoomInfo
             // 

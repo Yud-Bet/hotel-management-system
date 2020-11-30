@@ -46,6 +46,7 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.btPay = new XanderUI.XUIButton();
             this.btAdd = new XanderUI.XUIButton();
             this.cbRoomSelection = new MetroFramework.Controls.MetroComboBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -58,6 +59,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
+            this.bill = new System.Drawing.Printing.PrintDocument();
+            this.printPreviewDialogBill = new System.Windows.Forms.PrintPreviewDialog();
             this.pnBookingInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.zeroitPictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -96,11 +99,11 @@
             this.pnBookingInfo.Size = new System.Drawing.Size(493, 550);
             this.pnBookingInfo.TabIndex = 14;
             // 
-            // pnItem1
+            // pnServicesList
             // 
             this.pnServicesList.AutoScroll = true;
             this.pnServicesList.Location = new System.Drawing.Point(3, 47);
-            this.pnServicesList.Name = "pnItem1";
+            this.pnServicesList.Name = "pnServicesList";
             this.pnServicesList.Size = new System.Drawing.Size(485, 487);
             this.pnServicesList.TabIndex = 6;
             // 
@@ -204,11 +207,11 @@
             this.label2.TabIndex = 5;
             this.label2.Text = "Mặt hàng";
             // 
-            // pnItem2
+            // pnSelectedServices
             // 
             this.pnSelectedServices.AutoScroll = true;
             this.pnSelectedServices.Location = new System.Drawing.Point(3, 74);
-            this.pnSelectedServices.Name = "pnItem2";
+            this.pnSelectedServices.Name = "pnSelectedServices";
             this.pnSelectedServices.Size = new System.Drawing.Size(428, 284);
             this.pnSelectedServices.TabIndex = 4;
             // 
@@ -242,6 +245,7 @@
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this.panel5.Controls.Add(this.btPay);
             this.panel5.Controls.Add(this.btAdd);
             this.panel5.Controls.Add(this.cbRoomSelection);
             this.panel5.Controls.Add(this.label7);
@@ -259,6 +263,29 @@
             this.panel5.Size = new System.Drawing.Size(433, 183);
             this.panel5.TabIndex = 16;
             // 
+            // btPay
+            // 
+            this.btPay.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
+            this.btPay.ButtonImage = global::HotelManagement.Properties.Resources.icPayment;
+            this.btPay.ButtonStyle = XanderUI.XUIButton.Style.MaterialRounded;
+            this.btPay.ButtonText = "Thanh toán";
+            this.btPay.ClickBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(161)))));
+            this.btPay.ClickTextColor = System.Drawing.Color.White;
+            this.btPay.CornerRadius = 5;
+            this.btPay.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btPay.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btPay.Horizontal_Alignment = System.Drawing.StringAlignment.Near;
+            this.btPay.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
+            this.btPay.HoverTextColor = System.Drawing.Color.White;
+            this.btPay.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
+            this.btPay.Location = new System.Drawing.Point(256, 122);
+            this.btPay.Name = "btPay";
+            this.btPay.Size = new System.Drawing.Size(167, 50);
+            this.btPay.TabIndex = 17;
+            this.btPay.TextColor = System.Drawing.Color.White;
+            this.btPay.Vertical_Alignment = System.Drawing.StringAlignment.Center;
+            this.btPay.Click += new System.EventHandler(this.btPay_Click);
+            // 
             // btAdd
             // 
             this.btAdd.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
@@ -274,9 +301,9 @@
             this.btAdd.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
             this.btAdd.HoverTextColor = System.Drawing.Color.White;
             this.btAdd.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
-            this.btAdd.Location = new System.Drawing.Point(256, 95);
+            this.btAdd.Location = new System.Drawing.Point(256, 73);
             this.btAdd.Name = "btAdd";
-            this.btAdd.Size = new System.Drawing.Size(112, 50);
+            this.btAdd.Size = new System.Drawing.Size(167, 50);
             this.btAdd.TabIndex = 17;
             this.btAdd.TextColor = System.Drawing.Color.White;
             this.btAdd.Vertical_Alignment = System.Drawing.StringAlignment.Center;
@@ -286,9 +313,9 @@
             // 
             this.cbRoomSelection.FormattingEnabled = true;
             this.cbRoomSelection.ItemHeight = 23;
-            this.cbRoomSelection.Location = new System.Drawing.Point(256, 60);
+            this.cbRoomSelection.Location = new System.Drawing.Point(256, 38);
             this.cbRoomSelection.Name = "cbRoomSelection";
-            this.cbRoomSelection.Size = new System.Drawing.Size(112, 29);
+            this.cbRoomSelection.Size = new System.Drawing.Size(167, 29);
             this.cbRoomSelection.TabIndex = 4;
             this.cbRoomSelection.UseSelectable = true;
             // 
@@ -399,6 +426,20 @@
             this.panel8.Size = new System.Drawing.Size(150, 3);
             this.panel8.TabIndex = 3;
             // 
+            // bill
+            // 
+            this.bill.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.bill_PrintPage);
+            // 
+            // printPreviewDialogBill
+            // 
+            this.printPreviewDialogBill.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.printPreviewDialogBill.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.printPreviewDialogBill.ClientSize = new System.Drawing.Size(400, 300);
+            this.printPreviewDialogBill.Enabled = true;
+            this.printPreviewDialogBill.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialogBill.Icon")));
+            this.printPreviewDialogBill.Name = "printPreviewDialogBill";
+            this.printPreviewDialogBill.Visible = false;
+            // 
             // Form_EatService
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -453,5 +494,8 @@
         private MetroFramework.Controls.MetroComboBox cbRoomSelection;
         private System.Windows.Forms.Label label9;
         private XanderUI.XUIButton btAdd;
+        private XanderUI.XUIButton btPay;
+        private System.Drawing.Printing.PrintDocument bill;
+        private System.Windows.Forms.PrintPreviewDialog printPreviewDialogBill;
     }
 }
