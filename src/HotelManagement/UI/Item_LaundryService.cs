@@ -76,16 +76,20 @@ namespace HotelManagement.UI
 
         private void tbCount_TextChanged(object sender, EventArgs e)
         {
-            try
+            if (tbCount.Text != "")
             {
-                this._count = Convert.ToInt32(tbCount.Text);
-                this.parent.calcTotalMoney();
+                try
+                {
+                    this._count = Convert.ToInt32(tbCount.Text);
+                    this.parent.calcTotalMoney();
+                }
+                catch
+                {
+                    MessageBox.Show("Vui lòng chỉ nhập số");
+                    tbCount.Text = this.count.ToString();
+                }
             }
-            catch
-            {
-                MessageBox.Show("Vui lòng chỉ nhập số");
-                tbCount.Text = this.count.ToString();
-            }
+            
         }
     }
 }

@@ -12,13 +12,26 @@ namespace HotelManagement.UI
 {
     public partial class Form_LaundryService : UserControl
     {
+        DTO.RoomOverview rooms;
         public Form_LaundryService()
         {
             InitializeComponent();
+
+            DTO.ServicesInfo services = new DTO.ServicesInfo(ServiceType.Laundry);
+            //label1.Text = services.Items[0].Name.ToString();
+            lbLaundryPrice.Text = services.Items[0].Price.ToString();
+            laundryID = services.Items[0].ServiceID;
+            laundryPrice = services.Items[0].Price;
+            //label2.Text = services.Items[1].Name.ToString();
+            lbIronPrice.Text = services.Items[1].Price.ToString();
+            ironPrice = services.Items[1].Price;
+            ironID = services.Items[1].ServiceID;
+
+            Init_cbRoomSelection();
         }
 
         #region properties
-        private int laundryPrice = 50, ironPrice = 50, laundryID = 1, ironID = 2;
+        private int laundryPrice, ironPrice, laundryID, ironID;
         private List<Item_LaundryService> item_LaundryServices = new List<Item_LaundryService>();
 
         private int discount = 0;
@@ -37,6 +50,14 @@ namespace HotelManagement.UI
         }
 
         #endregion
+        private void Init_cbRoomSelection()
+        {
+            rooms = new DTO.RoomOverview();
+            for (int i = 0; i < rooms.Items.Length; i++)
+            {
+                cbRoomSelection.Items.Add(rooms.Items[i].ID);
+            }
+        }
 
         public void calcTotalMoney()
         {
@@ -104,6 +125,32 @@ namespace HotelManagement.UI
                 item_LaundryServices.RemoveAt(check);
             }
             calcTotalMoney();
+        }
+
+        private void btAdd_Click(object sender, EventArgs e)
+        {
+
+            if (item_LaundryServices.Count == 0)
+            {
+                MessageBox.Show("Mời chọn ít nhất 1 sản phẩm!", "Lỗi");
+                return;
+            }
+            if (cbRoomSelection.SelectedIndex == -1)
+            {
+                MessageBox.Show("Mời chọn phòng!", "Lỗi");
+                return;
+            }
+            if (rooms.Items[cbRoomSelection.SelectedIndex].Status != RoomStatus.Rented)
+            {
+                MessageBox.Show("Phòng này chưa được thuê!", "Lỗi");
+                return;
+            }
+            for (int i = 0; i < item_LaundryServices.Count; i++)
+            {
+                int RoomID = rooms.Items[cbRoomSelection.SelectedIndex].ID;
+                DataAccess.Services.InsertServicetoBillDetail(RoomID, item_LaundryServices[i]._itemID, item_LaundryServices[i]._count);
+                MessageBox.Show("Thêm thành công!", "Thông báo");
+            }
         }
 
     }
