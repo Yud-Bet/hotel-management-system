@@ -60,7 +60,7 @@ namespace HotelManagement.UI
 
         private Item_EatService2 checkExistsItem2(Item_EatService1 item_EatService1)
         {
-            foreach(Item_EatService2 i in this.parent._item_EatService2s)
+            foreach(Item_EatService2 i in this.parent._SelectedItems)
             {
                 if (i._itemID == item_EatService1._itemID)
                 {
@@ -84,8 +84,8 @@ namespace HotelManagement.UI
                 temp._price = this.price;
                 temp._itemID = this.itemID;
 
-                this.parent._item_EatService2s.Add(temp);
-                this.parent._panelItem2.Controls.Add(temp);
+                this.parent._SelectedItems.Add(temp);
+                this.parent._pnSelectedServices.Controls.Add(temp);
             }
             this.parent.calcTotalMoney();
         }

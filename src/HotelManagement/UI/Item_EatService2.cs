@@ -79,12 +79,12 @@ namespace HotelManagement.UI
 
         private void removeItem()
         {
-            for (int i = 0; i < this.parent._item_EatService2s.Count; i++)
+            for (int i = 0; i < this.parent._SelectedItems.Count; i++)
             {
-                if (this.parent._item_EatService2s[i] == this)
+                if (this.parent._SelectedItems[i] == this)
                 {
-                    this.parent._item_EatService2s.RemoveAt(i);
-                    this.parent._panelItem2.Controls.Remove(this);
+                    this.parent._SelectedItems.RemoveAt(i);
+                    this.parent._pnSelectedServices.Controls.Remove(this);
                     return;
                 }
             }
@@ -117,11 +117,8 @@ namespace HotelManagement.UI
         {
             try
             {
-                if (tbCount.Text != "")
-                {
-                    this._count = Convert.ToInt32(tbCount.Text);
-                    this.parent.calcTotalMoney();
-                }
+                this._count = Convert.ToInt32(tbCount.Text);
+                this.parent.calcTotalMoney();
             }
             catch
             {

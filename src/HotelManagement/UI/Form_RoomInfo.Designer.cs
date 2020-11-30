@@ -321,7 +321,7 @@
             // 
             this.rbtMale.AutoSize = true;
             this.rbtMale.Depth = 0;
-            this.rbtMale.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.rbtMale.Font = new System.Drawing.Font("Roboto", 10F);
             this.rbtMale.Location = new System.Drawing.Point(0, 0);
             this.rbtMale.Margin = new System.Windows.Forms.Padding(0);
             this.rbtMale.MouseLocation = new System.Drawing.Point(-1, -1);
@@ -338,7 +338,7 @@
             // 
             this.rbtFemale.AutoSize = true;
             this.rbtFemale.Depth = 0;
-            this.rbtFemale.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.rbtFemale.Font = new System.Drawing.Font("Roboto", 10F);
             this.rbtFemale.Location = new System.Drawing.Point(58, 0);
             this.rbtFemale.Margin = new System.Windows.Forms.Padding(0);
             this.rbtFemale.MouseLocation = new System.Drawing.Point(-1, -1);
@@ -601,7 +601,7 @@
             // 
             // panel5
             // 
-            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(212)))), ((int)(((byte)(207)))));
+            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
             this.panel5.Location = new System.Drawing.Point(249, 41);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(3, 30);

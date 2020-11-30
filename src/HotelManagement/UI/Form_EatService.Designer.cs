@@ -32,7 +32,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.lbTitle = new System.Windows.Forms.Label();
             this.pnBookingInfo = new System.Windows.Forms.Panel();
-            this.pnItem1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.pnServicesList = new System.Windows.Forms.FlowLayoutPanel();
             this.zeroitPictureBox1 = new Zeroit.Framework.MiscControls.ZeroitPictureBox();
             this.tbSearch = new Zeroit.Framework.Labels.ZeroitUltraTextBox();
             this.label23 = new System.Windows.Forms.Label();
@@ -41,7 +41,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.pnItem2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.pnSelectedServices = new System.Windows.Forms.FlowLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -86,7 +86,7 @@
             // pnBookingInfo
             // 
             this.pnBookingInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
-            this.pnBookingInfo.Controls.Add(this.pnItem1);
+            this.pnBookingInfo.Controls.Add(this.pnServicesList);
             this.pnBookingInfo.Controls.Add(this.zeroitPictureBox1);
             this.pnBookingInfo.Controls.Add(this.tbSearch);
             this.pnBookingInfo.Controls.Add(this.label23);
@@ -98,11 +98,11 @@
             // 
             // pnItem1
             // 
-            this.pnItem1.AutoScroll = true;
-            this.pnItem1.Location = new System.Drawing.Point(3, 47);
-            this.pnItem1.Name = "pnItem1";
-            this.pnItem1.Size = new System.Drawing.Size(485, 487);
-            this.pnItem1.TabIndex = 6;
+            this.pnServicesList.AutoScroll = true;
+            this.pnServicesList.Location = new System.Drawing.Point(3, 47);
+            this.pnServicesList.Name = "pnItem1";
+            this.pnServicesList.Size = new System.Drawing.Size(485, 487);
+            this.pnServicesList.TabIndex = 6;
             // 
             // zeroitPictureBox1
             // 
@@ -165,7 +165,7 @@
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.pnItem2);
+            this.panel1.Controls.Add(this.pnSelectedServices);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.panel4);
             this.panel1.Controls.Add(this.panel3);
@@ -206,11 +206,11 @@
             // 
             // pnItem2
             // 
-            this.pnItem2.AutoScroll = true;
-            this.pnItem2.Location = new System.Drawing.Point(3, 74);
-            this.pnItem2.Name = "pnItem2";
-            this.pnItem2.Size = new System.Drawing.Size(428, 284);
-            this.pnItem2.TabIndex = 4;
+            this.pnSelectedServices.AutoScroll = true;
+            this.pnSelectedServices.Location = new System.Drawing.Point(3, 74);
+            this.pnSelectedServices.Name = "pnItem2";
+            this.pnSelectedServices.Size = new System.Drawing.Size(428, 284);
+            this.pnSelectedServices.TabIndex = 4;
             // 
             // label1
             // 
@@ -434,8 +434,8 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.FlowLayoutPanel pnItem1;
-        private System.Windows.Forms.FlowLayoutPanel pnItem2;
+        private System.Windows.Forms.FlowLayoutPanel pnServicesList;
+        private System.Windows.Forms.FlowLayoutPanel pnSelectedServices;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;

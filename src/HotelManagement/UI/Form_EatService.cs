@@ -26,7 +26,7 @@ namespace HotelManagement.UI
                 item._itemID = services.Items[i].ServiceID;
                 item._name = services.Items[i].Name;
                 item._price = services.Items[i].Price;
-                pnItem1.Controls.Add(item);
+                pnServicesList.Controls.Add(item);
             }
             Init_cbRoomSelection();
         }
@@ -41,7 +41,7 @@ namespace HotelManagement.UI
         public void calcTotalMoney()
         {
             int sum = 0;
-            foreach (Item_EatService2 i in this._item_EatService2s)
+            foreach (Item_EatService2 i in this._SelectedItems)
             {
                 sum += (i._count * i._price);
             }
@@ -62,19 +62,19 @@ namespace HotelManagement.UI
         }
 
 
-        public FlowLayoutPanel _panelItem1
+        public FlowLayoutPanel _pnServicesList
         {
-            get { return this.pnItem1; }
+            get { return this.pnServicesList; }
         }
 
-        public FlowLayoutPanel _panelItem2
+        public FlowLayoutPanel _pnSelectedServices
         {
-            get { return this.pnItem2; }
+            get { return this.pnSelectedServices; }
         }
 
         private List<Item_EatService2> SelectedItems= new List<Item_EatService2>();
 
-        public List<Item_EatService2> _item_EatService2s
+        public List<Item_EatService2> _SelectedItems
         {
             get { return SelectedItems; }
             set { SelectedItems = value; }

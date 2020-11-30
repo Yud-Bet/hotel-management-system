@@ -153,6 +153,7 @@ namespace HotelManagement.UI
         private void pbRoomType_Click(object sender, EventArgs e)
         {
             MouseEventArgs mouseEventArgs = (MouseEventArgs) e;
+            this.ParentRef._lbRoomID.Text = lbRoomID.Text;
             if(mouseEventArgs.Button== MouseButtons.Right)
             {
                 if (roomStatus != RoomStatus.Rented)
