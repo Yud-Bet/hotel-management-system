@@ -144,7 +144,7 @@ namespace HotelManagement.UI
                 this.ParentRef._RoomStatus = RoomStatus.Rented;
                 pbArrowBack_Click(sender, e);
             }
-            else MessageBox.Show("Lỗi khi đăt phòng");
+            else MessageBox.Show("Lỗi khi đặt phòng");
         }
 
         bool checkEmptyValue()
@@ -275,6 +275,18 @@ namespace HotelManagement.UI
             }
             DTO.StaffOverview staff = new DTO.StaffOverview(this.ParentRef.ParentRef.Username);
             drawBill.drawEndOfBill(staff.Name, TotalMoney, 0);
+        }
+
+        private void btUpdateInfo_Click(object sender, EventArgs e)
+        {
+            int a = DataAccess.CustomerDA.SetReservation(RoomID, tbCustomerName.Text,
+                dtpCustomerBirthday.Value, tbCustomerPhoneNum.Text, rbtMale.Checked ? Sex.Male : Sex.Female, tbIDNo.Text,
+                tbPassport.Text, tbCustomerAddress.Text, dtpCheckInDate.Value, tbNote.Text);
+            if (a > 0)
+            {
+                MessageBox.Show("Sửa thông tin thành công!");
+                pbArrowBack_Click(sender, e);
+            }
         }
     }
 }
