@@ -76,6 +76,7 @@ namespace HotelManagement.UI
 
         private void tbCount_TextChanged(object sender, EventArgs e)
         {
+
             try
             {
                 if (tbCount.Text != "")
@@ -89,6 +90,7 @@ namespace HotelManagement.UI
                 MessageBox.Show("Vui lòng chỉ nhập số");
                 tbCount.Text = this.count.ToString();
             }
+
         }
 
         private void tbCount_MouseLeave(object sender, EventArgs e)

@@ -17,7 +17,7 @@ namespace HotelManagement.DTO
                 ServiceProperties item = new ServiceProperties();
                 item.Name = Convert.ToString(servicesDB.Rows[i].ItemArray[0]);
                 item.Count = Convert.ToInt32(servicesDB.Rows[i].ItemArray[1]);
-                item.Price = Convert.ToInt32(servicesDB.Rows[i].ItemArray[0]);
+                item.Price = Convert.ToInt32(servicesDB.Rows[i].ItemArray[2]);
                 services.Add(item);
             }
         }

@@ -9,7 +9,7 @@ namespace HotelManagement.DTO
         public List<ServiceProperties> Items;
         public ServicesInfo(ServiceType type)
         {
-            DataTable data = DataAccess.Services.GetServices(ServiceType.Eating);
+            DataTable data = DataAccess.Services.GetServices(type);
             Items = new List<ServiceProperties>();
             for (int i = 0; i < data.Rows.Count; i++)
             {
