@@ -32,7 +32,7 @@ namespace HotelManagement.UI
 
         #region properties
         private int laundryPrice, ironPrice, laundryID, ironID;
-        private List<Item_LaundryService> item_LaundryServices = new List<Item_LaundryService>();
+        private List<Item_LaundryService> SelectedItems = new List<Item_LaundryService>();
 
         private int discount = 0;
 
@@ -62,7 +62,7 @@ namespace HotelManagement.UI
         public void calcTotalMoney()
         {
             int sum = 0;
-            foreach (Item_LaundryService i in item_LaundryServices)
+            foreach (Item_LaundryService i in SelectedItems)
             {
                 sum += (i._count * i._price);
             }
@@ -81,11 +81,11 @@ namespace HotelManagement.UI
 
         int checkExistsItem(int ID)
         {
-            if (item_LaundryServices.Count > 0)
+            if (SelectedItems.Count > 0)
             {
-                for(int i=0; i<item_LaundryServices.Count; i++)
+                for(int i=0; i<SelectedItems.Count; i++)
                 {
-                    if (item_LaundryServices[i]._itemID == ID)
+                    if (SelectedItems[i]._itemID == ID)
                     {
                         return i;
                     }
@@ -100,13 +100,13 @@ namespace HotelManagement.UI
             int check = checkExistsItem(ironID);
             if (check == -1)
             {
-                item_LaundryServices.Add(createItemLaundry(ironID, "Ủi", ironPrice));
-                pnItem.Controls.Add(item_LaundryServices[item_LaundryServices.Count - 1]);
+                SelectedItems.Add(createItemLaundry(ironID, "Ủi", ironPrice));
+                pnItem.Controls.Add(SelectedItems[SelectedItems.Count - 1]);
             }
             else
             {
-                pnItem.Controls.Remove(item_LaundryServices[check]);
-                item_LaundryServices.RemoveAt(check);
+                pnItem.Controls.Remove(SelectedItems[check]);
+                SelectedItems.RemoveAt(check);
             }
             calcTotalMoney();
         }
@@ -116,13 +116,13 @@ namespace HotelManagement.UI
             int check = checkExistsItem(laundryID);
             if (check == -1)
             {
-                item_LaundryServices.Add(createItemLaundry(laundryID, "Giặt", laundryPrice));
-                pnItem.Controls.Add(item_LaundryServices[item_LaundryServices.Count - 1]);
+                SelectedItems.Add(createItemLaundry(laundryID, "Giặt", laundryPrice));
+                pnItem.Controls.Add(SelectedItems[SelectedItems.Count - 1]);
             }
             else
             {
-                pnItem.Controls.Remove(item_LaundryServices[check]);
-                item_LaundryServices.RemoveAt(check);
+                pnItem.Controls.Remove(SelectedItems[check]);
+                SelectedItems.RemoveAt(check);
             }
             calcTotalMoney();
         }
@@ -130,7 +130,7 @@ namespace HotelManagement.UI
         private void btAdd_Click(object sender, EventArgs e)
         {
 
-            if (item_LaundryServices.Count == 0)
+            if (SelectedItems.Count == 0)
             {
                 MessageBox.Show("Mời chọn ít nhất 1 sản phẩm!", "Lỗi");
                 return;
@@ -145,12 +145,12 @@ namespace HotelManagement.UI
                 MessageBox.Show("Phòng này chưa được thuê!", "Lỗi");
                 return;
             }
-            for (int i = 0; i < item_LaundryServices.Count; i++)
+            for (int i = 0; i < SelectedItems.Count; i++)
             {
                 int RoomID = rooms.Items[cbRoomSelection.SelectedIndex].ID;
-                DataAccess.Services.InsertServicetoBillDetail(RoomID, item_LaundryServices[i]._itemID, item_LaundryServices[i]._count);
-                MessageBox.Show("Thêm thành công!", "Thông báo");
+                DataAccess.Services.InsertServicetoBillDetail(RoomID, SelectedItems[i]._itemID, SelectedItems[i]._count);
             }
+            MessageBox.Show("Thêm thành công!", "Thông báo");
         }
 
     }

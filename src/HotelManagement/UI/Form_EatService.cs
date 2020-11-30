@@ -105,8 +105,8 @@ namespace HotelManagement.UI
             {
                 int RoomID = rooms.Items[cbRoomSelection.SelectedIndex].ID;
                 DataAccess.Services.InsertServicetoBillDetail(RoomID, SelectedItems[i]._itemID, SelectedItems[i]._count);
-                MessageBox.Show("Thêm thành công!", "Thông báo");
             }
+            MessageBox.Show("Thêm thành công!", "Thông báo");
         }
     }
 }
