@@ -25,7 +25,7 @@ namespace HotelManagement.DTO
         {
             services = new List<ServiceProperties>();
             DataTable servicesDB = DataAccess.ExecuteQuery.ExecuteReader(
-                "QLKS_PaymentBillServiceOnly");
+                "QLKS_PayForServices");
             for (int i = 0; i < servicesDB.Rows.Count; i++)
             {
                 ServiceProperties item = new ServiceProperties();

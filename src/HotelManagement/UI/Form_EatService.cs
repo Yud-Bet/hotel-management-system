@@ -1,11 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace HotelManagement.UI
@@ -13,10 +7,12 @@ namespace HotelManagement.UI
     public partial class Form_EatService : UserControl
     {
         DTO.RoomOverview rooms;
-        
-        public Form_EatService()
+        string Username;
+        public Form_EatService(string Username)
         {
             InitializeComponent();
+
+            this.Username = Username;
 
             lbDiscount.Text = discount.ToString();
 
@@ -39,9 +35,6 @@ namespace HotelManagement.UI
                 cbRoomSelection.Items.Add(rooms.Items[i].ID);
             }
         }
-        #region Properties
-        public Room ParentRef;
-        #endregion
         public void calcTotalMoney()
         {
             int sum = 0;
@@ -135,18 +128,17 @@ namespace HotelManagement.UI
                 MessageBox.Show("Thanh toán trực tiếp, vui lòng không chọn phòng!", "Lỗi");
                 return;
             }
-            DataAccess.Services.InsertNewBillServiceOnly("a");
+            DataAccess.Services.InsertNewServicesBillOnly(Username);
             for (int i = 0; i < SelectedItems.Count; i++)
             {
-                DataAccess.Services.InsertServiceIntoBillServiceOnlyDetail(SelectedItems[i]._itemID, SelectedItems[i]._count);
+                DataAccess.Services.InsertServiceToServicesBillOnlyDetail(SelectedItems[i]._itemID, SelectedItems[i]._count);
             }
-            int RowEffected = DataAccess.Services.PaymentBillServiceOnly();
+            int RowEffected = DataAccess.Services.PayForServicesOnly();
             if (RowEffected > 0)
             {
                 printPreviewDialogBill.Document = bill;
                 printPreviewDialogBill.ShowDialog();
             }
-            //MessageBox.Show("Thêm thành công!", "Thông báo");
         }
 
         private void bill_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
@@ -155,10 +147,6 @@ namespace HotelManagement.UI
             DrawBill drawBill = new DrawBill(e.Graphics);
             drawBill.drawBillHeader();
             drawBill.drawServiceInfo();
-            //drawBill.drawCustomerInfo(Customer.Name, RoomID, Customer.PhoneNumber, Customer.Addr,
-            //    dtpCheckInDate.Text, dtpCheckOutDate.Text);
-            //drawBill.drawItem("Phòng", (dtpCheckOutDate.Value - dtpCheckInDate.Value).Days, Convert.ToInt32(tbRoomPrice.Text));
-            //int TotalMoney = Convert.ToInt32(tbRoomPrice.Text) * (dtpCheckOutDate.Value - dtpCheckInDate.Value).Days;
             int TotalMoney = 0;
             for (int i = 0; i < svc.services.Count; i++)
             {

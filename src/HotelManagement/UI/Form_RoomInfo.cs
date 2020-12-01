@@ -279,7 +279,7 @@ namespace HotelManagement.UI
 
         private void btUpdateInfo_Click(object sender, EventArgs e)
         {
-            int a = DataAccess.CustomerDA.SetReservation(RoomID, tbCustomerName.Text,
+            int a = DataAccess.CustomerDA.ChangeReservationInfo(RoomID, tbCustomerName.Text,
                 dtpCustomerBirthday.Value, tbCustomerPhoneNum.Text, rbtMale.Checked ? Sex.Male : Sex.Female, tbIDNo.Text,
                 tbPassport.Text, tbCustomerAddress.Text, dtpCheckInDate.Value, tbNote.Text);
             if (a > 0)

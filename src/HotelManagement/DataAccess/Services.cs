@@ -13,19 +13,19 @@ namespace HotelManagement.DataAccess
             string Query = "QLKS_InsertServiceIntoBillDetail @RoomID , @ServiceID , @ServiceCount";
             return ExecuteQuery.ExecuteNoneQuery(Query, new object[] { RoomID, ServiceID, Count });
         }
-        public static int InsertServiceIntoBillServiceOnlyDetail(int ServiceID, int Count)
+        public static int InsertServiceToServicesBillOnlyDetail(int ServiceID, int Count)
         {
-            string Query = "QLKS_InsertServiceIntoBillServiceOnlyDetail @ServiceID , @ServiceCount";
+            string Query = "QLKS_InsertServiceIntoServicesBillOnlyDetail @ServiceID , @ServiceCount";
             return ExecuteQuery.ExecuteNoneQuery(Query, new object[] { ServiceID, Count });
         }
-        public static int InsertNewBillServiceOnly(string Username)
+        public static int InsertNewServicesBillOnly(string Username)
         {
-            string Query = "QLKS_InsertNewBillServiceOnly @Username";
+            string Query = "QLKS_InsertNewServicesBillOnly @Username";
             return ExecuteQuery.ExecuteNoneQuery(Query, new object[] { Username });
         }
-        public static int PaymentBillServiceOnly()
+        public static int PayForServicesOnly()
         {
-            string Query = "QLKS_PaymentBillServiceOnly";
+            string Query = "QLKS_PayForServices";
             return ExecuteQuery.ExecuteNoneQuery(Query);
         }
     }
