@@ -133,10 +133,10 @@ namespace HotelManagement.UI
         {
             //if (!checkEmptyValue()) return;
             //if (!checkValidityOfValue()) return;
-            int a = DataAccess.CustomerDA.AddReservation(RoomID, tbCustomerName.Text,
-                dtpCustomerBirthday.Value, tbCustomerPhoneNum.Text, rbtMale.Checked ? Sex.Male : Sex.Female, tbIDNo.Text,
-                tbPassport.Text, tbCustomerAddress.Text, dtpCheckInDate.Value, tbNote.Text);
-            int b = DataAccess.CustomerDA.AddBill(RoomID, ParentRef.ParentRef.Username);
+            int a = DataAccess.CustomerDA.InsertNewClient(tbCustomerName.Text, dtpCustomerBirthday.Value, tbIDNo.Text, tbPassport.Text, 
+                tbCustomerAddress.Text, tbCustomerPhoneNum.Text, rbtMale.Checked ? Sex.Male : Sex.Female);
+            int b = DataAccess.CustomerDA.InsertNewRoomReservation(dtpCheckInDate.Value, 0, 0, tbNote.Text);
+
             if (a > 0 && b > 0)
             {
                 this.ParentRef.ParentRef._lbNumberOfEmptyRoom.Text = (Convert.ToInt32(this.ParentRef.ParentRef._lbNumberOfEmptyRoom.Text) - 1).ToString();
