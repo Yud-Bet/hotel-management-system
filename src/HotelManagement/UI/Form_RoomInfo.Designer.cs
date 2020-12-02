@@ -85,7 +85,10 @@
             this.btDeleteRoom = new XanderUI.XUIButton();
             this.bill = new System.Drawing.Printing.PrintDocument();
             this.printPreviewDialogBill = new System.Windows.Forms.PrintPreviewDialog();
+            this.customerAlreadyEixstsMenu = new Zeroit.Framework.MaterialDesign.Controls.ZeroitMaterialContextMenuStrip();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.pbArrowBack = new System.Windows.Forms.PictureBox();
+            this.dropDownList1 = new HotelManagement.UI.DropDownList();
             this.pnCustomerInfo.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.pnRoomInfo.SuspendLayout();
@@ -93,12 +96,14 @@
             this.pnVip_Nor.SuspendLayout();
             this.pnBookingInfo.SuspendLayout();
             this.flowLayoutPanel4.SuspendLayout();
+            this.customerAlreadyEixstsMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbArrowBack)).BeginInit();
             this.SuspendLayout();
             // 
             // pnCustomerInfo
             // 
             this.pnCustomerInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this.pnCustomerInfo.Controls.Add(this.dropDownList1);
             this.pnCustomerInfo.Controls.Add(this.tbNote);
             this.pnCustomerInfo.Controls.Add(this.tbCustomerAddress);
             this.pnCustomerInfo.Controls.Add(this.tbPassport);
@@ -273,6 +278,7 @@
             this.tbCustomerName.TextBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.tbCustomerName.UseSystemPasswordChar = false;
             this.tbCustomerName.WordWrap = true;
+            this.tbCustomerName.TextChanged += new System.EventHandler(this.tbCustomerName_TextChanged);
             // 
             // cbPassport
             // 
@@ -927,6 +933,24 @@
             this.printPreviewDialogBill.Name = "printPreviewDialogBill";
             this.printPreviewDialogBill.Visible = false;
             // 
+            // customerAlreadyEixstsMenu
+            // 
+            this.customerAlreadyEixstsMenu.AllowDrop = true;
+            this.customerAlreadyEixstsMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.customerAlreadyEixstsMenu.Depth = 0;
+            this.customerAlreadyEixstsMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem2});
+            this.customerAlreadyEixstsMenu.MaximumSize = new System.Drawing.Size(0, 190);
+            this.customerAlreadyEixstsMenu.MouseState = Zeroit.Framework.MaterialDesign.MouseState.HOVER;
+            this.customerAlreadyEixstsMenu.Name = "customerAlreadyEixstsMenu";
+            this.customerAlreadyEixstsMenu.Size = new System.Drawing.Size(81, 26);
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(80, 22);
+            this.toolStripMenuItem2.Text = "1";
+            // 
             // pbArrowBack
             // 
             this.pbArrowBack.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -938,6 +962,16 @@
             this.pbArrowBack.TabIndex = 25;
             this.pbArrowBack.TabStop = false;
             this.pbArrowBack.Click += new System.EventHandler(this.pbArrowBack_Click);
+            // 
+            // dropDownList1
+            // 
+            this.dropDownList1.AutoSize = true;
+            this.dropDownList1.BackColor = System.Drawing.Color.White;
+            this.dropDownList1.Location = new System.Drawing.Point(17, 99);
+            this.dropDownList1.MaximumSize = new System.Drawing.Size(267, 300);
+            this.dropDownList1.Name = "dropDownList1";
+            this.dropDownList1.Size = new System.Drawing.Size(2, 2);
+            this.dropDownList1.TabIndex = 9;
             // 
             // Form_RoomInfo
             // 
@@ -965,6 +999,7 @@
             this.pnBookingInfo.ResumeLayout(false);
             this.pnBookingInfo.PerformLayout();
             this.flowLayoutPanel4.ResumeLayout(false);
+            this.customerAlreadyEixstsMenu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbArrowBack)).EndInit();
             this.ResumeLayout(false);
 
@@ -1028,5 +1063,8 @@
         private Zeroit.Framework.Labels.ZeroitUltraTextBox tbRoomPrice;
         private Zeroit.Framework.Labels.ZeroitUltraTextBox tbRoomsize;
         private System.Windows.Forms.Label label21;
+        private Zeroit.Framework.MaterialDesign.Controls.ZeroitMaterialContextMenuStrip customerAlreadyEixstsMenu;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
+        private DropDownList dropDownList1;
     }
 }

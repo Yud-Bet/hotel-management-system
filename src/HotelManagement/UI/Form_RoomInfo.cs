@@ -2,12 +2,14 @@
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
 using System.Drawing;
+using System.Collections.Generic;
 
 namespace HotelManagement.UI
 {
     public partial class Form_RoomInfo : UserControl
     {
         private DTO.CustomerInfo Customer;
+        private List<DTO.CustomerInfo> customerAlreadyExistsInfos = new List<DTO.CustomerInfo>();
         private int RoomID;
         public Form_RoomInfo(Room parent)
         {
@@ -15,6 +17,19 @@ namespace HotelManagement.UI
             this.ParentRef = parent;
             ParentRef.ParentRef._lbRoomID.Show();
             Load_Data();
+            //Khởi tạo ban đầu droplist
+            dropDownList1.Hide();
+            dropDownList1.ChooseItem += delegate
+            {
+                setCustomerInfoAlredyExists(dropDownList1.selectedItemName);
+            };
+        }
+
+        private void setCustomerInfoAlredyExists(string selectedItemName)
+        {
+            //
+            // huancode
+            //
         }
 
         #region Properties
@@ -275,6 +290,27 @@ namespace HotelManagement.UI
             }
             DTO.StaffOverview staff = new DTO.StaffOverview(this.ParentRef.ParentRef.Username);
             drawBill.drawEndOfBill(staff.Name, TotalMoney, 0);
+        }
+
+        private void tbCustomerName_TextChanged(object sender, EventArgs e)
+        {
+            if (tbCustomerName.Text != "")
+            {
+                getCustomerAlreadyExistsMenuItems(tbCustomerName.Text);
+                dropDownList1.Show();
+            }
+        }
+
+        private void getCustomerAlreadyExistsMenuItems(string customerName)
+        {
+            dropDownList1.clear();
+            foreach(DTO.CustomerInfo i in customerAlreadyExistsInfos)
+            {
+                if (i.Name.ToLower().Contains(customerName.ToLower()))
+                {
+                    dropDownList1.addItem(i.Name + " | " + i.IDNumber, i.IDNumber);
+                }
+            }
         }
     }
 }

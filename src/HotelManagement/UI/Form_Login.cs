@@ -189,7 +189,5 @@ namespace HotelManagement.UI
             tbUsername.ReadOnly = false;
             tbPassword.ReadOnly = false;
         }
-
-
     }
 }

@@ -102,6 +102,12 @@
     <Compile Include="DTO\ServicesInfo.cs" />
     <Compile Include="DTO\StaffOverview.cs" />
     <Compile Include="EnumDefinition.cs" />
+    <Compile Include="UI\DropDownList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\DropDownList.Designer.cs">
+      <DependentUpon>DropDownList.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Form_EatService.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -174,6 +180,9 @@
       <DependentUpon>Room.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\SetValueForControl.cs" />
+    <EmbeddedResource Include="UI\DropDownList.resx">
+      <DependentUpon>DropDownList.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Form_EatService.resx">
       <DependentUpon>Form_EatService.cs</DependentUpon>
     </EmbeddedResource>
