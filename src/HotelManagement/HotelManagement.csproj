@@ -95,7 +95,8 @@
     <Compile Include="DataAccess\ExecuteQuery.cs" />
     <Compile Include="DataAccess\RoomDA.cs" />
     <Compile Include="DataAccess\Services.cs" />
-    <Compile Include="DTO\CustomerInfo.cs" />
+    <Compile Include="DTO\CustomerOverview.cs" />
+    <Compile Include="DTO\FullCustomerInfo.cs" />
     <Compile Include="DTO\RoomDetail.cs" />
     <Compile Include="DTO\RoomOverview.cs" />
     <Compile Include="DTO\RoomServices.cs" />

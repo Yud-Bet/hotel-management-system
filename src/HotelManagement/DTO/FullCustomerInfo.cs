@@ -3,7 +3,7 @@ using System.Data;
 
 namespace HotelManagement.DTO
 {
-    class CustomerInfo
+    class FullCustomerInfo
     {
         public string Name;
         public DateTime Birthday;
@@ -14,7 +14,7 @@ namespace HotelManagement.DTO
         public string Addr;
         public string Note;
         public DateTime CheckInDate;
-        public CustomerInfo(int RoomID)
+        public FullCustomerInfo(int RoomID)
         {
             DataTable data = DataAccess.CustomerDA.GetCustomerInfo(RoomID);
             Name = data.Rows[0].ItemArray[0].ToString();
