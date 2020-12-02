@@ -55,6 +55,7 @@
             this.lbRoomID = new System.Windows.Forms.Label();
             this.lbTitle = new System.Windows.Forms.Label();
             this.pnToAddARoomInfo = new System.Windows.Forms.Panel();
+            this.btArrivalRooms = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -69,6 +70,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.panel1.Controls.Add(this.btArrivalRooms);
             this.panel1.Controls.Add(this.pnToAddRoom);
             this.panel1.Controls.Add(this.lbNumberOfRepairingRoom);
             this.panel1.Controls.Add(this.label10);
@@ -400,6 +402,16 @@
             this.pnToAddARoomInfo.Size = new System.Drawing.Size(968, 575);
             this.pnToAddARoomInfo.TabIndex = 9;
             // 
+            // btArrivalRooms
+            // 
+            this.btArrivalRooms.Location = new System.Drawing.Point(853, 27);
+            this.btArrivalRooms.Name = "btArrivalRooms";
+            this.btArrivalRooms.Size = new System.Drawing.Size(75, 23);
+            this.btArrivalRooms.TabIndex = 24;
+            this.btArrivalRooms.Text = "Đặt phòng";
+            this.btArrivalRooms.UseVisualStyleBackColor = true;
+            this.btArrivalRooms.Click += new System.EventHandler(this.btArrivalRooms_Click);
+            // 
             // Form_Room
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -446,5 +458,6 @@
         private System.Windows.Forms.FlowLayoutPanel pnToAddRoom;
         private System.Windows.Forms.Panel pnToAddARoomInfo;
         private System.Windows.Forms.Label lbRoomID;
+        private System.Windows.Forms.Button btArrivalRooms;
     }
 }

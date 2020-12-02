@@ -13,17 +13,23 @@ namespace HotelManagement.DataAccess
         public static int InsertNewClient(string Name, DateTime Birthday, string IdeNum, string Passport, string Addr, string Phone,
             Sex sex, string Note = null)
         {
-            string query = "QLKS_InsertNewClient @Name, @Birthday, @IdentityNumber, @Passport, @Addr, @PhoneNumber, @Sex";
+            string query = "QLKS_InsertNewClient @Name , @Birthday , @IdentityNumber , @Passport , @Addr , @PhoneNumber , @Sex";
             return ExecuteQuery.ExecuteNoneQuery(query,
                 new object[] {Name, Birthday, IdeNum, Passport, Addr, Phone, sex});
         }
-        public static int InsertNewRoomReservation(DateTime ArrivalDate, int ClientID, int DownPayment = 0, string Note = null)
+        public static int InsertNewRoomReservation(DateTime ArrivalDate, int ClientID, string Username, int DownPayment = 0, string Note = null)
         {
-            string query = "QLKS_InsertNewRoomReservation @ArrivalDate, @ClientID, @DownPayment, @Note";
+            string query = "QLKS_InsertNewRoomReservation @ArrivalDate , @ClientID , @Username , @DownPayment , @Note";
             return ExecuteQuery.ExecuteNoneQuery(query,
-                new object[] {ArrivalDate, ClientID, DownPayment, Note });
+                new object[] {ArrivalDate, ClientID, Username, DownPayment, Note });
         }
-        //public static int InsertNewRoomReservation
+        public static int InsertRoomReservationDetail(int RoomReservationID, int RoomID)
+        {
+            string query = "QLKS_InsertRoomReservationDetail @RoomReservationID , @RoomID";
+            return ExecuteQuery.ExecuteNoneQuery(query,
+                new object[] {RoomReservationID, RoomID});
+
+        }
         public static int AddReservation(int RoomID, string Name, DateTime Birthday, string Phone,
             Sex sex, string IdeNum, string Passport, string Addr, DateTime ArrivalDate, string Note = null)
         {
@@ -38,15 +44,30 @@ namespace HotelManagement.DataAccess
             return ExecuteQuery.ExecuteNoneQuery(query,
                 new object[] { RoomID, Name, Birthday, Phone, sex, IdeNum, Passport, Addr, Note, ArrivalDate });
         }
-        public static int AddBill(int RoomID, string Username)
+        public static int InsertNewBill(int RoomReservationID, string Username)
         {
-            string Query = "QLKS_InsertNewBill @RoomID , @Username";
-            return ExecuteQuery.ExecuteNoneQuery(Query, new object[] { RoomID, Username });
+            string Query = "QLKS_InsertNewBill @RoomReservationID , @Username";
+            return ExecuteQuery.ExecuteNoneQuery(Query, new object[] { RoomReservationID, Username });
         }
-        public static int Pay(int RoomID)
+        public static int Payment(int BillID, int RoomReservation, int RoomID, string Username)
         {
-            string Query = "QLKS_Payment @RoomID";
-            return ExecuteQuery.ExecuteNoneQuery(Query, new object[] { RoomID});
+            string Query = "QLKS_Payment @BillID , @RoomeReservationID , @RoomID , @Username";
+            return ExecuteQuery.ExecuteNoneQuery(Query, new object[] {BillID, RoomReservation, RoomID, Username });
+        }
+        public static int SetRoomReservationStatus(int BillID, int RoomReservation, int RoomID)
+        {
+            string Query = "QLKS_SetRoomReservationStatus @BillID , @RoomeReservationID , @RoomID";
+            return ExecuteQuery.ExecuteNoneQuery(Query, new object[] { BillID, RoomReservation, RoomID });
+        }
+        public static DataTable GetRoomReservationDetailInfo(int BillID, int RoomReservation, int RoomID)
+        {
+            string Query = "QLKS_GetRoomReservationDetailInfo @BillID , @RoomeReservationID , @RoomID";
+            return ExecuteQuery.ExecuteReader(Query, new object[] { BillID, RoomReservation, RoomID });
+        }
+        public static DataTable GetBillDetailInfo(int BillID, int RoomReservation, int RoomID)
+        {
+            string Query = "QLKS_GetBillDetailInfo @BillID , @RoomeReservationID , @RoomID";
+            return ExecuteQuery.ExecuteReader(Query, new object[] { BillID, RoomReservation, RoomID });
         }
     }
 }

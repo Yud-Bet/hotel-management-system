@@ -70,31 +70,31 @@
             this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.pnBookingInfo = new System.Windows.Forms.Panel();
-            this.cbCheckOutDate = new Zeroit.Framework.MaterialDesign.Controls.ZeroitMaterialCheckBox();
-            this.dtpCheckOutDate = new MetroFramework.Controls.MetroDateTime();
-            this.dtpCheckInDate = new MetroFramework.Controls.MetroDateTime();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
-            this.btBookRoom = new XanderUI.XUIButton();
-            this.btPay = new XanderUI.XUIButton();
-            this.btSettingRoom = new XanderUI.XUIButton();
-            this.btDeleteRoom = new XanderUI.XUIButton();
-            this.btUpdateInfo = new XanderUI.XUIButton();
             this.bill = new System.Drawing.Printing.PrintDocument();
             this.printPreviewDialogBill = new System.Windows.Forms.PrintPreviewDialog();
             this.pbArrowBack = new System.Windows.Forms.PictureBox();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.dtpCheckInDate = new MetroFramework.Controls.MetroDateTime();
+            this.dtpCheckOutDate = new MetroFramework.Controls.MetroDateTime();
+            this.cbCheckOutDate = new Zeroit.Framework.MaterialDesign.Controls.ZeroitMaterialCheckBox();
+            this.pnBookingInfo = new System.Windows.Forms.Panel();
+            this.btUpdateInfo = new XanderUI.XUIButton();
+            this.btDeleteRoom = new XanderUI.XUIButton();
+            this.btSettingRoom = new XanderUI.XUIButton();
+            this.btPay = new XanderUI.XUIButton();
+            this.btBookRoom = new XanderUI.XUIButton();
+            this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
             this.pnCustomerInfo.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.pnRoomInfo.SuspendLayout();
             this.pnSignle_Dou.SuspendLayout();
             this.pnVip_Nor.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbArrowBack)).BeginInit();
             this.pnBookingInfo.SuspendLayout();
             this.flowLayoutPanel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbArrowBack)).BeginInit();
             this.SuspendLayout();
             // 
             // pnCustomerInfo
@@ -721,223 +721,6 @@
             this.panel1.Size = new System.Drawing.Size(200, 3);
             this.panel1.TabIndex = 3;
             // 
-            // pnBookingInfo
-            // 
-            this.pnBookingInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
-            this.pnBookingInfo.Controls.Add(this.cbCheckOutDate);
-            this.pnBookingInfo.Controls.Add(this.dtpCheckOutDate);
-            this.pnBookingInfo.Controls.Add(this.dtpCheckInDate);
-            this.pnBookingInfo.Controls.Add(this.label15);
-            this.pnBookingInfo.Controls.Add(this.label16);
-            this.pnBookingInfo.Controls.Add(this.label23);
-            this.pnBookingInfo.Controls.Add(this.panel7);
-            this.pnBookingInfo.Location = new System.Drawing.Point(533, 243);
-            this.pnBookingInfo.Name = "pnBookingInfo";
-            this.pnBookingInfo.Size = new System.Drawing.Size(403, 199);
-            this.pnBookingInfo.TabIndex = 12;
-            // 
-            // cbCheckOutDate
-            // 
-            this.cbCheckOutDate.AllowTransparency = true;
-            this.cbCheckOutDate.Checked = false;
-            this.cbCheckOutDate.Depth = 0;
-            this.cbCheckOutDate.Font = new System.Drawing.Font("Roboto", 10F);
-            this.cbCheckOutDate.Location = new System.Drawing.Point(95, 117);
-            this.cbCheckOutDate.Margin = new System.Windows.Forms.Padding(0);
-            this.cbCheckOutDate.MouseLocation = new System.Drawing.Point(-1, -1);
-            this.cbCheckOutDate.MouseState = Zeroit.Framework.MaterialDesign.MouseState.HOVER;
-            this.cbCheckOutDate.Name = "cbCheckOutDate";
-            this.cbCheckOutDate.Ripple = true;
-            this.cbCheckOutDate.Size = new System.Drawing.Size(27, 23);
-            this.cbCheckOutDate.TabIndex = 0;
-            this.cbCheckOutDate.TabStop = false;
-            this.cbCheckOutDate.Click += new System.EventHandler(this.cbCheckOutDate_Click);
-            // 
-            // dtpCheckOutDate
-            // 
-            this.dtpCheckOutDate.Enabled = false;
-            this.dtpCheckOutDate.Location = new System.Drawing.Point(27, 144);
-            this.dtpCheckOutDate.MinimumSize = new System.Drawing.Size(0, 29);
-            this.dtpCheckOutDate.Name = "dtpCheckOutDate";
-            this.dtpCheckOutDate.Size = new System.Drawing.Size(211, 29);
-            this.dtpCheckOutDate.TabIndex = 13;
-            // 
-            // dtpCheckInDate
-            // 
-            this.dtpCheckInDate.Enabled = false;
-            this.dtpCheckInDate.Location = new System.Drawing.Point(27, 70);
-            this.dtpCheckInDate.MinimumSize = new System.Drawing.Size(0, 29);
-            this.dtpCheckInDate.Name = "dtpCheckInDate";
-            this.dtpCheckInDate.Size = new System.Drawing.Size(211, 29);
-            this.dtpCheckInDate.TabIndex = 12;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.label15.ForeColor = System.Drawing.Color.Black;
-            this.label15.Location = new System.Drawing.Point(23, 117);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(70, 21);
-            this.label15.TabIndex = 2;
-            this.label15.Text = "Ngày trả";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.label16.ForeColor = System.Drawing.Color.Black;
-            this.label16.Location = new System.Drawing.Point(23, 46);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(86, 21);
-            this.label16.TabIndex = 2;
-            this.label16.Text = "Ngày nhận";
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Font = new System.Drawing.Font("Segoe UI", 19F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.label23.ForeColor = System.Drawing.Color.Black;
-            this.label23.Location = new System.Drawing.Point(3, 0);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(185, 25);
-            this.label23.TabIndex = 2;
-            this.label23.Text = "Thông tin đặt phòng";
-            // 
-            // panel7
-            // 
-            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
-            this.panel7.Location = new System.Drawing.Point(7, 27);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(300, 3);
-            this.panel7.TabIndex = 3;
-            // 
-            // flowLayoutPanel4
-            // 
-            this.flowLayoutPanel4.Controls.Add(this.btBookRoom);
-            this.flowLayoutPanel4.Controls.Add(this.btPay);
-            this.flowLayoutPanel4.Controls.Add(this.btSettingRoom);
-            this.flowLayoutPanel4.Controls.Add(this.btDeleteRoom);
-            this.flowLayoutPanel4.Controls.Add(this.btUpdateInfo);
-            this.flowLayoutPanel4.Location = new System.Drawing.Point(533, 465);
-            this.flowLayoutPanel4.Name = "flowLayoutPanel4";
-            this.flowLayoutPanel4.Size = new System.Drawing.Size(424, 197);
-            this.flowLayoutPanel4.TabIndex = 26;
-            // 
-            // btBookRoom
-            // 
-            this.btBookRoom.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
-            this.btBookRoom.ButtonImage = global::HotelManagement.Properties.Resources.icYes1;
-            this.btBookRoom.ButtonStyle = XanderUI.XUIButton.Style.MaterialRounded;
-            this.btBookRoom.ButtonText = "Đặt Phòng";
-            this.btBookRoom.ClickBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(130)))), ((int)(((byte)(200)))));
-            this.btBookRoom.ClickTextColor = System.Drawing.Color.White;
-            this.btBookRoom.CornerRadius = 5;
-            this.btBookRoom.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btBookRoom.Font = new System.Drawing.Font("Segoe UI", 14F);
-            this.btBookRoom.Horizontal_Alignment = System.Drawing.StringAlignment.Near;
-            this.btBookRoom.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
-            this.btBookRoom.HoverTextColor = System.Drawing.Color.White;
-            this.btBookRoom.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
-            this.btBookRoom.Location = new System.Drawing.Point(3, 3);
-            this.btBookRoom.Name = "btBookRoom";
-            this.btBookRoom.Size = new System.Drawing.Size(131, 50);
-            this.btBookRoom.TabIndex = 16;
-            this.btBookRoom.TextColor = System.Drawing.Color.White;
-            this.btBookRoom.Vertical_Alignment = System.Drawing.StringAlignment.Center;
-            this.btBookRoom.Click += new System.EventHandler(this.btBookRoom_Click);
-            // 
-            // btPay
-            // 
-            this.btPay.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
-            this.btPay.ButtonImage = global::HotelManagement.Properties.Resources.icPayment;
-            this.btPay.ButtonStyle = XanderUI.XUIButton.Style.MaterialRounded;
-            this.btPay.ButtonText = "Thanh Toán";
-            this.btPay.ClickBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(161)))));
-            this.btPay.ClickTextColor = System.Drawing.Color.White;
-            this.btPay.CornerRadius = 5;
-            this.btPay.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btPay.Font = new System.Drawing.Font("Segoe UI", 14F);
-            this.btPay.Horizontal_Alignment = System.Drawing.StringAlignment.Near;
-            this.btPay.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
-            this.btPay.HoverTextColor = System.Drawing.Color.White;
-            this.btPay.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
-            this.btPay.Location = new System.Drawing.Point(140, 3);
-            this.btPay.Name = "btPay";
-            this.btPay.Size = new System.Drawing.Size(131, 50);
-            this.btPay.TabIndex = 16;
-            this.btPay.TextColor = System.Drawing.Color.White;
-            this.btPay.Vertical_Alignment = System.Drawing.StringAlignment.Center;
-            this.btPay.Click += new System.EventHandler(this.btPay_Click);
-            // 
-            // btSettingRoom
-            // 
-            this.btSettingRoom.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
-            this.btSettingRoom.ButtonImage = global::HotelManagement.Properties.Resources.icManage1;
-            this.btSettingRoom.ButtonStyle = XanderUI.XUIButton.Style.MaterialRounded;
-            this.btSettingRoom.ButtonText = "Cài Đặt";
-            this.btSettingRoom.ClickBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(130)))), ((int)(((byte)(200)))));
-            this.btSettingRoom.ClickTextColor = System.Drawing.Color.White;
-            this.btSettingRoom.CornerRadius = 5;
-            this.btSettingRoom.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btSettingRoom.Font = new System.Drawing.Font("Segoe UI", 14F);
-            this.btSettingRoom.Horizontal_Alignment = System.Drawing.StringAlignment.Near;
-            this.btSettingRoom.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
-            this.btSettingRoom.HoverTextColor = System.Drawing.Color.White;
-            this.btSettingRoom.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
-            this.btSettingRoom.Location = new System.Drawing.Point(277, 3);
-            this.btSettingRoom.Name = "btSettingRoom";
-            this.btSettingRoom.Size = new System.Drawing.Size(131, 50);
-            this.btSettingRoom.TabIndex = 17;
-            this.btSettingRoom.TextColor = System.Drawing.Color.White;
-            this.btSettingRoom.Vertical_Alignment = System.Drawing.StringAlignment.Center;
-            this.btSettingRoom.Click += new System.EventHandler(this.btSettingRoom_Click);
-            // 
-            // btDeleteRoom
-            // 
-            this.btDeleteRoom.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
-            this.btDeleteRoom.ButtonImage = global::HotelManagement.Properties.Resources.icDelete;
-            this.btDeleteRoom.ButtonStyle = XanderUI.XUIButton.Style.MaterialRounded;
-            this.btDeleteRoom.ButtonText = "Xóa Phòng";
-            this.btDeleteRoom.ClickBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(130)))), ((int)(((byte)(200)))));
-            this.btDeleteRoom.ClickTextColor = System.Drawing.Color.White;
-            this.btDeleteRoom.CornerRadius = 5;
-            this.btDeleteRoom.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btDeleteRoom.Font = new System.Drawing.Font("Segoe UI", 14F);
-            this.btDeleteRoom.Horizontal_Alignment = System.Drawing.StringAlignment.Near;
-            this.btDeleteRoom.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
-            this.btDeleteRoom.HoverTextColor = System.Drawing.Color.White;
-            this.btDeleteRoom.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
-            this.btDeleteRoom.Location = new System.Drawing.Point(3, 59);
-            this.btDeleteRoom.Name = "btDeleteRoom";
-            this.btDeleteRoom.Size = new System.Drawing.Size(131, 50);
-            this.btDeleteRoom.TabIndex = 18;
-            this.btDeleteRoom.TextColor = System.Drawing.Color.White;
-            this.btDeleteRoom.Vertical_Alignment = System.Drawing.StringAlignment.Center;
-            // 
-            // btUpdateInfo
-            // 
-            this.btUpdateInfo.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
-            this.btUpdateInfo.ButtonImage = global::HotelManagement.Properties.Resources.icYes1;
-            this.btUpdateInfo.ButtonStyle = XanderUI.XUIButton.Style.MaterialRounded;
-            this.btUpdateInfo.ButtonText = "Thay đổi";
-            this.btUpdateInfo.ClickBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(130)))), ((int)(((byte)(200)))));
-            this.btUpdateInfo.ClickTextColor = System.Drawing.Color.White;
-            this.btUpdateInfo.CornerRadius = 5;
-            this.btUpdateInfo.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btUpdateInfo.Font = new System.Drawing.Font("Segoe UI", 14F);
-            this.btUpdateInfo.Horizontal_Alignment = System.Drawing.StringAlignment.Near;
-            this.btUpdateInfo.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
-            this.btUpdateInfo.HoverTextColor = System.Drawing.Color.White;
-            this.btUpdateInfo.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
-            this.btUpdateInfo.Location = new System.Drawing.Point(140, 59);
-            this.btUpdateInfo.Name = "btUpdateInfo";
-            this.btUpdateInfo.Size = new System.Drawing.Size(131, 50);
-            this.btUpdateInfo.TabIndex = 16;
-            this.btUpdateInfo.TextColor = System.Drawing.Color.White;
-            this.btUpdateInfo.Vertical_Alignment = System.Drawing.StringAlignment.Center;
-            this.btUpdateInfo.Click += new System.EventHandler(this.btUpdateInfo_Click);
-            // 
             // bill
             // 
             this.bill.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.bill_PrintPage);
@@ -964,6 +747,223 @@
             this.pbArrowBack.TabStop = false;
             this.pbArrowBack.Click += new System.EventHandler(this.pbArrowBack_Click);
             // 
+            // panel7
+            // 
+            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
+            this.panel7.Location = new System.Drawing.Point(7, 27);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(300, 3);
+            this.panel7.TabIndex = 3;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Segoe UI", 19F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.label23.ForeColor = System.Drawing.Color.Black;
+            this.label23.Location = new System.Drawing.Point(3, 0);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(185, 25);
+            this.label23.TabIndex = 2;
+            this.label23.Text = "Thông tin đặt phòng";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.label16.ForeColor = System.Drawing.Color.Black;
+            this.label16.Location = new System.Drawing.Point(23, 46);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(86, 21);
+            this.label16.TabIndex = 2;
+            this.label16.Text = "Ngày nhận";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.label15.ForeColor = System.Drawing.Color.Black;
+            this.label15.Location = new System.Drawing.Point(23, 117);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(70, 21);
+            this.label15.TabIndex = 2;
+            this.label15.Text = "Ngày trả";
+            // 
+            // dtpCheckInDate
+            // 
+            this.dtpCheckInDate.Enabled = false;
+            this.dtpCheckInDate.Location = new System.Drawing.Point(27, 70);
+            this.dtpCheckInDate.MinimumSize = new System.Drawing.Size(0, 29);
+            this.dtpCheckInDate.Name = "dtpCheckInDate";
+            this.dtpCheckInDate.Size = new System.Drawing.Size(211, 29);
+            this.dtpCheckInDate.TabIndex = 12;
+            // 
+            // dtpCheckOutDate
+            // 
+            this.dtpCheckOutDate.Enabled = false;
+            this.dtpCheckOutDate.Location = new System.Drawing.Point(27, 144);
+            this.dtpCheckOutDate.MinimumSize = new System.Drawing.Size(0, 29);
+            this.dtpCheckOutDate.Name = "dtpCheckOutDate";
+            this.dtpCheckOutDate.Size = new System.Drawing.Size(211, 29);
+            this.dtpCheckOutDate.TabIndex = 13;
+            // 
+            // cbCheckOutDate
+            // 
+            this.cbCheckOutDate.AllowTransparency = true;
+            this.cbCheckOutDate.Checked = false;
+            this.cbCheckOutDate.Depth = 0;
+            this.cbCheckOutDate.Font = new System.Drawing.Font("Roboto", 10F);
+            this.cbCheckOutDate.Location = new System.Drawing.Point(95, 117);
+            this.cbCheckOutDate.Margin = new System.Windows.Forms.Padding(0);
+            this.cbCheckOutDate.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.cbCheckOutDate.MouseState = Zeroit.Framework.MaterialDesign.MouseState.HOVER;
+            this.cbCheckOutDate.Name = "cbCheckOutDate";
+            this.cbCheckOutDate.Ripple = true;
+            this.cbCheckOutDate.Size = new System.Drawing.Size(27, 23);
+            this.cbCheckOutDate.TabIndex = 0;
+            this.cbCheckOutDate.TabStop = false;
+            this.cbCheckOutDate.Click += new System.EventHandler(this.cbCheckOutDate_Click);
+            // 
+            // pnBookingInfo
+            // 
+            this.pnBookingInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this.pnBookingInfo.Controls.Add(this.cbCheckOutDate);
+            this.pnBookingInfo.Controls.Add(this.dtpCheckOutDate);
+            this.pnBookingInfo.Controls.Add(this.dtpCheckInDate);
+            this.pnBookingInfo.Controls.Add(this.label15);
+            this.pnBookingInfo.Controls.Add(this.label16);
+            this.pnBookingInfo.Controls.Add(this.label23);
+            this.pnBookingInfo.Controls.Add(this.panel7);
+            this.pnBookingInfo.Location = new System.Drawing.Point(533, 243);
+            this.pnBookingInfo.Name = "pnBookingInfo";
+            this.pnBookingInfo.Size = new System.Drawing.Size(403, 199);
+            this.pnBookingInfo.TabIndex = 12;
+            // 
+            // btUpdateInfo
+            // 
+            this.btUpdateInfo.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
+            this.btUpdateInfo.ButtonImage = global::HotelManagement.Properties.Resources.icYes1;
+            this.btUpdateInfo.ButtonStyle = XanderUI.XUIButton.Style.MaterialRounded;
+            this.btUpdateInfo.ButtonText = "Thay đổi";
+            this.btUpdateInfo.ClickBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(130)))), ((int)(((byte)(200)))));
+            this.btUpdateInfo.ClickTextColor = System.Drawing.Color.White;
+            this.btUpdateInfo.CornerRadius = 5;
+            this.btUpdateInfo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btUpdateInfo.Font = new System.Drawing.Font("Segoe UI", 14F);
+            this.btUpdateInfo.Horizontal_Alignment = System.Drawing.StringAlignment.Near;
+            this.btUpdateInfo.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
+            this.btUpdateInfo.HoverTextColor = System.Drawing.Color.White;
+            this.btUpdateInfo.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
+            this.btUpdateInfo.Location = new System.Drawing.Point(140, 59);
+            this.btUpdateInfo.Name = "btUpdateInfo";
+            this.btUpdateInfo.Size = new System.Drawing.Size(131, 50);
+            this.btUpdateInfo.TabIndex = 16;
+            this.btUpdateInfo.TextColor = System.Drawing.Color.White;
+            this.btUpdateInfo.Vertical_Alignment = System.Drawing.StringAlignment.Center;
+            this.btUpdateInfo.Click += new System.EventHandler(this.btUpdateInfo_Click);
+            // 
+            // btDeleteRoom
+            // 
+            this.btDeleteRoom.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
+            this.btDeleteRoom.ButtonImage = global::HotelManagement.Properties.Resources.icDelete;
+            this.btDeleteRoom.ButtonStyle = XanderUI.XUIButton.Style.MaterialRounded;
+            this.btDeleteRoom.ButtonText = "Xóa Phòng";
+            this.btDeleteRoom.ClickBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(130)))), ((int)(((byte)(200)))));
+            this.btDeleteRoom.ClickTextColor = System.Drawing.Color.White;
+            this.btDeleteRoom.CornerRadius = 5;
+            this.btDeleteRoom.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btDeleteRoom.Font = new System.Drawing.Font("Segoe UI", 14F);
+            this.btDeleteRoom.Horizontal_Alignment = System.Drawing.StringAlignment.Near;
+            this.btDeleteRoom.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
+            this.btDeleteRoom.HoverTextColor = System.Drawing.Color.White;
+            this.btDeleteRoom.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
+            this.btDeleteRoom.Location = new System.Drawing.Point(3, 59);
+            this.btDeleteRoom.Name = "btDeleteRoom";
+            this.btDeleteRoom.Size = new System.Drawing.Size(131, 50);
+            this.btDeleteRoom.TabIndex = 18;
+            this.btDeleteRoom.TextColor = System.Drawing.Color.White;
+            this.btDeleteRoom.Vertical_Alignment = System.Drawing.StringAlignment.Center;
+            // 
+            // btSettingRoom
+            // 
+            this.btSettingRoom.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
+            this.btSettingRoom.ButtonImage = global::HotelManagement.Properties.Resources.icManage1;
+            this.btSettingRoom.ButtonStyle = XanderUI.XUIButton.Style.MaterialRounded;
+            this.btSettingRoom.ButtonText = "Cài Đặt";
+            this.btSettingRoom.ClickBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(130)))), ((int)(((byte)(200)))));
+            this.btSettingRoom.ClickTextColor = System.Drawing.Color.White;
+            this.btSettingRoom.CornerRadius = 5;
+            this.btSettingRoom.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btSettingRoom.Font = new System.Drawing.Font("Segoe UI", 14F);
+            this.btSettingRoom.Horizontal_Alignment = System.Drawing.StringAlignment.Near;
+            this.btSettingRoom.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
+            this.btSettingRoom.HoverTextColor = System.Drawing.Color.White;
+            this.btSettingRoom.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
+            this.btSettingRoom.Location = new System.Drawing.Point(277, 3);
+            this.btSettingRoom.Name = "btSettingRoom";
+            this.btSettingRoom.Size = new System.Drawing.Size(131, 50);
+            this.btSettingRoom.TabIndex = 17;
+            this.btSettingRoom.TextColor = System.Drawing.Color.White;
+            this.btSettingRoom.Vertical_Alignment = System.Drawing.StringAlignment.Center;
+            this.btSettingRoom.Click += new System.EventHandler(this.btSettingRoom_Click);
+            // 
+            // btPay
+            // 
+            this.btPay.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
+            this.btPay.ButtonImage = global::HotelManagement.Properties.Resources.icPayment;
+            this.btPay.ButtonStyle = XanderUI.XUIButton.Style.MaterialRounded;
+            this.btPay.ButtonText = "Thanh Toán";
+            this.btPay.ClickBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(161)))));
+            this.btPay.ClickTextColor = System.Drawing.Color.White;
+            this.btPay.CornerRadius = 5;
+            this.btPay.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btPay.Font = new System.Drawing.Font("Segoe UI", 14F);
+            this.btPay.Horizontal_Alignment = System.Drawing.StringAlignment.Near;
+            this.btPay.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
+            this.btPay.HoverTextColor = System.Drawing.Color.White;
+            this.btPay.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
+            this.btPay.Location = new System.Drawing.Point(140, 3);
+            this.btPay.Name = "btPay";
+            this.btPay.Size = new System.Drawing.Size(131, 50);
+            this.btPay.TabIndex = 16;
+            this.btPay.TextColor = System.Drawing.Color.White;
+            this.btPay.Vertical_Alignment = System.Drawing.StringAlignment.Center;
+            this.btPay.Click += new System.EventHandler(this.btPay_Click);
+            // 
+            // btBookRoom
+            // 
+            this.btBookRoom.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
+            this.btBookRoom.ButtonImage = global::HotelManagement.Properties.Resources.icYes1;
+            this.btBookRoom.ButtonStyle = XanderUI.XUIButton.Style.MaterialRounded;
+            this.btBookRoom.ButtonText = "Đặt Phòng";
+            this.btBookRoom.ClickBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(130)))), ((int)(((byte)(200)))));
+            this.btBookRoom.ClickTextColor = System.Drawing.Color.White;
+            this.btBookRoom.CornerRadius = 5;
+            this.btBookRoom.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btBookRoom.Font = new System.Drawing.Font("Segoe UI", 14F);
+            this.btBookRoom.Horizontal_Alignment = System.Drawing.StringAlignment.Near;
+            this.btBookRoom.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
+            this.btBookRoom.HoverTextColor = System.Drawing.Color.White;
+            this.btBookRoom.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
+            this.btBookRoom.Location = new System.Drawing.Point(3, 3);
+            this.btBookRoom.Name = "btBookRoom";
+            this.btBookRoom.Size = new System.Drawing.Size(131, 50);
+            this.btBookRoom.TabIndex = 16;
+            this.btBookRoom.TextColor = System.Drawing.Color.White;
+            this.btBookRoom.Vertical_Alignment = System.Drawing.StringAlignment.Center;
+            this.btBookRoom.Click += new System.EventHandler(this.btBookRoom_Click);
+            // 
+            // flowLayoutPanel4
+            // 
+            this.flowLayoutPanel4.Controls.Add(this.btBookRoom);
+            this.flowLayoutPanel4.Controls.Add(this.btPay);
+            this.flowLayoutPanel4.Controls.Add(this.btSettingRoom);
+            this.flowLayoutPanel4.Controls.Add(this.btDeleteRoom);
+            this.flowLayoutPanel4.Controls.Add(this.btUpdateInfo);
+            this.flowLayoutPanel4.Location = new System.Drawing.Point(533, 465);
+            this.flowLayoutPanel4.Name = "flowLayoutPanel4";
+            this.flowLayoutPanel4.Size = new System.Drawing.Size(424, 197);
+            this.flowLayoutPanel4.TabIndex = 26;
+            // 
             // Form_RoomInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -987,10 +987,10 @@
             this.pnSignle_Dou.PerformLayout();
             this.pnVip_Nor.ResumeLayout(false);
             this.pnVip_Nor.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbArrowBack)).EndInit();
             this.pnBookingInfo.ResumeLayout(false);
             this.pnBookingInfo.PerformLayout();
             this.flowLayoutPanel4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pbArrowBack)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1015,26 +1015,13 @@
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Panel pnBookingInfo;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.PictureBox pbArrowBack;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel4;
         private MetroFramework.Controls.MetroDateTime dtpCustomerBirthday;
-        private MetroFramework.Controls.MetroDateTime dtpCheckOutDate;
-        private MetroFramework.Controls.MetroDateTime dtpCheckInDate;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.FlowLayoutPanel pnSignle_Dou;
         private System.Windows.Forms.FlowLayoutPanel pnVip_Nor;
         private Zeroit.Framework.MaterialDesign.Controls.ZeroitMaterialCheckBox cbPassport;
         private Zeroit.Framework.MaterialDesign.Controls.ZeroitMaterialCheckBox cbIDNo;
-        private Zeroit.Framework.MaterialDesign.Controls.ZeroitMaterialCheckBox cbCheckOutDate;
-        private XanderUI.XUIButton btBookRoom;
-        private XanderUI.XUIButton btPay;
-        private XanderUI.XUIButton btSettingRoom;
-        private XanderUI.XUIButton btDeleteRoom;
         private System.Drawing.Printing.PrintDocument bill;
         private System.Windows.Forms.PrintPreviewDialog printPreviewDialogBill;
         private MaterialSkin.Controls.MaterialRadioButton rbtMale;
@@ -1053,6 +1040,19 @@
         private Zeroit.Framework.Labels.ZeroitUltraTextBox tbRoomPrice;
         private Zeroit.Framework.Labels.ZeroitUltraTextBox tbRoomsize;
         private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label15;
+        private MetroFramework.Controls.MetroDateTime dtpCheckInDate;
+        private MetroFramework.Controls.MetroDateTime dtpCheckOutDate;
+        private Zeroit.Framework.MaterialDesign.Controls.ZeroitMaterialCheckBox cbCheckOutDate;
+        private System.Windows.Forms.Panel pnBookingInfo;
         private XanderUI.XUIButton btUpdateInfo;
+        private XanderUI.XUIButton btDeleteRoom;
+        private XanderUI.XUIButton btSettingRoom;
+        private XanderUI.XUIButton btPay;
+        private XanderUI.XUIButton btBookRoom;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel4;
     }
 }

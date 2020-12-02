@@ -70,5 +70,11 @@ namespace HotelManagement.UI
             lbNumberOfCleaningRoom.Text = room.RoomCount[(int)RoomStatus.Cleaning].ToString();
             lbNumberOfRepairingRoom.Text = room.RoomCount[(int)RoomStatus.Repairing].ToString();
         }
+
+        private void btArrivalRooms_Click(object sender, System.EventArgs e)
+        {
+            Form1 temp = new Form1();
+            temp.Show();
+        }
     }
 }
