@@ -297,7 +297,7 @@ namespace HotelManagement.UI
                 setStatus(pbEatService, lbEatService, Resources.icEatService2, true);
 
                 panel4.Controls.Clear();
-                panel4.Controls.Add(new Form_EatService());
+                panel4.Controls.Add(new Form_EatService(Username));
             }
         }
 

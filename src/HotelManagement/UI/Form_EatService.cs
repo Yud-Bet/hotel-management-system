@@ -1,11 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace HotelManagement.UI
@@ -13,9 +7,12 @@ namespace HotelManagement.UI
     public partial class Form_EatService : UserControl
     {
         DTO.RoomOverview rooms;
-        public Form_EatService()
+        string Username;
+        public Form_EatService(string Username)
         {
             InitializeComponent();
+
+            this.Username = Username;
 
             lbDiscount.Text = discount.ToString();
 
@@ -50,7 +47,7 @@ namespace HotelManagement.UI
 
         #region properties
 
-        private int discount;
+        private int discount = 0;
 
         public int _discount
         {
@@ -117,6 +114,47 @@ namespace HotelManagement.UI
                 DataAccess.Services.InsertServicetoBillDetail(RoomID, SelectedItems[i]._itemID, SelectedItems[i]._count);
             }
             MessageBox.Show("Thêm thành công!", "Thông báo");
+        }
+
+        private void btPay_Click(object sender, EventArgs e)
+        {
+            if (SelectedItems.Count == 0)
+            {
+                MessageBox.Show("Mời chọn ít nhất 1 sản phẩm!", "Lỗi");
+                return;
+            }
+            if (cbRoomSelection.SelectedIndex != -1)
+            {
+                MessageBox.Show("Thanh toán trực tiếp, vui lòng không chọn phòng!", "Lỗi");
+                return;
+            }
+            DataAccess.Services.InsertNewServicesBillOnly(Username);
+            for (int i = 0; i < SelectedItems.Count; i++)
+            {
+                DataAccess.Services.InsertServiceToServicesBillOnlyDetail(SelectedItems[i]._itemID, SelectedItems[i]._count);
+            }
+            int RowEffected = DataAccess.Services.PayForServicesOnly();
+            if (RowEffected > 0)
+            {
+                printPreviewDialogBill.Document = bill;
+                printPreviewDialogBill.ShowDialog();
+            }
+        }
+
+        private void bill_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            DTO.RoomServices svc = new DTO.RoomServices();
+            DrawBill drawBill = new DrawBill(e.Graphics);
+            drawBill.drawBillHeader();
+            drawBill.drawServiceInfo();
+            int TotalMoney = 0;
+            for (int i = 0; i < svc.services.Count; i++)
+            {
+                drawBill.drawItem(svc.services[i].Name, svc.services[i].Count, svc.services[i].Price);
+                TotalMoney += svc.services[i].Count * svc.services[i].Price;
+            }
+            DTO.StaffOverview staff = new DTO.StaffOverview("a");
+            drawBill.drawEndOfBill(staff.Name, TotalMoney, 0);
         }
     }
 }

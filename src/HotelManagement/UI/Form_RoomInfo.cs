@@ -159,7 +159,7 @@ namespace HotelManagement.UI
                 this.ParentRef._RoomStatus = RoomStatus.Rented;
                 pbArrowBack_Click(sender, e);
             }
-            else MessageBox.Show("Lỗi khi đăt phòng");
+            else MessageBox.Show("Lỗi khi đặt phòng");
         }
 
         bool checkEmptyValue()
@@ -281,7 +281,7 @@ namespace HotelManagement.UI
             drawBill.drawBillHeader();
             drawBill.drawCustomerInfo(Customer.Name, RoomID, Customer.PhoneNumber, Customer.Addr,
                 dtpCheckInDate.Text, dtpCheckOutDate.Text);
-            drawBill.drawItem("Phòng", 1, Convert.ToInt32(tbRoomPrice.Text));
+            drawBill.drawItem("Phòng", (dtpCheckOutDate.Value - dtpCheckInDate.Value).Days, Convert.ToInt32(tbRoomPrice.Text));
             int TotalMoney = Convert.ToInt32(tbRoomPrice.Text) * (dtpCheckOutDate.Value - dtpCheckInDate.Value).Days;
             for (int i = 0; i < svc.services.Count; i++)
             {
@@ -304,7 +304,7 @@ namespace HotelManagement.UI
         private void getCustomerAlreadyExistsMenuItems(string customerName)
         {
             dropDownList1.clear();
-            foreach(DTO.CustomerInfo i in customerAlreadyExistsInfos)
+            foreach (DTO.CustomerInfo i in customerAlreadyExistsInfos)
             {
                 if (i.Name.ToLower().Contains(customerName.ToLower()))
                 {

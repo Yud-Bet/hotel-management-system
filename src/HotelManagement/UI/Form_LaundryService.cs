@@ -17,7 +17,7 @@ namespace HotelManagement.UI
         {
             InitializeComponent();
 
-            this._discount = 10;
+            this._discount = 0;
             DTO.ServicesInfo services = new DTO.ServicesInfo(ServiceType.Laundry);
             //label1.Text = services.Items[0].Name.ToString();
             lbLaundryPrice.Text = services.Items[0].Price.ToString();

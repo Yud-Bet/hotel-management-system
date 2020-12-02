@@ -919,6 +919,9 @@
             this.btDeleteRoom.TextColor = System.Drawing.Color.White;
             this.btDeleteRoom.Vertical_Alignment = System.Drawing.StringAlignment.Center;
             // 
+            // btUpdateInfo
+            // 
+            // 
             // bill
             // 
             this.bill.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.bill_PrintPage);
