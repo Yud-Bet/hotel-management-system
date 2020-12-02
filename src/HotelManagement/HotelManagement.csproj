@@ -109,6 +109,12 @@
     <Compile Include="UI\DropDownList.Designer.cs">
       <DependentUpon>DropDownList.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Form_BookMulRooms.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Form_BookMulRooms.Designer.cs">
+      <DependentUpon>Form_BookMulRooms.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Form_EatService.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -174,15 +180,24 @@
     <Compile Include="UI\Item_LaundryService.Designer.cs">
       <DependentUpon>Item_LaundryService.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Room.cs">
+    <Compile Include="UI\Item_Room.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UI\Room.Designer.cs">
-      <DependentUpon>Room.cs</DependentUpon>
+    <Compile Include="UI\Item_Room.Designer.cs">
+      <DependentUpon>Item_Room.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Item_RoomOfFormBookMulRoom.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Item_RoomOfFormBookMulRoom.Designer.cs">
+      <DependentUpon>Item_RoomOfFormBookMulRoom.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\SetValueForControl.cs" />
     <EmbeddedResource Include="UI\DropDownList.resx">
       <DependentUpon>DropDownList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Form_BookMulRooms.resx">
+      <DependentUpon>Form_BookMulRooms.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Form_EatService.resx">
       <DependentUpon>Form_EatService.cs</DependentUpon>
@@ -224,8 +239,11 @@
     <EmbeddedResource Include="UI\Item_LaundryService.resx">
       <DependentUpon>Item_LaundryService.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Room.resx">
-      <DependentUpon>Room.cs</DependentUpon>
+    <EmbeddedResource Include="UI\Item_Room.resx">
+      <DependentUpon>Item_Room.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Item_RoomOfFormBookMulRoom.resx">
+      <DependentUpon>Item_RoomOfFormBookMulRoom.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

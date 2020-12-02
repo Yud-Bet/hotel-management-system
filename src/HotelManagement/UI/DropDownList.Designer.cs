@@ -31,41 +31,36 @@
             this.components = new System.ComponentModel.Container();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.timer = new System.Windows.Forms.Timer(this.components);
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.AutoScroll = true;
             this.flowLayoutPanel1.AutoSize = true;
-            this.flowLayoutPanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.flowLayoutPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.flowLayoutPanel1.MaximumSize = new System.Drawing.Size(300, 300);
+            this.flowLayoutPanel1.MaximumSize = new System.Drawing.Size(267, 300);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(10, 10);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // timer
             // 
-            this.timer.Interval = 200;
+            this.timer.Interval = 300;
             this.timer.Tick += new System.EventHandler(this.timerHide_Tick);
-            // 
-            // timer1
-            // 
-            this.timer1.Interval = 10;
             // 
             // DropDownList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.flowLayoutPanel1);
-            this.MaximumSize = new System.Drawing.Size(267, 300);
+            this.MaximumSize = new System.Drawing.Size(300, 300);
             this.Name = "DropDownList";
             this.Size = new System.Drawing.Size(10, 10);
+            this.SizeChanged += new System.EventHandler(this.DropDownList_SizeChanged);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -75,6 +70,5 @@
 
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Timer timer;
-        private System.Windows.Forms.Timer timer1;
     }
 }

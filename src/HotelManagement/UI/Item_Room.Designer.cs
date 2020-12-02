@@ -1,6 +1,6 @@
 ﻿namespace HotelManagement.UI
 {
-    partial class Room
+    partial class Item_Room
     {
         /// <summary> 
         /// Required designer variable.

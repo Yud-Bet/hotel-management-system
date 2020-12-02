@@ -5,9 +5,9 @@ using HotelManagement.Properties;
 
 namespace HotelManagement.UI
 {
-    public partial class Room : UserControl
+    public partial class Item_Room : UserControl
     {
-        public Room(Form_Room parent)
+        public Item_Room(Form_Room parent)
         {
             InitializeComponent();
             this.ParentRef = parent;

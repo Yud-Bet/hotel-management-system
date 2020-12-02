@@ -11,14 +11,14 @@ namespace HotelManagement.UI
         private DTO.FullCustomerInfo Customer;
         private List<DTO.CustomerOverview> customerAlreadyExistsInfos;
         private int RoomID;
-        public Form_RoomInfo(Room parent)
+        public Form_RoomInfo(Item_Room parent)
         {
             InitializeComponent();
             LoadAllCustomer();
             this.ParentRef = parent;
             ParentRef.ParentRef._lbRoomID.Show();
             Load_Data();
-            //Khởi tạo ban đầu droplist
+
             dropDownList1.Hide();
             dropDownList1.ChooseItem += delegate
             {
@@ -57,7 +57,7 @@ namespace HotelManagement.UI
         }
 
         #region Properties
-        public Room ParentRef;
+        public Item_Room ParentRef;
         #endregion
 
         private void Form_RoomInfo_Load(object sender, EventArgs e)
@@ -321,7 +321,10 @@ namespace HotelManagement.UI
             if (tbCustomerName.Text != "")
             {
                 TakeCustomerAlreadyExistsToMenuItems(tbCustomerName.Text);
-                dropDownList1.Show();
+            }
+            else
+            {
+                dropDownList1.Hide();
             }
         }
 
@@ -334,6 +337,15 @@ namespace HotelManagement.UI
                 {
                     dropDownList1.addItem(i.Name + " | " + i.IDNumber, i.IDNumber);
                 }
+            }
+        }
+
+        private void pnCustomerInfo_Click(object sender, EventArgs e)
+        {
+            if (dropDownList1.Location.X > MousePosition.X || dropDownList1.Location.X + dropDownList1.Width < MousePosition.X ||
+                dropDownList1.Location.Y> MousePosition.Y || dropDownList1.Location.Y+dropDownList1.Height < MousePosition.Y)
+            {
+                dropDownList1.Hide();
             }
         }
     }
