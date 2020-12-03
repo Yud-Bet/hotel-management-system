@@ -124,6 +124,9 @@
   <data name="icAddRoom" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icAddRoom.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="icAddRoom2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icAddRoom2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="icBackArrow" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icBackArrow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -132,6 +135,9 @@
   </data>
   <data name="icBill2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icBill2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icBookMulRoom" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icBookMulRoom.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icClean" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icClean.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -240,6 +246,9 @@
   </data>
   <data name="icSubService2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icSubService2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icThreeDot" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icThreeDot.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icUserLogin1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icUserLogin1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

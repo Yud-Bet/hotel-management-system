@@ -496,5 +496,14 @@
   <ItemGroup>
     <None Include="Resources\icAddRoom.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icAddRoom2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icBookMulRoom.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icThreeDot.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
