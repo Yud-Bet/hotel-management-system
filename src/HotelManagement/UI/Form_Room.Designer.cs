@@ -523,6 +523,16 @@
             this.btAddRoom.TabStop = false;
             this.btAddRoom.Click += new System.EventHandler(this.btAddRoom_Click);
             // 
+            // btArrivalRooms
+            // 
+            this.btArrivalRooms.Location = new System.Drawing.Point(853, 27);
+            this.btArrivalRooms.Name = "btArrivalRooms";
+            this.btArrivalRooms.Size = new System.Drawing.Size(75, 23);
+            this.btArrivalRooms.TabIndex = 24;
+            this.btArrivalRooms.Text = "Đặt phòng";
+            this.btArrivalRooms.UseVisualStyleBackColor = true;
+            this.btArrivalRooms.Click += new System.EventHandler(this.btArrivalRooms_Click);
+            // 
             // Form_Room
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
