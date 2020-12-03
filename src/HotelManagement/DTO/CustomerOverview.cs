@@ -4,6 +4,7 @@ namespace HotelManagement.DTO
 {
     class CustomerOverview
     {
+        public int ID;
         public string Name;
         public DateTime Birthday;
         public string PhoneNumber;

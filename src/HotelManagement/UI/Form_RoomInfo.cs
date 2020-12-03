@@ -9,7 +9,7 @@ namespace HotelManagement.UI
     public partial class Form_RoomInfo : UserControl
     {
         private DTO.FullCustomerInfo Customer;
-        private List<DTO.CustomerOverview> customerAlreadyExistsInfos;
+        private List<DTO.CustomerOverview> Customers;
         private int RoomID;
         public Form_RoomInfo(Item_Room parent)
         {
@@ -27,33 +27,46 @@ namespace HotelManagement.UI
         }
         private void LoadAllCustomer()
         {
-            customerAlreadyExistsInfos = new List<DTO.CustomerOverview>();
+            Customers = new List<DTO.CustomerOverview>();
             DataTable data = DataAccess.ExecuteQuery.ExecuteReader("QLKS_GetAllCustomerInfo");
             for (int i = 0; i < data.Rows.Count; i++)
             {
                 var item = new DTO.CustomerOverview();
-                item.Name = Convert.ToString(data.Rows[i].ItemArray[0]);
-                item.Birthday = Convert.ToDateTime(data.Rows[i].ItemArray[1]);
-                item.PhoneNumber = Convert.ToString(data.Rows[i].ItemArray[2]);
-                item.sex = (Sex)Convert.ToInt32(data.Rows[i].ItemArray[3]);
-                item.IDNumber = Convert.ToString(data.Rows[i].ItemArray[4]);
-                item.Passport = Convert.ToString(data.Rows[i].ItemArray[5]);
-                item.Addr = Convert.ToString(data.Rows[0].ItemArray[6]);
+                item.ID = Convert.ToInt32(data.Rows[i].ItemArray[0]);
+                item.Name = Convert.ToString(data.Rows[i].ItemArray[1]);
+                item.Birthday = Convert.ToDateTime(data.Rows[i].ItemArray[2]);
+                item.PhoneNumber = Convert.ToString(data.Rows[i].ItemArray[3]);
+                item.sex = (Sex)Convert.ToInt32(data.Rows[i].ItemArray[4]);
+                item.IDNumber = Convert.ToString(data.Rows[i].ItemArray[5]);
+                item.Passport = Convert.ToString(data.Rows[i].ItemArray[6]);
+                item.Addr = Convert.ToString(data.Rows[0].ItemArray[7]);
 
-                customerAlreadyExistsInfos.Add(item);
+                Customers.Add(item);
             }
         }
         private void setCustomerInfoAlreadyExists(string selectedItemName)
         {
             int i;
-            for (i = 0; i < customerAlreadyExistsInfos.Count && selectedItemName != customerAlreadyExistsInfos[i].IDNumber; i++) {}
-            if (i >= customerAlreadyExistsInfos.Count) return;
-            tbCustomerName.Text = customerAlreadyExistsInfos[i].Name;
-            dtpCustomerBirthday.Value = customerAlreadyExistsInfos[i].Birthday;
-            tbCustomerPhoneNum.Text = customerAlreadyExistsInfos[i].PhoneNumber;
-            SetValueForControl.SetSex(customerAlreadyExistsInfos[i].sex, rbtMale, rbtFemale);
-            tbIDNo.Text = customerAlreadyExistsInfos[i].IDNumber;
-            tbCustomerAddress.Text = customerAlreadyExistsInfos[i].Addr;
+            for (i = 0; i < Customers.Count
+                && (selectedItemName != Customers[i].IDNumber && selectedItemName != Customers[i].Passport); i++) {}
+            if (i >= Customers.Count) return;
+            tbCustomerName.Text = Customers[i].Name;
+            dtpCustomerBirthday.Value = Customers[i].Birthday;
+            tbCustomerPhoneNum.Text = Customers[i].PhoneNumber;
+            SetValueForControl.SetSex(Customers[i].sex, rbtMale, rbtFemale);
+            if (Customers[i].IDNumber.Length != 0)
+            {
+                tbIDNo.Text = Customers[i].IDNumber;
+            }
+            else
+            {
+                tbPassport.Text = Customers[i].Passport;
+                tbIDNo.Enabled = false;
+                cbIDNo.Checked = false;
+                cbPassport.Checked = true;
+                tbPassport.Enabled = true;
+            }
+            tbCustomerAddress.Text = Customers[i].Addr;
         }
 
         #region Properties
@@ -331,11 +344,12 @@ namespace HotelManagement.UI
         private void TakeCustomerAlreadyExistsToMenuItems(string customerName)
         {
             dropDownList1.clear();
-            foreach (var i in customerAlreadyExistsInfos)
+            foreach (var i in Customers)
             {
+                string AdditionalInfo = (i.IDNumber.Length != 0) ? i.IDNumber : i.Passport;
                 if (i.Name.ToLower().Contains(customerName.ToLower()))
                 {
-                    dropDownList1.addItem(i.Name + " | " + i.IDNumber, i.IDNumber);
+                    dropDownList1.addItem(i.Name + " | " + AdditionalInfo, AdditionalInfo);
                 }
             }
         }
