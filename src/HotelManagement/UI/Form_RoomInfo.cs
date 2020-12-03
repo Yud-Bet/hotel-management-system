@@ -174,10 +174,9 @@ namespace HotelManagement.UI
             //if (!checkValidityOfValue()) return;
             int a = DataAccess.CustomerDA.InsertNewClient(tbCustomerName.Text, dtpCustomerBirthday.Value, tbIDNo.Text, tbPassport.Text, 
                 tbCustomerAddress.Text, tbCustomerPhoneNum.Text, rbtMale.Checked ? Sex.Male : Sex.Female);
-            int b = DataAccess.CustomerDA.InsertNewRoomReservation(dtpCheckInDate.Value, 0, "a", 0, tbNote.Text);
-            int c = DataAccess.CustomerDA.InsertRoomReservationDetail(0, this.ParentRef._RoomID);
-            int d = DataAccess.CustomerDA.InsertNewBill(0, "a");
-            if (a > 0 && b > 0 && c > 0)
+            int b = DataAccess.CustomerDA.InsertNewRoomReservation(dtpCheckInDate.Value, 0, 0, tbNote.Text);
+
+            if (a > 0 && b > 0)
             {
                 this.ParentRef.ParentRef._lbNumberOfEmptyRoom.Text = (Convert.ToInt32(this.ParentRef.ParentRef._lbNumberOfEmptyRoom.Text) - 1).ToString();
                 this.ParentRef.ParentRef._lbNumberOfRentedRoom.Text = (Convert.ToInt32(this.ParentRef.ParentRef._lbNumberOfRentedRoom.Text) + 1).ToString();
@@ -272,7 +271,7 @@ namespace HotelManagement.UI
 
         private void btPay_Click(object sender, EventArgs e)
         {
-            int RowEffected = DataAccess.CustomerDA.Payment(0, 0, RoomID, this.ParentRef.ParentRef.Username);
+            int RowEffected = DataAccess.CustomerDA.Pay(RoomID);
             if (RowEffected > 0)
             {
                 printPreviewDialogBill.Document = bill;
@@ -306,13 +305,12 @@ namespace HotelManagement.UI
             drawBill.drawBillHeader();
             drawBill.drawCustomerInfo(Customer.Name, RoomID, Customer.PhoneNumber, Customer.Addr,
                 dtpCheckInDate.Text, dtpCheckOutDate.Text);
-            //drawBill.drawItem("Phòng", (dtpCheckOutDate.Value - dtpCheckInDate.Value).Days, Convert.ToInt32(tbRoomPrice.Text));
-            //int TotalMoney = Convert.ToInt32(tbRoomPrice.Text) * (dtpCheckOutDate.Value - dtpCheckInDate.Value).Days;
-            int TotalMoney = 0;
+            drawBill.drawItem("Phòng", (dtpCheckOutDate.Value - dtpCheckInDate.Value).Days, Convert.ToInt32(tbRoomPrice.Text));
+            int TotalMoney = Convert.ToInt32(tbRoomPrice.Text) * (dtpCheckOutDate.Value - dtpCheckInDate.Value).Days;
             for (int i = 0; i < svc.services.Count; i++)
             {
-                drawBill.drawItem(svc.services[i].Name, svc.services[i].Count, svc.services[i].Price, svc.services[i].IntoMoney);
-                TotalMoney += svc.services[i].IntoMoney;
+                drawBill.drawItem(svc.services[i].Name, svc.services[i].Count, svc.services[i].Price);
+                TotalMoney += svc.services[i].Count * svc.services[i].Price;
             }
             DTO.StaffOverview staff = new DTO.StaffOverview(this.ParentRef.ParentRef.Username);
             drawBill.drawEndOfBill(staff.Name, TotalMoney, 0);

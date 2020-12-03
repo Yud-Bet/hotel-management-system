@@ -59,12 +59,12 @@ namespace HotelManagement.UI
             posY = 470;
         }
 
-        public void drawItem(string itemName, int quanity, int price, int IntoMoney)
+        public void drawItem(string itemName, int quanity, int price)
         {
             g.DrawString(itemName, font15, brush, new Point(10, posY));
             g.DrawString(quanity.ToString(), font15, brush, new Point(350, posY));
             g.DrawString(price.ToString(), font15, brush, new Point(500, posY));
-            g.DrawString(IntoMoney.ToString(), font15, brush, new Point(820- IntoMoney.ToString().Length*11, posY));
+            g.DrawString((quanity * price).ToString(), font15, brush, new Point(820- (quanity * price).ToString().Length*11, posY));
             posY += 30;
         }
 
