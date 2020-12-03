@@ -16,6 +16,15 @@ namespace HotelManagement.UI
         {
             InitializeComponent();
             this.parent = parent;
+            tbCount.LostFocus += TbCount_LostFocus;
+        }
+
+        private void TbCount_LostFocus(object sender, EventArgs e)
+        {
+            if (tbCount.Text == "")
+            {
+                this._count = 1;
+            }
         }
 
         #region properties
@@ -103,8 +112,11 @@ namespace HotelManagement.UI
 
         private void Item_EatService2_MouseMove(object sender, MouseEventArgs e)
         {
-            zeroitUltraTextBox1.IsEnabled = true;
-            zeroitUltraTextBox1.Focus();
+            if (tbCount.Focused == false)
+            {
+                zeroitUltraTextBox1.IsEnabled = true;
+                zeroitUltraTextBox1.Focus();
+            }
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -113,26 +125,26 @@ namespace HotelManagement.UI
             this.parent.calcTotalMoney();
         }
 
-        private void tbCount_TextChanged(object sender, EventArgs e)
+        private void tbCount_KeyPress(object sender, KeyPressEventArgs e)
         {
-            try
+            if (e.KeyChar == (char)Keys.Enter)
             {
                 this._count = Convert.ToInt32(tbCount.Text);
                 this.parent.calcTotalMoney();
+                zeroitUltraTextBox1.Focus();
+                return;
             }
-            catch
-            {
-                MessageBox.Show("Vui lòng chỉ nhập số");
-                tbCount.Text = this.count.ToString();
-            }
-        }
 
-        private void tbCount_MouseLeave(object sender, EventArgs e)
-        {
-            if (tbCount.Text == "")
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
-                tbCount.Text = this.count.ToString();
+                e.Handled = true;
             }
+
+            Task.Run(() =>
+            {
+                this._count = Convert.ToInt32(tbCount.Text);
+                this.parent.calcTotalMoney();
+            });
         }
     }
 }

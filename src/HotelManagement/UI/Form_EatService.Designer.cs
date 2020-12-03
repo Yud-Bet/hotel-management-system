@@ -301,7 +301,7 @@
             this.btAdd.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
             this.btAdd.HoverTextColor = System.Drawing.Color.White;
             this.btAdd.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
-            this.btAdd.Location = new System.Drawing.Point(256, 73);
+            this.btAdd.Location = new System.Drawing.Point(256, 67);
             this.btAdd.Name = "btAdd";
             this.btAdd.Size = new System.Drawing.Size(167, 50);
             this.btAdd.TabIndex = 17;
@@ -313,7 +313,7 @@
             // 
             this.cbRoomSelection.FormattingEnabled = true;
             this.cbRoomSelection.ItemHeight = 23;
-            this.cbRoomSelection.Location = new System.Drawing.Point(256, 38);
+            this.cbRoomSelection.Location = new System.Drawing.Point(256, 31);
             this.cbRoomSelection.Name = "cbRoomSelection";
             this.cbRoomSelection.Size = new System.Drawing.Size(167, 29);
             this.cbRoomSelection.TabIndex = 4;

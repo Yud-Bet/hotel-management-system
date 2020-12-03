@@ -30,9 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Item_EatService2));
             this.lbPrice = new System.Windows.Forms.Label();
-            this.tbCount = new Zeroit.Framework.Labels.ZeroitUltraTextBox();
             this.zeroitUltraTextBox1 = new Zeroit.Framework.Labels.ZeroitUltraTextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.tbCount = new System.Windows.Forms.TextBox();
             this.lbName = new Zeroit.Framework.Labels.ZeroitMultiFormatLabel();
             this.label1 = new System.Windows.Forms.Label();
             this.btMinus = new System.Windows.Forms.PictureBox();
@@ -55,35 +55,6 @@
             this.lbPrice.Text = "Price";
             this.lbPrice.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lbPrice.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Item_EatService2_MouseMove);
-            // 
-            // tbCount
-            // 
-            this.tbCount.DisabledStringColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(187)))), ((int)(((byte)(189)))));
-            this.tbCount.DisabledUnFocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(236)))), ((int)(((byte)(238)))));
-            this.tbCount.EnabledUnFocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
-            this.tbCount.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
-            this.tbCount.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.tbCount.ForeColor = System.Drawing.Color.Black;
-            this.tbCount.IsEnabled = true;
-            this.tbCount.Location = new System.Drawing.Point(335, 3);
-            this.tbCount.MaxLength = 2;
-            this.tbCount.Multiline = false;
-            this.tbCount.Name = "tbCount";
-            this.tbCount.PasswordChar = '\0';
-            this.tbCount.Placeholder = false;
-            this.tbCount.PlaceHolderText = "";
-            this.tbCount.PlaceHolderTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
-            this.tbCount.ReadOnly = false;
-            this.tbCount.Size = new System.Drawing.Size(40, 24);
-            this.tbCount.TabIndex = 12;
-            this.tbCount.Text = "1";
-            this.tbCount.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
-            this.tbCount.TextBackgroundColor = System.Drawing.SystemColors.Control;
-            this.tbCount.UseSystemPasswordChar = false;
-            this.tbCount.WordWrap = true;
-            this.tbCount.TextChanged += new System.EventHandler(this.tbCount_TextChanged);
-            this.tbCount.MouseLeave += new System.EventHandler(this.tbCount_MouseLeave);
-            this.tbCount.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Item_EatService2_MouseMove);
             // 
             // zeroitUltraTextBox1
             // 
@@ -113,6 +84,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.tbCount);
             this.panel1.Controls.Add(this.lbName);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -122,6 +94,21 @@
             this.panel1.Size = new System.Drawing.Size(403, 30);
             this.panel1.TabIndex = 14;
             this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Item_EatService2_MouseMove);
+            // 
+            // tbCount
+            // 
+            this.tbCount.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.tbCount.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbCount.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbCount.Location = new System.Drawing.Point(337, 4);
+            this.tbCount.MaxLength = 2;
+            this.tbCount.Name = "tbCount";
+            this.tbCount.Size = new System.Drawing.Size(36, 22);
+            this.tbCount.TabIndex = 11;
+            this.tbCount.Text = "1";
+            this.tbCount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tbCount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbCount_KeyPress);
+            this.tbCount.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Item_EatService2_MouseMove);
             // 
             // lbName
             // 
@@ -182,7 +169,6 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.tbCount);
             this.Controls.Add(this.btMinus);
             this.Controls.Add(this.btPlus);
             this.Controls.Add(this.lbPrice);
@@ -192,6 +178,7 @@
             this.Size = new System.Drawing.Size(403, 33);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Item_EatService2_MouseMove);
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btMinus)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btPlus)).EndInit();
             this.ResumeLayout(false);
@@ -202,10 +189,10 @@
         private System.Windows.Forms.Label lbPrice;
         private System.Windows.Forms.PictureBox btPlus;
         private System.Windows.Forms.PictureBox btMinus;
-        private Zeroit.Framework.Labels.ZeroitUltraTextBox tbCount;
         private Zeroit.Framework.Labels.ZeroitUltraTextBox zeroitUltraTextBox1;
         private System.Windows.Forms.Panel panel1;
         private Zeroit.Framework.Labels.ZeroitMultiFormatLabel lbName;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox tbCount;
     }
 }
