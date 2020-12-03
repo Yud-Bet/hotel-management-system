@@ -95,18 +95,25 @@
     <Compile Include="DataAccess\ExecuteQuery.cs" />
     <Compile Include="DataAccess\RoomDA.cs" />
     <Compile Include="DataAccess\Services.cs" />
-    <Compile Include="DTO\CustomerInfo.cs" />
+    <Compile Include="DTO\CustomerOverview.cs" />
+    <Compile Include="DTO\FullCustomerInfo.cs" />
     <Compile Include="DTO\RoomDetail.cs" />
     <Compile Include="DTO\RoomOverview.cs" />
     <Compile Include="DTO\RoomServices.cs" />
     <Compile Include="DTO\ServicesInfo.cs" />
     <Compile Include="DTO\StaffOverview.cs" />
     <Compile Include="EnumDefinition.cs" />
-    <Compile Include="UI\Form1.cs">
-      <SubType>Form</SubType>
+    <Compile Include="UI\DropDownList.cs">
+      <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UI\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="UI\DropDownList.Designer.cs">
+      <DependentUpon>DropDownList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Form_BookMulRooms.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Form_BookMulRooms.Designer.cs">
+      <DependentUpon>Form_BookMulRooms.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Form_EatService.cs">
       <SubType>UserControl</SubType>
@@ -173,15 +180,24 @@
     <Compile Include="UI\Item_LaundryService.Designer.cs">
       <DependentUpon>Item_LaundryService.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Room.cs">
+    <Compile Include="UI\Item_Room.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UI\Room.Designer.cs">
-      <DependentUpon>Room.cs</DependentUpon>
+    <Compile Include="UI\Item_Room.Designer.cs">
+      <DependentUpon>Item_Room.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Item_RoomOfFormBookMulRoom.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Item_RoomOfFormBookMulRoom.Designer.cs">
+      <DependentUpon>Item_RoomOfFormBookMulRoom.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\SetValueForControl.cs" />
-    <EmbeddedResource Include="UI\Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="UI\DropDownList.resx">
+      <DependentUpon>DropDownList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Form_BookMulRooms.resx">
+      <DependentUpon>Form_BookMulRooms.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Form_EatService.resx">
       <DependentUpon>Form_EatService.cs</DependentUpon>
@@ -223,8 +239,11 @@
     <EmbeddedResource Include="UI\Item_LaundryService.resx">
       <DependentUpon>Item_LaundryService.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Room.resx">
-      <DependentUpon>Room.cs</DependentUpon>
+    <EmbeddedResource Include="UI\Item_Room.resx">
+      <DependentUpon>Item_Room.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Item_RoomOfFormBookMulRoom.resx">
+      <DependentUpon>Item_RoomOfFormBookMulRoom.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

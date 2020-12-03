@@ -26,6 +26,11 @@ namespace HotelManagement.UI
             loadData();
         }
 
+        public Form_AddEditRoom()
+        {
+            InitializeComponent();
+        }
+
         void loadData()
         {
             DTO.RoomDetail room = new DTO.RoomDetail(RoomID);

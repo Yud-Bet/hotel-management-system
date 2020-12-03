@@ -1,6 +1,6 @@
 ﻿namespace HotelManagement.UI
 {
-    partial class Room
+    partial class Item_Room
     {
         /// <summary> 
         /// Required designer variable.
@@ -181,6 +181,9 @@
             this.menuItemEndRepairRoom,
             this.menuItemCleanRoom,
             this.menuItemEndCleanRoom});
+            this.RightClickMenu.MouseState = Zeroit.Framework.MaterialDesign.MouseState.HOVER;
+            this.RightClickMenu.Name = "RightClickMenu";
+            this.RightClickMenu.Size = new System.Drawing.Size(181, 114);
             // 
             // menuItemRepairRoom
             // 

@@ -113,7 +113,7 @@ namespace HotelManagement.UI
             this.parent.calcTotalMoney();
         }
 
-        private void lbCount_TextChanged(object sender, EventArgs e)
+        private void tbCount_TextChanged(object sender, EventArgs e)
         {
             try
             {
