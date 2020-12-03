@@ -70,8 +70,23 @@
             this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pnBookingInfo = new System.Windows.Forms.Panel();
+            this.cbCheckOutDate = new Zeroit.Framework.MaterialDesign.Controls.ZeroitMaterialCheckBox();
+            this.dtpCheckOutDate = new MetroFramework.Controls.MetroDateTime();
+            this.dtpCheckInDate = new MetroFramework.Controls.MetroDateTime();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
+            this.btBookRoom = new XanderUI.XUIButton();
+            this.btPay = new XanderUI.XUIButton();
+            this.btSettingRoom = new XanderUI.XUIButton();
+            this.btDeleteRoom = new XanderUI.XUIButton();
             this.bill = new System.Drawing.Printing.PrintDocument();
             this.printPreviewDialogBill = new System.Windows.Forms.PrintPreviewDialog();
+            this.customerAlreadyEixstsMenu = new Zeroit.Framework.MaterialDesign.Controls.ZeroitMaterialContextMenuStrip();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.pbArrowBack = new System.Windows.Forms.PictureBox();
             this.panel7 = new System.Windows.Forms.Panel();
             this.label23 = new System.Windows.Forms.Label();
@@ -87,6 +102,7 @@
             this.btPay = new XanderUI.XUIButton();
             this.btBookRoom = new XanderUI.XUIButton();
             this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
+            this.dropDownList1 = new HotelManagement.UI.DropDownList();
             this.pnCustomerInfo.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.pnRoomInfo.SuspendLayout();
@@ -95,11 +111,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbArrowBack)).BeginInit();
             this.pnBookingInfo.SuspendLayout();
             this.flowLayoutPanel4.SuspendLayout();
+            this.customerAlreadyEixstsMenu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbArrowBack)).BeginInit();
             this.SuspendLayout();
             // 
             // pnCustomerInfo
             // 
             this.pnCustomerInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this.pnCustomerInfo.Controls.Add(this.dropDownList1);
             this.pnCustomerInfo.Controls.Add(this.tbNote);
             this.pnCustomerInfo.Controls.Add(this.tbCustomerAddress);
             this.pnCustomerInfo.Controls.Add(this.tbPassport);
@@ -124,6 +143,7 @@
             this.pnCustomerInfo.Name = "pnCustomerInfo";
             this.pnCustomerInfo.Size = new System.Drawing.Size(491, 467);
             this.pnCustomerInfo.TabIndex = 8;
+            this.pnCustomerInfo.Click += new System.EventHandler(this.pnCustomerInfo_Click);
             // 
             // tbNote
             // 
@@ -274,13 +294,14 @@
             this.tbCustomerName.TextBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.tbCustomerName.UseSystemPasswordChar = false;
             this.tbCustomerName.WordWrap = true;
+            this.tbCustomerName.TextChanged += new System.EventHandler(this.tbCustomerName_TextChanged);
             // 
             // cbPassport
             // 
             this.cbPassport.AllowTransparency = true;
             this.cbPassport.Checked = false;
             this.cbPassport.Depth = 0;
-            this.cbPassport.Font = new System.Drawing.Font("Roboto", 10F);
+            this.cbPassport.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.cbPassport.Location = new System.Drawing.Point(351, 200);
             this.cbPassport.Margin = new System.Windows.Forms.Padding(0);
             this.cbPassport.MouseLocation = new System.Drawing.Point(-1, -1);
@@ -297,7 +318,7 @@
             this.cbIDNo.AllowTransparency = true;
             this.cbIDNo.Checked = true;
             this.cbIDNo.Depth = 0;
-            this.cbIDNo.Font = new System.Drawing.Font("Roboto", 10F);
+            this.cbIDNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.cbIDNo.Location = new System.Drawing.Point(189, 200);
             this.cbIDNo.Margin = new System.Windows.Forms.Padding(0);
             this.cbIDNo.MouseLocation = new System.Drawing.Point(-1, -1);
@@ -322,7 +343,7 @@
             // 
             this.rbtMale.AutoSize = true;
             this.rbtMale.Depth = 0;
-            this.rbtMale.Font = new System.Drawing.Font("Roboto", 10F);
+            this.rbtMale.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.rbtMale.Location = new System.Drawing.Point(0, 0);
             this.rbtMale.Margin = new System.Windows.Forms.Padding(0);
             this.rbtMale.MouseLocation = new System.Drawing.Point(-1, -1);
@@ -339,7 +360,7 @@
             // 
             this.rbtFemale.AutoSize = true;
             this.rbtFemale.Depth = 0;
-            this.rbtFemale.Font = new System.Drawing.Font("Roboto", 10F);
+            this.rbtFemale.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.rbtFemale.Location = new System.Drawing.Point(58, 0);
             this.rbtFemale.Margin = new System.Windows.Forms.Padding(0);
             this.rbtFemale.MouseLocation = new System.Drawing.Point(-1, -1);
@@ -527,7 +548,7 @@
             // 
             this.rbtSingle.AutoSize = true;
             this.rbtSingle.Depth = 0;
-            this.rbtSingle.Font = new System.Drawing.Font("Roboto", 10F);
+            this.rbtSingle.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.rbtSingle.Location = new System.Drawing.Point(0, 0);
             this.rbtSingle.Margin = new System.Windows.Forms.Padding(0);
             this.rbtSingle.MouseLocation = new System.Drawing.Point(-1, -1);
@@ -544,7 +565,7 @@
             // 
             this.rbtDouble.AutoSize = true;
             this.rbtDouble.Depth = 0;
-            this.rbtDouble.Font = new System.Drawing.Font("Roboto", 10F);
+            this.rbtDouble.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.rbtDouble.Location = new System.Drawing.Point(54, 0);
             this.rbtDouble.Margin = new System.Windows.Forms.Padding(0);
             this.rbtDouble.MouseLocation = new System.Drawing.Point(-1, -1);
@@ -570,7 +591,7 @@
             // 
             this.rbtVip.AutoSize = true;
             this.rbtVip.Depth = 0;
-            this.rbtVip.Font = new System.Drawing.Font("Roboto", 10F);
+            this.rbtVip.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.rbtVip.Location = new System.Drawing.Point(0, 0);
             this.rbtVip.Margin = new System.Windows.Forms.Padding(0);
             this.rbtVip.MouseLocation = new System.Drawing.Point(-1, -1);
@@ -587,7 +608,7 @@
             // 
             this.rbtNor.AutoSize = true;
             this.rbtNor.Depth = 0;
-            this.rbtNor.Font = new System.Drawing.Font("Roboto", 10F);
+            this.rbtNor.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.rbtNor.Location = new System.Drawing.Point(49, 0);
             this.rbtNor.Margin = new System.Windows.Forms.Padding(0);
             this.rbtNor.MouseLocation = new System.Drawing.Point(-1, -1);
@@ -727,6 +748,20 @@
             // 
             // printPreviewDialogBill
             // 
+            this.cbCheckOutDate.AllowTransparency = true;
+            this.cbCheckOutDate.Checked = false;
+            this.cbCheckOutDate.Depth = 0;
+            this.cbCheckOutDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.cbCheckOutDate.Location = new System.Drawing.Point(95, 117);
+            this.cbCheckOutDate.Margin = new System.Windows.Forms.Padding(0);
+            this.cbCheckOutDate.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.cbCheckOutDate.MouseState = Zeroit.Framework.MaterialDesign.MouseState.HOVER;
+            this.cbCheckOutDate.Name = "cbCheckOutDate";
+            this.cbCheckOutDate.Ripple = true;
+            this.cbCheckOutDate.Size = new System.Drawing.Size(27, 23);
+            this.cbCheckOutDate.TabIndex = 0;
+            this.cbCheckOutDate.TabStop = false;
+            this.cbCheckOutDate.Click += new System.EventHandler(this.cbCheckOutDate_Click);
             this.printPreviewDialogBill.AutoScrollMargin = new System.Drawing.Size(0, 0);
             this.printPreviewDialogBill.AutoScrollMinSize = new System.Drawing.Size(0, 0);
             this.printPreviewDialogBill.ClientSize = new System.Drawing.Size(400, 300);
@@ -805,6 +840,14 @@
             this.dtpCheckOutDate.Name = "dtpCheckOutDate";
             this.dtpCheckOutDate.Size = new System.Drawing.Size(211, 29);
             this.dtpCheckOutDate.TabIndex = 13;
+            this.flowLayoutPanel4.Controls.Add(this.btBookRoom);
+            this.flowLayoutPanel4.Controls.Add(this.btPay);
+            this.flowLayoutPanel4.Controls.Add(this.btSettingRoom);
+            this.flowLayoutPanel4.Controls.Add(this.btDeleteRoom);
+            this.flowLayoutPanel4.Location = new System.Drawing.Point(533, 465);
+            this.flowLayoutPanel4.Name = "flowLayoutPanel4";
+            this.flowLayoutPanel4.Size = new System.Drawing.Size(424, 197);
+            this.flowLayoutPanel4.TabIndex = 26;
             // 
             // cbCheckOutDate
             // 
@@ -952,7 +995,25 @@
             this.btBookRoom.Vertical_Alignment = System.Drawing.StringAlignment.Center;
             this.btBookRoom.Click += new System.EventHandler(this.btBookRoom_Click);
             // 
-            // flowLayoutPanel4
+            // customerAlreadyEixstsMenu
+            // 
+            this.customerAlreadyEixstsMenu.AllowDrop = true;
+            this.customerAlreadyEixstsMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.customerAlreadyEixstsMenu.Depth = 0;
+            this.customerAlreadyEixstsMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem2});
+            this.customerAlreadyEixstsMenu.MaximumSize = new System.Drawing.Size(0, 190);
+            this.customerAlreadyEixstsMenu.MouseState = Zeroit.Framework.MaterialDesign.MouseState.HOVER;
+            this.customerAlreadyEixstsMenu.Name = "customerAlreadyEixstsMenu";
+            this.customerAlreadyEixstsMenu.Size = new System.Drawing.Size(81, 26);
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(80, 22);
+            this.toolStripMenuItem2.Text = "1";
+            // 
+            // pbArrowBack
             // 
             this.flowLayoutPanel4.Controls.Add(this.btBookRoom);
             this.flowLayoutPanel4.Controls.Add(this.btPay);
@@ -963,6 +1024,17 @@
             this.flowLayoutPanel4.Name = "flowLayoutPanel4";
             this.flowLayoutPanel4.Size = new System.Drawing.Size(424, 197);
             this.flowLayoutPanel4.TabIndex = 26;
+            // 
+            // dropDownList1
+            // 
+            this.dropDownList1.AutoScroll = true;
+            this.dropDownList1.AutoSize = true;
+            this.dropDownList1.BackColor = System.Drawing.Color.White;
+            this.dropDownList1.Location = new System.Drawing.Point(17, 102);
+            this.dropDownList1.MaximumSize = new System.Drawing.Size(300, 300);
+            this.dropDownList1.Name = "dropDownList1";
+            this.dropDownList1.Size = new System.Drawing.Size(273, 25);
+            this.dropDownList1.TabIndex = 9;
             // 
             // Form_RoomInfo
             // 
@@ -991,6 +1063,8 @@
             this.pnBookingInfo.ResumeLayout(false);
             this.pnBookingInfo.PerformLayout();
             this.flowLayoutPanel4.ResumeLayout(false);
+            this.customerAlreadyEixstsMenu.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbArrowBack)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1054,5 +1128,8 @@
         private XanderUI.XUIButton btPay;
         private XanderUI.XUIButton btBookRoom;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel4;
+        private Zeroit.Framework.MaterialDesign.Controls.ZeroitMaterialContextMenuStrip customerAlreadyEixstsMenu;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
+        private DropDownList dropDownList1;
     }
 }

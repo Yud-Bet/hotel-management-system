@@ -81,7 +81,7 @@
             this.tbCount.TextBackgroundColor = System.Drawing.SystemColors.Control;
             this.tbCount.UseSystemPasswordChar = false;
             this.tbCount.WordWrap = true;
-            this.tbCount.TextChanged += new System.EventHandler(this.lbCount_TextChanged);
+            this.tbCount.TextChanged += new System.EventHandler(this.tbCount_TextChanged);
             this.tbCount.MouseLeave += new System.EventHandler(this.tbCount_MouseLeave);
             this.tbCount.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Item_EatService2_MouseMove);
             // 
