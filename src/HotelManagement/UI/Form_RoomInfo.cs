@@ -11,6 +11,7 @@ namespace HotelManagement.UI
         private DTO.FullCustomerInfo Customer;
         private List<DTO.CustomerOverview> Customers;
         private int RoomID;
+        private int ClientID = -1;
         public Form_RoomInfo(Item_Room parent)
         {
             InitializeComponent();
@@ -47,8 +48,11 @@ namespace HotelManagement.UI
         private void setCustomerInfoAlreadyExists(string selectedItemName)
         {
             int i;
+            //for (i = 0; i < Customers.Count
+            //    && (selectedItemName != Customers[i].IDNumber && selectedItemName != Customers[i].Passport); i++) {}
             for (i = 0; i < Customers.Count
-                && (selectedItemName != Customers[i].IDNumber && selectedItemName != Customers[i].Passport); i++) {}
+                && (selectedItemName != Customers[i].ID.ToString()); i++) { }
+            ClientID = Customers[i].ID;
             if (i >= Customers.Count) return;
             tbCustomerName.Text = Customers[i].Name;
             dtpCustomerBirthday.Value = Customers[i].Birthday;
@@ -101,6 +105,7 @@ namespace HotelManagement.UI
 
             if (this.ParentRef._RoomStatus == RoomStatus.Rented)
             {
+                btSave.Show();
                 Customer = new DTO.FullCustomerInfo(RoomID);
                 tbCustomerName.Text = Customer.Name;
                 dtpCustomerBirthday.Value = Customer.Birthday;
@@ -122,7 +127,11 @@ namespace HotelManagement.UI
                 tbNote.Text = Customer.Note;
                 dtpCheckInDate.Value = Customer.CheckInDate;
             }
-            else Customer = null;
+            else
+            {
+                Customer = null;
+                btSave.Hide();
+            }
         }
 
         private void pbArrowBack_Click(object sender, EventArgs e)
@@ -184,13 +193,17 @@ namespace HotelManagement.UI
         private void btBookRoom_Click(object sender, EventArgs e)
         {
             //if (!checkEmptyValue()) return;
-            //if (!checkValidityOfValue()) return;
-            int a = DataAccess.CustomerDA.InsertNewClient(tbCustomerName.Text, dtpCustomerBirthday.Value, tbIDNo.Text, tbPassport.Text, 
-                tbCustomerAddress.Text, tbCustomerPhoneNum.Text, rbtMale.Checked ? Sex.Male : Sex.Female);
-            int b = DataAccess.CustomerDA.InsertNewRoomReservation(dtpCheckInDate.Value, 0, "a", 0, tbNote.Text);
+            if (!checkValidityOfValue()) return;
+            int a = 0;
+            if (ClientID <= 0)
+            {
+                a = DataAccess.CustomerDA.InsertNewClient(tbCustomerName.Text, dtpCustomerBirthday.Value, tbIDNo.Text, tbPassport.Text,
+                    tbCustomerAddress.Text, tbCustomerPhoneNum.Text, rbtMale.Checked ? Sex.Male : Sex.Female);
+            }
+            int b = DataAccess.CustomerDA.InsertNewRoomReservation(dtpCheckInDate.Value, ClientID, ParentRef.ParentRef.Username, 0, tbNote.Text);
             int c = DataAccess.CustomerDA.InsertRoomReservationDetail(0, this.ParentRef._RoomID);
-            int d = DataAccess.CustomerDA.InsertNewBill(0, "a");
-            if (a > 0 && b > 0 && c > 0)
+            int d = DataAccess.CustomerDA.InsertNewBill(0, ParentRef.ParentRef.Username);
+            if (b > 0 && c > 0 && d > 0)
             {
                 this.ParentRef.ParentRef._lbNumberOfEmptyRoom.Text = (Convert.ToInt32(this.ParentRef.ParentRef._lbNumberOfEmptyRoom.Text) - 1).ToString();
                 this.ParentRef.ParentRef._lbNumberOfRentedRoom.Text = (Convert.ToInt32(this.ParentRef.ParentRef._lbNumberOfRentedRoom.Text) + 1).ToString();
@@ -259,21 +272,21 @@ namespace HotelManagement.UI
 
         bool checkValidityOfValue()
         {
-            if (!Regex.IsMatch(tbCustomerName.Text, @"^([\p{L}]+( [\p{L}]+){0,})$"))
+            if (!Regex.IsMatch(tbCustomerName.Text, @"^$|^([\p{L}]+( [\p{L}]+){0,})$"))
             {
                 MessageBox.Show("Tên không được chứa ký tự đặt biệt và không chứa số.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 tbCustomerName.Focus();
                 return false;
             }
 
-            if (!Regex.IsMatch(tbCustomerPhoneNum.Text, @"^[0-9]{10}$"))
+            if (!Regex.IsMatch(tbCustomerPhoneNum.Text, @"^$|^[0-9]{10}$"))
             {
                 MessageBox.Show("Số điện thoại gồm chỉ gồm 10 số.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 tbCustomerPhoneNum.Focus();
                 return false;
             }
 
-            if (!Regex.IsMatch(tbIDNo.Text, @"^[0-9]{9}$") && cbIDNo.Checked==true)
+            if (!Regex.IsMatch(tbIDNo.Text, @"^$|^[0-9]{9}$") && cbIDNo.Checked==true)
             {
                 MessageBox.Show("CMNN gồm chỉ gồm 9 số.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 tbIDNo.Focus();
@@ -290,12 +303,27 @@ namespace HotelManagement.UI
             {
                 printPreviewDialogBill.Document = bill;
                 printPreviewDialogBill.ShowDialog();
-
+                //DataTable data = DataAccess.CustomerDA.GetRoomReservationDetailInfo(0, 0, RoomID);
+                //for (int i = 0; i < data.Rows.Count; i++)
+                //{         
+                //    for(int j=0;j<ParentRef.ParentRef.listRoom.Count; j++)
+                //    {
+                //        if (ParentRef.ParentRef.listRoom[j]._RoomID == Convert.ToInt32(data.Rows[i].ItemArray[0]))
+                //        {
+                //            this.ParentRef.ParentRef._lbNumberOfCleaningRoom.Text = (Convert.ToInt32(this.ParentRef.ParentRef._lbNumberOfCleaningRoom.Text) + 1).ToString();
+                //            this.ParentRef.ParentRef._lbNumberOfRentedRoom.Text = (Convert.ToInt32(this.ParentRef.ParentRef._lbNumberOfRentedRoom.Text) - 1).ToString();
+                //            ParentRef.ParentRef.listRoom[j]._RoomStatus = RoomStatus.Cleaning;
+                //        }
+                //    }
+                //    DataAccess.RoomDA.SetRoomStatus(Convert.ToInt32(data.Rows[i].ItemArray[0]), RoomStatus.Cleaning);
+                //}
                 this.ParentRef.ParentRef._lbNumberOfCleaningRoom.Text = (Convert.ToInt32(this.ParentRef.ParentRef._lbNumberOfCleaningRoom.Text) + 1).ToString();
                 this.ParentRef.ParentRef._lbNumberOfRentedRoom.Text = (Convert.ToInt32(this.ParentRef.ParentRef._lbNumberOfRentedRoom.Text) - 1).ToString();
                 this.ParentRef._RoomStatus = RoomStatus.Cleaning;
-                pbArrowBack_Click(sender, e);
-            }
+
+            
+            pbArrowBack_Click(sender, e);
+        }
             else MessageBox.Show("Thanh toán thất bại!", "Lỗi");
         }
 
@@ -349,9 +377,10 @@ namespace HotelManagement.UI
             foreach (var i in Customers)
             {
                 string AdditionalInfo = (i.IDNumber.Length != 0) ? i.IDNumber : i.Passport;
+                //string AdditionalInfo = i.ID.ToString();
                 if (i.Name.ToLower().Contains(customerName.ToLower()))
                 {
-                    dropDownList1.addItem(i.Name + " | " + AdditionalInfo, AdditionalInfo);
+                    dropDownList1.addItem(i.Name + " | " + AdditionalInfo, i.ID.ToString());
                 }
             }
         }
@@ -362,6 +391,16 @@ namespace HotelManagement.UI
                 dropDownList1.Location.Y> MousePosition.Y || dropDownList1.Location.Y+dropDownList1.Height < MousePosition.Y)
             {
                 dropDownList1.Hide();
+            }
+        }
+
+        private void btSave_Click(object sender, EventArgs e)
+        {
+            int RowsAffected = DataAccess.CustomerDA.ChangeReservationInfo(RoomID, tbCustomerName.Text, dtpCustomerBirthday.Value, tbCustomerPhoneNum.Text,
+                rbtMale.Checked ? Sex.Male : Sex.Female, tbIDNo.Text, tbPassport.Text, tbCustomerAddress.Text, dtpCheckInDate.Value, tbNote.Text);
+            if (RowsAffected > 0)
+            {
+                MessageBox.Show("Sửa thông tin thành công!", "Thành công");
             }
         }
     }

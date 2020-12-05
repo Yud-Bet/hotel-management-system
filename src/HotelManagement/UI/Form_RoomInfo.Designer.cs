@@ -89,6 +89,7 @@
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.pbArrowBack = new System.Windows.Forms.PictureBox();
             this.dropDownList1 = new HotelManagement.UI.DropDownList();
+            this.btSave = new XanderUI.XUIButton();
             this.pnCustomerInfo.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.pnRoomInfo.SuspendLayout();
@@ -103,10 +104,10 @@
             // pnCustomerInfo
             // 
             this.pnCustomerInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
-            this.pnCustomerInfo.Controls.Add(this.dropDownList1);
             this.pnCustomerInfo.Controls.Add(this.tbNote);
             this.pnCustomerInfo.Controls.Add(this.tbCustomerAddress);
             this.pnCustomerInfo.Controls.Add(this.tbPassport);
+            this.pnCustomerInfo.Controls.Add(this.btSave);
             this.pnCustomerInfo.Controls.Add(this.tbIDNo);
             this.pnCustomerInfo.Controls.Add(this.tbCustomerPhoneNum);
             this.pnCustomerInfo.Controls.Add(this.tbCustomerName);
@@ -124,6 +125,8 @@
             this.pnCustomerInfo.Controls.Add(this.label3);
             this.pnCustomerInfo.Controls.Add(this.label1);
             this.pnCustomerInfo.Controls.Add(this.panel3);
+            this.pnCustomerInfo.Controls.Add(this.dropDownList1);
+            this.pnCustomerInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.25F);
             this.pnCustomerInfo.Location = new System.Drawing.Point(31, 50);
             this.pnCustomerInfo.Name = "pnCustomerInfo";
             this.pnCustomerInfo.Size = new System.Drawing.Size(491, 467);
@@ -975,6 +978,29 @@
             this.dropDownList1.Size = new System.Drawing.Size(273, 25);
             this.dropDownList1.TabIndex = 9;
             // 
+            // btSave
+            // 
+            this.btSave.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
+            this.btSave.ButtonImage = null;
+            this.btSave.ButtonStyle = XanderUI.XUIButton.Style.MaterialRounded;
+            this.btSave.ButtonText = "Lưu";
+            this.btSave.ClickBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(130)))), ((int)(((byte)(200)))));
+            this.btSave.ClickTextColor = System.Drawing.Color.White;
+            this.btSave.CornerRadius = 5;
+            this.btSave.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btSave.Font = new System.Drawing.Font("Segoe UI", 14F);
+            this.btSave.Horizontal_Alignment = System.Drawing.StringAlignment.Near;
+            this.btSave.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
+            this.btSave.HoverTextColor = System.Drawing.Color.White;
+            this.btSave.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
+            this.btSave.Location = new System.Drawing.Point(443, 3);
+            this.btSave.Name = "btSave";
+            this.btSave.Size = new System.Drawing.Size(45, 27);
+            this.btSave.TabIndex = 18;
+            this.btSave.TextColor = System.Drawing.Color.White;
+            this.btSave.Vertical_Alignment = System.Drawing.StringAlignment.Center;
+            this.btSave.Click += new System.EventHandler(this.btSave_Click);
+            // 
             // Form_RoomInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1068,5 +1094,6 @@
         private Zeroit.Framework.MaterialDesign.Controls.ZeroitMaterialContextMenuStrip customerAlreadyEixstsMenu;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
         private DropDownList dropDownList1;
+        private XanderUI.XUIButton btSave;
     }
 }

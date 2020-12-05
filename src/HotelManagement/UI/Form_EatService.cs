@@ -153,7 +153,7 @@ namespace HotelManagement.UI
                 drawBill.drawItem(svc.services[i].Name, svc.services[i].Count, svc.services[i].Price, svc.services[i].IntoMoney);
                 TotalMoney += svc.services[i].Count * svc.services[i].Price;
             }
-            DTO.StaffOverview staff = new DTO.StaffOverview("a");
+            DTO.StaffOverview staff = new DTO.StaffOverview(Username);
             drawBill.drawEndOfBill(staff.Name, TotalMoney, 0);
         }
     }
