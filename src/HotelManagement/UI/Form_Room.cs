@@ -14,6 +14,7 @@ namespace HotelManagement.UI
             this.Dock = DockStyle.Fill;
             this.Username = Username;
             lbRoomID.Hide();
+            this.DoubleBuffered = true;
         }
         #region Properties
         public Label _lbRoomID

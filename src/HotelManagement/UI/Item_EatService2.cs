@@ -24,6 +24,13 @@ namespace HotelManagement.UI
             if (tbCount.Text == "")
             {
                 this._count = 1;
+                return;
+            }
+
+            if (tbCount.Text == "0")
+            {
+                removeItem();
+                return;
             }
         }
 

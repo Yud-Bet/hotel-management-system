@@ -124,6 +124,7 @@
             this.btLogin.ClickOffset = 0;
             this.btLogin.ClickSpeed = 1;
             this.btLogin.ColorShape = true;
+            this.btLogin.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btLogin.Curve = 3;
             this.btLogin.DownLeftCurve = 12;
             this.btLogin.DownRightCurve = 12;
@@ -142,6 +143,7 @@
             this.btLogin.Rounding = true;
             this.btLogin.Shape = Zeroit.Framework.Button.Shapes.Rectangle;
             this.btLogin.ShapeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
+            this.btLogin.ShapePopulate = new Zeroit.Framework.Button.ShapePopulate(Zeroit.Framework.Button.Shapes.Rectangle, System.Drawing.Color.DeepSkyBlue, System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224))))), true, true, false, 3, 12, 12, 12, 12);
             this.btLogin.ShowText = true;
             this.btLogin.Size = new System.Drawing.Size(163, 61);
             this.btLogin.StartAngle = 0F;
@@ -162,6 +164,7 @@
             this.btExit.ClickOffset = 0;
             this.btExit.ClickSpeed = 1;
             this.btExit.ColorShape = true;
+            this.btExit.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btExit.Curve = 10;
             this.btExit.DownLeftCurve = 8;
             this.btExit.DownRightCurve = 8;
@@ -180,6 +183,7 @@
             this.btExit.Rounding = true;
             this.btExit.Shape = Zeroit.Framework.Button.Shapes.Rectangle;
             this.btExit.ShapeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
+            this.btExit.ShapePopulate = new Zeroit.Framework.Button.ShapePopulate(Zeroit.Framework.Button.Shapes.Rectangle, System.Drawing.Color.DeepSkyBlue, System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224))))), true, true, false, 10, 8, 8, 8, 8);
             this.btExit.ShowText = true;
             this.btExit.Size = new System.Drawing.Size(164, 61);
             this.btExit.StartAngle = 0F;
