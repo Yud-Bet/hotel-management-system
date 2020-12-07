@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_BookMulRooms));
             this.pbArrowBack = new System.Windows.Forms.PictureBox();
             this.pnCustomerInfo = new System.Windows.Forms.Panel();
+            this.dropDownList1 = new HotelManagement.UI.DropDownList();
             this.tbNote = new Zeroit.Framework.Labels.ZeroitUltraTextBox();
             this.tbCustomerAddress = new Zeroit.Framework.Labels.ZeroitUltraTextBox();
             this.tbPassport = new Zeroit.Framework.Labels.ZeroitUltraTextBox();
@@ -70,7 +71,6 @@
             this.label16 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
-            this.dropDownList1 = new HotelManagement.UI.DropDownList();
             ((System.ComponentModel.ISupportInitialize)(this.pbArrowBack)).BeginInit();
             this.pnCustomerInfo.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -121,6 +121,18 @@
             this.pnCustomerInfo.Name = "pnCustomerInfo";
             this.pnCustomerInfo.Size = new System.Drawing.Size(473, 467);
             this.pnCustomerInfo.TabIndex = 27;
+            this.pnCustomerInfo.Click += new System.EventHandler(this.pnCustomerInfo_Click);
+            // 
+            // dropDownList1
+            // 
+            this.dropDownList1.AutoScroll = true;
+            this.dropDownList1.AutoSize = true;
+            this.dropDownList1.BackColor = System.Drawing.Color.White;
+            this.dropDownList1.Location = new System.Drawing.Point(17, 102);
+            this.dropDownList1.MaximumSize = new System.Drawing.Size(300, 300);
+            this.dropDownList1.Name = "dropDownList1";
+            this.dropDownList1.Size = new System.Drawing.Size(273, 25);
+            this.dropDownList1.TabIndex = 9;
             // 
             // tbNote
             // 
@@ -271,13 +283,14 @@
             this.tbCustomerName.TextBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.tbCustomerName.UseSystemPasswordChar = false;
             this.tbCustomerName.WordWrap = true;
+            this.tbCustomerName.TextChanged += new System.EventHandler(this.tbCustomerName_TextChanged);
             // 
             // cbPassport
             // 
             this.cbPassport.AllowTransparency = true;
             this.cbPassport.Checked = false;
             this.cbPassport.Depth = 0;
-            this.cbPassport.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.cbPassport.Font = new System.Drawing.Font("Roboto", 10F);
             this.cbPassport.Location = new System.Drawing.Point(337, 200);
             this.cbPassport.Margin = new System.Windows.Forms.Padding(0);
             this.cbPassport.MouseLocation = new System.Drawing.Point(-1, -1);
@@ -293,7 +306,7 @@
             this.cbIDNo.AllowTransparency = true;
             this.cbIDNo.Checked = true;
             this.cbIDNo.Depth = 0;
-            this.cbIDNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.cbIDNo.Font = new System.Drawing.Font("Roboto", 10F);
             this.cbIDNo.Location = new System.Drawing.Point(189, 200);
             this.cbIDNo.Margin = new System.Windows.Forms.Padding(0);
             this.cbIDNo.MouseLocation = new System.Drawing.Point(-1, -1);
@@ -317,7 +330,7 @@
             // 
             this.rbtMale.AutoSize = true;
             this.rbtMale.Depth = 0;
-            this.rbtMale.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.rbtMale.Font = new System.Drawing.Font("Roboto", 10F);
             this.rbtMale.Location = new System.Drawing.Point(0, 0);
             this.rbtMale.Margin = new System.Windows.Forms.Padding(0);
             this.rbtMale.MouseLocation = new System.Drawing.Point(-1, -1);
@@ -334,7 +347,7 @@
             // 
             this.rbtFemale.AutoSize = true;
             this.rbtFemale.Depth = 0;
-            this.rbtFemale.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.rbtFemale.Font = new System.Drawing.Font("Roboto", 10F);
             this.rbtFemale.Location = new System.Drawing.Point(58, 0);
             this.rbtFemale.Margin = new System.Windows.Forms.Padding(0);
             this.rbtFemale.MouseLocation = new System.Drawing.Point(-1, -1);
@@ -641,13 +654,14 @@
             this.btBookRoom.TabIndex = 17;
             this.btBookRoom.TextColor = System.Drawing.Color.White;
             this.btBookRoom.Vertical_Alignment = System.Drawing.StringAlignment.Center;
+            this.btBookRoom.Click += new System.EventHandler(this.btBookRoom_Click);
             // 
             // cbCheckOutDate
             // 
             this.cbCheckOutDate.AllowTransparency = true;
             this.cbCheckOutDate.Checked = false;
             this.cbCheckOutDate.Depth = 0;
-            this.cbCheckOutDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.cbCheckOutDate.Font = new System.Drawing.Font("Roboto", 10F);
             this.cbCheckOutDate.Location = new System.Drawing.Point(235, 43);
             this.cbCheckOutDate.Margin = new System.Windows.Forms.Padding(0);
             this.cbCheckOutDate.MouseLocation = new System.Drawing.Point(-1, -1);
@@ -718,17 +732,6 @@
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(300, 3);
             this.panel7.TabIndex = 3;
-            // 
-            // dropDownList1
-            // 
-            this.dropDownList1.AutoScroll = true;
-            this.dropDownList1.AutoSize = true;
-            this.dropDownList1.BackColor = System.Drawing.Color.White;
-            this.dropDownList1.Location = new System.Drawing.Point(17, 102);
-            this.dropDownList1.MaximumSize = new System.Drawing.Size(300, 300);
-            this.dropDownList1.Name = "dropDownList1";
-            this.dropDownList1.Size = new System.Drawing.Size(273, 25);
-            this.dropDownList1.TabIndex = 9;
             // 
             // Form_BookMulRooms
             // 

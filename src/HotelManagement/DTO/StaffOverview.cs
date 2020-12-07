@@ -14,8 +14,8 @@ namespace HotelManagement.DTO
             {
                 throw new NullReferenceException("Load data failed!");
             }
-            Name = data.Rows[0].ItemArray[0].ToString();
-            Position = ((StaffPosition)Convert.ToInt32(data.Rows[0].ItemArray[1]) == StaffPosition.Manager) ?
+            Name = data.Rows[0].ItemArray[1].ToString();
+            Position = ((StaffPosition)Convert.ToInt32(data.Rows[0].ItemArray[2]) == StaffPosition.Manager) ?
                 "Manager" : "Receptionist";
         }
     }
