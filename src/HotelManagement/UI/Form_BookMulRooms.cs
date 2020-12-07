@@ -241,5 +241,45 @@ namespace HotelManagement.UI
 
             return true;
         }
+
+        private void cbIDNo_Click(object sender, EventArgs e)
+        {
+            if (cbIDNo.Checked == true)
+            {
+                cbPassport.Checked = false;
+                tbIDNo.IsEnabled = true;
+                tbPassport.IsEnabled = false;
+                tbPassport.Text = "";
+                tbIDNo.Focus();
+            }
+            else
+            {
+                cbPassport.Checked = true;
+                tbIDNo.IsEnabled = false;
+                tbPassport.IsEnabled = true;
+                tbIDNo.Text = "";
+                tbPassport.Focus();
+            }
+        }
+
+        private void cbPassport_Click(object sender, EventArgs e)
+        {
+            if (cbPassport.Checked == true)
+            {
+                cbIDNo.Checked = false;
+                tbIDNo.IsEnabled = false;
+                tbPassport.IsEnabled = true;
+                tbIDNo.Text = "";
+                tbPassport.Focus();
+            }
+            else
+            {
+                cbIDNo.Checked = true;
+                tbIDNo.IsEnabled = true;
+                tbPassport.IsEnabled = false;
+                tbPassport.Text = "";
+                tbIDNo.Focus();
+            }
+        }
     }
 }

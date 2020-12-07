@@ -300,6 +300,7 @@
             this.cbPassport.Size = new System.Drawing.Size(27, 23);
             this.cbPassport.TabIndex = 0;
             this.cbPassport.TabStop = false;
+            this.cbPassport.Click += new System.EventHandler(this.cbPassport_Click);
             // 
             // cbIDNo
             // 
@@ -316,6 +317,7 @@
             this.cbIDNo.Size = new System.Drawing.Size(27, 23);
             this.cbIDNo.TabIndex = 0;
             this.cbIDNo.TabStop = false;
+            this.cbIDNo.Click += new System.EventHandler(this.cbIDNo_Click);
             // 
             // flowLayoutPanel1
             // 
@@ -505,7 +507,7 @@
             // 
             // xPanderPanel1
             // 
-            this.xPanderPanel1.CaptionFont = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.xPanderPanel1.CaptionFont = new System.Drawing.Font("Segoe UI", 13F);
             this.xPanderPanel1.Controls.Add(this.pnToSelectRoom);
             this.xPanderPanel1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.xPanderPanel1.CustomColors.BackColor = System.Drawing.SystemColors.Control;
@@ -553,7 +555,7 @@
             // 
             // xPanderPanel2
             // 
-            this.xPanderPanel2.CaptionFont = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.xPanderPanel2.CaptionFont = new System.Drawing.Font("Segoe UI", 13F);
             this.xPanderPanel2.Controls.Add(this.pnSeletedRoom);
             this.xPanderPanel2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.xPanderPanel2.CustomColors.BackColor = System.Drawing.SystemColors.Control;

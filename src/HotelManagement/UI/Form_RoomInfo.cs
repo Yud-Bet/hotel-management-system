@@ -162,13 +162,15 @@ namespace HotelManagement.UI
                 tbIDNo.IsEnabled = true;
                 tbPassport.IsEnabled = false;
                 tbPassport.Text = "";
+                tbIDNo.Focus();
             }
             else
             {
                 cbPassport.Checked = true;
                 tbIDNo.IsEnabled = false;
-                tbIDNo.Text = "";
                 tbPassport.IsEnabled = true;
+                tbIDNo.Text = "";
+                tbPassport.Focus();
             }
         }
 
@@ -178,8 +180,9 @@ namespace HotelManagement.UI
             {
                 cbIDNo.Checked = false;
                 tbIDNo.IsEnabled = false;
-                tbIDNo.Text = "";
                 tbPassport.IsEnabled = true;
+                tbIDNo.Text = "";
+                tbPassport.Focus();
             }
             else
             {
@@ -187,6 +190,7 @@ namespace HotelManagement.UI
                 tbIDNo.IsEnabled = true;
                 tbPassport.IsEnabled = false;
                 tbPassport.Text = "";
+                tbIDNo.Focus();
             }
         }
 
