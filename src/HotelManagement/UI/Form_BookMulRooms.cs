@@ -225,6 +225,7 @@ namespace HotelManagement.UI
 
                     tbPassport.Enabled = true;
                     tbPassport.IsEnabled = true;
+                    tbPassport.Focus();
                 }
                 else cbIDNo.Checked = true;
             }
@@ -248,6 +249,7 @@ namespace HotelManagement.UI
 
                     tbIDNo.Enabled = true;
                     tbIDNo.IsEnabled = true;
+                    tbIDNo.Focus();
                 }
                 else cbPassport.Checked = true;
             }
