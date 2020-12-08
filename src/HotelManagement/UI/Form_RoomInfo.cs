@@ -209,9 +209,9 @@ namespace HotelManagement.UI
             int d = DataAccess.CustomerDA.InsertNewBill(0, ParentRef.ParentRef.Username);
             if (b > 0 && c > 0 && d > 0)
             {
-                this.ParentRef.ParentRef._lbNumberOfEmptyRoom.Text = (Convert.ToInt32(this.ParentRef.ParentRef._lbNumberOfEmptyRoom.Text) - 1).ToString();
-                this.ParentRef.ParentRef._lbNumberOfRentedRoom.Text = (Convert.ToInt32(this.ParentRef.ParentRef._lbNumberOfRentedRoom.Text) + 1).ToString();
-                this.ParentRef._RoomStatus = RoomStatus.Rented;
+                ParentRef.ParentRef.Empty = ParentRef.ParentRef.Empty - 1;
+                ParentRef.ParentRef.Rented = ParentRef.ParentRef.Rented + 1;
+                ParentRef._RoomStatus = RoomStatus.Rented;
                 pbArrowBack_Click(sender, e);
             }
             else MessageBox.Show("Lỗi khi đặt phòng");
@@ -321,9 +321,9 @@ namespace HotelManagement.UI
                 //    }
                 //    DataAccess.RoomDA.SetRoomStatus(Convert.ToInt32(data.Rows[i].ItemArray[0]), RoomStatus.Cleaning);
                 //}
-                this.ParentRef.ParentRef._lbNumberOfCleaningRoom.Text = (Convert.ToInt32(this.ParentRef.ParentRef._lbNumberOfCleaningRoom.Text) + 1).ToString();
-                this.ParentRef.ParentRef._lbNumberOfRentedRoom.Text = (Convert.ToInt32(this.ParentRef.ParentRef._lbNumberOfRentedRoom.Text) - 1).ToString();
-                this.ParentRef._RoomStatus = RoomStatus.Cleaning;
+                ParentRef.ParentRef.Cleaning = ParentRef.ParentRef.Cleaning + 1;
+                ParentRef.ParentRef.Rented = ParentRef.ParentRef.Rented - 1;
+                ParentRef._RoomStatus = RoomStatus.Cleaning;
 
             
             pbArrowBack_Click(sender, e);

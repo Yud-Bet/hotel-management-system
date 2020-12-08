@@ -174,8 +174,8 @@ namespace HotelManagement.UI
                 {
                     this._RoomStatus = RoomStatus.Empty;
                     this.ParentRefItemRoom._RoomStatus = RoomStatus.Empty;
-                    this.ParentRefItemRoom.ParentRef._lbNumberOfEmptyRoom.Text = (Convert.ToInt32(this.ParentRefItemRoom.ParentRef._lbNumberOfEmptyRoom.Text) + 1).ToString();
-                    this.ParentRefItemRoom.ParentRef._lbNumberOfCleaningRoom.Text = (Convert.ToInt32(this.ParentRefItemRoom.ParentRef._lbNumberOfCleaningRoom.Text) - 1).ToString();
+                    this.ParentRefItemRoom.ParentRef.Empty = this.ParentRefItemRoom.ParentRef.Empty + 1;
+                    this.ParentRefItemRoom.ParentRef.Cleaning = this.ParentRefItemRoom.ParentRef.Cleaning - 1;
 
                     DataAccess.RoomDA.SetRoomStatus(RoomID, RoomStatus.Empty);
                 }

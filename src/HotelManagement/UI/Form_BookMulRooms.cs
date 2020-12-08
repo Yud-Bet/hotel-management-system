@@ -187,8 +187,8 @@ namespace HotelManagement.UI
 
                     int c = DataAccess.CustomerDA.InsertRoomReservationDetail(0, item._RoomID);
                     item.ParentRefItemRoom._RoomStatus = RoomStatus.Rented;
-                    this.ParentRef._lbNumberOfEmptyRoom.Text = (Convert.ToInt32(this.ParentRef._lbNumberOfEmptyRoom.Text) - 1).ToString();
-                    this.ParentRef._lbNumberOfRentedRoom.Text = (Convert.ToInt32(this.ParentRef._lbNumberOfRentedRoom.Text) + 1).ToString();
+                    ParentRef.Empty = ParentRef.Empty - 1;
+                    ParentRef.Rented = ParentRef.Rented +1;
 
                 }
 

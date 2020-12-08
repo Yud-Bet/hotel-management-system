@@ -7,6 +7,7 @@ namespace HotelManagement.UI
     {
         public string Username;
         public List<Item_Room> listRoom = new List<Item_Room>();
+
         public Form_Room(string Username)
         {
             InitializeComponent();
@@ -32,36 +33,62 @@ namespace HotelManagement.UI
             get { return pnToAddRoom; }
         }
 
-        public Label _lbNumberOfEmptyRoom
+        private int total;
+        private int rented;
+        private int empty;
+        private int repairing;
+        private int cleaning;
+        public int Total
         {
-            get { return lbNumberOfEmptyRoom; }
+            get { return total; }
+            set
+            {
+                total = value;
+                lbNumberOfRoom.Text = total.ToString();
+            }
         }
-
-        public Label _lbNumberOfRentedRoom
+        public int Empty
         {
-            get { return lbNumberOfRentedRoom; }
+            get { return empty; }
+            set
+            {
+                empty = value;
+                lbNumberOfEmptyRoom.Text = empty.ToString();
+            }
         }
-
-        public Label _lbNumberOfRepairingRoom
+        public int Rented
         {
-            get { return lbNumberOfRepairingRoom; }
+            get { return rented; }
+            set
+            {
+                rented = value;
+                lbNumberOfRentedRoom.Text = rented.ToString();
+            }
         }
-
-        public Label _lbNumberOfCleaningRoom
+        public int Cleaning
         {
-            get { return lbNumberOfCleaningRoom; }
+            get { return cleaning; }
+            set
+            {
+                cleaning = value;
+                lbNumberOfCleaningRoom.Text = cleaning.ToString();
+            }
         }
-
-        public Label _lbNumberOfRoom
+        public int Repairing
         {
-            get { return lbNumberOfRoom; }
+            get { return repairing; }
+            set
+            {
+                repairing = value;
+                lbNumberOfRepairingRoom.Text = repairing.ToString();
+            }
         }
 
         #endregion
         private void Load_Data()
         {
             DTO.RoomOverview room = new DTO.RoomOverview();
-            lbNumberOfRoom.Text = room.RoomCount[0].ToString();
+            Total = room.RoomCount[0];
             for (int i = 0; i < room.RoomCount[0]; i++)
             {
                 Item_Room newRoom = new Item_Room(this);
@@ -74,10 +101,10 @@ namespace HotelManagement.UI
                 this.pnToAddRoom.Controls.Add(newRoom);
             }
 
-            lbNumberOfEmptyRoom.Text = room.RoomCount[(int)RoomStatus.Empty].ToString();
-            lbNumberOfRentedRoom.Text = room.RoomCount[(int)RoomStatus.Rented].ToString();
-            lbNumberOfCleaningRoom.Text = room.RoomCount[(int)RoomStatus.Cleaning].ToString();
-            lbNumberOfRepairingRoom.Text = room.RoomCount[(int)RoomStatus.Repairing].ToString();
+            Empty = room.RoomCount[(int)RoomStatus.Empty];
+            Rented = room.RoomCount[(int)RoomStatus.Rented];
+            Cleaning = room.RoomCount[(int)RoomStatus.Cleaning];
+            Repairing = room.RoomCount[(int)RoomStatus.Repairing];
         }
 
         private void btThreeDot_Click(object sender, System.EventArgs e)
