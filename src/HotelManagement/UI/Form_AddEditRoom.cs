@@ -45,9 +45,9 @@ namespace HotelManagement.UI
             if (!checkEmptyValue()) return;
             if (!checkValidityOfValue()) return;
 
-            DataAccess.RoomDA.EditRoomInfo(Convert.ToInt32(tbRoomID.Text), GetValueOfControl.GetRoomType(rbtNor, rbtVip, rbtSingle, rbtDouble),
+            int RowsAffected = DataAccess.RoomDA.EditRoomInfo(Convert.ToInt32(tbRoomID.Text), GetValueOfControl.GetRoomType(rbtNor, rbtVip, rbtSingle, rbtDouble),
                 Convert.ToInt32(tbRoomSize.Text), Convert.ToInt32(tbRoomPrice.Text));
-            DialogResult = DialogResult.OK;
+            if (RowsAffected > 0) DialogResult = DialogResult.OK;
 
             this.Close();
         }

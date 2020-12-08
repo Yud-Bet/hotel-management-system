@@ -1,11 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
 using System.Data;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
 
@@ -13,6 +9,7 @@ namespace HotelManagement.UI
 {
     public partial class Form_BookMulRooms : UserControl
     {
+        bool flag = true;
         List<Item_RoomOfFormBookMulRoom> items = new List<Item_RoomOfFormBookMulRoom>();
         private List<DTO.CustomerOverview> Customers;
         private int ClientID = -1;
@@ -54,8 +51,6 @@ namespace HotelManagement.UI
         private void setCustomerInfoAlreadyExists(string selectedItemName)
         {
             int i;
-            //for (i = 0; i < Customers.Count
-            //    && (selectedItemName != Customers[i].IDNumber && selectedItemName != Customers[i].Passport); i++) {}
             for (i = 0; i < Customers.Count
                 && (selectedItemName != Customers[i].ID.ToString()); i++) { }
             ClientID = Customers[i].ID;
@@ -66,15 +61,13 @@ namespace HotelManagement.UI
             SetValueForControl.SetSex(Customers[i].sex, rbtMale, rbtFemale);
             if (Customers[i].IDNumber.Length != 0)
             {
+                if (!cbIDNo.Checked) cbIDNo.Checked = true;
                 tbIDNo.Text = Customers[i].IDNumber;
             }
             else
             {
+                if (!cbPassport.Checked) cbPassport.Checked = true;
                 tbPassport.Text = Customers[i].Passport;
-                tbIDNo.Enabled = false;
-                cbIDNo.Checked = false;
-                cbPassport.Checked = true;
-                tbPassport.Enabled = true;
             }
             tbCustomerAddress.Text = Customers[i].Addr;
         }
@@ -97,7 +90,6 @@ namespace HotelManagement.UI
             foreach (var i in Customers)
             {
                 string AdditionalInfo = (i.IDNumber.Length != 0) ? i.IDNumber : i.Passport;
-                //string AdditionalInfo = i.ID.ToString();
                 if (i.Name.ToLower().Contains(customerName.ToLower()))
                 {
                     dropDownList1.addItem(i.Name + " | " + AdditionalInfo, i.ID.ToString());
@@ -214,6 +206,52 @@ namespace HotelManagement.UI
             this.ParentRef._lbRoomID.Hide();
             this.ParentRef._pnToAddARoomInfo.Controls.Remove(this);
             this.ParentRef._pnToAddARoomInfo.SendToBack();
+        }
+
+        private void cbPassport_CheckedChanged(object sender, EventArgs e)
+        {
+            if (flag)
+            {
+                if (cbPassport.Checked == true)
+                {
+                    if (cbIDNo.Checked)
+                    {
+                        flag = false;
+                        cbIDNo.Checked = false;
+                    }
+                    tbIDNo.Text = "";
+                    tbIDNo.Enabled = false;
+                    tbIDNo.IsEnabled = false;
+
+                    tbPassport.Enabled = true;
+                    tbPassport.IsEnabled = true;
+                }
+                else cbIDNo.Checked = true;
+            }
+            else flag = true;
+        }
+
+        private void cbIDNo_CheckedChanged(object sender, EventArgs e)
+        {
+            if (flag)
+            {
+                if (cbIDNo.Checked == true)
+                {
+                    if (cbPassport.Checked)
+                    {
+                        flag = false;
+                        cbPassport.Checked = false;
+                    }
+                    tbPassport.Text = "";
+                    tbPassport.Enabled = false;
+                    tbPassport.IsEnabled = false;
+
+                    tbIDNo.Enabled = true;
+                    tbIDNo.IsEnabled = true;
+                }
+                else cbPassport.Checked = true;
+            }
+            else flag = true;
         }
 
         bool checkValidityOfValue()

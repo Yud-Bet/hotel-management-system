@@ -46,7 +46,6 @@
             this.ExitTimer = new System.Windows.Forms.Timer(this.components);
             this.LoginBGWorker = new System.ComponentModel.BackgroundWorker();
             this.StatusLabel = new Zeroit.Framework.MiscControls.ZeroitLabel();
-            this.zeroitPizaroAnim1 = new Zeroit.Framework.Transitions.ZeroitPizaroAnimator.ZeroitPizaroAnim();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPass)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbUser)).BeginInit();
@@ -142,6 +141,7 @@
             this.btLogin.Rounding = true;
             this.btLogin.Shape = Zeroit.Framework.Button.Shapes.Rectangle;
             this.btLogin.ShapeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
+            this.btLogin.ShapePopulate = new Zeroit.Framework.Button.ShapePopulate(Zeroit.Framework.Button.Shapes.Rectangle, System.Drawing.Color.DeepSkyBlue, System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224))))), true, true, false, 3, 12, 12, 12, 12);
             this.btLogin.ShowText = true;
             this.btLogin.Size = new System.Drawing.Size(163, 61);
             this.btLogin.StartAngle = 0F;
@@ -180,6 +180,7 @@
             this.btExit.Rounding = true;
             this.btExit.Shape = Zeroit.Framework.Button.Shapes.Rectangle;
             this.btExit.ShapeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
+            this.btExit.ShapePopulate = new Zeroit.Framework.Button.ShapePopulate(Zeroit.Framework.Button.Shapes.Rectangle, System.Drawing.Color.DeepSkyBlue, System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224))))), true, true, false, 10, 8, 8, 8, 8);
             this.btExit.ShowText = true;
             this.btExit.Size = new System.Drawing.Size(164, 61);
             this.btExit.StartAngle = 0F;
@@ -254,27 +255,6 @@
             this.StatusLabel.Size = new System.Drawing.Size(0, 19);
             this.StatusLabel.TabIndex = 6;
             // 
-            // zeroitPizaroAnim1
-            // 
-            this.zeroitPizaroAnim1.Acceleration = 0.7F;
-            this.zeroitPizaroAnim1.AnimationType = Zeroit.Framework.Transitions.ZeroitPizaroAnimator.ZeroitPizaroAnim.animationType.Slide;
-            this.zeroitPizaroAnim1.ControlStyles = System.Windows.Forms.ControlStyles.DoubleBuffer;
-            this.zeroitPizaroAnim1.ControlStylesBool = false;
-            this.zeroitPizaroAnim1.CordinateEnd_X = 0F;
-            this.zeroitPizaroAnim1.CordinateEnd_Y = 0F;
-            this.zeroitPizaroAnim1.CordinateStart_X = 60F;
-            this.zeroitPizaroAnim1.CordinateStart_Y = 0F;
-            this.zeroitPizaroAnim1.Duration = 300;
-            this.zeroitPizaroAnim1.EasingEnd = 1F;
-            this.zeroitPizaroAnim1.EasingNames = Zeroit.Framework.Transitions.ZeroitPizaroAnimator.ZeroitPizaroAnim.easingNames.Linear;
-            this.zeroitPizaroAnim1.EasingStart = 0.2F;
-            this.zeroitPizaroAnim1.Fade_Begin = 0F;
-            this.zeroitPizaroAnim1.Fade_Limit = 1F;
-            this.zeroitPizaroAnim1.ResizeHeight_Begin = 10F;
-            this.zeroitPizaroAnim1.ResizeHeight_Limit = 50F;
-            this.zeroitPizaroAnim1.ResizeWidth_Begin = 10F;
-            this.zeroitPizaroAnim1.ResizeWidth_Limit = 50F;
-            // 
             // Form_Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -323,6 +303,5 @@
         private System.Windows.Forms.Timer ExitTimer;
         private System.ComponentModel.BackgroundWorker LoginBGWorker;
         private Zeroit.Framework.MiscControls.ZeroitLabel StatusLabel;
-        private Zeroit.Framework.Transitions.ZeroitPizaroAnimator.ZeroitPizaroAnim zeroitPizaroAnim1;
     }
 }
