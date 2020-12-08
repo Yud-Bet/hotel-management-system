@@ -110,7 +110,7 @@ namespace HotelManagement.UI
         {
             foreach(var i in ParentRef.listRoom)
             {
-                if((int)i._RoomStatus==1 || (int)i._RoomStatus == 3)
+                if(i._RoomStatus == RoomStatus.Empty || i._RoomStatus == RoomStatus.Cleaning)
                 {
                     Item_RoomOfFormBookMulRoom newItem = new Item_RoomOfFormBookMulRoom(i, this);
                     items.Add(newItem);

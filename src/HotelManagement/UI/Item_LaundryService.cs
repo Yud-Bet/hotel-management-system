@@ -25,6 +25,12 @@ namespace HotelManagement.UI
             {
                 this._count = 1;
             }
+
+            if (tbCount.Text == "0")
+            {
+                this.parent._pnItem.Controls.Remove(this);
+                return;
+            }
         }
 
         #region properties

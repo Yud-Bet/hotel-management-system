@@ -30,9 +30,12 @@
         {
             this.components = new System.ComponentModel.Container();
             this.animBookMulRooms = new Zeroit.Framework.Transitions.ZeroitPizaroAnimator.ZeroitPizaroAnim();
+            this.btBookMultipleRooms = new System.Windows.Forms.PictureBox();
             this.animAddRoom = new Zeroit.Framework.Transitions.ZeroitPizaroAnimator.ZeroitPizaroAnim();
+            this.btAddRoom = new System.Windows.Forms.PictureBox();
             this.animPbSearch = new Zeroit.Framework.Transitions.ZeroitPizaroAnimator.ZeroitPizaroAnim();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.pbSearch = new System.Windows.Forms.PictureBox();
+            this.timerHide2SubBt = new System.Windows.Forms.Timer(this.components);
             this.pnToAddARoomInfo = new System.Windows.Forms.Panel();
             this.lbTitle = new System.Windows.Forms.Label();
             this.lbRoomID = new System.Windows.Forms.Label();
@@ -55,23 +58,23 @@
             this.lbNumberOfRepairingRoom = new System.Windows.Forms.Label();
             this.pnToAddRoom = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.pbSearch = new System.Windows.Forms.PictureBox();
+            this.btThreeDot = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.btThreeDot = new System.Windows.Forms.PictureBox();
-            this.btBookMultipleRooms = new System.Windows.Forms.PictureBox();
-            this.btAddRoom = new System.Windows.Forms.PictureBox();
-            this.panel1.SuspendLayout();
+            this.tbSearch = new Zeroit.Framework.Labels.ZeroitUltraTextBox();
+            this.animTbSearch = new Zeroit.Framework.Transitions.ZeroitPizaroAnimator.ZeroitPizaroAnim();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            ((System.ComponentModel.ISupportInitialize)(this.btBookMultipleRooms)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btAddRoom)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbSearch)).BeginInit();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btThreeDot)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btThreeDot)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btBookMultipleRooms)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btAddRoom)).BeginInit();
             this.SuspendLayout();
             // 
             // animBookMulRooms
@@ -96,6 +99,19 @@
             this.animBookMulRooms.ResizeWidth_Begin = 10F;
             this.animBookMulRooms.ResizeWidth_Limit = 50F;
             // 
+            // btBookMultipleRooms
+            // 
+            this.btBookMultipleRooms.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
+            this.btBookMultipleRooms.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btBookMultipleRooms.Image = global::HotelManagement.Properties.Resources.icBookMulRoom;
+            this.btBookMultipleRooms.Location = new System.Drawing.Point(44, 94);
+            this.btBookMultipleRooms.Name = "btBookMultipleRooms";
+            this.btBookMultipleRooms.Size = new System.Drawing.Size(37, 37);
+            this.btBookMultipleRooms.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btBookMultipleRooms.TabIndex = 27;
+            this.btBookMultipleRooms.TabStop = false;
+            this.btBookMultipleRooms.Click += new System.EventHandler(this.btBookMultipleRooms_Click);
+            // 
             // animAddRoom
             // 
             this.animAddRoom.Acceleration = 0.7F;
@@ -117,6 +133,19 @@
             this.animAddRoom.ResizeHeight_Limit = 50F;
             this.animAddRoom.ResizeWidth_Begin = 10F;
             this.animAddRoom.ResizeWidth_Limit = 50F;
+            // 
+            // btAddRoom
+            // 
+            this.btAddRoom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
+            this.btAddRoom.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btAddRoom.Image = global::HotelManagement.Properties.Resources.icAddRoom2;
+            this.btAddRoom.Location = new System.Drawing.Point(44, 94);
+            this.btAddRoom.Name = "btAddRoom";
+            this.btAddRoom.Size = new System.Drawing.Size(37, 37);
+            this.btAddRoom.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btAddRoom.TabIndex = 27;
+            this.btAddRoom.TabStop = false;
+            this.btAddRoom.Click += new System.EventHandler(this.btAddRoom_Click);
             // 
             // animPbSearch
             // 
@@ -140,10 +169,20 @@
             this.animPbSearch.ResizeWidth_Begin = 10F;
             this.animPbSearch.ResizeWidth_Limit = 50F;
             // 
-            // timer1
+            // pbSearch
             // 
-            this.timer1.Interval = 250;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            this.pbSearch.Image = global::HotelManagement.Properties.Resources.icSearch;
+            this.pbSearch.Location = new System.Drawing.Point(90, 98);
+            this.pbSearch.Name = "pbSearch";
+            this.pbSearch.Size = new System.Drawing.Size(35, 32);
+            this.pbSearch.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbSearch.TabIndex = 9;
+            this.pbSearch.TabStop = false;
+            // 
+            // timerHide2SubBt
+            // 
+            this.timerHide2SubBt.Interval = 250;
+            this.timerHide2SubBt.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // pnToAddARoomInfo
             // 
@@ -424,21 +463,26 @@
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.lbRoomID);
+            this.panel1.Controls.Add(this.flowLayoutPanel1);
             this.panel1.Controls.Add(this.lbTitle);
+            this.panel1.Controls.Add(this.tbSearch);
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(968, 665);
             this.panel1.TabIndex = 1;
             // 
-            // pbSearch
+            // btThreeDot
             // 
-            this.pbSearch.Image = global::HotelManagement.Properties.Resources.icSearch;
-            this.pbSearch.Location = new System.Drawing.Point(90, 98);
-            this.pbSearch.Name = "pbSearch";
-            this.pbSearch.Size = new System.Drawing.Size(35, 32);
-            this.pbSearch.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbSearch.TabIndex = 9;
-            this.pbSearch.TabStop = false;
+            this.btThreeDot.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
+            this.btThreeDot.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btThreeDot.Image = global::HotelManagement.Properties.Resources.icThreeDot;
+            this.btThreeDot.Location = new System.Drawing.Point(44, 94);
+            this.btThreeDot.Name = "btThreeDot";
+            this.btThreeDot.Size = new System.Drawing.Size(37, 37);
+            this.btThreeDot.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btThreeDot.TabIndex = 27;
+            this.btThreeDot.TabStop = false;
+            this.btThreeDot.Click += new System.EventHandler(this.btThreeDot_Click);
             // 
             // pictureBox5
             // 
@@ -484,44 +528,59 @@
             this.pictureBox2.TabIndex = 12;
             this.pictureBox2.TabStop = false;
             // 
-            // btThreeDot
+            // tbSearch
             // 
-            this.btThreeDot.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
-            this.btThreeDot.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btThreeDot.Image = global::HotelManagement.Properties.Resources.icThreeDot;
-            this.btThreeDot.Location = new System.Drawing.Point(44, 94);
-            this.btThreeDot.Name = "btThreeDot";
-            this.btThreeDot.Size = new System.Drawing.Size(37, 37);
-            this.btThreeDot.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btThreeDot.TabIndex = 27;
-            this.btThreeDot.TabStop = false;
-            this.btThreeDot.Click += new System.EventHandler(this.btThreeDot_Click);
+            this.tbSearch.DisabledStringColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(187)))), ((int)(((byte)(189)))));
+            this.tbSearch.DisabledUnFocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(236)))), ((int)(((byte)(238)))));
+            this.tbSearch.EnabledUnFocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
+            this.tbSearch.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(142)))), ((int)(((byte)(245)))));
+            this.tbSearch.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.tbSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
+            this.tbSearch.IsEnabled = true;
+            this.tbSearch.Location = new System.Drawing.Point(130, 105);
+            this.tbSearch.MaxLength = 32767;
+            this.tbSearch.Multiline = false;
+            this.tbSearch.Name = "tbSearch";
+            this.tbSearch.PasswordChar = '\0';
+            this.tbSearch.Placeholder = true;
+            this.tbSearch.PlaceHolderText = "Tìm kiếm";
+            this.tbSearch.PlaceHolderTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
+            this.tbSearch.ReadOnly = false;
+            this.tbSearch.Size = new System.Drawing.Size(183, 24);
+            this.tbSearch.TabIndex = 28;
+            this.tbSearch.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left;
+            this.tbSearch.TextBackgroundColor = System.Drawing.SystemColors.Control;
+            this.tbSearch.UseSystemPasswordChar = false;
+            this.tbSearch.WordWrap = true;
             // 
-            // btBookMultipleRooms
+            // animTbSearch
             // 
-            this.btBookMultipleRooms.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
-            this.btBookMultipleRooms.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btBookMultipleRooms.Image = global::HotelManagement.Properties.Resources.icBookMulRoom;
-            this.btBookMultipleRooms.Location = new System.Drawing.Point(44, 94);
-            this.btBookMultipleRooms.Name = "btBookMultipleRooms";
-            this.btBookMultipleRooms.Size = new System.Drawing.Size(37, 37);
-            this.btBookMultipleRooms.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btBookMultipleRooms.TabIndex = 27;
-            this.btBookMultipleRooms.TabStop = false;
-            this.btBookMultipleRooms.Click += new System.EventHandler(this.btBookMultipleRooms_Click);
+            this.animTbSearch.Acceleration = 0.7F;
+            this.animTbSearch.AnimationType = Zeroit.Framework.Transitions.ZeroitPizaroAnimator.ZeroitPizaroAnim.animationType.Slide;
+            this.animTbSearch.Control = this.tbSearch;
+            this.animTbSearch.ControlStyles = System.Windows.Forms.ControlStyles.DoubleBuffer;
+            this.animTbSearch.ControlStylesBool = false;
+            this.animTbSearch.CordinateEnd_X = 130F;
+            this.animTbSearch.CordinateEnd_Y = 105F;
+            this.animTbSearch.CordinateStart_X = 242F;
+            this.animTbSearch.CordinateStart_Y = 105F;
+            this.animTbSearch.Duration = 250;
+            this.animTbSearch.EasingEnd = 1F;
+            this.animTbSearch.EasingNames = Zeroit.Framework.Transitions.ZeroitPizaroAnimator.ZeroitPizaroAnim.easingNames.Linear;
+            this.animTbSearch.EasingStart = 0.2F;
+            this.animTbSearch.Fade_Begin = 0F;
+            this.animTbSearch.Fade_Limit = 1F;
+            this.animTbSearch.ResizeHeight_Begin = 10F;
+            this.animTbSearch.ResizeHeight_Limit = 50F;
+            this.animTbSearch.ResizeWidth_Begin = 10F;
+            this.animTbSearch.ResizeWidth_Limit = 50F;
             // 
-            // btAddRoom
+            // flowLayoutPanel1
             // 
-            this.btAddRoom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
-            this.btAddRoom.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btAddRoom.Image = global::HotelManagement.Properties.Resources.icAddRoom2;
-            this.btAddRoom.Location = new System.Drawing.Point(44, 94);
-            this.btAddRoom.Name = "btAddRoom";
-            this.btAddRoom.Size = new System.Drawing.Size(37, 37);
-            this.btAddRoom.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btAddRoom.TabIndex = 27;
-            this.btAddRoom.TabStop = false;
-            this.btAddRoom.Click += new System.EventHandler(this.btAddRoom_Click);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(319, 82);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(200, 49);
+            this.flowLayoutPanel1.TabIndex = 30;
             // 
             // Form_Room
             // 
@@ -531,16 +590,16 @@
             this.Controls.Add(this.pnToAddARoomInfo);
             this.Name = "Form_Room";
             this.Size = new System.Drawing.Size(968, 666);
+            ((System.ComponentModel.ISupportInitialize)(this.btBookMultipleRooms)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btAddRoom)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSearch)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbSearch)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btThreeDot)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btThreeDot)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btBookMultipleRooms)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btAddRoom)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -549,7 +608,7 @@
         private Zeroit.Framework.Transitions.ZeroitPizaroAnimator.ZeroitPizaroAnim animBookMulRooms;
         private Zeroit.Framework.Transitions.ZeroitPizaroAnimator.ZeroitPizaroAnim animAddRoom;
         private Zeroit.Framework.Transitions.ZeroitPizaroAnimator.ZeroitPizaroAnim animPbSearch;
-        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Timer timerHide2SubBt;
         private System.Windows.Forms.PictureBox pbSearch;
         private System.Windows.Forms.Panel pnToAddARoomInfo;
         private System.Windows.Forms.Label lbTitle;
@@ -580,5 +639,8 @@
         private System.Windows.Forms.PictureBox btThreeDot;
         private System.Windows.Forms.PictureBox btBookMultipleRooms;
         private System.Windows.Forms.PictureBox btAddRoom;
+        private Zeroit.Framework.Labels.ZeroitUltraTextBox tbSearch;
+        private Zeroit.Framework.Transitions.ZeroitPizaroAnimator.ZeroitPizaroAnim animTbSearch;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
     }
 }

@@ -13,7 +13,7 @@ namespace HotelManagement.UI
             InitializeComponent();
             this.Username = Username;
             LoadStaffInfo();
-
+            this.DoubleBuffered = true;
         }
 
         private bool isChoosebtRoom = false, isChoosebtService = false, isChoosebtReport = false, isChoosebtManage = false,

@@ -14,6 +14,7 @@ namespace HotelManagement.UI
             this.Dock = DockStyle.Fill;
             this.Username = Username;
             lbRoomID.Hide();
+            this.DoubleBuffered = true;
         }
         #region Properties
         public Label _lbRoomID
@@ -86,13 +87,16 @@ namespace HotelManagement.UI
                 animBookMulRooms.Activate();
                 animAddRoom.Activate();
                 animPbSearch.Activate();
-                timer1.Start();
+                animTbSearch.Activate();
+                timerHide2SubBt.Start();
                 animBookMulRooms.CordinateEnd_X = 44;
                 animBookMulRooms.CordinateStart_X = 100;
                 animAddRoom.CordinateEnd_X = 44;
                 animAddRoom.CordinateStart_X = 156;
                 animPbSearch.CordinateEnd_X = 90;
                 animPbSearch.CordinateStart_X = 202;
+                animTbSearch.CordinateEnd_X = 130;
+                animTbSearch.CordinateStart_X = 242;
             }
             else
             {
@@ -101,18 +105,21 @@ namespace HotelManagement.UI
                 animBookMulRooms.Activate();
                 animAddRoom.Activate();
                 animPbSearch.Activate();
+                animTbSearch.Activate();
                 animBookMulRooms.CordinateEnd_X = 100;
                 animBookMulRooms.CordinateStart_X = 40;
                 animAddRoom.CordinateEnd_X = 156;
                 animAddRoom.CordinateStart_X = 38;
                 animPbSearch.CordinateEnd_X = 202;
                 animPbSearch.CordinateStart_X = 82;
+                animTbSearch.CordinateEnd_X = 242;
+                animTbSearch.CordinateStart_X = 122;
             }
         }
 
         private void timer1_Tick(object sender, System.EventArgs e)
         {
-            timer1.Stop();
+            timerHide2SubBt.Stop();
             btAddRoom.Hide();
             btBookMultipleRooms.Hide();
         }

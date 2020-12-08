@@ -59,6 +59,11 @@ namespace HotelManagement.UI
             }
         }
 
+        public FlowLayoutPanel _pnItem
+        {
+            get { return pnItem; }
+        }
+
         #endregion
         private void Init_cbRoomSelection()
         {

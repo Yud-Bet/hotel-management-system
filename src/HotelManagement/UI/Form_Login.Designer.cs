@@ -123,6 +123,7 @@
             this.btLogin.ClickOffset = 0;
             this.btLogin.ClickSpeed = 1;
             this.btLogin.ColorShape = true;
+            this.btLogin.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btLogin.Curve = 3;
             this.btLogin.DownLeftCurve = 12;
             this.btLogin.DownRightCurve = 12;
@@ -162,6 +163,7 @@
             this.btExit.ClickOffset = 0;
             this.btExit.ClickSpeed = 1;
             this.btExit.ColorShape = true;
+            this.btExit.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btExit.Curve = 10;
             this.btExit.DownLeftCurve = 8;
             this.btExit.DownRightCurve = 8;

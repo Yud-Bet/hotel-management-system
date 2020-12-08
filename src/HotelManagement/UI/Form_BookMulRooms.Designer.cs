@@ -510,7 +510,7 @@ namespace HotelManagement.UI
             // 
             // xPanderPanel1
             // 
-            this.xPanderPanel1.CaptionFont = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.xPanderPanel1.CaptionFont = new System.Drawing.Font("Segoe UI", 13F);
             this.xPanderPanel1.Controls.Add(this.pnToSelectRoom);
             this.xPanderPanel1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.xPanderPanel1.CustomColors.BackColor = System.Drawing.SystemColors.Control;
@@ -558,7 +558,7 @@ namespace HotelManagement.UI
             // 
             // xPanderPanel2
             // 
-            this.xPanderPanel2.CaptionFont = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.xPanderPanel2.CaptionFont = new System.Drawing.Font("Segoe UI", 13F);
             this.xPanderPanel2.Controls.Add(this.pnSeletedRoom);
             this.xPanderPanel2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.xPanderPanel2.CustomColors.BackColor = System.Drawing.SystemColors.Control;
