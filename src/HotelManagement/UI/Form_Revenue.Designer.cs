@@ -33,6 +33,7 @@
             this.lbTitle = new System.Windows.Forms.Label();
             this.cbTypeOfRevenue = new MetroFramework.Controls.MetroComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btExportExcel = new XanderUI.XUIButton();
             this.dtEnd = new MetroFramework.Controls.MetroDateTime();
             this.dtStart = new MetroFramework.Controls.MetroDateTime();
             this.label3 = new System.Windows.Forms.Label();
@@ -46,7 +47,6 @@
             this.barChart = new LiveCharts.WinForms.CartesianChart();
             this.label4 = new System.Windows.Forms.Label();
             this.lbTotalRevenue = new System.Windows.Forms.Label();
-            this.btExportExcel = new XanderUI.XUIButton();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -101,6 +101,29 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(284, 219);
             this.panel1.TabIndex = 9;
+            // 
+            // btExportExcel
+            // 
+            this.btExportExcel.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
+            this.btExportExcel.ButtonImage = ((System.Drawing.Image)(resources.GetObject("btExportExcel.ButtonImage")));
+            this.btExportExcel.ButtonStyle = XanderUI.XUIButton.Style.MaterialRounded;
+            this.btExportExcel.ButtonText = "Xuất File";
+            this.btExportExcel.ClickBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(130)))), ((int)(((byte)(200)))));
+            this.btExportExcel.ClickTextColor = System.Drawing.Color.White;
+            this.btExportExcel.CornerRadius = 5;
+            this.btExportExcel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btExportExcel.Font = new System.Drawing.Font("Segoe UI", 14F);
+            this.btExportExcel.Horizontal_Alignment = System.Drawing.StringAlignment.Near;
+            this.btExportExcel.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
+            this.btExportExcel.HoverTextColor = System.Drawing.Color.White;
+            this.btExportExcel.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
+            this.btExportExcel.Location = new System.Drawing.Point(8, 152);
+            this.btExportExcel.Name = "btExportExcel";
+            this.btExportExcel.Size = new System.Drawing.Size(131, 50);
+            this.btExportExcel.TabIndex = 17;
+            this.btExportExcel.TextColor = System.Drawing.Color.White;
+            this.btExportExcel.Vertical_Alignment = System.Drawing.StringAlignment.Center;
+            this.btExportExcel.Click += new System.EventHandler(this.btExportExcel_Click);
             // 
             // dtEnd
             // 
@@ -231,28 +254,6 @@
             this.lbTotalRevenue.Size = new System.Drawing.Size(22, 25);
             this.lbTotalRevenue.TabIndex = 9;
             this.lbTotalRevenue.Text = "0";
-            // 
-            // btExportExcel
-            // 
-            this.btExportExcel.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
-            this.btExportExcel.ButtonImage = ((System.Drawing.Image)(resources.GetObject("btExportExcel.ButtonImage")));
-            this.btExportExcel.ButtonStyle = XanderUI.XUIButton.Style.MaterialRounded;
-            this.btExportExcel.ButtonText = "Xuất File";
-            this.btExportExcel.ClickBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(130)))), ((int)(((byte)(200)))));
-            this.btExportExcel.ClickTextColor = System.Drawing.Color.White;
-            this.btExportExcel.CornerRadius = 5;
-            this.btExportExcel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btExportExcel.Font = new System.Drawing.Font("Segoe UI", 14F);
-            this.btExportExcel.Horizontal_Alignment = System.Drawing.StringAlignment.Near;
-            this.btExportExcel.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
-            this.btExportExcel.HoverTextColor = System.Drawing.Color.White;
-            this.btExportExcel.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
-            this.btExportExcel.Location = new System.Drawing.Point(8, 152);
-            this.btExportExcel.Name = "btExportExcel";
-            this.btExportExcel.Size = new System.Drawing.Size(131, 50);
-            this.btExportExcel.TabIndex = 17;
-            this.btExportExcel.TextColor = System.Drawing.Color.White;
-            this.btExportExcel.Vertical_Alignment = System.Drawing.StringAlignment.Center;
             // 
             // Form_Revenue
             // 

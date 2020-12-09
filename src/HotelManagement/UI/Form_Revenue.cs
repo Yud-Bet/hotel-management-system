@@ -129,12 +129,12 @@ namespace HotelManagement.UI
                 case RevenueType.QuarterRevenue:
                     while (DateTime.Compare(start.Date, end.Date) != 1)
                     {
-                        listDate.Add(Math.Ceiling((float)start.Month / 3).ToString() + "/" + start.Year.ToString());
+                        listDate.Add(Math.Ceiling((float)start.Month / 3).ToString() + " . " + start.Year.ToString());
                         start = start.Date.AddMonths(3);
                     }
-                    if (listDate[listDate.Count - 1] != Math.Ceiling((float)end.Month / 3).ToString() + "/" + end.Year.ToString())
+                    if (listDate[listDate.Count - 1] != Math.Ceiling((float)end.Month / 3).ToString() + " . " + end.Year.ToString())
                     {
-                        listDate.Add(Math.Ceiling((float)end.Month / 3).ToString() + "/" + end.Year.ToString());
+                        listDate.Add(Math.Ceiling((float)end.Month / 3).ToString() + " . " + end.Year.ToString());
                     }
                     break;
                 case RevenueType.YearRevenue:
@@ -214,6 +214,15 @@ namespace HotelManagement.UI
             lbDate.Text = listDate[0];
             lbRevenueValue.Text = listRevenue[0].ToString("C", cul.NumberFormat);
             lbTotalRevenue.Text = sum.ToString("C", cul.NumberFormat);
+        }
+
+        private void btExportExcel_Click(object sender, EventArgs e)
+        {
+            if (listDate.Count > 0)
+            {
+                (new exportExcel()).exportRevenue("Lê Trung Hiếu", (RevenueType)(cbTypeOfRevenue.SelectedIndex + 1), listDate, listRoomRevenue,
+                    listEatServiceRevenue, listLaudryServiceRevenue);
+            }
         }
     }
 }
