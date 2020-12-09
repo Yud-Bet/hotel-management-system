@@ -4,6 +4,7 @@ using System.Data;
 using System.Linq;
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 
 namespace HotelManagement.UI
 {
@@ -20,7 +21,6 @@ namespace HotelManagement.UI
             ParentRef = parentRef;
             loadData();
 
-            LoadAllCustomer();
             dropDownList1.Hide();
             dropDownList1.ChooseItem += delegate
             {
@@ -28,10 +28,10 @@ namespace HotelManagement.UI
             };
         }
 
-        private void LoadAllCustomer()
+        private async Task LoadAllCustomer()
         {
             Customers = new List<DTO.CustomerOverview>();
-            DataTable data = DataAccess.ExecuteQuery.ExecuteReader("QLKS_GetAllCustomerInfo");
+            DataTable data = await Task.Run(() => DataAccess.ExecuteQuery.ExecuteReader("QLKS_GetAllCustomerInfo"));
             for (int i = 0; i < data.Rows.Count; i++)
             {
                 var item = new DTO.CustomerOverview();
@@ -254,6 +254,11 @@ namespace HotelManagement.UI
                 else cbPassport.Checked = true;
             }
             else flag = true;
+        }
+
+        private async void Form_BookMulRooms_Load(object sender, EventArgs e)
+        {
+            await LoadAllCustomer();
         }
 
         bool checkValidityOfValue()

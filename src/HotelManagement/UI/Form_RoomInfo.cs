@@ -98,8 +98,8 @@ namespace HotelManagement.UI
             }
 
             DTO.RoomDetail room = new DTO.RoomDetail(RoomID);
-            tbRoomsize.Text = room.Size;
-            tbRoomPrice.Text = room.Price;
+            tbRoomsize.Text = room.Size.ToString();
+            tbRoomPrice.Text = room.Price.ToString();
             SetValueForControl.SetRoomType(room.Type, rbtNor, rbtVip, rbtSingle, rbtDouble);
 
             if (this.ParentRef._RoomStatus == RoomStatus.Rented)
@@ -366,23 +366,27 @@ namespace HotelManagement.UI
                 try
                 {
                     IsProcessing = true;
-                    Form_AddEditRoom form_AddEditRoom = new Form_AddEditRoom(RoomID);
+                    StatusLabel.Text = "Đang xử lí...";
+                    DTO.RoomDetail room = await Task.Run(() => new DTO.RoomDetail(RoomID));
+                    Form_AddEditRoom form_AddEditRoom = new Form_AddEditRoom(room);
                     form_AddEditRoom._btAdd.Hide();
                     if (form_AddEditRoom.ShowDialog() == DialogResult.OK)
                     {
-                        DTO.RoomDetail room = await Task.Run(() => new DTO.RoomDetail(RoomID));
-                        tbRoomsize.Text = room.Size;
-                        tbRoomPrice.Text = room.Price;
-                        SetValueForControl.SetRoomType(room.Type, rbtNor, rbtVip, rbtSingle, rbtDouble);
+                        tbRoomsize.Text = form_AddEditRoom.RoomSize.ToString();
+                        tbRoomPrice.Text = form_AddEditRoom.Price.ToString();
+                        SetValueForControl.SetRoomType(form_AddEditRoom.Type, rbtNor, rbtVip, rbtSingle, rbtDouble);
                     }
+                    StatusLabel.Text = "";
                 }
                 catch (System.Data.SqlClient.SqlException)
                 {
                     MessageBox.Show("Lỗi khi kết nối đến server!", "Lỗi");
+                    StatusLabel.Text = "Không thể lấy thông tin phòng...";
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
+                    StatusLabel.Text = "Không thể lấy thông tin phòng...";
                 }
                 finally
                 {

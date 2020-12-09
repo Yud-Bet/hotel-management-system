@@ -73,6 +73,7 @@ namespace HotelManagement.UI
             this.label16 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
+            this.StatusLabel = new Zeroit.Framework.MiscControls.ZeroitLabel();
             ((System.ComponentModel.ISupportInitialize)(this.pbArrowBack)).BeginInit();
             this.pnCustomerInfo.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -738,16 +739,29 @@ namespace HotelManagement.UI
             this.panel7.Size = new System.Drawing.Size(300, 3);
             this.panel7.TabIndex = 3;
             // 
+            // StatusLabel
+            // 
+            this.StatusLabel.AutoSize = true;
+            this.StatusLabel.BackColor = System.Drawing.Color.Transparent;
+            this.StatusLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.2F);
+            this.StatusLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(142)))), ((int)(((byte)(142)))));
+            this.StatusLabel.Location = new System.Drawing.Point(11, 547);
+            this.StatusLabel.Name = "StatusLabel";
+            this.StatusLabel.Size = new System.Drawing.Size(0, 13);
+            this.StatusLabel.TabIndex = 30;
+            // 
             // Form_BookMulRooms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.StatusLabel);
             this.Controls.Add(this.pnBookingInfo);
             this.Controls.Add(this.pnToBookRoom);
             this.Controls.Add(this.pnCustomerInfo);
             this.Controls.Add(this.pbArrowBack);
             this.Name = "Form_BookMulRooms";
             this.Size = new System.Drawing.Size(968, 575);
+            this.Load += new System.EventHandler(this.Form_BookMulRooms_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbArrowBack)).EndInit();
             this.pnCustomerInfo.ResumeLayout(false);
             this.pnCustomerInfo.PerformLayout();
@@ -761,6 +775,7 @@ namespace HotelManagement.UI
             this.pnBookingInfo.ResumeLayout(false);
             this.pnBookingInfo.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -808,5 +823,6 @@ namespace HotelManagement.UI
         private System.Windows.Forms.FlowLayoutPanel pnToSelectRoom;
         private Zeroit.Framework.MiscControls.XPanderPanel xPanderPanel2;
         private System.Windows.Forms.FlowLayoutPanel pnSeletedRoom;
+        private Zeroit.Framework.MiscControls.ZeroitLabel StatusLabel;
     }
 }

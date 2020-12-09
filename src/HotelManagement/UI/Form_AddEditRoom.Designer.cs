@@ -165,6 +165,7 @@
             // 
             this.tbRoomID.DisabledStringColor = System.Drawing.Color.Black;
             this.tbRoomID.DisabledUnFocusedColor = System.Drawing.Color.Silver;
+            this.tbRoomID.Enabled = false;
             this.tbRoomID.EnabledUnFocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.tbRoomID.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
             this.tbRoomID.Font = new System.Drawing.Font("Segoe UI", 11F);
@@ -410,7 +411,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(547, 319);
             this.Controls.Add(this.panel4);
+            this.MaximumSize = new System.Drawing.Size(547, 319);
+            this.Movable = false;
             this.Name = "Form_AddEditRoom";
+            this.Resizable = false;
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);

@@ -334,6 +334,7 @@
             this.cbPassport.Size = new System.Drawing.Size(27, 23);
             this.cbPassport.TabIndex = 0;
             this.cbPassport.TabStop = false;
+            this.cbPassport.CheckedChanged += cbPassport_CheckedChanged;
             // 
             // cbIDNo
             // 
@@ -350,6 +351,7 @@
             this.cbIDNo.Size = new System.Drawing.Size(27, 23);
             this.cbIDNo.TabIndex = 0;
             this.cbIDNo.TabStop = false;
+            this.cbIDNo.CheckedChanged += cbIDNo_CheckedChanged;
             // 
             // flowLayoutPanel1
             // 
