@@ -42,4 +42,12 @@ namespace HotelManagement
         Eating = 1,
         Laundry = 2
     }
+
+    public enum RevenueType
+    {
+        DateRevenue = 1,
+        MonthRevenue = 2,
+        QuarterRevenue = 3,
+        YearRevenue = 4,
+    }
 }

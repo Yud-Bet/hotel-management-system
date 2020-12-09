@@ -357,6 +357,9 @@ namespace HotelManagement.UI
                 resetReportSubmenu();
                 isChoosebtRevenue = true;
                 setStatus(pbRevenue, lbRevenue, Resources.icRevenue2, true);
+
+                panel4.Controls.Clear();
+                panel4.Controls.Add(new Form_Revenue());
             }
         }
 
