@@ -148,10 +148,10 @@ namespace HotelManagement.UI
             drawBill.drawBillHeader();
             drawBill.drawServiceInfo();
             int TotalMoney = 0;
-            for (int i = 0; i < svc.services.Count; i++)
+            for (int i = 0; i < svc.items.Count; i++)
             {
-                drawBill.drawItem(svc.services[i].Name, svc.services[i].Count, svc.services[i].Price, svc.services[i].IntoMoney);
-                TotalMoney += svc.services[i].Count * svc.services[i].Price;
+                drawBill.drawItem(svc.items[i].Name, svc.items[i].Count, svc.items[i].Price, svc.items[i].IntoMoney);
+                TotalMoney += svc.items[i].Count * svc.items[i].Price;
             }
             DTO.StaffOverview staff = new DTO.StaffOverview(Username);
             drawBill.drawEndOfBill(staff.Name, TotalMoney, 0);
