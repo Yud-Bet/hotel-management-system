@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Revenue));
             this.panel2 = new System.Windows.Forms.Panel();
             this.lbTitle = new System.Windows.Forms.Label();
             this.cbTypeOfRevenue = new MetroFramework.Controls.MetroComboBox();
@@ -44,7 +45,8 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.barChart = new LiveCharts.WinForms.CartesianChart();
             this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.lbTotalRevenue = new System.Windows.Forms.Label();
+            this.btExportExcel = new XanderUI.XUIButton();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -78,7 +80,7 @@
             "Tháng",
             "Quý",
             "Năm"});
-            this.cbTypeOfRevenue.Location = new System.Drawing.Point(128, 7);
+            this.cbTypeOfRevenue.Location = new System.Drawing.Point(128, 24);
             this.cbTypeOfRevenue.Name = "cbTypeOfRevenue";
             this.cbTypeOfRevenue.Size = new System.Drawing.Size(144, 29);
             this.cbTypeOfRevenue.TabIndex = 8;
@@ -88,6 +90,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this.panel1.Controls.Add(this.btExportExcel);
             this.panel1.Controls.Add(this.dtEnd);
             this.panel1.Controls.Add(this.dtStart);
             this.panel1.Controls.Add(this.label3);
@@ -102,7 +105,7 @@
             // dtEnd
             // 
             this.dtEnd.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtEnd.Location = new System.Drawing.Point(128, 91);
+            this.dtEnd.Location = new System.Drawing.Point(128, 108);
             this.dtEnd.MinimumSize = new System.Drawing.Size(0, 29);
             this.dtEnd.Name = "dtEnd";
             this.dtEnd.Size = new System.Drawing.Size(119, 29);
@@ -112,7 +115,7 @@
             // dtStart
             // 
             this.dtStart.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtStart.Location = new System.Drawing.Point(128, 49);
+            this.dtStart.Location = new System.Drawing.Point(128, 66);
             this.dtStart.MinimumSize = new System.Drawing.Size(0, 29);
             this.dtStart.Name = "dtStart";
             this.dtStart.Size = new System.Drawing.Size(119, 29);
@@ -123,7 +126,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(4, 100);
+            this.label3.Location = new System.Drawing.Point(4, 117);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(66, 21);
             this.label3.TabIndex = 9;
@@ -133,7 +136,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(4, 55);
+            this.label2.Location = new System.Drawing.Point(4, 72);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(62, 21);
             this.label2.TabIndex = 9;
@@ -143,7 +146,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(4, 10);
+            this.label1.Location = new System.Drawing.Point(4, 27);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(114, 21);
             this.label1.TabIndex = 9;
@@ -219,21 +222,43 @@
             this.label4.TabIndex = 9;
             this.label4.Text = "Tổng doanh thu";
             // 
-            // label5
+            // lbTotalRevenue
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(452, 95);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(22, 25);
-            this.label5.TabIndex = 9;
-            this.label5.Text = "0";
+            this.lbTotalRevenue.AutoSize = true;
+            this.lbTotalRevenue.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTotalRevenue.Location = new System.Drawing.Point(452, 95);
+            this.lbTotalRevenue.Name = "lbTotalRevenue";
+            this.lbTotalRevenue.Size = new System.Drawing.Size(22, 25);
+            this.lbTotalRevenue.TabIndex = 9;
+            this.lbTotalRevenue.Text = "0";
+            // 
+            // btExportExcel
+            // 
+            this.btExportExcel.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
+            this.btExportExcel.ButtonImage = ((System.Drawing.Image)(resources.GetObject("btExportExcel.ButtonImage")));
+            this.btExportExcel.ButtonStyle = XanderUI.XUIButton.Style.MaterialRounded;
+            this.btExportExcel.ButtonText = "Xuất File";
+            this.btExportExcel.ClickBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(130)))), ((int)(((byte)(200)))));
+            this.btExportExcel.ClickTextColor = System.Drawing.Color.White;
+            this.btExportExcel.CornerRadius = 5;
+            this.btExportExcel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btExportExcel.Font = new System.Drawing.Font("Segoe UI", 14F);
+            this.btExportExcel.Horizontal_Alignment = System.Drawing.StringAlignment.Near;
+            this.btExportExcel.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
+            this.btExportExcel.HoverTextColor = System.Drawing.Color.White;
+            this.btExportExcel.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
+            this.btExportExcel.Location = new System.Drawing.Point(8, 152);
+            this.btExportExcel.Name = "btExportExcel";
+            this.btExportExcel.Size = new System.Drawing.Size(131, 50);
+            this.btExportExcel.TabIndex = 17;
+            this.btExportExcel.TextColor = System.Drawing.Color.White;
+            this.btExportExcel.Vertical_Alignment = System.Drawing.StringAlignment.Center;
             // 
             // Form_Revenue
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.label5);
+            this.Controls.Add(this.lbTotalRevenue);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.panel3);
@@ -265,11 +290,12 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lbTotalRevenue;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lbRevenueValue;
         private System.Windows.Forms.Label lbDate;
         private MetroFramework.Controls.MetroDateTime dtEnd;
         private MetroFramework.Controls.MetroDateTime dtStart;
+        private XanderUI.XUIButton btExportExcel;
     }
 }

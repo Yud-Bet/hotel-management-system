@@ -1,20 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Drawing;
-using System.Data;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using LiveCharts;
 using LiveCharts.Wpf;
-using System.Windows.Media;
+using System.Globalization;
 
 namespace HotelManagement.UI
 {
     public partial class Form_Revenue : UserControl
     {
+        CultureInfo cul = CultureInfo.GetCultureInfo("vi-VN");
         List<string> listDate = new List<string>();
         List<double> listRoomRevenue = new List<double>();
         List<double> listEatServiceRevenue = new List<double>();
@@ -25,6 +22,7 @@ namespace HotelManagement.UI
         {
             InitializeComponent();
             getListDate(RevenueType.DateRevenue);
+            
 
             cbTypeOfRevenue.SelectedIndex = 0;
 
@@ -67,7 +65,7 @@ namespace HotelManagement.UI
             barChart.AxisY.Add(new Axis
             {
                 Title = "Doanh thu",
-                LabelFormatter = value => value.ToString("C")
+                LabelFormatter = value => value.ToString("C", cul.NumberFormat)
             });
         }
 
@@ -102,7 +100,7 @@ namespace HotelManagement.UI
         {
             lbDate.Text = listDate[(int)chartPoint.X];
             createPieChart(listRoomRevenue[(int)chartPoint.X], listEatServiceRevenue[(int)chartPoint.X], listLaudryServiceRevenue[(int)chartPoint.X]);
-            lbRevenueValue.Text = chartPoint.Y.ToString("C");
+            lbRevenueValue.Text = chartPoint.Y.ToString("C", cul.NumberFormat);
         }
         #endregion
 
@@ -155,7 +153,7 @@ namespace HotelManagement.UI
         {
             pieChart.Visible = true;
             Func<ChartPoint, string> labelPoint = chartPoint =>
-                string.Format("{0:C} ", chartPoint.Y, chartPoint.Participation);
+                string.Format(cul.NumberFormat, "{0:C} ", chartPoint.Y, chartPoint.Participation);
 
             pieChart.Series = new SeriesCollection
             {
@@ -188,6 +186,7 @@ namespace HotelManagement.UI
 
         private void cbTypeOfRevenue_SelectedIndexChanged(object sender, EventArgs e)
         {
+            double sum = 0;
             ChartValues<double> listRevenue = new ChartValues<double>();
             getListDate((RevenueType)(cbTypeOfRevenue.SelectedIndex + 1));
 
@@ -206,12 +205,15 @@ namespace HotelManagement.UI
                     listLaudryServiceRevenue.Add(rd.Next(3000000, 9000000));
 
                     listRevenue.Add(listRoomRevenue[i] + listEatServiceRevenue[i] + listLaudryServiceRevenue[i]);
+                    sum += listRevenue[i];
                 }
             }
             createBarChart(listDate, listRevenue, RevenueType.DateRevenue);
             createPieChart(listRoomRevenue[0], listEatServiceRevenue[0], listLaudryServiceRevenue[0]);
+            
             lbDate.Text = listDate[0];
-            lbRevenueValue.Text = listRevenue[0].ToString("C");
+            lbRevenueValue.Text = listRevenue[0].ToString("C", cul.NumberFormat);
+            lbTotalRevenue.Text = sum.ToString("C", cul.NumberFormat);
         }
     }
 }
