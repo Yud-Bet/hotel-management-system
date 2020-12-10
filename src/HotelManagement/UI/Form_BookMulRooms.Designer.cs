@@ -759,6 +759,7 @@ namespace HotelManagement.UI
             this.Controls.Add(this.pnToBookRoom);
             this.Controls.Add(this.pnCustomerInfo);
             this.Controls.Add(this.pbArrowBack);
+            this.DoubleBuffered = true;
             this.Name = "Form_BookMulRooms";
             this.Size = new System.Drawing.Size(968, 575);
             this.Load += new System.EventHandler(this.Form_BookMulRooms_Load);

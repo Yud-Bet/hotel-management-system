@@ -60,6 +60,7 @@
             this.lbLaundryPrice = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btItemLaundry = new Zeroit.Framework.MiscControls.ZeroitRectShadowPanel();
+            this.StatusLabel = new Zeroit.Framework.MiscControls.ZeroitLabel();
             this.panel5.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -437,10 +438,22 @@
             this.btItemLaundry.ZeroitRectShadowPanelType = Zeroit.Framework.MiscControls.ZeroitRectShadowPanel.TypeOfZeroitRectShadowPanel.Rectangle;
             this.btItemLaundry.Click += new System.EventHandler(this.btItemLaundry_Click);
             // 
+            // StatusLabel
+            // 
+            this.StatusLabel.AutoSize = true;
+            this.StatusLabel.BackColor = System.Drawing.Color.Transparent;
+            this.StatusLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.StatusLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(142)))), ((int)(((byte)(142)))));
+            this.StatusLabel.Location = new System.Drawing.Point(17, 642);
+            this.StatusLabel.Name = "StatusLabel";
+            this.StatusLabel.Size = new System.Drawing.Size(0, 13);
+            this.StatusLabel.TabIndex = 19;
+            // 
             // Form_LaundryService
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.StatusLabel);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.lbIronPrice);
@@ -455,6 +468,7 @@
             this.Controls.Add(this.lbTitle);
             this.Name = "Form_LaundryService";
             this.Size = new System.Drawing.Size(968, 665);
+            this.Load += new System.EventHandler(this.Form_LaundryService_Load);
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             this.panel1.ResumeLayout(false);
@@ -499,5 +513,6 @@
         private System.Windows.Forms.Label lbLaundryPrice;
         private System.Windows.Forms.PictureBox pictureBox1;
         private Zeroit.Framework.MiscControls.ZeroitRectShadowPanel btItemLaundry;
+        private Zeroit.Framework.MiscControls.ZeroitLabel StatusLabel;
     }
 }

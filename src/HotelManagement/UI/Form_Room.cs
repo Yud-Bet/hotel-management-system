@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace HotelManagement.UI
@@ -7,11 +9,11 @@ namespace HotelManagement.UI
     {
         public string Username;
         public List<Item_Room> listRoom = new List<Item_Room>();
+        private bool IsProcessing = false;
 
         public Form_Room(string Username)
         {
             InitializeComponent();
-            Load_Data();
             this.Dock = DockStyle.Fill;
             this.Username = Username;
             lbRoomID.Hide();
@@ -85,9 +87,9 @@ namespace HotelManagement.UI
         }
 
         #endregion
-        private void Load_Data()
+        private async Task Load_Data()
         {
-            DTO.RoomOverview room = new DTO.RoomOverview();
+            DTO.RoomOverview room = await Task.Run(() => new DTO.RoomOverview());
             Total = room.RoomCount[0];
             for (int i = 0; i < room.RoomCount[0]; i++)
             {
@@ -166,6 +168,26 @@ namespace HotelManagement.UI
             pnToAddARoomInfo.BringToFront();
             pnToAddARoomInfo.Controls.Add(temp);
             
+        }
+
+        private async void Form_Room_Load(object sender, System.EventArgs e)
+        {
+            try
+            {
+                StatusLabel.Text = "Đang xử lí...";
+                await Load_Data();
+                StatusLabel.Text = "";
+            }
+            catch (System.Data.SqlClient.SqlException)
+            {
+                MessageBox.Show("Không thể kết nối đến server", "Lỗi");
+                StatusLabel.Text = "Không có kết nối";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                StatusLabel.Text = "Đã xảy ra lỗi";
+            }
         }
     }
 }

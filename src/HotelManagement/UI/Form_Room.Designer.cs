@@ -63,9 +63,10 @@
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.tbSearch = new Zeroit.Framework.Labels.ZeroitUltraTextBox();
             this.animTbSearch = new Zeroit.Framework.Transitions.ZeroitPizaroAnimator.ZeroitPizaroAnim();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.StatusLabel = new Zeroit.Framework.MiscControls.ZeroitLabel();
             ((System.ComponentModel.ISupportInitialize)(this.btBookMultipleRooms)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btAddRoom)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbSearch)).BeginInit();
@@ -436,6 +437,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.panel1.Controls.Add(this.StatusLabel);
             this.panel1.Controls.Add(this.btThreeDot);
             this.panel1.Controls.Add(this.btBookMultipleRooms);
             this.panel1.Controls.Add(this.btAddRoom);
@@ -528,6 +530,13 @@
             this.pictureBox2.TabIndex = 12;
             this.pictureBox2.TabStop = false;
             // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(319, 82);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(200, 49);
+            this.flowLayoutPanel1.TabIndex = 30;
+            // 
             // tbSearch
             // 
             this.tbSearch.DisabledStringColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(187)))), ((int)(((byte)(189)))));
@@ -575,12 +584,16 @@
             this.animTbSearch.ResizeWidth_Begin = 10F;
             this.animTbSearch.ResizeWidth_Limit = 50F;
             // 
-            // flowLayoutPanel1
+            // StatusLabel
             // 
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(319, 82);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(200, 49);
-            this.flowLayoutPanel1.TabIndex = 30;
+            this.StatusLabel.AutoSize = true;
+            this.StatusLabel.BackColor = System.Drawing.Color.Transparent;
+            this.StatusLabel.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.StatusLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(142)))), ((int)(((byte)(142)))));
+            this.StatusLabel.Location = new System.Drawing.Point(39, 647);
+            this.StatusLabel.Name = "StatusLabel";
+            this.StatusLabel.Size = new System.Drawing.Size(0, 13);
+            this.StatusLabel.TabIndex = 31;
             // 
             // Form_Room
             // 
@@ -590,6 +603,7 @@
             this.Controls.Add(this.pnToAddARoomInfo);
             this.Name = "Form_Room";
             this.Size = new System.Drawing.Size(968, 666);
+            this.Load += new System.EventHandler(this.Form_Room_Load);
             ((System.ComponentModel.ISupportInitialize)(this.btBookMultipleRooms)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btAddRoom)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbSearch)).EndInit();
@@ -642,5 +656,6 @@
         private Zeroit.Framework.Labels.ZeroitUltraTextBox tbSearch;
         private Zeroit.Framework.Transitions.ZeroitPizaroAnimator.ZeroitPizaroAnim animTbSearch;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private Zeroit.Framework.MiscControls.ZeroitLabel StatusLabel;
     }
 }

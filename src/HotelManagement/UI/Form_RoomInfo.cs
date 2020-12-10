@@ -18,10 +18,8 @@ namespace HotelManagement.UI
         public Form_RoomInfo(Item_Room parent)
         {
             InitializeComponent();
-            LoadAllCustomer();
-            this.ParentRef = parent;
+            ParentRef = parent;
             ParentRef.ParentRef._lbRoomID.Show();
-            Load_Data();
 
             dropDownList1.Hide();
             dropDownList1.ChooseItem += delegate
@@ -29,10 +27,10 @@ namespace HotelManagement.UI
                 setCustomerInfoAlreadyExists(dropDownList1.selectedItemName);
             };
         }
-        private void LoadAllCustomer()
+        private async Task LoadAllCustomer()
         {
             Customers = new List<DTO.CustomerOverview>();
-            DataTable data = DataAccess.ExecuteQuery.ExecuteReader("QLKS_GetAllCustomerInfo");
+            DataTable data = await Task.Run(() => DataAccess.ExecuteQuery.ExecuteReader("QLKS_GetAllCustomerInfo"));
             for (int i = 0; i < data.Rows.Count; i++)
             {
                 var item = new DTO.CustomerOverview();
@@ -76,16 +74,34 @@ namespace HotelManagement.UI
         public Item_Room ParentRef;
         #endregion
 
-        private void Form_RoomInfo_Load(object sender, EventArgs e)
+        private async void Form_RoomInfo_Load(object sender, EventArgs e)
         {
-            tbCustomerName.Focus();
-            pnVip_Nor.Enabled = false;
-            pnSignle_Dou.Enabled = false;
-            tbRoomsize.IsEnabled = false;
-            tbRoomPrice.IsEnabled = false;
+
+            try
+            {
+                StatusLabel.Text = "Đang xử lí...";
+                await LoadAllCustomer();
+                await Load_Data();
+                tbCustomerName.Focus();
+                pnVip_Nor.Enabled = false;
+                pnSignle_Dou.Enabled = false;
+                tbRoomsize.IsEnabled = false;
+                tbRoomPrice.IsEnabled = false;
+                StatusLabel.Text = "";
+            }
+            catch (System.Data.SqlClient.SqlException)
+            {
+                MessageBox.Show("Đã xảy ra lỗi khi tải thông tin từ server", "Lỗi");
+                StatusLabel.Text = "Không có kết nối";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                StatusLabel.Text = "Đã xảy ra lỗi";
+            }
         }
 
-        private void Load_Data()
+        private async Task Load_Data()
         {
             RoomID = this.ParentRef._RoomID;
             if (this.ParentRef._RoomStatus == RoomStatus.Empty)
@@ -97,7 +113,7 @@ namespace HotelManagement.UI
                 btBookRoom.Hide();
             }
 
-            DTO.RoomDetail room = new DTO.RoomDetail(RoomID);
+            DTO.RoomDetail room = await Task.Run(() => new DTO.RoomDetail(RoomID));
             tbRoomsize.Text = room.Size.ToString();
             tbRoomPrice.Text = room.Price.ToString();
             SetValueForControl.SetRoomType(room.Type, rbtNor, rbtVip, rbtSingle, rbtDouble);
@@ -105,7 +121,7 @@ namespace HotelManagement.UI
             if (this.ParentRef._RoomStatus == RoomStatus.Rented)
             {
                 btSave.Show();
-                Customer = new DTO.FullCustomerInfo(RoomID);
+                Customer = await Task.Run(() => new DTO.FullCustomerInfo(RoomID));
                 tbCustomerName.Text = Customer.Name;
                 dtpCustomerBirthday.Value = Customer.Birthday;
                 tbCustomerPhoneNum.Text = Customer.PhoneNumber;
@@ -201,25 +217,49 @@ namespace HotelManagement.UI
 
         private void btBookRoom_Click(object sender, EventArgs e)
         {
-            //if (!checkEmptyValue()) return;
-            if (!checkValidityOfValue()) return;
-            int a = 0;
-            if (ClientID <= 0)
+            if (!IsProcessing)
             {
-                a = DataAccess.CustomerDA.InsertNewClient(tbCustomerName.Text, dtpCustomerBirthday.Value, tbIDNo.Text, tbPassport.Text,
-                    tbCustomerAddress.Text, tbCustomerPhoneNum.Text, rbtMale.Checked ? Sex.Male : Sex.Female);
+                IsProcessing = true;
+                StatusLabel.Text = "Đang xử lí...";
+                try
+                {
+                    //if (!checkEmptyValue()) return;
+                    if (!checkValidityOfValue()) return;
+                    int a = 0;
+                    if (ClientID <= 0)
+                    {
+                        a = DataAccess.CustomerDA.InsertNewClient(tbCustomerName.Text, dtpCustomerBirthday.Value, tbIDNo.Text, tbPassport.Text,
+                            tbCustomerAddress.Text, tbCustomerPhoneNum.Text, rbtMale.Checked ? Sex.Male : Sex.Female);
+                    }
+                    int b = DataAccess.CustomerDA.InsertNewRoomReservation(dtpCheckInDate.Value, ClientID, ParentRef.ParentRef.Username, 0, tbNote.Text);
+                    int c = DataAccess.CustomerDA.InsertRoomReservationDetail(0, this.ParentRef._RoomID);
+                    int d = DataAccess.CustomerDA.InsertNewBill(0, ParentRef.ParentRef.Username);
+                    if (b > 0 && c > 0 && d > 0)
+                    {
+                        ParentRef.ParentRef.Empty = ParentRef.ParentRef.Empty - 1;
+                        ParentRef.ParentRef.Rented = ParentRef.ParentRef.Rented + 1;
+                        ParentRef._RoomStatus = RoomStatus.Rented;
+                        pbArrowBack_Click(sender, e);
+                    }
+                    else MessageBox.Show("Lỗi khi đặt phòng");
+                    StatusLabel.Text = "";
+                }
+                catch (System.Data.SqlClient.SqlException)
+                {
+                    MessageBox.Show("Lỗi khi kết nối đến server!", "Lỗi");
+                    StatusLabel.Text = "Không có kết nối";
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    StatusLabel.Text = "Có lỗi xảy ra";
+                }
+                finally
+                {
+                    IsProcessing = false;
+                }
             }
-            int b = DataAccess.CustomerDA.InsertNewRoomReservation(dtpCheckInDate.Value, ClientID, ParentRef.ParentRef.Username, 0, tbNote.Text);
-            int c = DataAccess.CustomerDA.InsertRoomReservationDetail(0, this.ParentRef._RoomID);
-            int d = DataAccess.CustomerDA.InsertNewBill(0, ParentRef.ParentRef.Username);
-            if (b > 0 && c > 0 && d > 0)
-            {
-                ParentRef.ParentRef.Empty = ParentRef.ParentRef.Empty - 1;
-                ParentRef.ParentRef.Rented = ParentRef.ParentRef.Rented + 1;
-                ParentRef._RoomStatus = RoomStatus.Rented;
-                pbArrowBack_Click(sender, e);
-            }
-            else MessageBox.Show("Lỗi khi đặt phòng");
+            else MessageBox.Show("Từ từ đừng vội~", "Thông báo");
         }
 
         bool checkEmptyValue()
@@ -431,7 +471,6 @@ namespace HotelManagement.UI
             foreach (var i in Customers)
             {
                 string AdditionalInfo = (i.IDNumber.Length != 0) ? i.IDNumber : i.Passport;
-                //string AdditionalInfo = i.ID.ToString();
                 if (i.Name.ToLower().Contains(customerName.ToLower()))
                 {
                     dropDownList1.addItem(i.Name + " | " + AdditionalInfo, i.ID.ToString());
@@ -450,12 +489,36 @@ namespace HotelManagement.UI
 
         private void btSave_Click(object sender, EventArgs e)
         {
-            int RowsAffected = DataAccess.CustomerDA.ChangeReservationInfo(RoomID, tbCustomerName.Text, dtpCustomerBirthday.Value, tbCustomerPhoneNum.Text,
-                rbtMale.Checked ? Sex.Male : Sex.Female, tbIDNo.Text, tbPassport.Text, tbCustomerAddress.Text, dtpCheckInDate.Value, tbNote.Text);
-            if (RowsAffected > 0)
+            if (!IsProcessing)
             {
-                MessageBox.Show("Sửa thông tin thành công!", "Thành công");
+                IsProcessing = true;
+                StatusLabel.Text = "Đang xử lí...";
+                try
+                {
+                    int RowsAffected = DataAccess.CustomerDA.ChangeReservationInfo(RoomID, tbCustomerName.Text, dtpCustomerBirthday.Value, tbCustomerPhoneNum.Text,
+                                        rbtMale.Checked ? Sex.Male : Sex.Female, tbIDNo.Text, tbPassport.Text, tbCustomerAddress.Text, dtpCheckInDate.Value, tbNote.Text);
+                    if (RowsAffected > 0)
+                    {
+                        MessageBox.Show("Sửa thông tin thành công!", "Thành công");
+                        StatusLabel.Text = "";
+                    }
+                }
+                catch (System.Data.SqlClient.SqlException)
+                {
+                    MessageBox.Show("Lỗi khi kết nối đến server!", "Lỗi");
+                    StatusLabel.Text = "Không có kết nối";
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    StatusLabel.Text = "Có lỗi xảy ra";
+                }
+                finally
+                {
+                    IsProcessing = false;
+                }
             }
+            else MessageBox.Show("Từ từ đừng vội~", "Thông báo");
         }
     }
 }
