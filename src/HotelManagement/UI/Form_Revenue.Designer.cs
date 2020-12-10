@@ -33,6 +33,7 @@
             this.lbTitle = new System.Windows.Forms.Label();
             this.cbTypeOfRevenue = new MetroFramework.Controls.MetroComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btLineChart = new XanderUI.XUIButton();
             this.btExportExcel = new XanderUI.XUIButton();
             this.dtEnd = new MetroFramework.Controls.MetroDateTime();
             this.dtStart = new MetroFramework.Controls.MetroDateTime();
@@ -44,12 +45,15 @@
             this.lbDate = new System.Windows.Forms.Label();
             this.pieChart = new LiveCharts.WinForms.PieChart();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.barChart = new LiveCharts.WinForms.CartesianChart();
+            this.revenueChart = new LiveCharts.WinForms.CartesianChart();
             this.label4 = new System.Windows.Forms.Label();
             this.lbTotalRevenue = new System.Windows.Forms.Label();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.btBarChart = new XanderUI.XUIButton();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel2
@@ -90,6 +94,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this.panel1.Controls.Add(this.flowLayoutPanel1);
             this.panel1.Controls.Add(this.btExportExcel);
             this.panel1.Controls.Add(this.dtEnd);
             this.panel1.Controls.Add(this.dtStart);
@@ -101,6 +106,29 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(284, 219);
             this.panel1.TabIndex = 9;
+            // 
+            // btLineChart
+            // 
+            this.btLineChart.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
+            this.btLineChart.ButtonImage = ((System.Drawing.Image)(resources.GetObject("btLineChart.ButtonImage")));
+            this.btLineChart.ButtonStyle = XanderUI.XUIButton.Style.MaterialRounded;
+            this.btLineChart.ButtonText = "Biểu Đồ Đường";
+            this.btLineChart.ClickBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(130)))), ((int)(((byte)(200)))));
+            this.btLineChart.ClickTextColor = System.Drawing.Color.White;
+            this.btLineChart.CornerRadius = 5;
+            this.btLineChart.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btLineChart.Font = new System.Drawing.Font("Segoe UI", 14F);
+            this.btLineChart.Horizontal_Alignment = System.Drawing.StringAlignment.Near;
+            this.btLineChart.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
+            this.btLineChart.HoverTextColor = System.Drawing.Color.White;
+            this.btLineChart.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
+            this.btLineChart.Location = new System.Drawing.Point(3, 3);
+            this.btLineChart.Name = "btLineChart";
+            this.btLineChart.Size = new System.Drawing.Size(131, 50);
+            this.btLineChart.TabIndex = 17;
+            this.btLineChart.TextColor = System.Drawing.Color.White;
+            this.btLineChart.Vertical_Alignment = System.Drawing.StringAlignment.Center;
+            this.btLineChart.Click += new System.EventHandler(this.btLineChart_Click);
             // 
             // btExportExcel
             // 
@@ -219,21 +247,21 @@
             // 
             this.panel4.AutoScroll = true;
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
-            this.panel4.Controls.Add(this.barChart);
+            this.panel4.Controls.Add(this.revenueChart);
             this.panel4.Location = new System.Drawing.Point(299, 123);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(661, 530);
             this.panel4.TabIndex = 9;
             // 
-            // barChart
+            // revenueChart
             // 
-            this.barChart.Location = new System.Drawing.Point(0, 0);
-            this.barChart.Name = "barChart";
-            this.barChart.Size = new System.Drawing.Size(661, 530);
-            this.barChart.TabIndex = 0;
-            this.barChart.Text = "cartesianChart1";
-            this.barChart.Visible = false;
-            this.barChart.DataClick += new LiveCharts.Events.DataClickHandler(this.barChart_DataClick);
+            this.revenueChart.Location = new System.Drawing.Point(0, 0);
+            this.revenueChart.Name = "revenueChart";
+            this.revenueChart.Size = new System.Drawing.Size(661, 530);
+            this.revenueChart.TabIndex = 0;
+            this.revenueChart.Text = "cartesianChart1";
+            this.revenueChart.Visible = false;
+            this.revenueChart.DataClick += new LiveCharts.Events.DataClickHandler(this.barChart_DataClick);
             // 
             // label4
             // 
@@ -255,6 +283,38 @@
             this.lbTotalRevenue.TabIndex = 9;
             this.lbTotalRevenue.Text = "0";
             // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Controls.Add(this.btLineChart);
+            this.flowLayoutPanel1.Controls.Add(this.btBarChart);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(145, 149);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(136, 53);
+            this.flowLayoutPanel1.TabIndex = 18;
+            // 
+            // btBarChart
+            // 
+            this.btBarChart.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
+            this.btBarChart.ButtonImage = ((System.Drawing.Image)(resources.GetObject("btBarChart.ButtonImage")));
+            this.btBarChart.ButtonStyle = XanderUI.XUIButton.Style.MaterialRounded;
+            this.btBarChart.ButtonText = "Biểu Đồ Cột";
+            this.btBarChart.ClickBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(130)))), ((int)(((byte)(200)))));
+            this.btBarChart.ClickTextColor = System.Drawing.Color.White;
+            this.btBarChart.CornerRadius = 5;
+            this.btBarChart.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btBarChart.Font = new System.Drawing.Font("Segoe UI", 14F);
+            this.btBarChart.Horizontal_Alignment = System.Drawing.StringAlignment.Near;
+            this.btBarChart.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
+            this.btBarChart.HoverTextColor = System.Drawing.Color.White;
+            this.btBarChart.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
+            this.btBarChart.Location = new System.Drawing.Point(3, 59);
+            this.btBarChart.Name = "btBarChart";
+            this.btBarChart.Size = new System.Drawing.Size(131, 50);
+            this.btBarChart.TabIndex = 17;
+            this.btBarChart.TextColor = System.Drawing.Color.White;
+            this.btBarChart.Vertical_Alignment = System.Drawing.StringAlignment.Center;
+            this.btBarChart.Click += new System.EventHandler(this.btBarChart_Click);
+            // 
             // Form_Revenue
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -273,6 +333,7 @@
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel4.ResumeLayout(false);
+            this.flowLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -287,7 +348,7 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel4;
         private LiveCharts.WinForms.PieChart pieChart;
-        private LiveCharts.WinForms.CartesianChart barChart;
+        private LiveCharts.WinForms.CartesianChart revenueChart;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
@@ -298,5 +359,8 @@
         private MetroFramework.Controls.MetroDateTime dtEnd;
         private MetroFramework.Controls.MetroDateTime dtStart;
         private XanderUI.XUIButton btExportExcel;
+        private XanderUI.XUIButton btLineChart;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private XanderUI.XUIButton btBarChart;
     }
 }

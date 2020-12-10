@@ -144,8 +144,6 @@ namespace HotelManagement.UI
                 workbook.Close(0, null, null);
                 xlApp.Quit();
             }
-            workbook = null;
-            xlApp = null;
             System.Runtime.InteropServices.Marshal.ReleaseComObject(workbook);
             System.Runtime.InteropServices.Marshal.ReleaseComObject(xlApp);
         }

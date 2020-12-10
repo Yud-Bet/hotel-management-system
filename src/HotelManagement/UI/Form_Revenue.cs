@@ -16,37 +16,48 @@ namespace HotelManagement.UI
         List<double> listRoomRevenue = new List<double>();
         List<double> listEatServiceRevenue = new List<double>();
         List<double> listLaudryServiceRevenue = new List<double>();
-        //ChartValues<double> listRevenue = new ChartValues<double>();
+        bool isUseBarChart = true;
         
+        enum ChartType
+        {
+            barChart = 1,
+            lineChart = 2
+        }
+
         public Form_Revenue()
         {
             InitializeComponent();
             getListDate(RevenueType.DateRevenue);
-            
-
             cbTypeOfRevenue.SelectedIndex = 0;
-
-            
-
+            btBarChart.Hide();
         }
 
-        #region barChart
-        private void createBarChart(List<string> listLable, ChartValues<Double> listRevenue, RevenueType type)
+        #region revenueChart
+        private void createRevenueChart(List<string> listLable, ChartValues<Double> listRevenue, RevenueType revenueType, ChartType chartType)
         {
-            barChart.AxisX.Clear();
-            barChart.AxisY.Clear();
-            barChart.Visible = true;
+            revenueChart.AxisX.Clear();
+            revenueChart.AxisY.Clear();
+            revenueChart.Visible = true;
             if (listRevenue.Count() > 31)
             {
-                barChart.Width += (listRevenue.Count() - 31) * 20;
-                barChart.Height -= 21;
+                revenueChart.Width += (listRevenue.Count() - 31) * 20;
+                revenueChart.Height -= 21;
             } else
             {
-                barChart.Size = new Size(661, 530);
+                revenueChart.Size = new Size(661, 530);
             }
 
-            addValuesAxisY(listRevenue);
-            switch (type)
+            switch (chartType)
+            {
+                case ChartType.barChart:
+                    addValuesAxisYColumn(listRevenue);
+                    break;
+                case ChartType.lineChart:
+                    addValuesAxisYLine(listRevenue);
+                    break;
+            }
+            
+            switch (revenueType)
             {
                 case RevenueType.DateRevenue:
                     createAxisX(listLable, "Ngày");
@@ -62,16 +73,16 @@ namespace HotelManagement.UI
                     break;
             }
 
-            barChart.AxisY.Add(new Axis
+            revenueChart.AxisY.Add(new Axis
             {
                 Title = "Doanh thu",
                 LabelFormatter = value => value.ToString("C", cul.NumberFormat)
             });
         }
 
-        private void addValuesAxisY(ChartValues<Double> listRevenue)
+        private void addValuesAxisYColumn(ChartValues<Double> listRevenue)
         {
-            barChart.Series = new SeriesCollection
+            revenueChart.Series = new SeriesCollection
             {
                 new ColumnSeries
                 {
@@ -79,12 +90,25 @@ namespace HotelManagement.UI
                     Values = new ChartValues<double>(),
                 }
             };
-            barChart.Series[0].Values = listRevenue;
+            revenueChart.Series[0].Values = listRevenue;
+        }
+
+        private void addValuesAxisYLine(ChartValues<Double> listRevenue)
+        {
+            revenueChart.Series = new SeriesCollection
+            {
+                new LineSeries
+                {
+                    Title = "Doanh thu",
+                    Values = new ChartValues<double>(),
+                }
+            };
+            revenueChart.Series[0].Values = listRevenue;
         }
 
         private void createAxisX(List<string> listLable, string type)
         {
-            barChart.AxisX.Add(new Axis
+            revenueChart.AxisX.Add(new Axis
             {
                 Title = type,
                 Labels = listLable,
@@ -186,6 +210,20 @@ namespace HotelManagement.UI
 
         private void cbTypeOfRevenue_SelectedIndexChanged(object sender, EventArgs e)
         {
+            loadChartData(isUseBarChart ? ChartType.barChart : ChartType.lineChart);
+        }
+
+        private void btExportExcel_Click(object sender, EventArgs e)
+        {
+            if (listDate.Count > 0)
+            {
+                (new exportExcel()).exportRevenue("Lê Trung Hiếu", (RevenueType)(cbTypeOfRevenue.SelectedIndex + 1), listDate, listRoomRevenue,
+                    listEatServiceRevenue, listLaudryServiceRevenue);
+            }
+        }
+
+        private void loadChartData(ChartType chartType)
+        {
             double sum = 0;
             ChartValues<double> listRevenue = new ChartValues<double>();
             getListDate((RevenueType)(cbTypeOfRevenue.SelectedIndex + 1));
@@ -198,7 +236,7 @@ namespace HotelManagement.UI
             int n = listDate.Count();
             if (n > 0)
             {
-                for(int i=0; i < n; i++)
+                for (int i = 0; i < n; i++)
                 {
                     listRoomRevenue.Add(rd.Next(3000000, 9000000));
                     listEatServiceRevenue.Add(rd.Next(3000000, 9000000));
@@ -208,21 +246,32 @@ namespace HotelManagement.UI
                     sum += listRevenue[i];
                 }
             }
-            createBarChart(listDate, listRevenue, RevenueType.DateRevenue);
+            createRevenueChart(listDate, listRevenue, RevenueType.DateRevenue, chartType);
             createPieChart(listRoomRevenue[0], listEatServiceRevenue[0], listLaudryServiceRevenue[0]);
-            
+
             lbDate.Text = listDate[0];
             lbRevenueValue.Text = listRevenue[0].ToString("C", cul.NumberFormat);
             lbTotalRevenue.Text = sum.ToString("C", cul.NumberFormat);
         }
 
-        private void btExportExcel_Click(object sender, EventArgs e)
+        private void btLineChart_Click(object sender, EventArgs e)
         {
-            if (listDate.Count > 0)
-            {
-                (new exportExcel()).exportRevenue("Lê Trung Hiếu", (RevenueType)(cbTypeOfRevenue.SelectedIndex + 1), listDate, listRoomRevenue,
-                    listEatServiceRevenue, listLaudryServiceRevenue);
-            }
+            btBarChart.Show();
+            btLineChart.Hide();
+
+            isUseBarChart = false;
+
+            loadChartData(ChartType.lineChart);
+        }
+
+        private void btBarChart_Click(object sender, EventArgs e)
+        {
+            btBarChart.Hide();
+            btLineChart.Show();
+
+            isUseBarChart = true;
+
+            loadChartData(ChartType.barChart);
         }
     }
 }
