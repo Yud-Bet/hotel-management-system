@@ -386,6 +386,9 @@ namespace HotelManagement.UI
                 resetReportSubmenu();
                 isChoosebtBill = true;
                 setStatus(pbBill, lbBill, Resources.icBill2, true);
+
+                panel4.Controls.Clear();
+                panel4.Controls.Add(new Form_ReportBill());
             }
         }
 
@@ -403,16 +406,6 @@ namespace HotelManagement.UI
             {
                 setStatus(pbBill, lbBill, Resources.icBill, false);
             }
-        }
-
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void btRoom_Paint(object sender, PaintEventArgs e)
-        {
-
         }
 
         #endregion

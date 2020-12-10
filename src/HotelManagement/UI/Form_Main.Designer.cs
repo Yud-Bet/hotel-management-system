@@ -725,7 +725,6 @@
             this.btRoom.Size = new System.Drawing.Size(243, 50);
             this.btRoom.TabIndex = 3;
             this.btRoom.Click += new System.EventHandler(this.btRoom_Click);
-            this.btRoom.Paint += new System.Windows.Forms.PaintEventHandler(this.btRoom_Paint);
             this.btRoom.MouseLeave += new System.EventHandler(this.btRoom_MouseLeave);
             this.btRoom.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btRoom_MouseMove);
             // 
@@ -778,7 +777,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(243, 97);
             this.panel2.TabIndex = 0;
-            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // lbStaffPosition
             // 

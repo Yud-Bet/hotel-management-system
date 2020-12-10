@@ -170,6 +170,12 @@
     <Compile Include="UI\Form_Main.Designer.cs">
       <DependentUpon>Form_Main.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Form_ReportBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Form_ReportBill.Designer.cs">
+      <DependentUpon>Form_ReportBill.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Form_Revenue.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -206,6 +212,12 @@
     </Compile>
     <Compile Include="UI\Item_LaundryService.Designer.cs">
       <DependentUpon>Item_LaundryService.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Item_ReportBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Item_ReportBill.Designer.cs">
+      <DependentUpon>Item_ReportBill.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Item_Room.cs">
       <SubType>UserControl</SubType>
@@ -254,6 +266,9 @@
     <EmbeddedResource Include="UI\Form_Main.resx">
       <DependentUpon>Form_Main.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\Form_ReportBill.resx">
+      <DependentUpon>Form_ReportBill.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Form_Revenue.resx">
       <DependentUpon>Form_Revenue.cs</DependentUpon>
     </EmbeddedResource>
@@ -271,6 +286,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Item_LaundryService.resx">
       <DependentUpon>Item_LaundryService.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Item_ReportBill.resx">
+      <DependentUpon>Item_ReportBill.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Item_Room.resx">
       <DependentUpon>Item_Room.cs</DependentUpon>
