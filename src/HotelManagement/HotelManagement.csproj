@@ -107,6 +107,7 @@
     <Compile Include="DataAccess\Account.cs" />
     <Compile Include="DataAccess\CustomerDA.cs" />
     <Compile Include="DataAccess\ExecuteQuery.cs" />
+    <Compile Include="DataAccess\Report.cs" />
     <Compile Include="DataAccess\RoomDA.cs" />
     <Compile Include="DataAccess\Services.cs" />
     <Compile Include="DTO\CustomerOverview.cs" />

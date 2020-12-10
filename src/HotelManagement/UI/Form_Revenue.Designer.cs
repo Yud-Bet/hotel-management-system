@@ -33,7 +33,9 @@
             this.lbTitle = new System.Windows.Forms.Label();
             this.cbTypeOfRevenue = new MetroFramework.Controls.MetroComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.btLineChart = new XanderUI.XUIButton();
+            this.btBarChart = new XanderUI.XUIButton();
             this.btExportExcel = new XanderUI.XUIButton();
             this.dtEnd = new MetroFramework.Controls.MetroDateTime();
             this.dtStart = new MetroFramework.Controls.MetroDateTime();
@@ -48,12 +50,10 @@
             this.revenueChart = new LiveCharts.WinForms.CartesianChart();
             this.label4 = new System.Windows.Forms.Label();
             this.lbTotalRevenue = new System.Windows.Forms.Label();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.btBarChart = new XanderUI.XUIButton();
             this.panel1.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
-            this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel2
@@ -107,6 +107,15 @@
             this.panel1.Size = new System.Drawing.Size(284, 219);
             this.panel1.TabIndex = 9;
             // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Controls.Add(this.btLineChart);
+            this.flowLayoutPanel1.Controls.Add(this.btBarChart);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(145, 149);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(136, 53);
+            this.flowLayoutPanel1.TabIndex = 18;
+            // 
             // btLineChart
             // 
             this.btLineChart.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
@@ -129,6 +138,29 @@
             this.btLineChart.TextColor = System.Drawing.Color.White;
             this.btLineChart.Vertical_Alignment = System.Drawing.StringAlignment.Center;
             this.btLineChart.Click += new System.EventHandler(this.btLineChart_Click);
+            // 
+            // btBarChart
+            // 
+            this.btBarChart.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
+            this.btBarChart.ButtonImage = ((System.Drawing.Image)(resources.GetObject("btBarChart.ButtonImage")));
+            this.btBarChart.ButtonStyle = XanderUI.XUIButton.Style.MaterialRounded;
+            this.btBarChart.ButtonText = "Biểu Đồ Cột";
+            this.btBarChart.ClickBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(130)))), ((int)(((byte)(200)))));
+            this.btBarChart.ClickTextColor = System.Drawing.Color.White;
+            this.btBarChart.CornerRadius = 5;
+            this.btBarChart.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btBarChart.Font = new System.Drawing.Font("Segoe UI", 14F);
+            this.btBarChart.Horizontal_Alignment = System.Drawing.StringAlignment.Near;
+            this.btBarChart.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
+            this.btBarChart.HoverTextColor = System.Drawing.Color.White;
+            this.btBarChart.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
+            this.btBarChart.Location = new System.Drawing.Point(3, 59);
+            this.btBarChart.Name = "btBarChart";
+            this.btBarChart.Size = new System.Drawing.Size(131, 50);
+            this.btBarChart.TabIndex = 17;
+            this.btBarChart.TextColor = System.Drawing.Color.White;
+            this.btBarChart.Vertical_Alignment = System.Drawing.StringAlignment.Center;
+            this.btBarChart.Click += new System.EventHandler(this.btBarChart_Click);
             // 
             // btExportExcel
             // 
@@ -161,7 +193,7 @@
             this.dtEnd.Name = "dtEnd";
             this.dtEnd.Size = new System.Drawing.Size(119, 29);
             this.dtEnd.TabIndex = 10;
-            this.dtEnd.ValueChanged += new System.EventHandler(this.cbTypeOfRevenue_SelectedIndexChanged);
+            this.dtEnd.ValueChanged += new System.EventHandler(this.dtStart_ValueChanged);
             // 
             // dtStart
             // 
@@ -171,7 +203,7 @@
             this.dtStart.Name = "dtStart";
             this.dtStart.Size = new System.Drawing.Size(119, 29);
             this.dtStart.TabIndex = 10;
-            this.dtStart.ValueChanged += new System.EventHandler(this.cbTypeOfRevenue_SelectedIndexChanged);
+            this.dtStart.ValueChanged += new System.EventHandler(this.dtStart_ValueChanged);
             // 
             // label3
             // 
@@ -283,38 +315,6 @@
             this.lbTotalRevenue.TabIndex = 9;
             this.lbTotalRevenue.Text = "0";
             // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.Controls.Add(this.btLineChart);
-            this.flowLayoutPanel1.Controls.Add(this.btBarChart);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(145, 149);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(136, 53);
-            this.flowLayoutPanel1.TabIndex = 18;
-            // 
-            // btBarChart
-            // 
-            this.btBarChart.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
-            this.btBarChart.ButtonImage = ((System.Drawing.Image)(resources.GetObject("btBarChart.ButtonImage")));
-            this.btBarChart.ButtonStyle = XanderUI.XUIButton.Style.MaterialRounded;
-            this.btBarChart.ButtonText = "Biểu Đồ Cột";
-            this.btBarChart.ClickBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(130)))), ((int)(((byte)(200)))));
-            this.btBarChart.ClickTextColor = System.Drawing.Color.White;
-            this.btBarChart.CornerRadius = 5;
-            this.btBarChart.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btBarChart.Font = new System.Drawing.Font("Segoe UI", 14F);
-            this.btBarChart.Horizontal_Alignment = System.Drawing.StringAlignment.Near;
-            this.btBarChart.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
-            this.btBarChart.HoverTextColor = System.Drawing.Color.White;
-            this.btBarChart.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
-            this.btBarChart.Location = new System.Drawing.Point(3, 59);
-            this.btBarChart.Name = "btBarChart";
-            this.btBarChart.Size = new System.Drawing.Size(131, 50);
-            this.btBarChart.TabIndex = 17;
-            this.btBarChart.TextColor = System.Drawing.Color.White;
-            this.btBarChart.Vertical_Alignment = System.Drawing.StringAlignment.Center;
-            this.btBarChart.Click += new System.EventHandler(this.btBarChart_Click);
-            // 
             // Form_Revenue
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -330,10 +330,10 @@
             this.Size = new System.Drawing.Size(968, 665);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.flowLayoutPanel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel4.ResumeLayout(false);
-            this.flowLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 

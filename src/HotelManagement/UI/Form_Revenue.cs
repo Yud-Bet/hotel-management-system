@@ -6,6 +6,7 @@ using System.Windows.Forms;
 using LiveCharts;
 using LiveCharts.Wpf;
 using System.Globalization;
+using System.Data;
 
 namespace HotelManagement.UI
 {
@@ -137,24 +138,26 @@ namespace HotelManagement.UI
             switch (revenueType)
             {
                 case RevenueType.DateRevenue:
-                    while (DateTime.Compare(start.Date, end.Date) != 1)
+                    while (DateTime.Compare(start.Date, end.Date) < 1)
                     {
                         listDate.Add(start.ToShortDateString());
                         start = start.Date.AddDays(1);
                     }
                     break;
                 case RevenueType.MonthRevenue:
-                    while (DateTime.Compare(start.Date, end.Date) != 1)
+                    while (DateTime.Compare(start.Date, end.Date) < 1)
                     {
                         listDate.Add(start.Month.ToString() + "/" + start.Year.ToString());
                         start = start.Date.AddMonths(1);
+                        start = start.Date.AddDays(-start.Day + 1);
                     }
                     break;
                 case RevenueType.QuarterRevenue:
-                    while (DateTime.Compare(start.Date, end.Date) != 1)
+                    while (DateTime.Compare(start.Date, end.Date) < 1)
                     {
                         listDate.Add(Math.Ceiling((float)start.Month / 3).ToString() + " . " + start.Year.ToString());
                         start = start.Date.AddMonths(3);
+                        start = start.Date.AddDays(-start.Day + 1);
                     }
                     if (listDate[listDate.Count - 1] != Math.Ceiling((float)end.Month / 3).ToString() + " . " + end.Year.ToString())
                     {
@@ -162,10 +165,13 @@ namespace HotelManagement.UI
                     }
                     break;
                 case RevenueType.YearRevenue:
-                    while (DateTime.Compare(start.Date, end.Date) != 1)
+                    while (DateTime.Compare(start.Date, end.Date) < 1)
                     {
                         listDate.Add(start.Year.ToString());
                         start = start.Date.AddYears(1);
+                        start = start.Date.AddDays(-start.Day + 1);
+                        start = start.Date.AddMonths(-start.Month + 1);
+
                     }
                     break;
             }
@@ -212,6 +218,16 @@ namespace HotelManagement.UI
         {
             loadChartData(isUseBarChart ? ChartType.barChart : ChartType.lineChart);
         }
+        private void dtStart_ValueChanged(object sender, EventArgs e)
+        {
+            if (dtStart.Value > dtEnd.Value)
+            {
+                MessageBox.Show("Vui lòng chọn ngày bắt đầu nhỏ hơn ngày kết thúc!", "Lỗi!");
+                return;
+            }
+            loadChartData(isUseBarChart ? ChartType.barChart : ChartType.lineChart);
+
+        }
 
         private void btExportExcel_Click(object sender, EventArgs e)
         {
@@ -224,10 +240,17 @@ namespace HotelManagement.UI
 
         private void loadChartData(ChartType chartType)
         {
+            
             double sum = 0;
             ChartValues<double> listRevenue = new ChartValues<double>();
             getListDate((RevenueType)(cbTypeOfRevenue.SelectedIndex + 1));
-
+            int revenueType = cbTypeOfRevenue.SelectedIndex + 1;
+            DataTable dataRoomRevenue = DataAccess.Report.GetRoomRevenue(revenueType, dtStart.Value, dtEnd.Value);
+            int indexDataRoom = 0;
+            DataTable dataEatServiceRevenue = DataAccess.Report.GetEatServiceRevenue(revenueType, dtStart.Value, dtEnd.Value);
+            int indexDataEat = 0;
+            DataTable dataLaudryServiceRevenue = DataAccess.Report.GetLaudryServiceRevenue(revenueType, dtStart.Value, dtEnd.Value);
+            int indexDataLaudry = 0;
             listRoomRevenue.Clear();
             listEatServiceRevenue.Clear();
             listLaudryServiceRevenue.Clear();
@@ -238,9 +261,30 @@ namespace HotelManagement.UI
             {
                 for (int i = 0; i < n; i++)
                 {
-                    listRoomRevenue.Add(rd.Next(3000000, 9000000));
-                    listEatServiceRevenue.Add(rd.Next(3000000, 9000000));
-                    listLaudryServiceRevenue.Add(rd.Next(3000000, 9000000));
+                    if (indexDataRoom < dataRoomRevenue.Rows.Count &&
+                        Convert.ToInt32(dataRoomRevenue.Rows[indexDataRoom].ItemArray[0]) == i)
+                    {
+                        listRoomRevenue.Add(Convert.ToInt32(dataRoomRevenue.Rows[indexDataRoom].ItemArray[1]));
+                        indexDataRoom++;
+                    }
+                    else 
+                        listRoomRevenue.Add(0);
+                    if (indexDataEat < dataEatServiceRevenue.Rows.Count &&
+                        Convert.ToInt32(dataEatServiceRevenue.Rows[indexDataEat].ItemArray[0]) == i)
+                    {
+                        listEatServiceRevenue.Add(Convert.ToInt32(dataEatServiceRevenue.Rows[indexDataEat].ItemArray[1]));
+                        indexDataEat++;
+                    }
+                    else
+                        listEatServiceRevenue.Add(0);
+                    if (indexDataLaudry < dataLaudryServiceRevenue.Rows.Count &&
+                        Convert.ToInt32(dataLaudryServiceRevenue.Rows[indexDataLaudry].ItemArray[0]) == i)
+                    {
+                        listLaudryServiceRevenue.Add(Convert.ToInt32(dataLaudryServiceRevenue.Rows[indexDataLaudry].ItemArray[1]));
+                        indexDataLaudry++;
+                    }
+                    else
+                        listLaudryServiceRevenue.Add(0);
 
                     listRevenue.Add(listRoomRevenue[i] + listEatServiceRevenue[i] + listLaudryServiceRevenue[i]);
                     sum += listRevenue[i];
@@ -273,5 +317,6 @@ namespace HotelManagement.UI
 
             loadChartData(ChartType.barChart);
         }
+
     }
 }
