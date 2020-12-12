@@ -13,7 +13,8 @@ namespace HotelManagement.UI
 {
     public partial class Item_ReportBill : UserControl
     {
-        public Item_ReportBill(int billID, string billDateCre, int roomID, string staffName, int totalMoney, int serviceTotalMoney, int discount, bool roomIsRenting)
+        public Item_ReportBill(int billID, string billDateCre, int roomID, string staffName, int roomCharge,
+                                int serviceTotalMoney, int totalMoney, int discount, bool roomIsRenting)
         {
             InitializeComponent();
 
@@ -29,11 +30,12 @@ namespace HotelManagement.UI
             this.roomIsRenting = roomIsRenting;
             lbBillID.MainText = billID.ToString();
             lbBillDateCre.MainText = billDateCre;
-            lbRoomID.MainText = roomID.ToString();
+            lbRoomReservationID.MainText = roomID.ToString();
             lbStaffName.MainText = staffName;
-            lbRoomCharge.MainText = totalMoney.ToString("C", CultureInfo.GetCultureInfo("vi-VN"));
+            lbRoomCharge.MainText = roomCharge.ToString("C", CultureInfo.GetCultureInfo("vi-VN"));
             lbServiceCharge.MainText = serviceTotalMoney.ToString("C", CultureInfo.GetCultureInfo("vi-VN"));
-            lbDiscount.MainText = discount.ToString() + " %";
+            lbTotalMoney.MainText = totalMoney.ToString("C", CultureInfo.GetCultureInfo("vi-VN"));
+            //lbRoomCharge.MainText = discount.ToString() + " %";
         }
 
         #region properties
