@@ -4,6 +4,7 @@ using System.Text.RegularExpressions;
 using System.Collections.Generic;
 using System.Data;
 using System.Threading.Tasks;
+using System.Threading;
 
 namespace HotelManagement.UI
 {
@@ -15,6 +16,7 @@ namespace HotelManagement.UI
         private int ClientID = 0;
         private bool flag = true;
         private bool IsProcessing = false;
+        private CancellationTokenSource cts;
         public Form_RoomInfo(Item_Room parent)
         {
             InitializeComponent();
@@ -26,6 +28,7 @@ namespace HotelManagement.UI
             {
                 setCustomerInfoAlreadyExists(dropDownList1.selectedItemName);
             };
+            cts = new CancellationTokenSource();
         }
         private async Task LoadAllCustomer()
         {
@@ -42,7 +45,7 @@ namespace HotelManagement.UI
                 item.IDNumber = Convert.ToString(data.Rows[i].ItemArray[5]);
                 item.Passport = Convert.ToString(data.Rows[i].ItemArray[6]);
                 item.Addr = Convert.ToString(data.Rows[0].ItemArray[7]);
-
+                
                 Customers.Add(item);
             }
         }
@@ -74,9 +77,8 @@ namespace HotelManagement.UI
         public Item_Room ParentRef;
         #endregion
 
-        private async void Form_RoomInfo_Load(object sender, EventArgs e)
+        private async Task BackgroundTask()
         {
-
             try
             {
                 StatusLabel.Text = "Đang xử lí...";
@@ -99,6 +101,14 @@ namespace HotelManagement.UI
                 MessageBox.Show(ex.Message);
                 StatusLabel.Text = "Đã xảy ra lỗi";
             }
+        }
+
+        private async void Form_RoomInfo_Load(object sender, EventArgs e)
+        {
+            OverlayForm overlay = new OverlayForm(ParentRef.ParentRef.ParentRef, new LoadingForm(cts.Token));
+            overlay.Show();
+            await BackgroundTask();
+            cts.Cancel();
         }
 
         private async Task Load_Data()

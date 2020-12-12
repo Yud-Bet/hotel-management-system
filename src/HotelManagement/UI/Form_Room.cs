@@ -2,22 +2,26 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Threading;
 
 namespace HotelManagement.UI
 {
     public partial class Form_Room : UserControl
     {
+        public Form ParentRef;
         public string Username;
         public List<Item_Room> listRoom = new List<Item_Room>();
-        private bool IsProcessing = false;
+        private CancellationTokenSource cts;
 
-        public Form_Room(string Username)
+        public Form_Room(string Username, Form Parent)
         {
             InitializeComponent();
             this.Dock = DockStyle.Fill;
             this.Username = Username;
             lbRoomID.Hide();
             this.DoubleBuffered = true;
+            ParentRef = Parent;
+            cts = new CancellationTokenSource();
         }
         #region Properties
         public Label _lbRoomID

@@ -35,7 +35,7 @@ namespace HotelManagement.UI
             pnSubMenu_Service.Hide();
             pnSubMenu_Report.Hide();
             pnSubMenu_Manage.Hide();
-            Form_Room temp = new Form_Room(Username);
+            Form_Room temp = new Form_Room(Username, this);
             panel4.Controls.Add(temp);
         }
 
@@ -161,7 +161,7 @@ namespace HotelManagement.UI
                 setStatus(pbRoom, lbRoom, pnTickChooseBtRoom, Resources.icRoom2, true);
 
                 panel4.Controls.Clear();
-                panel4.Controls.Add(new Form_Room(Username));
+                panel4.Controls.Add(new Form_Room(Username, this));
             }
         }
 

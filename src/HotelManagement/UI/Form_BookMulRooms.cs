@@ -5,6 +5,7 @@ using System.Linq;
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Threading;
 
 namespace HotelManagement.UI
 {
@@ -15,6 +16,7 @@ namespace HotelManagement.UI
         private List<DTO.CustomerOverview> Customers;
         private int ClientID = -1;
         private bool IsProcessing = false;
+        private CancellationTokenSource cts;
 
         public Form_BookMulRooms(Form_Room parentRef)
         {
@@ -26,6 +28,7 @@ namespace HotelManagement.UI
             {
                 setCustomerInfoAlreadyExists(dropDownList1.selectedItemName);
             };
+            cts = new CancellationTokenSource();
         }
 
         private async Task LoadAllCustomer()
@@ -294,8 +297,11 @@ namespace HotelManagement.UI
 
         private async void Form_BookMulRooms_Load(object sender, EventArgs e)
         {
+            OverlayForm overlay = new OverlayForm(ParentRef.ParentRef, new LoadingForm(cts.Token));
+            overlay.Show();
             await LoadAllCustomer();
             loadData();
+            cts.Cancel();
         }
 
         bool checkValidityOfValue()

@@ -35,6 +35,7 @@ namespace HotelManagement.UI
         private async Task Init_cbRoomSelection()
         {
             rooms = await Task.Run(() => new DTO.RoomOverview());
+            cbRoomSelection.Items.Add("None");
             for (int i = 0; i < rooms.Items.Length; i++)
             {
                 cbRoomSelection.Items.Add(rooms.Items[i].ID);
@@ -105,23 +106,26 @@ namespace HotelManagement.UI
                 if (SelectedItems.Count == 0)
                 {
                     MessageBox.Show("Mời chọn ít nhất 1 sản phẩm!", "Lỗi");
+                    IsProcessing = false;
                     return;
                 }
-                if (cbRoomSelection.SelectedIndex == -1)
+                if (cbRoomSelection.SelectedIndex == -1 || cbRoomSelection.SelectedIndex == 0)
                 {
                     MessageBox.Show("Mời chọn phòng!", "Lỗi");
+                    IsProcessing = false;
                     return;
                 }
-                if (rooms.Items[cbRoomSelection.SelectedIndex].Status != RoomStatus.Rented)
+                if (rooms.Items[cbRoomSelection.SelectedIndex - 1].Status != RoomStatus.Rented)
                 {
                     MessageBox.Show("Phòng này chưa được thuê!", "Lỗi");
+                    IsProcessing = false;
                     return;
                 }
                 try
                 {
                     for (int i = 0; i < SelectedItems.Count; i++)
                     {
-                        int RoomID = rooms.Items[cbRoomSelection.SelectedIndex].ID;
+                        int RoomID = rooms.Items[cbRoomSelection.SelectedIndex - 1].ID;
                         await Task.Run(() => DataAccess.Services.InsertServicetoBillDetail(RoomID, SelectedItems[i]._itemID, SelectedItems[i]._count));
                     }
                     MessageBox.Show("Thêm thành công!", "Thông báo");
@@ -156,7 +160,7 @@ namespace HotelManagement.UI
                     MessageBox.Show("Mời chọn ít nhất 1 sản phẩm!", "Lỗi");
                     return;
                 }
-                if (cbRoomSelection.SelectedIndex != -1)
+                if (cbRoomSelection.SelectedIndex != -1 && cbRoomSelection.SelectedIndex != 0)
                 {
                     MessageBox.Show("Thanh toán trực tiếp, vui lòng không chọn phòng!", "Lỗi");
                     return;
