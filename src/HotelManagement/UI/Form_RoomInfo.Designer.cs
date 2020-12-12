@@ -33,6 +33,7 @@
             this.tbNote = new Zeroit.Framework.Labels.ZeroitUltraTextBox();
             this.tbCustomerAddress = new Zeroit.Framework.Labels.ZeroitUltraTextBox();
             this.tbPassport = new Zeroit.Framework.Labels.ZeroitUltraTextBox();
+            this.btSave = new XanderUI.XUIButton();
             this.tbIDNo = new Zeroit.Framework.Labels.ZeroitUltraTextBox();
             this.tbCustomerPhoneNum = new Zeroit.Framework.Labels.ZeroitUltraTextBox();
             this.tbCustomerName = new Zeroit.Framework.Labels.ZeroitUltraTextBox();
@@ -52,6 +53,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.dropDownList1 = new HotelManagement.UI.DropDownList();
             this.pnRoomInfo = new System.Windows.Forms.Panel();
             this.label21 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -88,8 +90,6 @@
             this.customerAlreadyEixstsMenu = new Zeroit.Framework.MaterialDesign.Controls.ZeroitMaterialContextMenuStrip();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.pbArrowBack = new System.Windows.Forms.PictureBox();
-            this.dropDownList1 = new HotelManagement.UI.DropDownList();
-            this.btSave = new XanderUI.XUIButton();
             this.pnCustomerInfo.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.pnRoomInfo.SuspendLayout();
@@ -104,6 +104,7 @@
             // pnCustomerInfo
             // 
             this.pnCustomerInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this.pnCustomerInfo.Controls.Add(this.dropDownList1);
             this.pnCustomerInfo.Controls.Add(this.tbNote);
             this.pnCustomerInfo.Controls.Add(this.tbCustomerAddress);
             this.pnCustomerInfo.Controls.Add(this.tbPassport);
@@ -125,7 +126,6 @@
             this.pnCustomerInfo.Controls.Add(this.label3);
             this.pnCustomerInfo.Controls.Add(this.label1);
             this.pnCustomerInfo.Controls.Add(this.panel3);
-            this.pnCustomerInfo.Controls.Add(this.dropDownList1);
             this.pnCustomerInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.25F);
             this.pnCustomerInfo.Location = new System.Drawing.Point(31, 50);
             this.pnCustomerInfo.Name = "pnCustomerInfo";
@@ -208,6 +208,29 @@
             this.tbPassport.UseSystemPasswordChar = false;
             this.tbPassport.WordWrap = true;
             // 
+            // btSave
+            // 
+            this.btSave.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
+            this.btSave.ButtonImage = null;
+            this.btSave.ButtonStyle = XanderUI.XUIButton.Style.MaterialRounded;
+            this.btSave.ButtonText = "Lưu";
+            this.btSave.ClickBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(130)))), ((int)(((byte)(200)))));
+            this.btSave.ClickTextColor = System.Drawing.Color.White;
+            this.btSave.CornerRadius = 5;
+            this.btSave.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btSave.Font = new System.Drawing.Font("Segoe UI", 14F);
+            this.btSave.Horizontal_Alignment = System.Drawing.StringAlignment.Near;
+            this.btSave.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
+            this.btSave.HoverTextColor = System.Drawing.Color.White;
+            this.btSave.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
+            this.btSave.Location = new System.Drawing.Point(443, 3);
+            this.btSave.Name = "btSave";
+            this.btSave.Size = new System.Drawing.Size(45, 27);
+            this.btSave.TabIndex = 18;
+            this.btSave.TextColor = System.Drawing.Color.White;
+            this.btSave.Vertical_Alignment = System.Drawing.StringAlignment.Center;
+            this.btSave.Click += new System.EventHandler(this.btSave_Click);
+            // 
             // tbIDNo
             // 
             this.tbIDNo.DisabledStringColor = System.Drawing.Color.Black;
@@ -289,7 +312,7 @@
             this.cbPassport.AllowTransparency = true;
             this.cbPassport.Checked = false;
             this.cbPassport.Depth = 0;
-            this.cbPassport.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.cbPassport.Font = new System.Drawing.Font("Roboto", 10F);
             this.cbPassport.Location = new System.Drawing.Point(351, 200);
             this.cbPassport.Margin = new System.Windows.Forms.Padding(0);
             this.cbPassport.MouseLocation = new System.Drawing.Point(-1, -1);
@@ -306,7 +329,7 @@
             this.cbIDNo.AllowTransparency = true;
             this.cbIDNo.Checked = true;
             this.cbIDNo.Depth = 0;
-            this.cbIDNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.cbIDNo.Font = new System.Drawing.Font("Roboto", 10F);
             this.cbIDNo.Location = new System.Drawing.Point(189, 200);
             this.cbIDNo.Margin = new System.Windows.Forms.Padding(0);
             this.cbIDNo.MouseLocation = new System.Drawing.Point(-1, -1);
@@ -331,7 +354,7 @@
             // 
             this.rbtMale.AutoSize = true;
             this.rbtMale.Depth = 0;
-            this.rbtMale.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.rbtMale.Font = new System.Drawing.Font("Roboto", 10F);
             this.rbtMale.Location = new System.Drawing.Point(0, 0);
             this.rbtMale.Margin = new System.Windows.Forms.Padding(0);
             this.rbtMale.MouseLocation = new System.Drawing.Point(-1, -1);
@@ -348,7 +371,7 @@
             // 
             this.rbtFemale.AutoSize = true;
             this.rbtFemale.Depth = 0;
-            this.rbtFemale.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.rbtFemale.Font = new System.Drawing.Font("Roboto", 10F);
             this.rbtFemale.Location = new System.Drawing.Point(58, 0);
             this.rbtFemale.Margin = new System.Windows.Forms.Padding(0);
             this.rbtFemale.MouseLocation = new System.Drawing.Point(-1, -1);
@@ -479,6 +502,17 @@
             this.panel3.Size = new System.Drawing.Size(350, 3);
             this.panel3.TabIndex = 3;
             // 
+            // dropDownList1
+            // 
+            this.dropDownList1.AutoScroll = true;
+            this.dropDownList1.AutoSize = true;
+            this.dropDownList1.BackColor = System.Drawing.Color.White;
+            this.dropDownList1.Location = new System.Drawing.Point(17, 102);
+            this.dropDownList1.MaximumSize = new System.Drawing.Size(300, 300);
+            this.dropDownList1.Name = "dropDownList1";
+            this.dropDownList1.Size = new System.Drawing.Size(273, 25);
+            this.dropDownList1.TabIndex = 9;
+            // 
             // pnRoomInfo
             // 
             this.pnRoomInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
@@ -536,7 +570,7 @@
             // 
             this.rbtSingle.AutoSize = true;
             this.rbtSingle.Depth = 0;
-            this.rbtSingle.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.rbtSingle.Font = new System.Drawing.Font("Roboto", 10F);
             this.rbtSingle.Location = new System.Drawing.Point(0, 0);
             this.rbtSingle.Margin = new System.Windows.Forms.Padding(0);
             this.rbtSingle.MouseLocation = new System.Drawing.Point(-1, -1);
@@ -553,7 +587,7 @@
             // 
             this.rbtDouble.AutoSize = true;
             this.rbtDouble.Depth = 0;
-            this.rbtDouble.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.rbtDouble.Font = new System.Drawing.Font("Roboto", 10F);
             this.rbtDouble.Location = new System.Drawing.Point(54, 0);
             this.rbtDouble.Margin = new System.Windows.Forms.Padding(0);
             this.rbtDouble.MouseLocation = new System.Drawing.Point(-1, -1);
@@ -579,7 +613,7 @@
             // 
             this.rbtVip.AutoSize = true;
             this.rbtVip.Depth = 0;
-            this.rbtVip.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.rbtVip.Font = new System.Drawing.Font("Roboto", 10F);
             this.rbtVip.Location = new System.Drawing.Point(0, 0);
             this.rbtVip.Margin = new System.Windows.Forms.Padding(0);
             this.rbtVip.MouseLocation = new System.Drawing.Point(-1, -1);
@@ -596,7 +630,7 @@
             // 
             this.rbtNor.AutoSize = true;
             this.rbtNor.Depth = 0;
-            this.rbtNor.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.rbtNor.Font = new System.Drawing.Font("Roboto", 10F);
             this.rbtNor.Location = new System.Drawing.Point(49, 0);
             this.rbtNor.Margin = new System.Windows.Forms.Padding(0);
             this.rbtNor.MouseLocation = new System.Drawing.Point(-1, -1);
@@ -750,7 +784,7 @@
             this.cbCheckOutDate.AllowTransparency = true;
             this.cbCheckOutDate.Checked = false;
             this.cbCheckOutDate.Depth = 0;
-            this.cbCheckOutDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.cbCheckOutDate.Font = new System.Drawing.Font("Roboto", 10F);
             this.cbCheckOutDate.Location = new System.Drawing.Point(95, 117);
             this.cbCheckOutDate.Margin = new System.Windows.Forms.Padding(0);
             this.cbCheckOutDate.MouseLocation = new System.Drawing.Point(-1, -1);
@@ -966,40 +1000,6 @@
             this.pbArrowBack.TabIndex = 25;
             this.pbArrowBack.TabStop = false;
             this.pbArrowBack.Click += new System.EventHandler(this.pbArrowBack_Click);
-            // 
-            // dropDownList1
-            // 
-            this.dropDownList1.AutoScroll = true;
-            this.dropDownList1.AutoSize = true;
-            this.dropDownList1.BackColor = System.Drawing.Color.White;
-            this.dropDownList1.Location = new System.Drawing.Point(17, 102);
-            this.dropDownList1.MaximumSize = new System.Drawing.Size(300, 300);
-            this.dropDownList1.Name = "dropDownList1";
-            this.dropDownList1.Size = new System.Drawing.Size(273, 25);
-            this.dropDownList1.TabIndex = 9;
-            // 
-            // btSave
-            // 
-            this.btSave.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
-            this.btSave.ButtonImage = null;
-            this.btSave.ButtonStyle = XanderUI.XUIButton.Style.MaterialRounded;
-            this.btSave.ButtonText = "Lưu";
-            this.btSave.ClickBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(130)))), ((int)(((byte)(200)))));
-            this.btSave.ClickTextColor = System.Drawing.Color.White;
-            this.btSave.CornerRadius = 5;
-            this.btSave.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btSave.Font = new System.Drawing.Font("Segoe UI", 14F);
-            this.btSave.Horizontal_Alignment = System.Drawing.StringAlignment.Near;
-            this.btSave.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
-            this.btSave.HoverTextColor = System.Drawing.Color.White;
-            this.btSave.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
-            this.btSave.Location = new System.Drawing.Point(443, 3);
-            this.btSave.Name = "btSave";
-            this.btSave.Size = new System.Drawing.Size(45, 27);
-            this.btSave.TabIndex = 18;
-            this.btSave.TextColor = System.Drawing.Color.White;
-            this.btSave.Vertical_Alignment = System.Drawing.StringAlignment.Center;
-            this.btSave.Click += new System.EventHandler(this.btSave_Click);
             // 
             // Form_RoomInfo
             // 
