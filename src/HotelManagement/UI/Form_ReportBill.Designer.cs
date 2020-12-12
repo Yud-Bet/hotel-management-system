@@ -33,7 +33,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.cbSort = new MetroFramework.Controls.MetroComboBox();
             this.cbStaff = new MetroFramework.Controls.MetroComboBox();
-            this.cbRoomIsRenting = new Zeroit.Framework.MaterialDesign.Controls.ZeroitMaterialCheckBox();
+            this.cbRoomReservationIsRenting = new Zeroit.Framework.MaterialDesign.Controls.ZeroitMaterialCheckBox();
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -82,7 +82,7 @@
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.panel1.Controls.Add(this.cbSort);
             this.panel1.Controls.Add(this.cbStaff);
-            this.panel1.Controls.Add(this.cbRoomIsRenting);
+            this.panel1.Controls.Add(this.cbRoomReservationIsRenting);
             this.panel1.Controls.Add(this.panel7);
             this.panel1.Controls.Add(this.panel6);
             this.panel1.Controls.Add(this.panel4);
@@ -105,40 +105,43 @@
             this.cbSort.Items.AddRange(new object[] {
             "Tăng",
             "Giảm",
-            "Không"});
+            "Ngày lập"});
             this.cbSort.Location = new System.Drawing.Point(852, 9);
             this.cbSort.Name = "cbSort";
             this.cbSort.Size = new System.Drawing.Size(87, 29);
             this.cbSort.TabIndex = 5;
             this.cbSort.UseSelectable = true;
+            this.cbSort.SelectedIndexChanged += new System.EventHandler(this.metroDateTime1_ValueChanged);
             // 
             // cbStaff
             // 
             this.cbStaff.FormattingEnabled = true;
             this.cbStaff.ItemHeight = 23;
             this.cbStaff.Items.AddRange(new object[] {
-            "Không"});
+            "0 | Tất cả"});
             this.cbStaff.Location = new System.Drawing.Point(584, 8);
             this.cbStaff.Name = "cbStaff";
             this.cbStaff.Size = new System.Drawing.Size(183, 29);
             this.cbStaff.TabIndex = 5;
             this.cbStaff.UseSelectable = true;
+            this.cbStaff.SelectedIndexChanged += new System.EventHandler(this.metroDateTime1_ValueChanged);
             // 
-            // cbRoomIsRenting
+            // cbRoomReservationIsRenting
             // 
-            this.cbRoomIsRenting.AllowTransparency = true;
-            this.cbRoomIsRenting.Checked = false;
-            this.cbRoomIsRenting.Depth = 0;
-            this.cbRoomIsRenting.Font = new System.Drawing.Font("Roboto", 10F);
-            this.cbRoomIsRenting.Location = new System.Drawing.Point(464, 12);
-            this.cbRoomIsRenting.Margin = new System.Windows.Forms.Padding(0);
-            this.cbRoomIsRenting.MouseLocation = new System.Drawing.Point(-1, -1);
-            this.cbRoomIsRenting.MouseState = Zeroit.Framework.MaterialDesign.MouseState.HOVER;
-            this.cbRoomIsRenting.Name = "cbRoomIsRenting";
-            this.cbRoomIsRenting.Ripple = true;
-            this.cbRoomIsRenting.Size = new System.Drawing.Size(27, 23);
-            this.cbRoomIsRenting.TabIndex = 4;
-            this.cbRoomIsRenting.TabStop = false;
+            this.cbRoomReservationIsRenting.AllowTransparency = true;
+            this.cbRoomReservationIsRenting.Checked = false;
+            this.cbRoomReservationIsRenting.Depth = 0;
+            this.cbRoomReservationIsRenting.Font = new System.Drawing.Font("Roboto", 10F);
+            this.cbRoomReservationIsRenting.Location = new System.Drawing.Point(464, 12);
+            this.cbRoomReservationIsRenting.Margin = new System.Windows.Forms.Padding(0);
+            this.cbRoomReservationIsRenting.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.cbRoomReservationIsRenting.MouseState = Zeroit.Framework.MaterialDesign.MouseState.HOVER;
+            this.cbRoomReservationIsRenting.Name = "cbRoomReservationIsRenting";
+            this.cbRoomReservationIsRenting.Ripple = true;
+            this.cbRoomReservationIsRenting.Size = new System.Drawing.Size(27, 23);
+            this.cbRoomReservationIsRenting.TabIndex = 4;
+            this.cbRoomReservationIsRenting.TabStop = false;
+            this.cbRoomReservationIsRenting.CheckedChanged += new System.EventHandler(this.cbRoomReservationIsRenting_CheckedChanged);
             // 
             // panel7
             // 
@@ -213,6 +216,7 @@
             this.dtEnd.Name = "dtEnd";
             this.dtEnd.Size = new System.Drawing.Size(110, 29);
             this.dtEnd.TabIndex = 0;
+            this.dtEnd.ValueChanged += new System.EventHandler(this.metroDateTime1_ValueChanged);
             // 
             // dtStart
             // 
@@ -257,37 +261,37 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(843, 13);
+            this.label11.Location = new System.Drawing.Point(527, 13);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(69, 20);
+            this.label11.Size = new System.Drawing.Size(84, 20);
             this.label11.TabIndex = 6;
-            this.label11.Text = "Giảm giá";
+            this.label11.Text = "Tiền phòng";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(697, 13);
+            this.label10.Location = new System.Drawing.Point(818, 13);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(88, 20);
+            this.label10.Size = new System.Drawing.Size(72, 20);
             this.label10.TabIndex = 6;
-            this.label10.Text = "Tiền dịch vụ";
+            this.label10.Text = "Tổng tiền";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(558, 13);
+            this.label9.Location = new System.Drawing.Point(663, 13);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(84, 20);
+            this.label9.Size = new System.Drawing.Size(88, 20);
             this.label9.TabIndex = 6;
-            this.label9.Text = "Tiền phòng";
+            this.label9.Text = "Tiền dịch vụ";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(335, 13);
+            this.label8.Location = new System.Drawing.Point(273, 13);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(75, 20);
             this.label8.TabIndex = 6;
@@ -297,17 +301,17 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(236, 13);
+            this.label7.Location = new System.Drawing.Point(203, 13);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(51, 20);
+            this.label7.Size = new System.Drawing.Size(50, 20);
             this.label7.TabIndex = 6;
-            this.label7.Text = "Phòng";
+            this.label7.Text = "Mã TP";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(117, 13);
+            this.label6.Location = new System.Drawing.Point(83, 13);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(69, 20);
             this.label6.TabIndex = 6;
@@ -317,7 +321,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(23, 13);
+            this.label5.Location = new System.Drawing.Point(13, 13);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(56, 20);
             this.label5.TabIndex = 6;
@@ -369,7 +373,7 @@
         private System.Windows.Forms.Label label1;
         private MetroFramework.Controls.MetroDateTime dtEnd;
         private System.Windows.Forms.Label label2;
-        private Zeroit.Framework.MaterialDesign.Controls.ZeroitMaterialCheckBox cbRoomIsRenting;
+        private Zeroit.Framework.MaterialDesign.Controls.ZeroitMaterialCheckBox cbRoomReservationIsRenting;
         private System.Windows.Forms.Panel panel5;
         private MetroFramework.Controls.MetroComboBox cbSort;
         private MetroFramework.Controls.MetroComboBox cbStaff;

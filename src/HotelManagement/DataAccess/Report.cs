@@ -24,5 +24,14 @@ namespace HotelManagement.DataAccess
             return ExecuteQuery.ExecuteReader("QLKS_GetLaudryServiceRevenue @RevenueType , @FromDate , @ToDate",
                 new object[] { RevenueType, FromDate, ToDate });
         }
+        public static DataTable GetAllBillInfo(DateTime FromDate, DateTime ToDate, int staffID, int sort)
+        {
+            return ExecuteQuery.ExecuteReader("QLKS_GetAllBillInfo @FromDate , @ToDate , @StaffID , @Sort",
+                new object[] { FromDate, ToDate, staffID, sort });
+        }
+        public static DataTable GetAllStaffInfo()
+        {
+            return ExecuteQuery.ExecuteReader("QLKS_GetAllStaffInfo");
+        }
     }
 }

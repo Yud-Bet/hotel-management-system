@@ -30,11 +30,11 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Item_ReportBill));
             this.zeroitUltraTextBox1 = new Zeroit.Framework.Labels.ZeroitUltraTextBox();
-            this.lbDiscount = new Zeroit.Framework.Labels.ZeroitMultiFormatLabel();
-            this.lbServiceCharge = new Zeroit.Framework.Labels.ZeroitMultiFormatLabel();
             this.lbRoomCharge = new Zeroit.Framework.Labels.ZeroitMultiFormatLabel();
+            this.lbTotalMoney = new Zeroit.Framework.Labels.ZeroitMultiFormatLabel();
+            this.lbServiceCharge = new Zeroit.Framework.Labels.ZeroitMultiFormatLabel();
             this.lbStaffName = new Zeroit.Framework.Labels.ZeroitMultiFormatLabel();
-            this.lbRoomID = new Zeroit.Framework.Labels.ZeroitMultiFormatLabel();
+            this.lbRoomReservationID = new Zeroit.Framework.Labels.ZeroitMultiFormatLabel();
             this.lbBillDateCre = new Zeroit.Framework.Labels.ZeroitMultiFormatLabel();
             this.lbBillID = new Zeroit.Framework.Labels.ZeroitMultiFormatLabel();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -74,87 +74,87 @@
             this.zeroitUltraTextBox1.WordWrap = true;
             this.zeroitUltraTextBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Item_ReportBill_MouseMove);
             // 
-            // lbDiscount
+            // lbRoomCharge
             // 
-            this.lbDiscount.AllowTransparency = true;
-            this.lbDiscount.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbDiscount.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.lbDiscount.Location = new System.Drawing.Point(832, 1);
-            this.lbDiscount.MainText = "100%";
-            this.lbDiscount.MainTextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.lbDiscount.MainTextPadding = new System.Windows.Forms.Padding(0);
-            this.lbDiscount.Name = "lbDiscount";
-            this.lbDiscount.Size = new System.Drawing.Size(50, 31);
-            this.lbDiscount.TabIndex = 8;
-            this.lbDiscount.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Item_ReportBill_MouseMove);
+            this.lbRoomCharge.AllowTransparency = true;
+            this.lbRoomCharge.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbRoomCharge.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.lbRoomCharge.Location = new System.Drawing.Point(460, 1);
+            this.lbRoomCharge.MainText = "RoomCharge";
+            this.lbRoomCharge.MainTextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lbRoomCharge.MainTextPadding = new System.Windows.Forms.Padding(0);
+            this.lbRoomCharge.Name = "lbRoomCharge";
+            this.lbRoomCharge.Size = new System.Drawing.Size(140, 31);
+            this.lbRoomCharge.TabIndex = 8;
+            this.lbRoomCharge.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Item_ReportBill_MouseMove);
+            // 
+            // lbTotalMoney
+            // 
+            this.lbTotalMoney.AllowTransparency = true;
+            this.lbTotalMoney.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTotalMoney.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.lbTotalMoney.Location = new System.Drawing.Point(740, 1);
+            this.lbTotalMoney.MainText = "TotalMoney";
+            this.lbTotalMoney.MainTextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lbTotalMoney.MainTextPadding = new System.Windows.Forms.Padding(0);
+            this.lbTotalMoney.Name = "lbTotalMoney";
+            this.lbTotalMoney.Size = new System.Drawing.Size(140, 31);
+            this.lbTotalMoney.TabIndex = 9;
+            this.lbTotalMoney.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Item_ReportBill_MouseMove);
             // 
             // lbServiceCharge
             // 
             this.lbServiceCharge.AllowTransparency = true;
             this.lbServiceCharge.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbServiceCharge.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.lbServiceCharge.Location = new System.Drawing.Point(683, 1);
+            this.lbServiceCharge.Location = new System.Drawing.Point(600, 1);
             this.lbServiceCharge.MainText = "ServiceCharge";
-            this.lbServiceCharge.MainTextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lbServiceCharge.MainTextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.lbServiceCharge.MainTextPadding = new System.Windows.Forms.Padding(0);
             this.lbServiceCharge.Name = "lbServiceCharge";
-            this.lbServiceCharge.Size = new System.Drawing.Size(133, 31);
-            this.lbServiceCharge.TabIndex = 9;
+            this.lbServiceCharge.Size = new System.Drawing.Size(140, 31);
+            this.lbServiceCharge.TabIndex = 10;
             this.lbServiceCharge.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Item_ReportBill_MouseMove);
-            // 
-            // lbRoomCharge
-            // 
-            this.lbRoomCharge.AllowTransparency = true;
-            this.lbRoomCharge.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbRoomCharge.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.lbRoomCharge.Location = new System.Drawing.Point(544, 1);
-            this.lbRoomCharge.MainText = "RoomCharge";
-            this.lbRoomCharge.MainTextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lbRoomCharge.MainTextPadding = new System.Windows.Forms.Padding(0);
-            this.lbRoomCharge.Name = "lbRoomCharge";
-            this.lbRoomCharge.Size = new System.Drawing.Size(133, 31);
-            this.lbRoomCharge.TabIndex = 10;
-            this.lbRoomCharge.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Item_ReportBill_MouseMove);
             // 
             // lbStaffName
             // 
             this.lbStaffName.AllowTransparency = true;
             this.lbStaffName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbStaffName.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.lbStaffName.Location = new System.Drawing.Point(320, 1);
+            this.lbStaffName.Location = new System.Drawing.Point(260, 1);
             this.lbStaffName.MainText = "StaffName";
             this.lbStaffName.MainTextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lbStaffName.MainTextPadding = new System.Windows.Forms.Padding(0);
             this.lbStaffName.Name = "lbStaffName";
-            this.lbStaffName.Size = new System.Drawing.Size(223, 31);
+            this.lbStaffName.Size = new System.Drawing.Size(200, 31);
             this.lbStaffName.TabIndex = 11;
             this.lbStaffName.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Item_ReportBill_MouseMove);
             // 
-            // lbRoomID
+            // lbRoomReservationID
             // 
-            this.lbRoomID.AllowTransparency = true;
-            this.lbRoomID.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbRoomID.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.lbRoomID.Location = new System.Drawing.Point(221, 1);
-            this.lbRoomID.MainText = "RoomID";
-            this.lbRoomID.MainTextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lbRoomID.MainTextPadding = new System.Windows.Forms.Padding(0);
-            this.lbRoomID.Name = "lbRoomID";
-            this.lbRoomID.Size = new System.Drawing.Size(93, 31);
-            this.lbRoomID.TabIndex = 12;
-            this.lbRoomID.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Item_ReportBill_MouseMove);
+            this.lbRoomReservationID.AllowTransparency = true;
+            this.lbRoomReservationID.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbRoomReservationID.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.lbRoomReservationID.Location = new System.Drawing.Point(190, 1);
+            this.lbRoomReservationID.MainText = "RRID";
+            this.lbRoomReservationID.MainTextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lbRoomReservationID.MainTextPadding = new System.Windows.Forms.Padding(0);
+            this.lbRoomReservationID.Name = "lbRoomReservationID";
+            this.lbRoomReservationID.Size = new System.Drawing.Size(70, 31);
+            this.lbRoomReservationID.TabIndex = 12;
+            this.lbRoomReservationID.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Item_ReportBill_MouseMove);
             // 
             // lbBillDateCre
             // 
             this.lbBillDateCre.AllowTransparency = true;
             this.lbBillDateCre.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbBillDateCre.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.lbBillDateCre.Location = new System.Drawing.Point(102, 1);
-            this.lbBillDateCre.MainText = "BillDateCre";
+            this.lbBillDateCre.Location = new System.Drawing.Point(70, 1);
+            this.lbBillDateCre.MainText = "BillDate";
             this.lbBillDateCre.MainTextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lbBillDateCre.MainTextPadding = new System.Windows.Forms.Padding(0);
             this.lbBillDateCre.Name = "lbBillDateCre";
-            this.lbBillDateCre.Size = new System.Drawing.Size(109, 31);
+            this.lbBillDateCre.Size = new System.Drawing.Size(120, 31);
             this.lbBillDateCre.TabIndex = 13;
             this.lbBillDateCre.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Item_ReportBill_MouseMove);
             // 
@@ -163,12 +163,12 @@
             this.lbBillID.AllowTransparency = true;
             this.lbBillID.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbBillID.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.lbBillID.Location = new System.Drawing.Point(9, 1);
+            this.lbBillID.Location = new System.Drawing.Point(0, 1);
             this.lbBillID.MainText = "BillID";
             this.lbBillID.MainTextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lbBillID.MainTextPadding = new System.Windows.Forms.Padding(0);
             this.lbBillID.Name = "lbBillID";
-            this.lbBillID.Size = new System.Drawing.Size(84, 31);
+            this.lbBillID.Size = new System.Drawing.Size(70, 31);
             this.lbBillID.TabIndex = 14;
             this.lbBillID.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Item_ReportBill_MouseMove);
             // 
@@ -176,11 +176,11 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.panel1.Controls.Add(this.pbMenu);
-            this.panel1.Controls.Add(this.lbDiscount);
             this.panel1.Controls.Add(this.lbRoomCharge);
             this.panel1.Controls.Add(this.lbServiceCharge);
+            this.panel1.Controls.Add(this.lbTotalMoney);
             this.panel1.Controls.Add(this.lbStaffName);
-            this.panel1.Controls.Add(this.lbRoomID);
+            this.panel1.Controls.Add(this.lbRoomReservationID);
             this.panel1.Controls.Add(this.lbBillDateCre);
             this.panel1.Controls.Add(this.lbBillID);
             this.panel1.Cursor = System.Windows.Forms.Cursors.Default;
@@ -246,11 +246,11 @@
         #endregion
 
         private Zeroit.Framework.Labels.ZeroitUltraTextBox zeroitUltraTextBox1;
-        private Zeroit.Framework.Labels.ZeroitMultiFormatLabel lbDiscount;
-        private Zeroit.Framework.Labels.ZeroitMultiFormatLabel lbServiceCharge;
         private Zeroit.Framework.Labels.ZeroitMultiFormatLabel lbRoomCharge;
+        private Zeroit.Framework.Labels.ZeroitMultiFormatLabel lbTotalMoney;
+        private Zeroit.Framework.Labels.ZeroitMultiFormatLabel lbServiceCharge;
         private Zeroit.Framework.Labels.ZeroitMultiFormatLabel lbStaffName;
-        private Zeroit.Framework.Labels.ZeroitMultiFormatLabel lbRoomID;
+        private Zeroit.Framework.Labels.ZeroitMultiFormatLabel lbRoomReservationID;
         private Zeroit.Framework.Labels.ZeroitMultiFormatLabel lbBillDateCre;
         private Zeroit.Framework.Labels.ZeroitMultiFormatLabel lbBillID;
         private System.Windows.Forms.Panel panel1;
