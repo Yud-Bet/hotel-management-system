@@ -36,14 +36,14 @@
             // 
             // xuiCircleProgressBar1
             // 
-            this.xuiCircleProgressBar1.AnimationSpeed = 6;
+            this.xuiCircleProgressBar1.AnimationSpeed = 8;
             this.xuiCircleProgressBar1.FilledColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
             this.xuiCircleProgressBar1.FilledColorAlpha = 255;
-            this.xuiCircleProgressBar1.FilledThickness = 10;
+            this.xuiCircleProgressBar1.FilledThickness = 8;
             this.xuiCircleProgressBar1.IsAnimated = true;
             this.xuiCircleProgressBar1.Location = new System.Drawing.Point(21, 20);
             this.xuiCircleProgressBar1.Name = "xuiCircleProgressBar1";
-            this.xuiCircleProgressBar1.Percentage = 25;
+            this.xuiCircleProgressBar1.Percentage = 33;
             this.xuiCircleProgressBar1.ShowText = false;
             this.xuiCircleProgressBar1.Size = new System.Drawing.Size(90, 90);
             this.xuiCircleProgressBar1.TabIndex = 1;
@@ -57,7 +57,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(123)))), ((int)(((byte)(160)))));
-            this.label1.Location = new System.Drawing.Point(150, 47);
+            this.label1.Location = new System.Drawing.Point(148, 47);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(166, 37);
             this.label1.TabIndex = 2;
