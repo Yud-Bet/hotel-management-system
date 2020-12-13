@@ -68,6 +68,7 @@ namespace HotelManagement.UI
             this.flowLayoutPanel1.Controls.Remove(temp);
             this.flowLayoutPanel1.Controls.Add(label);
             this.flowLayoutPanel1.Controls.Add(temp);
+            this.Size = this.flowLayoutPanel1.Size;
         }
 
         private void timerHide_Tick(object sender, EventArgs e)

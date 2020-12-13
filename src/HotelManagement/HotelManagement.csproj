@@ -131,6 +131,12 @@
       <DependentUpon>DropDownList.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\exportExcel.cs" />
+    <Compile Include="UI\Form_AddEditStaff.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Form_AddEditStaff.Designer.cs">
+      <DependentUpon>Form_AddEditStaff.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Form_BookMulRooms.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -152,6 +158,12 @@
     </Compile>
     <Compile Include="UI\Form_AddEditRoom.Designer.cs">
       <DependentUpon>Form_AddEditRoom.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Form_EditAccount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Form_EditAccount.Designer.cs">
+      <DependentUpon>Form_EditAccount.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Form_LaundryService.cs">
       <SubType>UserControl</SubType>
@@ -195,6 +207,12 @@
     <Compile Include="UI\Form_RoomInfo.Designer.cs">
       <DependentUpon>Form_RoomInfo.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Form_Staff.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Form_Staff.Designer.cs">
+      <DependentUpon>Form_Staff.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\GetValueOfControl.cs" />
     <Compile Include="UI\Item_EatService1.cs">
       <SubType>UserControl</SubType>
@@ -232,12 +250,21 @@
     <Compile Include="UI\Item_RoomOfFormBookMulRoom.Designer.cs">
       <DependentUpon>Item_RoomOfFormBookMulRoom.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Item_Staff.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Item_Staff.Designer.cs">
+      <DependentUpon>Item_Staff.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\SetValueForControl.cs" />
     <EmbeddedResource Include="UI\CustomDateTime.resx">
       <DependentUpon>CustomDateTime.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\DropDownList.resx">
       <DependentUpon>DropDownList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Form_AddEditStaff.resx">
+      <DependentUpon>Form_AddEditStaff.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Form_BookMulRooms.resx">
       <DependentUpon>Form_BookMulRooms.cs</DependentUpon>
@@ -257,6 +284,9 @@
     </Compile>
     <EmbeddedResource Include="UI\Form_AddEditRoom.resx">
       <DependentUpon>Form_AddEditRoom.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Form_EditAccount.resx">
+      <DependentUpon>Form_EditAccount.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Form_LaundryService.resx">
       <DependentUpon>Form_LaundryService.cs</DependentUpon>
@@ -279,6 +309,9 @@
     <EmbeddedResource Include="UI\Form_RoomInfo.resx">
       <DependentUpon>Form_RoomInfo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\Form_Staff.resx">
+      <DependentUpon>Form_Staff.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Item_EatService1.resx">
       <DependentUpon>Item_EatService1.cs</DependentUpon>
     </EmbeddedResource>
@@ -296,6 +329,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Item_RoomOfFormBookMulRoom.resx">
       <DependentUpon>Item_RoomOfFormBookMulRoom.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Item_Staff.resx">
+      <DependentUpon>Item_Staff.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -588,6 +624,12 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icShowPass.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icHidePass.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

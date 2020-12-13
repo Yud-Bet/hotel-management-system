@@ -263,6 +263,8 @@ namespace HotelManagement.UI
                 setStatus(pbManage, lbManage, pnTickChooseBtManage, Resources.icManage2, true);
                 pbArrow_Manage.Image = Resources.icVerticalArrow2;
                 pnSubMenu_Manage.Show();
+
+                btStaff_Click(sender, e);
             }
         }
 
@@ -419,6 +421,9 @@ namespace HotelManagement.UI
                 resetManageSubmenu();
                 isChoosebtStaff = true;
                 setStatus(pbStaff, lbStaff, Resources.icStaff2, true);
+
+                panel4.Controls.Clear();
+                panel4.Controls.Add(new Form_Staff());
             }
         }
 

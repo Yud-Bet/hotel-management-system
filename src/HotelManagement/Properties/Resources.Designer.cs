@@ -213,6 +213,16 @@ namespace HotelManagement.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icHidePass {
+            get {
+                object obj = ResourceManager.GetObject("icHidePass", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icHorizontalArrow {
             get {
                 object obj = ResourceManager.GetObject("icHorizontalArrow", resourceCulture);
@@ -436,6 +446,16 @@ namespace HotelManagement.Properties {
         internal static System.Drawing.Bitmap icSevice2 {
             get {
                 object obj = ResourceManager.GetObject("icSevice2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icShowPass {
+            get {
+                object obj = ResourceManager.GetObject("icShowPass", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

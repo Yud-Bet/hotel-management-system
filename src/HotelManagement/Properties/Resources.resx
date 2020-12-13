@@ -163,6 +163,9 @@
   <data name="icFix" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icFix.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="icHidePass" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icHidePass.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="icHorizontalArrow" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icHorizontalArrow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -231,6 +234,9 @@
   </data>
   <data name="icSevice2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icSevice2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icShowPass" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icShowPass.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icSingleRoom" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icSingleRoom.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
