@@ -4,16 +4,28 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using MaterialSkin;
+using System.Runtime.InteropServices;
 
 namespace HotelManagement.UI
 {
     public partial class Form_Login : Form
     {
         LoginState loginState;
+
+        [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
+        private static extern IntPtr CreateRoundRectRgn
+        (
+            int nLeftRect,
+            int nTopRect,
+            int nRightRect,
+            int nBottomRect,
+            int nWidthEllipse,
+            int nHeightEllipse
+        );
         public Form_Login()
         {
             InitializeComponent();
+            Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 12, 12));
 
             this.tbUsername.GotFocus += delegate { OnFocusTbUsername(); };
             this.tbUsername.LostFocus += delegate { DeFocusTbUsername(); };

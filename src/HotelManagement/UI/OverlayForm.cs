@@ -5,7 +5,6 @@ namespace HotelManagement.UI
 {
     class OverlayForm: Form
     {
-
         public OverlayForm(Form ParentRef, Form ChildRef)
         {
             ControlBox = false;
@@ -33,18 +32,6 @@ namespace HotelManagement.UI
                  this.Close();
              };
             ChildRef.Show();
-        }
-
-        private void InitializeComponent()
-        {
-            this.SuspendLayout();
-            // 
-            // OverlayForm
-            // 
-            this.ClientSize = new System.Drawing.Size(284, 261);
-            this.Name = "OverlayForm";
-            this.ResumeLayout(false);
-
         }
     }
 }
