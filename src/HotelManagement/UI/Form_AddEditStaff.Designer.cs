@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_AddEditStaff));
             this.panel3 = new System.Windows.Forms.Panel();
+            this.staffImage = new HotelManagement.UI.CirclePictureBox();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.btAddStaff = new XanderUI.XUIButton();
             this.btCancel = new XanderUI.XUIButton();
@@ -48,7 +49,6 @@
             this.tbPhonenum = new Zeroit.Framework.Labels.ZeroitUltraTextBox();
             this.tbAddress = new Zeroit.Framework.Labels.ZeroitUltraTextBox();
             this.tbID = new Zeroit.Framework.Labels.ZeroitUltraTextBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.xuiButton7 = new XanderUI.XUIButton();
             this.xuiButton3 = new XanderUI.XUIButton();
             this.xuiButton5 = new XanderUI.XUIButton();
@@ -70,15 +70,16 @@
             this.label20 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.staffImage)).BeginInit();
             this.flowLayoutPanel3.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this.panel3.Controls.Add(this.staffImage);
             this.panel3.Controls.Add(this.flowLayoutPanel3);
             this.panel3.Controls.Add(this.flowLayoutPanel2);
             this.panel3.Controls.Add(this.flowLayoutPanel1);
@@ -90,7 +91,6 @@
             this.panel3.Controls.Add(this.tbPhonenum);
             this.panel3.Controls.Add(this.tbAddress);
             this.panel3.Controls.Add(this.tbID);
-            this.panel3.Controls.Add(this.pictureBox2);
             this.panel3.Controls.Add(this.xuiButton7);
             this.panel3.Controls.Add(this.xuiButton3);
             this.panel3.Controls.Add(this.xuiButton5);
@@ -116,6 +116,18 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(652, 552);
             this.panel3.TabIndex = 8;
+            // 
+            // staffImage
+            // 
+            this.staffImage.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.staffImage.Image = ((System.Drawing.Image)(resources.GetObject("staffImage.Image")));
+            this.staffImage.Location = new System.Drawing.Point(273, 0);
+            this.staffImage.Name = "staffImage";
+            this.staffImage.Size = new System.Drawing.Size(110, 110);
+            this.staffImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.staffImage.TabIndex = 23;
+            this.staffImage.TabStop = false;
+            this.staffImage.Click += new System.EventHandler(this.staffImage_Click);
             // 
             // flowLayoutPanel3
             // 
@@ -451,16 +463,6 @@
             this.tbID.UseSystemPasswordChar = false;
             this.tbID.WordWrap = true;
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(273, 3);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(110, 110);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 18;
-            this.pictureBox2.TabStop = false;
-            // 
             // xuiButton7
             // 
             this.xuiButton7.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
@@ -790,14 +792,15 @@
             this.MaximizeBox = false;
             this.Name = "Form_AddEditStaff";
             this.Resizable = false;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form_AddEditStaff_FormClosing);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.staffImage)).EndInit();
             this.flowLayoutPanel3.ResumeLayout(false);
             this.flowLayoutPanel2.ResumeLayout(false);
             this.flowLayoutPanel2.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -805,7 +808,6 @@
         #endregion
 
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.PictureBox pictureBox2;
         private XanderUI.XUIButton xuiButton7;
         private XanderUI.XUIButton xuiButton3;
         private XanderUI.XUIButton xuiButton5;
@@ -844,5 +846,6 @@
         private XanderUI.XUIButton btAddStaff;
         private XanderUI.XUIButton btCancel;
         private XanderUI.XUIButton btSave;
+        private CirclePictureBox staffImage;
     }
 }

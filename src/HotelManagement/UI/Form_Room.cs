@@ -24,7 +24,8 @@ namespace HotelManagement.UI
 
         public Panel _pnToAddARoomInfo
         {
-            get { return pnToAddARoomInfo; }
+            get { return pnToAddRoomInfo; }
+            set { pnToAddRoomInfo = value; }
         }
 
         public FlowLayoutPanel _pnToAddARoom
@@ -58,6 +59,7 @@ namespace HotelManagement.UI
         }
 
         #endregion
+
         private void Load_Data()
         {
             DTO.RoomOverview room = new DTO.RoomOverview();
@@ -136,8 +138,8 @@ namespace HotelManagement.UI
         {
             btThreeDot_Click(sender, e);
             Form_BookMulRooms temp = new Form_BookMulRooms(this);
-            pnToAddARoomInfo.BringToFront();
-            pnToAddARoomInfo.Controls.Add(temp);
+            pnToAddRoomInfo.BringToFront();
+            pnToAddRoomInfo.Controls.Add(temp);
             
         }
     }

@@ -214,6 +214,19 @@ namespace HotelManagement.UI
             this.ParentRef._lbRoomID.Hide();
             this.ParentRef._pnToAddARoomInfo.Controls.Remove(this);
             this.ParentRef._pnToAddARoomInfo.SendToBack();
+
+            pnSex.Dispose();
+            pnCustomerInfo.Dispose();
+            pnBookingInfo.Dispose();
+            pnSeletedRoom.Dispose();
+            pnToBookRoom.Dispose();
+            pnToSelectRoom.Dispose();
+            items.Clear();
+            Customers.Clear();
+            ParentRef = null;
+            this.Dispose();
+
+            GC.Collect();
         }
 
         bool checkValidityOfValue()

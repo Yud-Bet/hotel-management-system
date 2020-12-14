@@ -79,7 +79,6 @@
             this.lbStaffPosition = new System.Windows.Forms.Label();
             this.lbStaffname = new System.Windows.Forms.Label();
             this.pbStaffAvatar = new System.Windows.Forms.PictureBox();
-            this.panel4 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.pnSubMenu_Manage.SuspendLayout();
             this.btService_manage.SuspendLayout();
@@ -812,23 +811,12 @@
             this.pbStaffAvatar.TabIndex = 0;
             this.pbStaffAvatar.TabStop = false;
             // 
-            // panel4
-            // 
-            this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.panel4.Location = new System.Drawing.Point(255, 27);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(968, 666);
-            this.panel4.TabIndex = 1;
-            // 
             // Form_Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1229, 710);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel1);
             this.MaximumSize = new System.Drawing.Size(1229, 710);
             this.MinimumSize = new System.Drawing.Size(1229, 710);
@@ -937,6 +925,6 @@
         private System.Windows.Forms.Label lbStaffPosition;
         private System.Windows.Forms.Label lbStaffname;
         private System.Windows.Forms.PictureBox pbStaffAvatar;
-        private System.Windows.Forms.Panel panel4;
+        
     }
 }

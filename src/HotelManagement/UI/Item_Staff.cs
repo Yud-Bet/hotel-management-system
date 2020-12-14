@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -59,6 +60,7 @@ namespace HotelManagement.UI
             set {
                 IDNo = value;
                 lbIDNo.Text = IDNo;
+                setStaffImage();
             }
         }
 
@@ -151,5 +153,17 @@ namespace HotelManagement.UI
             this.parentRef.setStaffValues(this);
             this.parentRef.selectedItem = this;
         }
+
+        public void setStaffImage()
+        {
+            try
+            {
+                string[] staffImageFiles = Directory.GetFiles(@".\\staffimage", IDNo + "*");
+
+                staffImage.Image = Image.FromFile(staffImageFiles[0]);
+            }
+            catch { }
+            
+        } 
     }
 }

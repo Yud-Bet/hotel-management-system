@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_RoomInfo));
             this.pnCustomerInfo = new System.Windows.Forms.Panel();
+            this.dropDownList1 = new HotelManagement.UI.DropDownList();
             this.tbNote = new Zeroit.Framework.Labels.ZeroitUltraTextBox();
             this.tbCustomerAddress = new Zeroit.Framework.Labels.ZeroitUltraTextBox();
             this.tbPassport = new Zeroit.Framework.Labels.ZeroitUltraTextBox();
@@ -53,7 +54,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.dropDownList1 = new HotelManagement.UI.DropDownList();
             this.pnRoomInfo = new System.Windows.Forms.Panel();
             this.label21 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -80,7 +80,7 @@
             this.label16 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
-            this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
+            this.pnButton = new System.Windows.Forms.FlowLayoutPanel();
             this.btBookRoom = new XanderUI.XUIButton();
             this.btPay = new XanderUI.XUIButton();
             this.btSettingRoom = new XanderUI.XUIButton();
@@ -96,7 +96,7 @@
             this.pnSignle_Dou.SuspendLayout();
             this.pnVip_Nor.SuspendLayout();
             this.pnBookingInfo.SuspendLayout();
-            this.flowLayoutPanel4.SuspendLayout();
+            this.pnButton.SuspendLayout();
             this.customerAlreadyEixstsMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbArrowBack)).BeginInit();
             this.SuspendLayout();
@@ -132,6 +132,17 @@
             this.pnCustomerInfo.Size = new System.Drawing.Size(491, 467);
             this.pnCustomerInfo.TabIndex = 8;
             this.pnCustomerInfo.Click += new System.EventHandler(this.pnCustomerInfo_Click);
+            // 
+            // dropDownList1
+            // 
+            this.dropDownList1.AutoScroll = true;
+            this.dropDownList1.AutoSize = true;
+            this.dropDownList1.BackColor = System.Drawing.Color.White;
+            this.dropDownList1.Location = new System.Drawing.Point(17, 102);
+            this.dropDownList1.MaximumSize = new System.Drawing.Size(300, 300);
+            this.dropDownList1.Name = "dropDownList1";
+            this.dropDownList1.Size = new System.Drawing.Size(273, 25);
+            this.dropDownList1.TabIndex = 9;
             // 
             // tbNote
             // 
@@ -502,17 +513,6 @@
             this.panel3.Size = new System.Drawing.Size(350, 3);
             this.panel3.TabIndex = 3;
             // 
-            // dropDownList1
-            // 
-            this.dropDownList1.AutoScroll = true;
-            this.dropDownList1.AutoSize = true;
-            this.dropDownList1.BackColor = System.Drawing.Color.White;
-            this.dropDownList1.Location = new System.Drawing.Point(17, 102);
-            this.dropDownList1.MaximumSize = new System.Drawing.Size(300, 300);
-            this.dropDownList1.Name = "dropDownList1";
-            this.dropDownList1.Size = new System.Drawing.Size(273, 25);
-            this.dropDownList1.TabIndex = 9;
-            // 
             // pnRoomInfo
             // 
             this.pnRoomInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
@@ -855,16 +855,16 @@
             this.panel7.Size = new System.Drawing.Size(300, 3);
             this.panel7.TabIndex = 3;
             // 
-            // flowLayoutPanel4
+            // pnButton
             // 
-            this.flowLayoutPanel4.Controls.Add(this.btBookRoom);
-            this.flowLayoutPanel4.Controls.Add(this.btPay);
-            this.flowLayoutPanel4.Controls.Add(this.btSettingRoom);
-            this.flowLayoutPanel4.Controls.Add(this.btDeleteRoom);
-            this.flowLayoutPanel4.Location = new System.Drawing.Point(533, 465);
-            this.flowLayoutPanel4.Name = "flowLayoutPanel4";
-            this.flowLayoutPanel4.Size = new System.Drawing.Size(424, 197);
-            this.flowLayoutPanel4.TabIndex = 26;
+            this.pnButton.Controls.Add(this.btBookRoom);
+            this.pnButton.Controls.Add(this.btPay);
+            this.pnButton.Controls.Add(this.btSettingRoom);
+            this.pnButton.Controls.Add(this.btDeleteRoom);
+            this.pnButton.Location = new System.Drawing.Point(533, 465);
+            this.pnButton.Name = "pnButton";
+            this.pnButton.Size = new System.Drawing.Size(424, 197);
+            this.pnButton.TabIndex = 26;
             // 
             // btBookRoom
             // 
@@ -1006,7 +1006,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.Controls.Add(this.flowLayoutPanel4);
+            this.Controls.Add(this.pnButton);
             this.Controls.Add(this.pbArrowBack);
             this.Controls.Add(this.pnBookingInfo);
             this.Controls.Add(this.pnRoomInfo);
@@ -1026,7 +1026,7 @@
             this.pnVip_Nor.PerformLayout();
             this.pnBookingInfo.ResumeLayout(false);
             this.pnBookingInfo.PerformLayout();
-            this.flowLayoutPanel4.ResumeLayout(false);
+            this.pnButton.ResumeLayout(false);
             this.customerAlreadyEixstsMenu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbArrowBack)).EndInit();
             this.ResumeLayout(false);
@@ -1059,7 +1059,7 @@
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.PictureBox pbArrowBack;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel4;
+        private System.Windows.Forms.FlowLayoutPanel pnButton;
         private MetroFramework.Controls.MetroDateTime dtpCustomerBirthday;
         private MetroFramework.Controls.MetroDateTime dtpCheckOutDate;
         private MetroFramework.Controls.MetroDateTime dtpCheckInDate;

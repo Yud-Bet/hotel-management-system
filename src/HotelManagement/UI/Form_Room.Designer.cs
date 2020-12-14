@@ -36,7 +36,7 @@
             this.animPbSearch = new Zeroit.Framework.Transitions.ZeroitPizaroAnimator.ZeroitPizaroAnim();
             this.pbSearch = new System.Windows.Forms.PictureBox();
             this.timerHide2SubBt = new System.Windows.Forms.Timer(this.components);
-            this.pnToAddARoomInfo = new System.Windows.Forms.Panel();
+            this.pnToAddRoomInfo = new System.Windows.Forms.Panel();
             this.lbTitle = new System.Windows.Forms.Label();
             this.lbRoomID = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -63,9 +63,9 @@
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.tbSearch = new Zeroit.Framework.Labels.ZeroitUltraTextBox();
             this.animTbSearch = new Zeroit.Framework.Transitions.ZeroitPizaroAnimator.ZeroitPizaroAnim();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.btBookMultipleRooms)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btAddRoom)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbSearch)).BeginInit();
@@ -184,15 +184,15 @@
             this.timerHide2SubBt.Interval = 250;
             this.timerHide2SubBt.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // pnToAddARoomInfo
+            // pnToAddRoomInfo
             // 
-            this.pnToAddARoomInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.pnToAddRoomInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnToAddARoomInfo.Location = new System.Drawing.Point(0, 90);
-            this.pnToAddARoomInfo.Name = "pnToAddARoomInfo";
-            this.pnToAddARoomInfo.Size = new System.Drawing.Size(968, 575);
-            this.pnToAddARoomInfo.TabIndex = 9;
+            this.pnToAddRoomInfo.Location = new System.Drawing.Point(0, 90);
+            this.pnToAddRoomInfo.Name = "pnToAddRoomInfo";
+            this.pnToAddRoomInfo.Size = new System.Drawing.Size(968, 575);
+            this.pnToAddRoomInfo.TabIndex = 9;
             // 
             // lbTitle
             // 
@@ -528,6 +528,13 @@
             this.pictureBox2.TabIndex = 12;
             this.pictureBox2.TabStop = false;
             // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(319, 82);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(200, 49);
+            this.flowLayoutPanel1.TabIndex = 30;
+            // 
             // tbSearch
             // 
             this.tbSearch.DisabledStringColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(187)))), ((int)(((byte)(189)))));
@@ -575,19 +582,12 @@
             this.animTbSearch.ResizeWidth_Begin = 10F;
             this.animTbSearch.ResizeWidth_Limit = 50F;
             // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(319, 82);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(200, 49);
-            this.flowLayoutPanel1.TabIndex = 30;
-            // 
             // Form_Room
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.pnToAddARoomInfo);
+            this.Controls.Add(this.pnToAddRoomInfo);
             this.Name = "Form_Room";
             this.Size = new System.Drawing.Size(968, 666);
             ((System.ComponentModel.ISupportInitialize)(this.btBookMultipleRooms)).EndInit();
@@ -610,7 +610,7 @@
         private Zeroit.Framework.Transitions.ZeroitPizaroAnimator.ZeroitPizaroAnim animPbSearch;
         private System.Windows.Forms.Timer timerHide2SubBt;
         private System.Windows.Forms.PictureBox pbSearch;
-        private System.Windows.Forms.Panel pnToAddARoomInfo;
+        private System.Windows.Forms.Panel pnToAddRoomInfo;
         private System.Windows.Forms.Label lbTitle;
         private System.Windows.Forms.Label lbRoomID;
         private System.Windows.Forms.Panel panel2;

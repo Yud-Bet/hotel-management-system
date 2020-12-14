@@ -15,8 +15,8 @@ namespace HotelManagement.UI
             btAccount.Hide();
             btChangeStaffInfo.Hide();
             addItem(312, true, "Hiếu", "192031252", DateTime.Now, true, "", "12348560", DateTime.Now, 34567890, "kakabanlaai", "1234");
-            addItem(123, true, "Dàn", "192031252", DateTime.Now, true, "", "12345890", DateTime.Now, 34567890, "thanhdan", "12345");
-            addItem(1234, true, "Huấn", "192031252", DateTime.Now, true, "", "12345890", DateTime.Now, 34567890, "huanbui", "12345");
+            addItem(123, true, "Dàn", "345553455", DateTime.Now, true, "", "12345890", DateTime.Now, 34567890, "thanhdan", "12345");
+            addItem(1234, true, "Huấn", "643586787", DateTime.Now, true, "", "12345890", DateTime.Now, 34567890, "huanbui", "12345");
         }
 
         #region properties
@@ -25,6 +25,11 @@ namespace HotelManagement.UI
         public Panel _pnToAddItem
         {
             get { return pnToAddItem; }
+        }
+
+        public CirclePictureBox _staffImage
+        {
+            get { return staffImage; }
         }
         #endregion
 
@@ -95,8 +100,8 @@ namespace HotelManagement.UI
 
         private void btAddStaff_Click(object sender, EventArgs e)
         {
-            Form_AddEditStaff temp = new Form_AddEditStaff(this);
-            temp.ShowDialog();
+            //Form_AddEditStaff temp = new Form_AddEditStaff(this);
+            (new Form_AddEditStaff(this)).ShowDialog();
         }
     }
 }

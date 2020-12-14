@@ -1,17 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+using System.IO;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace HotelManagement.UI
 {
     public partial class Form_AddEditStaff : MetroFramework.Forms.MetroForm
     {
+        OpenFileDialog open = new OpenFileDialog();
         public Form_AddEditStaff(Form_Staff parentRef)
         {
             InitializeComponent();
@@ -69,6 +65,30 @@ namespace HotelManagement.UI
             //
             //gán lại data giùm t, t nhác vl
             //
+            try
+            {
+                if (open.FileName != "")
+                {
+                    if (!Directory.Exists(@".\\staffimage"))
+                    {
+                        Directory.CreateDirectory(@".\\staffimage");
+                    }
+
+                    string[] staffImageFiles = Directory.GetFiles(@".\\staffimage", parentRef_EditStaff._IDNo + "*");
+
+                    foreach (string i in staffImageFiles)
+                    {
+                        File.Delete(i);
+                    }
+
+                    File.Copy(open.FileName, @".\\staffimage\\" + parentRef_EditStaff._IDNo + Path.GetExtension(open.FileName));
+
+                    parentRef_EditStaff.setStaffImage();
+                    parentRef_EditStaff.parentRef._staffImage.Image = Image.FromFile(@".\\staffimage\\" + parentRef_EditStaff._IDNo + Path.GetExtension(open.FileName));
+                }
+            }
+            catch { }
+            
         }
 
         private void btCancel_Click(object sender, EventArgs e)
@@ -91,8 +111,45 @@ namespace HotelManagement.UI
             //
             //làm như hàm additem bên form_staff (parentRef_AddStaff.addItem(....)) để add nhân viên mới thêm vào danh sách trong form staff
             //
+            if (open.FileName != "")
+            {
+                if (!Directory.Exists(@".\\staffimage"))
+                {
+                    Directory.CreateDirectory(@".\\staffimage");
+                }
+
+                File.Copy(open.FileName, @".\\staffimage\\" + tbIDNo.Text.ToString() + Path.GetExtension(open.FileName));
+            }
 
             this.Close();
+        }
+
+        private void staffImage_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                open.Title = "Select a File";
+                open.Filter = "All Graphics Types|*.bmp;*.jpg;*.jpeg;*.png;*.tif;*.tiff|"
+                            + "BMP|*.bmp|GIF|*.gif|JPG|*.jpg;*.jpeg|PNG|*.png|TIFF|*.tif;*.tiff";
+
+                if (open.ShowDialog() == DialogResult.OK)
+                {
+                    //staffImage.Image = new Bitmap(open.FileName);
+                    staffImage.Image = Image.FromFile(open.FileName);
+                }
+            }
+            catch
+            {
+
+            }
+        }
+
+        private void Form_AddEditStaff_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            open.Dispose();
+            panel3.Dispose();
+
+            System.GC.Collect();
         }
     }
 }

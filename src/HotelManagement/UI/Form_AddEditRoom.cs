@@ -115,5 +115,11 @@ namespace HotelManagement.UI
 
             return true;
         }
+
+        private void Form_AddEditRoom_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            panel4.Dispose();
+            System.GC.Collect();
+        }
     }
 }

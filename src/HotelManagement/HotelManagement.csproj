@@ -118,6 +118,9 @@
     <Compile Include="DTO\ServicesInfo.cs" />
     <Compile Include="DTO\StaffOverview.cs" />
     <Compile Include="EnumDefinition.cs" />
+    <Compile Include="UI\CirclePictureBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="UI\CustomDateTime.cs">
       <SubType>UserControl</SubType>
     </Compile>

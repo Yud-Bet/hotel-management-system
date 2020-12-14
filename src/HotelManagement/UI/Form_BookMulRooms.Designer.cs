@@ -40,7 +40,7 @@
             this.tbCustomerName = new Zeroit.Framework.Labels.ZeroitUltraTextBox();
             this.cbPassport = new Zeroit.Framework.MaterialDesign.Controls.ZeroitMaterialCheckBox();
             this.cbIDNo = new Zeroit.Framework.MaterialDesign.Controls.ZeroitMaterialCheckBox();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.pnSex = new System.Windows.Forms.FlowLayoutPanel();
             this.rbtMale = new MaterialSkin.Controls.MaterialRadioButton();
             this.rbtFemale = new MaterialSkin.Controls.MaterialRadioButton();
             this.dtpCustomerBirthday = new MetroFramework.Controls.MetroDateTime();
@@ -73,7 +73,7 @@
             this.panel7 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.pbArrowBack)).BeginInit();
             this.pnCustomerInfo.SuspendLayout();
-            this.flowLayoutPanel1.SuspendLayout();
+            this.pnSex.SuspendLayout();
             this.pnToBookRoom.SuspendLayout();
             this.PanelList.SuspendLayout();
             this.xPanderPanel1.SuspendLayout();
@@ -105,7 +105,7 @@
             this.pnCustomerInfo.Controls.Add(this.tbCustomerName);
             this.pnCustomerInfo.Controls.Add(this.cbPassport);
             this.pnCustomerInfo.Controls.Add(this.cbIDNo);
-            this.pnCustomerInfo.Controls.Add(this.flowLayoutPanel1);
+            this.pnCustomerInfo.Controls.Add(this.pnSex);
             this.pnCustomerInfo.Controls.Add(this.dtpCustomerBirthday);
             this.pnCustomerInfo.Controls.Add(this.label8);
             this.pnCustomerInfo.Controls.Add(this.label10);
@@ -319,14 +319,14 @@
             this.cbIDNo.TabStop = false;
             this.cbIDNo.Click += new System.EventHandler(this.cbIDNo_Click);
             // 
-            // flowLayoutPanel1
+            // pnSex
             // 
-            this.flowLayoutPanel1.Controls.Add(this.rbtMale);
-            this.flowLayoutPanel1.Controls.Add(this.rbtFemale);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(289, 151);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(163, 32);
-            this.flowLayoutPanel1.TabIndex = 8;
+            this.pnSex.Controls.Add(this.rbtMale);
+            this.pnSex.Controls.Add(this.rbtFemale);
+            this.pnSex.Location = new System.Drawing.Point(289, 151);
+            this.pnSex.Name = "pnSex";
+            this.pnSex.Size = new System.Drawing.Size(163, 32);
+            this.pnSex.TabIndex = 8;
             // 
             // rbtMale
             // 
@@ -748,8 +748,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbArrowBack)).EndInit();
             this.pnCustomerInfo.ResumeLayout(false);
             this.pnCustomerInfo.PerformLayout();
-            this.flowLayoutPanel1.ResumeLayout(false);
-            this.flowLayoutPanel1.PerformLayout();
+            this.pnSex.ResumeLayout(false);
+            this.pnSex.PerformLayout();
             this.pnToBookRoom.ResumeLayout(false);
             this.pnToBookRoom.PerformLayout();
             this.PanelList.ResumeLayout(false);
@@ -774,7 +774,7 @@
         private Zeroit.Framework.Labels.ZeroitUltraTextBox tbCustomerName;
         private Zeroit.Framework.MaterialDesign.Controls.ZeroitMaterialCheckBox cbPassport;
         private Zeroit.Framework.MaterialDesign.Controls.ZeroitMaterialCheckBox cbIDNo;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.FlowLayoutPanel pnSex;
         private MaterialSkin.Controls.MaterialRadioButton rbtMale;
         private MaterialSkin.Controls.MaterialRadioButton rbtFemale;
         private MetroFramework.Controls.MetroDateTime dtpCustomerBirthday;

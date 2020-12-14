@@ -37,7 +37,6 @@
             this.btAccount = new XanderUI.XUIButton();
             this.btChangeStaffInfo = new XanderUI.XUIButton();
             this.lbAddress = new Zeroit.Framework.Labels.ZeroitMultiFormatLabel();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.xuiButton7 = new XanderUI.XUIButton();
             this.xuiButton3 = new XanderUI.XUIButton();
             this.xuiButton5 = new XanderUI.XUIButton();
@@ -74,11 +73,12 @@
             this.cbSort = new MetroFramework.Controls.MetroComboBox();
             this.panel7 = new System.Windows.Forms.Panel();
             this.label19 = new System.Windows.Forms.Label();
+            this.staffImage = new HotelManagement.UI.CirclePictureBox();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbSearch)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.staffImage)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
@@ -121,10 +121,10 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this.panel3.Controls.Add(this.staffImage);
             this.panel3.Controls.Add(this.btAccount);
             this.panel3.Controls.Add(this.btChangeStaffInfo);
             this.panel3.Controls.Add(this.lbAddress);
-            this.panel3.Controls.Add(this.pictureBox2);
             this.panel3.Controls.Add(this.xuiButton7);
             this.panel3.Controls.Add(this.xuiButton3);
             this.panel3.Controls.Add(this.xuiButton5);
@@ -217,16 +217,6 @@
             this.lbAddress.Name = "lbAddress";
             this.lbAddress.Size = new System.Drawing.Size(152, 28);
             this.lbAddress.TabIndex = 19;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(95, 3);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(110, 110);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 18;
-            this.pictureBox2.TabStop = false;
             // 
             // xuiButton7
             // 
@@ -734,6 +724,16 @@
             this.label19.Text = "Sắp xếp";
             this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // staffImage
+            // 
+            this.staffImage.Image = ((System.Drawing.Image)(resources.GetObject("staffImage.Image")));
+            this.staffImage.Location = new System.Drawing.Point(34, 8);
+            this.staffImage.Name = "staffImage";
+            this.staffImage.Size = new System.Drawing.Size(110, 110);
+            this.staffImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.staffImage.TabIndex = 32;
+            this.staffImage.TabStop = false;
+            // 
             // Form_Staff
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -748,10 +748,10 @@
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbSearch)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.staffImage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -767,7 +767,6 @@
         private System.Windows.Forms.Label lbID;
         private System.Windows.Forms.Label label1;
         private XanderUI.XUIButton btBookRoom;
-        private System.Windows.Forms.PictureBox pictureBox2;
         private XanderUI.XUIButton xuiButton3;
         private XanderUI.XUIButton xuiButton2;
         private System.Windows.Forms.Label lbSex;
@@ -804,5 +803,6 @@
         private Zeroit.Framework.Labels.ZeroitMultiFormatLabel lbAddress;
         private XanderUI.XUIButton btAccount;
         private XanderUI.XUIButton btChangeStaffInfo;
+        private CirclePictureBox staffImage;
     }
 }
