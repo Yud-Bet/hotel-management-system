@@ -95,18 +95,21 @@ namespace HotelManagement.UI
         {
             DTO.RoomOverview room = await Task.Run(() => new DTO.RoomOverview());
             Total = room.RoomCount[0];
-            for (int i = 0; i < room.RoomCount[0]; i++)
+            await Task.Run(() =>
             {
-                Item_Room newRoom = new Item_Room(this);
+                for (int i = 0; i < room.RoomCount[0]; i++)
+                {
+                    Item_Room newRoom = new Item_Room(this);
 
-                newRoom._RoomID = room.Items[i].ID;
-                newRoom._RoomStatus = room.Items[i].Status;
-                newRoom._RoomType = room.Items[i].Type;
+                    newRoom._RoomID = room.Items[i].ID;
+                    newRoom._RoomStatus = room.Items[i].Status;
+                    newRoom._RoomType = room.Items[i].Type;
 
-                this.listRoom.Add(newRoom);
-                this.pnToAddRoom.Controls.Add(newRoom);
-            }
+                    listRoom.Add(newRoom);
+                }
+            });
 
+            pnToAddRoom.Controls.AddRange(listRoom.ToArray());
             Empty = room.RoomCount[(int)RoomStatus.Empty];
             Rented = room.RoomCount[(int)RoomStatus.Rented];
             Cleaning = room.RoomCount[(int)RoomStatus.Cleaning];
@@ -178,9 +181,9 @@ namespace HotelManagement.UI
         {
             try
             {
-                StatusLabel.Text = "Đang xử lí...";
+                OverlayForm overlay = new OverlayForm(ParentRef, new LoadingForm(cts.Token));
+                overlay.Show();
                 await Load_Data();
-                StatusLabel.Text = "";
             }
             catch (System.Data.SqlClient.SqlException)
             {
@@ -191,6 +194,12 @@ namespace HotelManagement.UI
             {
                 MessageBox.Show(ex.Message);
                 StatusLabel.Text = "Đã xảy ra lỗi";
+            }
+            finally
+            {
+                cts.Cancel();
+                cts.Dispose();
+                cts = new CancellationTokenSource();
             }
         }
     }

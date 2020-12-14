@@ -12,7 +12,7 @@ namespace HotelManagement.UI
     public partial class Form_BookMulRooms : UserControl
     {
         bool flag = true;
-        List<Item_RoomOfFormBookMulRoom> items = new List<Item_RoomOfFormBookMulRoom>();
+        List<Item_RoomOfFormBookMulRoom> RoomList = new List<Item_RoomOfFormBookMulRoom>();
         private List<DTO.CustomerOverview> Customers;
         private int ClientID = -1;
         private CancellationTokenSource cts;
@@ -121,18 +121,21 @@ namespace HotelManagement.UI
             }
         }
 
-        void loadData()
+        async Task loadData()
         {
-            foreach(var i in ParentRef.listRoom)
-            {
-                if(i._RoomStatus == RoomStatus.Empty || i._RoomStatus == RoomStatus.Cleaning)
+            await Task.Run(() => {
+                foreach (var i in ParentRef.listRoom)
                 {
-                    Item_RoomOfFormBookMulRoom newItem = new Item_RoomOfFormBookMulRoom(i, this);
-                    items.Add(newItem);
-                    pnToSelectRoom.Controls.Add(newItem);
+                    if (i._RoomStatus == RoomStatus.Empty || i._RoomStatus == RoomStatus.Cleaning)
+                    {
+                        Item_RoomOfFormBookMulRoom newItem = new Item_RoomOfFormBookMulRoom(i, this);
+                        RoomList.Add(newItem);
+                    }
                 }
-            }
-            emtyCount = items.Count();
+            });
+
+            pnToSelectRoom.Controls.AddRange(RoomList.ToArray());
+            emtyCount = RoomList.Count();
             PanelList.XPanderPanels[0].Text = "Danh sách phòng trống: " + emtyCount.ToString() + " phòng";
             PanelList.XPanderPanels[1].Text = "Danh sách phòng đã chọn: " + selectedCount.ToString() + " phòng";
         }
@@ -184,7 +187,7 @@ namespace HotelManagement.UI
                 overlay.Show();
                 if (!checkValidityOfValue()) return;
                 List<Item_RoomOfFormBookMulRoom> listRoomID = new List<Item_RoomOfFormBookMulRoom>();
-                foreach (Item_RoomOfFormBookMulRoom item in items)
+                foreach (Item_RoomOfFormBookMulRoom item in RoomList)
                 {
                     if (item.isChoose)
                     {
@@ -291,7 +294,7 @@ namespace HotelManagement.UI
             OverlayForm overlay = new OverlayForm(ParentRef.ParentRef, new LoadingForm(cts.Token));
             overlay.Show();
             await LoadAllCustomer();
-            loadData();
+            await loadData();
             cts.Cancel();
             cts.Dispose();
             cts = new CancellationTokenSource();
