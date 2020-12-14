@@ -2,18 +2,22 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Threading;
 
 namespace HotelManagement.UI
 {
     public partial class Form_LaundryService : UserControl
     {
-        DTO.RoomOverview rooms;
-        private bool IsProcessing = false;
-        public Form_LaundryService()
+        private DTO.RoomOverview rooms;
+        private CancellationTokenSource cts;
+        private Form ParentRef;
+
+        public Form_LaundryService(Form ParentRef)
         {
             InitializeComponent();
-
+            cts = new CancellationTokenSource();
             this._discount = 0;
+            this.ParentRef = ParentRef;
         }
 
         private async Task Init_Services()
@@ -67,6 +71,7 @@ namespace HotelManagement.UI
         private async Task Init_cbRoomSelection()
         {
             rooms = await Task.Run(() => new DTO.RoomOverview());
+            cbRoomSelection.Items.Add("None");
             for (int i = 0; i < rooms.Items.Length; i++)
             {
                 cbRoomSelection.Items.Add(rooms.Items[i].ID);
@@ -113,6 +118,8 @@ namespace HotelManagement.UI
         {
             try
             {
+                OverlayForm overlay = new OverlayForm(ParentRef, new LoadingForm(cts.Token));
+                overlay.Show();
                 await Init_Services();
                 await Init_cbRoomSelection();
             }
@@ -125,6 +132,12 @@ namespace HotelManagement.UI
             {
                 MessageBox.Show(ex.Message);
                 StatusLabel.Text = "Đã xảy ra lỗi";
+            }
+            finally
+            {
+                cts.Cancel();
+                cts.Dispose();
+                cts = new CancellationTokenSource();
             }
         }
 
@@ -162,49 +175,51 @@ namespace HotelManagement.UI
 
         private async void btAdd_Click(object sender, EventArgs e)
         {
-            if (!IsProcessing)
+            try
             {
-                IsProcessing = true;
+                OverlayForm overlay = new OverlayForm(ParentRef, new LoadingForm(cts.Token));
+                overlay.Show();
+
                 if (SelectedItems.Count == 0)
                 {
                     MessageBox.Show("Mời chọn ít nhất 1 sản phẩm!", "Lỗi");
-                    return;
+                    throw new ArgumentException();
                 }
-                if (cbRoomSelection.SelectedIndex == -1)
+                if (cbRoomSelection.SelectedIndex == -1 || cbRoomSelection.SelectedIndex == 0)
                 {
                     MessageBox.Show("Mời chọn phòng!", "Lỗi");
-                    return;
+                    throw new ArgumentException();
                 }
-                if (rooms.Items[cbRoomSelection.SelectedIndex].Status != RoomStatus.Rented)
+                if (rooms.Items[cbRoomSelection.SelectedIndex - 1].Status != RoomStatus.Rented)
                 {
                     MessageBox.Show("Phòng này chưa được thuê!", "Lỗi");
-                    return;
+                    throw new ArgumentException();
                 }
-                try
+
+                for (int i = 0; i < SelectedItems.Count; i++)
                 {
-                    for (int i = 0; i < SelectedItems.Count; i++)
-                    {
-                        int RoomID = rooms.Items[cbRoomSelection.SelectedIndex].ID;
-                        await Task.Run(() => DataAccess.Services.InsertServicetoBillDetail(RoomID, SelectedItems[i]._itemID, SelectedItems[i]._count));
-                    }
-                    MessageBox.Show("Thêm thành công!", "Thông báo");
+                    int RoomID = rooms.Items[cbRoomSelection.SelectedIndex - 1].ID;
+                    await Task.Run(() => DataAccess.Services.InsertServicetoBillDetail(RoomID, SelectedItems[i]._itemID, SelectedItems[i]._count));
                 }
-                catch (System.Data.SqlClient.SqlException)
-                {
-                    MessageBox.Show("Không thể kết nối đến server", "Lỗi");
-                    StatusLabel.Text = "Không có kết nối";
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                    StatusLabel.Text = "Đã xảy ra lỗi";
-                }
-                finally
-                {
-                    IsProcessing = false;
-                }
+                MessageBox.Show("Thêm thành công!", "Thông báo");
             }
-            else MessageBox.Show("Từ từ đừng vội~");
+            catch (System.Data.SqlClient.SqlException)
+            {
+                MessageBox.Show("Không thể kết nối đến server", "Lỗi");
+                StatusLabel.Text = "Không có kết nối";
+            }
+            catch (ArgumentException) { }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                StatusLabel.Text = "Đã xảy ra lỗi";
+            }
+            finally
+            {
+                cts.Cancel();
+                cts.Dispose();
+                cts = new CancellationTokenSource();
+            }
         }
 
     }

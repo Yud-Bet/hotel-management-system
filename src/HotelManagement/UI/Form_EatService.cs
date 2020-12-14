@@ -2,20 +2,23 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Threading;
 
 namespace HotelManagement.UI
 {
     public partial class Form_EatService : UserControl
     {
-        DTO.RoomOverview rooms;
-        string Username;
-        private bool IsProcessing = false;
-        public Form_EatService(string Username)
+        private DTO.RoomOverview rooms;
+        private string Username;
+        private CancellationTokenSource cts;
+        private Form ParentRef;
+
+        public Form_EatService(Form ParentRef, string Username)
         {
             InitializeComponent();
-
+            this.ParentRef = ParentRef;
             this.Username = Username;
-
+            cts = new CancellationTokenSource();
             lbDiscount.Text = discount.ToString();
         }
 
@@ -99,103 +102,100 @@ namespace HotelManagement.UI
 
         private async void btAdd_Click(object sender, EventArgs e)
         {
-            if (!IsProcessing)
+            try
             {
-                IsProcessing = true;
-                StatusLabel.Text = "Đang xử lí...";
+                OverlayForm overlay = new OverlayForm(ParentRef, new LoadingForm(cts.Token));
+                overlay.Show();
                 if (SelectedItems.Count == 0)
                 {
                     MessageBox.Show("Mời chọn ít nhất 1 sản phẩm!", "Lỗi");
-                    IsProcessing = false;
-                    return;
+                    throw new ArgumentException();
                 }
                 if (cbRoomSelection.SelectedIndex == -1 || cbRoomSelection.SelectedIndex == 0)
                 {
                     MessageBox.Show("Mời chọn phòng!", "Lỗi");
-                    IsProcessing = false;
-                    return;
+                    throw new ArgumentException();
                 }
                 if (rooms.Items[cbRoomSelection.SelectedIndex - 1].Status != RoomStatus.Rented)
                 {
                     MessageBox.Show("Phòng này chưa được thuê!", "Lỗi");
-                    IsProcessing = false;
-                    return;
+                    throw new ArgumentException();
                 }
-                try
+
+                for (int i = 0; i < SelectedItems.Count; i++)
                 {
-                    for (int i = 0; i < SelectedItems.Count; i++)
-                    {
-                        int RoomID = rooms.Items[cbRoomSelection.SelectedIndex - 1].ID;
-                        await Task.Run(() => DataAccess.Services.InsertServicetoBillDetail(RoomID, SelectedItems[i]._itemID, SelectedItems[i]._count));
-                    }
-                    MessageBox.Show("Thêm thành công!", "Thông báo");
-                    StatusLabel.Text = "";
+                    int RoomID = rooms.Items[cbRoomSelection.SelectedIndex - 1].ID;
+                    await Task.Run(() => DataAccess.Services.InsertServicetoBillDetail(RoomID, SelectedItems[i]._itemID, SelectedItems[i]._count));
                 }
-                catch (System.Data.SqlClient.SqlException)
-                {
-                    MessageBox.Show("Không thể kết nối đến server", "Lỗi");
-                    StatusLabel.Text = "Thêm thất bại";
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                    StatusLabel.Text = "Thêm thất bại";
-                }
-                finally
-                {
-                    IsProcessing = false;
-                }
+                MessageBox.Show("Thêm thành công!", "Thông báo");
+                StatusLabel.Text = "";
             }
-            else MessageBox.Show("Từ từ đừng vội~");
+            catch (System.Data.SqlClient.SqlException)
+            {
+                MessageBox.Show("Không thể kết nối đến server", "Lỗi");
+                StatusLabel.Text = "Thêm thất bại";
+            }
+            catch (ArgumentException) { }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                StatusLabel.Text = "Thêm thất bại";
+            }
+            finally
+            {
+                cts.Cancel();
+                cts.Dispose();
+                cts = new CancellationTokenSource();
+            }
         }
 
         private async void btPay_Click(object sender, EventArgs e)
         {
-            if (!IsProcessing)
+            try
             {
-                IsProcessing = true;
-                StatusLabel.Text = "Đang xử lí...";
+                OverlayForm overlay = new OverlayForm(ParentRef, new LoadingForm(cts.Token));
+                overlay.Show();
                 if (SelectedItems.Count == 0)
                 {
                     MessageBox.Show("Mời chọn ít nhất 1 sản phẩm!", "Lỗi");
-                    return;
+                    throw new ArgumentException();
                 }
                 if (cbRoomSelection.SelectedIndex != -1 && cbRoomSelection.SelectedIndex != 0)
                 {
                     MessageBox.Show("Thanh toán trực tiếp, vui lòng không chọn phòng!", "Lỗi");
-                    return;
+                    throw new ArgumentException();
                 }
-                try
+
+                await Task.Run(() => DataAccess.Services.InsertNewServicesBillOnly(Username));
+                for (int i = 0; i < SelectedItems.Count; i++)
                 {
-                    await Task.Run(() => DataAccess.Services.InsertNewServicesBillOnly(Username));
-                    for (int i = 0; i < SelectedItems.Count; i++)
-                    {
-                        await Task.Run(() => DataAccess.Services.InsertServiceToServicesBillOnlyDetail(SelectedItems[i]._itemID, SelectedItems[i]._count));
-                    }
-                    int RowEffected = await Task.Run(() => DataAccess.Services.PayForServicesOnly());
-                    if (RowEffected > 0)
-                    {
-                        printPreviewDialogBill.Document = bill;
-                        printPreviewDialogBill.ShowDialog();
-                    }
-                    StatusLabel.Text = "";
+                    await Task.Run(() => DataAccess.Services.InsertServiceToServicesBillOnlyDetail(SelectedItems[i]._itemID, SelectedItems[i]._count));
                 }
-                catch (System.Data.SqlClient.SqlException)
+                int RowEffected = await Task.Run(() => DataAccess.Services.PayForServicesOnly());
+                if (RowEffected > 0)
                 {
-                    MessageBox.Show("Không thể kết nối đến server", "Lỗi");
-                    StatusLabel.Text = "Thanh toán thất bại";
+                    printPreviewDialogBill.Document = bill;
+                    printPreviewDialogBill.ShowDialog();
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                    StatusLabel.Text = "Thanh toán thất bại";
-                }
-                finally
-                {
-                    IsProcessing = false;
-                }
+                StatusLabel.Text = "";
             }
-            else MessageBox.Show("Từ từ đừng vội~");
+            catch (System.Data.SqlClient.SqlException)
+            {
+                MessageBox.Show("Không thể kết nối đến server", "Lỗi");
+                StatusLabel.Text = "Thanh toán thất bại";
+            }
+            catch (ArgumentException) { }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                StatusLabel.Text = "Thanh toán thất bại";
+            }
+            finally
+            {
+                cts.Cancel();
+                cts.Dispose();
+                cts = new CancellationTokenSource();
+            }
         }
 
         private void bill_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
@@ -218,10 +218,10 @@ namespace HotelManagement.UI
         {
             try
             {
-                StatusLabel.Text = "Đang xử lí...";
+                OverlayForm overlay = new OverlayForm(ParentRef, new LoadingForm(cts.Token));
+                overlay.Show();
                 await Init_pnServicesList();
                 await Init_cbRoomSelection();
-                StatusLabel.Text = "";
             }
             catch (System.Data.SqlClient.SqlException)
             {
@@ -232,6 +232,12 @@ namespace HotelManagement.UI
             {
                 MessageBox.Show(ex.Message);
                 StatusLabel.Text = "Đã xảy ra lỗi";
+            }
+            finally
+            {
+                cts.Cancel();
+                cts.Dispose();
+                cts = new CancellationTokenSource();
             }
         }
     }

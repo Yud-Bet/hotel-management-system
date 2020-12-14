@@ -15,7 +15,6 @@ namespace HotelManagement.UI
         List<Item_RoomOfFormBookMulRoom> items = new List<Item_RoomOfFormBookMulRoom>();
         private List<DTO.CustomerOverview> Customers;
         private int ClientID = -1;
-        private bool IsProcessing = false;
         private CancellationTokenSource cts;
 
         public Form_BookMulRooms(Form_Room parentRef)
@@ -35,7 +34,6 @@ namespace HotelManagement.UI
         {
             try
             {
-                StatusLabel.Text = "Đang tải thông tin khách hàng...";
                 Customers = new List<DTO.CustomerOverview>();
                 DataTable data = await Task.Run(() => DataAccess.ExecuteQuery.ExecuteReader("QLKS_GetAllCustomerInfo"));
                 for (int i = 0; i < data.Rows.Count; i++)
@@ -52,7 +50,6 @@ namespace HotelManagement.UI
 
                     Customers.Add(item);
                 }
-                StatusLabel.Text = "";
             }
             catch (System.Data.SqlClient.SqlException)
             {
@@ -124,9 +121,8 @@ namespace HotelManagement.UI
             }
         }
 
-         void loadData()
+        void loadData()
         {
-            List<Item_RoomOfFormBookMulRoom> ret = new List<Item_RoomOfFormBookMulRoom>();
             foreach(var i in ParentRef.listRoom)
             {
                 if(i._RoomStatus == RoomStatus.Empty || i._RoomStatus == RoomStatus.Cleaning)
@@ -182,10 +178,10 @@ namespace HotelManagement.UI
 
         private async void btBookRoom_Click(object sender, EventArgs e)
         {
-            if (!IsProcessing)
+            try
             {
-                IsProcessing = true;
-                StatusLabel.Text = "Đang xử lí...";
+                OverlayForm overlay = new OverlayForm(ParentRef.ParentRef, new LoadingForm(cts.Token));
+                overlay.Show();
                 if (!checkValidityOfValue()) return;
                 List<Item_RoomOfFormBookMulRoom> listRoomID = new List<Item_RoomOfFormBookMulRoom>();
                 foreach (Item_RoomOfFormBookMulRoom item in items)
@@ -195,48 +191,43 @@ namespace HotelManagement.UI
                         listRoomID.Add(item);
                     }
                 }
-
-                try
+                if (listRoomID.Count > 0)
                 {
-                    if (listRoomID.Count > 0)
+                    if (ClientID <= 0)
                     {
-                        if (ClientID <= 0)
-                        {
-                            int a = await Task.Run(() => DataAccess.CustomerDA.InsertNewClient(tbCustomerName.Text, dtpCustomerBirthday.Value,
-                                tbIDNo.Text, tbPassport.Text, tbCustomerAddress.Text, tbCustomerPhoneNum.Text, rbtMale.Checked ? Sex.Male : Sex.Female));
-                        }
-                        int b = await Task.Run(() => DataAccess.CustomerDA.InsertNewRoomReservation(dtpCheckInDate.Value, 0, ParentRef.Username, 0, tbNote.Text));
-                        int d = await Task.Run(() => DataAccess.CustomerDA.InsertNewBill(0, ParentRef.Username));
-                        foreach (Item_RoomOfFormBookMulRoom item in listRoomID)
-                        {
-
-                            int c = await Task.Run(() => DataAccess.CustomerDA.InsertRoomReservationDetail(0, item._RoomID));
-                            item.ParentRefItemRoom._RoomStatus = RoomStatus.Rented;
-                        }
-                        ParentRef.Empty -= listRoomID.Count;
-                        ParentRef.Rented += listRoomID.Count;
-                        MessageBox.Show("Bạn đã đặt phòng thành công!", "Thông báo!");
-                        pbArrowBack_Click(sender, e);
+                        int a = await Task.Run(() => DataAccess.CustomerDA.InsertNewClient(tbCustomerName.Text, dtpCustomerBirthday.Value,
+                            tbIDNo.Text, tbPassport.Text, tbCustomerAddress.Text, tbCustomerPhoneNum.Text, rbtMale.Checked ? Sex.Male : Sex.Female));
                     }
-                    else MessageBox.Show("Vui lòng chọn phòng!", "Thông báo!");
+                    int b = await Task.Run(() => DataAccess.CustomerDA.InsertNewRoomReservation(dtpCheckInDate.Value, 0, ParentRef.Username, 0, tbNote.Text));
+                    int d = await Task.Run(() => DataAccess.CustomerDA.InsertNewBill(0, ParentRef.Username));
+                    foreach (Item_RoomOfFormBookMulRoom item in listRoomID)
+                    {
+
+                        int c = await Task.Run(() => DataAccess.CustomerDA.InsertRoomReservationDetail(0, item._RoomID));
+                        item.ParentRefItemRoom._RoomStatus = RoomStatus.Rented;
+                    }
+                    ParentRef.Empty -= listRoomID.Count;
+                    ParentRef.Rented += listRoomID.Count;
+                    pbArrowBack_Click(sender, e);
                 }
-                catch (System.Data.SqlClient.SqlException)
-                {
-                    MessageBox.Show("Lỗi khi kết nối đến server", "Lỗi");
-                    StatusLabel.Text = "Đặt phòng không thành công";
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                    StatusLabel.Text = "Đặt phòng không thành công";
-                }
-                finally
-                {
-                    IsProcessing = false;
-                    StatusLabel.Text = "Đặt phòng không thành công";
-                }
+                else MessageBox.Show("Vui lòng chọn phòng!", "Thông báo!");
             }
-            else MessageBox.Show("Từ từ đừng vội", "Thông báo");
+            catch (System.Data.SqlClient.SqlException)
+            {
+                MessageBox.Show("Lỗi khi kết nối đến server", "Lỗi");
+                StatusLabel.Text = "Đặt phòng không thành công";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                StatusLabel.Text = "Đặt phòng không thành công";
+            }
+            finally
+            {
+                cts.Cancel();
+                cts.Dispose();
+                cts = new CancellationTokenSource();
+            }
         }
 
 
@@ -302,6 +293,8 @@ namespace HotelManagement.UI
             await LoadAllCustomer();
             loadData();
             cts.Cancel();
+            cts.Dispose();
+            cts = new CancellationTokenSource();
         }
 
         bool checkValidityOfValue()

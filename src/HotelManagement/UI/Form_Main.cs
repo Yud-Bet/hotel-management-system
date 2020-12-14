@@ -297,7 +297,7 @@ namespace HotelManagement.UI
                 setStatus(pbEatService, lbEatService, Resources.icEatService2, true);
 
                 panel4.Controls.Clear();
-                panel4.Controls.Add(new Form_EatService(Username));
+                panel4.Controls.Add(new Form_EatService(this, Username));
             }
         }
 
@@ -326,7 +326,7 @@ namespace HotelManagement.UI
                 setStatus(pbLaundryService, lbLaundryService, Resources.icLaundryService2, true);
 
                 panel4.Controls.Clear();
-                panel4.Controls.Add(new Form_LaundryService());
+                panel4.Controls.Add(new Form_LaundryService(this));
             }
         }
 
