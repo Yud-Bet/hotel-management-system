@@ -76,6 +76,7 @@ namespace HotelManagement.UI
             {
                 cbRoomSelection.Items.Add(rooms.Items[i].ID);
             }
+            cbRoomSelection.SelectedIndex = 0;
         }
 
         public void calcTotalMoney()
@@ -177,9 +178,6 @@ namespace HotelManagement.UI
         {
             try
             {
-                OverlayForm overlay = new OverlayForm(ParentRef, new LoadingForm(cts.Token));
-                overlay.Show();
-
                 if (SelectedItems.Count == 0)
                 {
                     MessageBox.Show("Mời chọn ít nhất 1 sản phẩm!", "Lỗi");
@@ -195,6 +193,9 @@ namespace HotelManagement.UI
                     MessageBox.Show("Phòng này chưa được thuê!", "Lỗi");
                     throw new ArgumentException();
                 }
+
+                OverlayForm overlay = new OverlayForm(ParentRef, new LoadingForm(cts.Token));
+                overlay.Show();
 
                 for (int i = 0; i < SelectedItems.Count; i++)
                 {
