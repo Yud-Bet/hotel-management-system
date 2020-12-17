@@ -11,6 +11,10 @@ namespace HotelManagement.UI
     public partial class Form_Login : Form
     {
         LoginState loginState;
+        static Bitmap UsernameOnfocus = Resources.icUserLogin2;
+        static Bitmap UsernameDefocus = Resources.icUserLogin1;
+        static Bitmap PasswordOnfocus = Resources.icPassLogin2;
+        static Bitmap PasswordDefocus = Resources.icPassLogin1;
 
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
         private static extern IntPtr CreateRoundRectRgn
@@ -49,7 +53,7 @@ namespace HotelManagement.UI
 
             pnUsernameLine.BackColor = Color.FromArgb(27, 152, 224);
             lbUsername.Show();
-            pbUser.Image = Resources.icUserLogin2;
+            pbUser.Image = UsernameOnfocus;
 
         }
 
@@ -62,7 +66,7 @@ namespace HotelManagement.UI
 
             pnUsernameLine.BackColor = Color.FromArgb(36, 123, 160);
             lbUsername.Hide();
-            pbUser.Image = Resources.icUserLogin1;
+            pbUser.Image = UsernameDefocus;
         }
 
         private void OnFocusTbPassword()
@@ -75,7 +79,7 @@ namespace HotelManagement.UI
 
             pnPasswordLine.BackColor = Color.FromArgb(27, 152, 224);
             lbPassword.Show();
-            pbPass.Image = Resources.icPassLogin2;
+            pbPass.Image = PasswordOnfocus;
         }
 
         private void DeFocusTbPassword()
@@ -88,7 +92,7 @@ namespace HotelManagement.UI
 
             pnPasswordLine.BackColor = Color.FromArgb(36, 123, 160);
             lbPassword.Hide();
-            pbPass.Image = Resources.icPassLogin1;
+            pbPass.Image = PasswordDefocus;
         }
 
         private void tbUsername_PressEnter(object sender, KeyEventArgs kea)
@@ -113,16 +117,16 @@ namespace HotelManagement.UI
             {
                 await Task.Run(() => {
                     MessageBox.Show("Tên đăng nhập không được để trống.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    tbUsername.Focus();
                 });
+                tbUsername.Focus();
                 return;
             }
             if (tbPassword.Text == "Mật khẩu" || tbPassword.Text == "")
             {
                 await Task.Run(() => {
                     MessageBox.Show("Mật khẩu không được để trống.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    tbPassword.Focus();
                 });
+                tbPassword.Focus();
                 return;
             }
             try
@@ -191,6 +195,9 @@ namespace HotelManagement.UI
                 Form_Main main = new Form_Main(tbUsername.Text);
                 this.Hide();
                 main.ShowDialog();
+
+                main.Dispose();
+
                 this.Show();
                 StatusLabel.Text = "";
             }

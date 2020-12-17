@@ -13,6 +13,17 @@ namespace HotelManagement.UI
             this.ParentRef = parent;
         }
 
+        #region Icon
+        private static Bitmap VIPIcon = Resources.icVip;
+        private static Bitmap SingleIcon = Resources.icSingleRoom;
+        private static Bitmap DoubleIcon = Resources.icDoubleRoom;
+        private static Bitmap YesIcon = Resources.icYes;
+        private static Bitmap SingleRentedIcon = Resources.icRented_SR;
+        private static Bitmap DoubleRentedIcon = Resources.icRented_DB;
+        private static Bitmap RepairingIcon = Resources.icFix;
+        private static Bitmap CleaningIcon = Resources.icClean;
+        #endregion
+
         #region Properties
         public Form_Room ParentRef;
 
@@ -29,18 +40,18 @@ namespace HotelManagement.UI
                 switch (roomType)
                 {
                     case RoomType.SingleVIP:
-                        pbVip.Image = Resources.icVip;
-                        pbRoomType.Image = Resources.icSingleRoom;
+                        pbVip.Image = VIPIcon;
+                        pbRoomType.Image = SingleIcon;
                         break;
                     case RoomType.DoubleVIP:
-                        pbVip.Image = Resources.icVip;
-                        pbRoomType.Image = Resources.icDoubleRoom;
+                        pbVip.Image = VIPIcon;
+                        pbRoomType.Image = DoubleIcon;
                         break;
                     case RoomType.Single:
-                        pbRoomType.Image = Resources.icSingleRoom;
+                        pbRoomType.Image = SingleIcon;
                         break;
                     case RoomType.Double:
-                        pbRoomType.Image = Resources.icDoubleRoom;
+                        pbRoomType.Image = DoubleIcon;
                         break;
                 }
             }
@@ -95,7 +106,7 @@ namespace HotelManagement.UI
         public void SetEmptyStatus()
         {
             lbRoomStatus.Text = "Còn trống";
-            pbRoomStatus.Image = Resources.icYes;
+            pbRoomStatus.Image = YesIcon;
             lbRoomStatus.BackColor = Color.FromArgb(181, 235, 220);
             pbRoomStatus.BackColor = Color.FromArgb(181, 235, 220);
             pnBackground.BackColor = Color.FromArgb(181, 235, 220);
@@ -107,7 +118,7 @@ namespace HotelManagement.UI
         public void SetRentedStatus()
         {
             lbRoomStatus.Text = "Đã thuê";
-            pbRoomStatus.Image = (roomType == RoomType.SingleVIP || roomType == RoomType.Single) ? Resources.icRented_SR : Resources.icRented_DB;
+            pbRoomStatus.Image = (roomType == RoomType.SingleVIP || roomType == RoomType.Single) ? SingleRentedIcon : DoubleRentedIcon;
             lbRoomStatus.BackColor = Color.FromArgb(255, 200, 227);
             pbRoomStatus.BackColor = Color.FromArgb(255, 200, 227);
             pnBackground.BackColor = Color.FromArgb(255, 200, 227);
@@ -119,7 +130,7 @@ namespace HotelManagement.UI
         public void SetCleaningStatus()
         {
             lbRoomStatus.Text = "Đang dọn";
-            pbRoomStatus.Image = Resources.icClean;
+            pbRoomStatus.Image = CleaningIcon;
             lbRoomStatus.BackColor = Color.FromArgb(150, 228, 252);
             pbRoomStatus.BackColor = Color.FromArgb(150, 228, 252);
             pnBackground.BackColor = Color.FromArgb(150, 228, 252);
@@ -131,7 +142,7 @@ namespace HotelManagement.UI
         public void SetFixingStatus()
         {
             lbRoomStatus.Text = "Đang sửa";
-            pbRoomStatus.Image = Resources.icFix;
+            pbRoomStatus.Image = RepairingIcon;
             lbRoomStatus.BackColor = Color.FromArgb(247, 249, 194);
             pbRoomStatus.BackColor = Color.FromArgb(247, 249, 194);
             pnBackground.BackColor = Color.FromArgb(247, 249, 194);
