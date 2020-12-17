@@ -29,6 +29,8 @@ namespace HotelManagement.UI
             {
                 setCustomerInfoAlreadyExists(dropDownList1.selectedItemName);
             };
+
+            this.ParentRef.Disposed += delegate { pbArrowBack_Click(this, null); };
         }
 
         private void LoadAllCustomer()

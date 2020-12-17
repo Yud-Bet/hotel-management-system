@@ -12,6 +12,7 @@ namespace HotelManagement.UI
         private List<DTO.CustomerOverview> Customers;
         private int RoomID;
         private int ClientID = -1;
+
         public Form_RoomInfo(Item_Room parent)
         {
             InitializeComponent();
@@ -25,7 +26,10 @@ namespace HotelManagement.UI
             {
                 setCustomerInfoAlreadyExists(dropDownList1.selectedItemName);
             };
+
+            this.ParentRef.ParentRef.Disposed += delegate { pbArrowBack_Click(this, null); };
         }
+
         private void LoadAllCustomer()
         {
             Customers = new List<DTO.CustomerOverview>();
