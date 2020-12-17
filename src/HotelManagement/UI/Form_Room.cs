@@ -140,7 +140,9 @@ namespace HotelManagement.UI
             Form_BookMulRooms temp = new Form_BookMulRooms(this);
             pnToAddRoomInfo.BringToFront();
             pnToAddRoomInfo.Controls.Add(temp);
-            
+
+            System.GC.Collect();
+            System.GC.WaitForPendingFinalizers();
         }
     }
 }

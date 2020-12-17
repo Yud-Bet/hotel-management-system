@@ -140,14 +140,12 @@ namespace HotelManagement.UI
             this.ParentRef.ParentRef._pnToAddARoomInfo.Controls.Remove(this);
             this.ParentRef.ParentRef._pnToAddARoomInfo.SendToBack();
 
-            pnSignle_Dou.Dispose();
-            pnVip_Nor.Dispose();
-            pnBookingInfo.Dispose();
-            pnCustomerInfo.Dispose();
-            pnButton.Dispose();
-            pnRoomInfo.Dispose();
+            tbCustomerName.TextChanged -= tbCustomerName_TextChanged;
+            pnCustomerInfo.Click -= pnCustomerInfo_Click;
+            this.Dispose();
 
             GC.Collect();
+            GC.WaitForFullGCComplete();
         }
 
         private void cbCheckOutDate_Click(object sender, EventArgs e)

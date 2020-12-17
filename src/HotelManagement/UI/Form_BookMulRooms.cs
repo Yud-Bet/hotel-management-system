@@ -215,18 +215,12 @@ namespace HotelManagement.UI
             this.ParentRef._pnToAddARoomInfo.Controls.Remove(this);
             this.ParentRef._pnToAddARoomInfo.SendToBack();
 
-            pnSex.Dispose();
-            pnCustomerInfo.Dispose();
-            pnBookingInfo.Dispose();
-            pnSeletedRoom.Dispose();
-            pnToBookRoom.Dispose();
-            pnToSelectRoom.Dispose();
-            items.Clear();
-            Customers.Clear();
-            ParentRef = null;
+            tbCustomerName.TextChanged -= tbCustomerName_TextChanged;
+            pnCustomerInfo.Click -= pnCustomerInfo_Click;
             this.Dispose();
 
             GC.Collect();
+            GC.WaitForFullGCComplete();
         }
 
         bool checkValidityOfValue()

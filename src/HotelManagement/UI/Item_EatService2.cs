@@ -101,6 +101,11 @@ namespace HotelManagement.UI
                 {
                     this.parent._SelectedItems.RemoveAt(i);
                     this.parent._pnSelectedServices.Controls.Remove(this);
+                    zeroitUltraTextBox1.MouseMove -= Item_EatService2_MouseMove;
+                    zeroitUltraTextBox1.Dispose();
+
+                    this.Dispose();
+                    GC.Collect();
                     return;
                 }
             }
@@ -124,6 +129,8 @@ namespace HotelManagement.UI
                 zeroitUltraTextBox1.IsEnabled = true;
                 zeroitUltraTextBox1.Focus();
             }
+
+            GC.Collect();
         }
 
         private void label1_Click(object sender, EventArgs e)

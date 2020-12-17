@@ -178,9 +178,9 @@ namespace HotelManagement.UI
 
                 //pnToAddForm.Controls.Clear();
                 pnToAddForm.Dispose();
-                System.GC.Collect();
                 createPanelToAddForm();
                 pnToAddForm.Controls.Add(new Form_Room(Username));
+                System.GC.Collect();
             }
         }
 
@@ -190,6 +190,7 @@ namespace HotelManagement.UI
             {
                 setStatus(pbRoom, lbRoom, pnTickChooseBtRoom, Resources.icRoom2, true);
             }
+            System.GC.Collect();
         }
 
         private void btRoom_MouseLeave(object sender, EventArgs e)
@@ -198,6 +199,7 @@ namespace HotelManagement.UI
             {
                 setStatus(pbRoom, lbRoom, pnTickChooseBtRoom, Resources.icRoom, false);
             }
+            System.GC.Collect();
         }
 
         #endregion
@@ -223,6 +225,7 @@ namespace HotelManagement.UI
                 setStatus(pbService, lbService, pnTickChooseBtService, Resources.icSevice2, true);
                 pbArrow_Service.Image = Resources.icHorizontalArrow2;
             }
+            System.GC.Collect();
         }
 
         private void btService_MouseLeave(object sender, EventArgs e)
@@ -232,6 +235,7 @@ namespace HotelManagement.UI
                 setStatus(pbService, lbService, pnTickChooseBtService, Resources.icSevice, false);
                 pbArrow_Service.Image = Resources.icHorizontalArrow;
             }
+            System.GC.Collect();
         }
 
         #endregion
@@ -258,6 +262,7 @@ namespace HotelManagement.UI
                 setStatus(pbReport, lbReport, pnTickChooseBtReport, Resources.icReport2, true);
                 pbArrow_Report.Image = Resources.icHorizontalArrow2;
             }
+            System.GC.Collect();
         }
 
         private void btReport_MouseLeave(object sender, EventArgs e)
@@ -267,6 +272,7 @@ namespace HotelManagement.UI
                 setStatus(pbReport, lbReport, pnTickChooseBtReport, Resources.icReport, false);
                 pbArrow_Report.Image = Resources.icHorizontalArrow;
             }
+            System.GC.Collect();
         }
 
         #endregion
@@ -294,6 +300,7 @@ namespace HotelManagement.UI
                 setStatus(pbManage, lbManage, pnTickChooseBtManage, Resources.icManage2, true);
                 pbArrow_Manage.Image = Resources.icHorizontalArrow2;
             }
+            System.GC.Collect();
         }
 
         private void btManage_MouseLeave(object sender, EventArgs e)
@@ -303,6 +310,7 @@ namespace HotelManagement.UI
                 setStatus(pbManage, lbManage, pnTickChooseBtManage, Resources.icManage, false);
                 pbArrow_Manage.Image = Resources.icHorizontalArrow;
             }
+            System.GC.Collect();
         }
 
         #endregion
@@ -318,9 +326,9 @@ namespace HotelManagement.UI
                 setStatus(pbEatService, lbEatService, Resources.icEatService2, true);
 
                 pnToAddForm.Dispose();
-                System.GC.Collect();
                 createPanelToAddForm();
                 pnToAddForm.Controls.Add(new Form_EatService(Username));
+                System.GC.Collect();
             }
         }
 
@@ -330,6 +338,7 @@ namespace HotelManagement.UI
             {
                 setStatus(pbEatService, lbEatService, Resources.icEatService2, true);
             }
+            System.GC.Collect();
         }
 
         private void btEatService_MouseLeave(object sender, EventArgs e)
@@ -338,6 +347,7 @@ namespace HotelManagement.UI
             {
                 setStatus(pbEatService, lbEatService, Resources.icEatService, false);
             }
+            System.GC.Collect();
         }
 
         private void btLaundryService_Click(object sender, EventArgs e)
@@ -349,9 +359,9 @@ namespace HotelManagement.UI
                 setStatus(pbLaundryService, lbLaundryService, Resources.icLaundryService2, true);
 
                 pnToAddForm.Dispose();
-                System.GC.Collect();
                 createPanelToAddForm();
                 pnToAddForm.Controls.Add(new Form_LaundryService());
+                System.GC.Collect();
             }
         }
 
@@ -361,6 +371,7 @@ namespace HotelManagement.UI
             {
                 setStatus(pbLaundryService, lbLaundryService, Resources.icLaundryService2, true);
             }
+            System.GC.Collect();
         }
 
         private void btLaundryService_MouseLeave(object sender, EventArgs e)
@@ -369,6 +380,7 @@ namespace HotelManagement.UI
             {
                 setStatus(pbLaundryService, lbLaundryService, Resources.icLaundryService, false);
             }
+            System.GC.Collect();
         }
 
         #endregion
@@ -396,6 +408,7 @@ namespace HotelManagement.UI
             {
                 setStatus(pbRevenue, lbRevenue, Resources.icRevenue2, true);
             }
+            System.GC.Collect();
         }
 
         private void btRevenue_MouseLeave(object sender, EventArgs e)
@@ -404,6 +417,7 @@ namespace HotelManagement.UI
             {
                 setStatus(pbRevenue, lbRevenue, Resources.icRevenue, false);
             }
+            System.GC.Collect();
         }
 
         private void pnBill_Click(object sender, EventArgs e)
@@ -427,6 +441,7 @@ namespace HotelManagement.UI
             {
                 setStatus(pbBill, lbBill, Resources.icBill2, true);
             }
+            System.GC.Collect();
         }
 
         private void pnBill_MouseLeave(object sender, EventArgs e)
@@ -435,6 +450,7 @@ namespace HotelManagement.UI
             {
                 setStatus(pbBill, lbBill, Resources.icBill, false);
             }
+            System.GC.Collect();
         }
 
         #endregion
@@ -462,6 +478,7 @@ namespace HotelManagement.UI
             {
                 setStatus(pbStaff, lbStaff, Resources.icStaff2, true);
             }
+            System.GC.Collect();
         }
 
         private void btStaff_MouseLeave(object sender, EventArgs e)
@@ -470,6 +487,7 @@ namespace HotelManagement.UI
             {
                 setStatus(pbStaff, lbStaff, Resources.icStaff, false);
             }
+            System.GC.Collect();
         }
 
         private void btCustomer_Click(object sender, EventArgs e)
@@ -488,6 +506,7 @@ namespace HotelManagement.UI
             {
                 setStatus(pbCustomer, lbCustomer, Resources.icCustomer2, true);
             }
+            System.GC.Collect();
         }
 
         private void btCustomer_MouseLeave(object sender, EventArgs e)
@@ -496,6 +515,7 @@ namespace HotelManagement.UI
             {
                 setStatus(pbCustomer, lbCustomer, Resources.icCustomer, false);
             }
+            System.GC.Collect();
         }
 
         private void btWarehouse_Click(object sender, EventArgs e)
@@ -514,6 +534,7 @@ namespace HotelManagement.UI
             {
                 setStatus(pbWarehouse, lbWarehouse, Resources.icWarehouse2, true);
             }
+            System.GC.Collect();
         }
 
         private void btWarehouse_MouseLeave(object sender, EventArgs e)
@@ -522,6 +543,7 @@ namespace HotelManagement.UI
             {
                 setStatus(pbWarehouse, lbWarehouse, Resources.icWarehouse, false);
             }
+            System.GC.Collect();
         }
 
         private void btService_manage_Click(object sender, EventArgs e)
@@ -540,6 +562,7 @@ namespace HotelManagement.UI
             {
                 setStatus(pbSubService, lbSubService, Resources.icSubService2, true);
             }
+            System.GC.Collect();
         }
 
         private void btService_manage_MouseLeave(object sender, EventArgs e)
@@ -548,8 +571,16 @@ namespace HotelManagement.UI
             {
                 setStatus(pbSubService, lbSubService, Resources.icSubService, false);
             }
+            System.GC.Collect();
         }
 
         #endregion
+
+        private void Form_Main_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.Dispose();
+
+            GC.Collect();
+        }
     }
 }

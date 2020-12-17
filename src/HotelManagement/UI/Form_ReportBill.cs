@@ -27,7 +27,7 @@ namespace HotelManagement.UI
 
         private void loadData()
         {
-            pnAddItem.Controls.Clear();
+            while (pnAddItem.Controls.Count > 0) pnAddItem.Controls[0].Dispose();
             DataTable dataBillInfo = DataAccess.Report.GetAllBillInfo(dtStart.Value, dtEnd.Value, cbStaff.SelectedIndex, cbSort.SelectedIndex);
             for (int i=0;i<dataBillInfo.Rows.Count; i++)
             {

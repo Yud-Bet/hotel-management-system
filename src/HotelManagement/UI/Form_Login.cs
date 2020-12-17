@@ -39,6 +39,7 @@ namespace HotelManagement.UI
             lbUsername.Show();
             pbUser.Image = Resources.icUserLogin2;
 
+            GC.Collect();
         }
 
         private void DeFocusTbUsername()
@@ -64,6 +65,8 @@ namespace HotelManagement.UI
             pnPasswordLine.BackColor = Color.FromArgb(27, 152, 224);
             lbPassword.Show();
             pbPass.Image = Resources.icPassLogin2;
+
+            GC.Collect();
         }
 
         private void DeFocusTbPassword()

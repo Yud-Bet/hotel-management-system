@@ -36,6 +36,8 @@ namespace HotelManagement.UI
             lbServiceCharge.MainText = serviceTotalMoney.ToString("C", CultureInfo.GetCultureInfo("vi-VN"));
             lbTotalMoney.MainText = totalMoney.ToString("C", CultureInfo.GetCultureInfo("vi-VN"));
             //lbRoomCharge.MainText = discount.ToString() + " %";
+
+            //this.Disposed += delegate { zeroitUltraTextBox1.MouseMove -= Item_ReportBill_MouseMove; };
         }
 
         #region properties
