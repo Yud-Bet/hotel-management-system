@@ -18,7 +18,9 @@ namespace HotelManagement.UI
         List<double> listEatServiceRevenue = new List<double>();
         List<double> listLaudryServiceRevenue = new List<double>();
         bool isUseBarChart = true;
-        
+        Func<ChartPoint, string> labelPoint = chartPoint =>
+                string.Format(CultureInfo.GetCultureInfo("vi-VN").NumberFormat, "{0:C} ", chartPoint.Y, chartPoint.Participation);
+
         enum ChartType
         {
             barChart = 1,
@@ -31,6 +33,8 @@ namespace HotelManagement.UI
             getListDate(RevenueType.DateRevenue);
             cbTypeOfRevenue.SelectedIndex = 0;
             btBarChart.Hide();
+
+            this.Disposed += delegate { _dispose(); GC.Collect(); };
         }
 
         #region revenueChart
@@ -182,8 +186,6 @@ namespace HotelManagement.UI
         private void createPieChart(double room, double eatService, double laundryService)
         {
             pieChart.Visible = true;
-            Func<ChartPoint, string> labelPoint = chartPoint =>
-                string.Format(cul.NumberFormat, "{0:C} ", chartPoint.Y, chartPoint.Participation);
 
             pieChart.Series = new SeriesCollection
             {
@@ -318,5 +320,14 @@ namespace HotelManagement.UI
             loadChartData(ChartType.barChart);
         }
 
+        private void _dispose()
+        {
+            revenueChart.AxisX.Clear();
+            revenueChart.AxisY.Clear();
+            revenueChart.Series[0].Erase(true);
+            pieChart.Series.Clear();
+            labelPoint = null;
+            
+        }
     }
 }
