@@ -1,24 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Threading;
 
 namespace HotelManagement.UI
 {
     public partial class Form_LaundryService : UserControl
     {
-        DTO.RoomOverview rooms;
-        public Form_LaundryService()
+        private DTO.RoomOverview rooms;
+        private CancellationTokenSource cts;
+        private Form ParentRef;
+
+        public Form_LaundryService(Form ParentRef)
         {
             InitializeComponent();
-
+            cts = new CancellationTokenSource();
             this._discount = 0;
-            DTO.ServicesInfo services = new DTO.ServicesInfo(ServiceType.Laundry);
+            this.ParentRef = ParentRef;
+        }
+
+        private async Task Init_Services()
+        {
+            DTO.ServicesInfo services = await Task.Run(() => new DTO.ServicesInfo(ServiceType.Laundry));
             //label1.Text = services.Items[0].Name.ToString();
             lbLaundryPrice.Text = services.Items[0].Price.ToString();
             laundryID = services.Items[0].ServiceID;
@@ -27,7 +31,6 @@ namespace HotelManagement.UI
             lbIronPrice.Text = services.Items[1].Price.ToString();
             ironPrice = services.Items[1].Price;
             ironID = services.Items[1].ServiceID;
-            Init_cbRoomSelection();
         }
 
         #region properties
@@ -65,13 +68,15 @@ namespace HotelManagement.UI
         }
 
         #endregion
-        private void Init_cbRoomSelection()
+        private async Task Init_cbRoomSelection()
         {
-            rooms = new DTO.RoomOverview();
+            rooms = await Task.Run(() => new DTO.RoomOverview());
+            cbRoomSelection.Items.Add("None");
             for (int i = 0; i < rooms.Items.Length; i++)
             {
                 cbRoomSelection.Items.Add(rooms.Items[i].ID);
             }
+            cbRoomSelection.SelectedIndex = 0;
         }
 
         public void calcTotalMoney()
@@ -110,6 +115,34 @@ namespace HotelManagement.UI
             return -1;
         }
 
+        private async void Form_LaundryService_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                OverlayForm overlay = new OverlayForm(ParentRef, new LoadingForm(cts.Token));
+                overlay.Show();
+                await Init_Services();
+                await Init_cbRoomSelection();
+            }
+            catch (System.Data.SqlClient.SqlException)
+            {
+                MessageBox.Show("Không thể kết nối đến server", "Lỗi");
+                StatusLabel.Text = "Không có kết nối";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                StatusLabel.Text = "Đã xảy ra lỗi";
+            }
+            finally
+            {
+                cts.Cancel();
+                cts.Dispose();
+                cts = new CancellationTokenSource();
+                this.Focus();
+            }
+        }
+
         private void btItemIron_Click(object sender, EventArgs e)
         {
             int check = checkExistsItem(ironID);
@@ -142,30 +175,53 @@ namespace HotelManagement.UI
             calcTotalMoney();
         }
 
-        private void btAdd_Click(object sender, EventArgs e)
+        private async void btAdd_Click(object sender, EventArgs e)
         {
+            try
+            {
+                if (SelectedItems.Count == 0)
+                {
+                    MessageBox.Show("Mời chọn ít nhất 1 sản phẩm!", "Lỗi");
+                    throw new ArgumentException();
+                }
+                if (cbRoomSelection.SelectedIndex == -1 || cbRoomSelection.SelectedIndex == 0)
+                {
+                    MessageBox.Show("Mời chọn phòng!", "Lỗi");
+                    throw new ArgumentException();
+                }
+                if (rooms.Items[cbRoomSelection.SelectedIndex - 1].Status != RoomStatus.Rented)
+                {
+                    MessageBox.Show("Phòng này chưa được thuê!", "Lỗi");
+                    throw new ArgumentException();
+                }
 
-            if (SelectedItems.Count == 0)
-            {
-                MessageBox.Show("Mời chọn ít nhất 1 sản phẩm!", "Lỗi");
-                return;
+                OverlayForm overlay = new OverlayForm(ParentRef, new LoadingForm(cts.Token));
+                overlay.Show();
+
+                for (int i = 0; i < SelectedItems.Count; i++)
+                {
+                    int RoomID = rooms.Items[cbRoomSelection.SelectedIndex - 1].ID;
+                    await Task.Run(() => DataAccess.Services.InsertServicetoBillDetail(RoomID, SelectedItems[i]._itemID, SelectedItems[i]._count));
+                }
+                MessageBox.Show("Thêm thành công!", "Thông báo");
             }
-            if (cbRoomSelection.SelectedIndex == -1)
+            catch (System.Data.SqlClient.SqlException)
             {
-                MessageBox.Show("Mời chọn phòng!", "Lỗi");
-                return;
+                MessageBox.Show("Không thể kết nối đến server", "Lỗi");
+                StatusLabel.Text = "Không có kết nối";
             }
-            if (rooms.Items[cbRoomSelection.SelectedIndex].Status != RoomStatus.Rented)
+            catch (ArgumentException) { }
+            catch (Exception ex)
             {
-                MessageBox.Show("Phòng này chưa được thuê!", "Lỗi");
-                return;
+                MessageBox.Show(ex.Message);
+                StatusLabel.Text = "Đã xảy ra lỗi";
             }
-            for (int i = 0; i < SelectedItems.Count; i++)
+            finally
             {
-                int RoomID = rooms.Items[cbRoomSelection.SelectedIndex].ID;
-                DataAccess.Services.InsertServicetoBillDetail(RoomID, SelectedItems[i]._itemID, SelectedItems[i]._count);
+                cts.Cancel();
+                cts.Dispose();
+                cts = new CancellationTokenSource();
             }
-            MessageBox.Show("Thêm thành công!", "Thông báo");
         }
 
     }

@@ -90,6 +90,7 @@
             this.customerAlreadyEixstsMenu = new Zeroit.Framework.MaterialDesign.Controls.ZeroitMaterialContextMenuStrip();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.pbArrowBack = new System.Windows.Forms.PictureBox();
+            this.StatusLabel = new Zeroit.Framework.MiscControls.ZeroitLabel();
             this.pnCustomerInfo.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.pnRoomInfo.SuspendLayout();
@@ -333,7 +334,7 @@
             this.cbPassport.Size = new System.Drawing.Size(27, 23);
             this.cbPassport.TabIndex = 0;
             this.cbPassport.TabStop = false;
-            this.cbPassport.Click += new System.EventHandler(this.cbPassport_Click);
+            this.cbPassport.CheckedChanged += cbPassport_CheckedChanged;
             // 
             // cbIDNo
             // 
@@ -350,7 +351,7 @@
             this.cbIDNo.Size = new System.Drawing.Size(27, 23);
             this.cbIDNo.TabIndex = 0;
             this.cbIDNo.TabStop = false;
-            this.cbIDNo.Click += new System.EventHandler(this.cbIDNo_Click);
+            this.cbIDNo.CheckedChanged += cbIDNo_CheckedChanged;
             // 
             // flowLayoutPanel1
             // 
@@ -1001,11 +1002,24 @@
             this.pbArrowBack.TabStop = false;
             this.pbArrowBack.Click += new System.EventHandler(this.pbArrowBack_Click);
             // 
+            // StatusLabel
+            // 
+            this.StatusLabel.AutoSize = true;
+            this.StatusLabel.BackColor = System.Drawing.Color.Transparent;
+            this.StatusLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.StatusLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(142)))), ((int)(((byte)(142)))));
+            this.StatusLabel.Location = new System.Drawing.Point(31, 544);
+            this.StatusLabel.Name = "StatusLabel";
+            this.StatusLabel.Size = new System.Drawing.Size(0, 13);
+            this.StatusLabel.TabIndex = 19;
+            // 
             // Form_RoomInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.Controls.Add(this.StatusLabel);
+            this.Controls.Add(this.flowLayoutPanel4);
             this.Controls.Add(this.pnButton);
             this.Controls.Add(this.pbArrowBack);
             this.Controls.Add(this.pnBookingInfo);
@@ -1030,6 +1044,7 @@
             this.customerAlreadyEixstsMenu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbArrowBack)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -1095,5 +1110,6 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
         private DropDownList dropDownList1;
         private XanderUI.XUIButton btSave;
+        private Zeroit.Framework.MiscControls.ZeroitLabel StatusLabel;
     }
 }

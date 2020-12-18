@@ -1,22 +1,30 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Threading;
 
 namespace HotelManagement.UI
 {
     public partial class Form_EatService : UserControl
     {
-        DTO.RoomOverview rooms;
-        string Username;
-        public Form_EatService(string Username)
+        private DTO.RoomOverview rooms;
+        private string Username;
+        private CancellationTokenSource cts;
+        private Form ParentRef;
+
+        public Form_EatService(Form ParentRef, string Username)
         {
             InitializeComponent();
-
+            this.ParentRef = ParentRef;
             this.Username = Username;
-
+            cts = new CancellationTokenSource();
             lbDiscount.Text = discount.ToString();
+        }
 
-            DTO.ServicesInfo services = new DTO.ServicesInfo(ServiceType.Eating);
+        private async Task Init_pnServicesList()
+        {
+            DTO.ServicesInfo services = await Task.Run(() => new DTO.ServicesInfo(ServiceType.Eating));
             for (int i = 0; i < services.Items.Count; i++)
             {
                 Item_EatService1 item = new Item_EatService1(this);
@@ -25,15 +33,17 @@ namespace HotelManagement.UI
                 item._price = services.Items[i].Price;
                 pnServicesList.Controls.Add(item);
             }
-            Init_cbRoomSelection();
         }
-        private void Init_cbRoomSelection()
+
+        private async Task Init_cbRoomSelection()
         {
-            rooms = new DTO.RoomOverview();
+            rooms = await Task.Run(() => new DTO.RoomOverview());
+            cbRoomSelection.Items.Add("None");
             for (int i = 0; i < rooms.Items.Length; i++)
             {
                 cbRoomSelection.Items.Add(rooms.Items[i].ID);
             }
+            cbRoomSelection.SelectedIndex = 0;
         }
         public void calcTotalMoney()
         {
@@ -91,53 +101,103 @@ namespace HotelManagement.UI
 
         #endregion
 
-        private void btAdd_Click(object sender, EventArgs e)
+        private async void btAdd_Click(object sender, EventArgs e)
         {
-            if (SelectedItems.Count == 0)
+            try
             {
-                MessageBox.Show("Mời chọn ít nhất 1 sản phẩm!", "Lỗi");
-                return;
+                if (SelectedItems.Count == 0)
+                {
+                    MessageBox.Show("Mời chọn ít nhất 1 sản phẩm!", "Lỗi");
+                    throw new ArgumentException();
+                }
+                if (cbRoomSelection.SelectedIndex == -1 || cbRoomSelection.SelectedIndex == 0)
+                {
+                    MessageBox.Show("Mời chọn phòng!", "Lỗi");
+                    throw new ArgumentException();
+                }
+                if (rooms.Items[cbRoomSelection.SelectedIndex - 1].Status != RoomStatus.Rented)
+                {
+                    MessageBox.Show("Phòng này chưa được thuê!", "Lỗi");
+                    throw new ArgumentException();
+                }
+
+                OverlayForm overlay = new OverlayForm(ParentRef, new LoadingForm(cts.Token));
+                overlay.Show();
+
+                for (int i = 0; i < SelectedItems.Count; i++)
+                {
+                    int RoomID = rooms.Items[cbRoomSelection.SelectedIndex - 1].ID;
+                    await Task.Run(() => DataAccess.Services.InsertServicetoBillDetail(RoomID, SelectedItems[i]._itemID, SelectedItems[i]._count));
+                }
+                MessageBox.Show("Thêm thành công!", "Thông báo");
+                StatusLabel.Text = "";
             }
-            if (cbRoomSelection.SelectedIndex == -1)
+            catch (System.Data.SqlClient.SqlException)
             {
-                MessageBox.Show("Mời chọn phòng!", "Lỗi");
-                return;
+                MessageBox.Show("Không thể kết nối đến server", "Lỗi");
+                StatusLabel.Text = "Thêm thất bại";
             }
-            if (rooms.Items[cbRoomSelection.SelectedIndex].Status != RoomStatus.Rented)
+            catch (ArgumentException) { }
+            catch (Exception ex)
             {
-                MessageBox.Show("Phòng này chưa được thuê!", "Lỗi");
-                return;
+                MessageBox.Show(ex.Message);
+                StatusLabel.Text = "Thêm thất bại";
             }
-            for (int i = 0; i < SelectedItems.Count; i++)
+            finally
             {
-                int RoomID = rooms.Items[cbRoomSelection.SelectedIndex].ID;
-                DataAccess.Services.InsertServicetoBillDetail(RoomID, SelectedItems[i]._itemID, SelectedItems[i]._count);
+                cts.Cancel();
+                cts.Dispose();
+                cts = new CancellationTokenSource();
             }
-            MessageBox.Show("Thêm thành công!", "Thông báo");
         }
 
-        private void btPay_Click(object sender, EventArgs e)
+        private async void btPay_Click(object sender, EventArgs e)
         {
-            if (SelectedItems.Count == 0)
+            try
             {
-                MessageBox.Show("Mời chọn ít nhất 1 sản phẩm!", "Lỗi");
-                return;
+                if (SelectedItems.Count == 0)
+                {
+                    MessageBox.Show("Mời chọn ít nhất 1 sản phẩm!", "Lỗi");
+                    throw new ArgumentException();
+                }
+                if (cbRoomSelection.SelectedIndex != -1 && cbRoomSelection.SelectedIndex != 0)
+                {
+                    MessageBox.Show("Thanh toán trực tiếp, vui lòng không chọn phòng!", "Lỗi");
+                    throw new ArgumentException();
+                }
+
+                OverlayForm overlay = new OverlayForm(ParentRef, new LoadingForm(cts.Token));
+                overlay.Show();
+
+                await Task.Run(() => DataAccess.Services.InsertNewServicesBillOnly(Username));
+                for (int i = 0; i < SelectedItems.Count; i++)
+                {
+                    await Task.Run(() => DataAccess.Services.InsertServiceToServicesBillOnlyDetail(SelectedItems[i]._itemID, SelectedItems[i]._count));
+                }
+                int RowEffected = await Task.Run(() => DataAccess.Services.PayForServicesOnly());
+                if (RowEffected > 0)
+                {
+                    printPreviewDialogBill.Document = bill;
+                    printPreviewDialogBill.ShowDialog();
+                }
+                StatusLabel.Text = "";
             }
-            if (cbRoomSelection.SelectedIndex != -1)
+            catch (System.Data.SqlClient.SqlException)
             {
-                MessageBox.Show("Thanh toán trực tiếp, vui lòng không chọn phòng!", "Lỗi");
-                return;
+                MessageBox.Show("Không thể kết nối đến server", "Lỗi");
+                StatusLabel.Text = "Thanh toán thất bại";
             }
-            DataAccess.Services.InsertNewServicesBillOnly(Username);
-            for (int i = 0; i < SelectedItems.Count; i++)
+            catch (ArgumentException) { }
+            catch (Exception ex)
             {
-                DataAccess.Services.InsertServiceToServicesBillOnlyDetail(SelectedItems[i]._itemID, SelectedItems[i]._count);
+                MessageBox.Show(ex.Message);
+                StatusLabel.Text = "Thanh toán thất bại";
             }
-            int RowEffected = DataAccess.Services.PayForServicesOnly();
-            if (RowEffected > 0)
+            finally
             {
-                printPreviewDialogBill.Document = bill;
-                printPreviewDialogBill.ShowDialog();
+                cts.Cancel();
+                cts.Dispose();
+                cts = new CancellationTokenSource();
             }
         }
 
@@ -148,13 +208,41 @@ namespace HotelManagement.UI
             drawBill.drawBillHeader();
             drawBill.drawServiceInfo();
             int TotalMoney = 0;
-            for (int i = 0; i < svc.services.Count; i++)
+            for (int i = 0; i < svc.items.Count; i++)
             {
-                drawBill.drawItem(svc.services[i].Name, svc.services[i].Count, svc.services[i].Price, svc.services[i].IntoMoney);
-                TotalMoney += svc.services[i].Count * svc.services[i].Price;
+                drawBill.drawItem(svc.items[i].Name, svc.items[i].Count, svc.items[i].Price, svc.items[i].IntoMoney);
+                TotalMoney += svc.items[i].Count * svc.items[i].Price;
             }
             DTO.StaffOverview staff = new DTO.StaffOverview(Username);
             drawBill.drawEndOfBill(staff.Name, TotalMoney, 0);
+        }
+
+        private async void Form_EatService_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                OverlayForm overlay = new OverlayForm(ParentRef, new LoadingForm(cts.Token));
+                overlay.Show();
+                await Init_pnServicesList();
+                await Init_cbRoomSelection();
+            }
+            catch (System.Data.SqlClient.SqlException)
+            {
+                MessageBox.Show("Không thể kết nối đến server", "Lỗi");
+                StatusLabel.Text = "Không có kết nối";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                StatusLabel.Text = "Đã xảy ra lỗi";
+            }
+            finally
+            {
+                cts.Cancel();
+                cts.Dispose();
+                cts = new CancellationTokenSource();
+                this.Focus();
+            }
         }
     }
 }

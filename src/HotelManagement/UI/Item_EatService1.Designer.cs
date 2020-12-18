@@ -29,26 +29,13 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Item_EatService1));
-            this.pbImage = new System.Windows.Forms.PictureBox();
             this.lbPrice = new System.Windows.Forms.Label();
             this.zeroitClickAnimator1 = new Zeroit.Framework.Transitions.ZeroitClickAnimator();
+            this.pbImage = new System.Windows.Forms.PictureBox();
             this.zeroitRectShadowPanel1 = new Zeroit.Framework.MiscControls.ZeroitRectShadowPanel();
             this.lbName = new Zeroit.Framework.Labels.ZeroitMultiFormatLabel();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
             this.SuspendLayout();
-            // 
-            // pbImage
-            // 
-            this.pbImage.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbImage.Image = ((System.Drawing.Image)(resources.GetObject("pbImage.Image")));
-            this.pbImage.Location = new System.Drawing.Point(3, 3);
-            this.pbImage.Name = "pbImage";
-            this.pbImage.Size = new System.Drawing.Size(221, 127);
-            this.pbImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbImage.TabIndex = 0;
-            this.pbImage.TabStop = false;
-            this.pbImage.Click += new System.EventHandler(this.pbImage_Click);
             // 
             // lbPrice
             // 
@@ -68,6 +55,18 @@
             this.zeroitClickAnimator1.ClickControl = this.pbImage;
             this.zeroitClickAnimator1.Shape = Zeroit.Framework.Transitions.ZeroitClickAnimator.drawMode.Circle;
             this.zeroitClickAnimator1.Speed = 22;
+            // 
+            // pbImage
+            // 
+            this.pbImage.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbImage.Image = global::HotelManagement.Properties.Resources.fast_food;
+            this.pbImage.Location = new System.Drawing.Point(3, 3);
+            this.pbImage.Name = "pbImage";
+            this.pbImage.Size = new System.Drawing.Size(221, 127);
+            this.pbImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbImage.TabIndex = 0;
+            this.pbImage.TabStop = false;
+            this.pbImage.Click += new System.EventHandler(this.pbImage_Click);
             // 
             // zeroitRectShadowPanel1
             // 

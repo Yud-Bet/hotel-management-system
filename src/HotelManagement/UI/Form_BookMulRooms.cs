@@ -1,63 +1,73 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
 using System.Data;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
+using System.Threading.Tasks;
+using System.Threading;
 
 namespace HotelManagement.UI
 {
     public partial class Form_BookMulRooms : UserControl
     {
-        List<Item_RoomOfFormBookMulRoom> items = new List<Item_RoomOfFormBookMulRoom>();
+        bool flag = true;
+        List<Item_RoomOfFormBookMulRoom> RoomList = new List<Item_RoomOfFormBookMulRoom>();
         private List<DTO.CustomerOverview> Customers;
         private int ClientID = -1;
+        private CancellationTokenSource cts;
 
         public Form_BookMulRooms(Form_Room parentRef)
         {
             InitializeComponent();
             ParentRef = parentRef;
-            loadData();
 
-            LoadAllCustomer();
             dropDownList1.Hide();
             dropDownList1.ChooseItem += delegate
             {
                 setCustomerInfoAlreadyExists(dropDownList1.selectedItemName);
             };
+            cts = new CancellationTokenSource();
 
             this.ParentRef.Disposed += delegate { pbArrowBack_Click(this, null); };
         }
 
-        private void LoadAllCustomer()
+        private async Task LoadAllCustomer()
         {
-            Customers = new List<DTO.CustomerOverview>();
-            DataTable data = DataAccess.ExecuteQuery.ExecuteReader("QLKS_GetAllCustomerInfo");
-            for (int i = 0; i < data.Rows.Count; i++)
+            try
             {
-                var item = new DTO.CustomerOverview();
-                item.ID = Convert.ToInt32(data.Rows[i].ItemArray[0]);
-                item.Name = Convert.ToString(data.Rows[i].ItemArray[1]);
-                item.Birthday = Convert.ToDateTime(data.Rows[i].ItemArray[2]);
-                item.PhoneNumber = Convert.ToString(data.Rows[i].ItemArray[3]);
-                item.sex = (Sex)Convert.ToInt32(data.Rows[i].ItemArray[4]);
-                item.IDNumber = Convert.ToString(data.Rows[i].ItemArray[5]);
-                item.Passport = Convert.ToString(data.Rows[i].ItemArray[6]);
-                item.Addr = Convert.ToString(data.Rows[0].ItemArray[7]);
+                Customers = new List<DTO.CustomerOverview>();
+                DataTable data = await Task.Run(() => DataAccess.ExecuteQuery.ExecuteReader("QLKS_GetAllCustomerInfo"));
+                for (int i = 0; i < data.Rows.Count; i++)
+                {
+                    var item = new DTO.CustomerOverview();
+                    item.ID = Convert.ToInt32(data.Rows[i].ItemArray[0]);
+                    item.Name = Convert.ToString(data.Rows[i].ItemArray[1]);
+                    item.Birthday = Convert.ToDateTime(data.Rows[i].ItemArray[2]);
+                    item.PhoneNumber = Convert.ToString(data.Rows[i].ItemArray[3]);
+                    item.sex = (Sex)Convert.ToInt32(data.Rows[i].ItemArray[4]);
+                    item.IDNumber = Convert.ToString(data.Rows[i].ItemArray[5]);
+                    item.Passport = Convert.ToString(data.Rows[i].ItemArray[6]);
+                    item.Addr = Convert.ToString(data.Rows[0].ItemArray[7]);
 
-                Customers.Add(item);
+                    Customers.Add(item);
+                }
+            }
+            catch (System.Data.SqlClient.SqlException)
+            {
+                MessageBox.Show("Đã xảy ra lỗi khi tải thông tin từ server", "Lỗi");
+                StatusLabel.Text = "Không có kết nối";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                StatusLabel.Text = "Đã xảy ra lỗi";
             }
         }
 
         private void setCustomerInfoAlreadyExists(string selectedItemName)
         {
             int i;
-            //for (i = 0; i < Customers.Count
-            //    && (selectedItemName != Customers[i].IDNumber && selectedItemName != Customers[i].Passport); i++) {}
             for (i = 0; i < Customers.Count
                 && (selectedItemName != Customers[i].ID.ToString()); i++) { }
             ClientID = Customers[i].ID;
@@ -68,15 +78,13 @@ namespace HotelManagement.UI
             SetValueForControl.SetSex(Customers[i].sex, rbtMale, rbtFemale);
             if (Customers[i].IDNumber.Length != 0)
             {
+                if (!cbIDNo.Checked) cbIDNo.Checked = true;
                 tbIDNo.Text = Customers[i].IDNumber;
             }
             else
             {
+                if (!cbPassport.Checked) cbPassport.Checked = true;
                 tbPassport.Text = Customers[i].Passport;
-                tbIDNo.Enabled = false;
-                cbIDNo.Checked = false;
-                cbPassport.Checked = true;
-                tbPassport.Enabled = true;
             }
             tbCustomerAddress.Text = Customers[i].Addr;
         }
@@ -99,7 +107,6 @@ namespace HotelManagement.UI
             foreach (var i in Customers)
             {
                 string AdditionalInfo = (i.IDNumber.Length != 0) ? i.IDNumber : i.Passport;
-                //string AdditionalInfo = i.ID.ToString();
                 if (i.Name.ToLower().Contains(customerName.ToLower()))
                 {
                     dropDownList1.addItem(i.Name + " | " + AdditionalInfo, i.ID.ToString());
@@ -116,18 +123,21 @@ namespace HotelManagement.UI
             }
         }
 
-        void loadData()
+        async Task loadData()
         {
-            foreach(var i in ParentRef.listRoom)
-            {
-                if(i._RoomStatus == RoomStatus.Empty || i._RoomStatus == RoomStatus.Cleaning)
+            await Task.Run(() => {
+                foreach (var i in ParentRef.listRoom)
                 {
-                    Item_RoomOfFormBookMulRoom newItem = new Item_RoomOfFormBookMulRoom(i, this);
-                    items.Add(newItem);
-                    pnToSelectRoom.Controls.Add(newItem);
+                    if (i._RoomStatus == RoomStatus.Empty || i._RoomStatus == RoomStatus.Cleaning)
+                    {
+                        Item_RoomOfFormBookMulRoom newItem = new Item_RoomOfFormBookMulRoom(i, this);
+                        RoomList.Add(newItem);
+                    }
                 }
-            }
-            emtyCount = items.Count();
+            });
+
+            pnToSelectRoom.Controls.AddRange(RoomList.ToArray());
+            emtyCount = RoomList.Count();
             PanelList.XPanderPanels[0].Text = "Danh sách phòng trống: " + emtyCount.ToString() + " phòng";
             PanelList.XPanderPanels[1].Text = "Danh sách phòng đã chọn: " + selectedCount.ToString() + " phòng";
         }
@@ -171,42 +181,57 @@ namespace HotelManagement.UI
         }
         #endregion
 
-        private void btBookRoom_Click(object sender, EventArgs e)
+        private async void btBookRoom_Click(object sender, EventArgs e)
         {
-            if (!checkValidityOfValue()) return;
-            List<Item_RoomOfFormBookMulRoom> listRoomID = new List<Item_RoomOfFormBookMulRoom>();
-            foreach (Item_RoomOfFormBookMulRoom item in items)
+            try
             {
-                if (item.isChoose)
+                OverlayForm overlay = new OverlayForm(ParentRef.ParentRef, new LoadingForm(cts.Token));
+                overlay.Show();
+                if (!checkValidityOfValue()) return;
+                List<Item_RoomOfFormBookMulRoom> listRoomID = new List<Item_RoomOfFormBookMulRoom>();
+                foreach (Item_RoomOfFormBookMulRoom item in RoomList)
                 {
-                    listRoomID.Add(item);
+                    if (item.isChoose)
+                    {
+                        listRoomID.Add(item);
+                    }
                 }
-            }
+                if (listRoomID.Count > 0)
+                {
+                    if (ClientID <= 0)
+                    {
+                        int a = await Task.Run(() => DataAccess.CustomerDA.InsertNewClient(tbCustomerName.Text, dtpCustomerBirthday.Value,
+                            tbIDNo.Text, tbPassport.Text, tbCustomerAddress.Text, tbCustomerPhoneNum.Text, rbtMale.Checked ? Sex.Male : Sex.Female));
+                    }
+                    int b = await Task.Run(() => DataAccess.CustomerDA.InsertNewRoomReservation(dtpCheckInDate.Value, 0, ParentRef.Username, 0, tbNote.Text));
+                    int d = await Task.Run(() => DataAccess.CustomerDA.InsertNewBill(0, ParentRef.Username));
+                    foreach (Item_RoomOfFormBookMulRoom item in listRoomID)
+                    {
 
-            if (listRoomID.Count > 0)
+                        int c = await Task.Run(() => DataAccess.CustomerDA.InsertRoomReservationDetail(0, item._RoomID));
+                        item.ParentRefItemRoom._RoomStatus = RoomStatus.Rented;
+                    }
+                    ParentRef.Empty -= listRoomID.Count;
+                    ParentRef.Rented += listRoomID.Count;
+                    pbArrowBack_Click(sender, e);
+                }
+                else MessageBox.Show("Vui lòng chọn phòng!", "Thông báo!");
+            }
+            catch (System.Data.SqlClient.SqlException)
             {
-                if (ClientID <= 0)
-                {
-                    int a = DataAccess.CustomerDA.InsertNewClient(tbCustomerName.Text, dtpCustomerBirthday.Value, tbIDNo.Text, tbPassport.Text,
-                    tbCustomerAddress.Text, tbCustomerPhoneNum.Text, rbtMale.Checked ? Sex.Male : Sex.Female);
-                }
-                int b = DataAccess.CustomerDA.InsertNewRoomReservation(dtpCheckInDate.Value, 0, ParentRef.Username, 0, tbNote.Text);
-                int d = DataAccess.CustomerDA.InsertNewBill(0, ParentRef.Username);
-                foreach (Item_RoomOfFormBookMulRoom item in listRoomID)
-                {
-
-                    int c = DataAccess.CustomerDA.InsertRoomReservationDetail(0, item._RoomID);
-                    item.ParentRefItemRoom._RoomStatus = RoomStatus.Rented;
-                    this.ParentRef._lbNumberOfEmptyRoom.Text = (Convert.ToInt32(this.ParentRef._lbNumberOfEmptyRoom.Text) - 1).ToString();
-                    this.ParentRef._lbNumberOfRentedRoom.Text = (Convert.ToInt32(this.ParentRef._lbNumberOfRentedRoom.Text) + 1).ToString();
-
-                }
-
-                MessageBox.Show("Bạn đã đặt phòng thành công!", "Thông báo!");
-                pbArrowBack_Click(sender, e);
+                MessageBox.Show("Lỗi khi kết nối đến server", "Lỗi");
+                StatusLabel.Text = "Đặt phòng không thành công";
             }
-            else {
-                MessageBox.Show("Vui lòng chọn phòng!", "Thông báo!");
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                StatusLabel.Text = "Đặt phòng không thành công";
+            }
+            finally
+            {
+                cts.Cancel();
+                cts.Dispose();
+                cts = new CancellationTokenSource();
             }
         }
 
@@ -223,6 +248,65 @@ namespace HotelManagement.UI
 
             GC.Collect();
             GC.WaitForFullGCComplete();
+        }
+
+        private void cbPassport_CheckedChanged(object sender, EventArgs e)
+        {
+            if (flag)
+            {
+                if (cbPassport.Checked == true)
+                {
+                    if (cbIDNo.Checked)
+                    {
+                        flag = false;
+                        cbIDNo.Checked = false;
+                    }
+                    tbIDNo.Text = "";
+                    tbIDNo.Enabled = false;
+                    tbIDNo.IsEnabled = false;
+
+                    tbPassport.Enabled = true;
+                    tbPassport.IsEnabled = true;
+                    tbPassport.Focus();
+                }
+                else cbIDNo.Checked = true;
+            }
+            else flag = true;
+        }
+
+        private void cbIDNo_CheckedChanged(object sender, EventArgs e)
+        {
+            if (flag)
+            {
+                if (cbIDNo.Checked == true)
+                {
+                    if (cbPassport.Checked)
+                    {
+                        flag = false;
+                        cbPassport.Checked = false;
+                    }
+                    tbPassport.Text = "";
+                    tbPassport.Enabled = false;
+                    tbPassport.IsEnabled = false;
+
+                    tbIDNo.Enabled = true;
+                    tbIDNo.IsEnabled = true;
+                    tbIDNo.Focus();
+                }
+                else cbPassport.Checked = true;
+            }
+            else flag = true;
+        }
+
+        private async void Form_BookMulRooms_Load(object sender, EventArgs e)
+        {
+            OverlayForm overlay = new OverlayForm(ParentRef.ParentRef, new LoadingForm(cts.Token));
+            overlay.Show();
+            await LoadAllCustomer();
+            await loadData();
+            cts.Cancel();
+            cts.Dispose();
+            cts = new CancellationTokenSource();
         }
 
         bool checkValidityOfValue()
@@ -249,46 +333,6 @@ namespace HotelManagement.UI
             }
 
             return true;
-        }
-
-        private void cbIDNo_Click(object sender, EventArgs e)
-        {
-            if (cbIDNo.Checked == true)
-            {
-                cbPassport.Checked = false;
-                tbIDNo.IsEnabled = true;
-                tbPassport.IsEnabled = false;
-                tbPassport.Text = "";
-                tbIDNo.Focus();
-            }
-            else
-            {
-                cbPassport.Checked = true;
-                tbIDNo.IsEnabled = false;
-                tbPassport.IsEnabled = true;
-                tbIDNo.Text = "";
-                tbPassport.Focus();
-            }
-        }
-
-        private void cbPassport_Click(object sender, EventArgs e)
-        {
-            if (cbPassport.Checked == true)
-            {
-                cbIDNo.Checked = false;
-                tbIDNo.IsEnabled = false;
-                tbPassport.IsEnabled = true;
-                tbIDNo.Text = "";
-                tbPassport.Focus();
-            }
-            else
-            {
-                cbIDNo.Checked = true;
-                tbIDNo.IsEnabled = true;
-                tbPassport.IsEnabled = false;
-                tbPassport.Text = "";
-                tbIDNo.Focus();
-            }
         }
     }
 }

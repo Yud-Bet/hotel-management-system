@@ -1,4 +1,6 @@
-﻿namespace HotelManagement.UI
+﻿using System;
+
+namespace HotelManagement.UI
 {
     partial class Form_BookMulRooms
     {
@@ -71,6 +73,7 @@
             this.label16 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
+            this.StatusLabel = new Zeroit.Framework.MiscControls.ZeroitLabel();
             ((System.ComponentModel.ISupportInitialize)(this.pbArrowBack)).BeginInit();
             this.pnCustomerInfo.SuspendLayout();
             this.pnSex.SuspendLayout();
@@ -153,7 +156,7 @@
             this.tbNote.PlaceHolderTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
             this.tbNote.ReadOnly = false;
             this.tbNote.Size = new System.Drawing.Size(440, 81);
-            this.tbNote.TabIndex = 5;
+            this.tbNote.TabIndex = 7;
             this.tbNote.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left;
             this.tbNote.TextBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.tbNote.UseSystemPasswordChar = false;
@@ -178,7 +181,7 @@
             this.tbCustomerAddress.PlaceHolderTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
             this.tbCustomerAddress.ReadOnly = false;
             this.tbCustomerAddress.Size = new System.Drawing.Size(440, 24);
-            this.tbCustomerAddress.TabIndex = 4;
+            this.tbCustomerAddress.TabIndex = 6;
             this.tbCustomerAddress.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left;
             this.tbCustomerAddress.TextBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.tbCustomerAddress.UseSystemPasswordChar = false;
@@ -188,6 +191,7 @@
             // 
             this.tbPassport.DisabledStringColor = System.Drawing.Color.Black;
             this.tbPassport.DisabledUnFocusedColor = System.Drawing.Color.Silver;
+            this.tbPassport.Enabled = false;
             this.tbPassport.EnabledUnFocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.tbPassport.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
             this.tbPassport.Font = new System.Drawing.Font("Segoe UI", 11F);
@@ -203,7 +207,7 @@
             this.tbPassport.PlaceHolderTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
             this.tbPassport.ReadOnly = true;
             this.tbPassport.Size = new System.Drawing.Size(205, 24);
-            this.tbPassport.TabIndex = 3;
+            this.tbPassport.TabIndex = 5;
             this.tbPassport.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left;
             this.tbPassport.TextBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.tbPassport.UseSystemPasswordChar = false;
@@ -228,7 +232,7 @@
             this.tbIDNo.PlaceHolderTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
             this.tbIDNo.ReadOnly = false;
             this.tbIDNo.Size = new System.Drawing.Size(205, 24);
-            this.tbIDNo.TabIndex = 3;
+            this.tbIDNo.TabIndex = 4;
             this.tbIDNo.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left;
             this.tbIDNo.TextBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.tbIDNo.UseSystemPasswordChar = false;
@@ -253,7 +257,7 @@
             this.tbCustomerPhoneNum.PlaceHolderTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
             this.tbCustomerPhoneNum.ReadOnly = false;
             this.tbCustomerPhoneNum.Size = new System.Drawing.Size(267, 24);
-            this.tbCustomerPhoneNum.TabIndex = 2;
+            this.tbCustomerPhoneNum.TabIndex = 3;
             this.tbCustomerPhoneNum.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left;
             this.tbCustomerPhoneNum.TextBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.tbCustomerPhoneNum.UseSystemPasswordChar = false;
@@ -300,7 +304,7 @@
             this.cbPassport.Size = new System.Drawing.Size(27, 23);
             this.cbPassport.TabIndex = 0;
             this.cbPassport.TabStop = false;
-            this.cbPassport.Click += new System.EventHandler(this.cbPassport_Click);
+            this.cbPassport.CheckedChanged += new System.EventHandler(this.cbPassport_CheckedChanged);
             // 
             // cbIDNo
             // 
@@ -317,7 +321,7 @@
             this.cbIDNo.Size = new System.Drawing.Size(27, 23);
             this.cbIDNo.TabIndex = 0;
             this.cbIDNo.TabStop = false;
-            this.cbIDNo.Click += new System.EventHandler(this.cbIDNo_Click);
+            this.cbIDNo.CheckedChanged += new System.EventHandler(this.cbIDNo_CheckedChanged);
             // 
             // pnSex
             // 
@@ -735,16 +739,30 @@
             this.panel7.Size = new System.Drawing.Size(300, 3);
             this.panel7.TabIndex = 3;
             // 
+            // StatusLabel
+            // 
+            this.StatusLabel.AutoSize = true;
+            this.StatusLabel.BackColor = System.Drawing.Color.Transparent;
+            this.StatusLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.2F);
+            this.StatusLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(142)))), ((int)(((byte)(142)))));
+            this.StatusLabel.Location = new System.Drawing.Point(11, 547);
+            this.StatusLabel.Name = "StatusLabel";
+            this.StatusLabel.Size = new System.Drawing.Size(0, 13);
+            this.StatusLabel.TabIndex = 30;
+            // 
             // Form_BookMulRooms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.StatusLabel);
             this.Controls.Add(this.pnBookingInfo);
             this.Controls.Add(this.pnToBookRoom);
             this.Controls.Add(this.pnCustomerInfo);
             this.Controls.Add(this.pbArrowBack);
+            this.DoubleBuffered = true;
             this.Name = "Form_BookMulRooms";
             this.Size = new System.Drawing.Size(968, 575);
+            this.Load += new System.EventHandler(this.Form_BookMulRooms_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbArrowBack)).EndInit();
             this.pnCustomerInfo.ResumeLayout(false);
             this.pnCustomerInfo.PerformLayout();
@@ -758,6 +776,7 @@
             this.pnBookingInfo.ResumeLayout(false);
             this.pnBookingInfo.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -805,5 +824,6 @@
         private System.Windows.Forms.FlowLayoutPanel pnToSelectRoom;
         private Zeroit.Framework.MiscControls.XPanderPanel xPanderPanel2;
         private System.Windows.Forms.FlowLayoutPanel pnSeletedRoom;
+        private Zeroit.Framework.MiscControls.ZeroitLabel StatusLabel;
     }
 }

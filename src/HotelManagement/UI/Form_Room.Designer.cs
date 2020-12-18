@@ -66,6 +66,7 @@
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.tbSearch = new Zeroit.Framework.Labels.ZeroitUltraTextBox();
             this.animTbSearch = new Zeroit.Framework.Transitions.ZeroitPizaroAnimator.ZeroitPizaroAnim();
+            this.StatusLabel = new Zeroit.Framework.MiscControls.ZeroitLabel();
             ((System.ComponentModel.ISupportInitialize)(this.btBookMultipleRooms)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btAddRoom)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbSearch)).BeginInit();
@@ -436,6 +437,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.panel1.Controls.Add(this.StatusLabel);
             this.panel1.Controls.Add(this.btThreeDot);
             this.panel1.Controls.Add(this.btBookMultipleRooms);
             this.panel1.Controls.Add(this.btAddRoom);
@@ -582,6 +584,17 @@
             this.animTbSearch.ResizeWidth_Begin = 10F;
             this.animTbSearch.ResizeWidth_Limit = 50F;
             // 
+            // StatusLabel
+            // 
+            this.StatusLabel.AutoSize = true;
+            this.StatusLabel.BackColor = System.Drawing.Color.Transparent;
+            this.StatusLabel.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.StatusLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(142)))), ((int)(((byte)(142)))));
+            this.StatusLabel.Location = new System.Drawing.Point(39, 647);
+            this.StatusLabel.Name = "StatusLabel";
+            this.StatusLabel.Size = new System.Drawing.Size(0, 13);
+            this.StatusLabel.TabIndex = 31;
+            // 
             // Form_Room
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -590,6 +603,7 @@
             this.Controls.Add(this.pnToAddRoomInfo);
             this.Name = "Form_Room";
             this.Size = new System.Drawing.Size(968, 666);
+            this.Load += new System.EventHandler(this.Form_Room_Load);
             ((System.ComponentModel.ISupportInitialize)(this.btBookMultipleRooms)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btAddRoom)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbSearch)).EndInit();
@@ -642,5 +656,6 @@
         private Zeroit.Framework.Labels.ZeroitUltraTextBox tbSearch;
         private Zeroit.Framework.Transitions.ZeroitPizaroAnimator.ZeroitPizaroAnim animTbSearch;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private Zeroit.Framework.MiscControls.ZeroitLabel StatusLabel;
     }
 }
