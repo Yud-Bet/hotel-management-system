@@ -1019,7 +1019,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.Controls.Add(this.StatusLabel);
-            this.Controls.Add(this.flowLayoutPanel4);
+            this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.pnButton);
             this.Controls.Add(this.pbArrowBack);
             this.Controls.Add(this.pnBookingInfo);

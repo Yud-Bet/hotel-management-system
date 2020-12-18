@@ -215,7 +215,7 @@ namespace HotelManagement.UI
                 //pnToAddForm.Controls.Clear();
                 pnToAddForm.Dispose();
                 createPanelToAddForm();
-                pnToAddForm.Controls.Add(new Form_Room(Username));
+                pnToAddForm.Controls.Add(new Form_Room(Username, this));
                 System.GC.Collect();
             }
         }
@@ -353,7 +353,7 @@ namespace HotelManagement.UI
 
                 pnToAddForm.Dispose();
                 createPanelToAddForm();
-                pnToAddForm.Controls.Add(new Form_EatService(Username));
+                pnToAddForm.Controls.Add(new Form_EatService(this, Username));
                 System.GC.Collect();
             }
         }
@@ -384,7 +384,7 @@ namespace HotelManagement.UI
 
                 pnToAddForm.Dispose();
                 createPanelToAddForm();
-                pnToAddForm.Controls.Add(new Form_LaundryService());
+                pnToAddForm.Controls.Add(new Form_LaundryService(this));
                 System.GC.Collect();
             }
         }
