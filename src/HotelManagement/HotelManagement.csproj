@@ -151,6 +151,12 @@
     <Compile Include="UI\Form_BookMulRooms.Designer.cs">
       <DependentUpon>Form_BookMulRooms.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Form_Customer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Form_Customer.Designer.cs">
+      <DependentUpon>Form_Customer.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Form_EatService.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -222,6 +228,12 @@
       <DependentUpon>Form_Staff.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\GetValueOfControl.cs" />
+    <Compile Include="UI\Item_Customer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Item_Customer.Designer.cs">
+      <DependentUpon>Item_Customer.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Item_EatService1.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -286,6 +298,9 @@
     <EmbeddedResource Include="UI\Form_BookMulRooms.resx">
       <DependentUpon>Form_BookMulRooms.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\Form_Customer.resx">
+      <DependentUpon>Form_Customer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Form_EatService.resx">
       <DependentUpon>Form_EatService.cs</DependentUpon>
     </EmbeddedResource>
@@ -323,6 +338,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Form_Staff.resx">
       <DependentUpon>Form_Staff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Item_Customer.resx">
+      <DependentUpon>Item_Customer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Item_EatService1.resx">
       <DependentUpon>Item_EatService1.cs</DependentUpon>

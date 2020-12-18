@@ -513,6 +513,11 @@ namespace HotelManagement.UI
                 resetManageSubmenu();
                 isChoosebtCustomer = true;
                 setStatus(pbCustomer, lbCustomer, ChoseCustomerIcon, true);
+
+                pnToAddForm.Dispose();
+                System.GC.Collect();
+                createPanelToAddForm();
+                pnToAddForm.Controls.Add(new Form_Customer());
             }
         }
 

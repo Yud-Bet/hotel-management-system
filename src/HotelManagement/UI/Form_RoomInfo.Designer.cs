@@ -107,6 +107,7 @@
             this.pnCustomerInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.pnCustomerInfo.Controls.Add(this.dropDownList1);
             this.pnCustomerInfo.Controls.Add(this.tbNote);
+            this.pnCustomerInfo.Controls.Add(this.flowLayoutPanel1);
             this.pnCustomerInfo.Controls.Add(this.tbCustomerAddress);
             this.pnCustomerInfo.Controls.Add(this.tbPassport);
             this.pnCustomerInfo.Controls.Add(this.btSave);
@@ -115,7 +116,6 @@
             this.pnCustomerInfo.Controls.Add(this.tbCustomerName);
             this.pnCustomerInfo.Controls.Add(this.cbPassport);
             this.pnCustomerInfo.Controls.Add(this.cbIDNo);
-            this.pnCustomerInfo.Controls.Add(this.flowLayoutPanel1);
             this.pnCustomerInfo.Controls.Add(this.dtpCustomerBirthday);
             this.pnCustomerInfo.Controls.Add(this.label8);
             this.pnCustomerInfo.Controls.Add(this.label10);
@@ -334,7 +334,6 @@
             this.cbPassport.Size = new System.Drawing.Size(27, 23);
             this.cbPassport.TabIndex = 0;
             this.cbPassport.TabStop = false;
-            this.cbPassport.CheckedChanged += cbPassport_CheckedChanged;
             // 
             // cbIDNo
             // 
@@ -351,13 +350,12 @@
             this.cbIDNo.Size = new System.Drawing.Size(27, 23);
             this.cbIDNo.TabIndex = 0;
             this.cbIDNo.TabStop = false;
-            this.cbIDNo.CheckedChanged += cbIDNo_CheckedChanged;
             // 
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.Controls.Add(this.rbtMale);
             this.flowLayoutPanel1.Controls.Add(this.rbtFemale);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(310, 151);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(313, 148);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(178, 32);
             this.flowLayoutPanel1.TabIndex = 8;
@@ -1019,7 +1017,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.Controls.Add(this.StatusLabel);
-            this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.pnButton);
             this.Controls.Add(this.pbArrowBack);
             this.Controls.Add(this.pnBookingInfo);
