@@ -32,7 +32,6 @@
             this.zeroitUltraTextBox1 = new Zeroit.Framework.Labels.ZeroitUltraTextBox();
             this.lbPrice = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
             this.tbCount = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -89,7 +88,6 @@
             // panel1
             // 
             this.panel1.Controls.Add(this.tbCount);
-            this.panel1.Controls.Add(this.label3);
             this.panel1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -97,19 +95,6 @@
             this.panel1.Size = new System.Drawing.Size(417, 30);
             this.panel1.TabIndex = 15;
             this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
-            // 
-            // label3
-            // 
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label3.Font = new System.Drawing.Font("San Francisco Text Regular", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label3.Location = new System.Drawing.Point(-1, 4);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(19, 24);
-            this.label3.TabIndex = 10;
-            this.label3.Text = "x";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // tbCount
             // 
@@ -149,7 +134,6 @@
         private Zeroit.Framework.Labels.ZeroitUltraTextBox zeroitUltraTextBox1;
         private System.Windows.Forms.Label lbPrice;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox tbCount;
     }
 }

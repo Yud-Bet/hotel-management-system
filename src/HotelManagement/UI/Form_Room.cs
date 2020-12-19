@@ -51,7 +51,7 @@ namespace HotelManagement.UI
             set
             {
                 total = value;
-                lbNumberOfRoom.Text = total.ToString();
+                lbNumberOfRoom.ButtonText = total.ToString();
             }
         }
         public int Empty
@@ -60,7 +60,7 @@ namespace HotelManagement.UI
             set
             {
                 empty = value;
-                lbNumberOfEmptyRoom.Text = empty.ToString();
+                lbNumberOfEmptyRoom.ButtonText = empty.ToString();
             }
         }
         public int Rented
@@ -69,7 +69,7 @@ namespace HotelManagement.UI
             set
             {
                 rented = value;
-                lbNumberOfRentedRoom.Text = rented.ToString();
+                lbNumberOfRentedRoom.ButtonText = rented.ToString();
             }
         }
         public int Cleaning
@@ -78,7 +78,7 @@ namespace HotelManagement.UI
             set
             {
                 cleaning = value;
-                lbNumberOfCleaningRoom.Text = cleaning.ToString();
+                lbNumberOfCleaningRoom.ButtonText = cleaning.ToString();
             }
         }
         public int Repairing

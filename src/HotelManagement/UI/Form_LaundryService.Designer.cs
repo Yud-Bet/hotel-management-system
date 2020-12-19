@@ -116,7 +116,7 @@
             this.btAdd.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
             this.btAdd.ButtonImage = global::HotelManagement.Properties.Resources.icPayment;
             this.btAdd.ButtonStyle = XanderUI.XUIButton.Style.MaterialRounded;
-            this.btAdd.ButtonText = "Thêm";
+            this.btAdd.ButtonText = " Thêm";
             this.btAdd.ClickBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(161)))));
             this.btAdd.ClickTextColor = System.Drawing.Color.White;
             this.btAdd.CornerRadius = 5;
@@ -128,7 +128,7 @@
             this.btAdd.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
             this.btAdd.Location = new System.Drawing.Point(271, 105);
             this.btAdd.Name = "btAdd";
-            this.btAdd.Size = new System.Drawing.Size(115, 50);
+            this.btAdd.Size = new System.Drawing.Size(115, 40);
             this.btAdd.TabIndex = 17;
             this.btAdd.TextColor = System.Drawing.Color.White;
             this.btAdd.Vertical_Alignment = System.Drawing.StringAlignment.Center;
@@ -215,7 +215,7 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Segoe UI", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.label9.ForeColor = System.Drawing.Color.Black;
-            this.label9.Location = new System.Drawing.Point(267, 44);
+            this.label9.Location = new System.Drawing.Point(267, 41);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(106, 23);
             this.label9.TabIndex = 2;

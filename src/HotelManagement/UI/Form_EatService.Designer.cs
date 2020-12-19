@@ -279,9 +279,9 @@
             this.btPay.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
             this.btPay.HoverTextColor = System.Drawing.Color.White;
             this.btPay.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
-            this.btPay.Location = new System.Drawing.Point(256, 122);
+            this.btPay.Location = new System.Drawing.Point(256, 111);
             this.btPay.Name = "btPay";
-            this.btPay.Size = new System.Drawing.Size(167, 50);
+            this.btPay.Size = new System.Drawing.Size(167, 38);
             this.btPay.TabIndex = 17;
             this.btPay.TextColor = System.Drawing.Color.White;
             this.btPay.Vertical_Alignment = System.Drawing.StringAlignment.Center;
@@ -290,7 +290,7 @@
             // btAdd
             // 
             this.btAdd.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
-            this.btAdd.ButtonImage = global::HotelManagement.Properties.Resources.icPayment;
+            this.btAdd.ButtonImage = ((System.Drawing.Image)(resources.GetObject("btAdd.ButtonImage")));
             this.btAdd.ButtonStyle = XanderUI.XUIButton.Style.MaterialRounded;
             this.btAdd.ButtonText = "Thêm";
             this.btAdd.ClickBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(161)))));
@@ -304,7 +304,7 @@
             this.btAdd.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
             this.btAdd.Location = new System.Drawing.Point(256, 67);
             this.btAdd.Name = "btAdd";
-            this.btAdd.Size = new System.Drawing.Size(167, 50);
+            this.btAdd.Size = new System.Drawing.Size(167, 38);
             this.btAdd.TabIndex = 17;
             this.btAdd.TextColor = System.Drawing.Color.White;
             this.btAdd.Vertical_Alignment = System.Drawing.StringAlignment.Center;

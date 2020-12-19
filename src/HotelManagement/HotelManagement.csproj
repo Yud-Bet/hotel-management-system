@@ -591,9 +591,6 @@
     <None Include="Resources\icSingleRoom.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\icPayment.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\icManage3.png" />
   </ItemGroup>
   <ItemGroup>
@@ -604,15 +601,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icYes.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icYes1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icDelete.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icManage1.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icSave.png" />
@@ -668,7 +656,19 @@
     <None Include="Resources\icHidePass.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\icYes1.png" />
+  </ItemGroup>
+  <ItemGroup>
     <None Include="Resources\fast-food.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icPayment.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icDelete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icManage1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

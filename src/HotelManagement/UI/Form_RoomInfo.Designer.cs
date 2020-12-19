@@ -32,6 +32,9 @@
             this.pnCustomerInfo = new System.Windows.Forms.Panel();
             this.dropDownList1 = new HotelManagement.UI.DropDownList();
             this.tbNote = new Zeroit.Framework.Labels.ZeroitUltraTextBox();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.rbtMale = new MaterialSkin.Controls.MaterialRadioButton();
+            this.rbtFemale = new MaterialSkin.Controls.MaterialRadioButton();
             this.tbCustomerAddress = new Zeroit.Framework.Labels.ZeroitUltraTextBox();
             this.tbPassport = new Zeroit.Framework.Labels.ZeroitUltraTextBox();
             this.btSave = new XanderUI.XUIButton();
@@ -40,9 +43,6 @@
             this.tbCustomerName = new Zeroit.Framework.Labels.ZeroitUltraTextBox();
             this.cbPassport = new Zeroit.Framework.MaterialDesign.Controls.ZeroitMaterialCheckBox();
             this.cbIDNo = new Zeroit.Framework.MaterialDesign.Controls.ZeroitMaterialCheckBox();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.rbtMale = new MaterialSkin.Controls.MaterialRadioButton();
-            this.rbtFemale = new MaterialSkin.Controls.MaterialRadioButton();
             this.dtpCustomerBirthday = new MetroFramework.Controls.MetroDateTime();
             this.label8 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -81,16 +81,16 @@
             this.label23 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
             this.pnButton = new System.Windows.Forms.FlowLayoutPanel();
-            this.btBookRoom = new XanderUI.XUIButton();
             this.btPay = new XanderUI.XUIButton();
             this.btSettingRoom = new XanderUI.XUIButton();
             this.btDeleteRoom = new XanderUI.XUIButton();
+            this.btBookRoom = new XanderUI.XUIButton();
             this.bill = new System.Drawing.Printing.PrintDocument();
             this.printPreviewDialogBill = new System.Windows.Forms.PrintPreviewDialog();
             this.customerAlreadyEixstsMenu = new Zeroit.Framework.MaterialDesign.Controls.ZeroitMaterialContextMenuStrip();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.pbArrowBack = new System.Windows.Forms.PictureBox();
             this.StatusLabel = new Zeroit.Framework.MiscControls.ZeroitLabel();
+            this.pbArrowBack = new System.Windows.Forms.PictureBox();
             this.pnCustomerInfo.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.pnRoomInfo.SuspendLayout();
@@ -170,6 +170,49 @@
             this.tbNote.UseSystemPasswordChar = false;
             this.tbNote.WordWrap = true;
             // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Controls.Add(this.rbtMale);
+            this.flowLayoutPanel1.Controls.Add(this.rbtFemale);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(313, 148);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(178, 32);
+            this.flowLayoutPanel1.TabIndex = 8;
+            // 
+            // rbtMale
+            // 
+            this.rbtMale.AutoSize = true;
+            this.rbtMale.Depth = 0;
+            this.rbtMale.Font = new System.Drawing.Font("Roboto", 10F);
+            this.rbtMale.Location = new System.Drawing.Point(0, 0);
+            this.rbtMale.Margin = new System.Windows.Forms.Padding(0);
+            this.rbtMale.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.rbtMale.MouseState = MaterialSkin.MouseState.HOVER;
+            this.rbtMale.Name = "rbtMale";
+            this.rbtMale.Ripple = true;
+            this.rbtMale.Size = new System.Drawing.Size(58, 30);
+            this.rbtMale.TabIndex = 6;
+            this.rbtMale.TabStop = true;
+            this.rbtMale.Text = "Nam";
+            this.rbtMale.UseVisualStyleBackColor = true;
+            // 
+            // rbtFemale
+            // 
+            this.rbtFemale.AutoSize = true;
+            this.rbtFemale.Depth = 0;
+            this.rbtFemale.Font = new System.Drawing.Font("Roboto", 10F);
+            this.rbtFemale.Location = new System.Drawing.Point(58, 0);
+            this.rbtFemale.Margin = new System.Windows.Forms.Padding(0);
+            this.rbtFemale.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.rbtFemale.MouseState = MaterialSkin.MouseState.HOVER;
+            this.rbtFemale.Name = "rbtFemale";
+            this.rbtFemale.Ripple = true;
+            this.rbtFemale.Size = new System.Drawing.Size(47, 30);
+            this.rbtFemale.TabIndex = 6;
+            this.rbtFemale.TabStop = true;
+            this.rbtFemale.Text = "Nữ";
+            this.rbtFemale.UseVisualStyleBackColor = true;
+            // 
             // tbCustomerAddress
             // 
             this.tbCustomerAddress.DisabledStringColor = System.Drawing.Color.Black;
@@ -231,7 +274,7 @@
             this.btSave.CornerRadius = 5;
             this.btSave.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btSave.Font = new System.Drawing.Font("Segoe UI", 14F);
-            this.btSave.Horizontal_Alignment = System.Drawing.StringAlignment.Near;
+            this.btSave.Horizontal_Alignment = System.Drawing.StringAlignment.Center;
             this.btSave.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
             this.btSave.HoverTextColor = System.Drawing.Color.White;
             this.btSave.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
@@ -350,49 +393,6 @@
             this.cbIDNo.Size = new System.Drawing.Size(27, 23);
             this.cbIDNo.TabIndex = 0;
             this.cbIDNo.TabStop = false;
-            // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.Controls.Add(this.rbtMale);
-            this.flowLayoutPanel1.Controls.Add(this.rbtFemale);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(313, 148);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(178, 32);
-            this.flowLayoutPanel1.TabIndex = 8;
-            // 
-            // rbtMale
-            // 
-            this.rbtMale.AutoSize = true;
-            this.rbtMale.Depth = 0;
-            this.rbtMale.Font = new System.Drawing.Font("Roboto", 10F);
-            this.rbtMale.Location = new System.Drawing.Point(0, 0);
-            this.rbtMale.Margin = new System.Windows.Forms.Padding(0);
-            this.rbtMale.MouseLocation = new System.Drawing.Point(-1, -1);
-            this.rbtMale.MouseState = MaterialSkin.MouseState.HOVER;
-            this.rbtMale.Name = "rbtMale";
-            this.rbtMale.Ripple = true;
-            this.rbtMale.Size = new System.Drawing.Size(58, 30);
-            this.rbtMale.TabIndex = 6;
-            this.rbtMale.TabStop = true;
-            this.rbtMale.Text = "Nam";
-            this.rbtMale.UseVisualStyleBackColor = true;
-            // 
-            // rbtFemale
-            // 
-            this.rbtFemale.AutoSize = true;
-            this.rbtFemale.Depth = 0;
-            this.rbtFemale.Font = new System.Drawing.Font("Roboto", 10F);
-            this.rbtFemale.Location = new System.Drawing.Point(58, 0);
-            this.rbtFemale.Margin = new System.Windows.Forms.Padding(0);
-            this.rbtFemale.MouseLocation = new System.Drawing.Point(-1, -1);
-            this.rbtFemale.MouseState = MaterialSkin.MouseState.HOVER;
-            this.rbtFemale.Name = "rbtFemale";
-            this.rbtFemale.Ripple = true;
-            this.rbtFemale.Size = new System.Drawing.Size(47, 30);
-            this.rbtFemale.TabIndex = 6;
-            this.rbtFemale.TabStop = true;
-            this.rbtFemale.Text = "Nữ";
-            this.rbtFemale.UseVisualStyleBackColor = true;
             // 
             // dtpCustomerBirthday
             // 
@@ -860,33 +860,10 @@
             this.pnButton.Controls.Add(this.btPay);
             this.pnButton.Controls.Add(this.btSettingRoom);
             this.pnButton.Controls.Add(this.btDeleteRoom);
-            this.pnButton.Location = new System.Drawing.Point(533, 465);
+            this.pnButton.Location = new System.Drawing.Point(533, 463);
             this.pnButton.Name = "pnButton";
-            this.pnButton.Size = new System.Drawing.Size(424, 197);
+            this.pnButton.Size = new System.Drawing.Size(435, 197);
             this.pnButton.TabIndex = 26;
-            // 
-            // btBookRoom
-            // 
-            this.btBookRoom.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
-            this.btBookRoom.ButtonImage = global::HotelManagement.Properties.Resources.icYes1;
-            this.btBookRoom.ButtonStyle = XanderUI.XUIButton.Style.MaterialRounded;
-            this.btBookRoom.ButtonText = "Đặt Phòng";
-            this.btBookRoom.ClickBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(130)))), ((int)(((byte)(200)))));
-            this.btBookRoom.ClickTextColor = System.Drawing.Color.White;
-            this.btBookRoom.CornerRadius = 5;
-            this.btBookRoom.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btBookRoom.Font = new System.Drawing.Font("Segoe UI", 14F);
-            this.btBookRoom.Horizontal_Alignment = System.Drawing.StringAlignment.Near;
-            this.btBookRoom.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
-            this.btBookRoom.HoverTextColor = System.Drawing.Color.White;
-            this.btBookRoom.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
-            this.btBookRoom.Location = new System.Drawing.Point(3, 3);
-            this.btBookRoom.Name = "btBookRoom";
-            this.btBookRoom.Size = new System.Drawing.Size(131, 50);
-            this.btBookRoom.TabIndex = 16;
-            this.btBookRoom.TextColor = System.Drawing.Color.White;
-            this.btBookRoom.Vertical_Alignment = System.Drawing.StringAlignment.Center;
-            this.btBookRoom.Click += new System.EventHandler(this.btBookRoom_Click);
             // 
             // btPay
             // 
@@ -898,14 +875,14 @@
             this.btPay.ClickTextColor = System.Drawing.Color.White;
             this.btPay.CornerRadius = 5;
             this.btPay.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btPay.Font = new System.Drawing.Font("Segoe UI", 14F);
+            this.btPay.Font = new System.Drawing.Font("Segoe UI", 13F);
             this.btPay.Horizontal_Alignment = System.Drawing.StringAlignment.Near;
             this.btPay.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
             this.btPay.HoverTextColor = System.Drawing.Color.White;
             this.btPay.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
-            this.btPay.Location = new System.Drawing.Point(140, 3);
+            this.btPay.Location = new System.Drawing.Point(147, 3);
             this.btPay.Name = "btPay";
-            this.btPay.Size = new System.Drawing.Size(131, 50);
+            this.btPay.Size = new System.Drawing.Size(136, 39);
             this.btPay.TabIndex = 16;
             this.btPay.TextColor = System.Drawing.Color.White;
             this.btPay.Vertical_Alignment = System.Drawing.StringAlignment.Center;
@@ -916,19 +893,19 @@
             this.btSettingRoom.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
             this.btSettingRoom.ButtonImage = global::HotelManagement.Properties.Resources.icManage1;
             this.btSettingRoom.ButtonStyle = XanderUI.XUIButton.Style.MaterialRounded;
-            this.btSettingRoom.ButtonText = "Cài Đặt";
+            this.btSettingRoom.ButtonText = " Cài Đặt";
             this.btSettingRoom.ClickBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(130)))), ((int)(((byte)(200)))));
             this.btSettingRoom.ClickTextColor = System.Drawing.Color.White;
             this.btSettingRoom.CornerRadius = 5;
             this.btSettingRoom.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btSettingRoom.Font = new System.Drawing.Font("Segoe UI", 14F);
+            this.btSettingRoom.Font = new System.Drawing.Font("Segoe UI", 13F);
             this.btSettingRoom.Horizontal_Alignment = System.Drawing.StringAlignment.Near;
             this.btSettingRoom.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
             this.btSettingRoom.HoverTextColor = System.Drawing.Color.White;
             this.btSettingRoom.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
-            this.btSettingRoom.Location = new System.Drawing.Point(277, 3);
+            this.btSettingRoom.Location = new System.Drawing.Point(289, 3);
             this.btSettingRoom.Name = "btSettingRoom";
-            this.btSettingRoom.Size = new System.Drawing.Size(131, 50);
+            this.btSettingRoom.Size = new System.Drawing.Size(124, 39);
             this.btSettingRoom.TabIndex = 17;
             this.btSettingRoom.TextColor = System.Drawing.Color.White;
             this.btSettingRoom.Vertical_Alignment = System.Drawing.StringAlignment.Center;
@@ -944,17 +921,40 @@
             this.btDeleteRoom.ClickTextColor = System.Drawing.Color.White;
             this.btDeleteRoom.CornerRadius = 5;
             this.btDeleteRoom.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btDeleteRoom.Font = new System.Drawing.Font("Segoe UI", 14F);
+            this.btDeleteRoom.Font = new System.Drawing.Font("Segoe UI", 13F);
             this.btDeleteRoom.Horizontal_Alignment = System.Drawing.StringAlignment.Near;
             this.btDeleteRoom.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
             this.btDeleteRoom.HoverTextColor = System.Drawing.Color.White;
             this.btDeleteRoom.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
-            this.btDeleteRoom.Location = new System.Drawing.Point(3, 59);
+            this.btDeleteRoom.Location = new System.Drawing.Point(3, 48);
             this.btDeleteRoom.Name = "btDeleteRoom";
-            this.btDeleteRoom.Size = new System.Drawing.Size(131, 50);
+            this.btDeleteRoom.Size = new System.Drawing.Size(131, 39);
             this.btDeleteRoom.TabIndex = 18;
             this.btDeleteRoom.TextColor = System.Drawing.Color.White;
             this.btDeleteRoom.Vertical_Alignment = System.Drawing.StringAlignment.Center;
+            // 
+            // btBookRoom
+            // 
+            this.btBookRoom.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
+            this.btBookRoom.ButtonImage = global::HotelManagement.Properties.Resources.icYes1;
+            this.btBookRoom.ButtonStyle = XanderUI.XUIButton.Style.MaterialRounded;
+            this.btBookRoom.ButtonText = "Đặt Phòng";
+            this.btBookRoom.ClickBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(130)))), ((int)(((byte)(200)))));
+            this.btBookRoom.ClickTextColor = System.Drawing.Color.White;
+            this.btBookRoom.CornerRadius = 5;
+            this.btBookRoom.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btBookRoom.Font = new System.Drawing.Font("Segoe UI", 13F);
+            this.btBookRoom.Horizontal_Alignment = System.Drawing.StringAlignment.Near;
+            this.btBookRoom.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
+            this.btBookRoom.HoverTextColor = System.Drawing.Color.White;
+            this.btBookRoom.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
+            this.btBookRoom.Location = new System.Drawing.Point(3, 3);
+            this.btBookRoom.Name = "btBookRoom";
+            this.btBookRoom.Size = new System.Drawing.Size(138, 39);
+            this.btBookRoom.TabIndex = 16;
+            this.btBookRoom.TextColor = System.Drawing.Color.White;
+            this.btBookRoom.Vertical_Alignment = System.Drawing.StringAlignment.Center;
+            this.btBookRoom.Click += new System.EventHandler(this.btBookRoom_Click);
             // 
             // bill
             // 
@@ -988,6 +988,17 @@
             this.toolStripMenuItem2.Size = new System.Drawing.Size(80, 22);
             this.toolStripMenuItem2.Text = "1";
             // 
+            // StatusLabel
+            // 
+            this.StatusLabel.AutoSize = true;
+            this.StatusLabel.BackColor = System.Drawing.Color.Transparent;
+            this.StatusLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.StatusLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(142)))), ((int)(((byte)(142)))));
+            this.StatusLabel.Location = new System.Drawing.Point(31, 544);
+            this.StatusLabel.Name = "StatusLabel";
+            this.StatusLabel.Size = new System.Drawing.Size(0, 13);
+            this.StatusLabel.TabIndex = 19;
+            // 
             // pbArrowBack
             // 
             this.pbArrowBack.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -999,17 +1010,6 @@
             this.pbArrowBack.TabIndex = 25;
             this.pbArrowBack.TabStop = false;
             this.pbArrowBack.Click += new System.EventHandler(this.pbArrowBack_Click);
-            // 
-            // StatusLabel
-            // 
-            this.StatusLabel.AutoSize = true;
-            this.StatusLabel.BackColor = System.Drawing.Color.Transparent;
-            this.StatusLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.StatusLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(142)))), ((int)(((byte)(142)))));
-            this.StatusLabel.Location = new System.Drawing.Point(31, 544);
-            this.StatusLabel.Name = "StatusLabel";
-            this.StatusLabel.Size = new System.Drawing.Size(0, 13);
-            this.StatusLabel.TabIndex = 19;
             // 
             // Form_RoomInfo
             // 

@@ -195,9 +195,9 @@
             // 
             this.pbMenu.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbMenu.Image = ((System.Drawing.Image)(resources.GetObject("pbMenu.Image")));
-            this.pbMenu.Location = new System.Drawing.Point(880, 2);
+            this.pbMenu.Location = new System.Drawing.Point(882, 3);
             this.pbMenu.Name = "pbMenu";
-            this.pbMenu.Size = new System.Drawing.Size(24, 26);
+            this.pbMenu.Size = new System.Drawing.Size(25, 25);
             this.pbMenu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbMenu.TabIndex = 15;
             this.pbMenu.TabStop = false;
