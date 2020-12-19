@@ -14,7 +14,6 @@ namespace HotelManagement.UI
         public Item_Customer(int ID, string Name, string IDNo, string Phonenum, DateTime Birthdate, bool sex, string Address, int Revenue, Form_Customer ParentRef)
         {
             InitializeComponent();
-            this.pbRemove.Hide();
             this.Size = new Size(815, 33);
 
             lbID.Text = ID.ToString();

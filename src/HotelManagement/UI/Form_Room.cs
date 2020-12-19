@@ -22,6 +22,11 @@ namespace HotelManagement.UI
             this.DoubleBuffered = true;
             ParentRef = Parent;
             cts = new CancellationTokenSource();
+
+            tooltipAddRoom.Hide();
+            tooltipBookMulRoom.Hide();
+            tooltipBookMulRoom.Location = new System.Drawing.Point(100, 131);
+            tooltipAddRoom.Location = new System.Drawing.Point(156, 131);
         }
         #region Properties
         public Label _lbRoomID
@@ -205,6 +210,26 @@ namespace HotelManagement.UI
                 cts = new CancellationTokenSource();
                 this.Focus();
             }
+        }
+
+        private void btBookMultipleRooms_MouseMove(object sender, MouseEventArgs e)
+        {
+            tooltipBookMulRoom.Show();
+        }
+
+        private void btBookMultipleRooms_MouseLeave(object sender, EventArgs e)
+        {
+            tooltipBookMulRoom.Hide();
+        }
+
+        private void btAddRoom_MouseMove(object sender, MouseEventArgs e)
+        {
+            tooltipAddRoom.Show();
+        }
+
+        private void btAddRoom_MouseLeave(object sender, EventArgs e)
+        {
+            tooltipAddRoom.Hide();
         }
     }
 }

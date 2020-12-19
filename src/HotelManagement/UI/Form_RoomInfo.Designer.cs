@@ -81,10 +81,10 @@
             this.label23 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
             this.pnButton = new System.Windows.Forms.FlowLayoutPanel();
+            this.btBookRoom = new XanderUI.XUIButton();
             this.btPay = new XanderUI.XUIButton();
             this.btSettingRoom = new XanderUI.XUIButton();
             this.btDeleteRoom = new XanderUI.XUIButton();
-            this.btBookRoom = new XanderUI.XUIButton();
             this.bill = new System.Drawing.Printing.PrintDocument();
             this.printPreviewDialogBill = new System.Windows.Forms.PrintPreviewDialog();
             this.customerAlreadyEixstsMenu = new Zeroit.Framework.MaterialDesign.Controls.ZeroitMaterialContextMenuStrip();
@@ -377,6 +377,7 @@
             this.cbPassport.Size = new System.Drawing.Size(27, 23);
             this.cbPassport.TabIndex = 0;
             this.cbPassport.TabStop = false;
+            this.cbPassport.CheckedChanged += new System.EventHandler(this.cbPassport_CheckedChanged);
             // 
             // cbIDNo
             // 
@@ -393,6 +394,7 @@
             this.cbIDNo.Size = new System.Drawing.Size(27, 23);
             this.cbIDNo.TabIndex = 0;
             this.cbIDNo.TabStop = false;
+            this.cbIDNo.CheckedChanged += new System.EventHandler(this.cbIDNo_CheckedChanged);
             // 
             // dtpCustomerBirthday
             // 
@@ -865,6 +867,29 @@
             this.pnButton.Size = new System.Drawing.Size(435, 197);
             this.pnButton.TabIndex = 26;
             // 
+            // btBookRoom
+            // 
+            this.btBookRoom.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
+            this.btBookRoom.ButtonImage = global::HotelManagement.Properties.Resources.icYes1;
+            this.btBookRoom.ButtonStyle = XanderUI.XUIButton.Style.MaterialRounded;
+            this.btBookRoom.ButtonText = "Đặt Phòng";
+            this.btBookRoom.ClickBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(130)))), ((int)(((byte)(200)))));
+            this.btBookRoom.ClickTextColor = System.Drawing.Color.White;
+            this.btBookRoom.CornerRadius = 5;
+            this.btBookRoom.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btBookRoom.Font = new System.Drawing.Font("Segoe UI", 13F);
+            this.btBookRoom.Horizontal_Alignment = System.Drawing.StringAlignment.Near;
+            this.btBookRoom.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
+            this.btBookRoom.HoverTextColor = System.Drawing.Color.White;
+            this.btBookRoom.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
+            this.btBookRoom.Location = new System.Drawing.Point(3, 3);
+            this.btBookRoom.Name = "btBookRoom";
+            this.btBookRoom.Size = new System.Drawing.Size(138, 39);
+            this.btBookRoom.TabIndex = 16;
+            this.btBookRoom.TextColor = System.Drawing.Color.White;
+            this.btBookRoom.Vertical_Alignment = System.Drawing.StringAlignment.Center;
+            this.btBookRoom.Click += new System.EventHandler(this.btBookRoom_Click);
+            // 
             // btPay
             // 
             this.btPay.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
@@ -932,29 +957,6 @@
             this.btDeleteRoom.TabIndex = 18;
             this.btDeleteRoom.TextColor = System.Drawing.Color.White;
             this.btDeleteRoom.Vertical_Alignment = System.Drawing.StringAlignment.Center;
-            // 
-            // btBookRoom
-            // 
-            this.btBookRoom.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
-            this.btBookRoom.ButtonImage = global::HotelManagement.Properties.Resources.icYes1;
-            this.btBookRoom.ButtonStyle = XanderUI.XUIButton.Style.MaterialRounded;
-            this.btBookRoom.ButtonText = "Đặt Phòng";
-            this.btBookRoom.ClickBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(130)))), ((int)(((byte)(200)))));
-            this.btBookRoom.ClickTextColor = System.Drawing.Color.White;
-            this.btBookRoom.CornerRadius = 5;
-            this.btBookRoom.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btBookRoom.Font = new System.Drawing.Font("Segoe UI", 13F);
-            this.btBookRoom.Horizontal_Alignment = System.Drawing.StringAlignment.Near;
-            this.btBookRoom.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
-            this.btBookRoom.HoverTextColor = System.Drawing.Color.White;
-            this.btBookRoom.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
-            this.btBookRoom.Location = new System.Drawing.Point(3, 3);
-            this.btBookRoom.Name = "btBookRoom";
-            this.btBookRoom.Size = new System.Drawing.Size(138, 39);
-            this.btBookRoom.TabIndex = 16;
-            this.btBookRoom.TextColor = System.Drawing.Color.White;
-            this.btBookRoom.Vertical_Alignment = System.Drawing.StringAlignment.Center;
-            this.btBookRoom.Click += new System.EventHandler(this.btBookRoom_Click);
             // 
             // bill
             // 
