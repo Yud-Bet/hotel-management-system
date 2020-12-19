@@ -6,15 +6,13 @@ namespace HotelManagement.DTO
 {
     class RoomServices
     {
-        public List<ServiceProperties> services;
-        public RoomServices(int RoomID, string Username)
+        public List<ServiceProperties> items;
+        public RoomServices(int RoomID)
         {
-            services = new List<ServiceProperties>();
-            //DataTable servicesDB = DataAccess.ExecuteQuery.ExecuteReader(
-            //    "QLKS_GetInfoForBillPrinting @RoomID , @Username", new object[] { RoomID, Username});
+            items = new List<ServiceProperties>();
             DataTable roomTB = DataAccess.CustomerDA.GetRoomReservationDetailInfo(0, 0, RoomID);
             DataTable serviceTB = DataAccess.CustomerDA.GetBillDetailInfo(0, 0, RoomID);
-            int efect = DataAccess.CustomerDA.SetRoomReservationStatus(0, 0, RoomID);
+            int RowsAffected = DataAccess.CustomerDA.SetRoomReservationStatus(0, 0, RoomID);
 
             for (int i = 0; i < roomTB.Rows.Count; i++)
             {
@@ -23,7 +21,7 @@ namespace HotelManagement.DTO
                 item.Count = Convert.ToInt32(roomTB.Rows[i].ItemArray[1]);
                 item.Price = Convert.ToInt32(roomTB.Rows[i].ItemArray[2]);
                 item.IntoMoney = Convert.ToInt32(roomTB.Rows[i].ItemArray[3]);
-                services.Add(item);
+                items.Add(item);
             }
             for (int i = 0; i < serviceTB.Rows.Count; i++)
             {
@@ -32,12 +30,12 @@ namespace HotelManagement.DTO
                 item.Count = Convert.ToInt32(serviceTB.Rows[i].ItemArray[1]);
                 item.Price = Convert.ToInt32(serviceTB.Rows[i].ItemArray[2]);
                 item.IntoMoney = Convert.ToInt32(serviceTB.Rows[i].ItemArray[3]);
-                services.Add(item);
+                items.Add(item);
             }
         }
         public RoomServices()
         {
-            services = new List<ServiceProperties>();
+            items = new List<ServiceProperties>();
             DataTable servicesDB = DataAccess.ExecuteQuery.ExecuteReader(
                 "QLKS_PayForServices");
             for (int i = 0; i < servicesDB.Rows.Count; i++)
@@ -47,7 +45,7 @@ namespace HotelManagement.DTO
                 item.Count = Convert.ToInt32(servicesDB.Rows[i].ItemArray[1]);
                 item.Price = Convert.ToInt32(servicesDB.Rows[i].ItemArray[2]);
                 item.IntoMoney = Convert.ToInt32(servicesDB.Rows[i].ItemArray[3]);
-                services.Add(item);
+                items.Add(item);
             }
         }
         public class ServiceProperties

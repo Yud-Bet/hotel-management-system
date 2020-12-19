@@ -24,6 +24,11 @@ namespace HotelManagement.UI
             tbPass.Text = this.parentRef._Pass;
 
         }
+        #region Icon
+        private static Bitmap HidePassIcon = Resources.icHidePass;
+        private static Bitmap ShowPassIcon = Resources.icShowPass;
+        #endregion
+
         public Form_EditAccount(Item_Staff parentRef, int type)
         {
             InitializeComponent();
@@ -81,12 +86,12 @@ namespace HotelManagement.UI
             if(tb.PasswordChar== '•')
             {
                 tb.PasswordChar = (char)0;
-                pb.Image = Resources.icHidePass;
+                pb.Image = HidePassIcon;
             }
             else
             {
                 tb.PasswordChar = '•';
-                pb.Image = Resources.icShowPass;
+                pb.Image = ShowPassIcon;
             }
         }
     }

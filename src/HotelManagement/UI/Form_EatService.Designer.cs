@@ -61,6 +61,7 @@
             this.panel8 = new System.Windows.Forms.Panel();
             this.bill = new System.Drawing.Printing.PrintDocument();
             this.printPreviewDialogBill = new System.Windows.Forms.PrintPreviewDialog();
+            this.StatusLabel = new Zeroit.Framework.MiscControls.ZeroitLabel();
             this.pnBookingInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.zeroitPictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -440,10 +441,22 @@
             this.printPreviewDialogBill.Name = "printPreviewDialogBill";
             this.printPreviewDialogBill.Visible = false;
             // 
+            // StatusLabel
+            // 
+            this.StatusLabel.AutoSize = true;
+            this.StatusLabel.BackColor = System.Drawing.Color.Transparent;
+            this.StatusLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.StatusLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(142)))), ((int)(((byte)(142)))));
+            this.StatusLabel.Location = new System.Drawing.Point(17, 650);
+            this.StatusLabel.Name = "StatusLabel";
+            this.StatusLabel.Size = new System.Drawing.Size(0, 13);
+            this.StatusLabel.TabIndex = 17;
+            // 
             // Form_EatService
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.StatusLabel);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pnBookingInfo);
@@ -451,6 +464,7 @@
             this.Controls.Add(this.lbTitle);
             this.Name = "Form_EatService";
             this.Size = new System.Drawing.Size(968, 665);
+            this.Load += new System.EventHandler(this.Form_EatService_Load);
             this.pnBookingInfo.ResumeLayout(false);
             this.pnBookingInfo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.zeroitPictureBox1)).EndInit();
@@ -497,5 +511,6 @@
         private XanderUI.XUIButton btPay;
         private System.Drawing.Printing.PrintDocument bill;
         private System.Windows.Forms.PrintPreviewDialog printPreviewDialogBill;
+        private Zeroit.Framework.MiscControls.ZeroitLabel StatusLabel;
     }
 }

@@ -30,13 +30,13 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Item_EatService2));
             this.lbPrice = new System.Windows.Forms.Label();
-            this.zeroitUltraTextBox1 = new Zeroit.Framework.Labels.ZeroitUltraTextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tbCount = new System.Windows.Forms.TextBox();
             this.lbName = new Zeroit.Framework.Labels.ZeroitMultiFormatLabel();
             this.label1 = new System.Windows.Forms.Label();
             this.btMinus = new System.Windows.Forms.PictureBox();
             this.btPlus = new System.Windows.Forms.PictureBox();
+            this.zeroitUltraTextBox1 = new Zeroit.Framework.Labels.ZeroitUltraTextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btMinus)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btPlus)).BeginInit();
@@ -55,32 +55,6 @@
             this.lbPrice.Text = "Price";
             this.lbPrice.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lbPrice.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Item_EatService2_MouseMove);
-            // 
-            // zeroitUltraTextBox1
-            // 
-            this.zeroitUltraTextBox1.DisabledStringColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(187)))), ((int)(((byte)(189)))));
-            this.zeroitUltraTextBox1.DisabledUnFocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(236)))), ((int)(((byte)(238)))));
-            this.zeroitUltraTextBox1.EnabledUnFocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
-            this.zeroitUltraTextBox1.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(142)))), ((int)(((byte)(245)))));
-            this.zeroitUltraTextBox1.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.zeroitUltraTextBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
-            this.zeroitUltraTextBox1.IsEnabled = false;
-            this.zeroitUltraTextBox1.Location = new System.Drawing.Point(-3, 9);
-            this.zeroitUltraTextBox1.MaxLength = 0;
-            this.zeroitUltraTextBox1.Multiline = false;
-            this.zeroitUltraTextBox1.Name = "zeroitUltraTextBox1";
-            this.zeroitUltraTextBox1.PasswordChar = '\0';
-            this.zeroitUltraTextBox1.Placeholder = true;
-            this.zeroitUltraTextBox1.PlaceHolderText = "";
-            this.zeroitUltraTextBox1.PlaceHolderTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
-            this.zeroitUltraTextBox1.ReadOnly = true;
-            this.zeroitUltraTextBox1.Size = new System.Drawing.Size(410, 24);
-            this.zeroitUltraTextBox1.TabIndex = 13;
-            this.zeroitUltraTextBox1.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left;
-            this.zeroitUltraTextBox1.TextBackgroundColor = System.Drawing.SystemColors.Control;
-            this.zeroitUltraTextBox1.UseSystemPasswordChar = false;
-            this.zeroitUltraTextBox1.WordWrap = true;
-            this.zeroitUltraTextBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Item_EatService2_MouseMove);
             // 
             // panel1
             // 
@@ -149,7 +123,7 @@
             this.btMinus.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btMinus.TabIndex = 11;
             this.btMinus.TabStop = false;
-            this.btMinus.Click += new System.EventHandler(this.btMinus_Click);
+            this.btMinus.Click += new System.EventHandler(this.btPlus_Click);
             this.btMinus.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Item_EatService2_MouseMove);
             // 
             // btPlus
@@ -165,6 +139,32 @@
             this.btPlus.Click += new System.EventHandler(this.btPlus_Click);
             this.btPlus.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Item_EatService2_MouseMove);
             // 
+            // zeroitUltraTextBox1
+            // 
+            this.zeroitUltraTextBox1.DisabledStringColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(187)))), ((int)(((byte)(189)))));
+            this.zeroitUltraTextBox1.DisabledUnFocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(236)))), ((int)(((byte)(238)))));
+            this.zeroitUltraTextBox1.EnabledUnFocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
+            this.zeroitUltraTextBox1.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(142)))), ((int)(((byte)(245)))));
+            this.zeroitUltraTextBox1.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.zeroitUltraTextBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
+            this.zeroitUltraTextBox1.IsEnabled = false;
+            this.zeroitUltraTextBox1.Location = new System.Drawing.Point(-3, 9);
+            this.zeroitUltraTextBox1.MaxLength = 0;
+            this.zeroitUltraTextBox1.Multiline = false;
+            this.zeroitUltraTextBox1.Name = "zeroitUltraTextBox1";
+            this.zeroitUltraTextBox1.PasswordChar = '\0';
+            this.zeroitUltraTextBox1.Placeholder = true;
+            this.zeroitUltraTextBox1.PlaceHolderText = "";
+            this.zeroitUltraTextBox1.PlaceHolderTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
+            this.zeroitUltraTextBox1.ReadOnly = true;
+            this.zeroitUltraTextBox1.Size = new System.Drawing.Size(410, 24);
+            this.zeroitUltraTextBox1.TabIndex = 13;
+            this.zeroitUltraTextBox1.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left;
+            this.zeroitUltraTextBox1.TextBackgroundColor = System.Drawing.SystemColors.Control;
+            this.zeroitUltraTextBox1.UseSystemPasswordChar = false;
+            this.zeroitUltraTextBox1.WordWrap = true;
+            this.zeroitUltraTextBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Item_EatService2_MouseMove);
+            // 
             // Item_EatService2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -176,7 +176,6 @@
             this.Controls.Add(this.zeroitUltraTextBox1);
             this.Name = "Item_EatService2";
             this.Size = new System.Drawing.Size(403, 33);
-            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Item_EatService2_MouseMove);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btMinus)).EndInit();
@@ -189,10 +188,10 @@
         private System.Windows.Forms.Label lbPrice;
         private System.Windows.Forms.PictureBox btPlus;
         private System.Windows.Forms.PictureBox btMinus;
-        private Zeroit.Framework.Labels.ZeroitUltraTextBox zeroitUltraTextBox1;
         private System.Windows.Forms.Panel panel1;
         private Zeroit.Framework.Labels.ZeroitMultiFormatLabel lbName;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox tbCount;
+        private Zeroit.Framework.Labels.ZeroitUltraTextBox zeroitUltraTextBox1;
     }
 }

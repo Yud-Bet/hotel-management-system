@@ -183,7 +183,7 @@
             this.menuItemEndCleanRoom});
             this.RightClickMenu.MouseState = Zeroit.Framework.MaterialDesign.MouseState.HOVER;
             this.RightClickMenu.Name = "RightClickMenu";
-            this.RightClickMenu.Size = new System.Drawing.Size(181, 114);
+            this.RightClickMenu.Size = new System.Drawing.Size(181, 92);
             // 
             // menuItemRepairRoom
             // 
@@ -213,13 +213,13 @@
             this.menuItemEndCleanRoom.Text = "Kết thúc dọn phòng";
             this.menuItemEndCleanRoom.Click += new System.EventHandler(this.menuItemEndCleanRoom_Click);
             // 
-            // Room
+            // Item_Room
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.pnBackground);
             this.Controls.Add(this.pbShadow);
-            this.Name = "Room";
+            this.Name = "Item_Room";
             this.Size = new System.Drawing.Size(215, 179);
             this.Load += new System.EventHandler(this.Room_Load);
             this.pnBackground.ResumeLayout(false);

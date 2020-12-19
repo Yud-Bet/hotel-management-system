@@ -88,6 +88,8 @@ namespace HotelManagement.UI
         {
             if(tbCount.Focused==false)
                 zeroitUltraTextBox1.Focus();
+
+            GC.Collect();
         }
 
         private void tbCount_KeyPress(object sender, KeyPressEventArgs e)

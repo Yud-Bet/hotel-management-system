@@ -1,13 +1,54 @@
 ﻿using System;
-using System.Drawing;
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 
 namespace HotelManagement.UI
 {
     public partial class Form_AddEditRoom : MetroFramework.Forms.MetroForm
     {
-        private int RoomID;
+        private bool IsProcessing = false;
+        private int roomID;
+        private int roomSize;
+        private int price;
+        private RoomType type;
+
+        public int RoomID
+        {
+            get { return roomID; }
+            set
+            {
+                roomID = value;
+                tbRoomID.Text = roomID.ToString();
+            }
+        }
+        public int RoomSize
+        {
+            get { return roomSize; }
+            set
+            {
+                roomSize = value;
+                tbRoomSize.Text = roomSize.ToString();
+            }
+        }
+        public int Price
+        {
+            get { return price; }
+            set
+            {
+                price = value;
+                tbRoomPrice.Text = price.ToString();
+            }
+        }
+        public RoomType Type
+        {
+            get { return type; }
+            set
+            {
+                type = value;
+                SetValueForControl.SetRoomType(type, rbtNor, rbtVip, rbtSingle, rbtDouble);
+            }
+        }
 
         public XanderUI.XUIButton _btAdd
         {
@@ -19,37 +60,62 @@ namespace HotelManagement.UI
             get { return btSave; }
         }
 
-        public Form_AddEditRoom(int RoomID)
+        public Form_AddEditRoom(DTO.RoomDetail room)
         {
             InitializeComponent();
-            this.RoomID = RoomID;
-            loadData();
+            RoomID = room.ID;
+            RoomSize = room.Size;
+            Price = room.Price;
+            Type = room.Type;
         }
 
         public Form_AddEditRoom()
         {
             InitializeComponent();
+            tbRoomID.Enabled = true;
         }
 
-        void loadData()
+        private async void btSave_Click(object sender, EventArgs e)
         {
-            DTO.RoomDetail room = new DTO.RoomDetail(RoomID);
-            tbRoomID.Text = RoomID.ToString();
-            tbRoomSize.Text = room.Size;
-            tbRoomPrice.Text = room.Price;
-            SetValueForControl.SetRoomType(room.Type, rbtNor, rbtVip, rbtSingle, rbtDouble);
-        }
+            if (!IsProcessing)
+            {
+                IsProcessing = true;
+                tbRoomPrice.Enabled = false;
+                tbRoomSize.Enabled = false;
+                rbtDouble.Enabled = rbtSingle.Enabled = rbtNor.Enabled = rbtVip.Enabled = false;
+                if (!checkEmptyValue()) return;
+                if (!checkValidityOfValue()) return;
+                try
+                {
+                    RoomSize = Convert.ToInt32(tbRoomSize.Text);
+                    Price = Convert.ToInt32(tbRoomPrice.Text);
+                    Type = GetValueOfControl.GetRoomType(rbtNor, rbtVip, rbtSingle, rbtDouble);
 
-        private void btSave_Click(object sender, EventArgs e)
-        {
-            if (!checkEmptyValue()) return;
-            if (!checkValidityOfValue()) return;
+                    int RowsAffected = await Task.Run(() => DataAccess.RoomDA.EditRoomInfo(Convert.ToInt32(tbRoomID.Text),
+                        Type, RoomSize, Price));
 
-            DataAccess.RoomDA.EditRoomInfo(Convert.ToInt32(tbRoomID.Text), GetValueOfControl.GetRoomType(rbtNor, rbtVip, rbtSingle, rbtDouble),
-                Convert.ToInt32(tbRoomSize.Text), Convert.ToInt32(tbRoomPrice.Text));
-            DialogResult = DialogResult.OK;
+                    if (RowsAffected > 0) DialogResult = DialogResult.OK;
 
-            this.Close();
+                    this.Close();
+                }
+                catch (System.Data.SqlClient.SqlException)
+                {
+                    MessageBox.Show("Lỗi khi kết nối đến server!", "Lỗi");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                finally
+                {
+                    IsProcessing = false;
+                }
+
+                tbRoomSize.Enabled = true;
+                tbRoomPrice.Enabled = true;
+                rbtDouble.Enabled = rbtSingle.Enabled = rbtNor.Enabled = rbtVip.Enabled = true;
+            }
+            else MessageBox.Show("Từ từ đừng vội~", "Thông báo");
         }
 
         bool checkEmptyValue()

@@ -3,17 +3,19 @@ using System.Data;
 
 namespace HotelManagement.DTO
 {
-    class RoomDetail
+    public class RoomDetail
     {
+        public int ID;
         public RoomType Type;
-        public string Size;
-        public string Price;
+        public int Size;
+        public int Price;
         public RoomDetail(int RoomID)
         {
             DataTable data = DataAccess.RoomDA.GetRoomInfo(RoomID);
+            ID = RoomID;
             Type = (RoomType)Convert.ToInt32(data.Rows[0].ItemArray[0]);
-            Size = data.Rows[0].ItemArray[1].ToString();
-            Price = Convert.ToInt32(data.Rows[0].ItemArray[2]).ToString();
+            Size = Convert.ToInt32(data.Rows[0].ItemArray[1]);
+            Price = Convert.ToInt32(data.Rows[0].ItemArray[2]);
         }
     }
 }

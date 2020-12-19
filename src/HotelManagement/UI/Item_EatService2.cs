@@ -17,6 +17,8 @@ namespace HotelManagement.UI
             InitializeComponent();
             this.parent = parent;
             tbCount.LostFocus += TbCount_LostFocus;
+
+            this.parent.Disposed += delegate { removeItem(); };
         }
 
         private void TbCount_LostFocus(object sender, EventArgs e)
@@ -101,6 +103,10 @@ namespace HotelManagement.UI
                 {
                     this.parent._SelectedItems.RemoveAt(i);
                     this.parent._pnSelectedServices.Controls.Remove(this);
+                    zeroitUltraTextBox1.MouseMove -= Item_EatService2_MouseMove;
+
+                    this.Dispose();
+                    GC.Collect();
                     return;
                 }
             }
@@ -124,6 +130,8 @@ namespace HotelManagement.UI
                 zeroitUltraTextBox1.IsEnabled = true;
                 zeroitUltraTextBox1.Focus();
             }
+
+            GC.Collect();
         }
 
         private void label1_Click(object sender, EventArgs e)

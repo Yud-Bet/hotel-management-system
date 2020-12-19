@@ -90,6 +90,7 @@
             this.customerAlreadyEixstsMenu = new Zeroit.Framework.MaterialDesign.Controls.ZeroitMaterialContextMenuStrip();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.pbArrowBack = new System.Windows.Forms.PictureBox();
+            this.StatusLabel = new Zeroit.Framework.MiscControls.ZeroitLabel();
             this.pnCustomerInfo.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.pnRoomInfo.SuspendLayout();
@@ -106,6 +107,7 @@
             this.pnCustomerInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.pnCustomerInfo.Controls.Add(this.dropDownList1);
             this.pnCustomerInfo.Controls.Add(this.tbNote);
+            this.pnCustomerInfo.Controls.Add(this.flowLayoutPanel1);
             this.pnCustomerInfo.Controls.Add(this.tbCustomerAddress);
             this.pnCustomerInfo.Controls.Add(this.tbPassport);
             this.pnCustomerInfo.Controls.Add(this.btSave);
@@ -114,7 +116,6 @@
             this.pnCustomerInfo.Controls.Add(this.tbCustomerName);
             this.pnCustomerInfo.Controls.Add(this.cbPassport);
             this.pnCustomerInfo.Controls.Add(this.cbIDNo);
-            this.pnCustomerInfo.Controls.Add(this.flowLayoutPanel1);
             this.pnCustomerInfo.Controls.Add(this.dtpCustomerBirthday);
             this.pnCustomerInfo.Controls.Add(this.label8);
             this.pnCustomerInfo.Controls.Add(this.label10);
@@ -333,7 +334,6 @@
             this.cbPassport.Size = new System.Drawing.Size(27, 23);
             this.cbPassport.TabIndex = 0;
             this.cbPassport.TabStop = false;
-            this.cbPassport.Click += new System.EventHandler(this.cbPassport_Click);
             // 
             // cbIDNo
             // 
@@ -350,13 +350,12 @@
             this.cbIDNo.Size = new System.Drawing.Size(27, 23);
             this.cbIDNo.TabIndex = 0;
             this.cbIDNo.TabStop = false;
-            this.cbIDNo.Click += new System.EventHandler(this.cbIDNo_Click);
             // 
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.Controls.Add(this.rbtMale);
             this.flowLayoutPanel1.Controls.Add(this.rbtFemale);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(310, 151);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(313, 148);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(178, 32);
             this.flowLayoutPanel1.TabIndex = 8;
@@ -1001,11 +1000,23 @@
             this.pbArrowBack.TabStop = false;
             this.pbArrowBack.Click += new System.EventHandler(this.pbArrowBack_Click);
             // 
+            // StatusLabel
+            // 
+            this.StatusLabel.AutoSize = true;
+            this.StatusLabel.BackColor = System.Drawing.Color.Transparent;
+            this.StatusLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.StatusLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(142)))), ((int)(((byte)(142)))));
+            this.StatusLabel.Location = new System.Drawing.Point(31, 544);
+            this.StatusLabel.Name = "StatusLabel";
+            this.StatusLabel.Size = new System.Drawing.Size(0, 13);
+            this.StatusLabel.TabIndex = 19;
+            // 
             // Form_RoomInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.Controls.Add(this.StatusLabel);
             this.Controls.Add(this.pnButton);
             this.Controls.Add(this.pbArrowBack);
             this.Controls.Add(this.pnBookingInfo);
@@ -1030,6 +1041,7 @@
             this.customerAlreadyEixstsMenu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbArrowBack)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -1095,5 +1107,6 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
         private DropDownList dropDownList1;
         private XanderUI.XUIButton btSave;
+        private Zeroit.Framework.MiscControls.ZeroitLabel StatusLabel;
     }
 }

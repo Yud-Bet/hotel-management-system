@@ -1,20 +1,27 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Threading;
 
 namespace HotelManagement.UI
 {
     public partial class Form_Room : UserControl
     {
+        public Form ParentRef;
         public string Username;
         public List<Item_Room> listRoom = new List<Item_Room>();
-        public Form_Room(string Username)
+        private CancellationTokenSource cts;
+
+        public Form_Room(string Username, Form Parent)
         {
             InitializeComponent();
-            Load_Data();
             this.Dock = DockStyle.Fill;
             this.Username = Username;
             lbRoomID.Hide();
             this.DoubleBuffered = true;
+            ParentRef = Parent;
+            cts = new CancellationTokenSource();
         }
         #region Properties
         public Label _lbRoomID
@@ -33,53 +40,81 @@ namespace HotelManagement.UI
             get { return pnToAddRoom; }
         }
 
-        public Label _lbNumberOfEmptyRoom
+        private int total;
+        private int rented;
+        private int empty;
+        private int repairing;
+        private int cleaning;
+        public int Total
         {
-            get { return lbNumberOfEmptyRoom; }
+            get { return total; }
+            set
+            {
+                total = value;
+                lbNumberOfRoom.Text = total.ToString();
+            }
         }
-
-        public Label _lbNumberOfRentedRoom
+        public int Empty
         {
-            get { return lbNumberOfRentedRoom; }
+            get { return empty; }
+            set
+            {
+                empty = value;
+                lbNumberOfEmptyRoom.Text = empty.ToString();
+            }
         }
-
-        public Label _lbNumberOfRepairingRoom
+        public int Rented
         {
-            get { return lbNumberOfRepairingRoom; }
+            get { return rented; }
+            set
+            {
+                rented = value;
+                lbNumberOfRentedRoom.Text = rented.ToString();
+            }
         }
-
-        public Label _lbNumberOfCleaningRoom
+        public int Cleaning
         {
-            get { return lbNumberOfCleaningRoom; }
+            get { return cleaning; }
+            set
+            {
+                cleaning = value;
+                lbNumberOfCleaningRoom.Text = cleaning.ToString();
+            }
         }
-
-        public Label _lbNumberOfRoom
+        public int Repairing
         {
-            get { return lbNumberOfRoom; }
+            get { return repairing; }
+            set
+            {
+                repairing = value;
+                lbNumberOfRepairingRoom.Text = repairing.ToString();
+            }
         }
 
         #endregion
-
-        private void Load_Data()
+        private async Task Load_Data()
         {
-            DTO.RoomOverview room = new DTO.RoomOverview();
-            lbNumberOfRoom.Text = room.RoomCount[0].ToString();
-            for (int i = 0; i < room.RoomCount[0]; i++)
+            DTO.RoomOverview room = await Task.Run(() => new DTO.RoomOverview());
+            Total = room.RoomCount[0];
+            await Task.Run(() =>
             {
-                Item_Room newRoom = new Item_Room(this);
+                for (int i = 0; i < room.RoomCount[0]; i++)
+                {
+                    Item_Room newRoom = new Item_Room(this);
 
-                newRoom._RoomID = room.Items[i].ID;
-                newRoom._RoomStatus = room.Items[i].Status;
-                newRoom._RoomType = room.Items[i].Type;
+                    newRoom._RoomID = room.Items[i].ID;
+                    newRoom._RoomStatus = room.Items[i].Status;
+                    newRoom._RoomType = room.Items[i].Type;
 
-                this.listRoom.Add(newRoom);
-                this.pnToAddRoom.Controls.Add(newRoom);
-            }
+                    listRoom.Add(newRoom);
+                }
+            });
 
-            lbNumberOfEmptyRoom.Text = room.RoomCount[(int)RoomStatus.Empty].ToString();
-            lbNumberOfRentedRoom.Text = room.RoomCount[(int)RoomStatus.Rented].ToString();
-            lbNumberOfCleaningRoom.Text = room.RoomCount[(int)RoomStatus.Cleaning].ToString();
-            lbNumberOfRepairingRoom.Text = room.RoomCount[(int)RoomStatus.Repairing].ToString();
+            pnToAddRoom.Controls.AddRange(listRoom.ToArray());
+            Empty = room.RoomCount[(int)RoomStatus.Empty];
+            Rented = room.RoomCount[(int)RoomStatus.Rented];
+            Cleaning = room.RoomCount[(int)RoomStatus.Cleaning];
+            Repairing = room.RoomCount[(int)RoomStatus.Repairing];
         }
 
         private void btThreeDot_Click(object sender, System.EventArgs e)
@@ -140,7 +175,36 @@ namespace HotelManagement.UI
             Form_BookMulRooms temp = new Form_BookMulRooms(this);
             pnToAddRoomInfo.BringToFront();
             pnToAddRoomInfo.Controls.Add(temp);
-            
+            //??????
+            System.GC.Collect();
+            System.GC.WaitForPendingFinalizers();
+        }
+
+        private async void Form_Room_Load(object sender, System.EventArgs e)
+        {
+            try
+            {
+                OverlayForm overlay = new OverlayForm(ParentRef, new LoadingForm(cts.Token));
+                overlay.Show();
+                await Load_Data();
+            }
+            catch (System.Data.SqlClient.SqlException)
+            {
+                MessageBox.Show("Không thể kết nối đến server", "Lỗi");
+                StatusLabel.Text = "Không có kết nối";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                StatusLabel.Text = "Đã xảy ra lỗi";
+            }
+            finally
+            {
+                cts.Cancel();
+                cts.Dispose();
+                cts = new CancellationTokenSource();
+                this.Focus();
+            }
         }
     }
 }

@@ -128,6 +128,11 @@
     <Compile Include="UI\CustomDateTime.Designer.cs">
       <DependentUpon>CustomDateTime.cs</DependentUpon>
     </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="UI\DropDownList.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -146,6 +151,12 @@
     </Compile>
     <Compile Include="UI\Form_BookMulRooms.Designer.cs">
       <DependentUpon>Form_BookMulRooms.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Form_Customer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Form_Customer.Designer.cs">
+      <DependentUpon>Form_Customer.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Form_EatService.cs">
       <SubType>UserControl</SubType>
@@ -218,6 +229,12 @@
       <DependentUpon>Form_Staff.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\GetValueOfControl.cs" />
+    <Compile Include="UI\Item_Customer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Item_Customer.Designer.cs">
+      <DependentUpon>Item_Customer.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Item_EatService1.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -254,6 +271,15 @@
     <Compile Include="UI\Item_RoomOfFormBookMulRoom.Designer.cs">
       <DependentUpon>Item_RoomOfFormBookMulRoom.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\LoadingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\LoadingForm.Designer.cs">
+      <DependentUpon>LoadingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\OverlayForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="UI\Item_Staff.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -279,19 +305,17 @@
     <EmbeddedResource Include="UI\Form_BookMulRooms.resx">
       <DependentUpon>Form_BookMulRooms.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\Form_Customer.resx">
+      <DependentUpon>Form_Customer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Form_EatService.resx">
       <DependentUpon>Form_EatService.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <EmbeddedResource Include="UI\Form_AddEditRoom.resx">
       <DependentUpon>Form_AddEditRoom.cs</DependentUpon>
     </EmbeddedResource>
@@ -322,6 +346,9 @@
     <EmbeddedResource Include="UI\Form_Staff.resx">
       <DependentUpon>Form_Staff.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\Item_Customer.resx">
+      <DependentUpon>Item_Customer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Item_EatService1.resx">
       <DependentUpon>Item_EatService1.cs</DependentUpon>
     </EmbeddedResource>
@@ -339,6 +366,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Item_RoomOfFormBookMulRoom.resx">
       <DependentUpon>Item_RoomOfFormBookMulRoom.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\LoadingForm.resx">
+      <DependentUpon>LoadingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\OverlayForm.resx">
+      <DependentUpon>OverlayForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Item_Staff.resx">
       <DependentUpon>Item_Staff.cs</DependentUpon>
@@ -643,6 +676,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icHidePass.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fast-food.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

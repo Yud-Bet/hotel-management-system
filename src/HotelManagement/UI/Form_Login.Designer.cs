@@ -8,7 +8,8 @@
         private System.ComponentModel.IContainer components = null;
 
         /// <summary>
-        /// Clean up any resources being used.
+        /// Clean up any 
+        /// being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
@@ -46,7 +47,6 @@
             this.ExitTimer = new System.Windows.Forms.Timer(this.components);
             this.LoginBGWorker = new System.ComponentModel.BackgroundWorker();
             this.StatusLabel = new Zeroit.Framework.MiscControls.ZeroitLabel();
-            this.zeroitPizaroAnim1 = new Zeroit.Framework.Transitions.ZeroitPizaroAnimator.ZeroitPizaroAnim();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPass)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbUser)).BeginInit();
@@ -258,27 +258,6 @@
             this.StatusLabel.Size = new System.Drawing.Size(0, 19);
             this.StatusLabel.TabIndex = 6;
             // 
-            // zeroitPizaroAnim1
-            // 
-            this.zeroitPizaroAnim1.Acceleration = 0.7F;
-            this.zeroitPizaroAnim1.AnimationType = Zeroit.Framework.Transitions.ZeroitPizaroAnimator.ZeroitPizaroAnim.animationType.Slide;
-            this.zeroitPizaroAnim1.ControlStyles = System.Windows.Forms.ControlStyles.DoubleBuffer;
-            this.zeroitPizaroAnim1.ControlStylesBool = false;
-            this.zeroitPizaroAnim1.CordinateEnd_X = 0F;
-            this.zeroitPizaroAnim1.CordinateEnd_Y = 0F;
-            this.zeroitPizaroAnim1.CordinateStart_X = 60F;
-            this.zeroitPizaroAnim1.CordinateStart_Y = 0F;
-            this.zeroitPizaroAnim1.Duration = 300;
-            this.zeroitPizaroAnim1.EasingEnd = 1F;
-            this.zeroitPizaroAnim1.EasingNames = Zeroit.Framework.Transitions.ZeroitPizaroAnimator.ZeroitPizaroAnim.easingNames.Linear;
-            this.zeroitPizaroAnim1.EasingStart = 0.2F;
-            this.zeroitPizaroAnim1.Fade_Begin = 0F;
-            this.zeroitPizaroAnim1.Fade_Limit = 1F;
-            this.zeroitPizaroAnim1.ResizeHeight_Begin = 10F;
-            this.zeroitPizaroAnim1.ResizeHeight_Limit = 50F;
-            this.zeroitPizaroAnim1.ResizeWidth_Begin = 10F;
-            this.zeroitPizaroAnim1.ResizeWidth_Limit = 50F;
-            // 
             // Form_Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -327,6 +306,5 @@
         private System.Windows.Forms.Timer ExitTimer;
         private System.ComponentModel.BackgroundWorker LoginBGWorker;
         private Zeroit.Framework.MiscControls.ZeroitLabel StatusLabel;
-        private Zeroit.Framework.Transitions.ZeroitPizaroAnimator.ZeroitPizaroAnim zeroitPizaroAnim1;
     }
 }
