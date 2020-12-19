@@ -29,9 +29,9 @@ namespace HotelManagement.DataAccess
             return ExecuteQuery.ExecuteReader("QLKS_GetAllBillInfo @FromDate , @ToDate , @StaffID , @Sort",
                 new object[] { FromDate, ToDate, staffID, sort });
         }
-        public static DataTable GetAllStaffInfo()
+        public static DataTable GetAllStaffInfo(int sortIndex)
         {
-            return ExecuteQuery.ExecuteReader("QLKS_GetAllStaffInfo");
+            return ExecuteQuery.ExecuteReader("QLKS_GetAllStaffInfo @Sort", new object[] { sortIndex });
         }
     }
 }

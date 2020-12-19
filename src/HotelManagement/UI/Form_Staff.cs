@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Globalization;
+using System.Data;
 
 namespace HotelManagement.UI
 {
@@ -14,9 +15,30 @@ namespace HotelManagement.UI
             InitializeComponent();
             btAccount.Hide();
             btChangeStaffInfo.Hide();
-            addItem(312, true, "Hiếu", "192031252", DateTime.Now, true, "", "12348560", DateTime.Now, 34567890, "kakabanlaai", "1234");
-            addItem(123, true, "Dàn", "345553455", DateTime.Now, true, "", "12345890", DateTime.Now, 34567890, "thanhdan", "12345");
-            addItem(1234, true, "Huấn", "643586787", DateTime.Now, true, "", "12345890", DateTime.Now, 34567890, "huanbui", "12345");
+            load_AllStaffInfo();
+        }
+        private void load_AllStaffInfo()
+        {
+            DataTable StaffInfo = DataAccess.Report.GetAllStaffInfo(Convert.ToInt32(cbSort.SelectedIndex));
+            item_Staffs.Clear();
+            pnToAddItem.Controls.Clear();
+            for (int i = 0; i < StaffInfo.Rows.Count; i++)
+            {
+                //addItem(StaffInfo.Rows[i].ItemArray[i].ToString())
+                addItem(Convert.ToInt32(StaffInfo.Rows[i].ItemArray[0]),
+                        Convert.ToBoolean(StaffInfo.Rows[i].ItemArray[1]),
+                        StaffInfo.Rows[i].ItemArray[2].ToString(),
+                        StaffInfo.Rows[i].ItemArray[3].ToString(),
+                        Convert.ToDateTime(StaffInfo.Rows[i].ItemArray[4]),
+                        Convert.ToBoolean(StaffInfo.Rows[i].ItemArray[5]),
+                        StaffInfo.Rows[i].ItemArray[6].ToString(),
+                        StaffInfo.Rows[i].ItemArray[7].ToString(),
+                        Convert.ToDateTime(StaffInfo.Rows[i].ItemArray[8]),
+                        Convert.ToInt32(StaffInfo.Rows[i].ItemArray[9]),
+                        StaffInfo.Rows[i].ItemArray[10].ToString(),
+                        StaffInfo.Rows[i].ItemArray[11].ToString()
+                        );
+            }
         }
 
         #region properties
@@ -65,25 +87,32 @@ namespace HotelManagement.UI
             lbSalary.Text = "";
         }
 
-        public void addItem(int ID, bool position, string name, string IDNo, DateTime birthdate, bool sex, 
+        public void addItem(int ID, bool position, string name, string IDNo, DateTime birthdate, bool sex,
                     string address, string phonenum, DateTime startdate, int salary, string username, string pass)
         {
-            Item_Staff temp = new Item_Staff(this);
-            temp._ID = ID;
-            temp._Position = position;
-            temp._Name = name;
-            temp._IDNo = IDNo;
-            temp._Birthdate = birthdate;
-            temp._Sex = sex;
-            temp._Address = address;
-            temp._Phonenum = phonenum;
-            temp._StartDate = startdate;
-            temp._Salary = salary;
-            temp._Username = username;
-            temp._Pass = pass;
+            try
+            {
+                throw new NotImplementedException();
+            }
+            catch
+            {
+                Item_Staff temp = new Item_Staff(this);
+                temp._ID = ID;
+                temp._Position = position;
+                temp._Name = name;
+                temp._IDNo = IDNo;
+                temp._Birthdate = birthdate;
+                temp._Sex = sex;
+                temp._Address = address;
+                temp._Phonenum = phonenum;
+                temp._StartDate = startdate;
+                temp._Salary = salary;
+                temp._Username = username;
+                temp._Pass = pass;
 
-            item_Staffs.Add(temp);
-            pnToAddItem.Controls.Add(temp);
+                item_Staffs.Add(temp);
+                pnToAddItem.Controls.Add(temp);
+            }
         }
 
         private void btAccount_Click(object sender, EventArgs e)
@@ -102,6 +131,12 @@ namespace HotelManagement.UI
         {
             //Form_AddEditStaff temp = new Form_AddEditStaff(this);
             (new Form_AddEditStaff(this)).ShowDialog();
+        }
+
+        private void cbSort_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            load_AllStaffInfo();
+            resetStaffValues();
         }
     }
 }

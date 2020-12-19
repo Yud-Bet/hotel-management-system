@@ -216,7 +216,7 @@
             this.flowLayoutPanel2.Location = new System.Drawing.Point(393, 147);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Size = new System.Drawing.Size(178, 32);
-            this.flowLayoutPanel2.TabIndex = 21;
+            this.flowLayoutPanel2.TabIndex = 1;
             // 
             // rbNorStaff
             // 
@@ -259,7 +259,7 @@
             this.flowLayoutPanel1.Location = new System.Drawing.Point(393, 301);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(178, 32);
-            this.flowLayoutPanel1.TabIndex = 21;
+            this.flowLayoutPanel1.TabIndex = 5;
             // 
             // rbMale
             // 
@@ -302,7 +302,7 @@
             this.dtStartDate.MinimumSize = new System.Drawing.Size(0, 29);
             this.dtStartDate.Name = "dtStartDate";
             this.dtStartDate.Size = new System.Drawing.Size(116, 29);
-            this.dtStartDate.TabIndex = 20;
+            this.dtStartDate.TabIndex = 8;
             // 
             // dtBirthdate
             // 
@@ -311,7 +311,7 @@
             this.dtBirthdate.MinimumSize = new System.Drawing.Size(0, 29);
             this.dtBirthdate.Name = "dtBirthdate";
             this.dtBirthdate.Size = new System.Drawing.Size(116, 29);
-            this.dtBirthdate.TabIndex = 20;
+            this.dtBirthdate.TabIndex = 4;
             // 
             // tbName
             // 
@@ -332,7 +332,8 @@
             this.tbName.PlaceHolderTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
             this.tbName.ReadOnly = false;
             this.tbName.Size = new System.Drawing.Size(224, 24);
-            this.tbName.TabIndex = 19;
+            this.tbName.TabIndex = 2;
+            this.tbName.Tag = "";
             this.tbName.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left;
             this.tbName.TextBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.tbName.UseSystemPasswordChar = false;
@@ -357,7 +358,8 @@
             this.tbIDNo.PlaceHolderTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
             this.tbIDNo.ReadOnly = false;
             this.tbIDNo.Size = new System.Drawing.Size(224, 24);
-            this.tbIDNo.TabIndex = 19;
+            this.tbIDNo.TabIndex = 3;
+            this.tbIDNo.Tag = "";
             this.tbIDNo.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left;
             this.tbIDNo.TextBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.tbIDNo.UseSystemPasswordChar = false;
@@ -382,7 +384,7 @@
             this.tbSalary.PlaceHolderTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
             this.tbSalary.ReadOnly = false;
             this.tbSalary.Size = new System.Drawing.Size(224, 24);
-            this.tbSalary.TabIndex = 19;
+            this.tbSalary.TabIndex = 9;
             this.tbSalary.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left;
             this.tbSalary.TextBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.tbSalary.UseSystemPasswordChar = false;
@@ -407,7 +409,7 @@
             this.tbPhonenum.PlaceHolderTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
             this.tbPhonenum.ReadOnly = false;
             this.tbPhonenum.Size = new System.Drawing.Size(224, 24);
-            this.tbPhonenum.TabIndex = 19;
+            this.tbPhonenum.TabIndex = 7;
             this.tbPhonenum.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left;
             this.tbPhonenum.TextBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.tbPhonenum.UseSystemPasswordChar = false;
@@ -432,7 +434,7 @@
             this.tbAddress.PlaceHolderTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
             this.tbAddress.ReadOnly = false;
             this.tbAddress.Size = new System.Drawing.Size(224, 24);
-            this.tbAddress.TabIndex = 19;
+            this.tbAddress.TabIndex = 6;
             this.tbAddress.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left;
             this.tbAddress.TextBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.tbAddress.UseSystemPasswordChar = false;
@@ -457,7 +459,7 @@
             this.tbID.PlaceHolderTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
             this.tbID.ReadOnly = true;
             this.tbID.Size = new System.Drawing.Size(224, 24);
-            this.tbID.TabIndex = 19;
+            this.tbID.TabIndex = 0;
             this.tbID.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left;
             this.tbID.TextBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.tbID.UseSystemPasswordChar = false;

@@ -22,11 +22,12 @@ namespace HotelManagement.DataAccess
             DataTable data = ExecuteQuery.ExecuteReader("QLKS_SearchAccount @Username , @Password", new object[] { Username, /*EncryptedPass*/ Password });
             return data.Rows.Count == 1;
         }
-        public static bool ChangePassword(string Username, string Password)
+        public static int ChangePassword(string Username, string oldPass, string newPass)
         {
-            string EncryptedPass = Encrypt(Password);
-            return ExecuteQuery.ExecuteNoneQuery("QLKS_ChangePassword @Username , @Password",
-                new object[] { Username, EncryptedPass }) > 0;
+            //string EncryptedPass = Encrypt(Password);
+            return ExecuteQuery.ExecuteNoneQuery("QLKS_ChangePassword @Username , @OldPassword , @NewPassword",
+                new object[] { Username, oldPass, newPass });
+                //new object[] { Username, EncryptedPass }) > 0;
         }
         public static DataTable GetStaffInfor(string Username)
         {

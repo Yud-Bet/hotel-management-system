@@ -17,10 +17,10 @@ namespace HotelManagement.UI
             InitializeComponent();
             //pnAddItem.Controls.Add(new Item_ReportBill(123, "12/12/2020", 122, "Lê Trung Hiếu", 1000000000, 200050, 20, true));
             //pnAddItem.Controls.Add(new Item_ReportBill(123, "12/12/2020", 122, "Lê Trung Hiếu", 1000000, 200050, 20, false));
-            DataTable dataStaff = DataAccess.Report.GetAllStaffInfo();
+            DataTable dataStaff = DataAccess.Report.GetAllStaffInfo(-1);
             for (int i = 0; i < dataStaff.Rows.Count; i++)
             {
-                cbStaff.Items.Add(dataStaff.Rows[i].ItemArray[0].ToString() + " | " + dataStaff.Rows[i].ItemArray[1].ToString());
+                cbStaff.Items.Add(dataStaff.Rows[i].ItemArray[0].ToString() + " | " + dataStaff.Rows[i].ItemArray[2].ToString());
             }
             loadData();
         }
