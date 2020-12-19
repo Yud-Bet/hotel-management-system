@@ -15,12 +15,26 @@ namespace HotelManagement.UI
         public Form_Customer()
         {
             InitializeComponent();
+            load_AllCustomer();
+        }
 
-            pnAddItem.Controls.Add(new Item_Customer(123, "Lê Trung HIếu", "123456789", "1234567890", DateTime.Now, true, "Thừa Thiên Huế", 1234567890, this));
-            pnAddItem.Controls.Add(new Item_Customer(123, "Lê Trung HIếu", "123456789", "1234567890", DateTime.Now, true, "Thừa Thiên Huế", 1234567890, this));
-            pnAddItem.Controls.Add(new Item_Customer(123, "Lê Trung HIếu", "123456789", "1234567890", DateTime.Now, true, "Thừa Thiên Huế", 1234567890, this));
-            pnAddItem.Controls.Add(new Item_Customer(123, "Lê Trung HIếu", "123456789", "1234567890", DateTime.Now, true, "Thừa Thiên Huế", 1234567890, this));
-            pnAddItem.Controls.Add(new Item_Customer(123, "Lê Trung HIếu", "123456789", "1234567890", DateTime.Now, true, "Thừa Thiên Huế", 1234567890, this));
+        private void load_AllCustomer()
+        {
+            DataTable dataAllCustomer = DataAccess.Manager.GetAllCustomerInfo(Convert.ToInt32(cbSort.SelectedIndex));
+            pnAddItem.Controls.Clear();
+            for (int i=0; i<dataAllCustomer.Rows.Count; i++)
+            {
+
+                pnAddItem.Controls.Add(new Item_Customer(Convert.ToInt32(dataAllCustomer.Rows[i].ItemArray[0]),
+                                                        dataAllCustomer.Rows[i].ItemArray[1].ToString(),
+                                                        dataAllCustomer.Rows[i].ItemArray[2].ToString(),
+                                                        dataAllCustomer.Rows[i].ItemArray[3].ToString(),
+                                                        Convert.ToDateTime(dataAllCustomer.Rows[i].ItemArray[4]),
+                                                        Convert.ToBoolean(dataAllCustomer.Rows[i].ItemArray[5]),
+                                                        dataAllCustomer.Rows[i].ItemArray[6].ToString(),
+                                                        Convert.ToInt32(dataAllCustomer.Rows[i].ItemArray[7]),
+                                                        this));
+            }
         }
 
         #region properties
@@ -33,6 +47,11 @@ namespace HotelManagement.UI
         private void timerGC_Tick(object sender, EventArgs e)
         {
             GC.Collect();
+        }
+
+        private void cbSort_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            load_AllCustomer();
         }
     }
 }

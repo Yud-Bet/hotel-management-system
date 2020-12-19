@@ -28,5 +28,10 @@ namespace HotelManagement.DataAccess
             return ExecuteQuery.ExecuteNoneQuery("QLKS_RemoveStaff @StaffID",
                 new object[] { id });
         }
+        public static DataTable GetAllCustomerInfo(int sort)
+        {
+            return ExecuteQuery.ExecuteReader("QLKS_GetAllCustomer @Sort", new object[] { sort });
+        }
+
     }
 }

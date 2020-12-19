@@ -200,7 +200,7 @@ namespace HotelManagement.UI
                 {
                     if (ClientID <= 0)
                     {
-                        int a = await Task.Run(() => DataAccess.CustomerDA.InsertNewClient(tbCustomerName.Text, dtpCustomerBirthday.Value,
+                        int a = await Task.Run(() => DataAccess.CustomerDA.InsertNewCustomer(tbCustomerName.Text, dtpCustomerBirthday.Value,
                             tbIDNo.Text, tbPassport.Text, tbCustomerAddress.Text, tbCustomerPhoneNum.Text, rbtMale.Checked ? Sex.Male : Sex.Female));
                     }
                     int b = await Task.Run(() => DataAccess.CustomerDA.InsertNewRoomReservation(dtpCheckInDate.Value, 0, ParentRef.Username, 0, tbNote.Text));
