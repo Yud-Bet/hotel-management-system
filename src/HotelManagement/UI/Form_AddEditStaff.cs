@@ -154,12 +154,12 @@ namespace HotelManagement.UI
                 return false;
             }
 
-            //if (!Regex.IsMatch(tbSalary.Text, @"^$|^[0-9]$"))
-            //{
-            //    MessageBox.Show("Lương chỉ được phép là một số.", "Thông báo!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            //    tbSalary.Focus();
-            //    return false;
-            //}
+            if (!Regex.IsMatch(tbSalary.Text, @"^$|^[0-9]$"))
+            {
+                MessageBox.Show("Lương chỉ được phép nhập số.", "Thông báo!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                tbSalary.Focus();
+                return false;
+            }
             if (tbSalary.Text == "")
             {
                 MessageBox.Show("Vui lòng nhập Lương.", "Thông báo!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);

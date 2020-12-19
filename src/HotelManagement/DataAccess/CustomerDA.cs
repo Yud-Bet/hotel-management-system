@@ -10,10 +10,10 @@ namespace HotelManagement.DataAccess
             ///return Name, birthday, PhoneNumber, Sex, IdentityNumber, Passport, Addr, Note, ArrivalDate
             return ExecuteQuery.ExecuteReader("QLKS_GetCustomerInfo @ID", new object[] { RoomID });
         }
-        public static int InsertNewClient(string Name, DateTime Birthday, string IdeNum, string Passport, string Addr, string Phone,
-            Sex sex, string Note = null)
+        public static int InsertNewCustomer(string Name, DateTime Birthday, string IdeNum, string Passport, string Addr, string Phone,
+            Sex sex)
         {
-            string query = "QLKS_InsertNewClient @Name , @Birthday , @IdentityNumber , @Passport , @Addr , @PhoneNumber , @Sex";
+            string query = "QLKS_InsertNewCustomer @Name , @Birthday , @IdentityNumber , @Passport , @Addr , @PhoneNumber , @Sex";
             return ExecuteQuery.ExecuteNoneQuery(query,
                 new object[] {Name, Birthday, IdeNum, Passport, Addr, Phone, sex});
         }

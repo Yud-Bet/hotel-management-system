@@ -7,7 +7,7 @@ namespace HotelManagement.UI
 {
     public partial class Form_Main : MetroFramework.Forms.MetroForm
     {
-        private string Username;
+        public string Username;
         private Panel pnToAddForm;
         public Form_Main(string Username)
         {
@@ -420,7 +420,7 @@ namespace HotelManagement.UI
                 pnToAddForm.Dispose();
                 System.GC.Collect();
                 createPanelToAddForm();
-                pnToAddForm.Controls.Add(new Form_Revenue());
+                pnToAddForm.Controls.Add(new Form_Revenue(Username, this));
             }
         }
 
@@ -473,7 +473,7 @@ namespace HotelManagement.UI
 
         private void pbStaffAvatar_Click(object sender, EventArgs e)
         {
-            Form_ChargePassword temp = new Form_ChargePassword(this.Username);
+            Form_ChangePassword temp = new Form_ChangePassword(this.Username);
             temp.ShowDialog();
 
         }

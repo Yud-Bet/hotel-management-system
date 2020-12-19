@@ -12,11 +12,11 @@ using HotelManagement.Properties;
 
 namespace HotelManagement.UI
 {
-    public partial class Form_ChargePassword : MetroFramework.Forms.MetroForm
+    public partial class Form_ChangePassword : MetroFramework.Forms.MetroForm
     {
         Item_Staff staff = new Item_Staff();
 
-        public Form_ChargePassword(string user)
+        public Form_ChangePassword(string user)
         {
             InitializeComponent();
             tbUsername.Text = user;

@@ -7,6 +7,7 @@ using LiveCharts;
 using LiveCharts.Wpf;
 using System.Globalization;
 using System.Data;
+using System.Threading;
 
 namespace HotelManagement.UI
 {
@@ -20,6 +21,9 @@ namespace HotelManagement.UI
         bool isUseBarChart = true;
         Func<ChartPoint, string> labelPoint = chartPoint =>
                 string.Format(CultureInfo.GetCultureInfo("vi-VN").NumberFormat, "{0:C} ", chartPoint.Y, chartPoint.Participation);
+        string Username;
+        Form ParentRef;
+        CancellationTokenSource cts;
 
         enum ChartType
         {
@@ -27,12 +31,15 @@ namespace HotelManagement.UI
             lineChart = 2
         }
 
-        public Form_Revenue()
+        public Form_Revenue(string Username, Form ParentRef)
         {
             InitializeComponent();
             getListDate(RevenueType.DateRevenue);
-            cbTypeOfRevenue.SelectedIndex = 0;
             btBarChart.Hide();
+            this.Username = Username;
+            this.ParentRef = ParentRef;
+            cts = new CancellationTokenSource();
+            cbTypeOfRevenue.SelectedIndex = 0;
 
             this.Disposed += delegate { _dispose(); GC.Collect(); };
         }
@@ -235,69 +242,87 @@ namespace HotelManagement.UI
         {
             if (listDate.Count > 0)
             {
-                (new exportExcel()).exportRevenue("Lê Trung Hiếu", (RevenueType)(cbTypeOfRevenue.SelectedIndex + 1), listDate, listRoomRevenue,
+                (new exportExcel()).exportRevenue(Username, (RevenueType)(cbTypeOfRevenue.SelectedIndex + 1), listDate, listRoomRevenue,
                     listEatServiceRevenue, listLaudryServiceRevenue);
             }
         }
 
         private void loadChartData(ChartType chartType)
         {
-            
-            double sum = 0;
-            ChartValues<double> listRevenue = new ChartValues<double>();
-            getListDate((RevenueType)(cbTypeOfRevenue.SelectedIndex + 1));
-            int revenueType = cbTypeOfRevenue.SelectedIndex + 1;
-            DataTable dataRoomRevenue = DataAccess.Report.GetRoomRevenue(revenueType, dtStart.Value, dtEnd.Value);
-            int indexDataRoom = 0;
-            DataTable dataEatServiceRevenue = DataAccess.Report.GetEatServiceRevenue(revenueType, dtStart.Value, dtEnd.Value);
-            int indexDataEat = 0;
-            DataTable dataLaudryServiceRevenue = DataAccess.Report.GetLaudryServiceRevenue(revenueType, dtStart.Value, dtEnd.Value);
-            int indexDataLaudry = 0;
-            listRoomRevenue.Clear();
-            listEatServiceRevenue.Clear();
-            listLaudryServiceRevenue.Clear();
-
-            Random rd = new Random();
-            int n = listDate.Count();
-            if (n > 0)
+            try
             {
-                for (int i = 0; i < n; i++)
+                OverlayForm overlay = new OverlayForm(ParentRef, new LoadingForm(cts.Token));
+                overlay.Show();
+
+                double sum = 0;
+                ChartValues<double> listRevenue = new ChartValues<double>();
+                getListDate((RevenueType)(cbTypeOfRevenue.SelectedIndex + 1));
+                int revenueType = cbTypeOfRevenue.SelectedIndex + 1;
+                DataTable dataRoomRevenue = DataAccess.Report.GetRoomRevenue(revenueType, dtStart.Value, dtEnd.Value);
+                int indexDataRoom = 0;
+                DataTable dataEatServiceRevenue = DataAccess.Report.GetEatServiceRevenue(revenueType, dtStart.Value, dtEnd.Value);
+                int indexDataEat = 0;
+                DataTable dataLaudryServiceRevenue = DataAccess.Report.GetLaudryServiceRevenue(revenueType, dtStart.Value, dtEnd.Value);
+                int indexDataLaudry = 0;
+                listRoomRevenue.Clear();
+                listEatServiceRevenue.Clear();
+                listLaudryServiceRevenue.Clear();
+
+                int n = listDate.Count();
+                if (n > 0)
                 {
-                    if (indexDataRoom < dataRoomRevenue.Rows.Count &&
-                        Convert.ToInt32(dataRoomRevenue.Rows[indexDataRoom].ItemArray[0]) == i)
+                    for (int i = 0; i < n; i++)
                     {
-                        listRoomRevenue.Add(Convert.ToInt32(dataRoomRevenue.Rows[indexDataRoom].ItemArray[1]));
-                        indexDataRoom++;
-                    }
-                    else 
-                        listRoomRevenue.Add(0);
-                    if (indexDataEat < dataEatServiceRevenue.Rows.Count &&
-                        Convert.ToInt32(dataEatServiceRevenue.Rows[indexDataEat].ItemArray[0]) == i)
-                    {
-                        listEatServiceRevenue.Add(Convert.ToInt32(dataEatServiceRevenue.Rows[indexDataEat].ItemArray[1]));
-                        indexDataEat++;
-                    }
-                    else
-                        listEatServiceRevenue.Add(0);
-                    if (indexDataLaudry < dataLaudryServiceRevenue.Rows.Count &&
-                        Convert.ToInt32(dataLaudryServiceRevenue.Rows[indexDataLaudry].ItemArray[0]) == i)
-                    {
-                        listLaudryServiceRevenue.Add(Convert.ToInt32(dataLaudryServiceRevenue.Rows[indexDataLaudry].ItemArray[1]));
-                        indexDataLaudry++;
-                    }
-                    else
-                        listLaudryServiceRevenue.Add(0);
+                        if (indexDataRoom < dataRoomRevenue.Rows.Count &&
+                            Convert.ToInt32(dataRoomRevenue.Rows[indexDataRoom].ItemArray[0]) == i)
+                        {
+                            listRoomRevenue.Add(Convert.ToInt32(dataRoomRevenue.Rows[indexDataRoom].ItemArray[1]));
+                            indexDataRoom++;
+                        }
+                        else
+                            listRoomRevenue.Add(0);
+                        if (indexDataEat < dataEatServiceRevenue.Rows.Count &&
+                            Convert.ToInt32(dataEatServiceRevenue.Rows[indexDataEat].ItemArray[0]) == i)
+                        {
+                            listEatServiceRevenue.Add(Convert.ToInt32(dataEatServiceRevenue.Rows[indexDataEat].ItemArray[1]));
+                            indexDataEat++;
+                        }
+                        else
+                            listEatServiceRevenue.Add(0);
+                        if (indexDataLaudry < dataLaudryServiceRevenue.Rows.Count &&
+                            Convert.ToInt32(dataLaudryServiceRevenue.Rows[indexDataLaudry].ItemArray[0]) == i)
+                        {
+                            listLaudryServiceRevenue.Add(Convert.ToInt32(dataLaudryServiceRevenue.Rows[indexDataLaudry].ItemArray[1]));
+                            indexDataLaudry++;
+                        }
+                        else
+                            listLaudryServiceRevenue.Add(0);
 
-                    listRevenue.Add(listRoomRevenue[i] + listEatServiceRevenue[i] + listLaudryServiceRevenue[i]);
-                    sum += listRevenue[i];
+                        listRevenue.Add(listRoomRevenue[i] + listEatServiceRevenue[i] + listLaudryServiceRevenue[i]);
+                        sum += listRevenue[i];
+                    }
                 }
-            }
-            createRevenueChart(listDate, listRevenue, RevenueType.DateRevenue, chartType);
-            createPieChart(listRoomRevenue[0], listEatServiceRevenue[0], listLaudryServiceRevenue[0]);
+                createRevenueChart(listDate, listRevenue, RevenueType.DateRevenue, chartType);
+                createPieChart(listRoomRevenue[0], listEatServiceRevenue[0], listLaudryServiceRevenue[0]);
 
-            lbDate.Text = listDate[0];
-            lbRevenueValue.Text = listRevenue[0].ToString("C", cul.NumberFormat);
-            lbTotalRevenue.Text = sum.ToString("C", cul.NumberFormat);
+                lbDate.Text = listDate[0];
+                lbRevenueValue.Text = listRevenue[0].ToString("C", cul.NumberFormat);
+                lbTotalRevenue.Text = sum.ToString("C", cul.NumberFormat);
+            }
+            catch (System.Data.SqlClient.SqlException)
+            {
+                MessageBox.Show("Lỗi khi kết nối đến server!", "Lỗi");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                cts.Cancel();
+                cts.Dispose();
+                cts = new CancellationTokenSource();
+            }
         }
 
         private void btLineChart_Click(object sender, EventArgs e)

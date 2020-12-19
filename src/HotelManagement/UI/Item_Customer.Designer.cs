@@ -268,12 +268,12 @@
             // 
             // timerShow
             // 
-            this.timerShow.Interval = 17;
+            this.timerShow.Interval = 1;
             this.timerShow.Tick += new System.EventHandler(this.timerShow_Tick);
             // 
             // timerHide
             // 
-            this.timerHide.Interval = 17;
+            this.timerHide.Interval = 1;
             this.timerHide.Tick += new System.EventHandler(this.timerHide_Tick);
             // 
             // label5
