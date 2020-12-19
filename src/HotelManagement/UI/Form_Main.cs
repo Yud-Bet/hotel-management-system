@@ -437,6 +437,13 @@ namespace HotelManagement.UI
             }
         }
 
+        private void pbStaffAvatar_Click(object sender, EventArgs e)
+        {
+            Form_ChargePassword temp = new Form_ChargePassword(this.Username);
+            temp.ShowDialog();
+
+        }
+
         #endregion
 
         #region SubMenu Manage Event

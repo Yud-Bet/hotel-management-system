@@ -15,6 +15,15 @@ namespace HotelManagement.UI
     {
         Item_Staff parentRef;
 
+        public Form_EditAccount(string user)
+        {
+            InitializeComponent();
+            //this.parentRef = parentRef;
+
+            tbUsername.Text = this.parentRef._Username;
+            tbPass.Text = this.parentRef._Pass;
+
+        }
         public Form_EditAccount(Item_Staff parentRef, int type)
         {
             InitializeComponent();
@@ -27,6 +36,7 @@ namespace HotelManagement.UI
             {
                 lbTitle.Text = "Thêm tài khoản nhân viên";
             }
+            this.btSave.Hide();
         }
 
 
@@ -46,7 +56,14 @@ namespace HotelManagement.UI
                 tbUsername.Focus();
                 return;
             }
-
+            int ef = DataAccess.Account.ChangePassword(this.parentRef._Username, this.parentRef._Pass, tbPass.Text);
+            if (ef > 0)
+            {
+                this.parentRef._Username = tbUsername.Text;
+                this.parentRef._Pass = tbPass.Text;
+                MessageBox.Show("Thay đổi mật khẩu thành công!", "Thông báo!");
+                this.Close();
+            }
         }
 
         private void btCancel_Click(object sender, EventArgs e)

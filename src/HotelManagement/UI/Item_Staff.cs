@@ -19,6 +19,10 @@ namespace HotelManagement.UI
             this.parentRef = parentRef;
         }
 
+        public Item_Staff()
+        {
+        }
+
         #region properties
         public Form_Staff parentRef;
 
@@ -144,6 +148,7 @@ namespace HotelManagement.UI
                 }
                 parentRef._pnToAddItem.Controls.Remove(this);
                 parentRef.item_Staffs.Remove(this);
+                int a = DataAccess.Manager.RemoveStaff(this._ID);
             }
             //MessageBox.Show(parentRef.item_Staffs.Count.ToString());
         }
@@ -154,6 +159,26 @@ namespace HotelManagement.UI
             this.parentRef.selectedItem = this;
         }
 
+        //private void setStaffInfo(Item_Staff temp, bool position, string name, string IDNo, DateTime birthdate, bool sex,
+        //            string address, string phonenum, DateTime startdate, int salary, string username, string pass)
+        //{
+        //    //temp._ID = ID;
+        //    temp._Position = position;
+        //    temp._Name = name;
+        //    temp._IDNo = IDNo;
+        //    temp._Birthdate = birthdate;
+        //    temp._Sex = sex;
+        //    temp._Address = address;
+        //    temp._Phonenum = phonenum;
+        //    temp._StartDate = startdate;
+        //    temp._Salary = salary;
+        //    temp._Username = username;
+        //    temp._Pass = pass;
+
+        //    item_Staffs.Add(temp);
+        //    pnToAddItem.Controls.Add(temp);
+
+        //}
         public void setStaffImage()
         {
             try

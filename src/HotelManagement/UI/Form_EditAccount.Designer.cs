@@ -37,12 +37,12 @@
             this.pnAccount = new System.Windows.Forms.Panel();
             this.pbShowHidePass = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.lbTitle = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tbPass = new Zeroit.Framework.Labels.ZeroitUltraTextBox();
             this.tbUsername = new Zeroit.Framework.Labels.ZeroitUltraTextBox();
             this.xuiButton2 = new XanderUI.XUIButton();
             this.xuiButton1 = new XanderUI.XUIButton();
-            this.lbTitle = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
@@ -162,6 +162,16 @@
             this.label2.TabIndex = 20;
             this.label2.Text = "Mật khẩu";
             // 
+            // lbTitle
+            // 
+            this.lbTitle.AutoSize = true;
+            this.lbTitle.Font = new System.Drawing.Font("Segoe UI", 13F);
+            this.lbTitle.Location = new System.Drawing.Point(8, 9);
+            this.lbTitle.Name = "lbTitle";
+            this.lbTitle.Size = new System.Drawing.Size(166, 25);
+            this.lbTitle.TabIndex = 20;
+            this.lbTitle.Text = "Thông tin tài khoản";
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -176,6 +186,7 @@
             // 
             this.tbPass.DisabledStringColor = System.Drawing.Color.Black;
             this.tbPass.DisabledUnFocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(236)))), ((int)(((byte)(238)))));
+            this.tbPass.Enabled = false;
             this.tbPass.EnabledUnFocusedColor = System.Drawing.Color.Silver;
             this.tbPass.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(142)))), ((int)(((byte)(245)))));
             this.tbPass.Font = new System.Drawing.Font("Segoe UI", 11F);
@@ -201,6 +212,7 @@
             // 
             this.tbUsername.DisabledStringColor = System.Drawing.Color.Black;
             this.tbUsername.DisabledUnFocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(236)))), ((int)(((byte)(238)))));
+            this.tbUsername.Enabled = false;
             this.tbUsername.EnabledUnFocusedColor = System.Drawing.Color.Silver;
             this.tbUsername.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(142)))), ((int)(((byte)(245)))));
             this.tbUsername.Font = new System.Drawing.Font("Segoe UI", 11F);
@@ -265,16 +277,6 @@
             this.xuiButton1.TabIndex = 18;
             this.xuiButton1.TextColor = System.Drawing.Color.White;
             this.xuiButton1.Vertical_Alignment = System.Drawing.StringAlignment.Center;
-            // 
-            // lbTitle
-            // 
-            this.lbTitle.AutoSize = true;
-            this.lbTitle.Font = new System.Drawing.Font("Segoe UI", 13F);
-            this.lbTitle.Location = new System.Drawing.Point(8, 9);
-            this.lbTitle.Name = "lbTitle";
-            this.lbTitle.Size = new System.Drawing.Size(166, 25);
-            this.lbTitle.TabIndex = 20;
-            this.lbTitle.Text = "Thông tin tài khoản";
             // 
             // Form_EditAccount
             // 

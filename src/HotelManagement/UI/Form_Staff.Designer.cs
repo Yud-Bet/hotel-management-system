@@ -696,14 +696,18 @@
             this.cbSort.FormattingEnabled = true;
             this.cbSort.ItemHeight = 23;
             this.cbSort.Items.AddRange(new object[] {
-            "Tăng",
-            "Giảm",
-            "Ngày lập"});
+            "Lương tăng",
+            "Lương giảm",
+            "Thâm niên tăng",
+            "Thâm niên giảm",
+            "Quản lý",
+            "Nhân viên"});
             this.cbSort.Location = new System.Drawing.Point(323, 10);
             this.cbSort.Name = "cbSort";
-            this.cbSort.Size = new System.Drawing.Size(87, 29);
+            this.cbSort.Size = new System.Drawing.Size(171, 29);
             this.cbSort.TabIndex = 5;
             this.cbSort.UseSelectable = true;
+            this.cbSort.SelectedIndexChanged += new System.EventHandler(this.cbSort_SelectedIndexChanged);
             // 
             // panel7
             // 

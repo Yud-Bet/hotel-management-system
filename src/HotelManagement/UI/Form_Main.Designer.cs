@@ -810,6 +810,7 @@
             this.pbStaffAvatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbStaffAvatar.TabIndex = 0;
             this.pbStaffAvatar.TabStop = false;
+            this.pbStaffAvatar.Click += new System.EventHandler(this.pbStaffAvatar_Click);
             // 
             // Form_Main
             // 
