@@ -33,7 +33,6 @@
             this.zeroitUltraTextBox1 = new Zeroit.Framework.Labels.ZeroitUltraTextBox();
             this.pnMain = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pbRemove = new System.Windows.Forms.PictureBox();
             this.lbRevenue = new System.Windows.Forms.Label();
             this.lbPhonenum = new System.Windows.Forms.Label();
             this.lbID = new System.Windows.Forms.Label();
@@ -53,7 +52,6 @@
             this.lbAddress = new System.Windows.Forms.Label();
             this.pnMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbRemove)).BeginInit();
             this.SuspendLayout();
             // 
             // zeroitUltraTextBox1
@@ -85,7 +83,6 @@
             // pnMain
             // 
             this.pnMain.Controls.Add(this.pictureBox1);
-            this.pnMain.Controls.Add(this.pbRemove);
             this.pnMain.Controls.Add(this.lbRevenue);
             this.pnMain.Controls.Add(this.lbPhonenum);
             this.pnMain.Controls.Add(this.lbID);
@@ -111,19 +108,6 @@
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pnMain_Click);
             this.pictureBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pnMain_MouseMove);
-            // 
-            // pbRemove
-            // 
-            this.pbRemove.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbRemove.Image = ((System.Drawing.Image)(resources.GetObject("pbRemove.Image")));
-            this.pbRemove.Location = new System.Drawing.Point(791, 6);
-            this.pbRemove.Name = "pbRemove";
-            this.pbRemove.Size = new System.Drawing.Size(20, 20);
-            this.pbRemove.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbRemove.TabIndex = 27;
-            this.pbRemove.TabStop = false;
-            this.pbRemove.Click += new System.EventHandler(this.pbRemove_Click);
-            this.pbRemove.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pnMain_MouseMove);
             // 
             // lbRevenue
             // 
@@ -205,7 +189,7 @@
             this.xuiButton3.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
             this.xuiButton3.HoverTextColor = System.Drawing.Color.White;
             this.xuiButton3.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
-            this.xuiButton3.Location = new System.Drawing.Point(242, 42);
+            this.xuiButton3.Location = new System.Drawing.Point(218, 42);
             this.xuiButton3.Name = "xuiButton3";
             this.xuiButton3.Size = new System.Drawing.Size(51, 50);
             this.xuiButton3.TabIndex = 22;
@@ -227,7 +211,7 @@
             this.xuiButton6.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
             this.xuiButton6.HoverTextColor = System.Drawing.Color.White;
             this.xuiButton6.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
-            this.xuiButton6.Location = new System.Drawing.Point(405, 42);
+            this.xuiButton6.Location = new System.Drawing.Point(381, 42);
             this.xuiButton6.Name = "xuiButton6";
             this.xuiButton6.Size = new System.Drawing.Size(51, 50);
             this.xuiButton6.TabIndex = 23;
@@ -268,12 +252,12 @@
             // 
             // timerShow
             // 
-            this.timerShow.Interval = 1;
+            this.timerShow.Interval = 7;
             this.timerShow.Tick += new System.EventHandler(this.timerShow_Tick);
             // 
             // timerHide
             // 
-            this.timerHide.Interval = 1;
+            this.timerHide.Interval = 7;
             this.timerHide.Tick += new System.EventHandler(this.timerHide_Tick);
             // 
             // label5
@@ -290,7 +274,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(299, 42);
+            this.label7.Location = new System.Drawing.Point(275, 42);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(61, 19);
             this.label7.TabIndex = 26;
@@ -300,7 +284,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(462, 42);
+            this.label1.Location = new System.Drawing.Point(438, 42);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(50, 19);
             this.label1.TabIndex = 27;
@@ -310,7 +294,7 @@
             // 
             this.lbSex.AutoSize = true;
             this.lbSex.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbSex.Location = new System.Drawing.Point(299, 72);
+            this.lbSex.Location = new System.Drawing.Point(275, 72);
             this.lbSex.Name = "lbSex";
             this.lbSex.Size = new System.Drawing.Size(41, 20);
             this.lbSex.TabIndex = 28;
@@ -330,7 +314,7 @@
             // 
             this.lbAddress.AutoSize = true;
             this.lbAddress.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbAddress.Location = new System.Drawing.Point(462, 72);
+            this.lbAddress.Location = new System.Drawing.Point(438, 72);
             this.lbAddress.Name = "lbAddress";
             this.lbAddress.Size = new System.Drawing.Size(18, 20);
             this.lbAddress.TabIndex = 28;
@@ -357,7 +341,6 @@
             this.pnMain.ResumeLayout(false);
             this.pnMain.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbRemove)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -367,7 +350,6 @@
 
         private Zeroit.Framework.Labels.ZeroitUltraTextBox zeroitUltraTextBox1;
         private System.Windows.Forms.Panel pnMain;
-        private System.Windows.Forms.PictureBox pbRemove;
         private System.Windows.Forms.Label lbRevenue;
         private System.Windows.Forms.Label lbPhonenum;
         private System.Windows.Forms.Label lbID;

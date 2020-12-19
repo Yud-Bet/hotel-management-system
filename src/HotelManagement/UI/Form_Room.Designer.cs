@@ -29,10 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Room));
             this.animBookMulRooms = new Zeroit.Framework.Transitions.ZeroitPizaroAnimator.ZeroitPizaroAnim();
-            this.btBookMultipleRooms = new System.Windows.Forms.PictureBox();
+            this.btBookMultipleRooms = new XanderUI.XUIButton();
             this.animAddRoom = new Zeroit.Framework.Transitions.ZeroitPizaroAnimator.ZeroitPizaroAnim();
-            this.btAddRoom = new System.Windows.Forms.PictureBox();
+            this.btAddRoom = new XanderUI.XUIButton();
             this.animPbSearch = new Zeroit.Framework.Transitions.ZeroitPizaroAnimator.ZeroitPizaroAnim();
             this.pbSearch = new System.Windows.Forms.PictureBox();
             this.timerHide2SubBt = new System.Windows.Forms.Timer(this.components);
@@ -46,19 +47,15 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.lb = new System.Windows.Forms.Label();
-            this.lbNumberOfRoom = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.lbNumberOfEmptyRoom = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.lbNumberOfRentedRoom = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.lbNumberOfCleaningRoom = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.lbNumberOfRepairingRoom = new System.Windows.Forms.Label();
             this.pnToAddRoom = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btThreeDot = new System.Windows.Forms.PictureBox();
+            this.lbNumberOfRoom = new XanderUI.XUIButton();
+            this.lbNumberOfRepairingRoom = new XanderUI.XUIButton();
+            this.lbNumberOfCleaningRoom = new XanderUI.XUIButton();
+            this.lbNumberOfRentedRoom = new XanderUI.XUIButton();
+            this.lbNumberOfEmptyRoom = new XanderUI.XUIButton();
+            this.btThreeDot = new XanderUI.XUIButton();
+            this.StatusLabel = new Zeroit.Framework.MiscControls.ZeroitLabel();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
@@ -66,12 +63,10 @@
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.tbSearch = new Zeroit.Framework.Labels.ZeroitUltraTextBox();
             this.animTbSearch = new Zeroit.Framework.Transitions.ZeroitPizaroAnimator.ZeroitPizaroAnim();
-            this.StatusLabel = new Zeroit.Framework.MiscControls.ZeroitLabel();
-            ((System.ComponentModel.ISupportInitialize)(this.btBookMultipleRooms)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btAddRoom)).BeginInit();
+            this.tooltipBookMulRoom = new XanderUI.XUIButton();
+            this.tooltipAddRoom = new XanderUI.XUIButton();
             ((System.ComponentModel.ISupportInitialize)(this.pbSearch)).BeginInit();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btThreeDot)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -102,16 +97,28 @@
             // 
             // btBookMultipleRooms
             // 
-            this.btBookMultipleRooms.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
+            this.btBookMultipleRooms.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
+            this.btBookMultipleRooms.ButtonImage = ((System.Drawing.Image)(resources.GetObject("btBookMultipleRooms.ButtonImage")));
+            this.btBookMultipleRooms.ButtonStyle = XanderUI.XUIButton.Style.MaterialRounded;
+            this.btBookMultipleRooms.ButtonText = "";
+            this.btBookMultipleRooms.ClickBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
+            this.btBookMultipleRooms.ClickTextColor = System.Drawing.Color.White;
+            this.btBookMultipleRooms.CornerRadius = 5;
             this.btBookMultipleRooms.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btBookMultipleRooms.Image = global::HotelManagement.Properties.Resources.icBookMulRoom;
+            this.btBookMultipleRooms.Font = new System.Drawing.Font("Segoe UI", 14F);
+            this.btBookMultipleRooms.Horizontal_Alignment = System.Drawing.StringAlignment.Near;
+            this.btBookMultipleRooms.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
+            this.btBookMultipleRooms.HoverTextColor = System.Drawing.Color.White;
+            this.btBookMultipleRooms.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
             this.btBookMultipleRooms.Location = new System.Drawing.Point(44, 94);
             this.btBookMultipleRooms.Name = "btBookMultipleRooms";
             this.btBookMultipleRooms.Size = new System.Drawing.Size(37, 37);
-            this.btBookMultipleRooms.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btBookMultipleRooms.TabIndex = 27;
-            this.btBookMultipleRooms.TabStop = false;
+            this.btBookMultipleRooms.TabIndex = 32;
+            this.btBookMultipleRooms.TextColor = System.Drawing.Color.White;
+            this.btBookMultipleRooms.Vertical_Alignment = System.Drawing.StringAlignment.Center;
             this.btBookMultipleRooms.Click += new System.EventHandler(this.btBookMultipleRooms_Click);
+            this.btBookMultipleRooms.MouseLeave += new System.EventHandler(this.btBookMultipleRooms_MouseLeave);
+            this.btBookMultipleRooms.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btBookMultipleRooms_MouseMove);
             // 
             // animAddRoom
             // 
@@ -137,16 +144,28 @@
             // 
             // btAddRoom
             // 
-            this.btAddRoom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
+            this.btAddRoom.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
+            this.btAddRoom.ButtonImage = ((System.Drawing.Image)(resources.GetObject("btAddRoom.ButtonImage")));
+            this.btAddRoom.ButtonStyle = XanderUI.XUIButton.Style.MaterialRounded;
+            this.btAddRoom.ButtonText = "";
+            this.btAddRoom.ClickBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
+            this.btAddRoom.ClickTextColor = System.Drawing.Color.White;
+            this.btAddRoom.CornerRadius = 5;
             this.btAddRoom.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btAddRoom.Image = global::HotelManagement.Properties.Resources.icAddRoom2;
+            this.btAddRoom.Font = new System.Drawing.Font("Segoe UI", 14F);
+            this.btAddRoom.Horizontal_Alignment = System.Drawing.StringAlignment.Near;
+            this.btAddRoom.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
+            this.btAddRoom.HoverTextColor = System.Drawing.Color.White;
+            this.btAddRoom.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
             this.btAddRoom.Location = new System.Drawing.Point(44, 94);
             this.btAddRoom.Name = "btAddRoom";
             this.btAddRoom.Size = new System.Drawing.Size(37, 37);
-            this.btAddRoom.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btAddRoom.TabIndex = 27;
-            this.btAddRoom.TabStop = false;
+            this.btAddRoom.TabIndex = 32;
+            this.btAddRoom.TextColor = System.Drawing.Color.White;
+            this.btAddRoom.Vertical_Alignment = System.Drawing.StringAlignment.Center;
             this.btAddRoom.Click += new System.EventHandler(this.btAddRoom_Click);
+            this.btAddRoom.MouseLeave += new System.EventHandler(this.btAddRoom_MouseLeave);
+            this.btAddRoom.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btAddRoom_MouseMove);
             // 
             // animPbSearch
             // 
@@ -265,7 +284,7 @@
             this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
             this.label2.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
-            this.label2.Location = new System.Drawing.Point(576, 98);
+            this.label2.Location = new System.Drawing.Point(575, 98);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(2, 30);
             this.label2.TabIndex = 11;
@@ -277,7 +296,7 @@
             this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
             this.label4.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
-            this.label4.Location = new System.Drawing.Point(695, 100);
+            this.label4.Location = new System.Drawing.Point(694, 98);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(2, 30);
             this.label4.TabIndex = 11;
@@ -289,136 +308,11 @@
             this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
             this.label5.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
-            this.label5.Location = new System.Drawing.Point(813, 100);
+            this.label5.Location = new System.Drawing.Point(813, 98);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(2, 30);
             this.label5.TabIndex = 11;
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lb
-            // 
-            this.lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lb.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(177)))), ((int)(((byte)(177)))));
-            this.lb.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
-            this.lb.Location = new System.Drawing.Point(391, 101);
-            this.lb.Name = "lb";
-            this.lb.Size = new System.Drawing.Size(50, 25);
-            this.lb.TabIndex = 14;
-            this.lb.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lbNumberOfRoom
-            // 
-            this.lbNumberOfRoom.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbNumberOfRoom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(223)))), ((int)(((byte)(223)))));
-            this.lbNumberOfRoom.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbNumberOfRoom.ForeColor = System.Drawing.Color.Black;
-            this.lbNumberOfRoom.Location = new System.Drawing.Point(386, 97);
-            this.lbNumberOfRoom.Name = "lbNumberOfRoom";
-            this.lbNumberOfRoom.Size = new System.Drawing.Size(50, 25);
-            this.lbNumberOfRoom.TabIndex = 13;
-            this.lbNumberOfRoom.Text = "0";
-            this.lbNumberOfRoom.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label6
-            // 
-            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(168)))), ((int)(((byte)(144)))));
-            this.label6.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
-            this.label6.Location = new System.Drawing.Point(510, 101);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(50, 25);
-            this.label6.TabIndex = 16;
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lbNumberOfEmptyRoom
-            // 
-            this.lbNumberOfEmptyRoom.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbNumberOfEmptyRoom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(222)))), ((int)(((byte)(190)))));
-            this.lbNumberOfEmptyRoom.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbNumberOfEmptyRoom.ForeColor = System.Drawing.Color.Black;
-            this.lbNumberOfEmptyRoom.Location = new System.Drawing.Point(505, 97);
-            this.lbNumberOfEmptyRoom.Name = "lbNumberOfEmptyRoom";
-            this.lbNumberOfEmptyRoom.Size = new System.Drawing.Size(50, 25);
-            this.lbNumberOfEmptyRoom.TabIndex = 15;
-            this.lbNumberOfEmptyRoom.Text = "0";
-            this.lbNumberOfEmptyRoom.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label7
-            // 
-            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(85)))), ((int)(((byte)(138)))));
-            this.label7.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
-            this.label7.Location = new System.Drawing.Point(630, 101);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(50, 25);
-            this.label7.TabIndex = 18;
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lbNumberOfRentedRoom
-            // 
-            this.lbNumberOfRentedRoom.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbNumberOfRentedRoom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(113)))), ((int)(((byte)(184)))));
-            this.lbNumberOfRentedRoom.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbNumberOfRentedRoom.ForeColor = System.Drawing.Color.Black;
-            this.lbNumberOfRentedRoom.Location = new System.Drawing.Point(625, 97);
-            this.lbNumberOfRentedRoom.Name = "lbNumberOfRentedRoom";
-            this.lbNumberOfRentedRoom.Size = new System.Drawing.Size(50, 25);
-            this.lbNumberOfRentedRoom.TabIndex = 17;
-            this.lbNumberOfRentedRoom.Text = "0";
-            this.lbNumberOfRentedRoom.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label8
-            // 
-            this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(161)))));
-            this.label8.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
-            this.label8.Location = new System.Drawing.Point(749, 101);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(50, 25);
-            this.label8.TabIndex = 20;
-            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lbNumberOfCleaningRoom
-            // 
-            this.lbNumberOfCleaningRoom.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbNumberOfCleaningRoom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(194)))), ((int)(((byte)(255)))));
-            this.lbNumberOfCleaningRoom.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbNumberOfCleaningRoom.ForeColor = System.Drawing.Color.Black;
-            this.lbNumberOfCleaningRoom.Location = new System.Drawing.Point(744, 97);
-            this.lbNumberOfCleaningRoom.Name = "lbNumberOfCleaningRoom";
-            this.lbNumberOfCleaningRoom.Size = new System.Drawing.Size(50, 25);
-            this.lbNumberOfCleaningRoom.TabIndex = 19;
-            this.lbNumberOfCleaningRoom.Text = "0";
-            this.lbNumberOfCleaningRoom.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label10
-            // 
-            this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(178)))), ((int)(((byte)(183)))), ((int)(((byte)(43)))));
-            this.label10.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
-            this.label10.Location = new System.Drawing.Point(867, 101);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(50, 25);
-            this.label10.TabIndex = 22;
-            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lbNumberOfRepairingRoom
-            // 
-            this.lbNumberOfRepairingRoom.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbNumberOfRepairingRoom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(251)))), ((int)(((byte)(53)))));
-            this.lbNumberOfRepairingRoom.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbNumberOfRepairingRoom.ForeColor = System.Drawing.Color.Black;
-            this.lbNumberOfRepairingRoom.Location = new System.Drawing.Point(862, 97);
-            this.lbNumberOfRepairingRoom.Name = "lbNumberOfRepairingRoom";
-            this.lbNumberOfRepairingRoom.Size = new System.Drawing.Size(50, 25);
-            this.lbNumberOfRepairingRoom.TabIndex = 21;
-            this.lbNumberOfRepairingRoom.Text = "0";
-            this.lbNumberOfRepairingRoom.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pnToAddRoom
             // 
@@ -437,22 +331,17 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.panel1.Controls.Add(this.StatusLabel);
+            this.panel1.Controls.Add(this.tooltipAddRoom);
+            this.panel1.Controls.Add(this.tooltipBookMulRoom);
+            this.panel1.Controls.Add(this.lbNumberOfRoom);
+            this.panel1.Controls.Add(this.lbNumberOfRepairingRoom);
+            this.panel1.Controls.Add(this.lbNumberOfCleaningRoom);
+            this.panel1.Controls.Add(this.lbNumberOfRentedRoom);
+            this.panel1.Controls.Add(this.lbNumberOfEmptyRoom);
             this.panel1.Controls.Add(this.btThreeDot);
-            this.panel1.Controls.Add(this.btBookMultipleRooms);
-            this.panel1.Controls.Add(this.btAddRoom);
+            this.panel1.Controls.Add(this.StatusLabel);
             this.panel1.Controls.Add(this.pbSearch);
             this.panel1.Controls.Add(this.pnToAddRoom);
-            this.panel1.Controls.Add(this.lbNumberOfRepairingRoom);
-            this.panel1.Controls.Add(this.label10);
-            this.panel1.Controls.Add(this.lbNumberOfCleaningRoom);
-            this.panel1.Controls.Add(this.label8);
-            this.panel1.Controls.Add(this.lbNumberOfRentedRoom);
-            this.panel1.Controls.Add(this.label7);
-            this.panel1.Controls.Add(this.lbNumberOfEmptyRoom);
-            this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.lbNumberOfRoom);
-            this.panel1.Controls.Add(this.lb);
             this.panel1.Controls.Add(this.pictureBox5);
             this.panel1.Controls.Add(this.pictureBox4);
             this.panel1.Controls.Add(this.pictureBox3);
@@ -468,29 +357,167 @@
             this.panel1.Controls.Add(this.flowLayoutPanel1);
             this.panel1.Controls.Add(this.lbTitle);
             this.panel1.Controls.Add(this.tbSearch);
+            this.panel1.Controls.Add(this.btBookMultipleRooms);
+            this.panel1.Controls.Add(this.btAddRoom);
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(968, 665);
             this.panel1.TabIndex = 1;
             // 
+            // lbNumberOfRoom
+            // 
+            this.lbNumberOfRoom.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(223)))), ((int)(((byte)(223)))));
+            this.lbNumberOfRoom.ButtonImage = null;
+            this.lbNumberOfRoom.ButtonStyle = XanderUI.XUIButton.Style.MaterialRounded;
+            this.lbNumberOfRoom.ButtonText = "0";
+            this.lbNumberOfRoom.ClickBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(223)))), ((int)(((byte)(223)))));
+            this.lbNumberOfRoom.ClickTextColor = System.Drawing.Color.Black;
+            this.lbNumberOfRoom.CornerRadius = 5;
+            this.lbNumberOfRoom.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lbNumberOfRoom.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold);
+            this.lbNumberOfRoom.Horizontal_Alignment = System.Drawing.StringAlignment.Center;
+            this.lbNumberOfRoom.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(223)))), ((int)(((byte)(223)))));
+            this.lbNumberOfRoom.HoverTextColor = System.Drawing.Color.Black;
+            this.lbNumberOfRoom.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
+            this.lbNumberOfRoom.Location = new System.Drawing.Point(389, 100);
+            this.lbNumberOfRoom.Name = "lbNumberOfRoom";
+            this.lbNumberOfRoom.Size = new System.Drawing.Size(60, 27);
+            this.lbNumberOfRoom.TabIndex = 32;
+            this.lbNumberOfRoom.TextColor = System.Drawing.Color.Black;
+            this.lbNumberOfRoom.Vertical_Alignment = System.Drawing.StringAlignment.Center;
+            this.lbNumberOfRoom.Click += new System.EventHandler(this.btThreeDot_Click);
+            // 
+            // lbNumberOfRepairingRoom
+            // 
+            this.lbNumberOfRepairingRoom.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(251)))), ((int)(((byte)(53)))));
+            this.lbNumberOfRepairingRoom.ButtonImage = null;
+            this.lbNumberOfRepairingRoom.ButtonStyle = XanderUI.XUIButton.Style.MaterialRounded;
+            this.lbNumberOfRepairingRoom.ButtonText = "0";
+            this.lbNumberOfRepairingRoom.ClickBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(251)))), ((int)(((byte)(53)))));
+            this.lbNumberOfRepairingRoom.ClickTextColor = System.Drawing.Color.Black;
+            this.lbNumberOfRepairingRoom.CornerRadius = 5;
+            this.lbNumberOfRepairingRoom.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lbNumberOfRepairingRoom.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold);
+            this.lbNumberOfRepairingRoom.Horizontal_Alignment = System.Drawing.StringAlignment.Center;
+            this.lbNumberOfRepairingRoom.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(251)))), ((int)(((byte)(53)))));
+            this.lbNumberOfRepairingRoom.HoverTextColor = System.Drawing.Color.Black;
+            this.lbNumberOfRepairingRoom.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
+            this.lbNumberOfRepairingRoom.Location = new System.Drawing.Point(861, 100);
+            this.lbNumberOfRepairingRoom.Name = "lbNumberOfRepairingRoom";
+            this.lbNumberOfRepairingRoom.Size = new System.Drawing.Size(60, 27);
+            this.lbNumberOfRepairingRoom.TabIndex = 32;
+            this.lbNumberOfRepairingRoom.TextColor = System.Drawing.Color.Black;
+            this.lbNumberOfRepairingRoom.Vertical_Alignment = System.Drawing.StringAlignment.Center;
+            this.lbNumberOfRepairingRoom.Click += new System.EventHandler(this.btThreeDot_Click);
+            // 
+            // lbNumberOfCleaningRoom
+            // 
+            this.lbNumberOfCleaningRoom.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(194)))), ((int)(((byte)(255)))));
+            this.lbNumberOfCleaningRoom.ButtonImage = null;
+            this.lbNumberOfCleaningRoom.ButtonStyle = XanderUI.XUIButton.Style.MaterialRounded;
+            this.lbNumberOfCleaningRoom.ButtonText = "0";
+            this.lbNumberOfCleaningRoom.ClickBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(194)))), ((int)(((byte)(255)))));
+            this.lbNumberOfCleaningRoom.ClickTextColor = System.Drawing.Color.Black;
+            this.lbNumberOfCleaningRoom.CornerRadius = 5;
+            this.lbNumberOfCleaningRoom.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lbNumberOfCleaningRoom.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold);
+            this.lbNumberOfCleaningRoom.Horizontal_Alignment = System.Drawing.StringAlignment.Center;
+            this.lbNumberOfCleaningRoom.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(194)))), ((int)(((byte)(255)))));
+            this.lbNumberOfCleaningRoom.HoverTextColor = System.Drawing.Color.Black;
+            this.lbNumberOfCleaningRoom.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
+            this.lbNumberOfCleaningRoom.Location = new System.Drawing.Point(743, 100);
+            this.lbNumberOfCleaningRoom.Name = "lbNumberOfCleaningRoom";
+            this.lbNumberOfCleaningRoom.Size = new System.Drawing.Size(60, 27);
+            this.lbNumberOfCleaningRoom.TabIndex = 32;
+            this.lbNumberOfCleaningRoom.TextColor = System.Drawing.Color.Black;
+            this.lbNumberOfCleaningRoom.Vertical_Alignment = System.Drawing.StringAlignment.Center;
+            this.lbNumberOfCleaningRoom.Click += new System.EventHandler(this.btThreeDot_Click);
+            // 
+            // lbNumberOfRentedRoom
+            // 
+            this.lbNumberOfRentedRoom.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(113)))), ((int)(((byte)(184)))));
+            this.lbNumberOfRentedRoom.ButtonImage = null;
+            this.lbNumberOfRentedRoom.ButtonStyle = XanderUI.XUIButton.Style.MaterialRounded;
+            this.lbNumberOfRentedRoom.ButtonText = "0";
+            this.lbNumberOfRentedRoom.ClickBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(113)))), ((int)(((byte)(184)))));
+            this.lbNumberOfRentedRoom.ClickTextColor = System.Drawing.Color.Black;
+            this.lbNumberOfRentedRoom.CornerRadius = 5;
+            this.lbNumberOfRentedRoom.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lbNumberOfRentedRoom.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold);
+            this.lbNumberOfRentedRoom.Horizontal_Alignment = System.Drawing.StringAlignment.Center;
+            this.lbNumberOfRentedRoom.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(113)))), ((int)(((byte)(184)))));
+            this.lbNumberOfRentedRoom.HoverTextColor = System.Drawing.Color.Black;
+            this.lbNumberOfRentedRoom.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
+            this.lbNumberOfRentedRoom.Location = new System.Drawing.Point(625, 100);
+            this.lbNumberOfRentedRoom.Name = "lbNumberOfRentedRoom";
+            this.lbNumberOfRentedRoom.Size = new System.Drawing.Size(60, 27);
+            this.lbNumberOfRentedRoom.TabIndex = 32;
+            this.lbNumberOfRentedRoom.TextColor = System.Drawing.Color.Black;
+            this.lbNumberOfRentedRoom.Vertical_Alignment = System.Drawing.StringAlignment.Center;
+            this.lbNumberOfRentedRoom.Click += new System.EventHandler(this.btThreeDot_Click);
+            // 
+            // lbNumberOfEmptyRoom
+            // 
+            this.lbNumberOfEmptyRoom.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(222)))), ((int)(((byte)(190)))));
+            this.lbNumberOfEmptyRoom.ButtonImage = null;
+            this.lbNumberOfEmptyRoom.ButtonStyle = XanderUI.XUIButton.Style.MaterialRounded;
+            this.lbNumberOfEmptyRoom.ButtonText = "0";
+            this.lbNumberOfEmptyRoom.ClickBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(222)))), ((int)(((byte)(190)))));
+            this.lbNumberOfEmptyRoom.ClickTextColor = System.Drawing.Color.Black;
+            this.lbNumberOfEmptyRoom.CornerRadius = 5;
+            this.lbNumberOfEmptyRoom.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lbNumberOfEmptyRoom.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold);
+            this.lbNumberOfEmptyRoom.Horizontal_Alignment = System.Drawing.StringAlignment.Center;
+            this.lbNumberOfEmptyRoom.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(222)))), ((int)(((byte)(190)))));
+            this.lbNumberOfEmptyRoom.HoverTextColor = System.Drawing.Color.Black;
+            this.lbNumberOfEmptyRoom.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
+            this.lbNumberOfEmptyRoom.Location = new System.Drawing.Point(507, 100);
+            this.lbNumberOfEmptyRoom.Name = "lbNumberOfEmptyRoom";
+            this.lbNumberOfEmptyRoom.Size = new System.Drawing.Size(60, 27);
+            this.lbNumberOfEmptyRoom.TabIndex = 32;
+            this.lbNumberOfEmptyRoom.TextColor = System.Drawing.Color.Black;
+            this.lbNumberOfEmptyRoom.Vertical_Alignment = System.Drawing.StringAlignment.Center;
+            this.lbNumberOfEmptyRoom.Click += new System.EventHandler(this.btThreeDot_Click);
+            // 
             // btThreeDot
             // 
-            this.btThreeDot.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
+            this.btThreeDot.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
+            this.btThreeDot.ButtonImage = ((System.Drawing.Image)(resources.GetObject("btThreeDot.ButtonImage")));
+            this.btThreeDot.ButtonStyle = XanderUI.XUIButton.Style.MaterialRounded;
+            this.btThreeDot.ButtonText = "";
+            this.btThreeDot.ClickBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
+            this.btThreeDot.ClickTextColor = System.Drawing.Color.White;
+            this.btThreeDot.CornerRadius = 5;
             this.btThreeDot.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btThreeDot.Image = global::HotelManagement.Properties.Resources.icThreeDot;
+            this.btThreeDot.Font = new System.Drawing.Font("Segoe UI", 14F);
+            this.btThreeDot.Horizontal_Alignment = System.Drawing.StringAlignment.Near;
+            this.btThreeDot.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
+            this.btThreeDot.HoverTextColor = System.Drawing.Color.White;
+            this.btThreeDot.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
             this.btThreeDot.Location = new System.Drawing.Point(44, 94);
             this.btThreeDot.Name = "btThreeDot";
             this.btThreeDot.Size = new System.Drawing.Size(37, 37);
-            this.btThreeDot.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btThreeDot.TabIndex = 27;
-            this.btThreeDot.TabStop = false;
+            this.btThreeDot.TabIndex = 32;
+            this.btThreeDot.TextColor = System.Drawing.Color.White;
+            this.btThreeDot.Vertical_Alignment = System.Drawing.StringAlignment.Center;
             this.btThreeDot.Click += new System.EventHandler(this.btThreeDot_Click);
+            // 
+            // StatusLabel
+            // 
+            this.StatusLabel.AutoSize = true;
+            this.StatusLabel.BackColor = System.Drawing.Color.Transparent;
+            this.StatusLabel.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.StatusLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(142)))), ((int)(((byte)(142)))));
+            this.StatusLabel.Location = new System.Drawing.Point(39, 647);
+            this.StatusLabel.Name = "StatusLabel";
+            this.StatusLabel.Size = new System.Drawing.Size(0, 13);
+            this.StatusLabel.TabIndex = 31;
             // 
             // pictureBox5
             // 
             this.pictureBox5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox5.Image = global::HotelManagement.Properties.Resources.icFix;
-            this.pictureBox5.Location = new System.Drawing.Point(821, 94);
+            this.pictureBox5.Location = new System.Drawing.Point(821, 96);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(35, 32);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -501,7 +528,7 @@
             // 
             this.pictureBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox4.Image = global::HotelManagement.Properties.Resources.icClean;
-            this.pictureBox4.Location = new System.Drawing.Point(703, 94);
+            this.pictureBox4.Location = new System.Drawing.Point(703, 96);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(35, 32);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -512,7 +539,7 @@
             // 
             this.pictureBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox3.Image = global::HotelManagement.Properties.Resources.icRented_DB;
-            this.pictureBox3.Location = new System.Drawing.Point(584, 92);
+            this.pictureBox3.Location = new System.Drawing.Point(584, 94);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(35, 32);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -523,7 +550,7 @@
             // 
             this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox2.Image = global::HotelManagement.Properties.Resources.icYes;
-            this.pictureBox2.Location = new System.Drawing.Point(464, 92);
+            this.pictureBox2.Location = new System.Drawing.Point(464, 94);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(35, 32);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -584,16 +611,51 @@
             this.animTbSearch.ResizeWidth_Begin = 10F;
             this.animTbSearch.ResizeWidth_Limit = 50F;
             // 
-            // StatusLabel
+            // tooltipBookMulRoom
             // 
-            this.StatusLabel.AutoSize = true;
-            this.StatusLabel.BackColor = System.Drawing.Color.Transparent;
-            this.StatusLabel.Font = new System.Drawing.Font("Segoe UI", 8F);
-            this.StatusLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(142)))), ((int)(((byte)(142)))));
-            this.StatusLabel.Location = new System.Drawing.Point(39, 647);
-            this.StatusLabel.Name = "StatusLabel";
-            this.StatusLabel.Size = new System.Drawing.Size(0, 13);
-            this.StatusLabel.TabIndex = 31;
+            this.tooltipBookMulRoom.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this.tooltipBookMulRoom.ButtonImage = null;
+            this.tooltipBookMulRoom.ButtonStyle = XanderUI.XUIButton.Style.MaterialRounded;
+            this.tooltipBookMulRoom.ButtonText = "Đặt nhiều phòng";
+            this.tooltipBookMulRoom.ClickBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this.tooltipBookMulRoom.ClickTextColor = System.Drawing.Color.Black;
+            this.tooltipBookMulRoom.CornerRadius = 5;
+            this.tooltipBookMulRoom.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.tooltipBookMulRoom.Font = new System.Drawing.Font("Segoe UI", 13F);
+            this.tooltipBookMulRoom.Horizontal_Alignment = System.Drawing.StringAlignment.Center;
+            this.tooltipBookMulRoom.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this.tooltipBookMulRoom.HoverTextColor = System.Drawing.Color.Black;
+            this.tooltipBookMulRoom.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
+            this.tooltipBookMulRoom.Location = new System.Drawing.Point(969, 14);
+            this.tooltipBookMulRoom.Name = "tooltipBookMulRoom";
+            this.tooltipBookMulRoom.Size = new System.Drawing.Size(166, 27);
+            this.tooltipBookMulRoom.TabIndex = 32;
+            this.tooltipBookMulRoom.TextColor = System.Drawing.Color.Black;
+            this.tooltipBookMulRoom.Vertical_Alignment = System.Drawing.StringAlignment.Center;
+            this.tooltipBookMulRoom.Click += new System.EventHandler(this.btThreeDot_Click);
+            // 
+            // tooltipAddRoom
+            // 
+            this.tooltipAddRoom.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this.tooltipAddRoom.ButtonImage = null;
+            this.tooltipAddRoom.ButtonStyle = XanderUI.XUIButton.Style.MaterialRounded;
+            this.tooltipAddRoom.ButtonText = "Thêm phòng";
+            this.tooltipAddRoom.ClickBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this.tooltipAddRoom.ClickTextColor = System.Drawing.Color.Black;
+            this.tooltipAddRoom.CornerRadius = 5;
+            this.tooltipAddRoom.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.tooltipAddRoom.Font = new System.Drawing.Font("Segoe UI", 13F);
+            this.tooltipAddRoom.Horizontal_Alignment = System.Drawing.StringAlignment.Center;
+            this.tooltipAddRoom.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this.tooltipAddRoom.HoverTextColor = System.Drawing.Color.Black;
+            this.tooltipAddRoom.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
+            this.tooltipAddRoom.Location = new System.Drawing.Point(969, 47);
+            this.tooltipAddRoom.Name = "tooltipAddRoom";
+            this.tooltipAddRoom.Size = new System.Drawing.Size(125, 27);
+            this.tooltipAddRoom.TabIndex = 32;
+            this.tooltipAddRoom.TextColor = System.Drawing.Color.Black;
+            this.tooltipAddRoom.Vertical_Alignment = System.Drawing.StringAlignment.Center;
+            this.tooltipAddRoom.Click += new System.EventHandler(this.btThreeDot_Click);
             // 
             // Form_Room
             // 
@@ -604,12 +666,9 @@
             this.Name = "Form_Room";
             this.Size = new System.Drawing.Size(968, 666);
             this.Load += new System.EventHandler(this.Form_Room_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.btBookMultipleRooms)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btAddRoom)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbSearch)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btThreeDot)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
@@ -638,24 +697,21 @@
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox pictureBox5;
-        private System.Windows.Forms.Label lb;
-        private System.Windows.Forms.Label lbNumberOfRoom;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label lbNumberOfEmptyRoom;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label lbNumberOfRentedRoom;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label lbNumberOfCleaningRoom;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label lbNumberOfRepairingRoom;
         private System.Windows.Forms.FlowLayoutPanel pnToAddRoom;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.PictureBox btThreeDot;
-        private System.Windows.Forms.PictureBox btBookMultipleRooms;
-        private System.Windows.Forms.PictureBox btAddRoom;
         private Zeroit.Framework.Labels.ZeroitUltraTextBox tbSearch;
         private Zeroit.Framework.Transitions.ZeroitPizaroAnimator.ZeroitPizaroAnim animTbSearch;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private Zeroit.Framework.MiscControls.ZeroitLabel StatusLabel;
+        private XanderUI.XUIButton btThreeDot;
+        private XanderUI.XUIButton btBookMultipleRooms;
+        private XanderUI.XUIButton btAddRoom;
+        private XanderUI.XUIButton lbNumberOfRoom;
+        private XanderUI.XUIButton lbNumberOfRepairingRoom;
+        private XanderUI.XUIButton lbNumberOfCleaningRoom;
+        private XanderUI.XUIButton lbNumberOfRentedRoom;
+        private XanderUI.XUIButton lbNumberOfEmptyRoom;
+        private XanderUI.XUIButton tooltipAddRoom;
+        private XanderUI.XUIButton tooltipBookMulRoom;
     }
 }

@@ -17,11 +17,11 @@ namespace HotelManagement.DataAccess
             return ExecuteQuery.ExecuteNoneQuery(query,
                 new object[] {Name, Birthday, IdeNum, Passport, Addr, Phone, sex});
         }
-        public static int InsertNewRoomReservation(DateTime ArrivalDate, int ClientID, string Username, int DownPayment = 0, string Note = null)
+        public static int InsertNewRoomReservation(DateTime ArrivalDate, int CustomerID, string Username, int DownPayment = 0, string Note = null)
         {
-            string query = "QLKS_InsertNewRoomReservation @ArrivalDate , @ClientID , @Username , @DownPayment , @Note";
+            string query = "QLKS_InsertNewRoomReservation @ArrivalDate , @CustomerID , @Username , @DownPayment , @Note";
             return ExecuteQuery.ExecuteNoneQuery(query,
-                new object[] {ArrivalDate, ClientID, Username, DownPayment, Note });
+                new object[] {ArrivalDate, CustomerID, Username, DownPayment, Note });
         }
         public static int InsertRoomReservationDetail(int RoomReservationID, int RoomID)
         {

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_AddEditRoom));
             this.panel4 = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.btAddRoom = new XanderUI.XUIButton();
@@ -78,23 +79,23 @@
             this.panel4.Controls.Add(this.label19);
             this.panel4.Location = new System.Drawing.Point(5, 25);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(537, 288);
+            this.panel4.Size = new System.Drawing.Size(537, 271);
             this.panel4.TabIndex = 12;
             // 
             // flowLayoutPanel1
             // 
-            this.flowLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.flowLayoutPanel1.Controls.Add(this.btAddRoom);
             this.flowLayoutPanel1.Controls.Add(this.btSave);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(383, 220);
+            this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(363, 222);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(136, 56);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(164, 38);
             this.flowLayoutPanel1.TabIndex = 13;
             // 
             // btAddRoom
             // 
             this.btAddRoom.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
-            this.btAddRoom.ButtonImage = global::HotelManagement.Properties.Resources.icAddRoom;
+            this.btAddRoom.ButtonImage = ((System.Drawing.Image)(resources.GetObject("btAddRoom.ButtonImage")));
             this.btAddRoom.ButtonStyle = XanderUI.XUIButton.Style.MaterialRounded;
             this.btAddRoom.ButtonText = "Thêm Phòng";
             this.btAddRoom.ClickBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(130)))), ((int)(((byte)(200)))));
@@ -106,9 +107,9 @@
             this.btAddRoom.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
             this.btAddRoom.HoverTextColor = System.Drawing.Color.White;
             this.btAddRoom.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
-            this.btAddRoom.Location = new System.Drawing.Point(3, 3);
+            this.btAddRoom.Location = new System.Drawing.Point(5, 3);
             this.btAddRoom.Name = "btAddRoom";
-            this.btAddRoom.Size = new System.Drawing.Size(131, 50);
+            this.btAddRoom.Size = new System.Drawing.Size(156, 33);
             this.btAddRoom.TabIndex = 17;
             this.btAddRoom.TextColor = System.Drawing.Color.White;
             this.btAddRoom.Vertical_Alignment = System.Drawing.StringAlignment.Center;
@@ -116,7 +117,7 @@
             // btSave
             // 
             this.btSave.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
-            this.btSave.ButtonImage = global::HotelManagement.Properties.Resources.icSave;
+            this.btSave.ButtonImage = ((System.Drawing.Image)(resources.GetObject("btSave.ButtonImage")));
             this.btSave.ButtonStyle = XanderUI.XUIButton.Style.MaterialRounded;
             this.btSave.ButtonText = "Lưu";
             this.btSave.ClickBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(130)))), ((int)(((byte)(200)))));
@@ -128,9 +129,9 @@
             this.btSave.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
             this.btSave.HoverTextColor = System.Drawing.Color.White;
             this.btSave.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
-            this.btSave.Location = new System.Drawing.Point(3, 59);
+            this.btSave.Location = new System.Drawing.Point(85, 42);
             this.btSave.Name = "btSave";
-            this.btSave.Size = new System.Drawing.Size(131, 50);
+            this.btSave.Size = new System.Drawing.Size(76, 33);
             this.btSave.TabIndex = 18;
             this.btSave.TextColor = System.Drawing.Color.White;
             this.btSave.Vertical_Alignment = System.Drawing.StringAlignment.Center;
@@ -316,7 +317,6 @@
             // 
             // lbVND
             // 
-            this.lbVND.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lbVND.AutoSize = true;
             this.lbVND.Font = new System.Drawing.Font("Segoe UI", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.lbVND.ForeColor = System.Drawing.Color.Black;
@@ -343,7 +343,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(496, 129);
+            this.label1.Location = new System.Drawing.Point(495, 123);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(19, 23);
             this.label1.TabIndex = 2;
@@ -351,7 +351,6 @@
             // 
             // lbM2
             // 
-            this.lbM2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lbM2.AutoSize = true;
             this.lbM2.Font = new System.Drawing.Font("Segoe UI", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.lbM2.ForeColor = System.Drawing.Color.Black;
@@ -409,11 +408,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(547, 319);
+            this.ClientSize = new System.Drawing.Size(547, 311);
             this.Controls.Add(this.panel4);
+            this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(547, 319);
             this.Movable = false;
-            this.MaximizeBox = false;
             this.Name = "Form_AddEditRoom";
             this.Resizable = false;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form_AddEditRoom_FormClosing);

@@ -75,7 +75,7 @@ namespace HotelManagement.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap fast_food {
             get {
-                object obj = ResourceManager.GetObject("fast-food", resourceCulture);
+                object obj = ResourceManager.GetObject("fast_food", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

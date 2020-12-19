@@ -15,6 +15,7 @@ namespace HotelManagement.UI
             InitializeComponent();
 
             this.parentRef_Addstaff = parentRef;
+            rbNorStaff.Checked = true;
             btSave.Hide();
             btCancel.Hide();
         }
@@ -74,7 +75,7 @@ namespace HotelManagement.UI
             parentRef_EditStaff._Address = tbAddress.Text;
             parentRef_EditStaff._Phonenum = tbPhonenum.Text;
             parentRef_EditStaff._IDNo = tbIDNo.Text;
-            parentRef_EditStaff._Position = rbManager.Checked;
+            parentRef_EditStaff._Position = rbNorStaff.Checked;
             parentRef_EditStaff._StartDate = dtStartDate.Value;
             parentRef_EditStaff._Salary = Convert.ToInt32(tbSalary.Text);
 

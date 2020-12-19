@@ -22,6 +22,11 @@ namespace HotelManagement.UI
             this.DoubleBuffered = true;
             ParentRef = Parent;
             cts = new CancellationTokenSource();
+
+            tooltipAddRoom.Hide();
+            tooltipBookMulRoom.Hide();
+            tooltipBookMulRoom.Location = new System.Drawing.Point(100, 131);
+            tooltipAddRoom.Location = new System.Drawing.Point(156, 131);
         }
         #region Properties
         public Label _lbRoomID
@@ -51,7 +56,7 @@ namespace HotelManagement.UI
             set
             {
                 total = value;
-                lbNumberOfRoom.Text = total.ToString();
+                lbNumberOfRoom.ButtonText = total.ToString();
             }
         }
         public int Empty
@@ -60,7 +65,7 @@ namespace HotelManagement.UI
             set
             {
                 empty = value;
-                lbNumberOfEmptyRoom.Text = empty.ToString();
+                lbNumberOfEmptyRoom.ButtonText = empty.ToString();
             }
         }
         public int Rented
@@ -69,7 +74,7 @@ namespace HotelManagement.UI
             set
             {
                 rented = value;
-                lbNumberOfRentedRoom.Text = rented.ToString();
+                lbNumberOfRentedRoom.ButtonText = rented.ToString();
             }
         }
         public int Cleaning
@@ -78,7 +83,7 @@ namespace HotelManagement.UI
             set
             {
                 cleaning = value;
-                lbNumberOfCleaningRoom.Text = cleaning.ToString();
+                lbNumberOfCleaningRoom.ButtonText = cleaning.ToString();
             }
         }
         public int Repairing
@@ -205,6 +210,26 @@ namespace HotelManagement.UI
                 cts = new CancellationTokenSource();
                 this.Focus();
             }
+        }
+
+        private void btBookMultipleRooms_MouseMove(object sender, MouseEventArgs e)
+        {
+            tooltipBookMulRoom.Show();
+        }
+
+        private void btBookMultipleRooms_MouseLeave(object sender, EventArgs e)
+        {
+            tooltipBookMulRoom.Hide();
+        }
+
+        private void btAddRoom_MouseMove(object sender, MouseEventArgs e)
+        {
+            tooltipAddRoom.Show();
+        }
+
+        private void btAddRoom_MouseLeave(object sender, EventArgs e)
+        {
+            tooltipAddRoom.Hide();
         }
     }
 }

@@ -577,6 +577,11 @@ namespace HotelManagement.UI
                 resetManageSubmenu();
                 isChoosebtSubService = true;
                 setStatus(pbSubService, lbSubService, ChoseSubservicesIcon, true);
+
+                pnToAddForm.Dispose();
+                System.GC.Collect();
+                createPanelToAddForm();
+                pnToAddForm.Controls.Add(new Form_ServiceManager());
             }
         }
 

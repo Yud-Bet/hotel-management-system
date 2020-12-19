@@ -140,6 +140,12 @@
       <DependentUpon>DropDownList.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\exportExcel.cs" />
+    <Compile Include="UI\Form_AddEditService.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Form_AddEditService.Designer.cs">
+      <DependentUpon>Form_AddEditService.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Form_AddEditStaff.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -222,6 +228,12 @@
     <Compile Include="UI\Form_RoomInfo.Designer.cs">
       <DependentUpon>Form_RoomInfo.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Form_ServiceManager.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Form_ServiceManager.Designer.cs">
+      <DependentUpon>Form_ServiceManager.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Form_Staff.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -271,6 +283,12 @@
     <Compile Include="UI\Item_RoomOfFormBookMulRoom.Designer.cs">
       <DependentUpon>Item_RoomOfFormBookMulRoom.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Item_ServiceManager.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Item_ServiceManager.Designer.cs">
+      <DependentUpon>Item_ServiceManager.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\LoadingForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -298,6 +316,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\DropDownList.resx">
       <DependentUpon>DropDownList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Form_AddEditService.resx">
+      <DependentUpon>Form_AddEditService.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Form_AddEditStaff.resx">
       <DependentUpon>Form_AddEditStaff.cs</DependentUpon>
@@ -343,6 +364,9 @@
     <EmbeddedResource Include="UI\Form_RoomInfo.resx">
       <DependentUpon>Form_RoomInfo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\Form_ServiceManager.resx">
+      <DependentUpon>Form_ServiceManager.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Form_Staff.resx">
       <DependentUpon>Form_Staff.cs</DependentUpon>
     </EmbeddedResource>
@@ -366,6 +390,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Item_RoomOfFormBookMulRoom.resx">
       <DependentUpon>Item_RoomOfFormBookMulRoom.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Item_ServiceManager.resx">
+      <DependentUpon>Item_ServiceManager.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\LoadingForm.resx">
       <DependentUpon>LoadingForm.cs</DependentUpon>
@@ -601,9 +628,6 @@
     <None Include="Resources\icSingleRoom.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\icPayment.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\icManage3.png" />
   </ItemGroup>
   <ItemGroup>
@@ -614,15 +638,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icYes.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icYes1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icDelete.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icManage1.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icSave.png" />
@@ -678,7 +693,22 @@
     <None Include="Resources\icHidePass.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\icYes1.png" />
+  </ItemGroup>
+  <ItemGroup>
     <None Include="Resources\fast-food.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icPayment.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icDelete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icManage1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icSearch.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

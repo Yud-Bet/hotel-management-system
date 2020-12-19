@@ -41,12 +41,10 @@ namespace HotelManagement.UI
             {
                 timerShow.Start();
                 this.pictureBox1.Image = Resources.icVerticalArrow2;
-                isHide = false;
             } else
             {
                 timerHide.Start();
                 this.pictureBox1.Image = Resources.icHorizontalArrow;
-                isHide = true;
             }
         }
 
@@ -55,6 +53,7 @@ namespace HotelManagement.UI
             if (this.Height == 103)
             {
                 timerShow.Stop();
+                isHide = false;
             } else
             {
                 this.Height += 7;
@@ -66,6 +65,7 @@ namespace HotelManagement.UI
             if (this.Height == 33)
             {
                 timerHide.Stop();
+                isHide = true;
             }
             else
             {

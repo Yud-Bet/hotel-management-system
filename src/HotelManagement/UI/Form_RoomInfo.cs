@@ -282,63 +282,6 @@ namespace HotelManagement.UI
             }
         }
 
-        bool checkEmptyValue()
-        {
-            if (tbCustomerName.Text == "")
-            {
-                MessageBox.Show("Vui lòng nhập tên khách hàng.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                tbCustomerName.Focus();
-                return false;
-            }
-
-            if ((DateTime.Today - dtpCustomerBirthday.Value).TotalDays < 365 * 16)
-            {
-                MessageBox.Show("Khách hàng chưa đủ tuổi.\nVui lòng kiểm tra lại ngày sinh khách hàng.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return false;
-            }
-            
-            if (tbCustomerPhoneNum.Text == "")
-            {
-                MessageBox.Show("Vui lòng nhập số điện thoại.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                tbCustomerPhoneNum.Focus();
-                return false;
-            }
-
-            if(rbtMale.Checked==false && rbtFemale.Checked == false)
-            {
-                MessageBox.Show("Vui lòng chọn giới tính.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return false;
-            }
-
-            if (cbIDNo.Checked == true)
-            {
-                if (tbIDNo.Text == "")
-                {
-                    MessageBox.Show("Vui lòng nhập số CMDD.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    tbIDNo.Focus();
-                    return false;
-                }
-            }
-            else
-            {
-                if (tbPassport.Text == "")
-                {
-                    MessageBox.Show("Vui lòng nhập số hộ chiếu.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    tbPassport.Focus();
-                    return false;
-                }
-            }
-
-            if (tbCustomerAddress.Text == "")
-            {
-                MessageBox.Show("Vui lòng nhập địa chỉ khách hàng.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                tbCustomerAddress.Focus();
-                return false;
-            }
-
-            return true;
-        }
-
         bool checkValidityOfValue()
         {
             if (!Regex.IsMatch(tbCustomerName.Text, @"^$|^([\p{L}]+( [\p{L}]+){0,})$"))

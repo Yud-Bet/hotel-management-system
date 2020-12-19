@@ -649,14 +649,14 @@ namespace HotelManagement.UI
             this.btBookRoom.ClickTextColor = System.Drawing.Color.White;
             this.btBookRoom.CornerRadius = 5;
             this.btBookRoom.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btBookRoom.Font = new System.Drawing.Font("Segoe UI", 14F);
+            this.btBookRoom.Font = new System.Drawing.Font("Segoe UI", 13F);
             this.btBookRoom.Horizontal_Alignment = System.Drawing.StringAlignment.Near;
             this.btBookRoom.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
             this.btBookRoom.HoverTextColor = System.Drawing.Color.White;
             this.btBookRoom.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
-            this.btBookRoom.Location = new System.Drawing.Point(307, 49);
+            this.btBookRoom.Location = new System.Drawing.Point(330, 62);
             this.btBookRoom.Name = "btBookRoom";
-            this.btBookRoom.Size = new System.Drawing.Size(131, 50);
+            this.btBookRoom.Size = new System.Drawing.Size(129, 37);
             this.btBookRoom.TabIndex = 17;
             this.btBookRoom.TextColor = System.Drawing.Color.White;
             this.btBookRoom.Vertical_Alignment = System.Drawing.StringAlignment.Center;

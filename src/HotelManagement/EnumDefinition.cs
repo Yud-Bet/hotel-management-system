@@ -50,4 +50,12 @@ namespace HotelManagement
         QuarterRevenue = 3,
         YearRevenue = 4,
     }
+
+    public enum ServiceManagerType
+    {
+        AddEatService = 1,
+        EditEatService = 2,
+        EditWashService = 3,
+        EditIronService = 4,
+    }
 }
