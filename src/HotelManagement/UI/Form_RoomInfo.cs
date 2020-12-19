@@ -392,6 +392,7 @@ namespace HotelManagement.UI
                 cts.Cancel();
                 cts.Dispose();
                 cts = new CancellationTokenSource();
+                this.Focus();
             }
         }
 
