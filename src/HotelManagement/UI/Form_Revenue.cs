@@ -8,6 +8,7 @@ using LiveCharts.Wpf;
 using System.Globalization;
 using System.Data;
 using System.Threading;
+using System.Threading.Tasks;
 
 namespace HotelManagement.UI
 {
@@ -238,12 +239,20 @@ namespace HotelManagement.UI
 
         }
 
-        private void btExportExcel_Click(object sender, EventArgs e)
+        private async void btExportExcel_Click(object sender, EventArgs e)
         {
             if (listDate.Count > 0)
             {
-                (new exportExcel()).exportRevenue(Username, (RevenueType)(cbTypeOfRevenue.SelectedIndex + 1), listDate, listRoomRevenue,
-                    listEatServiceRevenue, listLaudryServiceRevenue);
+                OverlayForm overlay = new OverlayForm(ParentRef, new LoadingForm(cts.Token));
+                overlay.Show();
+                exportExcel exporter = new exportExcel();
+                await exporter.exportRevenue(Username, (RevenueType)(cbTypeOfRevenue.SelectedIndex + 1),
+                    listDate, listRoomRevenue, listEatServiceRevenue, listLaudryServiceRevenue);
+
+                cts.Cancel();
+                cts.Dispose();
+                cts = new CancellationTokenSource();
+                ParentRef.Focus();
             }
         }
 
