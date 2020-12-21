@@ -107,48 +107,48 @@ namespace HotelManagement.UI
         {
             lbRoomStatus.Text = "Còn trống";
             pbRoomStatus.Image = YesIcon;
-            lbRoomStatus.BackColor = Color.FromArgb(181, 235, 220);
-            pbRoomStatus.BackColor = Color.FromArgb(181, 235, 220);
-            pnBackground.BackColor = Color.FromArgb(181, 235, 220);
-            lbRoomID.BackColor = Color.FromArgb(181, 235, 220);
-            label1.BackColor = Color.FromArgb(181, 235, 220);
-            pnBar.BackColor = Color.FromArgb(103, 222, 190); 
+            lbRoomStatus.BackColor = Color.FromArgb(216, 243, 220);
+            pbRoomStatus.BackColor = Color.FromArgb(216, 243, 220);
+            pnBackground.BackColor = Color.FromArgb(216, 243, 220);
+            lbRoomID.BackColor = Color.FromArgb(216, 243, 220);
+            label1.BackColor = Color.FromArgb(216, 243, 220);
+            pnBar.BackColor = Color.FromArgb(116, 198, 157);
         }
 
         public void SetRentedStatus()
         {
             lbRoomStatus.Text = "Đã thuê";
             pbRoomStatus.Image = (roomType == RoomType.SingleVIP || roomType == RoomType.Single) ? SingleRentedIcon : DoubleRentedIcon;
-            lbRoomStatus.BackColor = Color.FromArgb(255, 200, 227);
-            pbRoomStatus.BackColor = Color.FromArgb(255, 200, 227);
-            pnBackground.BackColor = Color.FromArgb(255, 200, 227);
-            lbRoomID.BackColor = Color.FromArgb(255, 200, 227);
-            label1.BackColor = Color.FromArgb(255, 200, 227);
-            pnBar.BackColor = Color.FromArgb(255, 113, 184);
+            lbRoomStatus.BackColor = Color.FromArgb(255, 166, 193);
+            pbRoomStatus.BackColor = Color.FromArgb(255, 166, 193);
+            pnBackground.BackColor = Color.FromArgb(255, 166, 193);
+            lbRoomID.BackColor = Color.FromArgb(255, 166, 193);
+            label1.BackColor = Color.FromArgb(255, 166, 193);
+            pnBar.BackColor = Color.FromArgb(255, 93, 143);
         }
 
         public void SetCleaningStatus()
         {
             lbRoomStatus.Text = "Đang dọn";
             pbRoomStatus.Image = CleaningIcon;
-            lbRoomStatus.BackColor = Color.FromArgb(150, 228, 252);
-            pbRoomStatus.BackColor = Color.FromArgb(150, 228, 252);
-            pnBackground.BackColor = Color.FromArgb(150, 228, 252);
-            lbRoomID.BackColor = Color.FromArgb(150, 228, 252);
-            label1.BackColor = Color.FromArgb(150, 228, 252);
-            pnBar.BackColor = Color.FromArgb(0, 194, 255);
+            lbRoomStatus.BackColor = Color.FromArgb(173, 232, 244);
+            pbRoomStatus.BackColor = Color.FromArgb(173, 232, 244);
+            pnBackground.BackColor = Color.FromArgb(173, 232, 244);
+            lbRoomID.BackColor = Color.FromArgb(173, 232, 244);
+            label1.BackColor = Color.FromArgb(173, 232, 244);
+            pnBar.BackColor = Color.FromArgb(72, 202, 228);
         }
 
         public void SetFixingStatus()
         {
             lbRoomStatus.Text = "Đang sửa";
             pbRoomStatus.Image = RepairingIcon;
-            lbRoomStatus.BackColor = Color.FromArgb(247, 249, 194);
-            pbRoomStatus.BackColor = Color.FromArgb(247, 249, 194);
-            pnBackground.BackColor = Color.FromArgb(247, 249, 194);
-            lbRoomID.BackColor = Color.FromArgb(247, 249, 194);
-            label1.BackColor = Color.FromArgb(247, 249, 194);
-            pnBar.BackColor = Color.FromArgb(244, 251, 53);  
+            lbRoomStatus.BackColor = Color.FromArgb(254, 251, 199);
+            pbRoomStatus.BackColor = Color.FromArgb(254, 251, 199);
+            pnBackground.BackColor = Color.FromArgb(254, 251, 199);
+            lbRoomID.BackColor = Color.FromArgb(254, 251, 199);
+            label1.BackColor = Color.FromArgb(254, 251, 199);
+            pnBar.BackColor = Color.FromArgb(253, 246, 116);
         }
 
         private void pnBackground_MouseMove(object sender, MouseEventArgs e)
