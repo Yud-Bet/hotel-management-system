@@ -122,6 +122,19 @@ namespace HotelManagement.UI
             Repairing = room.RoomCount[(int)RoomStatus.Repairing];
         }
 
+        private List<Item_Room> SearchForRoom(string Criteria)
+        {
+            var res = new List<Item_Room>();
+            for (int i = 0; i < listRoom.Count; i++)
+            {
+                if (listRoom[i]._RoomID.ToString().Contains(Criteria))
+                {
+                    res.Add(listRoom[i]);
+                }
+            }
+            return res;
+        }
+
         private void btThreeDot_Click(object sender, System.EventArgs e)
         {
             if (animBookMulRooms.CordinateEnd_X == 100)
@@ -230,6 +243,21 @@ namespace HotelManagement.UI
         private void btAddRoom_MouseLeave(object sender, EventArgs e)
         {
             tooltipAddRoom.Hide();
+        }
+
+        private async void tbSearch_TextChanged(object sender, EventArgs e)
+        {
+            if (tbSearch.Text == "")
+            {
+                pnToAddRoom.Controls.Clear();
+                pnToAddRoom.Controls.AddRange(listRoom.ToArray());
+            }
+            else
+            {
+                pnToAddRoom.Controls.Clear();
+                var temp = await Task.Run(() => SearchForRoom(tbSearch.Text));
+                pnToAddRoom.Controls.AddRange(temp.ToArray());
+            }    
         }
     }
 }

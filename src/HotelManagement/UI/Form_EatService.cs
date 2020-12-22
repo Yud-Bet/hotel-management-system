@@ -6,12 +6,14 @@ using System.Threading;
 
 namespace HotelManagement.UI
 {
+    using Services = List<Item_EatService1>;
     public partial class Form_EatService : UserControl
     {
         private DTO.RoomOverview rooms;
         private string Username;
         private CancellationTokenSource cts;
         private Form ParentRef;
+        private Services serviceList;
 
         public Form_EatService(Form ParentRef, string Username)
         {
@@ -25,14 +27,29 @@ namespace HotelManagement.UI
         private async Task Init_pnServicesList()
         {
             DTO.ServicesInfo services = await Task.Run(() => new DTO.ServicesInfo(ServiceType.Eating));
+            serviceList = new Services();
             for (int i = 0; i < services.Items.Count; i++)
             {
                 Item_EatService1 item = new Item_EatService1(this);
                 item._itemID = services.Items[i].ServiceID;
                 item._name = services.Items[i].Name;
                 item._price = services.Items[i].Price;
+                serviceList.Add(item);
                 pnServicesList.Controls.Add(item);
             }
+        }
+
+        private Services SearchForEatingServices(string Criteria)
+        {
+            var res = new Services();
+            for (int i = 0; i < serviceList.Count; i++)
+            {
+                if (serviceList[i]._name.ToLower().Contains(Criteria.ToLower()))
+                {
+                    res.Add(serviceList[i]);
+                }
+            }
+            return res;
         }
 
         private async Task Init_cbRoomSelection()
@@ -244,6 +261,21 @@ namespace HotelManagement.UI
                 cts.Dispose();
                 cts = new CancellationTokenSource();
                 this.Focus();
+            }
+        }
+
+        private async void tbSearch_TextChanged(object sender, EventArgs e)
+        {
+            if (tbSearch.Text == "")
+            {
+                pnServicesList.Controls.Clear();
+                pnServicesList.Controls.AddRange(serviceList.ToArray());
+            }
+            else
+            {
+                pnServicesList.Controls.Clear();
+                var temp = await Task.Run(() => SearchForEatingServices(tbSearch.Text));
+                pnServicesList.Controls.AddRange(temp.ToArray());
             }
         }
     }

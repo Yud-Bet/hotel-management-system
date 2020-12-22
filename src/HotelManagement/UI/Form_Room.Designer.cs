@@ -634,6 +634,7 @@
             this.tbSearch.TextBackgroundColor = System.Drawing.SystemColors.Control;
             this.tbSearch.UseSystemPasswordChar = false;
             this.tbSearch.WordWrap = true;
+            this.tbSearch.TextChanged += new System.EventHandler(this.tbSearch_TextChanged);
             // 
             // animTbSearch
             // 
