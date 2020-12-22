@@ -27,6 +27,10 @@ namespace HotelManagement.UI
             tooltipBookMulRoom.Hide();
             tooltipBookMulRoom.Location = new System.Drawing.Point(100, 131);
             tooltipAddRoom.Location = new System.Drawing.Point(156, 131);
+            Disposed += (s, e) =>
+            {
+                tbSearch.TextChanged -= tbSearch_TextChanged;
+            };
         }
         #region Properties
         public Label _lbRoomID

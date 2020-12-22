@@ -22,6 +22,11 @@ namespace HotelManagement.UI
             this.Username = Username;
             cts = new CancellationTokenSource();
             lbDiscount.Text = discount.ToString();
+
+            Disposed += (s, e) =>
+            {
+                tbSearch.TextChanged -= tbSearch_TextChanged;
+            };
         }
 
         private async Task Init_pnServicesList()
