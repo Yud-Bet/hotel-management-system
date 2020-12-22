@@ -15,7 +15,7 @@ namespace HotelManagement.UI
         private int RoomID;
         private int ClientID = 0;
         private bool flag = true;
-        private bool SearchFag = false;
+        private bool SearchFlag = false;
         private CancellationTokenSource cts;
         public Form_RoomInfo(Item_Room parent)
         {
@@ -160,7 +160,7 @@ namespace HotelManagement.UI
                 Customer = null;
                 btSave.Hide();
             }
-            SearchFag = true;
+            SearchFlag = true;
         }
 
         private void pbArrowBack_Click(object sender, EventArgs e)
@@ -415,9 +415,10 @@ namespace HotelManagement.UI
 
         private void tbCustomerName_TextChanged(object sender, EventArgs e)
         {
-            if (tbCustomerName.Text != "" && SearchFag)
+            if (tbCustomerName.Text != "" && SearchFlag)
             {
                 TakeCustomerAlreadyExistsToMenuItems(tbCustomerName.Text);
+                dropDownList1.Show();
             }
             else
             {

@@ -7,7 +7,8 @@ namespace HotelManagement.UI
 {
     public partial class Form_Main : MetroFramework.Forms.MetroForm
     {
-        public string Username;
+        private string Username;
+        private string StaffName;
         private Panel pnToAddForm;
         public Form_Main(string Username)
         {
@@ -71,7 +72,7 @@ namespace HotelManagement.UI
             try
             {
                 DTO.StaffOverview staff = new DTO.StaffOverview(Username);
-                lbStaffname.Text = staff.Name;
+                lbStaffname.Text = StaffName = staff.Name;
                 lbStaffPosition.Text = staff.Position;
             }
             catch
@@ -420,7 +421,7 @@ namespace HotelManagement.UI
                 pnToAddForm.Dispose();
                 System.GC.Collect();
                 createPanelToAddForm();
-                pnToAddForm.Controls.Add(new Form_Revenue(Username, this));
+                pnToAddForm.Controls.Add(new Form_Revenue(StaffName, this));
             }
         }
 

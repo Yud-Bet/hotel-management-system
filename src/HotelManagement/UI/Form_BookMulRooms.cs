@@ -94,6 +94,7 @@ namespace HotelManagement.UI
             if (tbCustomerName.Text != "")
             {
                 TakeCustomerAlreadyExistsToMenuItems(tbCustomerName.Text);
+                dropDownList1.Show();
             }
             else
             {
