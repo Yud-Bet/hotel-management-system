@@ -30,6 +30,11 @@ namespace HotelManagement.UI
             btAddStaff.Hide();
         }
 
+        public Form_AddEditStaff(int staffID)
+        {
+
+        }
+
         #region properties
         Item_Staff parentRef_EditStaff;
         Form_Staff parentRef_Addstaff;
@@ -78,9 +83,7 @@ namespace HotelManagement.UI
         {
             if (!checkValidityOfValue())
                 return;
-            //
-            //gán lại data giùm t, t nhác vl
-            //
+            
             parentRef_EditStaff._Name = tbName.Text;
             parentRef_EditStaff._Birthdate = dtBirthdate.Value;
             parentRef_EditStaff._Sex = rbMale.Checked;

@@ -1,6 +1,7 @@
 ﻿using HotelManagement.Properties;
 using System;
 using System.Drawing;
+using System.IO;
 using System.Windows.Forms;
 
 namespace HotelManagement.UI
@@ -74,6 +75,16 @@ namespace HotelManagement.UI
                 DTO.StaffOverview staff = new DTO.StaffOverview(Username);
                 lbStaffname.Text = StaffName = staff.Name;
                 lbStaffPosition.Text = staff.Position;
+                try
+                {
+                    string[] staffImageFiles = Directory.GetFiles(@".\\staffimage", staff.IDNo + "*");
+
+                    pbStaffAvatar.Image = Image.FromFile(staffImageFiles[0]);
+                }
+                catch
+                {
+                    pbStaffAvatar.Image = Resources.profile_user;
+                }
             }
             catch
             {
@@ -469,14 +480,6 @@ namespace HotelManagement.UI
                 setStatus(pbBill, lbBill, BillIcon, false);
             }
         }
-
-        private void pbStaffAvatar_Click(object sender, EventArgs e)
-        {
-            Form_ChangePassword temp = new Form_ChangePassword(this.Username);
-            temp.ShowDialog();
-
-        }
-
         #endregion
 
         #region SubMenu Manage Event
@@ -575,5 +578,16 @@ namespace HotelManagement.UI
         }
 
         #endregion
+
+        private void pbStaffAvatar_Click(object sender, EventArgs e)
+        {
+            menuStaff.Show(MousePosition);
+        }
+
+        private void menubtChangePass_Click(object sender, EventArgs e)
+        {
+            Form_ChangePassword temp = new Form_ChangePassword(this.Username);
+            temp.ShowDialog();
+        }
     }
 }

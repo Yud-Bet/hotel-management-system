@@ -84,7 +84,6 @@
             this.btBookRoom = new XanderUI.XUIButton();
             this.btPay = new XanderUI.XUIButton();
             this.btSettingRoom = new XanderUI.XUIButton();
-            this.btDeleteRoom = new XanderUI.XUIButton();
             this.bill = new System.Drawing.Printing.PrintDocument();
             this.printPreviewDialogBill = new System.Windows.Forms.PrintPreviewDialog();
             this.customerAlreadyEixstsMenu = new Zeroit.Framework.MaterialDesign.Controls.ZeroitMaterialContextMenuStrip();
@@ -861,7 +860,6 @@
             this.pnButton.Controls.Add(this.btBookRoom);
             this.pnButton.Controls.Add(this.btPay);
             this.pnButton.Controls.Add(this.btSettingRoom);
-            this.pnButton.Controls.Add(this.btDeleteRoom);
             this.pnButton.Location = new System.Drawing.Point(533, 463);
             this.pnButton.Name = "pnButton";
             this.pnButton.Size = new System.Drawing.Size(435, 197);
@@ -872,7 +870,7 @@
             this.btBookRoom.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
             this.btBookRoom.ButtonImage = global::HotelManagement.Properties.Resources.icYes1;
             this.btBookRoom.ButtonStyle = XanderUI.XUIButton.Style.MaterialRounded;
-            this.btBookRoom.ButtonText = "Đặt Phòng";
+            this.btBookRoom.ButtonText = "      Đặt Phòng";
             this.btBookRoom.ClickBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(130)))), ((int)(((byte)(200)))));
             this.btBookRoom.ClickTextColor = System.Drawing.Color.White;
             this.btBookRoom.CornerRadius = 5;
@@ -884,7 +882,7 @@
             this.btBookRoom.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
             this.btBookRoom.Location = new System.Drawing.Point(3, 3);
             this.btBookRoom.Name = "btBookRoom";
-            this.btBookRoom.Size = new System.Drawing.Size(138, 39);
+            this.btBookRoom.Size = new System.Drawing.Size(197, 39);
             this.btBookRoom.TabIndex = 16;
             this.btBookRoom.TextColor = System.Drawing.Color.White;
             this.btBookRoom.Vertical_Alignment = System.Drawing.StringAlignment.Center;
@@ -895,7 +893,7 @@
             this.btPay.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
             this.btPay.ButtonImage = global::HotelManagement.Properties.Resources.icPayment;
             this.btPay.ButtonStyle = XanderUI.XUIButton.Style.MaterialRounded;
-            this.btPay.ButtonText = "Thanh Toán";
+            this.btPay.ButtonText = "     Thanh Toán";
             this.btPay.ClickBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(161)))));
             this.btPay.ClickTextColor = System.Drawing.Color.White;
             this.btPay.CornerRadius = 5;
@@ -905,9 +903,9 @@
             this.btPay.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
             this.btPay.HoverTextColor = System.Drawing.Color.White;
             this.btPay.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
-            this.btPay.Location = new System.Drawing.Point(147, 3);
+            this.btPay.Location = new System.Drawing.Point(206, 3);
             this.btPay.Name = "btPay";
-            this.btPay.Size = new System.Drawing.Size(136, 39);
+            this.btPay.Size = new System.Drawing.Size(197, 39);
             this.btPay.TabIndex = 16;
             this.btPay.TextColor = System.Drawing.Color.White;
             this.btPay.Vertical_Alignment = System.Drawing.StringAlignment.Center;
@@ -918,7 +916,7 @@
             this.btSettingRoom.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
             this.btSettingRoom.ButtonImage = global::HotelManagement.Properties.Resources.icManage1;
             this.btSettingRoom.ButtonStyle = XanderUI.XUIButton.Style.MaterialRounded;
-            this.btSettingRoom.ButtonText = " Cài Đặt";
+            this.btSettingRoom.ButtonText = "        Cài Đặt";
             this.btSettingRoom.ClickBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(130)))), ((int)(((byte)(200)))));
             this.btSettingRoom.ClickTextColor = System.Drawing.Color.White;
             this.btSettingRoom.CornerRadius = 5;
@@ -928,35 +926,13 @@
             this.btSettingRoom.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
             this.btSettingRoom.HoverTextColor = System.Drawing.Color.White;
             this.btSettingRoom.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
-            this.btSettingRoom.Location = new System.Drawing.Point(289, 3);
+            this.btSettingRoom.Location = new System.Drawing.Point(3, 48);
             this.btSettingRoom.Name = "btSettingRoom";
-            this.btSettingRoom.Size = new System.Drawing.Size(124, 39);
+            this.btSettingRoom.Size = new System.Drawing.Size(197, 39);
             this.btSettingRoom.TabIndex = 17;
             this.btSettingRoom.TextColor = System.Drawing.Color.White;
             this.btSettingRoom.Vertical_Alignment = System.Drawing.StringAlignment.Center;
             this.btSettingRoom.Click += new System.EventHandler(this.btSettingRoom_Click);
-            // 
-            // btDeleteRoom
-            // 
-            this.btDeleteRoom.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
-            this.btDeleteRoom.ButtonImage = global::HotelManagement.Properties.Resources.icDelete;
-            this.btDeleteRoom.ButtonStyle = XanderUI.XUIButton.Style.MaterialRounded;
-            this.btDeleteRoom.ButtonText = "Xóa Phòng";
-            this.btDeleteRoom.ClickBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(130)))), ((int)(((byte)(200)))));
-            this.btDeleteRoom.ClickTextColor = System.Drawing.Color.White;
-            this.btDeleteRoom.CornerRadius = 5;
-            this.btDeleteRoom.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btDeleteRoom.Font = new System.Drawing.Font("Segoe UI", 13F);
-            this.btDeleteRoom.Horizontal_Alignment = System.Drawing.StringAlignment.Near;
-            this.btDeleteRoom.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
-            this.btDeleteRoom.HoverTextColor = System.Drawing.Color.White;
-            this.btDeleteRoom.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
-            this.btDeleteRoom.Location = new System.Drawing.Point(3, 48);
-            this.btDeleteRoom.Name = "btDeleteRoom";
-            this.btDeleteRoom.Size = new System.Drawing.Size(131, 39);
-            this.btDeleteRoom.TabIndex = 18;
-            this.btDeleteRoom.TextColor = System.Drawing.Color.White;
-            this.btDeleteRoom.Vertical_Alignment = System.Drawing.StringAlignment.Center;
             // 
             // bill
             // 
@@ -1086,7 +1062,6 @@
         private XanderUI.XUIButton btBookRoom;
         private XanderUI.XUIButton btPay;
         private XanderUI.XUIButton btSettingRoom;
-        private XanderUI.XUIButton btDeleteRoom;
         private System.Drawing.Printing.PrintDocument bill;
         private System.Windows.Forms.PrintPreviewDialog printPreviewDialogBill;
         private MaterialSkin.Controls.MaterialRadioButton rbtMale;

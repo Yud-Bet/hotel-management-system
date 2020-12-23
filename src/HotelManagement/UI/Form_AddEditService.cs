@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -22,8 +23,8 @@ namespace HotelManagement.UI
                 case ServiceManagerType.AddEatService:
                     formType = ServiceManagerType.AddEatService;
                     btAddService.Show();
-                    this.tbName.Text = "Dịch vụ mới";
-                    this.tbPrice.Text = "20000";
+                    this.tbName.PlaceHolderText = "Dịch vụ mới";
+                    this.tbPrice.Text = "0";
                     break;
                 case ServiceManagerType.EditEatService:
                     formType = ServiceManagerType.EditEatService;
@@ -57,6 +58,8 @@ namespace HotelManagement.UI
 
         private void btAddService_Click(object sender, EventArgs e)
         {
+            if (!checkValidValue()) return;
+
             int ef = DataAccess.Manager.AddNewService(ServiceType.Eating, tbName.Text, Convert.ToInt32(tbPrice.Text));
             if (ef > 0)
             {
@@ -70,6 +73,7 @@ namespace HotelManagement.UI
 
         private void btSave_Click(object sender, EventArgs e)
         {
+            if (!checkValidValue()) return;
             switch (formType)
             {
                 case ServiceManagerType.EditEatService:
@@ -113,6 +117,32 @@ namespace HotelManagement.UI
                     break;
             }
 
+        }
+
+        private bool checkValidValue()
+        {
+            if (tbName.Text == "")
+            {
+                MessageBox.Show("Vui lòng nhập tên dịch vụ.", "Thông Báo");
+                tbName.Focus();
+                return false;
+            }
+
+            if (tbPrice.Text == "")
+            {
+                MessageBox.Show("Vui lòng nhập giá dịch vụ.", "Thông Báo");
+                tbPrice.Focus();
+                return false;
+            }
+
+            if (!Regex.IsMatch(tbPrice.Text, @"^[0-9]{0,}$"))
+            {
+                MessageBox.Show("Giá dịch vụ là số nguyên", "Thông Báo");
+                tbPrice.Focus();
+                return false;
+            }
+
+            return true;
         }
     }
 }
