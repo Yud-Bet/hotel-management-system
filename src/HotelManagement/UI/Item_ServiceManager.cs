@@ -72,7 +72,15 @@ namespace HotelManagement.UI
 
         private void pbRemove_Click(object sender, EventArgs e)
         {
-            this.parentRef._pnToAddItem.Controls.Remove(this);
+            DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn xóa dịch vụ này không?", "Thông báo!", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                int ef = DataAccess.Manager.RemoveService(this._itemID);
+                if (ef > 0)
+                {
+                    this.parentRef._pnToAddItem.Controls.Remove(this);
+                }
+            }
         }
 
         private void pbImage_Click(object sender, EventArgs e)

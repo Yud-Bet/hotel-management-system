@@ -49,15 +49,15 @@ namespace HotelManagement.UI
                                                 dataLaundryServices.Rows[0].ItemArray[1].ToString(),
                                                 Convert.ToInt32(dataLaundryServices.Rows[0].ItemArray[2]),
                                                 this);
-            lbLaundryName.Text = ItemLaundry._name;
-            lbLaundryPrice.Text = ItemLaundry._price.ToString();
+            LbLaundryName.Text = ItemLaundry._name;
+            LbLaundryPrice.Text = ItemLaundry._price.ToString();
 
             ItemIron = new Item_ServiceManager(Convert.ToInt32(dataLaundryServices.Rows[1].ItemArray[0]),
                                                 dataLaundryServices.Rows[1].ItemArray[1].ToString(),
                                                 Convert.ToInt32(dataLaundryServices.Rows[1].ItemArray[2]),
                                                 this);
-            lbIronName.Text = ItemIron._name;
-            lbIronPrice.Text = ItemIron._price.ToString();
+            LbIronName.Text = ItemIron._name;
+            LbIronPrice.Text = ItemIron._price.ToString();
         }
         private void btAddService_Click(object sender, EventArgs e)
         {

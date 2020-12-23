@@ -50,6 +50,7 @@
             this.lbSex = new System.Windows.Forms.Label();
             this.lbBirthdate = new System.Windows.Forms.Label();
             this.lbAddress = new System.Windows.Forms.Label();
+            this.btToShowCustomerBill = new XanderUI.XUIButton();
             this.pnMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -189,9 +190,9 @@
             this.xuiButton3.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
             this.xuiButton3.HoverTextColor = System.Drawing.Color.White;
             this.xuiButton3.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
-            this.xuiButton3.Location = new System.Drawing.Point(218, 42);
+            this.xuiButton3.Location = new System.Drawing.Point(201, 44);
             this.xuiButton3.Name = "xuiButton3";
-            this.xuiButton3.Size = new System.Drawing.Size(51, 50);
+            this.xuiButton3.Size = new System.Drawing.Size(40, 40);
             this.xuiButton3.TabIndex = 22;
             this.xuiButton3.TextColor = System.Drawing.Color.White;
             this.xuiButton3.Vertical_Alignment = System.Drawing.StringAlignment.Center;
@@ -211,9 +212,9 @@
             this.xuiButton6.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
             this.xuiButton6.HoverTextColor = System.Drawing.Color.White;
             this.xuiButton6.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
-            this.xuiButton6.Location = new System.Drawing.Point(381, 42);
+            this.xuiButton6.Location = new System.Drawing.Point(364, 44);
             this.xuiButton6.Name = "xuiButton6";
-            this.xuiButton6.Size = new System.Drawing.Size(51, 50);
+            this.xuiButton6.Size = new System.Drawing.Size(40, 40);
             this.xuiButton6.TabIndex = 23;
             this.xuiButton6.TextColor = System.Drawing.Color.White;
             this.xuiButton6.Vertical_Alignment = System.Drawing.StringAlignment.Center;
@@ -233,9 +234,9 @@
             this.xuiButton2.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
             this.xuiButton2.HoverTextColor = System.Drawing.Color.White;
             this.xuiButton2.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
-            this.xuiButton2.Location = new System.Drawing.Point(35, 42);
+            this.xuiButton2.Location = new System.Drawing.Point(18, 44);
             this.xuiButton2.Name = "xuiButton2";
-            this.xuiButton2.Size = new System.Drawing.Size(51, 50);
+            this.xuiButton2.Size = new System.Drawing.Size(40, 40);
             this.xuiButton2.TabIndex = 24;
             this.xuiButton2.TextColor = System.Drawing.Color.White;
             this.xuiButton2.Vertical_Alignment = System.Drawing.StringAlignment.Center;
@@ -246,7 +247,7 @@
             this.zeroitShadowPanel1.Location = new System.Drawing.Point(5, 35);
             this.zeroitShadowPanel1.Name = "zeroitShadowPanel1";
             this.zeroitShadowPanel1.PanelColor = System.Drawing.Color.Empty;
-            this.zeroitShadowPanel1.Size = new System.Drawing.Size(806, 69);
+            this.zeroitShadowPanel1.Size = new System.Drawing.Size(806, 58);
             this.zeroitShadowPanel1.Smoothing = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             this.zeroitShadowPanel1.TabIndex = 21;
             // 
@@ -264,7 +265,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(92, 42);
+            this.label5.Location = new System.Drawing.Point(64, 44);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(70, 19);
             this.label5.TabIndex = 25;
@@ -274,7 +275,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(275, 42);
+            this.label7.Location = new System.Drawing.Point(247, 44);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(61, 19);
             this.label7.TabIndex = 26;
@@ -284,7 +285,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(438, 42);
+            this.label1.Location = new System.Drawing.Point(410, 44);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(50, 19);
             this.label1.TabIndex = 27;
@@ -294,7 +295,7 @@
             // 
             this.lbSex.AutoSize = true;
             this.lbSex.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbSex.Location = new System.Drawing.Point(275, 72);
+            this.lbSex.Location = new System.Drawing.Point(247, 64);
             this.lbSex.Name = "lbSex";
             this.lbSex.Size = new System.Drawing.Size(41, 20);
             this.lbSex.TabIndex = 28;
@@ -304,7 +305,7 @@
             // 
             this.lbBirthdate.AutoSize = true;
             this.lbBirthdate.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbBirthdate.Location = new System.Drawing.Point(92, 72);
+            this.lbBirthdate.Location = new System.Drawing.Point(64, 64);
             this.lbBirthdate.Name = "lbBirthdate";
             this.lbBirthdate.Size = new System.Drawing.Size(85, 20);
             this.lbBirthdate.TabIndex = 28;
@@ -314,16 +315,40 @@
             // 
             this.lbAddress.AutoSize = true;
             this.lbAddress.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbAddress.Location = new System.Drawing.Point(438, 72);
+            this.lbAddress.Location = new System.Drawing.Point(410, 64);
             this.lbAddress.Name = "lbAddress";
             this.lbAddress.Size = new System.Drawing.Size(18, 20);
             this.lbAddress.TabIndex = 28;
             this.lbAddress.Text = "...";
             // 
+            // btToShowCustomerBill
+            // 
+            this.btToShowCustomerBill.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
+            this.btToShowCustomerBill.ButtonImage = ((System.Drawing.Image)(resources.GetObject("btToShowCustomerBill.ButtonImage")));
+            this.btToShowCustomerBill.ButtonStyle = XanderUI.XUIButton.Style.MaterialRounded;
+            this.btToShowCustomerBill.ButtonText = "Xem Hóa Đơn";
+            this.btToShowCustomerBill.ClickBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(161)))));
+            this.btToShowCustomerBill.ClickTextColor = System.Drawing.Color.White;
+            this.btToShowCustomerBill.CornerRadius = 5;
+            this.btToShowCustomerBill.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btToShowCustomerBill.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.btToShowCustomerBill.Horizontal_Alignment = System.Drawing.StringAlignment.Near;
+            this.btToShowCustomerBill.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
+            this.btToShowCustomerBill.HoverTextColor = System.Drawing.Color.White;
+            this.btToShowCustomerBill.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
+            this.btToShowCustomerBill.Location = new System.Drawing.Point(646, 44);
+            this.btToShowCustomerBill.Name = "btToShowCustomerBill";
+            this.btToShowCustomerBill.Size = new System.Drawing.Size(153, 40);
+            this.btToShowCustomerBill.TabIndex = 29;
+            this.btToShowCustomerBill.TextColor = System.Drawing.Color.White;
+            this.btToShowCustomerBill.Vertical_Alignment = System.Drawing.StringAlignment.Center;
+            this.btToShowCustomerBill.Click += new System.EventHandler(this.btToShowCustomerBill_Click);
+            // 
             // Item_Customer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btToShowCustomerBill);
             this.Controls.Add(this.lbBirthdate);
             this.Controls.Add(this.lbAddress);
             this.Controls.Add(this.lbSex);
@@ -337,7 +362,7 @@
             this.Controls.Add(this.pnMain);
             this.Controls.Add(this.zeroitUltraTextBox1);
             this.Name = "Item_Customer";
-            this.Size = new System.Drawing.Size(815, 103);
+            this.Size = new System.Drawing.Size(815, 96);
             this.pnMain.ResumeLayout(false);
             this.pnMain.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -368,5 +393,6 @@
         private System.Windows.Forms.Label lbSex;
         private System.Windows.Forms.Label lbBirthdate;
         private System.Windows.Forms.Label lbAddress;
+        private XanderUI.XUIButton btToShowCustomerBill;
     }
 }

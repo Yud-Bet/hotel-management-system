@@ -20,25 +20,30 @@ namespace HotelManagement.UI
             switch (type)
             {
                 case ServiceManagerType.AddEatService:
+                    formType = ServiceManagerType.AddEatService;
                     btAddService.Show();
                     this.tbName.Text = "Dịch vụ mới";
                     this.tbPrice.Text = "20000";
                     break;
                 case ServiceManagerType.EditEatService:
+                    formType = ServiceManagerType.EditEatService;
                     btAddService.Hide();
                     this.parentRefItem = parentRefItem;
                     this.tbName.Text = this.parentRefItem._name;
                     this.tbPrice.Text = this.parentRefItem._price.ToString();
                     break;
                 case ServiceManagerType.EditWashService:
+                    formType = ServiceManagerType.EditWashService;
                     btAddService.Hide();
                     this.tbName.Text = this.parentRefForm.ItemLaundry._name;
+                    this.tbPrice.Text = this.parentRefForm.ItemLaundry._price.ToString();
+                    break;
+                case ServiceManagerType.EditIronService:
+                    btAddService.Hide();
+                    this.tbName.Text = this.parentRefForm.ItemIron._name;
                     this.tbPrice.Text = this.parentRefForm.ItemIron._price.ToString();
                     break;
                 default:
-                    btAddService.Hide();
-                    this.tbName.Text = this.parentRefForm.ItemLaundry._name;
-                    this.tbPrice.Text = this.parentRefForm.ItemIron._price.ToString();
 
                     break;
             }
@@ -59,21 +64,53 @@ namespace HotelManagement.UI
                 Item_ServiceManager item = new Item_ServiceManager(Convert.ToInt32(data.Rows[0].ItemArray[0]), tbName.Text, Convert.ToInt32(tbPrice.Text), this.parentRefForm);
                 this.parentRefForm._pnToAddItem.Controls.Add(item);
                 MessageBox.Show("Thêm dịch vụ mới thành công!", "Thông báo!");
-                //this.parentRefItem._name = tbName.Text;
-                //this.parentRefItem._price = Convert.ToInt32(tbPrice.Text);
                 this.Close();
             }
         }
 
         private void btSave_Click(object sender, EventArgs e)
         {
-            int ef  = DataAccess.Manager.SetServiceInfo(this.parentRefItem._itemID, tbName.Text, Convert.ToInt32(tbPrice.Text));
-            if (ef > 0)
+            switch (formType)
             {
-                MessageBox.Show("Sửa thông tin dịch vụ thành công!", "Thông báo!");
-                this.parentRefItem._name = tbName.Text;
-                this.parentRefItem._price = Convert.ToInt32(tbPrice.Text);
-                this.Close();
+                case ServiceManagerType.EditEatService:
+                    int ef  = DataAccess.Manager.SetServiceInfo(this.parentRefItem._itemID, tbName.Text, Convert.ToInt32(tbPrice.Text));
+                    if (ef > 0)
+                    {
+                        this.parentRefItem._name = tbName.Text;
+                        this.parentRefItem._price = Convert.ToInt32(tbPrice.Text);
+
+                        MessageBox.Show("Sửa thông tin dịch vụ thành công!", "Thông báo!");
+                        this.Close();
+                    }
+                    break;
+                case ServiceManagerType.EditWashService:
+                    int Ef = DataAccess.Manager.SetServiceInfo(this.parentRefForm.ItemLaundry._itemID, tbName.Text, Convert.ToInt32(tbPrice.Text));
+                    if (Ef > 0)
+                    {
+                        this.parentRefForm.ItemLaundry._name = tbName.Text;
+                        this.parentRefForm.LbLaundryName.Text = tbName.Text;
+
+                        this.parentRefForm.ItemLaundry._price = Convert.ToInt32(tbPrice.Text);
+                        this.parentRefForm.LbLaundryPrice.Text = tbPrice.Text;
+
+                        MessageBox.Show("Sửa thông tin dịch vụ thành công!", "Thông báo!");
+                        this.Close();
+                    }
+                    break;
+                case ServiceManagerType.EditIronService:
+                    int EF = DataAccess.Manager.SetServiceInfo(this.parentRefForm.ItemIron._itemID, tbName.Text, Convert.ToInt32(tbPrice.Text));
+                    if (EF > 0)
+                    {
+                        this.parentRefForm.ItemIron._name = tbName.Text;
+                        this.parentRefForm.LbIronName.Text = tbName.Text;
+
+                        this.parentRefForm.ItemIron._price = Convert.ToInt32(tbPrice.Text);
+                        this.parentRefForm.LbIronPrice.Text = tbPrice.Text;
+
+                        MessageBox.Show("Sửa thông tin dịch vụ thành công!", "Thông báo!");
+                        this.Close();
+                    }
+                    break;
             }
 
         }

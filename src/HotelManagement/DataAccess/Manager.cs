@@ -46,5 +46,10 @@ namespace HotelManagement.DataAccess
         {
             return ExecuteQuery.ExecuteReader("QLKS_GetServiceIdOfNewService");
         }
+        public static int RemoveService(int id)
+        {
+            return ExecuteQuery.ExecuteNoneQuery("QLKS_RemoveService @ID",
+                new object[] { id });
+        }
     }
 }

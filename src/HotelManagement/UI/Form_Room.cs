@@ -33,6 +33,17 @@ namespace HotelManagement.UI
             };
         }
         #region Properties
+        enum ShowType
+        {
+            All = 1,
+            Empty = 2,
+            Rented = 3,
+            Cleaning = 4,
+            Repairing = 5,
+        }
+
+        ShowType showType = ShowType.All;
+
         public Label _lbRoomID
         {
             get { return lbRoomID; }
@@ -96,7 +107,7 @@ namespace HotelManagement.UI
             set
             {
                 repairing = value;
-                lbNumberOfRepairingRoom.Text = repairing.ToString();
+                lbNumberOfRepairingRoom.ButtonText = repairing.ToString();
             }
         }
 
@@ -275,6 +286,81 @@ namespace HotelManagement.UI
                 var temp = await Task.Run(() => SearchForRoom(tbSearch.Text));
                 pnToAddRoom.Controls.AddRange(temp.ToArray());
             }    
+        }
+
+        private void lbNumberOfRoom_Click(object sender, EventArgs e)
+        {
+            if (showType != ShowType.All)
+            {
+                pnToAddRoom.Controls.Clear();
+                pnToAddRoom.Controls.Add(lbListRoomIsEmpty);
+                foreach (Item_Room i in listRoom)
+                {
+                    pnToAddRoom.Controls.Add(i);
+                }
+                showType = ShowType.All;
+            }
+            if (pnToAddRoom.Controls.Count == 1) lbListRoomIsEmpty.Show();
+        }
+
+        private void lbNumberOfEmptyRoom_Click(object sender, EventArgs e)
+        {
+            if (showType != ShowType.Empty)
+            {
+                pnToAddRoom.Controls.Clear();
+                pnToAddRoom.Controls.Add(lbListRoomIsEmpty);
+                foreach (Item_Room i in listRoom)
+                {
+                    if (i._RoomStatus == RoomStatus.Empty) pnToAddRoom.Controls.Add(i);
+                }
+                showType = ShowType.Empty;
+            }
+            if (pnToAddRoom.Controls.Count == 1) lbListRoomIsEmpty.Show();
+        }
+
+        private void lbNumberOfRentedRoom_Click(object sender, EventArgs e)
+        {
+            if (showType != ShowType.Rented)
+            {
+                pnToAddRoom.Controls.Clear();
+                pnToAddRoom.Controls.Add(lbListRoomIsEmpty);
+                foreach (Item_Room i in listRoom)
+                {
+                    if (i._RoomStatus == RoomStatus.Rented) pnToAddRoom.Controls.Add(i);
+                }
+                showType = ShowType.Rented;
+            }
+            if (pnToAddRoom.Controls.Count == 1) lbListRoomIsEmpty.Show();
+        }
+
+        private void lbNumberOfCleaningRoom_Click(object sender, EventArgs e)
+        {
+            if (showType != ShowType.Cleaning)
+            {
+                pnToAddRoom.Controls.Clear();
+                pnToAddRoom.Controls.Add(lbListRoomIsEmpty);
+                foreach (Item_Room i in listRoom)
+                {
+                    if (i._RoomStatus == RoomStatus.Cleaning) pnToAddRoom.Controls.Add(i);
+                }
+                showType = ShowType.Cleaning;
+            }
+            if (pnToAddRoom.Controls.Count == 1) lbListRoomIsEmpty.Show();
+        }
+
+        private void lbNumberOfRepairingRoom_Click(object sender, EventArgs e)
+        {
+            if (showType != ShowType.Repairing)
+            {
+                pnToAddRoom.Controls.Clear();
+                pnToAddRoom.Controls.Add(lbListRoomIsEmpty);
+                foreach (Item_Room i in listRoom)
+                {
+                    if (i._RoomStatus == RoomStatus.Repairing) pnToAddRoom.Controls.Add(i);
+                }
+                showType = ShowType.Repairing;
+            }
+            if (pnToAddRoom.Controls.Count == 1) lbListRoomIsEmpty.Show();
         }
     }
 }
