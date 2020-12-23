@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace HotelManagement.UI
@@ -92,26 +85,30 @@ namespace HotelManagement.UI
             GC.Collect();
         }
 
-        private void tbCount_KeyPress(object sender, KeyPressEventArgs e)
+        private async void tbCount_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)Keys.Enter)
             {
-                this._count = Convert.ToInt32(tbCount.Text);
-                this.parent.calcTotalMoney();
+                if (tbCount.Text == "")
+                {
+                    this._count = 1;
+                    await this.parent.calcTotalMoney();
+                }
                 zeroitUltraTextBox1.Focus();
-                return;
             }
-
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
                 e.Handled = true;
             }
+        }
 
-            Task.Run(() =>
+        private async void tbCount_TextChanged(object sender, EventArgs e)
+        {
+            if (tbCount.Text != "")
             {
                 this._count = Convert.ToInt32(tbCount.Text);
-                this.parent.calcTotalMoney();
-            });
+                await this.parent.calcTotalMoney();
+            }
         }
     }
 }

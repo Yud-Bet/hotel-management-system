@@ -41,6 +41,7 @@
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.btAddService = new XanderUI.XUIButton();
             this.pnToAddItem = new System.Windows.Forms.FlowLayoutPanel();
+            this.lbListServiceIsEmpty = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.lbIronPrice = new System.Windows.Forms.Label();
             this.lbLaundryPrice = new System.Windows.Forms.Label();
@@ -54,6 +55,7 @@
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbSearch)).BeginInit();
+            this.pnToAddItem.SuspendLayout();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -200,10 +202,23 @@
             // pnToAddItem
             // 
             this.pnToAddItem.AutoScroll = true;
+            this.pnToAddItem.Controls.Add(this.lbListServiceIsEmpty);
             this.pnToAddItem.Location = new System.Drawing.Point(20, 53);
             this.pnToAddItem.Name = "pnToAddItem";
             this.pnToAddItem.Size = new System.Drawing.Size(630, 432);
             this.pnToAddItem.TabIndex = 0;
+            this.pnToAddItem.ControlAdded += new System.Windows.Forms.ControlEventHandler(this.pnToAddItem_ControlAdded);
+            this.pnToAddItem.ControlRemoved += new System.Windows.Forms.ControlEventHandler(this.pnToAddItem_ControlRemoved);
+            // 
+            // lbListServiceIsEmpty
+            // 
+            this.lbListServiceIsEmpty.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbListServiceIsEmpty.Location = new System.Drawing.Point(3, 0);
+            this.lbListServiceIsEmpty.Name = "lbListServiceIsEmpty";
+            this.lbListServiceIsEmpty.Size = new System.Drawing.Size(620, 50);
+            this.lbListServiceIsEmpty.TabIndex = 1;
+            this.lbListServiceIsEmpty.Text = "Chưa có dịch vụ nào!";
+            this.lbListServiceIsEmpty.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel5
             // 
@@ -351,6 +366,7 @@
             this.panel3.PerformLayout();
             this.panel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbSearch)).EndInit();
+            this.pnToAddItem.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
@@ -383,5 +399,6 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         private System.Windows.Forms.PictureBox pbSearch;
         private Zeroit.Framework.Labels.ZeroitUltraTextBox tbSearch;
+        private System.Windows.Forms.Label lbListServiceIsEmpty;
     }
 }

@@ -47,6 +47,24 @@ namespace HotelManagement.UI
                     );
                 pnAddItem.Controls.Add(itemBillInfo);
             }
+
+            if (pnAddItem.Controls.Count == 0)
+            {
+                createlbEmptyBillList();
+            }
+        }
+
+        void createlbEmptyBillList()
+        {
+            this.lbListBillIsEmpty = new Label();
+            this.pnAddItem.Controls.Add(lbListBillIsEmpty);
+            this.lbListBillIsEmpty.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbListBillIsEmpty.Location = new System.Drawing.Point(3, 0);
+            this.lbListBillIsEmpty.Name = "lbEmptyBillList";
+            this.lbListBillIsEmpty.Size = new System.Drawing.Size(915, 44);
+            this.lbListBillIsEmpty.TabIndex = 2;
+            this.lbListBillIsEmpty.Text = "Chưa có hóa đơn nào!";
+            this.lbListBillIsEmpty.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
         }
         private void loadDataServicesBillInfo()
         {

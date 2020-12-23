@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using System.Data;
 using System.Text.RegularExpressions;
+using HotelManagement.Properties;
 
 namespace HotelManagement.UI
 {
@@ -60,6 +61,17 @@ namespace HotelManagement.UI
             tbPhonenum.Text = parentRef_EditStaff._Phonenum;
             dtStartDate.Value = parentRef_EditStaff._StartDate;
             tbSalary.Text = parentRef_EditStaff._Salary.ToString();
+
+            try
+            {
+                string[] staffImageFiles = Directory.GetFiles(@".\\staffimage", parentRef_EditStaff._IDNo + "*");
+
+                staffImage.Image = Image.FromFile(staffImageFiles[0]);
+            }
+            catch
+            {
+                staffImage.Image = Resources.profile_user;
+            }
         }
 
         private void btSave_Click(object sender, EventArgs e)
@@ -120,7 +132,7 @@ namespace HotelManagement.UI
         }
         bool checkValidityOfValue()
         {
-            if (!Regex.IsMatch(tbName.Text, @"^$|^([\p{L}]+( [\p{L}]+){0,})$"))
+            if (!Regex.IsMatch(tbName.Text, @"^([\p{L}]+( [\p{L}]+){0,})$"))
             {
                 MessageBox.Show("Tên không được chứa ký tự đặt biệt và không chứa số.", "Thông báo!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 tbName.Focus();
@@ -131,7 +143,7 @@ namespace HotelManagement.UI
                 MessageBox.Show("Vui lòng nhập Tên nhân viên.", "Thông báo!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return false;
             }
-            if (!Regex.IsMatch(tbPhonenum.Text, @"^$|^[0-9]{10}$"))
+            if (!Regex.IsMatch(tbPhonenum.Text, @"^[0-9]{10}$"))
             {
                 MessageBox.Show("Số điện thoại chỉ gồm 10 số.", "Thông báo!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 tbPhonenum.Focus();
@@ -143,7 +155,7 @@ namespace HotelManagement.UI
                 return false;
             }
 
-            if (!Regex.IsMatch(tbIDNo.Text, @"^$|^[0-9]{9}$"))
+            if (!Regex.IsMatch(tbIDNo.Text, @"^[0-9]{9}$"))
             {
                 MessageBox.Show("CMNN chỉ gồm 9 số.", "Thông báo!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 tbIDNo.Focus();
@@ -155,7 +167,7 @@ namespace HotelManagement.UI
                 return false;
             }
 
-            if (!Regex.IsMatch(tbSalary.Text, @"^$|^[0-9]$"))
+            if (!Regex.IsMatch(tbSalary.Text, @"^[0-9]{0,}$"))
             {
                 MessageBox.Show("Lương chỉ được phép nhập số.", "Thông báo!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 tbSalary.Focus();
@@ -204,11 +216,7 @@ namespace HotelManagement.UI
             {
                 return;
             }
-            //
-            //làm như hàm additem bên form_staff (parentRef_AddStaff.addItem(....)) để add nhân viên mới thêm vào danh sách trong form staff
-            this.parentRef_Addstaff.addItem(item_Staff._ID, item_Staff._Position,item_Staff._Name, item_Staff._IDNo, item_Staff._Birthdate, item_Staff._Sex,
-                                            item_Staff._Address, item_Staff._Phonenum, item_Staff._StartDate, item_Staff._Salary, item_Staff._Username, item_Staff._Pass);
-            //
+
             if (open.FileName != "")
             {
                 if (!Directory.Exists(@".\\staffimage"))
@@ -218,7 +226,9 @@ namespace HotelManagement.UI
 
                 File.Copy(open.FileName, @".\\staffimage\\" + tbIDNo.Text.ToString() + Path.GetExtension(open.FileName));
             }
-
+            
+            this.parentRef_Addstaff.addItem(item_Staff._ID, item_Staff._Position,item_Staff._Name, item_Staff._IDNo, item_Staff._Birthdate, item_Staff._Sex,
+                                            item_Staff._Address, item_Staff._Phonenum, item_Staff._StartDate, item_Staff._Salary, item_Staff._Username, item_Staff._Pass);
             this.Close();
         }
 

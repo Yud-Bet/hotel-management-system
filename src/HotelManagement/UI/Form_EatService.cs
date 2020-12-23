@@ -67,13 +67,16 @@ namespace HotelManagement.UI
             }
             cbRoomSelection.SelectedIndex = 0;
         }
-        public void calcTotalMoney()
+        public async Task calcTotalMoney()
         {
             int sum = 0;
-            foreach (Item_EatService2 i in this._SelectedItems)
+            await Task.Run(() =>
             {
-                sum += (i._count * i._price);
-            }
+                foreach (Item_EatService2 i in this._SelectedItems)
+                {
+                    sum += (i._count * i._price);
+                }
+            });
             this._totalMoney = sum;
         }
 
@@ -266,6 +269,32 @@ namespace HotelManagement.UI
                 cts.Dispose();
                 cts = new CancellationTokenSource();
                 this.Focus();
+            }
+        }
+
+        private void pnServicesList_ControlAdded(object sender, ControlEventArgs e)
+        {
+            lbListServiceIsEmpty.Hide();
+        }
+
+        private void pnServicesList_ControlRemoved(object sender, ControlEventArgs e)
+        {
+            if (pnServicesList.Controls.Count == 1)
+            {
+                lbListServiceIsEmpty.Show();
+            }
+        }
+
+        private void pnSelectedServices_ControlAdded(object sender, ControlEventArgs e)
+        {
+            lbListSelectedServiceIsEmpty.Hide();
+        }
+
+        private void pnSelectedServices_ControlRemoved(object sender, ControlEventArgs e)
+        {
+            if (pnSelectedServices.Controls.Count == 1)
+            {
+                lbListSelectedServiceIsEmpty.Show();
             }
         }
 

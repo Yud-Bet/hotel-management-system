@@ -39,6 +39,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
             this.pnAddItem = new System.Windows.Forms.FlowLayoutPanel();
+            this.lbListCustomerIsEmpty = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pbSearch = new System.Windows.Forms.PictureBox();
             this.tbSearch = new Zeroit.Framework.Labels.ZeroitUltraTextBox();
@@ -47,6 +48,7 @@
             this.label19 = new System.Windows.Forms.Label();
             this.timerGC = new System.Windows.Forms.Timer(this.components);
             this.panel5.SuspendLayout();
+            this.pnAddItem.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbSearch)).BeginInit();
             this.SuspendLayout();
@@ -147,10 +149,23 @@
             // pnAddItem
             // 
             this.pnAddItem.AutoScroll = true;
+            this.pnAddItem.Controls.Add(this.lbListCustomerIsEmpty);
             this.pnAddItem.Location = new System.Drawing.Point(35, 39);
             this.pnAddItem.Name = "pnAddItem";
             this.pnAddItem.Size = new System.Drawing.Size(845, 430);
             this.pnAddItem.TabIndex = 8;
+            this.pnAddItem.ControlAdded += new System.Windows.Forms.ControlEventHandler(this.pnAddItem_ControlAdded);
+            this.pnAddItem.ControlRemoved += new System.Windows.Forms.ControlEventHandler(this.pnAddItem_ControlRemoved);
+            // 
+            // lbListCustomerIsEmpty
+            // 
+            this.lbListCustomerIsEmpty.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbListCustomerIsEmpty.Location = new System.Drawing.Point(3, 0);
+            this.lbListCustomerIsEmpty.Name = "lbListCustomerIsEmpty";
+            this.lbListCustomerIsEmpty.Size = new System.Drawing.Size(833, 50);
+            this.lbListCustomerIsEmpty.TabIndex = 1;
+            this.lbListCustomerIsEmpty.Text = "Chưa có khách hàng nào!";
+            this.lbListCustomerIsEmpty.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel1
             // 
@@ -254,6 +269,7 @@
             this.Size = new System.Drawing.Size(968, 666);
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
+            this.pnAddItem.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbSearch)).EndInit();
@@ -281,5 +297,6 @@
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Timer timerGC;
+        private System.Windows.Forms.Label lbListCustomerIsEmpty;
     }
 }

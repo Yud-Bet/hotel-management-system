@@ -93,8 +93,8 @@ namespace HotelManagement.UI
         {
             if (tbCustomerName.Text != "")
             {
-                TakeCustomerAlreadyExistsToMenuItems(tbCustomerName.Text);
-                dropDownList1.Show();
+                if (TakeCustomerAlreadyExistsToMenuItems(tbCustomerName.Text)) { }
+                else dropDownList1.Hide();
             }
             else
             {
@@ -102,17 +102,20 @@ namespace HotelManagement.UI
             }
         }
 
-        private void TakeCustomerAlreadyExistsToMenuItems(string customerName)
+        private bool TakeCustomerAlreadyExistsToMenuItems(string customerName)
         {
             dropDownList1.clear();
+            bool IsExist = false;
             foreach (var i in Customers)
             {
                 string AdditionalInfo = (i.IDNumber.Length != 0) ? i.IDNumber : i.Passport;
                 if (i.Name.ToLower().Contains(customerName.ToLower()))
                 {
                     dropDownList1.addItem(i.Name + " | " + AdditionalInfo, i.ID.ToString());
+                    IsExist = true;
                 }
             }
+            return IsExist;
         }
 
         private void pnCustomerInfo_Click(object sender, EventArgs e)
@@ -311,6 +314,7 @@ namespace HotelManagement.UI
             this.Focus();
         }
 
+
         bool checkValidityOfValue()
         {
             if (!Regex.IsMatch(tbCustomerName.Text, @"^$|^([\p{L}]+( [\p{L}]+){0,})$"))
@@ -335,6 +339,32 @@ namespace HotelManagement.UI
             }
 
             return true;
+        }
+
+        private void pnToSelectRoom_ControlAdded(object sender, ControlEventArgs e)
+        {
+            lbListEmptyRoomIsEmpty.Hide();
+        }
+
+        private void pnToSelectRoom_ControlRemoved(object sender, ControlEventArgs e)
+        {
+            if (pnToSelectRoom.Controls.Count == 1)
+            {
+                lbListEmptyRoomIsEmpty.Show();
+            }
+        }
+
+        private void pnSeletedRoom_ControlAdded(object sender, ControlEventArgs e)
+        {
+            lbListSelectedRoomIsEmpty.Hide();
+        }
+
+        private void pnSeletedRoom_ControlRemoved(object sender, ControlEventArgs e)
+        {
+            if (pnSeletedRoom.Controls.Count == 1)
+            {
+                lbListSelectedRoomIsEmpty.Show();
+            }
         }
     }
 }

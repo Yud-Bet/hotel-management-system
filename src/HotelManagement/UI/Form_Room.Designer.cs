@@ -48,6 +48,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.pnToAddRoom = new System.Windows.Forms.FlowLayoutPanel();
+            this.lbListRoomIsEmpty = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tooltipAddRoom = new XanderUI.XUIButton();
             this.tooltipBookMulRoom = new XanderUI.XUIButton();
@@ -66,6 +67,7 @@
             this.tbSearch = new Zeroit.Framework.Labels.ZeroitUltraTextBox();
             this.animTbSearch = new Zeroit.Framework.Transitions.ZeroitPizaroAnimator.ZeroitPizaroAnim();
             ((System.ComponentModel.ISupportInitialize)(this.pbSearch)).BeginInit();
+            this.pnToAddRoom.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -320,10 +322,23 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnToAddRoom.AutoScroll = true;
+            this.pnToAddRoom.Controls.Add(this.lbListRoomIsEmpty);
             this.pnToAddRoom.Location = new System.Drawing.Point(39, 151);
             this.pnToAddRoom.Name = "pnToAddRoom";
             this.pnToAddRoom.Size = new System.Drawing.Size(905, 492);
             this.pnToAddRoom.TabIndex = 23;
+            this.pnToAddRoom.ControlAdded += new System.Windows.Forms.ControlEventHandler(this.pnToAddRoom_ControlAdded);
+            this.pnToAddRoom.ControlRemoved += new System.Windows.Forms.ControlEventHandler(this.pnToAddRoom_ControlRemoved);
+            // 
+            // lbListRoomIsEmpty
+            // 
+            this.lbListRoomIsEmpty.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbListRoomIsEmpty.Location = new System.Drawing.Point(3, 0);
+            this.lbListRoomIsEmpty.Name = "lbListRoomIsEmpty";
+            this.lbListRoomIsEmpty.Size = new System.Drawing.Size(894, 50);
+            this.lbListRoomIsEmpty.TabIndex = 0;
+            this.lbListRoomIsEmpty.Text = "Chưa có phòng nào!";
+            this.lbListRoomIsEmpty.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel1
             // 
@@ -668,6 +683,7 @@
             this.Size = new System.Drawing.Size(968, 666);
             this.Load += new System.EventHandler(this.Form_Room_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbSearch)).EndInit();
+            this.pnToAddRoom.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
@@ -714,5 +730,6 @@
         private XanderUI.XUIButton lbNumberOfEmptyRoom;
         private XanderUI.XUIButton tooltipAddRoom;
         private XanderUI.XUIButton tooltipBookMulRoom;
+        private System.Windows.Forms.Label lbListRoomIsEmpty;
     }
 }

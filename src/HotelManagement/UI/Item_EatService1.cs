@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace HotelManagement.UI
@@ -70,7 +63,7 @@ namespace HotelManagement.UI
             return null;
         }
 
-        private void pbImage_Click(object sender, EventArgs e)
+        private async void pbImage_Click(object sender, EventArgs e)
         {
             Item_EatService2 temp = checkExistsItem2(this);
             if (temp != null)
@@ -87,7 +80,7 @@ namespace HotelManagement.UI
                 this.parent._SelectedItems.Add(temp);
                 this.parent._pnSelectedServices.Controls.Add(temp);
             }
-            this.parent.calcTotalMoney();
+            await this.parent.calcTotalMoney();
         }
     }
 }

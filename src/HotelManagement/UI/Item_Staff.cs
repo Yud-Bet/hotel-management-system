@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using HotelManagement.Properties;
 
 namespace HotelManagement.UI
 {
@@ -149,6 +150,22 @@ namespace HotelManagement.UI
                 parentRef._pnToAddItem.Controls.Remove(this);
                 parentRef.item_Staffs.Remove(this);
                 int a = DataAccess.Manager.RemoveStaff(this._ID);
+
+                try
+                {
+                    if (!Directory.Exists(@".\\staffimage"))
+                    {
+                        Directory.CreateDirectory(@".\\staffimage");
+                    }
+
+                    string[] staffImageFiles = Directory.GetFiles(@".\\staffimage", this._IDNo + "*");
+
+                    foreach (string i in staffImageFiles)
+                    {
+                        File.Delete(i);
+                    }
+                }
+                catch { }
             }
             //MessageBox.Show(parentRef.item_Staffs.Count.ToString());
         }
@@ -187,8 +204,10 @@ namespace HotelManagement.UI
 
                 staffImage.Image = Image.FromFile(staffImageFiles[0]);
             }
-            catch { }
-            
+            catch
+            {
+                staffImage.Image = Resources.profile_user;
+            }
         } 
     }
 }

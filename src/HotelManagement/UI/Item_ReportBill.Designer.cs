@@ -39,12 +39,11 @@
             this.lbBillID = new Zeroit.Framework.Labels.ZeroitMultiFormatLabel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pbMenu = new System.Windows.Forms.PictureBox();
-            this.zeroitMaterialContextMenuStrip1 = new Zeroit.Framework.MaterialDesign.Controls.ZeroitMaterialContextMenuStrip();
             this.menuItemDetail = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuItemPay = new System.Windows.Forms.ToolStripMenuItem();
+            this.menu = new Zeroit.Framework.MaterialDesign.Controls.ZeroitMaterialContextMenuStrip();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbMenu)).BeginInit();
-            this.zeroitMaterialContextMenuStrip1.SuspendLayout();
+            this.menu.SuspendLayout();
             this.SuspendLayout();
             // 
             // zeroitUltraTextBox1
@@ -204,28 +203,22 @@
             this.pbMenu.Click += new System.EventHandler(this.pbMenu_Click);
             this.pbMenu.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Item_ReportBill_MouseMove);
             // 
-            // zeroitMaterialContextMenuStrip1
-            // 
-            this.zeroitMaterialContextMenuStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.zeroitMaterialContextMenuStrip1.Depth = 0;
-            this.zeroitMaterialContextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.menuItemDetail,
-            this.menuItemPay});
-            this.zeroitMaterialContextMenuStrip1.MouseState = Zeroit.Framework.MaterialDesign.MouseState.HOVER;
-            this.zeroitMaterialContextMenuStrip1.Name = "zeroitMaterialContextMenuStrip1";
-            this.zeroitMaterialContextMenuStrip1.Size = new System.Drawing.Size(138, 48);
-            // 
             // menuItemDetail
             // 
             this.menuItemDetail.Name = "menuItemDetail";
-            this.menuItemDetail.Size = new System.Drawing.Size(137, 22);
+            this.menuItemDetail.Size = new System.Drawing.Size(180, 22);
             this.menuItemDetail.Text = "Xem chi tiết";
+            this.menuItemDetail.Click += new System.EventHandler(this.menuItemDetail_Click);
             // 
-            // menuItemPay
+            // menu
             // 
-            this.menuItemPay.Name = "menuItemPay";
-            this.menuItemPay.Size = new System.Drawing.Size(137, 22);
-            this.menuItemPay.Text = "Thanh toán";
+            this.menu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.menu.Depth = 0;
+            this.menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuItemDetail});
+            this.menu.MouseState = Zeroit.Framework.MaterialDesign.MouseState.HOVER;
+            this.menu.Name = "zeroitMaterialContextMenuStrip1";
+            this.menu.Size = new System.Drawing.Size(138, 26);
             // 
             // Item_ReportBill
             // 
@@ -234,11 +227,11 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.zeroitUltraTextBox1);
             this.Name = "Item_ReportBill";
-            this.Size = new System.Drawing.Size(907, 33);
+            this.Size = new System.Drawing.Size(907, 34);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Item_ReportBill_MouseMove);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbMenu)).EndInit();
-            this.zeroitMaterialContextMenuStrip1.ResumeLayout(false);
+            this.menu.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -255,8 +248,7 @@
         private Zeroit.Framework.Labels.ZeroitMultiFormatLabel lbBillID;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox pbMenu;
-        private Zeroit.Framework.MaterialDesign.Controls.ZeroitMaterialContextMenuStrip zeroitMaterialContextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem menuItemDetail;
-        private System.Windows.Forms.ToolStripMenuItem menuItemPay;
+        private Zeroit.Framework.MaterialDesign.Controls.ZeroitMaterialContextMenuStrip menu;
     }
 }

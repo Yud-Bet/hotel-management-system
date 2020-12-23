@@ -54,8 +54,11 @@
             this.label5 = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
             this.pnAddItem = new System.Windows.Forms.FlowLayoutPanel();
+            this.lbListBillIsEmpty = new System.Windows.Forms.Label();
+            this.cbStaff = new MetroFramework.Controls.MetroComboBox();
             this.panel1.SuspendLayout();
             this.panel5.SuspendLayout();
+            this.pnAddItem.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel2
@@ -338,10 +341,31 @@
             // pnAddItem
             // 
             this.pnAddItem.AutoScroll = true;
+            this.pnAddItem.Controls.Add(this.lbListBillIsEmpty);
             this.pnAddItem.Location = new System.Drawing.Point(9, 39);
             this.pnAddItem.Name = "pnAddItem";
             this.pnAddItem.Size = new System.Drawing.Size(930, 477);
             this.pnAddItem.TabIndex = 8;
+            // 
+            // lbListBillIsEmpty
+            // 
+            this.lbListBillIsEmpty.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbListBillIsEmpty.Location = new System.Drawing.Point(3, 0);
+            this.lbListBillIsEmpty.Name = "lbListBillIsEmpty";
+            this.lbListBillIsEmpty.Size = new System.Drawing.Size(915, 44);
+            this.lbListBillIsEmpty.TabIndex = 2;
+            this.lbListBillIsEmpty.Text = "Chưa có hóa đơn nào!";
+            this.lbListBillIsEmpty.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // cbStaff
+            // 
+            this.cbStaff.FormattingEnabled = true;
+            this.cbStaff.ItemHeight = 23;
+            this.cbStaff.Location = new System.Drawing.Point(584, 8);
+            this.cbStaff.Name = "cbStaff";
+            this.cbStaff.Size = new System.Drawing.Size(183, 29);
+            this.cbStaff.TabIndex = 3;
+            this.cbStaff.UseSelectable = true;
             // 
             // Form_ReportBill
             // 
@@ -357,6 +381,7 @@
             this.panel1.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
+            this.pnAddItem.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -376,7 +401,6 @@
         private Zeroit.Framework.MaterialDesign.Controls.ZeroitMaterialCheckBox cbBillorServicesBill;
         private System.Windows.Forms.Panel panel5;
         private MetroFramework.Controls.MetroComboBox cbSort;
-        private MetroFramework.Controls.MetroComboBox cbStaff;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Label label4;
@@ -390,5 +414,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.FlowLayoutPanel pnAddItem;
+        private System.Windows.Forms.Label lbListBillIsEmpty;
+        private MetroFramework.Controls.MetroComboBox cbStaff;
     }
 }

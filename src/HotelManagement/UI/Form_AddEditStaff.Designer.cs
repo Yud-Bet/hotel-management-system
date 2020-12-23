@@ -69,16 +69,19 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.circlePictureBox1 = new HotelManagement.UI.CirclePictureBox();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.staffImage)).BeginInit();
             this.flowLayoutPanel3.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.circlePictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this.panel3.Controls.Add(this.circlePictureBox1);
             this.panel3.Controls.Add(this.staffImage);
             this.panel3.Controls.Add(this.flowLayoutPanel3);
             this.panel3.Controls.Add(this.flowLayoutPanel2);
@@ -114,16 +117,16 @@
             this.panel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel3.Location = new System.Drawing.Point(4, 23);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(652, 552);
+            this.panel3.Size = new System.Drawing.Size(652, 571);
             this.panel3.TabIndex = 8;
             // 
             // staffImage
             // 
             this.staffImage.Cursor = System.Windows.Forms.Cursors.Hand;
             this.staffImage.Image = ((System.Drawing.Image)(resources.GetObject("staffImage.Image")));
-            this.staffImage.Location = new System.Drawing.Point(273, 0);
+            this.staffImage.Location = new System.Drawing.Point(253, 0);
             this.staffImage.Name = "staffImage";
-            this.staffImage.Size = new System.Drawing.Size(110, 110);
+            this.staffImage.Size = new System.Drawing.Size(145, 145);
             this.staffImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.staffImage.TabIndex = 23;
             this.staffImage.TabStop = false;
@@ -135,7 +138,7 @@
             this.flowLayoutPanel3.Controls.Add(this.btCancel);
             this.flowLayoutPanel3.Controls.Add(this.btSave);
             this.flowLayoutPanel3.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flowLayoutPanel3.Location = new System.Drawing.Point(380, 511);
+            this.flowLayoutPanel3.Location = new System.Drawing.Point(380, 528);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
             this.flowLayoutPanel3.Size = new System.Drawing.Size(241, 36);
             this.flowLayoutPanel3.TabIndex = 22;
@@ -213,7 +216,7 @@
             // 
             this.flowLayoutPanel2.Controls.Add(this.rbNorStaff);
             this.flowLayoutPanel2.Controls.Add(this.rbManager);
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(393, 147);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(393, 176);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Size = new System.Drawing.Size(178, 32);
             this.flowLayoutPanel2.TabIndex = 1;
@@ -256,7 +259,7 @@
             // 
             this.flowLayoutPanel1.Controls.Add(this.rbMale);
             this.flowLayoutPanel1.Controls.Add(this.rbFemale);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(393, 301);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(393, 330);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(178, 32);
             this.flowLayoutPanel1.TabIndex = 5;
@@ -298,7 +301,7 @@
             // dtStartDate
             // 
             this.dtStartDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtStartDate.Location = new System.Drawing.Point(91, 458);
+            this.dtStartDate.Location = new System.Drawing.Point(91, 487);
             this.dtStartDate.MinimumSize = new System.Drawing.Size(0, 29);
             this.dtStartDate.Name = "dtStartDate";
             this.dtStartDate.Size = new System.Drawing.Size(116, 29);
@@ -307,7 +310,7 @@
             // dtBirthdate
             // 
             this.dtBirthdate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtBirthdate.Location = new System.Drawing.Point(91, 304);
+            this.dtBirthdate.Location = new System.Drawing.Point(91, 333);
             this.dtBirthdate.MinimumSize = new System.Drawing.Size(0, 29);
             this.dtBirthdate.Name = "dtBirthdate";
             this.dtBirthdate.Size = new System.Drawing.Size(116, 29);
@@ -322,7 +325,7 @@
             this.tbName.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.tbName.ForeColor = System.Drawing.Color.Black;
             this.tbName.IsEnabled = true;
-            this.tbName.Location = new System.Drawing.Point(91, 232);
+            this.tbName.Location = new System.Drawing.Point(91, 261);
             this.tbName.MaxLength = 32767;
             this.tbName.Multiline = false;
             this.tbName.Name = "tbName";
@@ -348,7 +351,7 @@
             this.tbIDNo.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.tbIDNo.ForeColor = System.Drawing.Color.Black;
             this.tbIDNo.IsEnabled = true;
-            this.tbIDNo.Location = new System.Drawing.Point(393, 228);
+            this.tbIDNo.Location = new System.Drawing.Point(393, 257);
             this.tbIDNo.MaxLength = 32767;
             this.tbIDNo.Multiline = false;
             this.tbIDNo.Name = "tbIDNo";
@@ -374,7 +377,7 @@
             this.tbSalary.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.tbSalary.ForeColor = System.Drawing.Color.Black;
             this.tbSalary.IsEnabled = true;
-            this.tbSalary.Location = new System.Drawing.Point(393, 463);
+            this.tbSalary.Location = new System.Drawing.Point(393, 492);
             this.tbSalary.MaxLength = 32767;
             this.tbSalary.Multiline = false;
             this.tbSalary.Name = "tbSalary";
@@ -399,7 +402,7 @@
             this.tbPhonenum.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.tbPhonenum.ForeColor = System.Drawing.Color.Black;
             this.tbPhonenum.IsEnabled = true;
-            this.tbPhonenum.Location = new System.Drawing.Point(393, 386);
+            this.tbPhonenum.Location = new System.Drawing.Point(393, 415);
             this.tbPhonenum.MaxLength = 32767;
             this.tbPhonenum.Multiline = false;
             this.tbPhonenum.Name = "tbPhonenum";
@@ -424,7 +427,7 @@
             this.tbAddress.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.tbAddress.ForeColor = System.Drawing.Color.Black;
             this.tbAddress.IsEnabled = true;
-            this.tbAddress.Location = new System.Drawing.Point(91, 386);
+            this.tbAddress.Location = new System.Drawing.Point(91, 415);
             this.tbAddress.MaxLength = 32767;
             this.tbAddress.Multiline = false;
             this.tbAddress.Name = "tbAddress";
@@ -449,7 +452,7 @@
             this.tbID.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.tbID.ForeColor = System.Drawing.Color.Black;
             this.tbID.IsEnabled = false;
-            this.tbID.Location = new System.Drawing.Point(91, 155);
+            this.tbID.Location = new System.Drawing.Point(91, 184);
             this.tbID.MaxLength = 32767;
             this.tbID.Multiline = false;
             this.tbID.Name = "tbID";
@@ -480,7 +483,7 @@
             this.xuiButton7.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
             this.xuiButton7.HoverTextColor = System.Drawing.Color.White;
             this.xuiButton7.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
-            this.xuiButton7.Location = new System.Drawing.Point(332, 206);
+            this.xuiButton7.Location = new System.Drawing.Point(332, 235);
             this.xuiButton7.Name = "xuiButton7";
             this.xuiButton7.Size = new System.Drawing.Size(51, 50);
             this.xuiButton7.TabIndex = 17;
@@ -502,7 +505,7 @@
             this.xuiButton3.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
             this.xuiButton3.HoverTextColor = System.Drawing.Color.White;
             this.xuiButton3.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
-            this.xuiButton3.Location = new System.Drawing.Point(332, 283);
+            this.xuiButton3.Location = new System.Drawing.Point(332, 312);
             this.xuiButton3.Name = "xuiButton3";
             this.xuiButton3.Size = new System.Drawing.Size(51, 50);
             this.xuiButton3.TabIndex = 17;
@@ -524,7 +527,7 @@
             this.xuiButton5.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
             this.xuiButton5.HoverTextColor = System.Drawing.Color.White;
             this.xuiButton5.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
-            this.xuiButton5.Location = new System.Drawing.Point(332, 437);
+            this.xuiButton5.Location = new System.Drawing.Point(332, 466);
             this.xuiButton5.Name = "xuiButton5";
             this.xuiButton5.Size = new System.Drawing.Size(51, 50);
             this.xuiButton5.TabIndex = 17;
@@ -546,7 +549,7 @@
             this.xuiButton8.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
             this.xuiButton8.HoverTextColor = System.Drawing.Color.White;
             this.xuiButton8.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
-            this.xuiButton8.Location = new System.Drawing.Point(332, 360);
+            this.xuiButton8.Location = new System.Drawing.Point(332, 389);
             this.xuiButton8.Name = "xuiButton8";
             this.xuiButton8.Size = new System.Drawing.Size(51, 50);
             this.xuiButton8.TabIndex = 17;
@@ -568,7 +571,7 @@
             this.xuiButton6.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
             this.xuiButton6.HoverTextColor = System.Drawing.Color.White;
             this.xuiButton6.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
-            this.xuiButton6.Location = new System.Drawing.Point(34, 360);
+            this.xuiButton6.Location = new System.Drawing.Point(34, 389);
             this.xuiButton6.Name = "xuiButton6";
             this.xuiButton6.Size = new System.Drawing.Size(51, 50);
             this.xuiButton6.TabIndex = 17;
@@ -590,7 +593,7 @@
             this.xuiButton4.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
             this.xuiButton4.HoverTextColor = System.Drawing.Color.White;
             this.xuiButton4.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
-            this.xuiButton4.Location = new System.Drawing.Point(34, 437);
+            this.xuiButton4.Location = new System.Drawing.Point(34, 466);
             this.xuiButton4.Name = "xuiButton4";
             this.xuiButton4.Size = new System.Drawing.Size(51, 50);
             this.xuiButton4.TabIndex = 17;
@@ -612,7 +615,7 @@
             this.xuiButton2.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
             this.xuiButton2.HoverTextColor = System.Drawing.Color.White;
             this.xuiButton2.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
-            this.xuiButton2.Location = new System.Drawing.Point(34, 283);
+            this.xuiButton2.Location = new System.Drawing.Point(34, 312);
             this.xuiButton2.Name = "xuiButton2";
             this.xuiButton2.Size = new System.Drawing.Size(51, 50);
             this.xuiButton2.TabIndex = 17;
@@ -634,7 +637,7 @@
             this.xuiButton1.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
             this.xuiButton1.HoverTextColor = System.Drawing.Color.White;
             this.xuiButton1.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
-            this.xuiButton1.Location = new System.Drawing.Point(34, 206);
+            this.xuiButton1.Location = new System.Drawing.Point(34, 235);
             this.xuiButton1.Name = "xuiButton1";
             this.xuiButton1.Size = new System.Drawing.Size(51, 50);
             this.xuiButton1.TabIndex = 17;
@@ -656,7 +659,7 @@
             this.xuiButton10.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
             this.xuiButton10.HoverTextColor = System.Drawing.Color.White;
             this.xuiButton10.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
-            this.xuiButton10.Location = new System.Drawing.Point(332, 129);
+            this.xuiButton10.Location = new System.Drawing.Point(332, 158);
             this.xuiButton10.Name = "xuiButton10";
             this.xuiButton10.Size = new System.Drawing.Size(51, 50);
             this.xuiButton10.TabIndex = 17;
@@ -678,7 +681,7 @@
             this.btBookRoom.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
             this.btBookRoom.HoverTextColor = System.Drawing.Color.White;
             this.btBookRoom.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
-            this.btBookRoom.Location = new System.Drawing.Point(34, 129);
+            this.btBookRoom.Location = new System.Drawing.Point(34, 158);
             this.btBookRoom.Name = "btBookRoom";
             this.btBookRoom.Size = new System.Drawing.Size(51, 50);
             this.btBookRoom.TabIndex = 17;
@@ -689,7 +692,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Segoe UI", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(389, 437);
+            this.label11.Location = new System.Drawing.Point(389, 466);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(48, 19);
             this.label11.TabIndex = 0;
@@ -699,7 +702,7 @@
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Segoe UI", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(389, 360);
+            this.label17.Location = new System.Drawing.Point(389, 389);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(89, 19);
             this.label17.TabIndex = 0;
@@ -709,7 +712,7 @@
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Segoe UI", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(389, 206);
+            this.label15.Location = new System.Drawing.Point(389, 235);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(51, 19);
             this.label15.TabIndex = 0;
@@ -719,7 +722,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Segoe UI", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(91, 360);
+            this.label13.Location = new System.Drawing.Point(91, 389);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(50, 19);
             this.label13.TabIndex = 0;
@@ -729,7 +732,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(389, 283);
+            this.label7.Location = new System.Drawing.Point(389, 312);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(61, 19);
             this.label7.TabIndex = 0;
@@ -739,7 +742,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Segoe UI", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(91, 437);
+            this.label9.Location = new System.Drawing.Point(91, 466);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(93, 19);
             this.label9.TabIndex = 0;
@@ -749,7 +752,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(91, 283);
+            this.label5.Location = new System.Drawing.Point(91, 312);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(70, 19);
             this.label5.TabIndex = 0;
@@ -759,7 +762,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(91, 206);
+            this.label2.Location = new System.Drawing.Point(91, 235);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(69, 19);
             this.label2.TabIndex = 0;
@@ -769,7 +772,7 @@
             // 
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Segoe UI", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(389, 129);
+            this.label20.Location = new System.Drawing.Point(389, 158);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(59, 19);
             this.label20.TabIndex = 0;
@@ -779,17 +782,29 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(91, 129);
+            this.label1.Location = new System.Drawing.Point(91, 158);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(93, 19);
             this.label1.TabIndex = 0;
             this.label1.Text = "Mã nhân viên";
             // 
+            // circlePictureBox1
+            // 
+            this.circlePictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.circlePictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("circlePictureBox1.Image")));
+            this.circlePictureBox1.Location = new System.Drawing.Point(358, 105);
+            this.circlePictureBox1.Name = "circlePictureBox1";
+            this.circlePictureBox1.Size = new System.Drawing.Size(40, 40);
+            this.circlePictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.circlePictureBox1.TabIndex = 24;
+            this.circlePictureBox1.TabStop = false;
+            this.circlePictureBox1.Click += new System.EventHandler(this.staffImage_Click);
+            // 
             // Form_AddEditStaff
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(661, 592);
+            this.ClientSize = new System.Drawing.Size(661, 607);
             this.Controls.Add(this.panel3);
             this.MaximizeBox = false;
             this.Name = "Form_AddEditStaff";
@@ -803,6 +818,7 @@
             this.flowLayoutPanel2.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.circlePictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -849,5 +865,6 @@
         private XanderUI.XUIButton btCancel;
         private XanderUI.XUIButton btSave;
         private CirclePictureBox staffImage;
+        private CirclePictureBox circlePictureBox1;
     }
 }
