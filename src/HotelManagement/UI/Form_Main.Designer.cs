@@ -36,9 +36,6 @@
             this.btStaff = new System.Windows.Forms.Panel();
             this.lbStaff = new System.Windows.Forms.Label();
             this.pbStaff = new System.Windows.Forms.PictureBox();
-            this.btWarehouse = new System.Windows.Forms.Panel();
-            this.lbWarehouse = new System.Windows.Forms.Label();
-            this.pbWarehouse = new System.Windows.Forms.PictureBox();
             this.btCustomer = new System.Windows.Forms.Panel();
             this.lbCustomer = new System.Windows.Forms.Label();
             this.pbCustomer = new System.Windows.Forms.PictureBox();
@@ -85,8 +82,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbSubService)).BeginInit();
             this.btStaff.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbStaff)).BeginInit();
-            this.btWarehouse.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbWarehouse)).BeginInit();
             this.btCustomer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbCustomer)).BeginInit();
             this.btManage.SuspendLayout();
@@ -135,12 +130,11 @@
             // 
             this.pnSubMenu_Manage.Controls.Add(this.btService_manage);
             this.pnSubMenu_Manage.Controls.Add(this.btStaff);
-            this.pnSubMenu_Manage.Controls.Add(this.btWarehouse);
             this.pnSubMenu_Manage.Controls.Add(this.btCustomer);
             this.pnSubMenu_Manage.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnSubMenu_Manage.Location = new System.Drawing.Point(0, 396);
             this.pnSubMenu_Manage.Name = "pnSubMenu_Manage";
-            this.pnSubMenu_Manage.Size = new System.Drawing.Size(243, 191);
+            this.pnSubMenu_Manage.Size = new System.Drawing.Size(243, 141);
             this.pnSubMenu_Manage.TabIndex = 13;
             // 
             // btService_manage
@@ -149,7 +143,7 @@
             this.btService_manage.Controls.Add(this.lbSubService);
             this.btService_manage.Controls.Add(this.pbSubService);
             this.btService_manage.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btService_manage.Location = new System.Drawing.Point(13, 143);
+            this.btService_manage.Location = new System.Drawing.Point(13, 97);
             this.btService_manage.Name = "btService_manage";
             this.btService_manage.Size = new System.Drawing.Size(216, 40);
             this.btService_manage.TabIndex = 3;
@@ -228,49 +222,6 @@
             this.pbStaff.Click += new System.EventHandler(this.btStaff_Click);
             this.pbStaff.MouseLeave += new System.EventHandler(this.btStaff_MouseLeave);
             this.pbStaff.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btStaff_MouseMove);
-            // 
-            // btWarehouse
-            // 
-            this.btWarehouse.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.btWarehouse.Controls.Add(this.lbWarehouse);
-            this.btWarehouse.Controls.Add(this.pbWarehouse);
-            this.btWarehouse.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btWarehouse.Location = new System.Drawing.Point(13, 97);
-            this.btWarehouse.Name = "btWarehouse";
-            this.btWarehouse.Size = new System.Drawing.Size(216, 40);
-            this.btWarehouse.TabIndex = 2;
-            this.btWarehouse.Click += new System.EventHandler(this.btWarehouse_Click);
-            this.btWarehouse.MouseLeave += new System.EventHandler(this.btWarehouse_MouseLeave);
-            this.btWarehouse.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btWarehouse_MouseMove);
-            // 
-            // lbWarehouse
-            // 
-            this.lbWarehouse.AutoSize = true;
-            this.lbWarehouse.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lbWarehouse.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
-            this.lbWarehouse.ForeColor = System.Drawing.Color.Black;
-            this.lbWarehouse.Location = new System.Drawing.Point(77, 6);
-            this.lbWarehouse.Name = "lbWarehouse";
-            this.lbWarehouse.Size = new System.Drawing.Size(88, 25);
-            this.lbWarehouse.TabIndex = 1;
-            this.lbWarehouse.Text = "Kho hàng";
-            this.lbWarehouse.Click += new System.EventHandler(this.btWarehouse_Click);
-            this.lbWarehouse.MouseLeave += new System.EventHandler(this.btWarehouse_MouseLeave);
-            this.lbWarehouse.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btWarehouse_MouseMove);
-            // 
-            // pbWarehouse
-            // 
-            this.pbWarehouse.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbWarehouse.Image = global::HotelManagement.Properties.Resources.icWarehouse;
-            this.pbWarehouse.Location = new System.Drawing.Point(50, 6);
-            this.pbWarehouse.Name = "pbWarehouse";
-            this.pbWarehouse.Size = new System.Drawing.Size(26, 26);
-            this.pbWarehouse.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbWarehouse.TabIndex = 0;
-            this.pbWarehouse.TabStop = false;
-            this.pbWarehouse.Click += new System.EventHandler(this.btWarehouse_Click);
-            this.pbWarehouse.MouseLeave += new System.EventHandler(this.btWarehouse_MouseLeave);
-            this.pbWarehouse.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btWarehouse_MouseMove);
             // 
             // btCustomer
             // 
@@ -832,9 +783,6 @@
             this.btStaff.ResumeLayout(false);
             this.btStaff.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbStaff)).EndInit();
-            this.btWarehouse.ResumeLayout(false);
-            this.btWarehouse.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbWarehouse)).EndInit();
             this.btCustomer.ResumeLayout(false);
             this.btCustomer.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbCustomer)).EndInit();
@@ -883,9 +831,6 @@
         private System.Windows.Forms.Panel btStaff;
         private System.Windows.Forms.Label lbStaff;
         private System.Windows.Forms.PictureBox pbStaff;
-        private System.Windows.Forms.Panel btWarehouse;
-        private System.Windows.Forms.Label lbWarehouse;
-        private System.Windows.Forms.PictureBox pbWarehouse;
         private System.Windows.Forms.Panel btCustomer;
         private System.Windows.Forms.Label lbCustomer;
         private System.Windows.Forms.PictureBox pbCustomer;

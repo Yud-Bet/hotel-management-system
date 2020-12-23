@@ -231,5 +231,18 @@ namespace HotelManagement.UI
         {
             tooltipAddRoom.Hide();
         }
+
+        private void pnToAddRoom_ControlAdded(object sender, ControlEventArgs e)
+        {
+            lbListRoomIsEmpty.Hide();
+        }
+
+        private void pnToAddRoom_ControlRemoved(object sender, ControlEventArgs e)
+        {
+            if (pnToAddRoom.Controls.Count == 1)
+            {
+                lbListRoomIsEmpty.Show();
+            }
+        }
     }
 }

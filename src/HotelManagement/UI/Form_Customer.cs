@@ -53,5 +53,18 @@ namespace HotelManagement.UI
         {
             load_AllCustomer();
         }
+
+        private void pnAddItem_ControlAdded(object sender, ControlEventArgs e)
+        {
+            lbListCustomerIsEmpty.Hide();
+        }
+
+        private void pnAddItem_ControlRemoved(object sender, ControlEventArgs e)
+        {
+            if (pnAddItem.Controls.Count == 1)
+            {
+                lbListCustomerIsEmpty.Show();
+            }
+        }
     }
 }

@@ -50,7 +50,7 @@ namespace HotelManagement.UI
 
         private bool isChoosebtRoom = false, isChoosebtService = false, isChoosebtReport = false, isChoosebtManage = false,
                     isChoosebtEatService = false, isChoosebtLaundryService = false, isChoosebtRevenue = false, isChoosebtBill = false,
-                    isChoosebtStaff = false, isChoosebtCustomer = false, isChoosebtWarehouse = false, isChoosebtSubService = false;
+                    isChoosebtStaff = false, isChoosebtCustomer = false, isChoosebtSubService = false;
         private Color colorChoose = Color.FromArgb(27, 152, 224), colorNChoose = Color.Black;
 
         void createPanelToAddForm()
@@ -160,11 +160,9 @@ namespace HotelManagement.UI
         {
             isChoosebtStaff = false;
             isChoosebtCustomer = false;
-            isChoosebtWarehouse = false;
             isChoosebtSubService = false;
             setStatus(pbStaff, lbStaff, StaffIcon, false);
             setStatus(pbCustomer, lbCustomer, CustomerIcon, false);
-            setStatus(pbWarehouse, lbWarehouse, WarehouseIcon, false);
             setStatus(pbSubService, lbSubService, SubservicesIcon, false);
         }
 
@@ -541,32 +539,6 @@ namespace HotelManagement.UI
             if (!isChoosebtCustomer)
             {
                 setStatus(pbCustomer, lbCustomer, CustomerIcon, false);
-            }
-        }
-
-        private void btWarehouse_Click(object sender, EventArgs e)
-        {
-            if (!isChoosebtWarehouse)
-            {
-                resetManageSubmenu();
-                isChoosebtWarehouse = true;
-                setStatus(pbWarehouse, lbWarehouse, ChoseWarehouseIcon, true);
-            }
-        }
-
-        private void btWarehouse_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (!isChoosebtWarehouse)
-            {
-                setStatus(pbWarehouse, lbWarehouse, ChoseWarehouseIcon, true);
-            }
-        }
-
-        private void btWarehouse_MouseLeave(object sender, EventArgs e)
-        {
-            if (!isChoosebtWarehouse)
-            {
-                setStatus(pbWarehouse, lbWarehouse, WarehouseIcon, false);
             }
         }
 

@@ -32,8 +32,10 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.lbTitle = new System.Windows.Forms.Label();
             this.pnToAddItem = new System.Windows.Forms.FlowLayoutPanel();
+            this.lbListStaffIsEmpty = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.staffImage = new HotelManagement.UI.CirclePictureBox();
             this.btAccount = new XanderUI.XUIButton();
             this.btChangeStaffInfo = new XanderUI.XUIButton();
             this.lbAddress = new Zeroit.Framework.Labels.ZeroitMultiFormatLabel();
@@ -73,12 +75,12 @@
             this.cbSort = new MetroFramework.Controls.MetroComboBox();
             this.panel7 = new System.Windows.Forms.Panel();
             this.label19 = new System.Windows.Forms.Label();
-            this.staffImage = new HotelManagement.UI.CirclePictureBox();
+            this.pnToAddItem.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.staffImage)).BeginInit();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbSearch)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.staffImage)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
@@ -104,10 +106,23 @@
             // 
             this.pnToAddItem.AutoScroll = true;
             this.pnToAddItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this.pnToAddItem.Controls.Add(this.lbListStaffIsEmpty);
             this.pnToAddItem.Location = new System.Drawing.Point(16, 3);
             this.pnToAddItem.Name = "pnToAddItem";
             this.pnToAddItem.Size = new System.Drawing.Size(478, 500);
             this.pnToAddItem.TabIndex = 6;
+            this.pnToAddItem.ControlAdded += new System.Windows.Forms.ControlEventHandler(this.pnToAddItem_ControlAdded);
+            this.pnToAddItem.ControlRemoved += new System.Windows.Forms.ControlEventHandler(this.pnToAddItem_ControlRemoved);
+            // 
+            // lbListStaffIsEmpty
+            // 
+            this.lbListStaffIsEmpty.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbListStaffIsEmpty.Location = new System.Drawing.Point(3, 0);
+            this.lbListStaffIsEmpty.Name = "lbListStaffIsEmpty";
+            this.lbListStaffIsEmpty.Size = new System.Drawing.Size(470, 44);
+            this.lbListStaffIsEmpty.TabIndex = 3;
+            this.lbListStaffIsEmpty.Text = "Chưa có hóa đơn nào!";
+            this.lbListStaffIsEmpty.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel1
             // 
@@ -159,6 +174,16 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(458, 503);
             this.panel3.TabIndex = 7;
+            // 
+            // staffImage
+            // 
+            this.staffImage.Image = ((System.Drawing.Image)(resources.GetObject("staffImage.Image")));
+            this.staffImage.Location = new System.Drawing.Point(34, 8);
+            this.staffImage.Name = "staffImage";
+            this.staffImage.Size = new System.Drawing.Size(110, 110);
+            this.staffImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.staffImage.TabIndex = 32;
+            this.staffImage.TabStop = false;
             // 
             // btAccount
             // 
@@ -728,16 +753,6 @@
             this.label19.Text = "Sắp xếp";
             this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // staffImage
-            // 
-            this.staffImage.Image = ((System.Drawing.Image)(resources.GetObject("staffImage.Image")));
-            this.staffImage.Location = new System.Drawing.Point(34, 8);
-            this.staffImage.Name = "staffImage";
-            this.staffImage.Size = new System.Drawing.Size(110, 110);
-            this.staffImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.staffImage.TabIndex = 32;
-            this.staffImage.TabStop = false;
-            // 
             // Form_Staff
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -749,13 +764,14 @@
             this.Controls.Add(this.lbTitle);
             this.Name = "Form_Staff";
             this.Size = new System.Drawing.Size(968, 666);
+            this.pnToAddItem.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.staffImage)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbSearch)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.staffImage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -808,5 +824,6 @@
         private XanderUI.XUIButton btAccount;
         private XanderUI.XUIButton btChangeStaffInfo;
         private CirclePictureBox staffImage;
+        private System.Windows.Forms.Label lbListStaffIsEmpty;
     }
 }

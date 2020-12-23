@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Globalization;
 using System.Data;
+using System.IO;
+using System.Drawing;
+using HotelManagement.Properties;
 
 namespace HotelManagement.UI
 {
@@ -53,6 +56,8 @@ namespace HotelManagement.UI
         {
             get { return staffImage; }
         }
+
+        public Image Resource { get; private set; }
         #endregion
 
         public void setStaffValues(Item_Staff item_Staff)
@@ -69,6 +74,17 @@ namespace HotelManagement.UI
             lbPhonenum.Text = item_Staff._Phonenum;
             lbStartDate.Text = item_Staff._StartDate.ToShortDateString().ToString();
             lbSalary.Text = item_Staff._Salary.ToString("C",CultureInfo.GetCultureInfo("vi-VN"));
+
+            try
+            {
+                string[] staffImageFiles = Directory.GetFiles(@".\\staffimage", item_Staff._IDNo + "*");
+
+                staffImage.Image = Image.FromFile(staffImageFiles[0]);
+            }
+            catch 
+            {
+                staffImage.Image = Resources.profile_user;
+            }
         }
 
         public void resetStaffValues()
@@ -85,6 +101,8 @@ namespace HotelManagement.UI
             lbPhonenum.Text = "";
             lbStartDate.Text = "";
             lbSalary.Text = "";
+
+            staffImage.Image = Resources.profile_user;
         }
 
         public void addItem(int ID, bool position, string name, string IDNo, DateTime birthdate, bool sex,
@@ -137,6 +155,19 @@ namespace HotelManagement.UI
         {
             load_AllStaffInfo();
             resetStaffValues();
+        }
+
+        private void pnToAddItem_ControlAdded(object sender, ControlEventArgs e)
+        {
+            lbListStaffIsEmpty.Hide();
+        }
+
+        private void pnToAddItem_ControlRemoved(object sender, ControlEventArgs e)
+        {
+            if (pnToAddItem.Controls.Count == 1)
+            {
+                lbListStaffIsEmpty.Show();
+            }
         }
     }
 }

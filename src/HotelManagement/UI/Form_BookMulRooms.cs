@@ -310,6 +310,7 @@ namespace HotelManagement.UI
             this.Focus();
         }
 
+
         bool checkValidityOfValue()
         {
             if (!Regex.IsMatch(tbCustomerName.Text, @"^$|^([\p{L}]+( [\p{L}]+){0,})$"))
@@ -334,6 +335,32 @@ namespace HotelManagement.UI
             }
 
             return true;
+        }
+
+        private void pnToSelectRoom_ControlAdded(object sender, ControlEventArgs e)
+        {
+            lbListEmptyRoomIsEmpty.Hide();
+        }
+
+        private void pnToSelectRoom_ControlRemoved(object sender, ControlEventArgs e)
+        {
+            if (pnToSelectRoom.Controls.Count == 1)
+            {
+                lbListEmptyRoomIsEmpty.Show();
+            }
+        }
+
+        private void pnSeletedRoom_ControlAdded(object sender, ControlEventArgs e)
+        {
+            lbListSelectedRoomIsEmpty.Hide();
+        }
+
+        private void pnSeletedRoom_ControlRemoved(object sender, ControlEventArgs e)
+        {
+            if (pnSeletedRoom.Controls.Count == 1)
+            {
+                lbListSelectedRoomIsEmpty.Show();
+            }
         }
     }
 }

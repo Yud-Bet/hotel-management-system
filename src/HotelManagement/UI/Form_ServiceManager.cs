@@ -40,5 +40,18 @@ namespace HotelManagement.UI
         {
             (new Form_AddEditService(null, this, ServiceManagerType.EditIronService)).ShowDialog();
         }
+
+        private void pnToAddItem_ControlAdded(object sender, ControlEventArgs e)
+        {
+            lbListServiceIsEmpty.Hide();
+        }
+
+        private void pnToAddItem_ControlRemoved(object sender, ControlEventArgs e)
+        {
+            if (pnToAddItem.Controls.Count == 1)
+            {
+                lbListServiceIsEmpty.Show();
+            }
+        }
     }
 }

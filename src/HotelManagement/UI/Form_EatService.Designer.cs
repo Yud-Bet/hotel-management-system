@@ -33,6 +33,7 @@
             this.lbTitle = new System.Windows.Forms.Label();
             this.pnBookingInfo = new System.Windows.Forms.Panel();
             this.pnServicesList = new System.Windows.Forms.FlowLayoutPanel();
+            this.lbListServiceIsEmpty = new System.Windows.Forms.Label();
             this.zeroitPictureBox1 = new Zeroit.Framework.MiscControls.ZeroitPictureBox();
             this.tbSearch = new Zeroit.Framework.Labels.ZeroitUltraTextBox();
             this.label23 = new System.Windows.Forms.Label();
@@ -42,6 +43,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.pnSelectedServices = new System.Windows.Forms.FlowLayoutPanel();
+            this.lbListSelectedServiceIsEmpty = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -63,8 +65,10 @@
             this.printPreviewDialogBill = new System.Windows.Forms.PrintPreviewDialog();
             this.StatusLabel = new Zeroit.Framework.MiscControls.ZeroitLabel();
             this.pnBookingInfo.SuspendLayout();
+            this.pnServicesList.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.zeroitPictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
+            this.pnSelectedServices.SuspendLayout();
             this.panel5.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -103,10 +107,23 @@
             // pnServicesList
             // 
             this.pnServicesList.AutoScroll = true;
+            this.pnServicesList.Controls.Add(this.lbListServiceIsEmpty);
             this.pnServicesList.Location = new System.Drawing.Point(3, 47);
             this.pnServicesList.Name = "pnServicesList";
             this.pnServicesList.Size = new System.Drawing.Size(485, 487);
             this.pnServicesList.TabIndex = 6;
+            this.pnServicesList.ControlAdded += new System.Windows.Forms.ControlEventHandler(this.pnServicesList_ControlAdded);
+            this.pnServicesList.ControlRemoved += new System.Windows.Forms.ControlEventHandler(this.pnServicesList_ControlRemoved);
+            // 
+            // lbListServiceIsEmpty
+            // 
+            this.lbListServiceIsEmpty.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbListServiceIsEmpty.Location = new System.Drawing.Point(3, 0);
+            this.lbListServiceIsEmpty.Name = "lbListServiceIsEmpty";
+            this.lbListServiceIsEmpty.Size = new System.Drawing.Size(472, 44);
+            this.lbListServiceIsEmpty.TabIndex = 1;
+            this.lbListServiceIsEmpty.Text = "Chưa có mặt hàng nào!";
+            this.lbListServiceIsEmpty.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // zeroitPictureBox1
             // 
@@ -211,10 +228,23 @@
             // pnSelectedServices
             // 
             this.pnSelectedServices.AutoScroll = true;
+            this.pnSelectedServices.Controls.Add(this.lbListSelectedServiceIsEmpty);
             this.pnSelectedServices.Location = new System.Drawing.Point(3, 74);
             this.pnSelectedServices.Name = "pnSelectedServices";
             this.pnSelectedServices.Size = new System.Drawing.Size(428, 284);
             this.pnSelectedServices.TabIndex = 4;
+            this.pnSelectedServices.ControlAdded += new System.Windows.Forms.ControlEventHandler(this.pnSelectedServices_ControlAdded);
+            this.pnSelectedServices.ControlRemoved += new System.Windows.Forms.ControlEventHandler(this.pnSelectedServices_ControlRemoved);
+            // 
+            // lbListSelectedServiceIsEmpty
+            // 
+            this.lbListSelectedServiceIsEmpty.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbListSelectedServiceIsEmpty.Location = new System.Drawing.Point(3, 0);
+            this.lbListSelectedServiceIsEmpty.Name = "lbListSelectedServiceIsEmpty";
+            this.lbListSelectedServiceIsEmpty.Size = new System.Drawing.Size(417, 44);
+            this.lbListSelectedServiceIsEmpty.TabIndex = 1;
+            this.lbListSelectedServiceIsEmpty.Text = "Chưa có mặt hàng nào được chọn!";
+            this.lbListSelectedServiceIsEmpty.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label1
             // 
@@ -467,9 +497,11 @@
             this.Load += new System.EventHandler(this.Form_EatService_Load);
             this.pnBookingInfo.ResumeLayout(false);
             this.pnBookingInfo.PerformLayout();
+            this.pnServicesList.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.zeroitPictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.pnSelectedServices.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             this.ResumeLayout(false);
@@ -512,5 +544,7 @@
         private System.Drawing.Printing.PrintDocument bill;
         private System.Windows.Forms.PrintPreviewDialog printPreviewDialogBill;
         private Zeroit.Framework.MiscControls.ZeroitLabel StatusLabel;
+        private System.Windows.Forms.Label lbListServiceIsEmpty;
+        private System.Windows.Forms.Label lbListSelectedServiceIsEmpty;
     }
 }

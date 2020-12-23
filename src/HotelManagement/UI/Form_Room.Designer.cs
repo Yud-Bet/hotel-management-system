@@ -48,7 +48,10 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.pnToAddRoom = new System.Windows.Forms.FlowLayoutPanel();
+            this.lbListRoomIsEmpty = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.tooltipAddRoom = new XanderUI.XUIButton();
+            this.tooltipBookMulRoom = new XanderUI.XUIButton();
             this.lbNumberOfRoom = new XanderUI.XUIButton();
             this.lbNumberOfRepairingRoom = new XanderUI.XUIButton();
             this.lbNumberOfCleaningRoom = new XanderUI.XUIButton();
@@ -63,9 +66,8 @@
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.tbSearch = new Zeroit.Framework.Labels.ZeroitUltraTextBox();
             this.animTbSearch = new Zeroit.Framework.Transitions.ZeroitPizaroAnimator.ZeroitPizaroAnim();
-            this.tooltipBookMulRoom = new XanderUI.XUIButton();
-            this.tooltipAddRoom = new XanderUI.XUIButton();
             ((System.ComponentModel.ISupportInitialize)(this.pbSearch)).BeginInit();
+            this.pnToAddRoom.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -320,10 +322,23 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnToAddRoom.AutoScroll = true;
+            this.pnToAddRoom.Controls.Add(this.lbListRoomIsEmpty);
             this.pnToAddRoom.Location = new System.Drawing.Point(39, 151);
             this.pnToAddRoom.Name = "pnToAddRoom";
             this.pnToAddRoom.Size = new System.Drawing.Size(905, 492);
             this.pnToAddRoom.TabIndex = 23;
+            this.pnToAddRoom.ControlAdded += new System.Windows.Forms.ControlEventHandler(this.pnToAddRoom_ControlAdded);
+            this.pnToAddRoom.ControlRemoved += new System.Windows.Forms.ControlEventHandler(this.pnToAddRoom_ControlRemoved);
+            // 
+            // lbListRoomIsEmpty
+            // 
+            this.lbListRoomIsEmpty.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbListRoomIsEmpty.Location = new System.Drawing.Point(3, 0);
+            this.lbListRoomIsEmpty.Name = "lbListRoomIsEmpty";
+            this.lbListRoomIsEmpty.Size = new System.Drawing.Size(894, 50);
+            this.lbListRoomIsEmpty.TabIndex = 0;
+            this.lbListRoomIsEmpty.Text = "Chưa có phòng nào!";
+            this.lbListRoomIsEmpty.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel1
             // 
@@ -363,6 +378,52 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(968, 665);
             this.panel1.TabIndex = 1;
+            // 
+            // tooltipAddRoom
+            // 
+            this.tooltipAddRoom.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this.tooltipAddRoom.ButtonImage = null;
+            this.tooltipAddRoom.ButtonStyle = XanderUI.XUIButton.Style.MaterialRounded;
+            this.tooltipAddRoom.ButtonText = "Thêm phòng";
+            this.tooltipAddRoom.ClickBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this.tooltipAddRoom.ClickTextColor = System.Drawing.Color.Black;
+            this.tooltipAddRoom.CornerRadius = 5;
+            this.tooltipAddRoom.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.tooltipAddRoom.Font = new System.Drawing.Font("Segoe UI", 13F);
+            this.tooltipAddRoom.Horizontal_Alignment = System.Drawing.StringAlignment.Center;
+            this.tooltipAddRoom.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this.tooltipAddRoom.HoverTextColor = System.Drawing.Color.Black;
+            this.tooltipAddRoom.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
+            this.tooltipAddRoom.Location = new System.Drawing.Point(969, 47);
+            this.tooltipAddRoom.Name = "tooltipAddRoom";
+            this.tooltipAddRoom.Size = new System.Drawing.Size(125, 27);
+            this.tooltipAddRoom.TabIndex = 32;
+            this.tooltipAddRoom.TextColor = System.Drawing.Color.Black;
+            this.tooltipAddRoom.Vertical_Alignment = System.Drawing.StringAlignment.Center;
+            this.tooltipAddRoom.Click += new System.EventHandler(this.btThreeDot_Click);
+            // 
+            // tooltipBookMulRoom
+            // 
+            this.tooltipBookMulRoom.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this.tooltipBookMulRoom.ButtonImage = null;
+            this.tooltipBookMulRoom.ButtonStyle = XanderUI.XUIButton.Style.MaterialRounded;
+            this.tooltipBookMulRoom.ButtonText = "Đặt nhiều phòng";
+            this.tooltipBookMulRoom.ClickBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this.tooltipBookMulRoom.ClickTextColor = System.Drawing.Color.Black;
+            this.tooltipBookMulRoom.CornerRadius = 5;
+            this.tooltipBookMulRoom.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.tooltipBookMulRoom.Font = new System.Drawing.Font("Segoe UI", 13F);
+            this.tooltipBookMulRoom.Horizontal_Alignment = System.Drawing.StringAlignment.Center;
+            this.tooltipBookMulRoom.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this.tooltipBookMulRoom.HoverTextColor = System.Drawing.Color.Black;
+            this.tooltipBookMulRoom.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
+            this.tooltipBookMulRoom.Location = new System.Drawing.Point(969, 14);
+            this.tooltipBookMulRoom.Name = "tooltipBookMulRoom";
+            this.tooltipBookMulRoom.Size = new System.Drawing.Size(166, 27);
+            this.tooltipBookMulRoom.TabIndex = 32;
+            this.tooltipBookMulRoom.TextColor = System.Drawing.Color.Black;
+            this.tooltipBookMulRoom.Vertical_Alignment = System.Drawing.StringAlignment.Center;
+            this.tooltipBookMulRoom.Click += new System.EventHandler(this.btThreeDot_Click);
             // 
             // lbNumberOfRoom
             // 
@@ -611,52 +672,6 @@
             this.animTbSearch.ResizeWidth_Begin = 10F;
             this.animTbSearch.ResizeWidth_Limit = 50F;
             // 
-            // tooltipBookMulRoom
-            // 
-            this.tooltipBookMulRoom.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
-            this.tooltipBookMulRoom.ButtonImage = null;
-            this.tooltipBookMulRoom.ButtonStyle = XanderUI.XUIButton.Style.MaterialRounded;
-            this.tooltipBookMulRoom.ButtonText = "Đặt nhiều phòng";
-            this.tooltipBookMulRoom.ClickBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
-            this.tooltipBookMulRoom.ClickTextColor = System.Drawing.Color.Black;
-            this.tooltipBookMulRoom.CornerRadius = 5;
-            this.tooltipBookMulRoom.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.tooltipBookMulRoom.Font = new System.Drawing.Font("Segoe UI", 13F);
-            this.tooltipBookMulRoom.Horizontal_Alignment = System.Drawing.StringAlignment.Center;
-            this.tooltipBookMulRoom.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
-            this.tooltipBookMulRoom.HoverTextColor = System.Drawing.Color.Black;
-            this.tooltipBookMulRoom.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
-            this.tooltipBookMulRoom.Location = new System.Drawing.Point(969, 14);
-            this.tooltipBookMulRoom.Name = "tooltipBookMulRoom";
-            this.tooltipBookMulRoom.Size = new System.Drawing.Size(166, 27);
-            this.tooltipBookMulRoom.TabIndex = 32;
-            this.tooltipBookMulRoom.TextColor = System.Drawing.Color.Black;
-            this.tooltipBookMulRoom.Vertical_Alignment = System.Drawing.StringAlignment.Center;
-            this.tooltipBookMulRoom.Click += new System.EventHandler(this.btThreeDot_Click);
-            // 
-            // tooltipAddRoom
-            // 
-            this.tooltipAddRoom.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
-            this.tooltipAddRoom.ButtonImage = null;
-            this.tooltipAddRoom.ButtonStyle = XanderUI.XUIButton.Style.MaterialRounded;
-            this.tooltipAddRoom.ButtonText = "Thêm phòng";
-            this.tooltipAddRoom.ClickBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
-            this.tooltipAddRoom.ClickTextColor = System.Drawing.Color.Black;
-            this.tooltipAddRoom.CornerRadius = 5;
-            this.tooltipAddRoom.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.tooltipAddRoom.Font = new System.Drawing.Font("Segoe UI", 13F);
-            this.tooltipAddRoom.Horizontal_Alignment = System.Drawing.StringAlignment.Center;
-            this.tooltipAddRoom.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
-            this.tooltipAddRoom.HoverTextColor = System.Drawing.Color.Black;
-            this.tooltipAddRoom.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
-            this.tooltipAddRoom.Location = new System.Drawing.Point(969, 47);
-            this.tooltipAddRoom.Name = "tooltipAddRoom";
-            this.tooltipAddRoom.Size = new System.Drawing.Size(125, 27);
-            this.tooltipAddRoom.TabIndex = 32;
-            this.tooltipAddRoom.TextColor = System.Drawing.Color.Black;
-            this.tooltipAddRoom.Vertical_Alignment = System.Drawing.StringAlignment.Center;
-            this.tooltipAddRoom.Click += new System.EventHandler(this.btThreeDot_Click);
-            // 
             // Form_Room
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -667,6 +682,7 @@
             this.Size = new System.Drawing.Size(968, 666);
             this.Load += new System.EventHandler(this.Form_Room_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbSearch)).EndInit();
+            this.pnToAddRoom.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
@@ -713,5 +729,6 @@
         private XanderUI.XUIButton lbNumberOfEmptyRoom;
         private XanderUI.XUIButton tooltipAddRoom;
         private XanderUI.XUIButton tooltipBookMulRoom;
+        private System.Windows.Forms.Label lbListRoomIsEmpty;
     }
 }

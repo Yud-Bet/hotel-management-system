@@ -246,5 +246,31 @@ namespace HotelManagement.UI
                 this.Focus();
             }
         }
+
+        private void pnServicesList_ControlAdded(object sender, ControlEventArgs e)
+        {
+            lbListServiceIsEmpty.Hide();
+        }
+
+        private void pnServicesList_ControlRemoved(object sender, ControlEventArgs e)
+        {
+            if (pnServicesList.Controls.Count == 1)
+            {
+                lbListServiceIsEmpty.Show();
+            }
+        }
+
+        private void pnSelectedServices_ControlAdded(object sender, ControlEventArgs e)
+        {
+            lbListSelectedServiceIsEmpty.Hide();
+        }
+
+        private void pnSelectedServices_ControlRemoved(object sender, ControlEventArgs e)
+        {
+            if (pnSelectedServices.Controls.Count == 1)
+            {
+                lbListSelectedServiceIsEmpty.Show();
+            }
+        }
     }
 }

@@ -58,10 +58,12 @@ namespace HotelManagement.UI
             this.panel3 = new System.Windows.Forms.Panel();
             this.pnToBookRoom = new System.Windows.Forms.Panel();
             this.PanelList = new Zeroit.Framework.MiscControls.ZeroitProPanelList();
-            this.xPanderPanel1 = new Zeroit.Framework.MiscControls.XPanderPanel();
+            this.pnRoomList = new Zeroit.Framework.MiscControls.XPanderPanel();
             this.pnToSelectRoom = new System.Windows.Forms.FlowLayoutPanel();
+            this.lbListEmptyRoomIsEmpty = new System.Windows.Forms.Label();
             this.xPanderPanel2 = new Zeroit.Framework.MiscControls.XPanderPanel();
             this.pnSeletedRoom = new System.Windows.Forms.FlowLayoutPanel();
+            this.lbListSelectedRoomIsEmpty = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pnBookingInfo = new System.Windows.Forms.Panel();
@@ -79,8 +81,10 @@ namespace HotelManagement.UI
             this.pnSex.SuspendLayout();
             this.pnToBookRoom.SuspendLayout();
             this.PanelList.SuspendLayout();
-            this.xPanderPanel1.SuspendLayout();
+            this.pnRoomList.SuspendLayout();
+            this.pnToSelectRoom.SuspendLayout();
             this.xPanderPanel2.SuspendLayout();
+            this.pnSeletedRoom.SuspendLayout();
             this.pnBookingInfo.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -498,7 +502,7 @@ namespace HotelManagement.UI
             // PanelList
             // 
             this.PanelList.CaptionStyle = Zeroit.Framework.MiscControls.CaptionStyle.Flat;
-            this.PanelList.Controls.Add(this.xPanderPanel1);
+            this.PanelList.Controls.Add(this.pnRoomList);
             this.PanelList.Controls.Add(this.xPanderPanel2);
             this.PanelList.GradientBackground = System.Drawing.Color.Empty;
             this.PanelList.Location = new System.Drawing.Point(0, 36);
@@ -509,53 +513,66 @@ namespace HotelManagement.UI
             this.PanelList.TabIndex = 4;
             this.PanelList.Text = "zeroitProPanelList1";
             // 
-            // xPanderPanel1
+            // pnRoomList
             // 
-            this.xPanderPanel1.CaptionFont = new System.Drawing.Font("Segoe UI", 13F);
-            this.xPanderPanel1.Controls.Add(this.pnToSelectRoom);
-            this.xPanderPanel1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.xPanderPanel1.CustomColors.BackColor = System.Drawing.SystemColors.Control;
-            this.xPanderPanel1.CustomColors.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(184)))), ((int)(((byte)(184)))));
-            this.xPanderPanel1.CustomColors.CaptionCheckedGradientBegin = System.Drawing.Color.Empty;
-            this.xPanderPanel1.CustomColors.CaptionCheckedGradientEnd = System.Drawing.Color.Empty;
-            this.xPanderPanel1.CustomColors.CaptionCheckedGradientMiddle = System.Drawing.Color.Empty;
-            this.xPanderPanel1.CustomColors.CaptionCloseIcon = System.Drawing.SystemColors.ControlText;
-            this.xPanderPanel1.CustomColors.CaptionExpandIcon = System.Drawing.SystemColors.ControlText;
-            this.xPanderPanel1.CustomColors.CaptionGradientBegin = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
-            this.xPanderPanel1.CustomColors.CaptionGradientEnd = System.Drawing.SystemColors.ButtonFace;
-            this.xPanderPanel1.CustomColors.CaptionGradientMiddle = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
-            this.xPanderPanel1.CustomColors.CaptionPressedGradientBegin = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(188)))), ((int)(((byte)(235)))));
-            this.xPanderPanel1.CustomColors.CaptionPressedGradientEnd = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(188)))), ((int)(((byte)(235)))));
-            this.xPanderPanel1.CustomColors.CaptionPressedGradientMiddle = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(188)))), ((int)(((byte)(235)))));
-            this.xPanderPanel1.CustomColors.CaptionSelectedGradientBegin = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(215)))), ((int)(((byte)(243)))));
-            this.xPanderPanel1.CustomColors.CaptionSelectedGradientEnd = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(215)))), ((int)(((byte)(243)))));
-            this.xPanderPanel1.CustomColors.CaptionSelectedGradientMiddle = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(215)))), ((int)(((byte)(243)))));
-            this.xPanderPanel1.CustomColors.CaptionSelectedText = System.Drawing.SystemColors.ControlText;
-            this.xPanderPanel1.CustomColors.CaptionText = System.Drawing.SystemColors.ControlText;
-            this.xPanderPanel1.CustomColors.FlatCaptionGradientBegin = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
-            this.xPanderPanel1.CustomColors.FlatCaptionGradientEnd = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
-            this.xPanderPanel1.CustomColors.InnerBorderColor = System.Drawing.SystemColors.Window;
-            this.xPanderPanel1.Expand = true;
-            this.xPanderPanel1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xPanderPanel1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.xPanderPanel1.Image = null;
-            this.xPanderPanel1.Name = "xPanderPanel1";
-            this.xPanderPanel1.Size = new System.Drawing.Size(468, 340);
-            this.xPanderPanel1.TabIndex = 0;
-            this.xPanderPanel1.Text = "Danh sách phòng trống";
-            this.xPanderPanel1.ToolTipTextCloseIcon = null;
-            this.xPanderPanel1.ToolTipTextExpandIconPanelCollapsed = null;
-            this.xPanderPanel1.ToolTipTextExpandIconPanelExpanded = null;
+            this.pnRoomList.CaptionFont = new System.Drawing.Font("Segoe UI", 13F);
+            this.pnRoomList.Controls.Add(this.pnToSelectRoom);
+            this.pnRoomList.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pnRoomList.CustomColors.BackColor = System.Drawing.SystemColors.Control;
+            this.pnRoomList.CustomColors.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(184)))), ((int)(((byte)(184)))));
+            this.pnRoomList.CustomColors.CaptionCheckedGradientBegin = System.Drawing.Color.Empty;
+            this.pnRoomList.CustomColors.CaptionCheckedGradientEnd = System.Drawing.Color.Empty;
+            this.pnRoomList.CustomColors.CaptionCheckedGradientMiddle = System.Drawing.Color.Empty;
+            this.pnRoomList.CustomColors.CaptionCloseIcon = System.Drawing.SystemColors.ControlText;
+            this.pnRoomList.CustomColors.CaptionExpandIcon = System.Drawing.SystemColors.ControlText;
+            this.pnRoomList.CustomColors.CaptionGradientBegin = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
+            this.pnRoomList.CustomColors.CaptionGradientEnd = System.Drawing.SystemColors.ButtonFace;
+            this.pnRoomList.CustomColors.CaptionGradientMiddle = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this.pnRoomList.CustomColors.CaptionPressedGradientBegin = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(188)))), ((int)(((byte)(235)))));
+            this.pnRoomList.CustomColors.CaptionPressedGradientEnd = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(188)))), ((int)(((byte)(235)))));
+            this.pnRoomList.CustomColors.CaptionPressedGradientMiddle = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(188)))), ((int)(((byte)(235)))));
+            this.pnRoomList.CustomColors.CaptionSelectedGradientBegin = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(215)))), ((int)(((byte)(243)))));
+            this.pnRoomList.CustomColors.CaptionSelectedGradientEnd = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(215)))), ((int)(((byte)(243)))));
+            this.pnRoomList.CustomColors.CaptionSelectedGradientMiddle = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(215)))), ((int)(((byte)(243)))));
+            this.pnRoomList.CustomColors.CaptionSelectedText = System.Drawing.SystemColors.ControlText;
+            this.pnRoomList.CustomColors.CaptionText = System.Drawing.SystemColors.ControlText;
+            this.pnRoomList.CustomColors.FlatCaptionGradientBegin = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this.pnRoomList.CustomColors.FlatCaptionGradientEnd = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
+            this.pnRoomList.CustomColors.InnerBorderColor = System.Drawing.SystemColors.Window;
+            this.pnRoomList.Expand = true;
+            this.pnRoomList.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pnRoomList.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.pnRoomList.Image = null;
+            this.pnRoomList.Name = "pnRoomList";
+            this.pnRoomList.Size = new System.Drawing.Size(468, 340);
+            this.pnRoomList.TabIndex = 0;
+            this.pnRoomList.Text = "Danh sách phòng trống";
+            this.pnRoomList.ToolTipTextCloseIcon = null;
+            this.pnRoomList.ToolTipTextExpandIconPanelCollapsed = null;
+            this.pnRoomList.ToolTipTextExpandIconPanelExpanded = null;
             // 
             // pnToSelectRoom
             // 
             this.pnToSelectRoom.AutoScroll = true;
             this.pnToSelectRoom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.pnToSelectRoom.Controls.Add(this.lbListEmptyRoomIsEmpty);
             this.pnToSelectRoom.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnToSelectRoom.Location = new System.Drawing.Point(1, 25);
             this.pnToSelectRoom.Name = "pnToSelectRoom";
             this.pnToSelectRoom.Size = new System.Drawing.Size(466, 315);
             this.pnToSelectRoom.TabIndex = 0;
+            this.pnToSelectRoom.ControlAdded += new System.Windows.Forms.ControlEventHandler(this.pnToSelectRoom_ControlAdded);
+            this.pnToSelectRoom.ControlRemoved += new System.Windows.Forms.ControlEventHandler(this.pnToSelectRoom_ControlRemoved);
+            // 
+            // lbListEmptyRoomIsEmpty
+            // 
+            this.lbListEmptyRoomIsEmpty.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbListEmptyRoomIsEmpty.Location = new System.Drawing.Point(3, 0);
+            this.lbListEmptyRoomIsEmpty.Name = "lbListEmptyRoomIsEmpty";
+            this.lbListEmptyRoomIsEmpty.Size = new System.Drawing.Size(455, 44);
+            this.lbListEmptyRoomIsEmpty.TabIndex = 3;
+            this.lbListEmptyRoomIsEmpty.Text = "Không có phòng nào trống!";
+            this.lbListEmptyRoomIsEmpty.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // xPanderPanel2
             // 
@@ -598,11 +615,24 @@ namespace HotelManagement.UI
             // 
             this.pnSeletedRoom.AutoScroll = true;
             this.pnSeletedRoom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.pnSeletedRoom.Controls.Add(this.lbListSelectedRoomIsEmpty);
             this.pnSeletedRoom.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnSeletedRoom.Location = new System.Drawing.Point(1, 25);
             this.pnSeletedRoom.Name = "pnSeletedRoom";
             this.pnSeletedRoom.Size = new System.Drawing.Size(466, 0);
             this.pnSeletedRoom.TabIndex = 1;
+            this.pnSeletedRoom.ControlAdded += new System.Windows.Forms.ControlEventHandler(this.pnSeletedRoom_ControlAdded);
+            this.pnSeletedRoom.ControlRemoved += new System.Windows.Forms.ControlEventHandler(this.pnSeletedRoom_ControlRemoved);
+            // 
+            // lbListSelectedRoomIsEmpty
+            // 
+            this.lbListSelectedRoomIsEmpty.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbListSelectedRoomIsEmpty.Location = new System.Drawing.Point(3, 0);
+            this.lbListSelectedRoomIsEmpty.Name = "lbListSelectedRoomIsEmpty";
+            this.lbListSelectedRoomIsEmpty.Size = new System.Drawing.Size(460, 44);
+            this.lbListSelectedRoomIsEmpty.TabIndex = 4;
+            this.lbListSelectedRoomIsEmpty.Text = "Chưa có phòng nào được chọn!";
+            this.lbListSelectedRoomIsEmpty.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label19
             // 
@@ -771,8 +801,10 @@ namespace HotelManagement.UI
             this.pnToBookRoom.ResumeLayout(false);
             this.pnToBookRoom.PerformLayout();
             this.PanelList.ResumeLayout(false);
-            this.xPanderPanel1.ResumeLayout(false);
+            this.pnRoomList.ResumeLayout(false);
+            this.pnToSelectRoom.ResumeLayout(false);
             this.xPanderPanel2.ResumeLayout(false);
+            this.pnSeletedRoom.ResumeLayout(false);
             this.pnBookingInfo.ResumeLayout(false);
             this.pnBookingInfo.PerformLayout();
             this.ResumeLayout(false);
@@ -820,10 +852,12 @@ namespace HotelManagement.UI
         private System.Windows.Forms.Panel panel7;
         private XanderUI.XUIButton btBookRoom;
         private Zeroit.Framework.MiscControls.ZeroitProPanelList PanelList;
-        private Zeroit.Framework.MiscControls.XPanderPanel xPanderPanel1;
+        private Zeroit.Framework.MiscControls.XPanderPanel pnRoomList;
         private System.Windows.Forms.FlowLayoutPanel pnToSelectRoom;
         private Zeroit.Framework.MiscControls.XPanderPanel xPanderPanel2;
         private System.Windows.Forms.FlowLayoutPanel pnSeletedRoom;
         private Zeroit.Framework.MiscControls.ZeroitLabel StatusLabel;
+        private System.Windows.Forms.Label lbListEmptyRoomIsEmpty;
+        private System.Windows.Forms.Label lbListSelectedRoomIsEmpty;
     }
 }
