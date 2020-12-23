@@ -41,6 +41,8 @@
             this.pbMenu = new System.Windows.Forms.PictureBox();
             this.menuItemDetail = new System.Windows.Forms.ToolStripMenuItem();
             this.menu = new Zeroit.Framework.MaterialDesign.Controls.ZeroitMaterialContextMenuStrip();
+            this.BillPrintPreview = new System.Windows.Forms.PrintPreviewDialog();
+            this.PrintDocument = new System.Drawing.Printing.PrintDocument();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbMenu)).BeginInit();
             this.menu.SuspendLayout();
@@ -206,7 +208,7 @@
             // menuItemDetail
             // 
             this.menuItemDetail.Name = "menuItemDetail";
-            this.menuItemDetail.Size = new System.Drawing.Size(180, 22);
+            this.menuItemDetail.Size = new System.Drawing.Size(137, 22);
             this.menuItemDetail.Text = "Xem chi tiết";
             this.menuItemDetail.Click += new System.EventHandler(this.menuItemDetail_Click);
             // 
@@ -219,6 +221,20 @@
             this.menu.MouseState = Zeroit.Framework.MaterialDesign.MouseState.HOVER;
             this.menu.Name = "zeroitMaterialContextMenuStrip1";
             this.menu.Size = new System.Drawing.Size(138, 26);
+            // 
+            // BillPrintPreview
+            // 
+            this.BillPrintPreview.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.BillPrintPreview.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.BillPrintPreview.ClientSize = new System.Drawing.Size(400, 300);
+            this.BillPrintPreview.Enabled = true;
+            this.BillPrintPreview.Icon = ((System.Drawing.Icon)(resources.GetObject("BillPrintPreview.Icon")));
+            this.BillPrintPreview.Name = "BillPrintPreview";
+            this.BillPrintPreview.Visible = false;
+            // 
+            // PrintDocument
+            // 
+            this.PrintDocument.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.PrintDocument_PrintPage);
             // 
             // Item_ReportBill
             // 
@@ -250,5 +266,7 @@
         private System.Windows.Forms.PictureBox pbMenu;
         private System.Windows.Forms.ToolStripMenuItem menuItemDetail;
         private Zeroit.Framework.MaterialDesign.Controls.ZeroitMaterialContextMenuStrip menu;
+        private System.Windows.Forms.PrintPreviewDialog BillPrintPreview;
+        private System.Drawing.Printing.PrintDocument PrintDocument;
     }
 }

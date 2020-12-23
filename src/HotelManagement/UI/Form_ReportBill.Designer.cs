@@ -55,7 +55,6 @@
             this.panel8 = new System.Windows.Forms.Panel();
             this.pnAddItem = new System.Windows.Forms.FlowLayoutPanel();
             this.lbListBillIsEmpty = new System.Windows.Forms.Label();
-            this.cbStaff = new MetroFramework.Controls.MetroComboBox();
             this.panel1.SuspendLayout();
             this.panel5.SuspendLayout();
             this.pnAddItem.SuspendLayout();
@@ -125,7 +124,7 @@
             this.cbStaff.Location = new System.Drawing.Point(584, 8);
             this.cbStaff.Name = "cbStaff";
             this.cbStaff.Size = new System.Drawing.Size(183, 29);
-            this.cbStaff.TabIndex = 5;
+            this.cbStaff.TabIndex = 3;
             this.cbStaff.UseSelectable = true;
             this.cbStaff.SelectedIndexChanged += new System.EventHandler(this.metroDateTime1_ValueChanged);
             // 
@@ -356,16 +355,6 @@
             this.lbListBillIsEmpty.TabIndex = 2;
             this.lbListBillIsEmpty.Text = "Chưa có hóa đơn nào!";
             this.lbListBillIsEmpty.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // cbStaff
-            // 
-            this.cbStaff.FormattingEnabled = true;
-            this.cbStaff.ItemHeight = 23;
-            this.cbStaff.Location = new System.Drawing.Point(584, 8);
-            this.cbStaff.Name = "cbStaff";
-            this.cbStaff.Size = new System.Drawing.Size(183, 29);
-            this.cbStaff.TabIndex = 3;
-            this.cbStaff.UseSelectable = true;
             // 
             // Form_ReportBill
             // 
