@@ -33,7 +33,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.cbSort = new MetroFramework.Controls.MetroComboBox();
             this.cbStaff = new MetroFramework.Controls.MetroComboBox();
-            this.cbRoomReservationIsRenting = new Zeroit.Framework.MaterialDesign.Controls.ZeroitMaterialCheckBox();
+            this.cbBillorServicesBill = new Zeroit.Framework.MaterialDesign.Controls.ZeroitMaterialCheckBox();
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -82,7 +82,7 @@
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.panel1.Controls.Add(this.cbSort);
             this.panel1.Controls.Add(this.cbStaff);
-            this.panel1.Controls.Add(this.cbRoomReservationIsRenting);
+            this.panel1.Controls.Add(this.cbBillorServicesBill);
             this.panel1.Controls.Add(this.panel7);
             this.panel1.Controls.Add(this.panel6);
             this.panel1.Controls.Add(this.panel4);
@@ -126,22 +126,22 @@
             this.cbStaff.UseSelectable = true;
             this.cbStaff.SelectedIndexChanged += new System.EventHandler(this.metroDateTime1_ValueChanged);
             // 
-            // cbRoomReservationIsRenting
+            // cbBillorServicesBill
             // 
-            this.cbRoomReservationIsRenting.AllowTransparency = true;
-            this.cbRoomReservationIsRenting.Checked = false;
-            this.cbRoomReservationIsRenting.Depth = 0;
-            this.cbRoomReservationIsRenting.Font = new System.Drawing.Font("Roboto", 10F);
-            this.cbRoomReservationIsRenting.Location = new System.Drawing.Point(464, 12);
-            this.cbRoomReservationIsRenting.Margin = new System.Windows.Forms.Padding(0);
-            this.cbRoomReservationIsRenting.MouseLocation = new System.Drawing.Point(-1, -1);
-            this.cbRoomReservationIsRenting.MouseState = Zeroit.Framework.MaterialDesign.MouseState.HOVER;
-            this.cbRoomReservationIsRenting.Name = "cbRoomReservationIsRenting";
-            this.cbRoomReservationIsRenting.Ripple = true;
-            this.cbRoomReservationIsRenting.Size = new System.Drawing.Size(27, 23);
-            this.cbRoomReservationIsRenting.TabIndex = 4;
-            this.cbRoomReservationIsRenting.TabStop = false;
-            this.cbRoomReservationIsRenting.CheckedChanged += new System.EventHandler(this.cbRoomReservationIsRenting_CheckedChanged);
+            this.cbBillorServicesBill.AllowTransparency = true;
+            this.cbBillorServicesBill.Checked = false;
+            this.cbBillorServicesBill.Depth = 0;
+            this.cbBillorServicesBill.Font = new System.Drawing.Font("Roboto", 10F);
+            this.cbBillorServicesBill.Location = new System.Drawing.Point(464, 12);
+            this.cbBillorServicesBill.Margin = new System.Windows.Forms.Padding(0);
+            this.cbBillorServicesBill.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.cbBillorServicesBill.MouseState = Zeroit.Framework.MaterialDesign.MouseState.HOVER;
+            this.cbBillorServicesBill.Name = "cbBillorServicesBill";
+            this.cbBillorServicesBill.Ripple = true;
+            this.cbBillorServicesBill.Size = new System.Drawing.Size(27, 23);
+            this.cbBillorServicesBill.TabIndex = 4;
+            this.cbBillorServicesBill.TabStop = false;
+            this.cbBillorServicesBill.CheckedChanged += new System.EventHandler(this.cbBillorServicesBill_CheckedChanged);
             // 
             // panel7
             // 
@@ -203,9 +203,9 @@
             this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(340, 12);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(120, 21);
+            this.label2.Size = new System.Drawing.Size(116, 21);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Phòng đang đặt";
+            this.label2.Text = "Hóa đơn bán lẻ";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // dtEnd
@@ -373,7 +373,7 @@
         private System.Windows.Forms.Label label1;
         private MetroFramework.Controls.MetroDateTime dtEnd;
         private System.Windows.Forms.Label label2;
-        private Zeroit.Framework.MaterialDesign.Controls.ZeroitMaterialCheckBox cbRoomReservationIsRenting;
+        private Zeroit.Framework.MaterialDesign.Controls.ZeroitMaterialCheckBox cbBillorServicesBill;
         private System.Windows.Forms.Panel panel5;
         private MetroFramework.Controls.MetroComboBox cbSort;
         private MetroFramework.Controls.MetroComboBox cbStaff;

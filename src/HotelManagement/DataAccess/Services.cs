@@ -4,7 +4,7 @@ namespace HotelManagement.DataAccess
 {
     public static class Services
     {
-        public static DataTable GetServices(ServiceType type)
+        public static DataTable GetServicesInfo(ServiceType type)
         {
             return ExecuteQuery.ExecuteReader("QLKS_GetServiceInfo @SeviceType", new object[] { type });
         }

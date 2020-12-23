@@ -17,6 +17,14 @@ namespace HotelManagement.UI
             InitializeComponent();
             this.parentRef = parentRef;
         }
+        public Item_ServiceManager(int id, string name, int price, Form_ServiceManager parentRef)
+        {
+            InitializeComponent();
+            this._itemID = id;
+            this._name = name;
+            this._price = price;
+            this.parentRef = parentRef;
+        }
 
         #region Properties
         Form_ServiceManager parentRef;
@@ -69,7 +77,7 @@ namespace HotelManagement.UI
 
         private void pbImage_Click(object sender, EventArgs e)
         {
-            (new Form_AddEditService(this, this.parentRef, ServiceManagerType.AddEatService)).ShowDialog();
+            (new Form_AddEditService(this, this.parentRef, ServiceManagerType.EditEatService)).ShowDialog();
         }
     }
 }
