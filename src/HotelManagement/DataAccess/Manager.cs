@@ -23,15 +23,28 @@ namespace HotelManagement.DataAccess
             return ExecuteQuery.ExecuteNoneQuery("QLKS_SetStaffInfo @ID , @Password , @Birthday , @Sex , @Addr , @PhoneNumber , @IdentityNumber , @Position , @StartingDate , @Salary , @Note",
                 new object[] { ID, name, birthday, sex, addr, phone, idNo, position, startDate, salary, note });
         }
-        public static int RemoveStaff(int id)
+        public static int RemoveStaff(int ID)
         {
             return ExecuteQuery.ExecuteNoneQuery("QLKS_RemoveStaff @StaffID",
-                new object[] { id });
+                new object[] { ID });
         }
         public static DataTable GetAllCustomerInfo(int sort)
         {
             return ExecuteQuery.ExecuteReader("QLKS_GetAllCustomer @Sort", new object[] { sort });
         }
-
+        public static int SetServiceInfo(int id, string name, int price)
+        {
+            return ExecuteQuery.ExecuteNoneQuery("QLKS_SetServiceInfo @ID , @Name , @Price",
+                new object[] { id, name, price });
+        }
+        public static int AddNewService(ServiceType serviceTypeID, string name, int price)
+        {
+            return ExecuteQuery.ExecuteNoneQuery("QLKS_AddNewService @ServiceTypeID , @Name , @Price",
+                new object[] { serviceTypeID, name, price });
+        }
+        public static DataTable GetServiceIdOfNewService()
+        {
+            return ExecuteQuery.ExecuteReader("QLKS_GetServiceIdOfNewService");
+        }
     }
 }

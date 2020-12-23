@@ -72,7 +72,7 @@ namespace HotelManagement.UI
             lbAddress.MainText = item_Staff._Address;
             lbPhonenum.Text = item_Staff._Phonenum;
             lbStartDate.Text = item_Staff._StartDate.ToShortDateString().ToString();
-            lbSalary.Text = item_Staff._Salary.ToString("C",CultureInfo.GetCultureInfo("vi-VN"));
+            lbSalary.Text = item_Staff._Salary.ToString("C", CultureInfo.GetCultureInfo("vi-VN"));
 
             try
             {
@@ -80,7 +80,7 @@ namespace HotelManagement.UI
 
                 staffImage.Image = Image.FromFile(staffImageFiles[0]);
             }
-            catch 
+            catch
             {
                 staffImage.Image = DefaultUserImage;
             }
@@ -107,29 +107,22 @@ namespace HotelManagement.UI
         public void addItem(int ID, bool position, string name, string IDNo, DateTime birthdate, bool sex,
                     string address, string phonenum, DateTime startdate, int salary, string username, string pass)
         {
-            try
-            {
-                throw new NotImplementedException();
-            }
-            catch
-            {
-                Item_Staff temp = new Item_Staff(this);
-                temp._ID = ID;
-                temp._Position = position;
-                temp._Name = name;
-                temp._IDNo = IDNo;
-                temp._Birthdate = birthdate;
-                temp._Sex = sex;
-                temp._Address = address;
-                temp._Phonenum = phonenum;
-                temp._StartDate = startdate;
-                temp._Salary = salary;
-                temp._Username = username;
-                temp._Pass = pass;
+            Item_Staff temp = new Item_Staff(this);
+            temp._ID = ID;
+            temp._Position = position;
+            temp._Name = name;
+            temp._IDNo = IDNo;
+            temp._Birthdate = birthdate;
+            temp._Sex = sex;
+            temp._Address = address;
+            temp._Phonenum = phonenum;
+            temp._StartDate = startdate;
+            temp._Salary = salary;
+            temp._Username = username;
+            temp._Pass = pass;
 
-                item_Staffs.Add(temp);
-                pnToAddItem.Controls.Add(temp);
-            }
+            item_Staffs.Add(temp);
+            pnToAddItem.Controls.Add(temp);
         }
 
         private void btAccount_Click(object sender, EventArgs e)

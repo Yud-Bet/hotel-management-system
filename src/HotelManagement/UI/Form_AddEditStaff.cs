@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using System.Data;
 using System.Text.RegularExpressions;
+using HotelManagement.Properties;
 
 namespace HotelManagement.UI
 {
@@ -60,6 +61,17 @@ namespace HotelManagement.UI
             tbPhonenum.Text = parentRef_EditStaff._Phonenum;
             dtStartDate.Value = parentRef_EditStaff._StartDate;
             tbSalary.Text = parentRef_EditStaff._Salary.ToString();
+
+            try
+            {
+                string[] staffImageFiles = Directory.GetFiles(@".\\staffimage", parentRef_EditStaff._IDNo + "*");
+
+                staffImage.Image = Image.FromFile(staffImageFiles[0]);
+            }
+            catch
+            {
+                staffImage.Image = Resources.profile_user;
+            }
         }
 
         private void btSave_Click(object sender, EventArgs e)

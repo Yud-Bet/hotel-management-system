@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using HotelManagement.Properties;
 
 namespace HotelManagement.UI
 {
@@ -203,8 +204,10 @@ namespace HotelManagement.UI
 
                 staffImage.Image = Image.FromFile(staffImageFiles[0]);
             }
-            catch { }
-            
+            catch
+            {
+                staffImage.Image = Resources.profile_user;
+            }
         } 
     }
 }

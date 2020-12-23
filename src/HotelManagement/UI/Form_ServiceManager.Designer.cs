@@ -45,8 +45,8 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.lbIronPrice = new System.Windows.Forms.Label();
             this.lbLaundryPrice = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lbIronName = new System.Windows.Forms.Label();
+            this.lbLaundryName = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btItemIron = new Zeroit.Framework.MiscControls.ZeroitRectShadowPanel();
@@ -225,8 +225,8 @@
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.panel5.Controls.Add(this.lbIronPrice);
             this.panel5.Controls.Add(this.lbLaundryPrice);
-            this.panel5.Controls.Add(this.label2);
-            this.panel5.Controls.Add(this.label1);
+            this.panel5.Controls.Add(this.lbIronName);
+            this.panel5.Controls.Add(this.lbLaundryName);
             this.panel5.Controls.Add(this.pictureBox2);
             this.panel5.Controls.Add(this.pictureBox1);
             this.panel5.Controls.Add(this.btItemIron);
@@ -264,29 +264,29 @@
             this.lbLaundryPrice.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.lbLaundryPrice.Click += new System.EventHandler(this.btItemLaundry_Click);
             // 
-            // label2
+            // lbIronName
             // 
-            this.label2.AutoSize = true;
-            this.label2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 17F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(47, 398);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(38, 31);
-            this.label2.TabIndex = 17;
-            this.label2.Text = "Ủi";
-            this.label2.Click += new System.EventHandler(this.btItemIron_Click);
+            this.lbIronName.AutoSize = true;
+            this.lbIronName.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lbIronName.Font = new System.Drawing.Font("Segoe UI", 17F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbIronName.Location = new System.Drawing.Point(47, 398);
+            this.lbIronName.Name = "lbIronName";
+            this.lbIronName.Size = new System.Drawing.Size(38, 31);
+            this.lbIronName.TabIndex = 17;
+            this.lbIronName.Text = "Ủi";
+            this.lbIronName.Click += new System.EventHandler(this.btItemIron_Click);
             // 
-            // label1
+            // lbLaundryName
             // 
-            this.label1.AutoSize = true;
-            this.label1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 17F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(47, 161);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(58, 31);
-            this.label1.TabIndex = 18;
-            this.label1.Text = "Giặt";
-            this.label1.Click += new System.EventHandler(this.btItemLaundry_Click);
+            this.lbLaundryName.AutoSize = true;
+            this.lbLaundryName.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lbLaundryName.Font = new System.Drawing.Font("Segoe UI", 17F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbLaundryName.Location = new System.Drawing.Point(47, 161);
+            this.lbLaundryName.Name = "lbLaundryName";
+            this.lbLaundryName.Size = new System.Drawing.Size(58, 31);
+            this.lbLaundryName.TabIndex = 18;
+            this.lbLaundryName.Text = "Giặt";
+            this.lbLaundryName.Click += new System.EventHandler(this.btItemLaundry_Click);
             // 
             // pictureBox2
             // 
@@ -389,8 +389,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lbIronPrice;
         private System.Windows.Forms.Label lbLaundryPrice;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lbIronName;
+        private System.Windows.Forms.Label lbLaundryName;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox1;
         private Zeroit.Framework.MiscControls.ZeroitRectShadowPanel btItemIron;

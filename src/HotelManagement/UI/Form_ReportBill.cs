@@ -22,16 +22,16 @@ namespace HotelManagement.UI
             {
                 cbStaff.Items.Add(dataStaff.Rows[i].ItemArray[0].ToString() + " | " + dataStaff.Rows[i].ItemArray[2].ToString());
             }
-            loadData();
+            loadDataBillInfo();
         }
 
-        private void loadData()
+        private void loadDataBillInfo()
         {
             while (pnAddItem.Controls.Count > 0) pnAddItem.Controls[0].Dispose();
             GC.Collect();
 
             DataTable dataBillInfo = DataAccess.Report.GetAllBillInfo(dtStart.Value, dtEnd.Value, cbStaff.SelectedIndex, cbSort.SelectedIndex);
-            for (int i=0;i<dataBillInfo.Rows.Count; i++)
+            for (int i = 0; i < dataBillInfo.Rows.Count; i++)
             {
                 Item_ReportBill itemBillInfo = new Item_ReportBill(
                     Convert.ToInt32(dataBillInfo.Rows[i].ItemArray[0]),
@@ -66,15 +66,52 @@ namespace HotelManagement.UI
             this.lbListBillIsEmpty.Text = "Chưa có hóa đơn nào!";
             this.lbListBillIsEmpty.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
         }
+        private void loadDataServicesBillInfo()
+        {
+            while (pnAddItem.Controls.Count > 0) pnAddItem.Controls[0].Dispose();
+            GC.Collect();
+
+            DataTable dataSVBillInfo = DataAccess.Report.GetAllServicesBillOnlyInfo(dtStart.Value, dtEnd.Value, cbStaff.SelectedIndex, cbSort.SelectedIndex);
+            for (int i = 0; i < dataSVBillInfo.Rows.Count; i++)
+            {
+                Item_ReportBill itemSVBillInfo = new Item_ReportBill(
+                    Convert.ToInt32(dataSVBillInfo.Rows[i].ItemArray[0]),
+                    Convert.ToDateTime(dataSVBillInfo.Rows[i].ItemArray[1].ToString()).ToShortDateString(),
+                    Convert.ToInt32(dataSVBillInfo.Rows[i].ItemArray[2]),
+                    dataSVBillInfo.Rows[i].ItemArray[3].ToString(),
+                    Convert.ToInt32(dataSVBillInfo.Rows[i].ItemArray[4]),
+                    Convert.ToInt32(dataSVBillInfo.Rows[i].ItemArray[5]),
+                    Convert.ToInt32(dataSVBillInfo.Rows[i].ItemArray[6]),
+                    //Convert.ToInt32(dataBillInfo.Rows[i].ItemArray[7]),
+                    0,
+                    true
+                    );
+                pnAddItem.Controls.Add(itemSVBillInfo);
+            }
+        }
 
         private void metroDateTime1_ValueChanged(object sender, EventArgs e)
         {
-            loadData();
+            if (!cbBillorServicesBill.Checked)
+            {
+                loadDataBillInfo();
+            }
+            else
+            {
+                loadDataServicesBillInfo();
+            }
         }
 
-        private void cbRoomReservationIsRenting_CheckedChanged(object sender, EventArgs e)
+        private void cbBillorServicesBill_CheckedChanged(object sender, EventArgs e)
         {
-
+            if (!cbBillorServicesBill.Checked)
+            {
+                loadDataBillInfo();
+            }
+            else
+            {
+                loadDataServicesBillInfo();
+            }
         }
     }
 }
