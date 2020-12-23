@@ -12,7 +12,6 @@ namespace HotelManagement.DTO
             items = new List<ServiceProperties>();
             DataTable roomTB = DataAccess.CustomerDA.GetRoomReservationDetailInfo(0, 0, RoomID);
             DataTable serviceTB = DataAccess.CustomerDA.GetBillDetailInfo(0, 0, RoomID);
-            int RowsAffected = DataAccess.CustomerDA.SetRoomReservationStatus(0, 0, RoomID);
 
             for (int i = 0; i < roomTB.Rows.Count; i++)
             {

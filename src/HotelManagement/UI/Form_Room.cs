@@ -27,6 +27,10 @@ namespace HotelManagement.UI
             tooltipBookMulRoom.Hide();
             tooltipBookMulRoom.Location = new System.Drawing.Point(100, 131);
             tooltipAddRoom.Location = new System.Drawing.Point(156, 131);
+            Disposed += (s, e) =>
+            {
+                tbSearch.TextChanged -= tbSearch_TextChanged;
+            };
         }
         #region Properties
         public Label _lbRoomID
@@ -120,6 +124,19 @@ namespace HotelManagement.UI
             Rented = room.RoomCount[(int)RoomStatus.Rented];
             Cleaning = room.RoomCount[(int)RoomStatus.Cleaning];
             Repairing = room.RoomCount[(int)RoomStatus.Repairing];
+        }
+
+        private List<Item_Room> SearchForRoom(string Criteria)
+        {
+            var res = new List<Item_Room>();
+            for (int i = 0; i < listRoom.Count; i++)
+            {
+                if (listRoom[i]._RoomID.ToString().Contains(Criteria))
+                {
+                    res.Add(listRoom[i]);
+                }
+            }
+            return res;
         }
 
         private void btThreeDot_Click(object sender, System.EventArgs e)
@@ -243,6 +260,21 @@ namespace HotelManagement.UI
             {
                 lbListRoomIsEmpty.Show();
             }
+        }
+
+        private async void tbSearch_TextChanged(object sender, EventArgs e)
+        {
+            if (tbSearch.Text == "")
+            {
+                pnToAddRoom.Controls.Clear();
+                pnToAddRoom.Controls.AddRange(listRoom.ToArray());
+            }
+            else
+            {
+                pnToAddRoom.Controls.Clear();
+                var temp = await Task.Run(() => SearchForRoom(tbSearch.Text));
+                pnToAddRoom.Controls.AddRange(temp.ToArray());
+            }    
         }
     }
 }

@@ -22,7 +22,7 @@ namespace HotelManagement.UI
         bool isUseBarChart = true;
         Func<ChartPoint, string> labelPoint = chartPoint =>
                 string.Format(CultureInfo.GetCultureInfo("vi-VN").NumberFormat, "{0:C} ", chartPoint.Y, chartPoint.Participation);
-        string Username;
+        string StaffName;
         Form ParentRef;
         CancellationTokenSource cts;
 
@@ -32,12 +32,12 @@ namespace HotelManagement.UI
             lineChart = 2
         }
 
-        public Form_Revenue(string Username, Form ParentRef)
+        public Form_Revenue(string StaffName, Form ParentRef)
         {
             InitializeComponent();
             getListDate(RevenueType.DateRevenue);
             btBarChart.Hide();
-            this.Username = Username;
+            this.StaffName = StaffName;
             this.ParentRef = ParentRef;
             cts = new CancellationTokenSource();
             cbTypeOfRevenue.SelectedIndex = 0;
@@ -246,7 +246,7 @@ namespace HotelManagement.UI
                 OverlayForm overlay = new OverlayForm(ParentRef, new LoadingForm(cts.Token));
                 overlay.Show();
                 exportExcel exporter = new exportExcel();
-                await exporter.exportRevenue(Username, (RevenueType)(cbTypeOfRevenue.SelectedIndex + 1),
+                await exporter.exportRevenue(StaffName, (RevenueType)(cbTypeOfRevenue.SelectedIndex + 1),
                     listDate, listRoomRevenue, listEatServiceRevenue, listLaudryServiceRevenue);
 
                 cts.Cancel();

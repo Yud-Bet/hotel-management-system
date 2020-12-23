@@ -450,17 +450,17 @@
             // 
             // lbNumberOfRepairingRoom
             // 
-            this.lbNumberOfRepairingRoom.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(251)))), ((int)(((byte)(53)))));
+            this.lbNumberOfRepairingRoom.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(246)))), ((int)(((byte)(116)))));
             this.lbNumberOfRepairingRoom.ButtonImage = null;
             this.lbNumberOfRepairingRoom.ButtonStyle = XanderUI.XUIButton.Style.MaterialRounded;
             this.lbNumberOfRepairingRoom.ButtonText = "0";
-            this.lbNumberOfRepairingRoom.ClickBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(251)))), ((int)(((byte)(53)))));
+            this.lbNumberOfRepairingRoom.ClickBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(246)))), ((int)(((byte)(116)))));
             this.lbNumberOfRepairingRoom.ClickTextColor = System.Drawing.Color.Black;
             this.lbNumberOfRepairingRoom.CornerRadius = 5;
             this.lbNumberOfRepairingRoom.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbNumberOfRepairingRoom.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold);
             this.lbNumberOfRepairingRoom.Horizontal_Alignment = System.Drawing.StringAlignment.Center;
-            this.lbNumberOfRepairingRoom.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(251)))), ((int)(((byte)(53)))));
+            this.lbNumberOfRepairingRoom.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(246)))), ((int)(((byte)(116)))));
             this.lbNumberOfRepairingRoom.HoverTextColor = System.Drawing.Color.Black;
             this.lbNumberOfRepairingRoom.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
             this.lbNumberOfRepairingRoom.Location = new System.Drawing.Point(861, 100);
@@ -473,17 +473,17 @@
             // 
             // lbNumberOfCleaningRoom
             // 
-            this.lbNumberOfCleaningRoom.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(194)))), ((int)(((byte)(255)))));
+            this.lbNumberOfCleaningRoom.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(202)))), ((int)(((byte)(228)))));
             this.lbNumberOfCleaningRoom.ButtonImage = null;
             this.lbNumberOfCleaningRoom.ButtonStyle = XanderUI.XUIButton.Style.MaterialRounded;
             this.lbNumberOfCleaningRoom.ButtonText = "0";
-            this.lbNumberOfCleaningRoom.ClickBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(194)))), ((int)(((byte)(255)))));
+            this.lbNumberOfCleaningRoom.ClickBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(202)))), ((int)(((byte)(228)))));
             this.lbNumberOfCleaningRoom.ClickTextColor = System.Drawing.Color.Black;
             this.lbNumberOfCleaningRoom.CornerRadius = 5;
             this.lbNumberOfCleaningRoom.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbNumberOfCleaningRoom.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold);
             this.lbNumberOfCleaningRoom.Horizontal_Alignment = System.Drawing.StringAlignment.Center;
-            this.lbNumberOfCleaningRoom.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(194)))), ((int)(((byte)(255)))));
+            this.lbNumberOfCleaningRoom.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(202)))), ((int)(((byte)(228)))));
             this.lbNumberOfCleaningRoom.HoverTextColor = System.Drawing.Color.Black;
             this.lbNumberOfCleaningRoom.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
             this.lbNumberOfCleaningRoom.Location = new System.Drawing.Point(743, 100);
@@ -496,17 +496,17 @@
             // 
             // lbNumberOfRentedRoom
             // 
-            this.lbNumberOfRentedRoom.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(113)))), ((int)(((byte)(184)))));
+            this.lbNumberOfRentedRoom.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(93)))), ((int)(((byte)(143)))));
             this.lbNumberOfRentedRoom.ButtonImage = null;
             this.lbNumberOfRentedRoom.ButtonStyle = XanderUI.XUIButton.Style.MaterialRounded;
             this.lbNumberOfRentedRoom.ButtonText = "0";
-            this.lbNumberOfRentedRoom.ClickBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(113)))), ((int)(((byte)(184)))));
+            this.lbNumberOfRentedRoom.ClickBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(93)))), ((int)(((byte)(143)))));
             this.lbNumberOfRentedRoom.ClickTextColor = System.Drawing.Color.Black;
             this.lbNumberOfRentedRoom.CornerRadius = 5;
             this.lbNumberOfRentedRoom.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbNumberOfRentedRoom.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold);
             this.lbNumberOfRentedRoom.Horizontal_Alignment = System.Drawing.StringAlignment.Center;
-            this.lbNumberOfRentedRoom.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(113)))), ((int)(((byte)(184)))));
+            this.lbNumberOfRentedRoom.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(93)))), ((int)(((byte)(143)))));
             this.lbNumberOfRentedRoom.HoverTextColor = System.Drawing.Color.Black;
             this.lbNumberOfRentedRoom.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
             this.lbNumberOfRentedRoom.Location = new System.Drawing.Point(625, 100);
@@ -519,17 +519,17 @@
             // 
             // lbNumberOfEmptyRoom
             // 
-            this.lbNumberOfEmptyRoom.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(222)))), ((int)(((byte)(190)))));
+            this.lbNumberOfEmptyRoom.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(198)))), ((int)(((byte)(157)))));
             this.lbNumberOfEmptyRoom.ButtonImage = null;
             this.lbNumberOfEmptyRoom.ButtonStyle = XanderUI.XUIButton.Style.MaterialRounded;
             this.lbNumberOfEmptyRoom.ButtonText = "0";
-            this.lbNumberOfEmptyRoom.ClickBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(222)))), ((int)(((byte)(190)))));
+            this.lbNumberOfEmptyRoom.ClickBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(198)))), ((int)(((byte)(157)))));
             this.lbNumberOfEmptyRoom.ClickTextColor = System.Drawing.Color.Black;
             this.lbNumberOfEmptyRoom.CornerRadius = 5;
             this.lbNumberOfEmptyRoom.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbNumberOfEmptyRoom.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold);
             this.lbNumberOfEmptyRoom.Horizontal_Alignment = System.Drawing.StringAlignment.Center;
-            this.lbNumberOfEmptyRoom.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(222)))), ((int)(((byte)(190)))));
+            this.lbNumberOfEmptyRoom.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(198)))), ((int)(((byte)(157)))));
             this.lbNumberOfEmptyRoom.HoverTextColor = System.Drawing.Color.Black;
             this.lbNumberOfEmptyRoom.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
             this.lbNumberOfEmptyRoom.Location = new System.Drawing.Point(507, 100);
@@ -649,6 +649,7 @@
             this.tbSearch.TextBackgroundColor = System.Drawing.SystemColors.Control;
             this.tbSearch.UseSystemPasswordChar = false;
             this.tbSearch.WordWrap = true;
+            this.tbSearch.TextChanged += new System.EventHandler(this.tbSearch_TextChanged);
             // 
             // animTbSearch
             // 
