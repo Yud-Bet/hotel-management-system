@@ -18,15 +18,6 @@ namespace HotelManagement.UI
         {
             InitializeComponent();
 
-            if (roomIsRenting)
-            {
-                pbMenu.Show();
-            }
-            else
-            {
-                pbMenu.Hide();
-            }
-
             this.roomIsRenting = roomIsRenting;
             lbBillID.MainText = billID.ToString();
             lbBillDateCre.MainText = billDateCre;
@@ -65,7 +56,12 @@ namespace HotelManagement.UI
 
         private void pbMenu_Click(object sender, EventArgs e)
         {
-            zeroitMaterialContextMenuStrip1.Show(MousePosition);
+            menu.Show(new Point(MousePosition.X - menu.Width, MousePosition.Y));
+        }
+
+        private void menuItemDetail_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
