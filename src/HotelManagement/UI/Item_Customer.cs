@@ -80,5 +80,10 @@ namespace HotelManagement.UI
 
             GC.Collect();
         }
+
+        private void btToShowCustomerBill_Click(object sender, EventArgs e)
+        {
+            (new Form_CustomerBill()).ShowDialog();
+        }
     }
 }

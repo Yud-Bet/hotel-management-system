@@ -259,6 +259,7 @@ namespace HotelManagement.UI
                     ParentRef.ParentRef.Empty = ParentRef.ParentRef.Empty - 1;
                     ParentRef.ParentRef.Rented = ParentRef.ParentRef.Rented + 1;
                     ParentRef._RoomStatus = RoomStatus.Rented;
+                    MessageBox.Show("Đặt phòng thành công!", "Thông báo");
                     pbArrowBack_Click(sender, e);
                 }
                 else MessageBox.Show("Lỗi khi đặt phòng");

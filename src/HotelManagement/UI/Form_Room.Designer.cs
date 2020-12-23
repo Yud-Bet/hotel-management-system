@@ -446,7 +446,7 @@
             this.lbNumberOfRoom.TabIndex = 32;
             this.lbNumberOfRoom.TextColor = System.Drawing.Color.Black;
             this.lbNumberOfRoom.Vertical_Alignment = System.Drawing.StringAlignment.Center;
-            this.lbNumberOfRoom.Click += new System.EventHandler(this.btThreeDot_Click);
+            this.lbNumberOfRoom.Click += new System.EventHandler(this.lbNumberOfRoom_Click);
             // 
             // lbNumberOfRepairingRoom
             // 
@@ -469,7 +469,7 @@
             this.lbNumberOfRepairingRoom.TabIndex = 32;
             this.lbNumberOfRepairingRoom.TextColor = System.Drawing.Color.Black;
             this.lbNumberOfRepairingRoom.Vertical_Alignment = System.Drawing.StringAlignment.Center;
-            this.lbNumberOfRepairingRoom.Click += new System.EventHandler(this.btThreeDot_Click);
+            this.lbNumberOfRepairingRoom.Click += new System.EventHandler(this.lbNumberOfRepairingRoom_Click);
             // 
             // lbNumberOfCleaningRoom
             // 
@@ -492,7 +492,7 @@
             this.lbNumberOfCleaningRoom.TabIndex = 32;
             this.lbNumberOfCleaningRoom.TextColor = System.Drawing.Color.Black;
             this.lbNumberOfCleaningRoom.Vertical_Alignment = System.Drawing.StringAlignment.Center;
-            this.lbNumberOfCleaningRoom.Click += new System.EventHandler(this.btThreeDot_Click);
+            this.lbNumberOfCleaningRoom.Click += new System.EventHandler(this.lbNumberOfCleaningRoom_Click);
             // 
             // lbNumberOfRentedRoom
             // 
@@ -515,7 +515,7 @@
             this.lbNumberOfRentedRoom.TabIndex = 32;
             this.lbNumberOfRentedRoom.TextColor = System.Drawing.Color.Black;
             this.lbNumberOfRentedRoom.Vertical_Alignment = System.Drawing.StringAlignment.Center;
-            this.lbNumberOfRentedRoom.Click += new System.EventHandler(this.btThreeDot_Click);
+            this.lbNumberOfRentedRoom.Click += new System.EventHandler(this.lbNumberOfRentedRoom_Click);
             // 
             // lbNumberOfEmptyRoom
             // 
@@ -538,7 +538,7 @@
             this.lbNumberOfEmptyRoom.TabIndex = 32;
             this.lbNumberOfEmptyRoom.TextColor = System.Drawing.Color.Black;
             this.lbNumberOfEmptyRoom.Vertical_Alignment = System.Drawing.StringAlignment.Center;
-            this.lbNumberOfEmptyRoom.Click += new System.EventHandler(this.btThreeDot_Click);
+            this.lbNumberOfEmptyRoom.Click += new System.EventHandler(this.lbNumberOfEmptyRoom_Click);
             // 
             // btThreeDot
             // 

@@ -55,7 +55,6 @@
             this.panel8 = new System.Windows.Forms.Panel();
             this.pnAddItem = new System.Windows.Forms.FlowLayoutPanel();
             this.lbListBillIsEmpty = new System.Windows.Forms.Label();
-            this.cbStaff = new MetroFramework.Controls.MetroComboBox();
             this.panel1.SuspendLayout();
             this.panel5.SuspendLayout();
             this.pnAddItem.SuspendLayout();
