@@ -1,4 +1,6 @@
-﻿namespace HotelManagement.UI
+﻿using System.Windows.Forms;
+
+namespace HotelManagement.UI
 {
     partial class Form_ServiceManager
     {
@@ -400,5 +402,10 @@
         private System.Windows.Forms.PictureBox pbSearch;
         private Zeroit.Framework.Labels.ZeroitUltraTextBox tbSearch;
         private System.Windows.Forms.Label lbListServiceIsEmpty;
+
+        public Label LbIronPrice { get => lbIronPrice; set => lbIronPrice = value; }
+        public Label LbLaundryPrice { get => lbLaundryPrice; set => lbLaundryPrice = value; }
+        public Label LbIronName { get => lbIronName; set => lbIronName = value; }
+        public Label LbLaundryName { get => lbLaundryName; set => lbLaundryName = value; }
     }
 }
