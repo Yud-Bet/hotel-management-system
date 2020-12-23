@@ -320,6 +320,7 @@ namespace HotelManagement.UI
                 {
                     printPreviewDialogBill.Document = bill;
                     printPreviewDialogBill.ShowDialog();
+                    await Task.Run(() => DataAccess.CustomerDA.SetRoomReservationStatus(0, 0, RoomID));
                     for (int i = 0; i < data.Rows.Count; i++)
                     {
                         for (int j = 0; j < ParentRef.ParentRef.listRoom.Count; j++)

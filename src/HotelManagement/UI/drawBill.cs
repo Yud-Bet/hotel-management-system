@@ -44,13 +44,13 @@ namespace HotelManagement.UI
         }
         public void drawServiceInfo()
         {
-            //g.DrawString("Tên khách hàng:  " + customerName, font20, brush, new Point(10, 250));
-            //g.DrawString("Số phòng: " + roomID.ToString(), font20, brush, new Point(600, 250));
-            //g.DrawString("Số điện thoại:      " + phoneNum, font20, brush, new Point(10, 280));
-            //g.DrawString("Địa chỉ:                 " + address, font20, brush, new Point(10, 310));
-            //g.DrawString("Ngày đến:             " + dateCheckIn, font20, brush, new Point(10, 340));
-            //g.DrawString("Ngày đi:                " + dateCheckOut, font20, brush, new Point(10, 370));
-            //g.DrawString("--------------------------------------------------------------------------------------------------", font20, brush, new Point(0, 400));
+            g.DrawString("Tên khách hàng: ", font20, brush, new Point(10, 250));
+            g.DrawString("Số phòng: ", font20, brush, new Point(600, 250));
+            g.DrawString("Số điện thoại:      ", font20, brush, new Point(10, 280));
+            g.DrawString("Địa chỉ:                 ", font20, brush, new Point(10, 310));
+            g.DrawString("Ngày đến:             ", font20, brush, new Point(10, 340));
+            g.DrawString("Ngày đi:                ", font20, brush, new Point(10, 370));
+            g.DrawString("--------------------------------------------------------------------------------------------------", font20, brush, new Point(0, 400));
             g.DrawString("Tên dịch vụ", font15, brush, new Point(10, 425));
             g.DrawString("Số lượng", font15, brush, new Point(350, 425));
             g.DrawString("Đơn giá", font15, brush, new Point(500, 425));
