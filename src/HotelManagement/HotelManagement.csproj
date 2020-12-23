@@ -164,6 +164,12 @@
     <Compile Include="UI\Form_Customer.Designer.cs">
       <DependentUpon>Form_Customer.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Form_CustomerBill.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Form_CustomerBill.Designer.cs">
+      <DependentUpon>Form_CustomerBill.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Form_EatService.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -328,6 +334,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Form_Customer.resx">
       <DependentUpon>Form_Customer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Form_CustomerBill.resx">
+      <DependentUpon>Form_CustomerBill.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Form_EatService.resx">
       <DependentUpon>Form_EatService.cs</DependentUpon>

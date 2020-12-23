@@ -83,8 +83,22 @@ namespace HotelManagement.UI
                 tbRoomPrice.Enabled = false;
                 tbRoomSize.Enabled = false;
                 rbtDouble.Enabled = rbtSingle.Enabled = rbtNor.Enabled = rbtVip.Enabled = false;
-                if (!checkEmptyValue()) return;
-                if (!checkValidityOfValue()) return;
+                if (!checkEmptyValue())
+                {
+                    IsProcessing = false;
+                    tbRoomSize.Enabled = true;
+                    tbRoomPrice.Enabled = true;
+                    rbtDouble.Enabled = rbtSingle.Enabled = rbtNor.Enabled = rbtVip.Enabled = true;
+                    return;
+                }
+                if (!checkValidityOfValue())
+                {
+                    IsProcessing = false;
+                    tbRoomSize.Enabled = true;
+                    tbRoomPrice.Enabled = true;
+                    rbtDouble.Enabled = rbtSingle.Enabled = rbtNor.Enabled = rbtVip.Enabled = true;
+                    return;
+                }
                 try
                 {
                     RoomSize = Convert.ToInt32(tbRoomSize.Text);
@@ -109,11 +123,10 @@ namespace HotelManagement.UI
                 finally
                 {
                     IsProcessing = false;
+                    tbRoomSize.Enabled = true;
+                    tbRoomPrice.Enabled = true;
+                    rbtDouble.Enabled = rbtSingle.Enabled = rbtNor.Enabled = rbtVip.Enabled = true;
                 }
-
-                tbRoomSize.Enabled = true;
-                tbRoomPrice.Enabled = true;
-                rbtDouble.Enabled = rbtSingle.Enabled = rbtNor.Enabled = rbtVip.Enabled = true;
             }
             else MessageBox.Show("Từ từ đừng vội~", "Thông báo");
         }

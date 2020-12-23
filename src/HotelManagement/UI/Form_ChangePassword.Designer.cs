@@ -35,29 +35,29 @@
             this.btCharge = new XanderUI.XUIButton();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.pnAccount = new System.Windows.Forms.Panel();
+            this.pbShowHidePass2 = new System.Windows.Forms.PictureBox();
             this.pbShowHidePass1 = new System.Windows.Forms.PictureBox();
             this.pbShowHidePass = new System.Windows.Forms.PictureBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.lbTitle = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.tbNewPass1 = new Zeroit.Framework.Labels.ZeroitUltraTextBox();
             this.tbNewPass = new Zeroit.Framework.Labels.ZeroitUltraTextBox();
             this.tbOldPass = new Zeroit.Framework.Labels.ZeroitUltraTextBox();
             this.tbUsername = new Zeroit.Framework.Labels.ZeroitUltraTextBox();
             this.xuiButton2 = new XanderUI.XUIButton();
+            this.xuiButton4 = new XanderUI.XUIButton();
             this.xuiButton3 = new XanderUI.XUIButton();
             this.xuiButton1 = new XanderUI.XUIButton();
-            this.xuiButton4 = new XanderUI.XUIButton();
-            this.tbNewPass1 = new Zeroit.Framework.Labels.ZeroitUltraTextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.pbShowHidePass2 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             this.pnAccount.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbShowHidePass2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbShowHidePass1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbShowHidePass)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbShowHidePass2)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -65,7 +65,7 @@
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.panel1.Controls.Add(this.flowLayoutPanel1);
             this.panel1.Controls.Add(this.flowLayoutPanel2);
-            this.panel1.Location = new System.Drawing.Point(3, 3);
+            this.panel1.Location = new System.Drawing.Point(4, 5);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(391, 412);
             this.panel1.TabIndex = 1;
@@ -158,6 +158,18 @@
             this.pnAccount.Size = new System.Drawing.Size(371, 357);
             this.pnAccount.TabIndex = 0;
             // 
+            // pbShowHidePass2
+            // 
+            this.pbShowHidePass2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbShowHidePass2.Image = global::HotelManagement.Properties.Resources.icShowPass;
+            this.pbShowHidePass2.Location = new System.Drawing.Point(335, 303);
+            this.pbShowHidePass2.Name = "pbShowHidePass2";
+            this.pbShowHidePass2.Size = new System.Drawing.Size(25, 25);
+            this.pbShowHidePass2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbShowHidePass2.TabIndex = 21;
+            this.pbShowHidePass2.TabStop = false;
+            this.pbShowHidePass2.Click += new System.EventHandler(this.pbShowHidePass2_Click);
+            // 
             // pbShowHidePass1
             // 
             this.pbShowHidePass1.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -181,6 +193,16 @@
             this.pbShowHidePass.TabIndex = 21;
             this.pbShowHidePass.TabStop = false;
             this.pbShowHidePass.Click += new System.EventHandler(this.pbShowHidePass_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(60, 278);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(95, 19);
+            this.label4.TabIndex = 20;
+            this.label4.Text = "Mật khẩu mới";
             // 
             // label3
             // 
@@ -221,6 +243,31 @@
             this.label1.Size = new System.Drawing.Size(100, 19);
             this.label1.TabIndex = 20;
             this.label1.Text = "Tên đăng nhập";
+            // 
+            // tbNewPass1
+            // 
+            this.tbNewPass1.DisabledStringColor = System.Drawing.Color.Black;
+            this.tbNewPass1.DisabledUnFocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(236)))), ((int)(((byte)(238)))));
+            this.tbNewPass1.EnabledUnFocusedColor = System.Drawing.Color.Silver;
+            this.tbNewPass1.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(142)))), ((int)(((byte)(245)))));
+            this.tbNewPass1.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.tbNewPass1.ForeColor = System.Drawing.Color.Black;
+            this.tbNewPass1.IsEnabled = true;
+            this.tbNewPass1.Location = new System.Drawing.Point(60, 304);
+            this.tbNewPass1.MaxLength = 32767;
+            this.tbNewPass1.Multiline = false;
+            this.tbNewPass1.Name = "tbNewPass1";
+            this.tbNewPass1.PasswordChar = '•';
+            this.tbNewPass1.Placeholder = true;
+            this.tbNewPass1.PlaceHolderText = "";
+            this.tbNewPass1.PlaceHolderTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
+            this.tbNewPass1.ReadOnly = false;
+            this.tbNewPass1.Size = new System.Drawing.Size(300, 24);
+            this.tbNewPass1.TabIndex = 0;
+            this.tbNewPass1.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left;
+            this.tbNewPass1.TextBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this.tbNewPass1.UseSystemPasswordChar = false;
+            this.tbNewPass1.WordWrap = true;
             // 
             // tbNewPass
             // 
@@ -320,6 +367,28 @@
             this.xuiButton2.TextColor = System.Drawing.Color.White;
             this.xuiButton2.Vertical_Alignment = System.Drawing.StringAlignment.Center;
             // 
+            // xuiButton4
+            // 
+            this.xuiButton4.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
+            this.xuiButton4.ButtonImage = ((System.Drawing.Image)(resources.GetObject("xuiButton4.ButtonImage")));
+            this.xuiButton4.ButtonStyle = XanderUI.XUIButton.Style.MaterialRounded;
+            this.xuiButton4.ButtonText = "";
+            this.xuiButton4.ClickBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
+            this.xuiButton4.ClickTextColor = System.Drawing.Color.White;
+            this.xuiButton4.CornerRadius = 5;
+            this.xuiButton4.Cursor = System.Windows.Forms.Cursors.Default;
+            this.xuiButton4.Font = new System.Drawing.Font("Segoe UI", 14F);
+            this.xuiButton4.Horizontal_Alignment = System.Drawing.StringAlignment.Near;
+            this.xuiButton4.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
+            this.xuiButton4.HoverTextColor = System.Drawing.Color.White;
+            this.xuiButton4.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
+            this.xuiButton4.Location = new System.Drawing.Point(3, 278);
+            this.xuiButton4.Name = "xuiButton4";
+            this.xuiButton4.Size = new System.Drawing.Size(51, 50);
+            this.xuiButton4.TabIndex = 18;
+            this.xuiButton4.TextColor = System.Drawing.Color.White;
+            this.xuiButton4.Vertical_Alignment = System.Drawing.StringAlignment.Center;
+            // 
             // xuiButton3
             // 
             this.xuiButton3.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
@@ -364,90 +433,22 @@
             this.xuiButton1.TextColor = System.Drawing.Color.White;
             this.xuiButton1.Vertical_Alignment = System.Drawing.StringAlignment.Center;
             // 
-            // xuiButton4
-            // 
-            this.xuiButton4.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
-            this.xuiButton4.ButtonImage = ((System.Drawing.Image)(resources.GetObject("xuiButton4.ButtonImage")));
-            this.xuiButton4.ButtonStyle = XanderUI.XUIButton.Style.MaterialRounded;
-            this.xuiButton4.ButtonText = "";
-            this.xuiButton4.ClickBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
-            this.xuiButton4.ClickTextColor = System.Drawing.Color.White;
-            this.xuiButton4.CornerRadius = 5;
-            this.xuiButton4.Cursor = System.Windows.Forms.Cursors.Default;
-            this.xuiButton4.Font = new System.Drawing.Font("Segoe UI", 14F);
-            this.xuiButton4.Horizontal_Alignment = System.Drawing.StringAlignment.Near;
-            this.xuiButton4.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
-            this.xuiButton4.HoverTextColor = System.Drawing.Color.White;
-            this.xuiButton4.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
-            this.xuiButton4.Location = new System.Drawing.Point(3, 278);
-            this.xuiButton4.Name = "xuiButton4";
-            this.xuiButton4.Size = new System.Drawing.Size(51, 50);
-            this.xuiButton4.TabIndex = 18;
-            this.xuiButton4.TextColor = System.Drawing.Color.White;
-            this.xuiButton4.Vertical_Alignment = System.Drawing.StringAlignment.Center;
-            // 
-            // tbNewPass1
-            // 
-            this.tbNewPass1.DisabledStringColor = System.Drawing.Color.Black;
-            this.tbNewPass1.DisabledUnFocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(236)))), ((int)(((byte)(238)))));
-            this.tbNewPass1.EnabledUnFocusedColor = System.Drawing.Color.Silver;
-            this.tbNewPass1.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(142)))), ((int)(((byte)(245)))));
-            this.tbNewPass1.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.tbNewPass1.ForeColor = System.Drawing.Color.Black;
-            this.tbNewPass1.IsEnabled = true;
-            this.tbNewPass1.Location = new System.Drawing.Point(60, 304);
-            this.tbNewPass1.MaxLength = 32767;
-            this.tbNewPass1.Multiline = false;
-            this.tbNewPass1.Name = "tbNewPass1";
-            this.tbNewPass1.PasswordChar = '•';
-            this.tbNewPass1.Placeholder = true;
-            this.tbNewPass1.PlaceHolderText = "";
-            this.tbNewPass1.PlaceHolderTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
-            this.tbNewPass1.ReadOnly = false;
-            this.tbNewPass1.Size = new System.Drawing.Size(300, 24);
-            this.tbNewPass1.TabIndex = 0;
-            this.tbNewPass1.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left;
-            this.tbNewPass1.TextBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
-            this.tbNewPass1.UseSystemPasswordChar = false;
-            this.tbNewPass1.WordWrap = true;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(60, 278);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(95, 19);
-            this.label4.TabIndex = 20;
-            this.label4.Text = "Mật khẩu mới";
-            // 
-            // pbShowHidePass2
-            // 
-            this.pbShowHidePass2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbShowHidePass2.Image = global::HotelManagement.Properties.Resources.icShowPass;
-            this.pbShowHidePass2.Location = new System.Drawing.Point(335, 303);
-            this.pbShowHidePass2.Name = "pbShowHidePass2";
-            this.pbShowHidePass2.Size = new System.Drawing.Size(25, 25);
-            this.pbShowHidePass2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbShowHidePass2.TabIndex = 21;
-            this.pbShowHidePass2.TabStop = false;
-            this.pbShowHidePass2.Click += new System.EventHandler(this.pbShowHidePass2_Click);
-            // 
-            // Form_ChargePassword
+            // Form_ChangePassword
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(400, 419);
+            this.ClientSize = new System.Drawing.Size(400, 422);
             this.Controls.Add(this.panel1);
-            this.Name = "Form_ChargePassword";
+            this.Name = "Form_ChangePassword";
+            this.Resizable = false;
             this.panel1.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel2.ResumeLayout(false);
             this.pnAccount.ResumeLayout(false);
             this.pnAccount.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbShowHidePass2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbShowHidePass1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbShowHidePass)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbShowHidePass2)).EndInit();
             this.ResumeLayout(false);
 
         }

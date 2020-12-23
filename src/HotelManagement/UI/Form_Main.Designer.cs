@@ -730,7 +730,7 @@
             // 
             // lbStaffPosition
             // 
-            this.lbStaffPosition.Cursor = System.Windows.Forms.Cursors.Default;
+            this.lbStaffPosition.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbStaffPosition.Font = new System.Drawing.Font("Calibri", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbStaffPosition.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(148)))), ((int)(((byte)(148)))));
             this.lbStaffPosition.Location = new System.Drawing.Point(66, 48);
@@ -739,10 +739,11 @@
             this.lbStaffPosition.TabIndex = 3;
             this.lbStaffPosition.Text = "Chức Vụ";
             this.lbStaffPosition.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lbStaffPosition.Click += new System.EventHandler(this.pbStaffAvatar_Click);
             // 
             // lbStaffname
             // 
-            this.lbStaffname.Cursor = System.Windows.Forms.Cursors.Default;
+            this.lbStaffname.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbStaffname.Font = new System.Drawing.Font("Calibri", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbStaffname.ForeColor = System.Drawing.Color.Black;
             this.lbStaffname.Location = new System.Drawing.Point(66, 22);
@@ -751,6 +752,7 @@
             this.lbStaffname.TabIndex = 4;
             this.lbStaffname.Text = "Tên Nhân Viên";
             this.lbStaffname.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lbStaffname.Click += new System.EventHandler(this.pbStaffAvatar_Click);
             // 
             // pbStaffAvatar
             // 
@@ -770,9 +772,11 @@
             this.ClientSize = new System.Drawing.Size(1229, 710);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(1229, 710);
             this.MinimumSize = new System.Drawing.Size(1229, 710);
             this.Name = "Form_Main";
+            this.Resizable = false;
             this.ShadowType = MetroFramework.Forms.MetroFormShadowType.DropShadow;
             this.Load += new System.EventHandler(this.Form_Main_Load);
             this.panel1.ResumeLayout(false);
