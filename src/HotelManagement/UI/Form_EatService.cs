@@ -67,13 +67,16 @@ namespace HotelManagement.UI
             }
             cbRoomSelection.SelectedIndex = 0;
         }
-        public void calcTotalMoney()
+        public async Task calcTotalMoney()
         {
             int sum = 0;
-            foreach (Item_EatService2 i in this._SelectedItems)
+            await Task.Run(() =>
             {
-                sum += (i._count * i._price);
-            }
+                foreach (Item_EatService2 i in this._SelectedItems)
+                {
+                    sum += (i._count * i._price);
+                }
+            });
             this._totalMoney = sum;
         }
 

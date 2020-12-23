@@ -93,8 +93,8 @@ namespace HotelManagement.UI
         {
             if (tbCustomerName.Text != "")
             {
-                TakeCustomerAlreadyExistsToMenuItems(tbCustomerName.Text);
-                dropDownList1.Show();
+                if (TakeCustomerAlreadyExistsToMenuItems(tbCustomerName.Text)) { }
+                else dropDownList1.Hide();
             }
             else
             {
@@ -102,17 +102,20 @@ namespace HotelManagement.UI
             }
         }
 
-        private void TakeCustomerAlreadyExistsToMenuItems(string customerName)
+        private bool TakeCustomerAlreadyExistsToMenuItems(string customerName)
         {
             dropDownList1.clear();
+            bool IsExist = false;
             foreach (var i in Customers)
             {
                 string AdditionalInfo = (i.IDNumber.Length != 0) ? i.IDNumber : i.Passport;
                 if (i.Name.ToLower().Contains(customerName.ToLower()))
                 {
                     dropDownList1.addItem(i.Name + " | " + AdditionalInfo, i.ID.ToString());
+                    IsExist = true;
                 }
             }
+            return IsExist;
         }
 
         private void pnCustomerInfo_Click(object sender, EventArgs e)

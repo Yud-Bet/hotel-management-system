@@ -81,6 +81,7 @@
             this.tbCount.TabIndex = 11;
             this.tbCount.Text = "1";
             this.tbCount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tbCount.TextChanged += new System.EventHandler(this.tbCount_TextChanged);
             this.tbCount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbCount_KeyPress);
             this.tbCount.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Item_EatService2_MouseMove);
             // 

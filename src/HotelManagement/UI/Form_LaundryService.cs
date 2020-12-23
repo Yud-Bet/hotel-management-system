@@ -79,13 +79,16 @@ namespace HotelManagement.UI
             cbRoomSelection.SelectedIndex = 0;
         }
 
-        public void calcTotalMoney()
+        public async Task calcTotalMoney()
         {
             int sum = 0;
-            foreach (Item_LaundryService i in SelectedItems)
+            await Task.Run(() =>
             {
-                sum += (i._count * i._price);
-            }
+                foreach (Item_LaundryService i in SelectedItems)
+                {
+                    sum += (i._count * i._price);
+                }
+            });
             this._totalMoney = sum;
         }
 
@@ -143,7 +146,7 @@ namespace HotelManagement.UI
             }
         }
 
-        private void btItemIron_Click(object sender, EventArgs e)
+        private async void btItemIron_Click(object sender, EventArgs e)
         {
             int check = checkExistsItem(ironID);
             if (check == -1)
@@ -156,10 +159,10 @@ namespace HotelManagement.UI
                 pnItem.Controls.Remove(SelectedItems[check]);
                 SelectedItems.RemoveAt(check);
             }
-            calcTotalMoney();
+            await calcTotalMoney();
         }
 
-        private void btItemLaundry_Click(object sender, EventArgs e)
+        private async void btItemLaundry_Click(object sender, EventArgs e)
         {
             int check = checkExistsItem(laundryID);
             if (check == -1)
@@ -172,7 +175,7 @@ namespace HotelManagement.UI
                 pnItem.Controls.Remove(SelectedItems[check]);
                 SelectedItems.RemoveAt(check);
             }
-            calcTotalMoney();
+            await calcTotalMoney();
         }
 
         private async void btAdd_Click(object sender, EventArgs e)
