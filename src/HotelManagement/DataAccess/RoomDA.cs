@@ -21,5 +21,14 @@ namespace HotelManagement.DataAccess
         {
             return ExecuteQuery.ExecuteNoneQuery("QLKS_SetRoomStatus @ID , @Status_", new object[] { RoomID, status });
         }
+        public static int AddNewRoom(RoomType roomType, int area)
+        {
+            return ExecuteQuery.ExecuteNoneQuery("QLKS_AddNewRoom @RoomTypeID , @Area",
+                new object[] { roomType, area });
+        }
+        public static DataTable GetRoomIdOfNewRoom()
+        {
+            return ExecuteQuery.ExecuteReader("QLKS_GetRoomIdOfNewRoom");
+        }
     }
 }

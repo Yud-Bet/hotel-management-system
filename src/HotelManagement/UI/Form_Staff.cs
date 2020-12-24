@@ -69,7 +69,7 @@ namespace HotelManagement.UI
             lbName.Text = item_Staff._Name;
             lbIDNo.Text = item_Staff._IDNo;
             lbBirthdate.Text = item_Staff._Birthdate.ToShortDateString().ToString();
-            lbSex.Text = item_Staff._Sex ? "Nam" : "Nữ";
+            lbSex.Text = item_Staff._Sex ? "Nữ" : "Nam";
             lbAddress.MainText = item_Staff._Address;
             lbPhonenum.Text = item_Staff._Phonenum;
             lbStartDate.Text = item_Staff._StartDate.ToShortDateString().ToString();

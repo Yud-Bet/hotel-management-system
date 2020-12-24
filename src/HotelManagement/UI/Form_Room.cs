@@ -58,6 +58,7 @@ namespace HotelManagement.UI
         public FlowLayoutPanel _pnToAddARoom
         {
             get { return pnToAddRoom; }
+            set { pnToAddRoom = value; }
         }
 
         private int total;
@@ -125,7 +126,6 @@ namespace HotelManagement.UI
                     newRoom._RoomID = room.Items[i].ID;
                     newRoom._RoomStatus = room.Items[i].Status;
                     newRoom._RoomType = room.Items[i].Type;
-
                     listRoom.Add(newRoom);
                 }
             });
@@ -197,7 +197,7 @@ namespace HotelManagement.UI
         private void btAddRoom_Click(object sender, System.EventArgs e)
         {
             btThreeDot_Click(sender, e);
-            Form_AddEditRoom form_AddEditRoom = new Form_AddEditRoom();
+            Form_AddEditRoom form_AddEditRoom = new Form_AddEditRoom(this);
             form_AddEditRoom.ShowDialog();
             
         }

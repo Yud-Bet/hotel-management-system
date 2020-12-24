@@ -3,6 +3,7 @@ using System.Windows.Forms;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Threading;
+using System.Data;
 
 namespace HotelManagement.UI
 {
@@ -12,7 +13,9 @@ namespace HotelManagement.UI
         private int roomSize;
         private int price;
         private RoomType type;
+        private Form_Room parentRef;
         private CancellationTokenSource cts;
+
 
         public int RoomID
         {
@@ -72,12 +75,70 @@ namespace HotelManagement.UI
             cts = new CancellationTokenSource();
         }
 
-        public Form_AddEditRoom()
+        public Form_AddEditRoom(Form_Room parentRef)
         {
             InitializeComponent();
-            tbRoomID.Enabled = true;
+            tbRoomID.Enabled = false;
+            this.parentRef = parentRef;
+            cts = new CancellationTokenSource();
         }
 
+        private async void btAddRoom_Click(object sender, EventArgs e)
+        {
+            if (!checkEmptyValue())
+            {
+                return;
+            }
+            if (!checkValidityOfValue())
+            {
+                return;
+            }
+            try
+            {
+                OverlayForm overlay = new OverlayForm(this, new LoadingForm(cts.Token));
+                overlay.Show();
+                RoomSize = Convert.ToInt32(tbRoomSize.Text);
+                Price = Convert.ToInt32(tbRoomPrice.Text);
+                Type = GetValueOfControl.GetRoomType(rbtNor, rbtVip, rbtSingle, rbtDouble);
+
+                int RowsAffected = await Task.Run(() => DataAccess.RoomDA.AddNewRoom(Type, RoomSize));
+
+                if (RowsAffected > 0)
+                {
+                    MessageBox.Show("Thêm phòng mới thành công!", "Thông báo!");
+                    DataTable idNewRoom = DataAccess.RoomDA.GetRoomIdOfNewRoom();
+                    if (idNewRoom.Rows.Count > 0)
+                    {
+                        DataTable data = DataAccess.RoomDA.GetRoomInfo(Convert.ToInt32(idNewRoom.Rows[0].ItemArray[0]));
+                        if (data.Rows.Count > 0)
+                        {
+                            Item_Room newRoom = new Item_Room();
+                            newRoom._RoomID = Convert.ToInt32(idNewRoom.Rows[0].ItemArray[0]);
+                            newRoom._RoomStatus = (RoomStatus)(Convert.ToInt32(data.Rows[0].ItemArray[3]));
+                            newRoom._RoomType = (RoomType)(Convert.ToInt32(data.Rows[0].ItemArray[0]));
+
+                            this.parentRef._pnToAddARoom.Controls.Add(newRoom);
+                        }
+                    }
+                }
+
+                this.Close();
+            }
+            catch (System.Data.SqlClient.SqlException)
+            {
+                MessageBox.Show("Lỗi khi kết nối đến server!", "Lỗi");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                cts.Cancel();
+                cts.Dispose();
+                cts = new CancellationTokenSource();
+            }
+        }
         private async void btSave_Click(object sender, EventArgs e)
         {
             if (!checkEmptyValue())
@@ -99,7 +160,10 @@ namespace HotelManagement.UI
                 int RowsAffected = await Task.Run(() => DataAccess.RoomDA.EditRoomInfo(Convert.ToInt32(tbRoomID.Text),
                     Type, RoomSize, Price));
 
-                if (RowsAffected > 0) DialogResult = DialogResult.OK;
+                if (RowsAffected > 0)
+                {
+                    MessageBox.Show("Sửa thông tin phòng thành công!", "Thông báo!");
+                } 
 
                 this.Close();
             }
@@ -121,12 +185,12 @@ namespace HotelManagement.UI
 
         bool checkEmptyValue()
         {
-            if (tbRoomID.Text == "")
-            {
-                MessageBox.Show("Vui lòng nhập số phòng.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                tbRoomID.Focus();
-                return false;
-            }
+            //if (tbRoomID.Text == "")
+            //{
+            //    MessageBox.Show("Vui lòng nhập số phòng.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            //    tbRoomID.Focus();
+            //    return false;
+            //}
 
             if(!rbtVip.Checked && !rbtNor.Checked)
             {
@@ -159,12 +223,12 @@ namespace HotelManagement.UI
 
         bool checkValidityOfValue()
         {
-            if(!Regex.IsMatch(tbRoomID.Text, @"^[0-9]+$"))
-            {
-                MessageBox.Show("Mã phòng là số nguyên.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                tbRoomID.Focus();
-                return false;
-            }
+            //if(!Regex.IsMatch(tbRoomID.Text, @"^[0-9]+$"))
+            //{
+            //    MessageBox.Show("Mã phòng là số nguyên.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            //    tbRoomID.Focus();
+            //    return false;
+            //}
 
             if (!Regex.IsMatch(tbRoomSize.Text, @"^[0-9]+$"))
             {
@@ -188,5 +252,6 @@ namespace HotelManagement.UI
             panel4.Dispose();
             System.GC.Collect();
         }
+
     }
 }
