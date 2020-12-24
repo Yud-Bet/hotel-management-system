@@ -30,6 +30,7 @@ namespace HotelManagement.UI
             ChildRef.FormClosed += (s, e) =>
              {
                  this.Close();
+                 ParentRef.Focus();
              };
             ChildRef.Show();
         }

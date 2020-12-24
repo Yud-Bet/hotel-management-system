@@ -12,12 +12,16 @@ namespace HotelManagement.UI
 {
     public partial class Form_ServiceManager : UserControl
     {
-
+        public List<Item_ServiceManager> Services;
         public Form_ServiceManager()
         {
             InitializeComponent();
             loadAllService();
             //pnToAddItem.Controls.Add(new Item_ServiceManager(this));
+            Disposed += (s, e) =>
+              {
+                  tbSearch.TextChanged -= tbSearch_TextChanged;
+              };
         }
 
         #region properties
@@ -34,6 +38,7 @@ namespace HotelManagement.UI
 
         private void loadAllService()
         {
+            Services = new List<Item_ServiceManager>();
             pnToAddItem.Controls.Clear();
             DataTable dataEatServices = DataAccess.Services.GetServicesInfo(ServiceType.Eating);
             for (int i = 0; i < dataEatServices.Rows.Count; i++)
@@ -42,8 +47,10 @@ namespace HotelManagement.UI
                                                                    dataEatServices.Rows[i].ItemArray[1].ToString(),
                                                                    Convert.ToInt32(dataEatServices.Rows[i].ItemArray[2]),
                                                                    this);
-                pnToAddItem.Controls.Add(item);
+                Services.Add(item);
             }
+
+            pnToAddItem.Controls.AddRange(Services.ToArray());
             DataTable dataLaundryServices = DataAccess.Services.GetServicesInfo(ServiceType.Laundry);
             ItemLaundry = new Item_ServiceManager(Convert.ToInt32(dataLaundryServices.Rows[0].ItemArray[0]),
                                                 dataLaundryServices.Rows[0].ItemArray[1].ToString(),
@@ -84,6 +91,34 @@ namespace HotelManagement.UI
             if (pnToAddItem.Controls.Count == 1)
             {
                 lbListServiceIsEmpty.Show();
+            }
+        }
+
+        private List<Item_ServiceManager> SearchForSvcs(string Criteria)
+        {
+            List<Item_ServiceManager> res = new List<Item_ServiceManager>();
+            for (int i = 0; i < Services.Count; i++)
+            {
+                if (Services[i]._name.ToLower().Contains(Criteria.ToLower()))
+                {
+                    res.Add(Services[i]);
+                }
+            }
+            return res;
+        }
+
+        private async void tbSearch_TextChanged(object sender, EventArgs e)
+        {
+            if (tbSearch.Text == "")
+            {
+                pnToAddItem.Controls.Clear();
+                pnToAddItem.Controls.AddRange(Services.ToArray());
+            }
+            else
+            {
+                List<Item_ServiceManager> SearchRes = await Task.Run(() => SearchForSvcs(tbSearch.Text));
+                pnToAddItem.Controls.Clear();
+                pnToAddItem.Controls.AddRange(SearchRes.ToArray());
             }
         }
     }

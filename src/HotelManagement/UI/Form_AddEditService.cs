@@ -66,6 +66,7 @@ namespace HotelManagement.UI
                 DataTable data = DataAccess.Manager.GetServiceIdOfNewService();
                 Item_ServiceManager item = new Item_ServiceManager(Convert.ToInt32(data.Rows[0].ItemArray[0]), tbName.Text, Convert.ToInt32(tbPrice.Text), this.parentRefForm);
                 this.parentRefForm._pnToAddItem.Controls.Add(item);
+                this.parentRefForm.Services.Add(item);
                 MessageBox.Show("Thêm dịch vụ mới thành công!", "Thông báo!");
                 this.Close();
             }
