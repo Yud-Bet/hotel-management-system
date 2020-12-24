@@ -246,6 +246,10 @@ namespace HotelManagement.UI
                 //if (!checkEmptyValue()) return;
                 if (!checkValidityOfValue()) return;
                 int a = 0;
+                if (tbCustomerName.Text == "")
+                {
+                    setCustomerInfoAlreadyExists("1");
+                }
                 if (ClientID <= 0)
                 {
                     a = DataAccess.CustomerDA.InsertNewCustomer(tbCustomerName.Text, dtpCustomerBirthday.Value, tbIDNo.Text, tbPassport.Text,

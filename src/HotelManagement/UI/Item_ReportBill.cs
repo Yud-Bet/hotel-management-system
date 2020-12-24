@@ -9,14 +9,16 @@ namespace HotelManagement.UI
 {
     public partial class Item_ReportBill : UserControl
     {
+        bool ofCustommer = false;
         public BillType billType;
-        Form_ReportBill ParentRef;
+        Form_ReportBill ParentRefRep;
+        Form_CustomerBill ParentRefCus;
         CancellationTokenSource cts;
-
-        public Item_ReportBill(Form_ReportBill ParentRef, int billID, string billDateCre, int roomID, string staffName, int roomCharge,
+        public Item_ReportBill(Form_CustomerBill ParentRef, int billID, string billDateCre, int roomID, string staffName, int roomCharge,
                                 int serviceTotalMoney, int totalMoney, int discount, bool roomIsRenting)
         {
             InitializeComponent();
+            this.ofCustommer = true;
             this.billID = billID;
 
             this.roomIsRenting = roomIsRenting;
@@ -29,7 +31,29 @@ namespace HotelManagement.UI
             lbTotalMoney.MainText = totalMoney.ToString("C", CultureInfo.GetCultureInfo("vi-VN"));
             //lbRoomCharge.MainText = discount.ToString() + " %";
 
-            this.ParentRef = ParentRef;
+            this.ParentRefCus = ParentRef;
+            cts = new CancellationTokenSource();
+            this.Disposed += delegate { zeroitUltraTextBox1.MouseMove -= Item_ReportBill_MouseMove; };
+        }
+
+        public Item_ReportBill(Form_ReportBill ParentRef, int billID, string billDateCre, int roomID, string staffName, int roomCharge,
+                                int serviceTotalMoney, int totalMoney, int discount, bool roomIsRenting)
+        {
+            InitializeComponent();
+            this.ofCustommer = false;
+            this.billID = billID;
+
+            this.roomIsRenting = roomIsRenting;
+            lbBillID.MainText = billID.ToString();
+            lbBillDateCre.MainText = billDateCre;
+            lbRoomReservationID.MainText = roomID.ToString();
+            lbStaffName.MainText = staffName;
+            lbRoomCharge.MainText = roomCharge.ToString("C", CultureInfo.GetCultureInfo("vi-VN"));
+            lbServiceCharge.MainText = serviceTotalMoney.ToString("C", CultureInfo.GetCultureInfo("vi-VN"));
+            lbTotalMoney.MainText = totalMoney.ToString("C", CultureInfo.GetCultureInfo("vi-VN"));
+            //lbRoomCharge.MainText = discount.ToString() + " %";
+
+            this.ParentRefRep = ParentRef;
             cts = new CancellationTokenSource();
             this.Disposed += delegate { zeroitUltraTextBox1.MouseMove -= Item_ReportBill_MouseMove; };
         }
@@ -38,7 +62,6 @@ namespace HotelManagement.UI
         bool roomIsRenting = false;
 
         private int billID;
-
         public int _billID
         {
             get { return billID; }
@@ -47,6 +70,7 @@ namespace HotelManagement.UI
                 lbBillID.MainText = value.ToString();
             }
         }
+
 
         #endregion
 
@@ -66,8 +90,16 @@ namespace HotelManagement.UI
         {
             try
             {
-                OverlayForm overlay = new OverlayForm(ParentRef.ParentRef, new LoadingForm(cts.Token));
-                overlay.Show();
+                if (!ofCustommer)
+                {
+                    OverlayForm overlay = new OverlayForm(ParentRefRep.ParentRef, new LoadingForm(cts.Token));
+                    overlay.Show();
+                }
+                else
+                {
+                    OverlayForm overlay = new OverlayForm(ParentRefCus, new LoadingForm(cts.Token));
+                    overlay.Show();
+                }
                 BillPrintPreview.Document = PrintDocument;
                 BillPrintPreview.ShowDialog();
             }
@@ -89,7 +121,7 @@ namespace HotelManagement.UI
 
         private void PrintDocument_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
-            if (billType == BillType.Services)
+            if (!ofCustommer && billType == BillType.Services)
             {
                 DataTable SvcBillDetail = DataAccess.Services.GetServiceBillOnlyDetail(billID);
                 DrawBill drawBill = new DrawBill(e.Graphics);
@@ -106,7 +138,8 @@ namespace HotelManagement.UI
                     TotalMoney += ItemCount * ItemPrice;
                 }
                 //DTO.StaffOverview staff = new DTO.StaffOverview(Username);
-                //drawBill.drawEndOfBill(staff.Name, TotalMoney, 0);
+                string staffName = SvcBillDetail.Rows[0].ItemArray[4].ToString();
+                drawBill.drawEndOfBill(staffName, TotalMoney, 0);
             }
             else
             {

@@ -30,7 +30,7 @@ namespace HotelManagement.DataAccess
         }
         public static DataTable GetServiceBillOnlyDetail(int SvcBillID)
         {
-            return ExecuteQuery.ExecuteReader("QLKS_GetServicesBillOnlyInfo @ServiceBillID", new object[] { SvcBillID });
+            return ExecuteQuery.ExecuteReader("QLKS_GetServicesBillOnlyDetailInfo @ServiceBillID", new object[] { SvcBillID });
         }
     }
 }

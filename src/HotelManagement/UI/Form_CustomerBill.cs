@@ -27,7 +27,7 @@ namespace HotelManagement.UI
             DataTable dataBillInfo = DataAccess.Manager.GetBillInfoOfCustomer(this.customerID);
             for (int i = 0; i < dataBillInfo.Rows.Count; i++)
             {
-                Item_ReportBill itemBillInfo = new Item_ReportBill(
+                Item_ReportBill itemBillInfo = new Item_ReportBill( this,
                     Convert.ToInt32(dataBillInfo.Rows[i].ItemArray[0]),
                     Convert.ToDateTime(dataBillInfo.Rows[i].ItemArray[1]).ToShortDateString(),
                     Convert.ToInt32(dataBillInfo.Rows[i].ItemArray[2]),
