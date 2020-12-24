@@ -113,5 +113,10 @@ namespace HotelManagement.UI
                 loadDataServicesBillInfo();
             }
         }
+
+        private void cbBillorServicesBill_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

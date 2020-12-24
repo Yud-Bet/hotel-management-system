@@ -124,7 +124,7 @@
             this.cbStaff.Location = new System.Drawing.Point(584, 8);
             this.cbStaff.Name = "cbStaff";
             this.cbStaff.Size = new System.Drawing.Size(183, 29);
-            this.cbStaff.TabIndex = 5;
+            this.cbStaff.TabIndex = 3;
             this.cbStaff.UseSelectable = true;
             this.cbStaff.SelectedIndexChanged += new System.EventHandler(this.metroDateTime1_ValueChanged);
             // 
@@ -144,6 +144,7 @@
             this.cbBillorServicesBill.TabIndex = 4;
             this.cbBillorServicesBill.TabStop = false;
             this.cbBillorServicesBill.CheckedChanged += new System.EventHandler(this.cbBillorServicesBill_CheckedChanged);
+            this.cbBillorServicesBill.Click += new System.EventHandler(this.cbBillorServicesBill_Click);
             // 
             // panel7
             // 
@@ -355,16 +356,6 @@
             this.lbListBillIsEmpty.TabIndex = 2;
             this.lbListBillIsEmpty.Text = "Chưa có hóa đơn nào!";
             this.lbListBillIsEmpty.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // cbStaff
-            // 
-            this.cbStaff.FormattingEnabled = true;
-            this.cbStaff.ItemHeight = 23;
-            this.cbStaff.Location = new System.Drawing.Point(584, 8);
-            this.cbStaff.Name = "cbStaff";
-            this.cbStaff.Size = new System.Drawing.Size(183, 29);
-            this.cbStaff.TabIndex = 3;
-            this.cbStaff.UseSelectable = true;
             // 
             // Form_ReportBill
             // 

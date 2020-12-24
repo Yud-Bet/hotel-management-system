@@ -455,6 +455,7 @@ namespace HotelManagement.UI
 
         private void btSave_Click(object sender, EventArgs e)
         {
+            if (!checkValidityOfValue()) return;
             try
             {
                 OverlayForm overlay = new OverlayForm(ParentRef.ParentRef.ParentRef, new LoadingForm(cts.Token));
