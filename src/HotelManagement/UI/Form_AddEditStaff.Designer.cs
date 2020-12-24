@@ -30,15 +30,16 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_AddEditStaff));
             this.panel3 = new System.Windows.Forms.Panel();
+            this.pbCam = new HotelManagement.UI.CirclePictureBox();
             this.staffImage = new HotelManagement.UI.CirclePictureBox();
-            this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
+            this.pnButton = new System.Windows.Forms.FlowLayoutPanel();
             this.btAddStaff = new XanderUI.XUIButton();
             this.btCancel = new XanderUI.XUIButton();
             this.btSave = new XanderUI.XUIButton();
-            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.pnPosition = new System.Windows.Forms.FlowLayoutPanel();
             this.rbNorStaff = new MaterialSkin.Controls.MaterialRadioButton();
             this.rbManager = new MaterialSkin.Controls.MaterialRadioButton();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.pnSex = new System.Windows.Forms.FlowLayoutPanel();
             this.rbMale = new MaterialSkin.Controls.MaterialRadioButton();
             this.rbFemale = new MaterialSkin.Controls.MaterialRadioButton();
             this.dtStartDate = new MetroFramework.Controls.MetroDateTime();
@@ -69,23 +70,22 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.circlePictureBox1 = new HotelManagement.UI.CirclePictureBox();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCam)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.staffImage)).BeginInit();
-            this.flowLayoutPanel3.SuspendLayout();
-            this.flowLayoutPanel2.SuspendLayout();
-            this.flowLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.circlePictureBox1)).BeginInit();
+            this.pnButton.SuspendLayout();
+            this.pnPosition.SuspendLayout();
+            this.pnSex.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
-            this.panel3.Controls.Add(this.circlePictureBox1);
+            this.panel3.Controls.Add(this.pbCam);
             this.panel3.Controls.Add(this.staffImage);
-            this.panel3.Controls.Add(this.flowLayoutPanel3);
-            this.panel3.Controls.Add(this.flowLayoutPanel2);
-            this.panel3.Controls.Add(this.flowLayoutPanel1);
+            this.panel3.Controls.Add(this.pnButton);
+            this.panel3.Controls.Add(this.pnPosition);
+            this.panel3.Controls.Add(this.pnSex);
             this.panel3.Controls.Add(this.dtStartDate);
             this.panel3.Controls.Add(this.dtBirthdate);
             this.panel3.Controls.Add(this.tbName);
@@ -120,6 +120,18 @@
             this.panel3.Size = new System.Drawing.Size(652, 571);
             this.panel3.TabIndex = 8;
             // 
+            // pbCam
+            // 
+            this.pbCam.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbCam.Image = ((System.Drawing.Image)(resources.GetObject("pbCam.Image")));
+            this.pbCam.Location = new System.Drawing.Point(358, 105);
+            this.pbCam.Name = "pbCam";
+            this.pbCam.Size = new System.Drawing.Size(40, 40);
+            this.pbCam.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbCam.TabIndex = 24;
+            this.pbCam.TabStop = false;
+            this.pbCam.Click += new System.EventHandler(this.staffImage_Click);
+            // 
             // staffImage
             // 
             this.staffImage.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -132,16 +144,16 @@
             this.staffImage.TabStop = false;
             this.staffImage.Click += new System.EventHandler(this.staffImage_Click);
             // 
-            // flowLayoutPanel3
+            // pnButton
             // 
-            this.flowLayoutPanel3.Controls.Add(this.btAddStaff);
-            this.flowLayoutPanel3.Controls.Add(this.btCancel);
-            this.flowLayoutPanel3.Controls.Add(this.btSave);
-            this.flowLayoutPanel3.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flowLayoutPanel3.Location = new System.Drawing.Point(380, 528);
-            this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(241, 36);
-            this.flowLayoutPanel3.TabIndex = 22;
+            this.pnButton.Controls.Add(this.btAddStaff);
+            this.pnButton.Controls.Add(this.btCancel);
+            this.pnButton.Controls.Add(this.btSave);
+            this.pnButton.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
+            this.pnButton.Location = new System.Drawing.Point(368, 528);
+            this.pnButton.Name = "pnButton";
+            this.pnButton.Size = new System.Drawing.Size(253, 36);
+            this.pnButton.TabIndex = 22;
             // 
             // btAddStaff
             // 
@@ -158,10 +170,11 @@
             this.btAddStaff.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
             this.btAddStaff.HoverTextColor = System.Drawing.Color.White;
             this.btAddStaff.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
-            this.btAddStaff.Location = new System.Drawing.Point(62, 3);
+            this.btAddStaff.Location = new System.Drawing.Point(74, 3);
             this.btAddStaff.Name = "btAddStaff";
             this.btAddStaff.Size = new System.Drawing.Size(176, 29);
             this.btAddStaff.TabIndex = 0;
+            this.btAddStaff.TabStop = false;
             this.btAddStaff.TextColor = System.Drawing.Color.White;
             this.btAddStaff.Vertical_Alignment = System.Drawing.StringAlignment.Center;
             this.btAddStaff.Click += new System.EventHandler(this.btAddStaff_Click);
@@ -181,10 +194,11 @@
             this.btCancel.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
             this.btCancel.HoverTextColor = System.Drawing.Color.White;
             this.btCancel.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
-            this.btCancel.Location = new System.Drawing.Point(139, 38);
+            this.btCancel.Location = new System.Drawing.Point(151, 38);
             this.btCancel.Name = "btCancel";
             this.btCancel.Size = new System.Drawing.Size(99, 29);
             this.btCancel.TabIndex = 0;
+            this.btCancel.TabStop = false;
             this.btCancel.TextColor = System.Drawing.Color.White;
             this.btCancel.Vertical_Alignment = System.Drawing.StringAlignment.Center;
             this.btCancel.Click += new System.EventHandler(this.btCancel_Click);
@@ -204,7 +218,7 @@
             this.btSave.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
             this.btSave.HoverTextColor = System.Drawing.Color.White;
             this.btSave.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
-            this.btSave.Location = new System.Drawing.Point(34, 38);
+            this.btSave.Location = new System.Drawing.Point(46, 38);
             this.btSave.Name = "btSave";
             this.btSave.Size = new System.Drawing.Size(99, 29);
             this.btSave.TabIndex = 0;
@@ -212,14 +226,14 @@
             this.btSave.Vertical_Alignment = System.Drawing.StringAlignment.Center;
             this.btSave.Click += new System.EventHandler(this.btSave_Click);
             // 
-            // flowLayoutPanel2
+            // pnPosition
             // 
-            this.flowLayoutPanel2.Controls.Add(this.rbNorStaff);
-            this.flowLayoutPanel2.Controls.Add(this.rbManager);
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(393, 176);
-            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(178, 32);
-            this.flowLayoutPanel2.TabIndex = 1;
+            this.pnPosition.Controls.Add(this.rbNorStaff);
+            this.pnPosition.Controls.Add(this.rbManager);
+            this.pnPosition.Location = new System.Drawing.Point(393, 176);
+            this.pnPosition.Name = "pnPosition";
+            this.pnPosition.Size = new System.Drawing.Size(178, 32);
+            this.pnPosition.TabIndex = 1;
             // 
             // rbNorStaff
             // 
@@ -234,7 +248,6 @@
             this.rbNorStaff.Ripple = true;
             this.rbNorStaff.Size = new System.Drawing.Size(90, 30);
             this.rbNorStaff.TabIndex = 6;
-            this.rbNorStaff.TabStop = true;
             this.rbNorStaff.Text = "Nhân viên";
             this.rbNorStaff.UseVisualStyleBackColor = true;
             // 
@@ -251,18 +264,17 @@
             this.rbManager.Ripple = true;
             this.rbManager.Size = new System.Drawing.Size(75, 30);
             this.rbManager.TabIndex = 6;
-            this.rbManager.TabStop = true;
             this.rbManager.Text = "Quản lý";
             this.rbManager.UseVisualStyleBackColor = true;
             // 
-            // flowLayoutPanel1
+            // pnSex
             // 
-            this.flowLayoutPanel1.Controls.Add(this.rbMale);
-            this.flowLayoutPanel1.Controls.Add(this.rbFemale);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(393, 330);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(178, 32);
-            this.flowLayoutPanel1.TabIndex = 5;
+            this.pnSex.Controls.Add(this.rbMale);
+            this.pnSex.Controls.Add(this.rbFemale);
+            this.pnSex.Location = new System.Drawing.Point(393, 330);
+            this.pnSex.Name = "pnSex";
+            this.pnSex.Size = new System.Drawing.Size(178, 32);
+            this.pnSex.TabIndex = 5;
             // 
             // rbMale
             // 
@@ -277,7 +289,6 @@
             this.rbMale.Ripple = true;
             this.rbMale.Size = new System.Drawing.Size(58, 30);
             this.rbMale.TabIndex = 6;
-            this.rbMale.TabStop = true;
             this.rbMale.Text = "Nam";
             this.rbMale.UseVisualStyleBackColor = true;
             // 
@@ -294,7 +305,6 @@
             this.rbFemale.Ripple = true;
             this.rbFemale.Size = new System.Drawing.Size(47, 30);
             this.rbFemale.TabIndex = 6;
-            this.rbFemale.TabStop = true;
             this.rbFemale.Text = "Nữ";
             this.rbFemale.UseVisualStyleBackColor = true;
             // 
@@ -306,6 +316,7 @@
             this.dtStartDate.Name = "dtStartDate";
             this.dtStartDate.Size = new System.Drawing.Size(116, 29);
             this.dtStartDate.TabIndex = 8;
+            this.dtStartDate.TabStop = false;
             // 
             // dtBirthdate
             // 
@@ -315,10 +326,11 @@
             this.dtBirthdate.Name = "dtBirthdate";
             this.dtBirthdate.Size = new System.Drawing.Size(116, 29);
             this.dtBirthdate.TabIndex = 4;
+            this.dtBirthdate.TabStop = false;
             // 
             // tbName
             // 
-            this.tbName.DisabledStringColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(187)))), ((int)(((byte)(189)))));
+            this.tbName.DisabledStringColor = System.Drawing.Color.Black;
             this.tbName.DisabledUnFocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(236)))), ((int)(((byte)(238)))));
             this.tbName.EnabledUnFocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
             this.tbName.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(142)))), ((int)(((byte)(245)))));
@@ -335,7 +347,7 @@
             this.tbName.PlaceHolderTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
             this.tbName.ReadOnly = false;
             this.tbName.Size = new System.Drawing.Size(224, 24);
-            this.tbName.TabIndex = 2;
+            this.tbName.TabIndex = 1;
             this.tbName.Tag = "";
             this.tbName.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left;
             this.tbName.TextBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
@@ -344,7 +356,7 @@
             // 
             // tbIDNo
             // 
-            this.tbIDNo.DisabledStringColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(187)))), ((int)(((byte)(189)))));
+            this.tbIDNo.DisabledStringColor = System.Drawing.Color.Black;
             this.tbIDNo.DisabledUnFocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(236)))), ((int)(((byte)(238)))));
             this.tbIDNo.EnabledUnFocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
             this.tbIDNo.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(142)))), ((int)(((byte)(245)))));
@@ -361,7 +373,7 @@
             this.tbIDNo.PlaceHolderTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
             this.tbIDNo.ReadOnly = false;
             this.tbIDNo.Size = new System.Drawing.Size(224, 24);
-            this.tbIDNo.TabIndex = 3;
+            this.tbIDNo.TabIndex = 2;
             this.tbIDNo.Tag = "";
             this.tbIDNo.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left;
             this.tbIDNo.TextBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
@@ -370,7 +382,7 @@
             // 
             // tbSalary
             // 
-            this.tbSalary.DisabledStringColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(187)))), ((int)(((byte)(189)))));
+            this.tbSalary.DisabledStringColor = System.Drawing.Color.Black;
             this.tbSalary.DisabledUnFocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(236)))), ((int)(((byte)(238)))));
             this.tbSalary.EnabledUnFocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
             this.tbSalary.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(142)))), ((int)(((byte)(245)))));
@@ -387,7 +399,7 @@
             this.tbSalary.PlaceHolderTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
             this.tbSalary.ReadOnly = false;
             this.tbSalary.Size = new System.Drawing.Size(224, 24);
-            this.tbSalary.TabIndex = 9;
+            this.tbSalary.TabIndex = 5;
             this.tbSalary.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left;
             this.tbSalary.TextBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.tbSalary.UseSystemPasswordChar = false;
@@ -395,7 +407,7 @@
             // 
             // tbPhonenum
             // 
-            this.tbPhonenum.DisabledStringColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(187)))), ((int)(((byte)(189)))));
+            this.tbPhonenum.DisabledStringColor = System.Drawing.Color.Black;
             this.tbPhonenum.DisabledUnFocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(236)))), ((int)(((byte)(238)))));
             this.tbPhonenum.EnabledUnFocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
             this.tbPhonenum.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(142)))), ((int)(((byte)(245)))));
@@ -412,7 +424,7 @@
             this.tbPhonenum.PlaceHolderTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
             this.tbPhonenum.ReadOnly = false;
             this.tbPhonenum.Size = new System.Drawing.Size(224, 24);
-            this.tbPhonenum.TabIndex = 7;
+            this.tbPhonenum.TabIndex = 4;
             this.tbPhonenum.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left;
             this.tbPhonenum.TextBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.tbPhonenum.UseSystemPasswordChar = false;
@@ -420,7 +432,7 @@
             // 
             // tbAddress
             // 
-            this.tbAddress.DisabledStringColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(187)))), ((int)(((byte)(189)))));
+            this.tbAddress.DisabledStringColor = System.Drawing.Color.Black;
             this.tbAddress.DisabledUnFocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(236)))), ((int)(((byte)(238)))));
             this.tbAddress.EnabledUnFocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
             this.tbAddress.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(142)))), ((int)(((byte)(245)))));
@@ -437,7 +449,7 @@
             this.tbAddress.PlaceHolderTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
             this.tbAddress.ReadOnly = false;
             this.tbAddress.Size = new System.Drawing.Size(224, 24);
-            this.tbAddress.TabIndex = 6;
+            this.tbAddress.TabIndex = 3;
             this.tbAddress.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left;
             this.tbAddress.TextBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.tbAddress.UseSystemPasswordChar = false;
@@ -445,7 +457,7 @@
             // 
             // tbID
             // 
-            this.tbID.DisabledStringColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(187)))), ((int)(((byte)(189)))));
+            this.tbID.DisabledStringColor = System.Drawing.Color.Black;
             this.tbID.DisabledUnFocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(236)))), ((int)(((byte)(238)))));
             this.tbID.EnabledUnFocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
             this.tbID.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(142)))), ((int)(((byte)(245)))));
@@ -463,6 +475,7 @@
             this.tbID.ReadOnly = true;
             this.tbID.Size = new System.Drawing.Size(224, 24);
             this.tbID.TabIndex = 0;
+            this.tbID.TabStop = false;
             this.tbID.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left;
             this.tbID.TextBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.tbID.UseSystemPasswordChar = false;
@@ -487,6 +500,7 @@
             this.xuiButton7.Name = "xuiButton7";
             this.xuiButton7.Size = new System.Drawing.Size(51, 50);
             this.xuiButton7.TabIndex = 17;
+            this.xuiButton7.TabStop = false;
             this.xuiButton7.TextColor = System.Drawing.Color.White;
             this.xuiButton7.Vertical_Alignment = System.Drawing.StringAlignment.Center;
             // 
@@ -509,6 +523,7 @@
             this.xuiButton3.Name = "xuiButton3";
             this.xuiButton3.Size = new System.Drawing.Size(51, 50);
             this.xuiButton3.TabIndex = 17;
+            this.xuiButton3.TabStop = false;
             this.xuiButton3.TextColor = System.Drawing.Color.White;
             this.xuiButton3.Vertical_Alignment = System.Drawing.StringAlignment.Center;
             // 
@@ -531,6 +546,7 @@
             this.xuiButton5.Name = "xuiButton5";
             this.xuiButton5.Size = new System.Drawing.Size(51, 50);
             this.xuiButton5.TabIndex = 17;
+            this.xuiButton5.TabStop = false;
             this.xuiButton5.TextColor = System.Drawing.Color.White;
             this.xuiButton5.Vertical_Alignment = System.Drawing.StringAlignment.Center;
             // 
@@ -553,6 +569,7 @@
             this.xuiButton8.Name = "xuiButton8";
             this.xuiButton8.Size = new System.Drawing.Size(51, 50);
             this.xuiButton8.TabIndex = 17;
+            this.xuiButton8.TabStop = false;
             this.xuiButton8.TextColor = System.Drawing.Color.White;
             this.xuiButton8.Vertical_Alignment = System.Drawing.StringAlignment.Center;
             // 
@@ -575,6 +592,7 @@
             this.xuiButton6.Name = "xuiButton6";
             this.xuiButton6.Size = new System.Drawing.Size(51, 50);
             this.xuiButton6.TabIndex = 17;
+            this.xuiButton6.TabStop = false;
             this.xuiButton6.TextColor = System.Drawing.Color.White;
             this.xuiButton6.Vertical_Alignment = System.Drawing.StringAlignment.Center;
             // 
@@ -597,6 +615,7 @@
             this.xuiButton4.Name = "xuiButton4";
             this.xuiButton4.Size = new System.Drawing.Size(51, 50);
             this.xuiButton4.TabIndex = 17;
+            this.xuiButton4.TabStop = false;
             this.xuiButton4.TextColor = System.Drawing.Color.White;
             this.xuiButton4.Vertical_Alignment = System.Drawing.StringAlignment.Center;
             // 
@@ -619,6 +638,7 @@
             this.xuiButton2.Name = "xuiButton2";
             this.xuiButton2.Size = new System.Drawing.Size(51, 50);
             this.xuiButton2.TabIndex = 17;
+            this.xuiButton2.TabStop = false;
             this.xuiButton2.TextColor = System.Drawing.Color.White;
             this.xuiButton2.Vertical_Alignment = System.Drawing.StringAlignment.Center;
             // 
@@ -641,6 +661,7 @@
             this.xuiButton1.Name = "xuiButton1";
             this.xuiButton1.Size = new System.Drawing.Size(51, 50);
             this.xuiButton1.TabIndex = 17;
+            this.xuiButton1.TabStop = false;
             this.xuiButton1.TextColor = System.Drawing.Color.White;
             this.xuiButton1.Vertical_Alignment = System.Drawing.StringAlignment.Center;
             // 
@@ -663,6 +684,7 @@
             this.xuiButton10.Name = "xuiButton10";
             this.xuiButton10.Size = new System.Drawing.Size(51, 50);
             this.xuiButton10.TabIndex = 17;
+            this.xuiButton10.TabStop = false;
             this.xuiButton10.TextColor = System.Drawing.Color.White;
             this.xuiButton10.Vertical_Alignment = System.Drawing.StringAlignment.Center;
             // 
@@ -685,6 +707,7 @@
             this.btBookRoom.Name = "btBookRoom";
             this.btBookRoom.Size = new System.Drawing.Size(51, 50);
             this.btBookRoom.TabIndex = 17;
+            this.btBookRoom.TabStop = false;
             this.btBookRoom.TextColor = System.Drawing.Color.White;
             this.btBookRoom.Vertical_Alignment = System.Drawing.StringAlignment.Center;
             // 
@@ -788,18 +811,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Mã nhân viên";
             // 
-            // circlePictureBox1
-            // 
-            this.circlePictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.circlePictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("circlePictureBox1.Image")));
-            this.circlePictureBox1.Location = new System.Drawing.Point(358, 105);
-            this.circlePictureBox1.Name = "circlePictureBox1";
-            this.circlePictureBox1.Size = new System.Drawing.Size(40, 40);
-            this.circlePictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.circlePictureBox1.TabIndex = 24;
-            this.circlePictureBox1.TabStop = false;
-            this.circlePictureBox1.Click += new System.EventHandler(this.staffImage_Click);
-            // 
             // Form_AddEditStaff
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -812,13 +823,13 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form_AddEditStaff_FormClosing);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCam)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.staffImage)).EndInit();
-            this.flowLayoutPanel3.ResumeLayout(false);
-            this.flowLayoutPanel2.ResumeLayout(false);
-            this.flowLayoutPanel2.PerformLayout();
-            this.flowLayoutPanel1.ResumeLayout(false);
-            this.flowLayoutPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.circlePictureBox1)).EndInit();
+            this.pnButton.ResumeLayout(false);
+            this.pnPosition.ResumeLayout(false);
+            this.pnPosition.PerformLayout();
+            this.pnSex.ResumeLayout(false);
+            this.pnSex.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -851,20 +862,20 @@
         private Zeroit.Framework.Labels.ZeroitUltraTextBox tbID;
         private XanderUI.XUIButton xuiButton4;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
+        private System.Windows.Forms.FlowLayoutPanel pnPosition;
         private MaterialSkin.Controls.MaterialRadioButton rbNorStaff;
         private MaterialSkin.Controls.MaterialRadioButton rbManager;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.FlowLayoutPanel pnSex;
         private MaterialSkin.Controls.MaterialRadioButton rbMale;
         private MaterialSkin.Controls.MaterialRadioButton rbFemale;
         private Zeroit.Framework.Labels.ZeroitUltraTextBox tbIDNo;
         private Zeroit.Framework.Labels.ZeroitUltraTextBox tbSalary;
         private Zeroit.Framework.Labels.ZeroitUltraTextBox tbPhonenum;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
+        private System.Windows.Forms.FlowLayoutPanel pnButton;
         private XanderUI.XUIButton btAddStaff;
         private XanderUI.XUIButton btCancel;
         private XanderUI.XUIButton btSave;
         private CirclePictureBox staffImage;
-        private CirclePictureBox circlePictureBox1;
+        private CirclePictureBox pbCam;
     }
 }

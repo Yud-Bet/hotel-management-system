@@ -10,7 +10,9 @@ namespace HotelManagement.UI
     {
         private string Username;
         private string StaffName;
+        private string IDNo;
         private Panel pnToAddForm;
+        
         public Form_Main(string Username)
         {
             InitializeComponent();
@@ -75,16 +77,8 @@ namespace HotelManagement.UI
                 DTO.StaffOverview staff = new DTO.StaffOverview(Username);
                 lbStaffname.Text = StaffName = staff.Name;
                 lbStaffPosition.Text = staff.Position;
-                try
-                {
-                    string[] staffImageFiles = Directory.GetFiles(@".\\staffimage", staff.IDNo + "*");
-
-                    pbStaffAvatar.Image = Image.FromFile(staffImageFiles[0]);
-                }
-                catch
-                {
-                    pbStaffAvatar.Image = Resources.profile_user;
-                }
+                IDNo = staff.IDNo;
+                setStaffImage();
             }
             catch
             {
@@ -480,6 +474,7 @@ namespace HotelManagement.UI
                 setStatus(pbBill, lbBill, BillIcon, false);
             }
         }
+
         #endregion
 
         #region SubMenu Manage Event
@@ -588,6 +583,30 @@ namespace HotelManagement.UI
         {
             Form_ChangePassword temp = new Form_ChangePassword(this.Username);
             temp.ShowDialog();
+        }
+
+        private void menubtShowStaffInfo_Click(object sender, EventArgs e)
+        {
+            Form_AddEditStaff temp = new Form_AddEditStaff(this.Username);
+            temp.ShowDialog();
+        }
+
+        public void setStaffImage()
+        {
+            try
+            {
+                string[] staffImageFiles = Directory.GetFiles(@".\\staffimage", IDNo + "*");
+                Image image;
+                using (Stream stream = File.OpenRead(staffImageFiles[0]))
+                {
+                    image = System.Drawing.Image.FromStream(stream);
+                }
+                pbStaffImage.Image = image;
+            }
+            catch
+            {
+                pbStaffImage.Image = Resources.profile_user;
+            }
         }
     }
 }

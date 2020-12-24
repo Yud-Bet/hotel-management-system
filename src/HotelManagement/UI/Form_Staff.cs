@@ -15,16 +15,15 @@ namespace HotelManagement.UI
     {
         public List<Item_Staff> item_Staffs = new List<Item_Staff>();
         private static Bitmap DefaultUserImage = Resources.profile_user;
-        private Form_Main ParentRef;
         private CancellationTokenSource cts;
 
-        public Form_Staff(Form_Main ParentRef)
+        public Form_Staff(Form_Main parentRef)
         {
             InitializeComponent();
             btAccount.Hide();
             btChangeStaffInfo.Hide();
-            this.ParentRef = ParentRef;
             cts = new CancellationTokenSource();
+            this.parentRef = parentRef;
             Disposed += (s, e) =>
             {
                 tbSearch.TextChanged -= tbSearch_TextChanged;
@@ -80,7 +79,7 @@ namespace HotelManagement.UI
 
         #region properties
         public Item_Staff selectedItem;
-
+        public Form_Main parentRef;
         public Panel _pnToAddItem
         {
             get { return pnToAddItem; }
@@ -110,8 +109,12 @@ namespace HotelManagement.UI
             try
             {
                 string[] staffImageFiles = Directory.GetFiles(@".\\staffimage", item_Staff._IDNo + "*");
-
-                staffImage.Image = Image.FromFile(staffImageFiles[0]);
+                Image image;
+                using (Stream stream = File.OpenRead(staffImageFiles[0]))
+                {
+                    image = System.Drawing.Image.FromStream(stream);
+                }
+                staffImage.Image = image;
             }
             catch
             {
