@@ -403,7 +403,7 @@ namespace HotelManagement.UI
             DTO.RoomServices svc = new DTO.RoomServices(0, 0, RoomID);
             DrawBill drawBill = new DrawBill(e.Graphics);
             drawBill.drawBillHeader();
-            drawBill.drawCustomerInfo(Customer.Name, RoomID, Customer.PhoneNumber, Customer.Addr,
+            drawBill.drawCustomerInfo(Customer.Name, Customer.PhoneNumber, Customer.Addr,
                 dtpCheckInDate.Text, dtpCheckOutDate.Text);
             int TotalMoney = 0;
             for (int i = 0; i < svc.items.Count; i++)

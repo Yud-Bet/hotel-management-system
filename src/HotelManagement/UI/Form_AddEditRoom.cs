@@ -2,16 +2,17 @@
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Threading;
 
 namespace HotelManagement.UI
 {
     public partial class Form_AddEditRoom : MetroFramework.Forms.MetroForm
     {
-        private bool IsProcessing = false;
         private int roomID;
         private int roomSize;
         private int price;
         private RoomType type;
+        private CancellationTokenSource cts;
 
         public int RoomID
         {
@@ -67,6 +68,8 @@ namespace HotelManagement.UI
             RoomSize = room.Size;
             Price = room.Price;
             Type = room.Type;
+
+            cts = new CancellationTokenSource();
         }
 
         public Form_AddEditRoom()
@@ -77,58 +80,43 @@ namespace HotelManagement.UI
 
         private async void btSave_Click(object sender, EventArgs e)
         {
-            if (!IsProcessing)
+            if (!checkEmptyValue())
             {
-                IsProcessing = true;
-                tbRoomPrice.Enabled = false;
-                tbRoomSize.Enabled = false;
-                rbtDouble.Enabled = rbtSingle.Enabled = rbtNor.Enabled = rbtVip.Enabled = false;
-                if (!checkEmptyValue())
-                {
-                    IsProcessing = false;
-                    tbRoomSize.Enabled = true;
-                    tbRoomPrice.Enabled = true;
-                    rbtDouble.Enabled = rbtSingle.Enabled = rbtNor.Enabled = rbtVip.Enabled = true;
-                    return;
-                }
-                if (!checkValidityOfValue())
-                {
-                    IsProcessing = false;
-                    tbRoomSize.Enabled = true;
-                    tbRoomPrice.Enabled = true;
-                    rbtDouble.Enabled = rbtSingle.Enabled = rbtNor.Enabled = rbtVip.Enabled = true;
-                    return;
-                }
-                try
-                {
-                    RoomSize = Convert.ToInt32(tbRoomSize.Text);
-                    Price = Convert.ToInt32(tbRoomPrice.Text);
-                    Type = GetValueOfControl.GetRoomType(rbtNor, rbtVip, rbtSingle, rbtDouble);
-
-                    int RowsAffected = await Task.Run(() => DataAccess.RoomDA.EditRoomInfo(Convert.ToInt32(tbRoomID.Text),
-                        Type, RoomSize, Price));
-
-                    if (RowsAffected > 0) DialogResult = DialogResult.OK;
-
-                    this.Close();
-                }
-                catch (System.Data.SqlClient.SqlException)
-                {
-                    MessageBox.Show("Lỗi khi kết nối đến server!", "Lỗi");
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
-                finally
-                {
-                    IsProcessing = false;
-                    tbRoomSize.Enabled = true;
-                    tbRoomPrice.Enabled = true;
-                    rbtDouble.Enabled = rbtSingle.Enabled = rbtNor.Enabled = rbtVip.Enabled = true;
-                }
+                return;
             }
-            else MessageBox.Show("Từ từ đừng vội~", "Thông báo");
+            if (!checkValidityOfValue())
+            {
+                return;
+            }
+            try
+            {
+                OverlayForm overlay = new OverlayForm(this, new LoadingForm(cts.Token));
+                overlay.Show();
+                RoomSize = Convert.ToInt32(tbRoomSize.Text);
+                Price = Convert.ToInt32(tbRoomPrice.Text);
+                Type = GetValueOfControl.GetRoomType(rbtNor, rbtVip, rbtSingle, rbtDouble);
+
+                int RowsAffected = await Task.Run(() => DataAccess.RoomDA.EditRoomInfo(Convert.ToInt32(tbRoomID.Text),
+                    Type, RoomSize, Price));
+
+                if (RowsAffected > 0) DialogResult = DialogResult.OK;
+
+                this.Close();
+            }
+            catch (System.Data.SqlClient.SqlException)
+            {
+                MessageBox.Show("Lỗi khi kết nối đến server!", "Lỗi");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                cts.Cancel();
+                cts.Dispose();
+                cts = new CancellationTokenSource();
+            }
         }
 
         bool checkEmptyValue()
