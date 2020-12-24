@@ -74,7 +74,7 @@ namespace HotelManagement.UI
             cbRoomSelection.Items.Add("None");
             for (int i = 0; i < rooms.Items.Length; i++)
             {
-                cbRoomSelection.Items.Add(rooms.Items[i].ID);
+                cbRoomSelection.Items.Add("Phòng " + rooms.Items[i].ID.ToString());
             }
             cbRoomSelection.SelectedIndex = 0;
         }

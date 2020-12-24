@@ -83,7 +83,7 @@ namespace HotelManagement.UI
 
         private void btToShowCustomerBill_Click(object sender, EventArgs e)
         {
-            (new Form_CustomerBill()).ShowDialog();
+            (new Form_CustomerBill(Convert.ToInt32(this.lbID.Text))).ShowDialog();
         }
     }
 }

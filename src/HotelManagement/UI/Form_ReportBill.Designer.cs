@@ -144,6 +144,7 @@
             this.cbBillorServicesBill.TabIndex = 4;
             this.cbBillorServicesBill.TabStop = false;
             this.cbBillorServicesBill.CheckedChanged += new System.EventHandler(this.cbBillorServicesBill_CheckedChanged);
+            this.cbBillorServicesBill.Click += new System.EventHandler(this.cbBillorServicesBill_Click);
             // 
             // panel7
             // 

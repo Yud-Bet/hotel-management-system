@@ -20,6 +20,7 @@ namespace HotelManagement.UI
             tbName.Focus();
             this.parentRef_Addstaff = parentRef;
             rbNorStaff.Checked = true;
+            rbMale.Checked = true;
             btSave.Hide();
             btCancel.Hide();
         }
@@ -234,7 +235,7 @@ namespace HotelManagement.UI
             item_Staff._Pass = "";
             item_Staff._Name = tbName.Text;
             item_Staff._Birthdate = dtBirthdate.Value;
-            item_Staff._Sex = rbFemale.Checked;
+            item_Staff._Sex = rbMale.Checked;
             item_Staff._Address = tbAddress.Text;
             item_Staff._Phonenum = tbPhonenum.Text;
             item_Staff._IDNo = tbIDNo.Text;

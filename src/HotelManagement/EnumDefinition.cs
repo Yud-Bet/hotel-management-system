@@ -2,8 +2,8 @@
 {
     public enum BillType
     {
-        Services = 1,
-        RoomNSvcs = 0
+        RoomNSvcs = 0,
+        Services = 1
     }
     public enum RoomType
     {

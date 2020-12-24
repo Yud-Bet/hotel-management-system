@@ -20,7 +20,7 @@ namespace HotelManagement.UI
 
         private void load_AllCustomer()
         {
-            DataTable dataAllCustomer = DataAccess.Manager.GetAllCustomerInfo(Convert.ToInt32(cbSort.SelectedIndex));
+            DataTable dataAllCustomer = DataAccess.Manager.GetAllCustomer(Convert.ToInt32(cbSort.SelectedIndex));
             pnAddItem.Controls.Clear();
             for (int i=0; i<dataAllCustomer.Rows.Count; i++)
             {
