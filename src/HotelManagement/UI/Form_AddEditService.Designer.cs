@@ -37,21 +37,23 @@
             this.tbName = new Zeroit.Framework.Labels.ZeroitUltraTextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pbServiceImage = new System.Windows.Forms.PictureBox();
+            this.btAddServiceImage = new XanderUI.XUIButton();
             this.panel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbServiceImage)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this.panel1.Controls.Add(this.btAddServiceImage);
             this.panel1.Controls.Add(this.flowLayoutPanel1);
             this.panel1.Controls.Add(this.tbPrice);
             this.panel1.Controls.Add(this.tbName);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.pictureBox1);
+            this.panel1.Controls.Add(this.pbServiceImage);
             this.panel1.Location = new System.Drawing.Point(5, 27);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(519, 228);
@@ -183,15 +185,38 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Tên dịch vụ";
             // 
-            // pictureBox1
+            // pbServiceImage
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(14, 13);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(200, 200);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.pbServiceImage.Image = ((System.Drawing.Image)(resources.GetObject("pbServiceImage.Image")));
+            this.pbServiceImage.Location = new System.Drawing.Point(14, 9);
+            this.pbServiceImage.Name = "pbServiceImage";
+            this.pbServiceImage.Size = new System.Drawing.Size(200, 192);
+            this.pbServiceImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbServiceImage.TabIndex = 0;
+            this.pbServiceImage.TabStop = false;
+            // 
+            // btAddServiceImage
+            // 
+            this.btAddServiceImage.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
+            this.btAddServiceImage.ButtonImage = null;
+            this.btAddServiceImage.ButtonStyle = XanderUI.XUIButton.Style.MaterialRounded;
+            this.btAddServiceImage.ButtonText = "Thêm Ảnh";
+            this.btAddServiceImage.ClickBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(130)))), ((int)(((byte)(200)))));
+            this.btAddServiceImage.ClickTextColor = System.Drawing.Color.White;
+            this.btAddServiceImage.CornerRadius = 5;
+            this.btAddServiceImage.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btAddServiceImage.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.btAddServiceImage.Horizontal_Alignment = System.Drawing.StringAlignment.Center;
+            this.btAddServiceImage.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
+            this.btAddServiceImage.HoverTextColor = System.Drawing.Color.White;
+            this.btAddServiceImage.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
+            this.btAddServiceImage.Location = new System.Drawing.Point(49, 204);
+            this.btAddServiceImage.Name = "btAddServiceImage";
+            this.btAddServiceImage.Size = new System.Drawing.Size(127, 20);
+            this.btAddServiceImage.TabIndex = 34;
+            this.btAddServiceImage.TextColor = System.Drawing.Color.White;
+            this.btAddServiceImage.Vertical_Alignment = System.Drawing.StringAlignment.Center;
+            this.btAddServiceImage.Click += new System.EventHandler(this.btAddServiceImage_Click);
             // 
             // Form_AddEditService
             // 
@@ -205,7 +230,7 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbServiceImage)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -213,7 +238,7 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pbServiceImage;
         private System.Windows.Forms.Label label1;
         private Zeroit.Framework.Labels.ZeroitUltraTextBox tbName;
         private System.Windows.Forms.Label label2;
@@ -221,5 +246,6 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private XanderUI.XUIButton btAddService;
         private XanderUI.XUIButton btSave;
+        private XanderUI.XUIButton btAddServiceImage;
     }
 }

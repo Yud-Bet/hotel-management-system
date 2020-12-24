@@ -100,6 +100,9 @@ namespace HotelManagement.UI
                     OverlayForm overlay = new OverlayForm(ParentRefCus, new LoadingForm(cts.Token));
                     overlay.Show();
                 }
+                TotalMoney = 0;
+                numOfItemPerPage = 0;
+                countItem = 0;
                 BillPrintPreview.Document = PrintDocument;
                 BillPrintPreview.ShowDialog();
             }
@@ -119,6 +122,9 @@ namespace HotelManagement.UI
             }
         }
 
+        int TotalMoney = 0;
+        int numOfItemPerPage = 0;
+        int countItem = 0;
         private void PrintDocument_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
             if (!ofCustommer && billType == BillType.Services)
@@ -127,8 +133,7 @@ namespace HotelManagement.UI
                 DrawBill drawBill = new DrawBill(e.Graphics);
                 drawBill.drawBillHeader();
                 drawBill.drawServiceInfo();
-                int TotalMoney = 0;
-                for (int i = 0; i < SvcBillDetail.Rows.Count; i++)
+                for (int i = countItem; i < SvcBillDetail.Rows.Count; i++)
                 {
                     string ItemName = SvcBillDetail.Rows[i].ItemArray[0].ToString();
                     int ItemCount = Convert.ToInt32(SvcBillDetail.Rows[i].ItemArray[1]);
@@ -136,6 +141,18 @@ namespace HotelManagement.UI
                     int IntoMoney = Convert.ToInt32(SvcBillDetail.Rows[i].ItemArray[3]);
                     drawBill.drawItem(ItemName, ItemCount, ItemPrice, IntoMoney);
                     TotalMoney += ItemCount * ItemPrice;
+                    countItem++;
+                    if (numOfItemPerPage > 16)
+                    {
+                        e.HasMorePages = true;
+                        numOfItemPerPage = 0;
+                        return;
+                    }
+                    else
+                    {
+                        e.HasMorePages = false;
+                        numOfItemPerPage++;
+                    }
                 }
                 //DTO.StaffOverview staff = new DTO.StaffOverview(Username);
                 string staffName = SvcBillDetail.Rows[0].ItemArray[4].ToString();
@@ -154,11 +171,22 @@ namespace HotelManagement.UI
                 string CheckOutDate = additionalData.Rows[0].ItemArray[5].ToString();
                 string StaffName = additionalData.Rows[0].ItemArray[6].ToString();
                 drawBill.drawCustomerInfo(CustomerName, CustomerPhoneNo, CustomerAddr, CheckInDate, CheckOutDate);
-                int TotalMoney = 0;
-                for (int i = 0; i < svc.items.Count; i++)
+                for (int i = countItem; i < svc.items.Count; i++)
                 {
                     drawBill.drawItem(svc.items[i].Name, svc.items[i].Count, svc.items[i].Price, svc.items[i].IntoMoney);
                     TotalMoney += svc.items[i].IntoMoney;
+                    countItem++;
+                    if (numOfItemPerPage > 16)
+                    {
+                        e.HasMorePages = true;
+                        numOfItemPerPage = 0;
+                        return;
+                    }
+                    else
+                    {
+                        e.HasMorePages = false;
+                        numOfItemPerPage++;
+                    }
                 }
                 drawBill.drawEndOfBill(StaffName, TotalMoney, 0);
             }

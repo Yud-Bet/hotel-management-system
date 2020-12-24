@@ -159,10 +159,7 @@ namespace HotelManagement.UI
                     parentRef_EditStaff.parentRef.parentRef.setStaffImage();
                 }
             }
-            catch (Exception ex) 
-            {
-                MessageBox.Show(ex.ToString());
-            }
+            catch {}
             
             if (ef > 0)
             {

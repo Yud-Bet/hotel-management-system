@@ -39,6 +39,7 @@ namespace HotelManagement.UI
                 item._itemID = services.Items[i].ServiceID;
                 item._name = services.Items[i].Name;
                 item._price = services.Items[i].Price;
+                item.setServiceImage();
                 serviceList.Add(item);
                 pnServicesList.Controls.Add(item);
             }
@@ -202,8 +203,13 @@ namespace HotelManagement.UI
                 int RowEffected = await Task.Run(() => DataAccess.Services.PayForServicesOnly());
                 if (RowEffected > 0)
                 {
+                    TotalMoney = 0;
+                    numOfItemPerPage = 0;
+                    countItem = 0;
                     printPreviewDialogBill.Document = bill;
                     printPreviewDialogBill.ShowDialog();
+                    pnSelectedServices.Controls.Clear();
+                    SelectedItems.Clear();
                 }
                 StatusLabel.Text = "";
             }
@@ -226,17 +232,31 @@ namespace HotelManagement.UI
             }
         }
 
+        int TotalMoney = 0;
+        int numOfItemPerPage = 0;
+        int countItem = 0;
         private void bill_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
             DTO.RoomServices svc = new DTO.RoomServices();
             DrawBill drawBill = new DrawBill(e.Graphics);
             drawBill.drawBillHeader();
             drawBill.drawServiceInfo();
-            int TotalMoney = 0;
-            for (int i = 0; i < svc.items.Count; i++)
+            for (int i = countItem; i < svc.items.Count; i++)
             {
                 drawBill.drawItem(svc.items[i].Name, svc.items[i].Count, svc.items[i].Price, svc.items[i].IntoMoney);
                 TotalMoney += svc.items[i].Count * svc.items[i].Price;
+                countItem++;
+                if (numOfItemPerPage > 16)
+                {
+                    e.HasMorePages = true;
+                    numOfItemPerPage = 0;
+                    return;
+                }
+                else
+                {
+                    e.HasMorePages = false;
+                    numOfItemPerPage++;
+                }
             }
             DTO.StaffOverview staff = new DTO.StaffOverview(Username);
             drawBill.drawEndOfBill(staff.Name, TotalMoney, 0);

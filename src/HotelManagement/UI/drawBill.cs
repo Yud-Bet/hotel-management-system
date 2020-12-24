@@ -48,12 +48,7 @@ namespace HotelManagement.UI
             g.DrawString("Địa chỉ:                 ", font20, brush, new Point(10, 310));
             g.DrawString("Ngày đến:             ", font20, brush, new Point(10, 340));
             g.DrawString("Ngày đi:                ", font20, brush, new Point(10, 370));
-            g.DrawString("--------------------------------------------------------------------------------------------------", font20, brush, new Point(0, 400));
-            g.DrawString("Tên dịch vụ", font15, brush, new Point(10, 425));
-            g.DrawString("Số lượng", font15, brush, new Point(350, 425));
-            g.DrawString("Đơn giá", font15, brush, new Point(500, 425));
-            g.DrawString("Thành tiền", font15, brush, new Point(730, 425));
-            g.DrawString("--------------------------------------------------------------------------------------------------", font20, brush, new Point(0, 440));
+            drawTitle(425);
             posY = 470;
         }
 
@@ -77,6 +72,16 @@ namespace HotelManagement.UI
             g.DrawString("Giảm giá:          " + discount.ToString() + " %", font15, brush, new Point(500, posY));
             posY += 20;
             g.DrawString("Tổng tiền trả:   " + (total - total * ((float)discount / 100)).ToString() + " VNĐ", font15, brush, new Point(500, posY));
+        }
+
+        public void drawTitle(int posY)
+        {
+            g.DrawString("--------------------------------------------------------------------------------------------------", font20, brush, new Point(0, 400));
+            g.DrawString("Tên dịch vụ", font15, brush, new Point(10, posY));
+            g.DrawString("Số lượng", font15, brush, new Point(350, posY));
+            g.DrawString("Đơn giá", font15, brush, new Point(500, posY));
+            g.DrawString("Thành tiền", font15, brush, new Point(730, posY));
+            g.DrawString("--------------------------------------------------------------------------------------------------", font20, brush, new Point(0, 440));
         }
     }
 }

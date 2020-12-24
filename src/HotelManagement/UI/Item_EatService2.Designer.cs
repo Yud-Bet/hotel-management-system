@@ -124,7 +124,7 @@
             this.btMinus.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btMinus.TabIndex = 11;
             this.btMinus.TabStop = false;
-            this.btMinus.Click += new System.EventHandler(this.btPlus_Click);
+            this.btMinus.Click += new System.EventHandler(this.btMinus_Click);
             this.btMinus.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Item_EatService2_MouseMove);
             // 
             // btPlus

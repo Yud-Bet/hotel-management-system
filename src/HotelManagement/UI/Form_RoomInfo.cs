@@ -323,6 +323,9 @@ namespace HotelManagement.UI
                 int RowEffected = await Task.Run(() => DataAccess.CustomerDA.Payment(0, 0, RoomID, ParentRef.ParentRef.Username));
                 if (RowEffected > 0)
                 {
+                    TotalMoney = 0;
+                    numOfItemPerPage = 0;
+                    countItem = 0;
                     printPreviewDialogBill.Document = bill;
                     printPreviewDialogBill.ShowDialog();
                     await Task.Run(() => DataAccess.CustomerDA.SetRoomReservationStatus(0, 0, RoomID));
@@ -401,6 +404,10 @@ namespace HotelManagement.UI
             }
         }
 
+
+        int TotalMoney = 0;
+        int numOfItemPerPage = 0;
+        int countItem = 0;
         private void bill_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
             DTO.RoomServices svc = new DTO.RoomServices(0, 0, RoomID);
@@ -408,11 +415,22 @@ namespace HotelManagement.UI
             drawBill.drawBillHeader();
             drawBill.drawCustomerInfo(Customer.Name, Customer.PhoneNumber, Customer.Addr,
                 dtpCheckInDate.Text, dtpCheckOutDate.Text);
-            int TotalMoney = 0;
-            for (int i = 0; i < svc.items.Count; i++)
+            for (int i = countItem; i < svc.items.Count; i++)
             {
                 drawBill.drawItem(svc.items[i].Name, svc.items[i].Count, svc.items[i].Price, svc.items[i].IntoMoney);
                 TotalMoney += svc.items[i].IntoMoney;
+                countItem++;
+                if (numOfItemPerPage > 16)
+                {
+                    e.HasMorePages = true;
+                    numOfItemPerPage = 0;
+                    return;
+                } 
+                else
+                {
+                    e.HasMorePages = false;
+                    numOfItemPerPage++;
+                }
             }
             DTO.StaffOverview staff = new DTO.StaffOverview(this.ParentRef.ParentRef.Username);
             drawBill.drawEndOfBill(staff.Name, TotalMoney, 0);
