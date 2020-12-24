@@ -450,7 +450,7 @@ namespace HotelManagement.UI
                 pnToAddForm.Dispose();
                 System.GC.Collect();
                 createPanelToAddForm();
-                pnToAddForm.Controls.Add(new Form_ReportBill());
+                pnToAddForm.Controls.Add(new Form_ReportBill(StaffName));
             }
         }
 

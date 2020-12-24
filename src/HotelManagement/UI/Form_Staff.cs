@@ -12,6 +12,7 @@ namespace HotelManagement.UI
     public partial class Form_Staff : UserControl
     {
         public List<Item_Staff> item_Staffs = new List<Item_Staff>();
+        private static Bitmap DefaultUserImage = Resources.profile_user;
 
         public Form_Staff()
         {
@@ -56,8 +57,6 @@ namespace HotelManagement.UI
         {
             get { return staffImage; }
         }
-
-        public Image Resource { get; private set; }
         #endregion
 
         public void setStaffValues(Item_Staff item_Staff)
@@ -83,7 +82,7 @@ namespace HotelManagement.UI
             }
             catch
             {
-                staffImage.Image = Resources.profile_user;
+                staffImage.Image = DefaultUserImage;
             }
         }
 
@@ -102,7 +101,7 @@ namespace HotelManagement.UI
             lbStartDate.Text = "";
             lbSalary.Text = "";
 
-            staffImage.Image = Resources.profile_user;
+            staffImage.Image = DefaultUserImage;
         }
 
         public void addItem(int ID, bool position, string name, string IDNo, DateTime birthdate, bool sex,
