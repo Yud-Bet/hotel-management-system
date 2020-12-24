@@ -28,5 +28,9 @@ namespace HotelManagement.DataAccess
             string Query = "QLKS_PayForServices";
             return ExecuteQuery.ExecuteNoneQuery(Query);
         }
+        public static DataTable GetServiceBillOnlyDetail(int SvcBillID)
+        {
+            return ExecuteQuery.ExecuteReader("QLKS_GetServicesBillOnlyInfo @ServiceBillID", new object[] { SvcBillID });
+        }
     }
 }

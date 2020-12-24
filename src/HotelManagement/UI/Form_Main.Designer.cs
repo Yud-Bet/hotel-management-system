@@ -76,6 +76,9 @@
             this.lbStaffPosition = new System.Windows.Forms.Label();
             this.lbStaffname = new System.Windows.Forms.Label();
             this.pbStaffAvatar = new System.Windows.Forms.PictureBox();
+            this.menuStaff = new MaterialSkin.Controls.MaterialContextMenuStrip();
+            this.menubtShowStaffInfo = new System.Windows.Forms.ToolStripMenuItem();
+            this.menubtChangePass = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.pnSubMenu_Manage.SuspendLayout();
             this.btService_manage.SuspendLayout();
@@ -107,6 +110,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbRoom)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbStaffAvatar)).BeginInit();
+            this.menuStaff.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -722,7 +726,7 @@
             this.panel2.Controls.Add(this.lbStaffPosition);
             this.panel2.Controls.Add(this.lbStaffname);
             this.panel2.Controls.Add(this.pbStaffAvatar);
-            this.panel2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.panel2.Cursor = System.Windows.Forms.Cursors.Default;
             this.panel2.Location = new System.Drawing.Point(6, 27);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(243, 97);
@@ -735,7 +739,7 @@
             this.lbStaffPosition.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(148)))), ((int)(((byte)(148)))));
             this.lbStaffPosition.Location = new System.Drawing.Point(66, 48);
             this.lbStaffPosition.Name = "lbStaffPosition";
-            this.lbStaffPosition.Size = new System.Drawing.Size(102, 35);
+            this.lbStaffPosition.Size = new System.Drawing.Size(177, 35);
             this.lbStaffPosition.TabIndex = 3;
             this.lbStaffPosition.Text = "Chức Vụ";
             this.lbStaffPosition.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -759,11 +763,35 @@
             this.pbStaffAvatar.Image = global::HotelManagement.Properties.Resources.profile_user;
             this.pbStaffAvatar.Location = new System.Drawing.Point(6, 22);
             this.pbStaffAvatar.Name = "pbStaffAvatar";
-            this.pbStaffAvatar.Size = new System.Drawing.Size(58, 56);
+            this.pbStaffAvatar.Size = new System.Drawing.Size(58, 61);
             this.pbStaffAvatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbStaffAvatar.TabIndex = 0;
             this.pbStaffAvatar.TabStop = false;
             this.pbStaffAvatar.Click += new System.EventHandler(this.pbStaffAvatar_Click);
+            // 
+            // menuStaff
+            // 
+            this.menuStaff.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.menuStaff.Depth = 0;
+            this.menuStaff.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menubtShowStaffInfo,
+            this.menubtChangePass});
+            this.menuStaff.MouseState = MaterialSkin.MouseState.HOVER;
+            this.menuStaff.Name = "menuStaff";
+            this.menuStaff.Size = new System.Drawing.Size(181, 70);
+            // 
+            // menubtShowStaffInfo
+            // 
+            this.menubtShowStaffInfo.Name = "menubtShowStaffInfo";
+            this.menubtShowStaffInfo.Size = new System.Drawing.Size(180, 22);
+            this.menubtShowStaffInfo.Text = "Xem thông tin";
+            // 
+            // menubtChangePass
+            // 
+            this.menubtChangePass.Name = "menubtChangePass";
+            this.menubtChangePass.Size = new System.Drawing.Size(180, 22);
+            this.menubtChangePass.Text = "Đổi mật khẩu";
+            this.menubtChangePass.Click += new System.EventHandler(this.menubtChangePass_Click);
             // 
             // Form_Main
             // 
@@ -821,6 +849,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbRoom)).EndInit();
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbStaffAvatar)).EndInit();
+            this.menuStaff.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -875,6 +904,8 @@
         private System.Windows.Forms.Label lbStaffPosition;
         private System.Windows.Forms.Label lbStaffname;
         private System.Windows.Forms.PictureBox pbStaffAvatar;
-        
+        private MaterialSkin.Controls.MaterialContextMenuStrip menuStaff;
+        private System.Windows.Forms.ToolStripMenuItem menubtShowStaffInfo;
+        private System.Windows.Forms.ToolStripMenuItem menubtChangePass;
     }
 }

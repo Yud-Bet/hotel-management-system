@@ -50,7 +50,7 @@ namespace HotelManagement.UI
 
         private void timerShow_Tick(object sender, EventArgs e)
         {
-            if (this.Height == 103)
+            if (this.Height == 96)
             {
                 timerShow.Stop();
                 isHide = false;

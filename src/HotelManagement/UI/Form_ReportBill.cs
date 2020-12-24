@@ -12,8 +12,8 @@ namespace HotelManagement.UI
 {
     public partial class Form_ReportBill : UserControl
     {
-        string StaffName;
-        public Form_ReportBill(string StaffName)
+        public Form_Main ParentRef;
+        public Form_ReportBill(Form_Main ParentRef)
         {
             InitializeComponent();
             //pnAddItem.Controls.Add(new Item_ReportBill(123, "12/12/2020", 122, "Lê Trung Hiếu", 1000000000, 200050, 20, true));
@@ -24,7 +24,7 @@ namespace HotelManagement.UI
                 cbStaff.Items.Add(dataStaff.Rows[i].ItemArray[0].ToString() + " | " + dataStaff.Rows[i].ItemArray[2].ToString());
             }
             LoadRoomNSvcsBillInfo();
-            this.StaffName = StaffName;
+            this.ParentRef = ParentRef;
         }
 
         private void LoadRoomNSvcsBillInfo()
@@ -35,7 +35,7 @@ namespace HotelManagement.UI
             DataTable dataBillInfo = DataAccess.Report.GetAllBillInfo(dtStart.Value, dtEnd.Value, cbStaff.SelectedIndex, cbSort.SelectedIndex);
             for (int i = 0; i < dataBillInfo.Rows.Count; i++)
             {
-                Item_ReportBill itemBillInfo = new Item_ReportBill(
+                Item_ReportBill itemBillInfo = new Item_ReportBill(this,
                     Convert.ToInt32(dataBillInfo.Rows[i].ItemArray[0]),
                     Convert.ToDateTime(dataBillInfo.Rows[i].ItemArray[1].ToString()).ToShortDateString(),
                     Convert.ToInt32(dataBillInfo.Rows[i].ItemArray[2]),
@@ -77,7 +77,7 @@ namespace HotelManagement.UI
             DataTable dataSVBillInfo = DataAccess.Report.GetAllServicesBillOnlyInfo(dtStart.Value, dtEnd.Value, cbStaff.SelectedIndex, cbSort.SelectedIndex);
             for (int i = 0; i < dataSVBillInfo.Rows.Count; i++)
             {
-                Item_ReportBill itemSVBillInfo = new Item_ReportBill(
+                Item_ReportBill itemSVBillInfo = new Item_ReportBill(this,
                     Convert.ToInt32(dataSVBillInfo.Rows[i].ItemArray[0]),
                     Convert.ToDateTime(dataSVBillInfo.Rows[i].ItemArray[1].ToString()).ToShortDateString(),
                     Convert.ToInt32(dataSVBillInfo.Rows[i].ItemArray[2]),

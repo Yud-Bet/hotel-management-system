@@ -99,6 +99,7 @@
             this.btCancel.Name = "btCancel";
             this.btCancel.Size = new System.Drawing.Size(99, 29);
             this.btCancel.TabIndex = 0;
+            this.btCancel.TabStop = false;
             this.btCancel.TextColor = System.Drawing.Color.White;
             this.btCancel.Vertical_Alignment = System.Drawing.StringAlignment.Center;
             this.btCancel.Click += new System.EventHandler(this.btCancel_Click);
@@ -122,6 +123,7 @@
             this.btCharge.Name = "btCharge";
             this.btCharge.Size = new System.Drawing.Size(99, 29);
             this.btCharge.TabIndex = 0;
+            this.btCharge.TabStop = false;
             this.btCharge.TextColor = System.Drawing.Color.White;
             this.btCharge.Vertical_Alignment = System.Drawing.StringAlignment.Center;
             this.btCharge.Click += new System.EventHandler(this.btCharge_Click);
@@ -263,7 +265,7 @@
             this.tbNewPass1.PlaceHolderTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
             this.tbNewPass1.ReadOnly = false;
             this.tbNewPass1.Size = new System.Drawing.Size(300, 24);
-            this.tbNewPass1.TabIndex = 0;
+            this.tbNewPass1.TabIndex = 4;
             this.tbNewPass1.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left;
             this.tbNewPass1.TextBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.tbNewPass1.UseSystemPasswordChar = false;
@@ -288,7 +290,7 @@
             this.tbNewPass.PlaceHolderTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
             this.tbNewPass.ReadOnly = false;
             this.tbNewPass.Size = new System.Drawing.Size(300, 24);
-            this.tbNewPass.TabIndex = 0;
+            this.tbNewPass.TabIndex = 3;
             this.tbNewPass.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left;
             this.tbNewPass.TextBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.tbNewPass.UseSystemPasswordChar = false;
@@ -313,7 +315,7 @@
             this.tbOldPass.PlaceHolderTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
             this.tbOldPass.ReadOnly = false;
             this.tbOldPass.Size = new System.Drawing.Size(300, 24);
-            this.tbOldPass.TabIndex = 0;
+            this.tbOldPass.TabIndex = 2;
             this.tbOldPass.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left;
             this.tbOldPass.TextBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.tbOldPass.UseSystemPasswordChar = false;
@@ -339,7 +341,7 @@
             this.tbUsername.PlaceHolderTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
             this.tbUsername.ReadOnly = false;
             this.tbUsername.Size = new System.Drawing.Size(300, 24);
-            this.tbUsername.TabIndex = 0;
+            this.tbUsername.TabIndex = 1;
             this.tbUsername.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left;
             this.tbUsername.TextBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.tbUsername.UseSystemPasswordChar = false;
@@ -363,7 +365,8 @@
             this.xuiButton2.Location = new System.Drawing.Point(3, 64);
             this.xuiButton2.Name = "xuiButton2";
             this.xuiButton2.Size = new System.Drawing.Size(51, 50);
-            this.xuiButton2.TabIndex = 18;
+            this.xuiButton2.TabIndex = 0;
+            this.xuiButton2.TabStop = false;
             this.xuiButton2.TextColor = System.Drawing.Color.White;
             this.xuiButton2.Vertical_Alignment = System.Drawing.StringAlignment.Center;
             // 
@@ -385,7 +388,8 @@
             this.xuiButton4.Location = new System.Drawing.Point(3, 278);
             this.xuiButton4.Name = "xuiButton4";
             this.xuiButton4.Size = new System.Drawing.Size(51, 50);
-            this.xuiButton4.TabIndex = 18;
+            this.xuiButton4.TabIndex = 0;
+            this.xuiButton4.TabStop = false;
             this.xuiButton4.TextColor = System.Drawing.Color.White;
             this.xuiButton4.Vertical_Alignment = System.Drawing.StringAlignment.Center;
             // 
@@ -407,7 +411,8 @@
             this.xuiButton3.Location = new System.Drawing.Point(3, 208);
             this.xuiButton3.Name = "xuiButton3";
             this.xuiButton3.Size = new System.Drawing.Size(51, 50);
-            this.xuiButton3.TabIndex = 18;
+            this.xuiButton3.TabIndex = 0;
+            this.xuiButton3.TabStop = false;
             this.xuiButton3.TextColor = System.Drawing.Color.White;
             this.xuiButton3.Vertical_Alignment = System.Drawing.StringAlignment.Center;
             // 
@@ -429,7 +434,8 @@
             this.xuiButton1.Location = new System.Drawing.Point(3, 136);
             this.xuiButton1.Name = "xuiButton1";
             this.xuiButton1.Size = new System.Drawing.Size(51, 50);
-            this.xuiButton1.TabIndex = 18;
+            this.xuiButton1.TabIndex = 0;
+            this.xuiButton1.TabStop = false;
             this.xuiButton1.TextColor = System.Drawing.Color.White;
             this.xuiButton1.Vertical_Alignment = System.Drawing.StringAlignment.Center;
             // 
