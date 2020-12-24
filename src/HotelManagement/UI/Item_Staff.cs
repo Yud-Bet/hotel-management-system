@@ -201,8 +201,12 @@ namespace HotelManagement.UI
             try
             {
                 string[] staffImageFiles = Directory.GetFiles(@".\\staffimage", IDNo + "*");
-
-                staffImage.Image = Image.FromFile(staffImageFiles[0]);
+                Image image;
+                using (Stream stream = File.OpenRead(staffImageFiles[0]))
+                {
+                    image = System.Drawing.Image.FromStream(stream);
+                }
+                staffImage.Image = image;
             }
             catch
             {
