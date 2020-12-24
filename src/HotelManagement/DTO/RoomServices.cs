@@ -18,7 +18,7 @@ namespace HotelManagement.DTO
             for (int i = 0; i < roomTB.Rows.Count; i++)
             {
                 ServiceProperties item = new ServiceProperties();
-                item.Name = "Phòng" + Convert.ToString(roomTB.Rows[i].ItemArray[0]);
+                item.Name = "Phòng " + Convert.ToString(roomTB.Rows[i].ItemArray[0]);
                 item.Count = Convert.ToInt32(roomTB.Rows[i].ItemArray[1]);
                 item.Price = Convert.ToInt32(roomTB.Rows[i].ItemArray[2]);
                 item.IntoMoney = Convert.ToInt32(roomTB.Rows[i].ItemArray[3]);

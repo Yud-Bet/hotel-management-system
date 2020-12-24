@@ -29,7 +29,7 @@ namespace HotelManagement.UI
             {
                 Item_ReportBill itemBillInfo = new Item_ReportBill(
                     Convert.ToInt32(dataBillInfo.Rows[i].ItemArray[0]),
-                    Convert.ToDateTime(dataBillInfo.Rows[i].ItemArray[1].ToString()).ToShortDateString(),
+                    Convert.ToDateTime(dataBillInfo.Rows[i].ItemArray[1]).ToShortDateString(),
                     Convert.ToInt32(dataBillInfo.Rows[i].ItemArray[2]),
                     dataBillInfo.Rows[i].ItemArray[3].ToString(),
                     Convert.ToInt32(dataBillInfo.Rows[i].ItemArray[4]),

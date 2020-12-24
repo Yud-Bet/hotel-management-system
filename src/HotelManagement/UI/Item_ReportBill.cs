@@ -13,8 +13,6 @@ namespace HotelManagement.UI
 {
     public partial class Item_ReportBill : UserControl
     {
-        public int BillID;
-        public BillType billType;
         public Item_ReportBill(int billID, string billDateCre, int roomID, string staffName, int roomCharge,
                                 int serviceTotalMoney, int totalMoney, int discount, bool roomIsRenting)
         {
@@ -35,6 +33,8 @@ namespace HotelManagement.UI
         }
 
         #region properties
+        public int BillID;
+        public BillType billType;
         bool roomIsRenting = false;
 
         private int billID;
