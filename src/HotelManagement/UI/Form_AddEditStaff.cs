@@ -55,7 +55,7 @@ namespace HotelManagement.UI
             dtBirthdate.Enabled = false;
             dtStartDate.Enabled = false;
 
-            loadDataIfShowInfo();
+            loadDataIfShowInfo(username);
         }
 
         #region properties
@@ -63,9 +63,26 @@ namespace HotelManagement.UI
         Form_Staff parentRef_Addstaff;
         #endregion
 
-        void loadDataIfShowInfo()
+        void loadDataIfShowInfo(string username)
         {
-
+            DataTable data = DataAccess.Account.GetStaffInfor(username);
+            if (data.Rows.Count > 0)
+            {
+                tbID.Text = data.Rows[0].ItemArray[0].ToString();
+                tbName.Text = data.Rows[0].ItemArray[1].ToString();
+                if (Convert.ToInt32(data.Rows[0].ItemArray[2]) == 0)
+                    rbManager.Checked = true;
+                else rbNorStaff.Checked = true;
+                tbIDNo.Text = data.Rows[0].ItemArray[4].ToString();
+                dtBirthdate.Value = Convert.ToDateTime(data.Rows[0].ItemArray[5]);
+                if (Convert.ToInt32(data.Rows[0].ItemArray[6]) == 0)
+                    rbMale.Checked = true;
+                else rbFemale.Checked = true;
+                tbAddress.Text = data.Rows[0].ItemArray[7].ToString();
+                tbPhonenum.Text = data.Rows[0].ItemArray[8].ToString();
+                dtStartDate.Value = Convert.ToDateTime(data.Rows[0].ItemArray[9]);
+                tbSalary.Text = data.Rows[0].ItemArray[10].ToString();
+            }
         }
 
         void loadDataIfEditInfo()
@@ -82,7 +99,7 @@ namespace HotelManagement.UI
             tbName.Text = parentRef_EditStaff._Name;
             tbIDNo.Text = parentRef_EditStaff._IDNo;
             dtBirthdate.Value = parentRef_EditStaff._Birthdate;
-            if (parentRef_EditStaff._Sex)
+            if (!parentRef_EditStaff._Sex)
             {
                 rbMale.Checked = true;
             }
@@ -118,7 +135,7 @@ namespace HotelManagement.UI
             
             parentRef_EditStaff._Name = tbName.Text;
             parentRef_EditStaff._Birthdate = dtBirthdate.Value;
-            parentRef_EditStaff._Sex = rbMale.Checked;
+            parentRef_EditStaff._Sex = rbFemale.Checked;
             parentRef_EditStaff._Address = tbAddress.Text;
             parentRef_EditStaff._Phonenum = tbPhonenum.Text;
             parentRef_EditStaff._IDNo = tbIDNo.Text;
