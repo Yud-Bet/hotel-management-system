@@ -14,12 +14,13 @@ namespace HotelManagement.UI
         public List<Item_Staff> item_Staffs = new List<Item_Staff>();
         private static Bitmap DefaultUserImage = Resources.profile_user;
 
-        public Form_Staff()
+        public Form_Staff(Form_Main parentRef)
         {
             InitializeComponent();
             btAccount.Hide();
             btChangeStaffInfo.Hide();
             load_AllStaffInfo();
+            this.parentRef = parentRef;
         }
         private void load_AllStaffInfo()
         {
@@ -47,7 +48,7 @@ namespace HotelManagement.UI
 
         #region properties
         public Item_Staff selectedItem;
-
+        public Form_Main parentRef;
         public Panel _pnToAddItem
         {
             get { return pnToAddItem; }
@@ -77,12 +78,16 @@ namespace HotelManagement.UI
             try
             {
                 string[] staffImageFiles = Directory.GetFiles(@".\\staffimage", item_Staff._IDNo + "*");
-
-                staffImage.Image = Image.FromFile(staffImageFiles[0]);
+                Image image;
+                using (Stream stream = File.OpenRead(staffImageFiles[0]))
+                {
+                    image = System.Drawing.Image.FromStream(stream);
+                }
+                staffImage.Image = image;
             }
             catch
             {
-                staffImage.Image = DefaultUserImage;
+                staffImage.Image = Resources.profile_user;
             }
         }
 

@@ -11,28 +11,50 @@ namespace HotelManagement.UI
     public partial class Form_AddEditStaff : MetroFramework.Forms.MetroForm
     {
         OpenFileDialog open = new OpenFileDialog();
+
+        //Use add staff
         public Form_AddEditStaff(Form_Staff parentRef)
         {
             InitializeComponent();
 
+            tbName.Focus();
             this.parentRef_Addstaff = parentRef;
             rbNorStaff.Checked = true;
             btSave.Hide();
             btCancel.Hide();
         }
 
+        //Use edit staffinfo
         public Form_AddEditStaff(Item_Staff parentRef)
         {
             InitializeComponent();
 
+            tbName.Focus();
             this.parentRef_EditStaff = parentRef;
-            loadData_IfEditInfo();
+            loadDataIfEditInfo();
             btAddStaff.Hide();
         }
 
-        public Form_AddEditStaff(int staffID)
+        //Use show staffinfo
+        public Form_AddEditStaff(string username)
         {
+            InitializeComponent();
 
+            pbCam.Hide();
+            staffImage.Click -= staffImage_Click;
+            pnButton.Hide();
+            pnPosition.Enabled = false;
+            pnSex.Enabled = false;
+            tbName.IsEnabled = false;
+            tbID.IsEnabled = false;
+            tbIDNo.IsEnabled = false;
+            tbPhonenum.IsEnabled = false;
+            tbSalary.IsEnabled = false;
+            tbAddress.IsEnabled = false;
+            dtBirthdate.Enabled = false;
+            dtStartDate.Enabled = false;
+
+            loadDataIfShowInfo();
         }
 
         #region properties
@@ -40,7 +62,12 @@ namespace HotelManagement.UI
         Form_Staff parentRef_Addstaff;
         #endregion
 
-        void loadData_IfEditInfo()
+        void loadDataIfShowInfo()
+        {
+
+        }
+
+        void loadDataIfEditInfo()
         {
             tbID.Text = parentRef_EditStaff._ID.ToString();
             if (parentRef_EditStaff._Position)
@@ -70,8 +97,12 @@ namespace HotelManagement.UI
             try
             {
                 string[] staffImageFiles = Directory.GetFiles(@".\\staffimage", parentRef_EditStaff._IDNo + "*");
-
-                staffImage.Image = Image.FromFile(staffImageFiles[0]);
+                Image image;
+                using (Stream stream = File.OpenRead(staffImageFiles[0]))
+                {
+                    image = System.Drawing.Image.FromStream(stream);
+                }
+                staffImage.Image = image;
             }
             catch
             {
@@ -115,12 +146,22 @@ namespace HotelManagement.UI
                     }
 
                     File.Copy(open.FileName, @".\\staffimage\\" + parentRef_EditStaff._IDNo + Path.GetExtension(open.FileName));
-
+                    
+                    Image image;
+                    using (Stream stream = File.OpenRead(@".\\staffimage\\" + parentRef_EditStaff._IDNo + Path.GetExtension(open.FileName)))
+                    {
+                        image = System.Drawing.Image.FromStream(stream);
+                    }
+                    staffImage.Image = image;
                     parentRef_EditStaff.setStaffImage();
-                    parentRef_EditStaff.parentRef._staffImage.Image = Image.FromFile(@".\\staffimage\\" + parentRef_EditStaff._IDNo + Path.GetExtension(open.FileName));
+                    parentRef_EditStaff.parentRef._staffImage.Image = image;
+                    parentRef_EditStaff.parentRef.parentRef.setStaffImage();
                 }
             }
-            catch { }
+            catch (Exception ex) 
+            {
+                MessageBox.Show(ex.ToString());
+            }
             
             if (ef > 0)
             {
@@ -246,7 +287,7 @@ namespace HotelManagement.UI
                 if (open.ShowDialog() == DialogResult.OK)
                 {
                     //staffImage.Image = new Bitmap(open.FileName);
-                    staffImage.Image = Image.FromFile(open.FileName);
+                    staffImage.Image = new Bitmap(open.FileName);
                 }
             }
             catch
