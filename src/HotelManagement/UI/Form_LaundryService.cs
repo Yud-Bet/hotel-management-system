@@ -142,7 +142,6 @@ namespace HotelManagement.UI
                 cts.Cancel();
                 cts.Dispose();
                 cts = new CancellationTokenSource();
-                this.Focus();
             }
         }
 
@@ -224,7 +223,6 @@ namespace HotelManagement.UI
                 cts.Cancel();
                 cts.Dispose();
                 cts = new CancellationTokenSource();
-                ParentRef.Focus();
             }
         }
 

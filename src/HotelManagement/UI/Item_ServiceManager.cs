@@ -79,6 +79,7 @@ namespace HotelManagement.UI
                 if (ef > 0)
                 {
                     this.parentRef._pnToAddItem.Controls.Remove(this);
+                    this.parentRef.Services.Remove(this);
                 }
             }
         }

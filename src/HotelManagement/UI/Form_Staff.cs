@@ -6,6 +6,8 @@ using System.Data;
 using System.IO;
 using System.Drawing;
 using HotelManagement.Properties;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace HotelManagement.UI
 {
@@ -13,14 +15,46 @@ namespace HotelManagement.UI
     {
         public List<Item_Staff> item_Staffs = new List<Item_Staff>();
         private static Bitmap DefaultUserImage = Resources.profile_user;
+        private Form_Main ParentRef;
+        private CancellationTokenSource cts;
 
-        public Form_Staff()
+        public Form_Staff(Form_Main ParentRef)
         {
             InitializeComponent();
             btAccount.Hide();
             btChangeStaffInfo.Hide();
-            load_AllStaffInfo();
+            this.ParentRef = ParentRef;
+            cts = new CancellationTokenSource();
+            Disposed += (s, e) =>
+            {
+                tbSearch.TextChanged -= tbSearch_TextChanged;
+            };
         }
+
+        private void Form_Staff_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                OverlayForm overlay = new OverlayForm(ParentRef, new LoadingForm(cts.Token));
+                overlay.Show();
+                load_AllStaffInfo();
+            }
+            catch (System.Data.SqlClient.SqlException)
+            {
+                MessageBox.Show("Lỗi khi kết nối đến server!", "Lỗi");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                cts.Cancel();
+                cts.Dispose();
+                cts = new CancellationTokenSource();
+            }
+        }
+
         private void load_AllStaffInfo()
         {
             DataTable StaffInfo = DataAccess.Report.GetAllStaffInfo(Convert.ToInt32(cbSort.SelectedIndex));
@@ -28,7 +62,6 @@ namespace HotelManagement.UI
             pnToAddItem.Controls.Clear();
             for (int i = 0; i < StaffInfo.Rows.Count; i++)
             {
-                //addItem(StaffInfo.Rows[i].ItemArray[i].ToString())
                 addItem(Convert.ToInt32(StaffInfo.Rows[i].ItemArray[0]),
                         Convert.ToBoolean(StaffInfo.Rows[i].ItemArray[1]),
                         StaffInfo.Rows[i].ItemArray[2].ToString(),
@@ -127,26 +160,63 @@ namespace HotelManagement.UI
 
         private void btAccount_Click(object sender, EventArgs e)
         {
+            OverlayForm overlay = new OverlayForm(ParentRef, new LoadingForm(cts.Token));
+            overlay.Show();
             Form_EditAccount temp = new Form_EditAccount(selectedItem, 0);
             temp.ShowDialog();
+
+            cts.Cancel();
+            cts.Dispose();
+            cts = new CancellationTokenSource();
         }
 
         private void btChangeStaffInfo_Click(object sender, EventArgs e)
         {
+            OverlayForm overlay = new OverlayForm(ParentRef, new LoadingForm(cts.Token));
+            overlay.Show();
             Form_AddEditStaff temp = new Form_AddEditStaff(selectedItem);
             temp.ShowDialog();
+
+            cts.Cancel();
+            cts.Dispose();
+            cts = new CancellationTokenSource();
         }
 
         private void btAddStaff_Click(object sender, EventArgs e)
         {
+            OverlayForm overlay = new OverlayForm(ParentRef, new LoadingForm(cts.Token));
+            overlay.Show();
             //Form_AddEditStaff temp = new Form_AddEditStaff(this);
             (new Form_AddEditStaff(this)).ShowDialog();
+
+            cts.Cancel();
+            cts.Dispose();
+            cts = new CancellationTokenSource();
         }
 
         private void cbSort_SelectedIndexChanged(object sender, EventArgs e)
         {
-            load_AllStaffInfo();
-            resetStaffValues();
+            try
+            {
+                OverlayForm overlay = new OverlayForm(ParentRef, new LoadingForm(cts.Token));
+                overlay.Show();
+                load_AllStaffInfo();
+                resetStaffValues();
+            }
+            catch (System.Data.SqlClient.SqlException)
+            {
+                MessageBox.Show("Lỗi khi kết nối đến server!", "Lỗi");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                cts.Cancel();
+                cts.Dispose();
+                cts = new CancellationTokenSource();
+            }
         }
 
         private void pnToAddItem_ControlAdded(object sender, ControlEventArgs e)
@@ -159,6 +229,34 @@ namespace HotelManagement.UI
             if (pnToAddItem.Controls.Count == 1)
             {
                 lbListStaffIsEmpty.Show();
+            }
+        }
+
+        private List<Item_Staff> SearchForStaffs(string Criteria)
+        {
+            List<Item_Staff> res = new List<Item_Staff>();
+            for (int i = 0; i < item_Staffs.Count; i++)
+            {
+                if (item_Staffs[i]._Name.ToLower().Contains(Criteria.ToLower()))
+                {
+                    res.Add(item_Staffs[i]);
+                }
+            }
+            return res;
+        }
+
+        private async void tbSearch_TextChanged(object sender, EventArgs e)
+        {
+            if (tbSearch.Text == "")
+            {
+                pnToAddItem.Controls.Clear();
+                pnToAddItem.Controls.AddRange(item_Staffs.ToArray());
+            }
+            else
+            {
+                List<Item_Staff> SearchRes = await Task.Run(() => SearchForStaffs(tbSearch.Text));
+                pnToAddItem.Controls.Clear();
+                pnToAddItem.Controls.AddRange(SearchRes.ToArray());
             }
         }
     }

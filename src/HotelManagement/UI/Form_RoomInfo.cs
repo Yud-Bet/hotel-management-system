@@ -394,7 +394,6 @@ namespace HotelManagement.UI
                 cts.Cancel();
                 cts.Dispose();
                 cts = new CancellationTokenSource();
-                this.Focus();
             }
         }
 
@@ -458,6 +457,10 @@ namespace HotelManagement.UI
 
         private void btSave_Click(object sender, EventArgs e)
         {
+            if (!checkValidityOfValue())
+            {
+                return;
+            }
             try
             {
                 OverlayForm overlay = new OverlayForm(ParentRef.ParentRef.ParentRef, new LoadingForm(cts.Token));
