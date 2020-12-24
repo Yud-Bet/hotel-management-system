@@ -34,7 +34,7 @@ namespace HotelManagement.UI
         {
             try
             {
-                OverlayForm overlay = new OverlayForm(ParentRef, new LoadingForm(cts.Token));
+                OverlayForm overlay = new OverlayForm(parentRef, new LoadingForm(cts.Token));
                 overlay.Show();
                 load_AllStaffInfo();
             }
@@ -163,7 +163,7 @@ namespace HotelManagement.UI
 
         private void btAccount_Click(object sender, EventArgs e)
         {
-            OverlayForm overlay = new OverlayForm(ParentRef, new LoadingForm(cts.Token));
+            OverlayForm overlay = new OverlayForm(parentRef, new LoadingForm(cts.Token));
             overlay.Show();
             Form_EditAccount temp = new Form_EditAccount(selectedItem, 0);
             temp.ShowDialog();
@@ -175,7 +175,7 @@ namespace HotelManagement.UI
 
         private void btChangeStaffInfo_Click(object sender, EventArgs e)
         {
-            OverlayForm overlay = new OverlayForm(ParentRef, new LoadingForm(cts.Token));
+            OverlayForm overlay = new OverlayForm(parentRef, new LoadingForm(cts.Token));
             overlay.Show();
             Form_AddEditStaff temp = new Form_AddEditStaff(selectedItem);
             temp.ShowDialog();
@@ -187,7 +187,7 @@ namespace HotelManagement.UI
 
         private void btAddStaff_Click(object sender, EventArgs e)
         {
-            OverlayForm overlay = new OverlayForm(ParentRef, new LoadingForm(cts.Token));
+            OverlayForm overlay = new OverlayForm(parentRef, new LoadingForm(cts.Token));
             overlay.Show();
             //Form_AddEditStaff temp = new Form_AddEditStaff(this);
             (new Form_AddEditStaff(this)).ShowDialog();
@@ -201,7 +201,7 @@ namespace HotelManagement.UI
         {
             try
             {
-                OverlayForm overlay = new OverlayForm(ParentRef, new LoadingForm(cts.Token));
+                OverlayForm overlay = new OverlayForm(parentRef, new LoadingForm(cts.Token));
                 overlay.Show();
                 load_AllStaffInfo();
                 resetStaffValues();
