@@ -400,10 +400,10 @@ namespace HotelManagement.UI
 
         private void bill_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
-            DTO.RoomServices svc = new DTO.RoomServices(RoomID);
+            DTO.RoomServices svc = new DTO.RoomServices(0, 0, RoomID);
             DrawBill drawBill = new DrawBill(e.Graphics);
             drawBill.drawBillHeader();
-            drawBill.drawCustomerInfo(Customer.Name, RoomID, Customer.PhoneNumber, Customer.Addr,
+            drawBill.drawCustomerInfo(Customer.Name, Customer.PhoneNumber, Customer.Addr,
                 dtpCheckInDate.Text, dtpCheckOutDate.Text);
             int TotalMoney = 0;
             for (int i = 0; i < svc.items.Count; i++)
@@ -419,7 +419,10 @@ namespace HotelManagement.UI
         {
             if (tbCustomerName.Text != "" && SearchFlag)
             {
-                if (TakeCustomerAlreadyExistsToMenuItems(tbCustomerName.Text)) { }
+                if (TakeCustomerAlreadyExistsToMenuItems(tbCustomerName.Text))
+                {
+                    dropDownList1.Show();
+                }
                 else dropDownList1.Hide();
             }
             else

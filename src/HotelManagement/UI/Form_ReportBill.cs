@@ -12,7 +12,8 @@ namespace HotelManagement.UI
 {
     public partial class Form_ReportBill : UserControl
     {
-        public Form_ReportBill()
+        public Form_Main ParentRef;
+        public Form_ReportBill(Form_Main ParentRef)
         {
             InitializeComponent();
             //pnAddItem.Controls.Add(new Item_ReportBill(123, "12/12/2020", 122, "Lê Trung Hiếu", 1000000000, 200050, 20, true));
@@ -22,10 +23,11 @@ namespace HotelManagement.UI
             {
                 cbStaff.Items.Add(dataStaff.Rows[i].ItemArray[0].ToString() + " | " + dataStaff.Rows[i].ItemArray[2].ToString());
             }
-            loadDataBillInfo();
+            LoadRoomNSvcsBillInfo();
+            this.ParentRef = ParentRef;
         }
 
-        private void loadDataBillInfo()
+        private void LoadRoomNSvcsBillInfo()
         {
             while (pnAddItem.Controls.Count > 0) pnAddItem.Controls[0].Dispose();
             GC.Collect();
@@ -33,7 +35,7 @@ namespace HotelManagement.UI
             DataTable dataBillInfo = DataAccess.Report.GetAllBillInfo(dtStart.Value, dtEnd.Value, cbStaff.SelectedIndex, cbSort.SelectedIndex);
             for (int i = 0; i < dataBillInfo.Rows.Count; i++)
             {
-                Item_ReportBill itemBillInfo = new Item_ReportBill(
+                Item_ReportBill itemBillInfo = new Item_ReportBill(this,
                     Convert.ToInt32(dataBillInfo.Rows[i].ItemArray[0]),
                     Convert.ToDateTime(dataBillInfo.Rows[i].ItemArray[1].ToString()).ToShortDateString(),
                     Convert.ToInt32(dataBillInfo.Rows[i].ItemArray[2]),
@@ -45,6 +47,7 @@ namespace HotelManagement.UI
                     0,
                     true
                     );
+                itemBillInfo.billType = BillType.RoomNSvcs;
                 pnAddItem.Controls.Add(itemBillInfo);
             }
 
@@ -66,7 +69,7 @@ namespace HotelManagement.UI
             this.lbListBillIsEmpty.Text = "Chưa có hóa đơn nào!";
             this.lbListBillIsEmpty.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
         }
-        private void loadDataServicesBillInfo()
+        private void LoadServicesBillInfo()
         {
             while (pnAddItem.Controls.Count > 0) pnAddItem.Controls[0].Dispose();
             GC.Collect();
@@ -74,7 +77,7 @@ namespace HotelManagement.UI
             DataTable dataSVBillInfo = DataAccess.Report.GetAllServicesBillOnlyInfo(dtStart.Value, dtEnd.Value, cbStaff.SelectedIndex, cbSort.SelectedIndex);
             for (int i = 0; i < dataSVBillInfo.Rows.Count; i++)
             {
-                Item_ReportBill itemSVBillInfo = new Item_ReportBill(
+                Item_ReportBill itemSVBillInfo = new Item_ReportBill(this,
                     Convert.ToInt32(dataSVBillInfo.Rows[i].ItemArray[0]),
                     Convert.ToDateTime(dataSVBillInfo.Rows[i].ItemArray[1].ToString()).ToShortDateString(),
                     Convert.ToInt32(dataSVBillInfo.Rows[i].ItemArray[2]),
@@ -86,6 +89,7 @@ namespace HotelManagement.UI
                     0,
                     true
                     );
+                itemSVBillInfo.billType = BillType.Services;
                 pnAddItem.Controls.Add(itemSVBillInfo);
             }
         }
@@ -94,11 +98,11 @@ namespace HotelManagement.UI
         {
             if (!cbBillorServicesBill.Checked)
             {
-                loadDataBillInfo();
+                LoadRoomNSvcsBillInfo();
             }
             else
             {
-                loadDataServicesBillInfo();
+                LoadServicesBillInfo();
             }
         }
 
@@ -106,11 +110,11 @@ namespace HotelManagement.UI
         {
             if (!cbBillorServicesBill.Checked)
             {
-                loadDataBillInfo();
+                LoadRoomNSvcsBillInfo();
             }
             else
             {
-                loadDataServicesBillInfo();
+                LoadServicesBillInfo();
             }
         }
     }
