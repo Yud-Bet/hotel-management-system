@@ -310,9 +310,9 @@
             this.btPay.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
             this.btPay.HoverTextColor = System.Drawing.Color.White;
             this.btPay.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
-            this.btPay.Location = new System.Drawing.Point(256, 111);
+            this.btPay.Location = new System.Drawing.Point(266, 111);
             this.btPay.Name = "btPay";
-            this.btPay.Size = new System.Drawing.Size(167, 38);
+            this.btPay.Size = new System.Drawing.Size(157, 38);
             this.btPay.TabIndex = 17;
             this.btPay.TextColor = System.Drawing.Color.White;
             this.btPay.Vertical_Alignment = System.Drawing.StringAlignment.Center;
@@ -333,9 +333,9 @@
             this.btAdd.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
             this.btAdd.HoverTextColor = System.Drawing.Color.White;
             this.btAdd.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
-            this.btAdd.Location = new System.Drawing.Point(256, 67);
+            this.btAdd.Location = new System.Drawing.Point(266, 67);
             this.btAdd.Name = "btAdd";
-            this.btAdd.Size = new System.Drawing.Size(167, 38);
+            this.btAdd.Size = new System.Drawing.Size(157, 38);
             this.btAdd.TabIndex = 17;
             this.btAdd.TextColor = System.Drawing.Color.White;
             this.btAdd.Vertical_Alignment = System.Drawing.StringAlignment.Center;
@@ -345,9 +345,9 @@
             // 
             this.cbRoomSelection.FormattingEnabled = true;
             this.cbRoomSelection.ItemHeight = 23;
-            this.cbRoomSelection.Location = new System.Drawing.Point(256, 31);
+            this.cbRoomSelection.Location = new System.Drawing.Point(266, 32);
             this.cbRoomSelection.Name = "cbRoomSelection";
-            this.cbRoomSelection.Size = new System.Drawing.Size(167, 29);
+            this.cbRoomSelection.Size = new System.Drawing.Size(157, 29);
             this.cbRoomSelection.TabIndex = 4;
             this.cbRoomSelection.UseSelectable = true;
             // 
@@ -367,7 +367,7 @@
             this.lbDiscount.AutoSize = true;
             this.lbDiscount.Font = new System.Drawing.Font("Segoe UI", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.lbDiscount.ForeColor = System.Drawing.Color.Black;
-            this.lbDiscount.Location = new System.Drawing.Point(131, 82);
+            this.lbDiscount.Location = new System.Drawing.Point(123, 82);
             this.lbDiscount.Name = "lbDiscount";
             this.lbDiscount.Size = new System.Drawing.Size(19, 23);
             this.lbDiscount.TabIndex = 2;
@@ -378,7 +378,7 @@
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Segoe UI", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.label11.ForeColor = System.Drawing.Color.Black;
-            this.label11.Location = new System.Drawing.Point(172, 82);
+            this.label11.Location = new System.Drawing.Point(164, 82);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(24, 23);
             this.label11.TabIndex = 2;
@@ -400,7 +400,7 @@
             this.lbTotalPayable.AutoSize = true;
             this.lbTotalPayable.Font = new System.Drawing.Font("Segoe UI", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.lbTotalPayable.ForeColor = System.Drawing.Color.Black;
-            this.lbTotalPayable.Location = new System.Drawing.Point(131, 122);
+            this.lbTotalPayable.Location = new System.Drawing.Point(123, 122);
             this.lbTotalPayable.Name = "lbTotalPayable";
             this.lbTotalPayable.Size = new System.Drawing.Size(19, 23);
             this.lbTotalPayable.TabIndex = 2;
@@ -411,7 +411,7 @@
             this.lbTotalMoney.AutoSize = true;
             this.lbTotalMoney.Font = new System.Drawing.Font("Segoe UI", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.lbTotalMoney.ForeColor = System.Drawing.Color.Black;
-            this.lbTotalMoney.Location = new System.Drawing.Point(131, 44);
+            this.lbTotalMoney.Location = new System.Drawing.Point(123, 44);
             this.lbTotalMoney.Name = "lbTotalMoney";
             this.lbTotalMoney.Size = new System.Drawing.Size(19, 23);
             this.lbTotalMoney.TabIndex = 2;
@@ -420,11 +420,11 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Segoe UI", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.label9.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.label9.ForeColor = System.Drawing.Color.Black;
-            this.label9.Location = new System.Drawing.Point(252, 34);
+            this.label9.Location = new System.Drawing.Point(262, 9);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(106, 23);
+            this.label9.Size = new System.Drawing.Size(96, 21);
             this.label9.TabIndex = 2;
             this.label9.Text = "Chọn phòng";
             // 

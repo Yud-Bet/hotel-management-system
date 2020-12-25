@@ -49,6 +49,7 @@ namespace HotelManagement.UI
                 item._itemID = services.Items[i].ServiceID;
                 item._name = services.Items[i].Name;
                 item._price = services.Items[i].Price;
+                item.setServiceImage();
                 serviceList.Add(item);
                 pnServicesList.Controls.Add(item);
             }
@@ -258,8 +259,13 @@ namespace HotelManagement.UI
                 if (RowEffected == -2) throw new Exception("Không thể kết nối đến server");
                 if (RowEffected > 0)
                 {
+                    TotalMoney = 0;
+                    numOfItemPerPage = 0;
+                    countItem = 0;
                     printPreviewDialogBill.Document = bill;
                     printPreviewDialogBill.ShowDialog();
+                    pnSelectedServices.Controls.Clear();
+                    SelectedItems.Clear();
                 }
                 StatusLabel.Text = "";
             }
@@ -277,31 +283,34 @@ namespace HotelManagement.UI
             }
         }
 
+        int TotalMoney = 0;
+        int numOfItemPerPage = 0;
+        int countItem = 0;
         private void bill_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
-            try
+            DTO.RoomServices svc = new DTO.RoomServices();
+            DrawBill drawBill = new DrawBill(e.Graphics);
+            drawBill.drawBillHeader();
+            drawBill.drawServiceInfo();
+            for (int i = countItem; i < svc.items.Count; i++)
             {
-                DTO.RoomServices svc = new DTO.RoomServices();
-                DrawBill drawBill = new DrawBill(e.Graphics);
-                drawBill.drawBillHeader();
-                drawBill.drawServiceInfo();
-                int TotalMoney = 0;
-                for (int i = 0; i < svc.items.Count; i++)
+                drawBill.drawItem(svc.items[i].Name, svc.items[i].Count, svc.items[i].Price, svc.items[i].IntoMoney);
+                TotalMoney += svc.items[i].Count * svc.items[i].Price;
+                countItem++;
+                if (numOfItemPerPage > 16)
                 {
-                    drawBill.drawItem(svc.items[i].Name, svc.items[i].Count, svc.items[i].Price, svc.items[i].IntoMoney);
-                    TotalMoney += svc.items[i].Count * svc.items[i].Price;
+                    e.HasMorePages = true;
+                    numOfItemPerPage = 0;
+                    return;
                 }
-                DTO.StaffOverview staff = new DTO.StaffOverview(Username);
-                drawBill.drawEndOfBill(staff.Name, TotalMoney, 0);
+                else
+                {
+                    e.HasMorePages = false;
+                    numOfItemPerPage++;
+                }
             }
-            catch (System.Data.SqlClient.SqlException)
-            {
-                MessageBox.Show("Lỗi khi kết nối đến server!", "Lỗi");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            DTO.StaffOverview staff = new DTO.StaffOverview(Username);
+            drawBill.drawEndOfBill(staff.Name, TotalMoney, 0);
         }
 
         private async void Form_EatService_Load(object sender, EventArgs e)

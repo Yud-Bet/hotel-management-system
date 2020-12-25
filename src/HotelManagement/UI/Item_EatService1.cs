@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Drawing;
+using System.IO;
 using System.Windows.Forms;
 
 namespace HotelManagement.UI
@@ -81,6 +83,21 @@ namespace HotelManagement.UI
                 this.parent._pnSelectedServices.Controls.Add(temp);
             }
             await this.parent.calcTotalMoney();
+        }
+
+        public void setServiceImage()
+        {
+            try
+            {
+                string[] staffImageFiles = Directory.GetFiles(@".\\serviceimage", name + "*");
+                Image image;
+                using (Stream stream = File.OpenRead(staffImageFiles[0]))
+                {
+                    image = System.Drawing.Image.FromStream(stream);
+                }
+                pbImage.Image = image;
+            }
+            catch { }
         }
     }
 }

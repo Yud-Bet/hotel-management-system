@@ -113,6 +113,7 @@
             this.btAddRoom.TabIndex = 17;
             this.btAddRoom.TextColor = System.Drawing.Color.White;
             this.btAddRoom.Vertical_Alignment = System.Drawing.StringAlignment.Center;
+            this.btAddRoom.Click += new System.EventHandler(this.btAddRoom_Click);
             // 
             // btSave
             // 
@@ -225,6 +226,7 @@
             // rbtSingle
             // 
             this.rbtSingle.AutoSize = true;
+            this.rbtSingle.Checked = true;
             this.rbtSingle.Depth = 0;
             this.rbtSingle.Font = new System.Drawing.Font("Roboto", 10F);
             this.rbtSingle.Location = new System.Drawing.Point(0, 0);
@@ -285,6 +287,7 @@
             // rbtNor
             // 
             this.rbtNor.AutoSize = true;
+            this.rbtNor.Checked = true;
             this.rbtNor.Depth = 0;
             this.rbtNor.Font = new System.Drawing.Font("Roboto", 10F);
             this.rbtNor.Location = new System.Drawing.Point(49, 0);
