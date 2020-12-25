@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.Windows.Forms;
 using HotelManagement.Properties;
+using System.Threading.Tasks;
 
 namespace HotelManagement.UI
 {
@@ -161,11 +162,11 @@ namespace HotelManagement.UI
             pbShadow.Hide();
         }
 
-        private void pbRoomType_Click(object sender, EventArgs e)
+        private async void pbRoomType_Click(object sender, EventArgs e)
         {
             MouseEventArgs mouseEventArgs = (MouseEventArgs) e;
             this.ParentRef._lbRoomID.Text = lbRoomID.Text;
-            if(mouseEventArgs.Button== MouseButtons.Right)
+            if(mouseEventArgs.Button == MouseButtons.Right)
             {
                 if (roomStatus != RoomStatus.Rented)
                     showMenu();
@@ -181,11 +182,28 @@ namespace HotelManagement.UI
                     }
                     else
                     {
-                        this._RoomStatus = RoomStatus.Empty;
-                        this.ParentRef.Empty = this.ParentRef.Empty + 1;
-                        this.ParentRef.Cleaning = this.ParentRef.Cleaning - 1;
+                        try
+                        {
+                            int RowsAffected = await Task.Run(() => {
+                                try
+                                {
+                                    return DataAccess.RoomDA.SetRoomStatus(RoomID, RoomStatus.Empty);
+                                }
+                                catch
+                                {
+                                    return -2;
+                                }
+                            });
+                            if (RowsAffected == -2) throw new Exception("Đã xảy ra lỗi khi kết nối tới server");
 
-                        DataAccess.RoomDA.SetRoomStatus(RoomID, RoomStatus.Empty);
+                            this._RoomStatus = RoomStatus.Empty;
+                            this.ParentRef.Empty = this.ParentRef.Empty + 1;
+                            this.ParentRef.Cleaning = this.ParentRef.Cleaning - 1;
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message, "Lỗi");
+                        }
                     }
                 }
 
@@ -198,10 +216,28 @@ namespace HotelManagement.UI
                     }
                     else
                     {
-                        this._RoomStatus = RoomStatus.Empty;
-                        this.ParentRef.Empty = this.ParentRef.Empty + 1;
-                        this.ParentRef.Repairing = this.ParentRef.Repairing - 1;
-                        DataAccess.RoomDA.SetRoomStatus(RoomID, RoomStatus.Empty);
+                        try
+                        {
+                            int RowsAffected = await Task.Run(() => {
+                                try
+                                {
+                                    return DataAccess.RoomDA.SetRoomStatus(RoomID, RoomStatus.Empty);
+                                }
+                                catch
+                                {
+                                    return -2;
+                                }
+                            });
+                            if (RowsAffected == -2) throw new Exception("Đã xảy ra lỗi khi kết nối tới server");
+
+                            this._RoomStatus = RoomStatus.Empty;
+                            this.ParentRef.Empty = this.ParentRef.Empty + 1;
+                            this.ParentRef.Repairing = this.ParentRef.Repairing - 1;
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message, "Lỗi");
+                        }
                     }
                 }
 
@@ -237,54 +273,130 @@ namespace HotelManagement.UI
             RightClickMenu.Show(MousePosition);
         }
 
-        private void menuItemRepairRoom_Click(object sender, EventArgs e)
+        private async void menuItemRepairRoom_Click(object sender, EventArgs e)
         {
-            if (roomStatus == RoomStatus.Empty)
+            try
             {
-                _RoomStatus = RoomStatus.Repairing;
-                ParentRef.Empty = ParentRef.Empty - 1;
-                ParentRef.Repairing = ParentRef.Repairing + 1;
+                int RowsAffected = await Task.Run(() =>
+                {
+                    try
+                    {
+                        return DataAccess.RoomDA.SetRoomStatus(RoomID, RoomStatus.Repairing);
+                    }
+                    catch
+                    {
+                        return -2;
+                    }
+                });
+                if (RowsAffected == -2) throw new Exception("Đã xảy ra lỗi khi kết nối tới server");
+
+                if (roomStatus == RoomStatus.Empty)
+                {
+                    _RoomStatus = RoomStatus.Repairing;
+                    ParentRef.Empty = ParentRef.Empty - 1;
+                    ParentRef.Repairing = ParentRef.Repairing + 1;
+                }
+                else if (roomStatus == RoomStatus.Cleaning)
+                {
+                    _RoomStatus = RoomStatus.Repairing;
+                    ParentRef.Cleaning = ParentRef.Cleaning - 1;
+                    ParentRef.Repairing = ParentRef.Repairing + 1;
+                }
             }
-            else if (roomStatus == RoomStatus.Cleaning)
+            catch (Exception ex)
             {
-                _RoomStatus = RoomStatus.Repairing;
-                ParentRef.Cleaning = ParentRef.Cleaning - 1;
-                ParentRef.Repairing = ParentRef.Repairing + 1;
+                MessageBox.Show(ex.Message, "Lỗi");
             }
-            DataAccess.RoomDA.SetRoomStatus(RoomID, RoomStatus.Repairing);
         }
 
-        private void menuItemEndRepairRoom_Click(object sender, EventArgs e)
+        private async void menuItemEndRepairRoom_Click(object sender, EventArgs e)
         {
-            _RoomStatus = RoomStatus.Empty;
-            ParentRef.Repairing = ParentRef.Repairing -1;
-            ParentRef.Empty = ParentRef.Empty + 1;
-            DataAccess.RoomDA.SetRoomStatus(RoomID, RoomStatus.Empty);
-        }
-
-        private void menuItemCleanRoom_Click(object sender, EventArgs e)
-        {
-            if (roomStatus == RoomStatus.Repairing)
+            try
             {
-                _RoomStatus = RoomStatus.Cleaning;
+                int RowsAffected = await Task.Run(() =>
+                {
+                    try
+                    {
+                        return DataAccess.RoomDA.SetRoomStatus(RoomID, RoomStatus.Empty);
+                    }
+                    catch
+                    {
+                        return -2;
+                    }
+                });
+                if (RowsAffected == -2) throw new Exception("Đã xảy ra lỗi khi kết nối tới server");
+
+                _RoomStatus = RoomStatus.Empty;
                 ParentRef.Repairing = ParentRef.Repairing - 1;
-                ParentRef.Cleaning = ParentRef.Cleaning + 1;
+                ParentRef.Empty = ParentRef.Empty + 1;
             }
-            else if (roomStatus == RoomStatus.Empty)
+            catch (Exception ex)
             {
-                _RoomStatus = RoomStatus.Cleaning;
-                ParentRef.Empty = ParentRef.Empty - 1;
-                ParentRef.Cleaning = ParentRef.Cleaning + 1;
+                MessageBox.Show(ex.Message, "Lỗi");
             }
-            DataAccess.RoomDA.SetRoomStatus(RoomID, RoomStatus.Cleaning);
         }
 
-        private void menuItemEndCleanRoom_Click(object sender, EventArgs e)
+        private async void menuItemCleanRoom_Click(object sender, EventArgs e)
         {
-            _RoomStatus = RoomStatus.Empty;
-            ParentRef.Cleaning = ParentRef.Cleaning - 1;
-            ParentRef.Empty = ParentRef.Empty + 1;
-            DataAccess.RoomDA.SetRoomStatus(RoomID, RoomStatus.Empty);
+            try
+            {
+                int RowsAffected = await Task.Run(() =>
+                {
+                    try
+                    {
+                        return DataAccess.RoomDA.SetRoomStatus(RoomID, RoomStatus.Cleaning);
+                    }
+                    catch
+                    {
+                        return -2;
+                    }
+                });
+                if (RowsAffected == -2) throw new Exception("Đã xảy ra lỗi khi kết nối tới server");
+
+                if (roomStatus == RoomStatus.Repairing)
+                {
+                    _RoomStatus = RoomStatus.Cleaning;
+                    ParentRef.Repairing = ParentRef.Repairing - 1;
+                    ParentRef.Cleaning = ParentRef.Cleaning + 1;
+                }
+                else if (roomStatus == RoomStatus.Empty)
+                {
+                    _RoomStatus = RoomStatus.Cleaning;
+                    ParentRef.Empty = ParentRef.Empty - 1;
+                    ParentRef.Cleaning = ParentRef.Cleaning + 1;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Lỗi");
+            }
+        }
+
+        private async void menuItemEndCleanRoom_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int RowsAffected = await Task.Run(() =>
+                {
+                    try
+                    {
+                        return DataAccess.RoomDA.SetRoomStatus(RoomID, RoomStatus.Empty);
+                    }
+                    catch
+                    {
+                        return -2;
+                    }
+                });
+                if (RowsAffected == -2) throw new Exception("Đã xảy ra lỗi khi kết nối tới server");
+
+                _RoomStatus = RoomStatus.Empty;
+                ParentRef.Cleaning = ParentRef.Cleaning - 1;
+                ParentRef.Empty = ParentRef.Empty + 1;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Lỗi");
+            }
         }
     }
 }

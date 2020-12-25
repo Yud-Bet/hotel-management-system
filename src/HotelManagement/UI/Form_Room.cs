@@ -114,27 +114,40 @@ namespace HotelManagement.UI
         #endregion
         private async Task Load_Data()
         {
-            DTO.RoomOverview room = await Task.Run(() => new DTO.RoomOverview());
-            Total = room.RoomCount[0];
-            await Task.Run(() =>
-            {
-                for (int i = 0; i < room.RoomCount[0]; i++)
+            DTO.RoomOverview room = await Task.Run(() => {
+                try
                 {
-                    Item_Room newRoom = new Item_Room(this);
-
-                    newRoom._RoomID = room.Items[i].ID;
-                    newRoom._RoomStatus = room.Items[i].Status;
-                    newRoom._RoomType = room.Items[i].Type;
-
-                    listRoom.Add(newRoom);
+                    return new DTO.RoomOverview();
+                }
+                catch (System.Data.SqlClient.SqlException)
+                {
+                    return null;
                 }
             });
+            if (room != null)
+            {
+                Total = room.RoomCount[0];
+                await Task.Run(() =>
+                {
+                    for (int i = 0; i < room.RoomCount[0]; i++)
+                    {
+                        Item_Room newRoom = new Item_Room(this);
 
-            pnToAddRoom.Controls.AddRange(listRoom.ToArray());
-            Empty = room.RoomCount[(int)RoomStatus.Empty];
-            Rented = room.RoomCount[(int)RoomStatus.Rented];
-            Cleaning = room.RoomCount[(int)RoomStatus.Cleaning];
-            Repairing = room.RoomCount[(int)RoomStatus.Repairing];
+                        newRoom._RoomID = room.Items[i].ID;
+                        newRoom._RoomStatus = room.Items[i].Status;
+                        newRoom._RoomType = room.Items[i].Type;
+
+                        listRoom.Add(newRoom);
+                    }
+                });
+
+                pnToAddRoom.Controls.AddRange(listRoom.ToArray());
+                Empty = room.RoomCount[(int)RoomStatus.Empty];
+                Rented = room.RoomCount[(int)RoomStatus.Rented];
+                Cleaning = room.RoomCount[(int)RoomStatus.Cleaning];
+                Repairing = room.RoomCount[(int)RoomStatus.Repairing];
+            }
+            else StatusLabel.Text = "Không thể kết nối đến server";
         }
 
         private List<Item_Room> SearchForRoom(string Criteria)
@@ -220,11 +233,6 @@ namespace HotelManagement.UI
                 OverlayForm overlay = new OverlayForm(ParentRef, new LoadingForm(cts.Token));
                 overlay.Show();
                 await Load_Data();
-            }
-            catch (System.Data.SqlClient.SqlException)
-            {
-                MessageBox.Show("Không thể kết nối đến server", "Lỗi");
-                StatusLabel.Text = "Không có kết nối";
             }
             catch (Exception ex)
             {

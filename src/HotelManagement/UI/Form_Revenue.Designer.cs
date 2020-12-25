@@ -328,6 +328,7 @@
             this.Controls.Add(this.lbTitle);
             this.Name = "Form_Revenue";
             this.Size = new System.Drawing.Size(968, 665);
+            this.Load += new System.EventHandler(this.Form_Revenue_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);

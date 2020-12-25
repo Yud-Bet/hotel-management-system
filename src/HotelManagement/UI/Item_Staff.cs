@@ -1,23 +1,21 @@
 ﻿using System;
 using System.IO;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using HotelManagement.Properties;
+using System.Threading;
 
 namespace HotelManagement.UI
 {
     public partial class Item_Staff : UserControl
     {
+        CancellationTokenSource cts;
         public Item_Staff(Form_Staff parentRef)
         {
             InitializeComponent();
             this.parentRef = parentRef;
+            cts = new CancellationTokenSource();
         }
 
         public Item_Staff()
@@ -138,21 +136,20 @@ namespace HotelManagement.UI
 
         #endregion
 
-        private void pbRemove_Click(object sender, EventArgs e)
+        private async void pbRemove_Click(object sender, EventArgs e)
         {
             if(MessageBox.Show("Bạn muốn xóa nhân viên này chứ?","Thông Báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
+                OverlayForm overlay = new OverlayForm(parentRef.parentRef, new LoadingForm(cts.Token));
+                overlay.Show();
                 if (this == this.parentRef.selectedItem)
                 {
                     parentRef.resetStaffValues();
                     parentRef.selectedItem = null;
                 }
-                parentRef._pnToAddItem.Controls.Remove(this);
-                parentRef.item_Staffs.Remove(this);
-                int a = DataAccess.Manager.RemoveStaff(this._ID);
-
                 try
                 {
+                    int a = await Task.Run(() => DataAccess.Manager.RemoveStaff(this._ID));
                     if (!Directory.Exists(@".\\staffimage"))
                     {
                         Directory.CreateDirectory(@".\\staffimage");
@@ -164,8 +161,23 @@ namespace HotelManagement.UI
                     {
                         File.Delete(i);
                     }
+                    parentRef._pnToAddItem.Controls.Remove(this);
+                    parentRef.item_Staffs.Remove(this);
                 }
-                catch { }
+                catch (System.Data.SqlClient.SqlException)
+                {
+                    MessageBox.Show("Lỗi khi kết nối đến server!", "Lỗi");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                finally
+                {
+                    cts.Cancel();
+                    cts.Dispose();
+                    cts = new CancellationTokenSource();
+                }
             }
             //MessageBox.Show(parentRef.item_Staffs.Count.ToString());
         }

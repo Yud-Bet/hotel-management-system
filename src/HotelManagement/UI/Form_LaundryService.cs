@@ -22,7 +22,17 @@ namespace HotelManagement.UI
 
         private async Task Init_Services()
         {
-            DTO.ServicesInfo services = await Task.Run(() => new DTO.ServicesInfo(ServiceType.Laundry));
+            DTO.ServicesInfo services = await Task.Run(() => {
+                try
+                {
+                    return new DTO.ServicesInfo(ServiceType.Laundry);
+                }
+                catch
+                {
+                    return null;
+                }
+            });
+            if (services == null) throw new Exception("Không thể kết nối đến server");
             //label1.Text = services.Items[0].Name.ToString();
             lbLaundryPrice.Text = services.Items[0].Price.ToString();
             laundryID = services.Items[0].ServiceID;
@@ -70,7 +80,17 @@ namespace HotelManagement.UI
         #endregion
         private async Task Init_cbRoomSelection()
         {
-            rooms = await Task.Run(() => new DTO.RoomOverview());
+            rooms = await Task.Run(() => {
+                try
+                {
+                    return new DTO.RoomOverview();
+                }
+                catch
+                {
+                    return null;
+                }
+            });
+            if (rooms == null) throw new Exception("Không thể kết nối đến server");
             cbRoomSelection.Items.Add("None");
             for (int i = 0; i < rooms.Items.Length; i++)
             {
@@ -126,11 +146,6 @@ namespace HotelManagement.UI
                 overlay.Show();
                 await Init_Services();
                 await Init_cbRoomSelection();
-            }
-            catch (System.Data.SqlClient.SqlException)
-            {
-                MessageBox.Show("Không thể kết nối đến server", "Lỗi");
-                StatusLabel.Text = "Không có kết nối";
             }
             catch (Exception ex)
             {
@@ -203,14 +218,19 @@ namespace HotelManagement.UI
                 for (int i = 0; i < SelectedItems.Count; i++)
                 {
                     int RoomID = rooms.Items[cbRoomSelection.SelectedIndex - 1].ID;
-                    await Task.Run(() => DataAccess.Services.InsertServicetoBillDetail(RoomID, SelectedItems[i]._itemID, SelectedItems[i]._count));
+                    int a = await Task.Run(() => {
+                        try
+                        {
+                            return DataAccess.Services.InsertServicetoBillDetail(RoomID, SelectedItems[i]._itemID, SelectedItems[i]._count);
+                        }
+                        catch
+                        {
+                            return -2;
+                        }
+                    });
+                    if (a == -2) throw new Exception("Không thể kết nối đến server");
                 }
                 MessageBox.Show("Thêm thành công!", "Thông báo");
-            }
-            catch (System.Data.SqlClient.SqlException)
-            {
-                MessageBox.Show("Không thể kết nối đến server", "Lỗi");
-                StatusLabel.Text = "Không có kết nối";
             }
             catch (ArgumentException) { }
             catch (Exception ex)

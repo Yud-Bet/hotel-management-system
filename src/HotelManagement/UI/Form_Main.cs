@@ -3,6 +3,7 @@ using System;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
+using System.Threading.Tasks;
 
 namespace HotelManagement.UI
 {
@@ -18,7 +19,6 @@ namespace HotelManagement.UI
             InitializeComponent();
             createPanelToAddForm();
             this.Username = Username;
-            LoadStaffInfo();
             this.DoubleBuffered = true;
         }
 
@@ -70,22 +70,29 @@ namespace HotelManagement.UI
             this.pnToAddForm.TabIndex = 1;
         }
 
-        private void LoadStaffInfo()
+        private async Task LoadStaffInfo()
         {
-            try
+            DTO.StaffOverview staff = await Task.Run(() =>
             {
-                DTO.StaffOverview staff = new DTO.StaffOverview(Username);
+                try
+                {
+                    return new DTO.StaffOverview(Username);
+                }
+                catch
+                {
+                    MessageBox.Show("Đã xảy ra lỗi khi tải thông tin người dùng", "Lỗi");
+                    return null;
+                }
+            });
+            if (staff != null)
+            {
                 lbStaffname.Text = StaffName = staff.Name;
                 lbStaffPosition.Text = staff.Position;
                 IDNo = staff.IDNo;
                 setStaffImage();
             }
-            catch
-            {
-                MessageBox.Show("Đã xảy ra lỗi khi tải thông tin người dùng", "Lỗi");
-            }
         }
-        private void Form_Main_Load(object sender, EventArgs e)
+        private async void Form_Main_Load(object sender, EventArgs e)
         {
             isChoosebtRoom = true;
             ChooseAButton();
@@ -95,6 +102,8 @@ namespace HotelManagement.UI
             pnSubMenu_Manage.Hide();
             Form_Room temp = new Form_Room(Username, this);
             pnToAddForm.Controls.Add(temp);
+
+            await LoadStaffInfo();
         }
 
         private void setStatus(PictureBox pb, Label lb, Panel pn, Image img, bool stt)

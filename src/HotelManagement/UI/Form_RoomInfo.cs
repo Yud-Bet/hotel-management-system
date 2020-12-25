@@ -35,21 +35,37 @@ namespace HotelManagement.UI
         private async Task LoadAllCustomer()
         {
             Customers = new List<DTO.CustomerOverview>();
-            DataTable data = await Task.Run(() => DataAccess.ExecuteQuery.ExecuteReader("QLKS_GetAllCustomerInfo"));
-            for (int i = 0; i < data.Rows.Count; i++)
+            DataTable data = await Task.Run(() =>
             {
-                var item = new DTO.CustomerOverview();
-                item.ID = Convert.ToInt32(data.Rows[i].ItemArray[0]);
-                item.Name = Convert.ToString(data.Rows[i].ItemArray[1]);
-                item.Birthday = Convert.ToDateTime(data.Rows[i].ItemArray[2]);
-                item.PhoneNumber = Convert.ToString(data.Rows[i].ItemArray[3]);
-                item.sex = (Sex)Convert.ToInt32(data.Rows[i].ItemArray[4]);
-                item.IDNumber = Convert.ToString(data.Rows[i].ItemArray[5]);
-                item.Passport = Convert.ToString(data.Rows[i].ItemArray[6]);
-                item.Addr = Convert.ToString(data.Rows[0].ItemArray[7]);
-                
-                Customers.Add(item);
+                try
+                {
+                    return DataAccess.ExecuteQuery.ExecuteReader("QLKS_GetAllCustomerInfo");
+                }
+                catch (System.Data.SqlClient.SqlException)
+                {
+                    MessageBox.Show("Đã xảy ra lỗi khi tải thông tin từ server", "Lỗi");
+                    return null;
+                }
+            });
+            
+            if (data != null)
+            {
+                for (int i = 0; i < data.Rows.Count; i++)
+                {
+                    var item = new DTO.CustomerOverview();
+                    item.ID = Convert.ToInt32(data.Rows[i].ItemArray[0]);
+                    item.Name = Convert.ToString(data.Rows[i].ItemArray[1]);
+                    item.Birthday = Convert.ToDateTime(data.Rows[i].ItemArray[2]);
+                    item.PhoneNumber = Convert.ToString(data.Rows[i].ItemArray[3]);
+                    item.sex = (Sex)Convert.ToInt32(data.Rows[i].ItemArray[4]);
+                    item.IDNumber = Convert.ToString(data.Rows[i].ItemArray[5]);
+                    item.Passport = Convert.ToString(data.Rows[i].ItemArray[6]);
+                    item.Addr = Convert.ToString(data.Rows[0].ItemArray[7]);
+
+                    Customers.Add(item);
+                }
             }
+            else StatusLabel.Text = "Không có kết nối";
         }
         private void setCustomerInfoAlreadyExists(string selectedItemName)
         {
@@ -93,11 +109,6 @@ namespace HotelManagement.UI
                 tbRoomPrice.IsEnabled = false;
                 StatusLabel.Text = "";
             }
-            catch (System.Data.SqlClient.SqlException)
-            {
-                MessageBox.Show("Đã xảy ra lỗi khi tải thông tin từ server", "Lỗi");
-                StatusLabel.Text = "Không có kết nối";
-            }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
@@ -128,32 +139,58 @@ namespace HotelManagement.UI
                 btBookRoom.Hide();
             }
 
-            DTO.RoomDetail room = await Task.Run(() => new DTO.RoomDetail(RoomID));
-            tbRoomsize.Text = room.Size.ToString();
-            tbRoomPrice.Text = room.Price.ToString();
-            SetValueForControl.SetRoomType(room.Type, rbtNor, rbtVip, rbtSingle, rbtDouble);
+            DTO.RoomDetail room = await Task.Run(() => {
+                try
+                {
+                    return new DTO.RoomDetail(RoomID);
+                }
+                catch
+                {
+                    return null;
+                }
+            });
+            if (room != null)
+            {
+                tbRoomsize.Text = room.Size.ToString();
+                tbRoomPrice.Text = room.Price.ToString();
+                SetValueForControl.SetRoomType(room.Type, rbtNor, rbtVip, rbtSingle, rbtDouble);
+            }
+            else StatusLabel.Text = "Không có kết nối";
 
             if (this.ParentRef._RoomStatus == RoomStatus.Rented)
             {
                 btSave.Show();
-                Customer = await Task.Run(() => new DTO.FullCustomerInfo(RoomID));
-                tbCustomerName.Text = Customer.Name;
-                dtpCustomerBirthday.Value = Customer.Birthday;
-                tbCustomerPhoneNum.Text = Customer.PhoneNumber;
-                SetValueForControl.SetSex(Customer.sex, rbtMale, rbtFemale);
-                if (Customer.IDNumber.Length != 0)
+                Customer = await Task.Run(() => { 
+                    try
+                    {
+                        return new DTO.FullCustomerInfo(RoomID);
+                    }
+                    catch
+                    {
+                        return null;
+                    }
+                });
+                if (Customer != null)
                 {
-                    if (!cbIDNo.Checked) cbIDNo.Checked = true;
-                    tbIDNo.Text = Customer.IDNumber;
+                    tbCustomerName.Text = Customer.Name;
+                    dtpCustomerBirthday.Value = Customer.Birthday;
+                    tbCustomerPhoneNum.Text = Customer.PhoneNumber;
+                    SetValueForControl.SetSex(Customer.sex, rbtMale, rbtFemale);
+                    if (Customer.IDNumber.Length != 0)
+                    {
+                        if (!cbIDNo.Checked) cbIDNo.Checked = true;
+                        tbIDNo.Text = Customer.IDNumber;
+                    }
+                    else
+                    {
+                        if (!cbPassport.Checked) cbPassport.Checked = true;
+                        tbPassport.Text = Customer.Passport;
+                    }
+                    tbCustomerAddress.Text = Customer.Addr;
+                    tbNote.Text = Customer.Note;
+                    dtpCheckInDate.Value = Customer.CheckInDate;
                 }
-                else
-                {
-                    if (!cbPassport.Checked) cbPassport.Checked = true;
-                    tbPassport.Text = Customer.Passport;
-                }
-                tbCustomerAddress.Text = Customer.Addr;
-                tbNote.Text = Customer.Note;
-                dtpCheckInDate.Value = Customer.CheckInDate;
+                else StatusLabel.Text = "Không có kết nối";
             }
             else
             {
@@ -237,7 +274,7 @@ namespace HotelManagement.UI
             else flag = true;
         }
 
-        private void btBookRoom_Click(object sender, EventArgs e)
+        private async void btBookRoom_Click(object sender, EventArgs e)
         {
             try
             {
@@ -252,13 +289,35 @@ namespace HotelManagement.UI
                 }
                 if (ClientID <= 0)
                 {
-                    a = DataAccess.CustomerDA.InsertNewCustomer(tbCustomerName.Text, dtpCustomerBirthday.Value, tbIDNo.Text, tbPassport.Text,
-                        tbCustomerAddress.Text, tbCustomerPhoneNum.Text, rbtMale.Checked ? Sex.Male : Sex.Female);
+                    a = await Task.Run(()=> { 
+                        try
+                        {
+                            return DataAccess.CustomerDA.InsertNewCustomer(tbCustomerName.Text, dtpCustomerBirthday.Value, tbIDNo.Text, tbPassport.Text,
+                                    tbCustomerAddress.Text, tbCustomerPhoneNum.Text, rbtMale.Checked ? Sex.Male : Sex.Female);
+                        }
+                        catch
+                        {
+                            return -2;
+                        }
+                    });
+                    if (a == -2) throw new Exception("Lỗi khi kết nối đến server");
                 }
-                int b = DataAccess.CustomerDA.InsertNewRoomReservation(dtpCheckInDate.Value, ClientID, ParentRef.ParentRef.Username, 0, tbNote.Text);
-                int c = DataAccess.CustomerDA.InsertRoomReservationDetail(0, this.ParentRef._RoomID);
-                int d = DataAccess.CustomerDA.InsertNewBill(0, ParentRef.ParentRef.Username);
-                if (b > 0 && c > 0 && d > 0)
+
+                (int, int, int) bcd = await Task.Run(() => { 
+                    try
+                    {
+                        int b = DataAccess.CustomerDA.InsertNewRoomReservation(dtpCheckInDate.Value, ClientID, ParentRef.ParentRef.Username, 0, tbNote.Text);
+                        int c = DataAccess.CustomerDA.InsertRoomReservationDetail(0, this.ParentRef._RoomID);
+                        int d = DataAccess.CustomerDA.InsertNewBill(0, ParentRef.ParentRef.Username);
+                        return (b, c, d);
+                    }
+                    catch
+                    {
+                        return (-2, -2, -2);
+                    }
+                });
+                if (bcd == (-2, -2, -2)) throw new Exception("Lỗi khi kết nối đến server");
+                else if (bcd.Item1 > 0 && bcd.Item2 > 0 && bcd.Item3 > 0)
                 {
                     ParentRef.ParentRef.Empty = ParentRef.ParentRef.Empty - 1;
                     ParentRef.ParentRef.Rented = ParentRef.ParentRef.Rented + 1;
@@ -268,11 +327,6 @@ namespace HotelManagement.UI
                 }
                 else MessageBox.Show("Lỗi khi đặt phòng");
                 StatusLabel.Text = "";
-            }
-            catch (System.Data.SqlClient.SqlException)
-            {
-                MessageBox.Show("Lỗi khi kết nối đến server!", "Lỗi");
-                StatusLabel.Text = "Không có kết nối";
             }
             catch (Exception ex)
             {
@@ -319,13 +373,47 @@ namespace HotelManagement.UI
             {
                 OverlayForm overlay = new OverlayForm(ParentRef.ParentRef.ParentRef, new LoadingForm(cts.Token));
                 overlay.Show();
-                DataTable data = await Task.Run(() => DataAccess.CustomerDA.GetRoomReservationDetailInfo(0, 0, RoomID));
-                int RowEffected = await Task.Run(() => DataAccess.CustomerDA.Payment(0, 0, RoomID, ParentRef.ParentRef.Username));
+
+                DataTable data = await Task.Run(() => {
+                    try
+                    {
+                        return DataAccess.CustomerDA.GetRoomReservationDetailInfo(0, 0, RoomID);
+                    }
+                    catch
+                    {
+                        return null;
+                    }
+                });
+                if (data == null) throw new Exception("Lỗi khi kết nối đến server!");
+
+                int RowEffected = await Task.Run(() => {
+                    try
+                    {
+                        return DataAccess.CustomerDA.Payment(0, 0, RoomID, ParentRef.ParentRef.Username);
+                    }
+                    catch
+                    {
+                        return -2;
+                    }
+                });
+                if (RowEffected == -2) throw new Exception("Lỗi khi kết nối đến server!");
+
                 if (RowEffected > 0)
                 {
                     printPreviewDialogBill.Document = bill;
                     printPreviewDialogBill.ShowDialog();
-                    await Task.Run(() => DataAccess.CustomerDA.SetRoomReservationStatus(0, 0, RoomID));
+                    int a = await Task.Run(() => {
+                        try
+                        {
+                            return DataAccess.CustomerDA.SetRoomReservationStatus(0, 0, RoomID);
+                        }
+                        catch
+                        {
+                            return -2;
+                        }
+                    });
+                    if (a == -2) throw new Exception("Lỗi khi kết nối đến server!");
+
                     for (int i = 0; i < data.Rows.Count; i++)
                     {
                         for (int j = 0; j < ParentRef.ParentRef.listRoom.Count; j++)
@@ -335,7 +423,17 @@ namespace HotelManagement.UI
                                 ParentRef.ParentRef.listRoom[j]._RoomStatus = RoomStatus.Cleaning;
                             }
                         }
-                        await Task.Run(() => DataAccess.RoomDA.SetRoomStatus(Convert.ToInt32(data.Rows[i].ItemArray[0]), RoomStatus.Cleaning));
+                        int b = await Task.Run(() => {
+                            try
+                            {
+                                return DataAccess.RoomDA.SetRoomStatus(Convert.ToInt32(data.Rows[i].ItemArray[0]), RoomStatus.Cleaning);
+                            }
+                            catch
+                            {
+                                return -2;
+                            }
+                        });
+                        if (b == -2) throw new Exception("Lỗi khi kết nối đến server!");
                     }
                     ParentRef.ParentRef.Cleaning += data.Rows.Count;
                     ParentRef.ParentRef.Rented -= data.Rows.Count;
@@ -347,11 +445,6 @@ namespace HotelManagement.UI
                     MessageBox.Show("Thanh toán thất bại!", "Lỗi");
                     StatusLabel.Text = "Thanh toán thất bại!";
                 }
-            }
-            catch (System.Data.SqlClient.SqlException)
-            {
-                MessageBox.Show("Lỗi khi kết nối đến server!", "Lỗi");
-                StatusLabel.Text = "Thanh toán thất bại!";
             }
             catch (Exception ex)
             {
@@ -372,7 +465,18 @@ namespace HotelManagement.UI
             {
                 OverlayForm overlay = new OverlayForm(ParentRef.ParentRef.ParentRef, new LoadingForm(cts.Token));
                 overlay.Show();
-                DTO.RoomDetail room = await Task.Run(() => new DTO.RoomDetail(RoomID));
+                DTO.RoomDetail room = await Task.Run(() => {
+                    try
+                    {
+                        return new DTO.RoomDetail(RoomID);
+                    }
+                    catch
+                    {
+                        return null;
+                    }
+                });
+                if (room == null) throw new Exception("Lỗi khi tải thông tin phòng");
+
                 Form_AddEditRoom form_AddEditRoom = new Form_AddEditRoom(room);
                 form_AddEditRoom._btAdd.Hide();
                 if (form_AddEditRoom.ShowDialog() == DialogResult.OK)
@@ -383,15 +487,9 @@ namespace HotelManagement.UI
                 }
                 StatusLabel.Text = "";
             }
-            catch (System.Data.SqlClient.SqlException)
-            {
-                MessageBox.Show("Lỗi khi kết nối đến server!", "Lỗi");
-                StatusLabel.Text = "Không thể lấy thông tin phòng...";
-            }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-                StatusLabel.Text = "Không thể lấy thông tin phòng...";
             }
             finally
             {
@@ -403,19 +501,30 @@ namespace HotelManagement.UI
 
         private void bill_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
-            DTO.RoomServices svc = new DTO.RoomServices(0, 0, RoomID);
-            DrawBill drawBill = new DrawBill(e.Graphics);
-            drawBill.drawBillHeader();
-            drawBill.drawCustomerInfo(Customer.Name, Customer.PhoneNumber, Customer.Addr,
-                dtpCheckInDate.Text, dtpCheckOutDate.Text);
-            int TotalMoney = 0;
-            for (int i = 0; i < svc.items.Count; i++)
+            try
             {
-                drawBill.drawItem(svc.items[i].Name, svc.items[i].Count, svc.items[i].Price, svc.items[i].IntoMoney);
-                TotalMoney += svc.items[i].IntoMoney;
+                DTO.RoomServices svc = new DTO.RoomServices(0, 0, RoomID);
+                DrawBill drawBill = new DrawBill(e.Graphics);
+                drawBill.drawBillHeader();
+                drawBill.drawCustomerInfo(Customer.Name, Customer.PhoneNumber, Customer.Addr,
+                    dtpCheckInDate.Text, dtpCheckOutDate.Text);
+                int TotalMoney = 0;
+                for (int i = 0; i < svc.items.Count; i++)
+                {
+                    drawBill.drawItem(svc.items[i].Name, svc.items[i].Count, svc.items[i].Price, svc.items[i].IntoMoney);
+                    TotalMoney += svc.items[i].IntoMoney;
+                }
+                DTO.StaffOverview staff = new DTO.StaffOverview(this.ParentRef.ParentRef.Username);
+                drawBill.drawEndOfBill(staff.Name, TotalMoney, 0);
             }
-            DTO.StaffOverview staff = new DTO.StaffOverview(this.ParentRef.ParentRef.Username);
-            drawBill.drawEndOfBill(staff.Name, TotalMoney, 0);
+            catch (System.Data.SqlClient.SqlException)
+            {
+                MessageBox.Show("Lỗi khi kết nối đến server!", "Lỗi");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void tbCustomerName_TextChanged(object sender, EventArgs e)
@@ -459,15 +568,26 @@ namespace HotelManagement.UI
             }
         }
 
-        private void btSave_Click(object sender, EventArgs e)
+        private async void btSave_Click(object sender, EventArgs e)
         {
             if (!checkValidityOfValue()) return;
             try
             {
                 OverlayForm overlay = new OverlayForm(ParentRef.ParentRef.ParentRef, new LoadingForm(cts.Token));
                 overlay.Show();
-                int RowsAffected = DataAccess.CustomerDA.ChangeReservationInfo(RoomID, tbCustomerName.Text, dtpCustomerBirthday.Value, tbCustomerPhoneNum.Text,
-                                    rbtMale.Checked ? Sex.Male : Sex.Female, tbIDNo.Text, tbPassport.Text, tbCustomerAddress.Text, dtpCheckInDate.Value, tbNote.Text);
+                int RowsAffected = await Task.Run(() => {
+                    try
+                    {
+                        return DataAccess.CustomerDA.ChangeReservationInfo(RoomID, tbCustomerName.Text, dtpCustomerBirthday.Value, tbCustomerPhoneNum.Text,
+                                rbtMale.Checked ? Sex.Male : Sex.Female, tbIDNo.Text, tbPassport.Text, tbCustomerAddress.Text, dtpCheckInDate.Value, tbNote.Text);
+                    }
+                    catch
+                    {
+                        return -2;
+                    }
+                });
+
+                if (RowsAffected == -2) throw new Exception("Lỗi khi kết nối đến server!");
                 if (RowsAffected > 0)
                 {
                     MessageBox.Show("Sửa thông tin thành công!", "Thành công");

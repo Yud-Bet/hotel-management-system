@@ -31,7 +31,17 @@ namespace HotelManagement.UI
 
         private async Task Init_pnServicesList()
         {
-            DTO.ServicesInfo services = await Task.Run(() => new DTO.ServicesInfo(ServiceType.Eating));
+            DTO.ServicesInfo services = await Task.Run(() => {
+                try
+                {
+                    return new DTO.ServicesInfo(ServiceType.Eating);
+                }
+                catch
+                {
+                    return null;
+                }
+            });
+            if (services == null) throw new Exception("Không thể kết nối đến server");
             serviceList = new Services();
             for (int i = 0; i < services.Items.Count; i++)
             {
@@ -59,7 +69,17 @@ namespace HotelManagement.UI
 
         private async Task Init_cbRoomSelection()
         {
-            rooms = await Task.Run(() => new DTO.RoomOverview());
+            rooms = await Task.Run(() => {
+                try
+                {
+                    return new DTO.RoomOverview();
+                }
+                catch
+                {
+                    return null;
+                }
+            });
+            if (rooms == null) throw new Exception("Không thể kết nối đến server");
             cbRoomSelection.Items.Add("None");
             for (int i = 0; i < rooms.Items.Length; i++)
             {
@@ -152,15 +172,20 @@ namespace HotelManagement.UI
                 for (int i = 0; i < SelectedItems.Count; i++)
                 {
                     int RoomID = rooms.Items[cbRoomSelection.SelectedIndex - 1].ID;
-                    await Task.Run(() => DataAccess.Services.InsertServicetoBillDetail(RoomID, SelectedItems[i]._itemID, SelectedItems[i]._count));
+                    int a = await Task.Run(() => {
+                        try
+                        {
+                            return DataAccess.Services.InsertServicetoBillDetail(RoomID, SelectedItems[i]._itemID, SelectedItems[i]._count);
+                        }
+                        catch
+                        {
+                            return -2;
+                        }
+                    });
+                    if (a == -2) throw new Exception("Không thể kết nối đến server");
                 }
                 MessageBox.Show("Thêm thành công!", "Thông báo");
                 StatusLabel.Text = "";
-            }
-            catch (System.Data.SqlClient.SqlException)
-            {
-                MessageBox.Show("Không thể kết nối đến server", "Lỗi");
-                StatusLabel.Text = "Thêm thất bại";
             }
             catch (ArgumentException) { }
             catch (Exception ex)
@@ -194,23 +219,49 @@ namespace HotelManagement.UI
                 OverlayForm overlay = new OverlayForm(ParentRef, new LoadingForm(cts.Token));
                 overlay.Show();
 
-                await Task.Run(() => DataAccess.Services.InsertNewServicesBillOnly(Username));
+                int InsSvcsBill = await Task.Run(() => {
+                    try
+                    {
+                        return DataAccess.Services.InsertNewServicesBillOnly(Username);
+                    }
+                    catch
+                    {
+                        return -2;
+                    }
+                });
+                if (InsSvcsBill == -2) throw new Exception("Không thể kết nối đến server");
+
                 for (int i = 0; i < SelectedItems.Count; i++)
                 {
-                    await Task.Run(() => DataAccess.Services.InsertServiceToServicesBillOnlyDetail(SelectedItems[i]._itemID, SelectedItems[i]._count));
+                    int InsItemToBill = await Task.Run(() => {
+                        try
+                        {
+                            return DataAccess.Services.InsertServiceToServicesBillOnlyDetail(SelectedItems[i]._itemID, SelectedItems[i]._count);
+                        }
+                        catch
+                        {
+                            return -2;
+                        }
+                    });
+                    if (InsItemToBill == -2) throw new Exception("Không thể kết nối đến server");
                 }
-                int RowEffected = await Task.Run(() => DataAccess.Services.PayForServicesOnly());
+                int RowEffected = await Task.Run(() => {
+                    try
+                    {
+                        return DataAccess.Services.PayForServicesOnly();
+                    }
+                    catch
+                    {
+                        return -2;
+                    }
+                });
+                if (RowEffected == -2) throw new Exception("Không thể kết nối đến server");
                 if (RowEffected > 0)
                 {
                     printPreviewDialogBill.Document = bill;
                     printPreviewDialogBill.ShowDialog();
                 }
                 StatusLabel.Text = "";
-            }
-            catch (System.Data.SqlClient.SqlException)
-            {
-                MessageBox.Show("Không thể kết nối đến server", "Lỗi");
-                StatusLabel.Text = "Thanh toán thất bại";
             }
             catch (ArgumentException) { }
             catch (Exception ex)
@@ -228,18 +279,29 @@ namespace HotelManagement.UI
 
         private void bill_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
-            DTO.RoomServices svc = new DTO.RoomServices();
-            DrawBill drawBill = new DrawBill(e.Graphics);
-            drawBill.drawBillHeader();
-            drawBill.drawServiceInfo();
-            int TotalMoney = 0;
-            for (int i = 0; i < svc.items.Count; i++)
+            try
             {
-                drawBill.drawItem(svc.items[i].Name, svc.items[i].Count, svc.items[i].Price, svc.items[i].IntoMoney);
-                TotalMoney += svc.items[i].Count * svc.items[i].Price;
+                DTO.RoomServices svc = new DTO.RoomServices();
+                DrawBill drawBill = new DrawBill(e.Graphics);
+                drawBill.drawBillHeader();
+                drawBill.drawServiceInfo();
+                int TotalMoney = 0;
+                for (int i = 0; i < svc.items.Count; i++)
+                {
+                    drawBill.drawItem(svc.items[i].Name, svc.items[i].Count, svc.items[i].Price, svc.items[i].IntoMoney);
+                    TotalMoney += svc.items[i].Count * svc.items[i].Price;
+                }
+                DTO.StaffOverview staff = new DTO.StaffOverview(Username);
+                drawBill.drawEndOfBill(staff.Name, TotalMoney, 0);
             }
-            DTO.StaffOverview staff = new DTO.StaffOverview(Username);
-            drawBill.drawEndOfBill(staff.Name, TotalMoney, 0);
+            catch (System.Data.SqlClient.SqlException)
+            {
+                MessageBox.Show("Lỗi khi kết nối đến server!", "Lỗi");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private async void Form_EatService_Load(object sender, EventArgs e)
@@ -250,11 +312,6 @@ namespace HotelManagement.UI
                 overlay.Show();
                 await Init_pnServicesList();
                 await Init_cbRoomSelection();
-            }
-            catch (System.Data.SqlClient.SqlException)
-            {
-                MessageBox.Show("Không thể kết nối đến server", "Lỗi");
-                StatusLabel.Text = "Không có kết nối";
             }
             catch (Exception ex)
             {

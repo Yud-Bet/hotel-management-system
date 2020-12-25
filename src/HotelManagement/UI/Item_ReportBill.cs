@@ -4,6 +4,7 @@ using System.Data;
 using System.Windows.Forms;
 using System.Globalization;
 using System.Threading;
+using System.Threading.Tasks;
 
 namespace HotelManagement.UI
 {
@@ -119,48 +120,85 @@ namespace HotelManagement.UI
             }
         }
 
-        private void PrintDocument_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        private async void PrintDocument_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
-            if (!ofCustommer && billType == BillType.Services)
+            try
             {
-                DataTable SvcBillDetail = DataAccess.Services.GetServiceBillOnlyDetail(billID);
-                DrawBill drawBill = new DrawBill(e.Graphics);
-                drawBill.drawBillHeader();
-                drawBill.drawServiceInfo();
-                int TotalMoney = 0;
-                for (int i = 0; i < SvcBillDetail.Rows.Count; i++)
+                if (!ofCustommer && billType == BillType.Services)
                 {
-                    string ItemName = SvcBillDetail.Rows[i].ItemArray[0].ToString();
-                    int ItemCount = Convert.ToInt32(SvcBillDetail.Rows[i].ItemArray[1]);
-                    int ItemPrice = Convert.ToInt32(SvcBillDetail.Rows[i].ItemArray[2]);
-                    int IntoMoney = Convert.ToInt32(SvcBillDetail.Rows[i].ItemArray[3]);
-                    drawBill.drawItem(ItemName, ItemCount, ItemPrice, IntoMoney);
-                    TotalMoney += ItemCount * ItemPrice;
+                    DataTable SvcBillDetail = await Task.Run(() => {
+                        try
+                        {
+                            return DataAccess.Services.GetServiceBillOnlyDetail(billID);
+                        }
+                        catch
+                        {
+                            return null;
+                        }
+                    });
+                    if (SvcBillDetail == null) throw new Exception("Lỗi khi kết nối đến server!");
+                    DrawBill drawBill = new DrawBill(e.Graphics);
+                    drawBill.drawBillHeader();
+                    drawBill.drawServiceInfo();
+                    int TotalMoney = 0;
+                    for (int i = 0; i < SvcBillDetail.Rows.Count; i++)
+                    {
+                        string ItemName = SvcBillDetail.Rows[i].ItemArray[0].ToString();
+                        int ItemCount = Convert.ToInt32(SvcBillDetail.Rows[i].ItemArray[1]);
+                        int ItemPrice = Convert.ToInt32(SvcBillDetail.Rows[i].ItemArray[2]);
+                        int IntoMoney = Convert.ToInt32(SvcBillDetail.Rows[i].ItemArray[3]);
+                        drawBill.drawItem(ItemName, ItemCount, ItemPrice, IntoMoney);
+                        TotalMoney += ItemCount * ItemPrice;
+                    }
+                    //DTO.StaffOverview staff = new DTO.StaffOverview(Username);
+                    string staffName = SvcBillDetail.Rows[0].ItemArray[4].ToString();
+                    drawBill.drawEndOfBill(staffName, TotalMoney, 0);
                 }
-                //DTO.StaffOverview staff = new DTO.StaffOverview(Username);
-                string staffName = SvcBillDetail.Rows[0].ItemArray[4].ToString();
-                drawBill.drawEndOfBill(staffName, TotalMoney, 0);
+                else
+                {
+                    DTO.RoomServices svc = await Task.Run(() => {
+                        try
+                        {
+                            return new DTO.RoomServices(billID, 0, 0);
+                        }
+                        catch
+                        {
+                            return null;
+                        }
+                    });
+                    if (svc == null) throw new Exception("Lỗi khi kết nối đến server!");
+                    DrawBill drawBill = new DrawBill(e.Graphics);
+                    drawBill.drawBillHeader();
+                    DataTable additionalData = await Task.Run(() => {
+                        try
+                        {
+                            return DataAccess.AdditionalInfoForBillViewing.GetData(billID);
+                        }
+                        catch
+                        {
+                            return null;
+                        }
+                    });
+                    if (additionalData == null) throw new Exception("Lỗi khi kết nối đến server!");
+                    string CustomerName = additionalData.Rows[0].ItemArray[1].ToString();
+                    string CustomerPhoneNo = additionalData.Rows[0].ItemArray[2].ToString();
+                    string CustomerAddr = additionalData.Rows[0].ItemArray[3].ToString();
+                    string CheckInDate = additionalData.Rows[0].ItemArray[4].ToString();
+                    string CheckOutDate = additionalData.Rows[0].ItemArray[5].ToString();
+                    string StaffName = additionalData.Rows[0].ItemArray[6].ToString();
+                    drawBill.drawCustomerInfo(CustomerName, CustomerPhoneNo, CustomerAddr, CheckInDate, CheckOutDate);
+                    int TotalMoney = 0;
+                    for (int i = 0; i < svc.items.Count; i++)
+                    {
+                        drawBill.drawItem(svc.items[i].Name, svc.items[i].Count, svc.items[i].Price, svc.items[i].IntoMoney);
+                        TotalMoney += svc.items[i].IntoMoney;
+                    }
+                    drawBill.drawEndOfBill(StaffName, TotalMoney, 0);
+                }
             }
-            else
+            catch (Exception ex)
             {
-                DTO.RoomServices svc = new DTO.RoomServices(billID, 0, 0);
-                DrawBill drawBill = new DrawBill(e.Graphics);
-                drawBill.drawBillHeader();
-                DataTable additionalData = DataAccess.AdditionalInfoForBillViewing.GetData(billID);
-                string CustomerName = additionalData.Rows[0].ItemArray[1].ToString();
-                string CustomerPhoneNo = additionalData.Rows[0].ItemArray[2].ToString();
-                string CustomerAddr = additionalData.Rows[0].ItemArray[3].ToString();
-                string CheckInDate = additionalData.Rows[0].ItemArray[4].ToString();
-                string CheckOutDate = additionalData.Rows[0].ItemArray[5].ToString();
-                string StaffName = additionalData.Rows[0].ItemArray[6].ToString();
-                drawBill.drawCustomerInfo(CustomerName, CustomerPhoneNo, CustomerAddr, CheckInDate, CheckOutDate);
-                int TotalMoney = 0;
-                for (int i = 0; i < svc.items.Count; i++)
-                {
-                    drawBill.drawItem(svc.items[i].Name, svc.items[i].Count, svc.items[i].Price, svc.items[i].IntoMoney);
-                    TotalMoney += svc.items[i].IntoMoney;
-                }
-                drawBill.drawEndOfBill(StaffName, TotalMoney, 0);
+                MessageBox.Show(ex.Message);
             }
         }
     }

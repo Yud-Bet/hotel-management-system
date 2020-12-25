@@ -30,13 +30,13 @@ namespace HotelManagement.UI
             };
         }
 
-        private void Form_Staff_Load(object sender, EventArgs e)
+        private async void Form_Staff_Load(object sender, EventArgs e)
         {
             try
             {
                 OverlayForm overlay = new OverlayForm(parentRef, new LoadingForm(cts.Token));
                 overlay.Show();
-                load_AllStaffInfo();
+                await load_AllStaffInfo();
             }
             catch (System.Data.SqlClient.SqlException)
             {
@@ -54,9 +54,9 @@ namespace HotelManagement.UI
             }
         }
 
-        private void load_AllStaffInfo()
+        private async Task load_AllStaffInfo()
         {
-            DataTable StaffInfo = DataAccess.Report.GetAllStaffInfo(Convert.ToInt32(cbSort.SelectedIndex));
+            DataTable StaffInfo = await Task.Run(() => DataAccess.Report.GetAllStaffInfo(Convert.ToInt32(cbSort.SelectedIndex)));
             item_Staffs.Clear();
             pnToAddItem.Controls.Clear();
             for (int i = 0; i < StaffInfo.Rows.Count; i++)

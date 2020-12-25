@@ -121,7 +121,7 @@
             this.lbListStaffIsEmpty.Name = "lbListStaffIsEmpty";
             this.lbListStaffIsEmpty.Size = new System.Drawing.Size(470, 44);
             this.lbListStaffIsEmpty.TabIndex = 3;
-            this.lbListStaffIsEmpty.Text = "Chưa có hóa đơn nào!";
+            this.lbListStaffIsEmpty.Text = "Chưa có nhân viên nào!";
             this.lbListStaffIsEmpty.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel1

@@ -37,7 +37,17 @@ namespace HotelManagement.UI
             try
             {
                 Customers = new List<DTO.CustomerOverview>();
-                DataTable data = await Task.Run(() => DataAccess.ExecuteQuery.ExecuteReader("QLKS_GetAllCustomerInfo"));
+                DataTable data = await Task.Run(() => {
+                    try
+                    {
+                        return DataAccess.ExecuteQuery.ExecuteReader("QLKS_GetAllCustomerInfo");
+                    }
+                    catch
+                    {
+                        return null;
+                    }
+                });
+                if (data == null) throw new Exception("Đã xảy ra lỗi khi tải thông tin từ server");
                 for (int i = 0; i < data.Rows.Count; i++)
                 {
                     var item = new DTO.CustomerOverview();
@@ -52,11 +62,6 @@ namespace HotelManagement.UI
 
                     Customers.Add(item);
                 }
-            }
-            catch (System.Data.SqlClient.SqlException)
-            {
-                MessageBox.Show("Đã xảy ra lỗi khi tải thông tin từ server", "Lỗi");
-                StatusLabel.Text = "Không có kết nối";
             }
             catch (Exception ex)
             {
@@ -130,7 +135,7 @@ namespace HotelManagement.UI
             }
         }
 
-        async Task loadData()
+        async Task LoadRoomsData()
         {
             await Task.Run(() => {
                 foreach (var i in ParentRef.listRoom)
@@ -190,11 +195,11 @@ namespace HotelManagement.UI
 
         private async void btBookRoom_Click(object sender, EventArgs e)
         {
+            if (!checkValidityOfValue()) return;
             try
             {
                 OverlayForm overlay = new OverlayForm(ParentRef.ParentRef, new LoadingForm(cts.Token));
                 overlay.Show();
-                if (!checkValidityOfValue()) return;
                 List<Item_RoomOfFormBookMulRoom> listRoomID = new List<Item_RoomOfFormBookMulRoom>();
                 foreach (Item_RoomOfFormBookMulRoom item in RoomList)
                 {
@@ -207,15 +212,47 @@ namespace HotelManagement.UI
                 {
                     if (ClientID <= 0)
                     {
-                        int a = await Task.Run(() => DataAccess.CustomerDA.InsertNewCustomer(tbCustomerName.Text, dtpCustomerBirthday.Value,
-                            tbIDNo.Text, tbPassport.Text, tbCustomerAddress.Text, tbCustomerPhoneNum.Text, rbtMale.Checked ? Sex.Male : Sex.Female));
+                        int a = await Task.Run(() => {
+                            try
+                            {
+                                return DataAccess.CustomerDA.InsertNewCustomer(tbCustomerName.Text, dtpCustomerBirthday.Value,
+                                    tbIDNo.Text, tbPassport.Text, tbCustomerAddress.Text, tbCustomerPhoneNum.Text, rbtMale.Checked ? Sex.Male : Sex.Female);
+                            }
+                            catch
+                            {
+                                return -2;
+                            }
+                        });
+                        if (a == -2) throw new Exception("Đã xảy ra lỗi khi tải thông tin từ server");
                     }
-                    int b = await Task.Run(() => DataAccess.CustomerDA.InsertNewRoomReservation(dtpCheckInDate.Value, 0, ParentRef.Username, 0, tbNote.Text));
-                    int d = await Task.Run(() => DataAccess.CustomerDA.InsertNewBill(0, ParentRef.Username));
+                    (int, int) bd = await Task.Run(() => {
+                        try
+                        {
+                            int b = DataAccess.CustomerDA.InsertNewRoomReservation(dtpCheckInDate.Value, 0, ParentRef.Username, 0, tbNote.Text);
+                            int d = DataAccess.CustomerDA.InsertNewBill(0, ParentRef.Username);
+                            return (b, d);
+                        }
+                        catch
+                        {
+                            return (-2, -2);
+                        }
+                    });
+                    if (bd == (-2, -2)) throw new Exception("Đã xảy ra lỗi khi tải thông tin từ server");
+
                     foreach (Item_RoomOfFormBookMulRoom item in listRoomID)
                     {
 
-                        int c = await Task.Run(() => DataAccess.CustomerDA.InsertRoomReservationDetail(0, item._RoomID));
+                        int c = await Task.Run(() => {
+                            try
+                            {
+                                return DataAccess.CustomerDA.InsertRoomReservationDetail(0, item._RoomID);
+                            }
+                            catch
+                            {
+                                return -2;
+                            }
+                        });
+                        if (c == -2) throw new Exception("Đã xảy ra lỗi khi tải thông tin từ server");
                         item.ParentRefItemRoom._RoomStatus = RoomStatus.Rented;
                     }
                     ParentRef.Empty -= listRoomID.Count;
@@ -223,11 +260,6 @@ namespace HotelManagement.UI
                     pbArrowBack_Click(sender, e);
                 }
                 else MessageBox.Show("Vui lòng chọn phòng!", "Thông báo!");
-            }
-            catch (System.Data.SqlClient.SqlException)
-            {
-                MessageBox.Show("Lỗi khi kết nối đến server", "Lỗi");
-                StatusLabel.Text = "Đặt phòng không thành công";
             }
             catch (Exception ex)
             {
@@ -310,7 +342,7 @@ namespace HotelManagement.UI
             OverlayForm overlay = new OverlayForm(ParentRef.ParentRef, new LoadingForm(cts.Token));
             overlay.Show();
             await LoadAllCustomer();
-            await loadData();
+            await LoadRoomsData();
             cts.Cancel();
             cts.Dispose();
             cts = new CancellationTokenSource();

@@ -40,7 +40,6 @@ namespace HotelManagement.UI
             this.StaffName = StaffName;
             this.ParentRef = ParentRef;
             cts = new CancellationTokenSource();
-            cbTypeOfRevenue.SelectedIndex = 0;
 
             this.Disposed += delegate { _dispose(); GC.Collect(); };
         }
@@ -256,7 +255,7 @@ namespace HotelManagement.UI
             }
         }
 
-        private void loadChartData(ChartType chartType)
+        private async void loadChartData(ChartType chartType)
         {
             try
             {
@@ -267,11 +266,41 @@ namespace HotelManagement.UI
                 ChartValues<double> listRevenue = new ChartValues<double>();
                 getListDate((RevenueType)(cbTypeOfRevenue.SelectedIndex + 1));
                 int revenueType = cbTypeOfRevenue.SelectedIndex + 1;
-                DataTable dataRoomRevenue = DataAccess.Report.GetRoomRevenue(revenueType, dtStart.Value, dtEnd.Value);
+                DataTable dataRoomRevenue = await Task.Run(() => {
+                    try
+                    {
+                        return DataAccess.Report.GetRoomRevenue(revenueType, dtStart.Value, dtEnd.Value);
+                    }
+                    catch
+                    {
+                        return null;
+                    }
+                });
+                if (dataRoomRevenue == null) throw new Exception("Lỗi khi kết nối đến server!");
                 int indexDataRoom = 0;
-                DataTable dataEatServiceRevenue = DataAccess.Report.GetEatServiceRevenue(revenueType, dtStart.Value, dtEnd.Value);
+                DataTable dataEatServiceRevenue = await Task.Run(() => {
+                    try
+                    {
+                        return DataAccess.Report.GetEatServiceRevenue(revenueType, dtStart.Value, dtEnd.Value);
+                    }
+                    catch
+                    {
+                        return null;
+                    }
+                });
+                if (dataEatServiceRevenue == null) throw new Exception("Lỗi khi kết nối đến server!");
                 int indexDataEat = 0;
-                DataTable dataLaudryServiceRevenue = DataAccess.Report.GetLaudryServiceRevenue(revenueType, dtStart.Value, dtEnd.Value);
+                DataTable dataLaudryServiceRevenue = await Task.Run(() => {
+                    try
+                    {
+                        return DataAccess.Report.GetLaudryServiceRevenue(revenueType, dtStart.Value, dtEnd.Value);
+                    }
+                    catch
+                    {
+                        return null;
+                    }
+                });
+                if (dataLaudryServiceRevenue == null) throw new Exception("Lỗi khi kết nối đến server!");
                 int indexDataLaudry = 0;
                 listRoomRevenue.Clear();
                 listEatServiceRevenue.Clear();
@@ -318,13 +347,9 @@ namespace HotelManagement.UI
                 lbRevenueValue.Text = listRevenue[0].ToString("C", cul.NumberFormat);
                 lbTotalRevenue.Text = sum.ToString("C", cul.NumberFormat);
             }
-            catch (System.Data.SqlClient.SqlException)
-            {
-                MessageBox.Show("Lỗi khi kết nối đến server!", "Lỗi");
-            }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Lỗi");
             }
             finally
             {
@@ -359,10 +384,15 @@ namespace HotelManagement.UI
         {
             revenueChart.AxisX.Clear();
             revenueChart.AxisY.Clear();
-            revenueChart.Series[0].Erase(true);
+            //revenueChart.Series[0].Erase(true);
             pieChart.Series.Clear();
             labelPoint = null;
-            
+
+        }
+
+        private void Form_Revenue_Load(object sender, EventArgs e)
+        {
+            cbTypeOfRevenue.SelectedIndex = 0;
         }
     }
 }

@@ -1,59 +1,88 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
 using System.Data;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Threading;
 
 namespace HotelManagement.UI
 {
     public partial class Form_ReportBill : UserControl
     {
         public Form_Main ParentRef;
+        private CancellationTokenSource cts;
         public Form_ReportBill(Form_Main ParentRef)
         {
             InitializeComponent();
-            //pnAddItem.Controls.Add(new Item_ReportBill(123, "12/12/2020", 122, "Lê Trung Hiếu", 1000000000, 200050, 20, true));
-            //pnAddItem.Controls.Add(new Item_ReportBill(123, "12/12/2020", 122, "Lê Trung Hiếu", 1000000, 200050, 20, false));
-            DataTable dataStaff = DataAccess.Report.GetAllStaffInfo(-1);
+            this.ParentRef = ParentRef;
+            cts = new CancellationTokenSource();
+        }
+
+        private async Task LoadStaffData()
+        {
+            DataTable dataStaff = await Task.Run(() => {
+                try
+                {
+                    return DataAccess.Report.GetAllStaffInfo(-1);
+                }
+                catch
+                {
+                    return null;
+                }
+            });
+            if (dataStaff == null) throw new Exception("Đã xảy ra lỗi khi tải thông tin từ server");
             for (int i = 0; i < dataStaff.Rows.Count; i++)
             {
                 cbStaff.Items.Add(dataStaff.Rows[i].ItemArray[0].ToString() + " | " + dataStaff.Rows[i].ItemArray[2].ToString());
             }
-            LoadRoomNSvcsBillInfo();
-            this.ParentRef = ParentRef;
         }
-
-        private void LoadRoomNSvcsBillInfo()
+        private async Task LoadRoomNSvcsBillInfo()
         {
-            while (pnAddItem.Controls.Count > 0) pnAddItem.Controls[0].Dispose();
-            GC.Collect();
-
-            DataTable dataBillInfo = DataAccess.Report.GetAllBillInfo(dtStart.Value, dtEnd.Value, cbStaff.SelectedIndex, cbSort.SelectedIndex);
-            for (int i = 0; i < dataBillInfo.Rows.Count; i++)
+            try
             {
-                Item_ReportBill itemBillInfo = new Item_ReportBill(this,
-                    Convert.ToInt32(dataBillInfo.Rows[i].ItemArray[0]),
-                    Convert.ToDateTime(dataBillInfo.Rows[i].ItemArray[1].ToString()).ToShortDateString(),
-                    Convert.ToInt32(dataBillInfo.Rows[i].ItemArray[2]),
-                    dataBillInfo.Rows[i].ItemArray[3].ToString(),
-                    Convert.ToInt32(dataBillInfo.Rows[i].ItemArray[4]),
-                    Convert.ToInt32(dataBillInfo.Rows[i].ItemArray[5]),
-                    Convert.ToInt32(dataBillInfo.Rows[i].ItemArray[6]),
-                    //Convert.ToInt32(dataBillInfo.Rows[i].ItemArray[7]),
-                    0,
-                    true
-                    );
-                itemBillInfo.billType = BillType.RoomNSvcs;
-                pnAddItem.Controls.Add(itemBillInfo);
+                while (pnAddItem.Controls.Count > 0) pnAddItem.Controls[0].Dispose();
+                GC.Collect();
+
+                DateTime Start = dtStart.Value;
+                DateTime End = dtEnd.Value;
+                int SelectedStaff = cbStaff.SelectedIndex;
+                int SelectedSort = cbSort.SelectedIndex;
+                DataTable dataBillInfo = await Task.Run(() => {
+                    try
+                    {
+                        return DataAccess.Report.GetAllBillInfo(Start, End, SelectedStaff, SelectedSort);
+                    }
+                    catch
+                    {
+                        return null;
+                    }
+                });
+                if (dataBillInfo == null) throw new Exception("Đã xảy ra lỗi khi tải thông tin từ server");
+                for (int i = 0; i < dataBillInfo.Rows.Count; i++)
+                {
+                    Item_ReportBill itemBillInfo = new Item_ReportBill(this,
+                        Convert.ToInt32(dataBillInfo.Rows[i].ItemArray[0]),
+                        Convert.ToDateTime(dataBillInfo.Rows[i].ItemArray[1].ToString()).ToShortDateString(),
+                        Convert.ToInt32(dataBillInfo.Rows[i].ItemArray[2]),
+                        dataBillInfo.Rows[i].ItemArray[3].ToString(),
+                        Convert.ToInt32(dataBillInfo.Rows[i].ItemArray[4]),
+                        Convert.ToInt32(dataBillInfo.Rows[i].ItemArray[5]),
+                        Convert.ToInt32(dataBillInfo.Rows[i].ItemArray[6]),
+                        //Convert.ToInt32(dataBillInfo.Rows[i].ItemArray[7]),
+                        0,
+                        true
+                        );
+                    itemBillInfo.billType = BillType.RoomNSvcs;
+                    pnAddItem.Controls.Add(itemBillInfo);
+                }
+
+                if (pnAddItem.Controls.Count == 0)
+                {
+                    createlbEmptyBillList();
+                }
             }
-
-            if (pnAddItem.Controls.Count == 0)
+            catch (Exception ex)
             {
-                createlbEmptyBillList();
+                MessageBox.Show(ex.Message);
             }
         }
 
@@ -69,58 +98,135 @@ namespace HotelManagement.UI
             this.lbListBillIsEmpty.Text = "Chưa có hóa đơn nào!";
             this.lbListBillIsEmpty.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
         }
-        private void LoadServicesBillInfo()
+        private async Task LoadServicesBillInfo()
         {
-            while (pnAddItem.Controls.Count > 0) pnAddItem.Controls[0].Dispose();
-            GC.Collect();
-
-            DataTable dataSVBillInfo = DataAccess.Report.GetAllServicesBillOnlyInfo(dtStart.Value, dtEnd.Value, cbStaff.SelectedIndex, cbSort.SelectedIndex);
-            for (int i = 0; i < dataSVBillInfo.Rows.Count; i++)
+            try
             {
-                Item_ReportBill itemSVBillInfo = new Item_ReportBill(this,
-                    Convert.ToInt32(dataSVBillInfo.Rows[i].ItemArray[0]),
-                    Convert.ToDateTime(dataSVBillInfo.Rows[i].ItemArray[1].ToString()).ToShortDateString(),
-                    Convert.ToInt32(dataSVBillInfo.Rows[i].ItemArray[2]),
-                    dataSVBillInfo.Rows[i].ItemArray[3].ToString(),
-                    Convert.ToInt32(dataSVBillInfo.Rows[i].ItemArray[4]),
-                    Convert.ToInt32(dataSVBillInfo.Rows[i].ItemArray[5]),
-                    Convert.ToInt32(dataSVBillInfo.Rows[i].ItemArray[6]),
-                    //Convert.ToInt32(dataBillInfo.Rows[i].ItemArray[7]),
-                    0,
-                    true
-                    );
-                itemSVBillInfo.billType = BillType.Services;
-                pnAddItem.Controls.Add(itemSVBillInfo);
+                while (pnAddItem.Controls.Count > 0) pnAddItem.Controls[0].Dispose();
+                GC.Collect();
+
+                DateTime Start = dtStart.Value;
+                DateTime End = dtEnd.Value;
+                int SelectedStaff = cbStaff.SelectedIndex;
+                int SelectedSort = cbSort.SelectedIndex;
+                DataTable dataSVBillInfo = await Task.Run(() => {
+                    try
+                    {
+                        return DataAccess.Report.GetAllServicesBillOnlyInfo(Start, End, SelectedStaff, SelectedSort);
+                    }
+                    catch
+                    {
+                        return null;
+                    }
+                });
+                if (dataSVBillInfo == null) throw new Exception("Đã xảy ra lỗi khi tải thông tin từ server");
+                for (int i = 0; i < dataSVBillInfo.Rows.Count; i++)
+                {
+                    Item_ReportBill itemSVBillInfo = new Item_ReportBill(this,
+                        Convert.ToInt32(dataSVBillInfo.Rows[i].ItemArray[0]),
+                        Convert.ToDateTime(dataSVBillInfo.Rows[i].ItemArray[1].ToString()).ToShortDateString(),
+                        Convert.ToInt32(dataSVBillInfo.Rows[i].ItemArray[2]),
+                        dataSVBillInfo.Rows[i].ItemArray[3].ToString(),
+                        Convert.ToInt32(dataSVBillInfo.Rows[i].ItemArray[4]),
+                        Convert.ToInt32(dataSVBillInfo.Rows[i].ItemArray[5]),
+                        Convert.ToInt32(dataSVBillInfo.Rows[i].ItemArray[6]),
+                        //Convert.ToInt32(dataBillInfo.Rows[i].ItemArray[7]),
+                        0,
+                        true
+                        );
+                    itemSVBillInfo.billType = BillType.Services;
+                    pnAddItem.Controls.Add(itemSVBillInfo);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
 
-        private void metroDateTime1_ValueChanged(object sender, EventArgs e)
+        private async void metroDateTime1_ValueChanged(object sender, EventArgs e)
         {
-            if (!cbBillorServicesBill.Checked)
+            try
             {
-                LoadRoomNSvcsBillInfo();
+                OverlayForm overlay = new OverlayForm(ParentRef, new LoadingForm(cts.Token));
+                overlay.Show();
+
+                if (!cbBillorServicesBill.Checked)
+                {
+                    await LoadRoomNSvcsBillInfo();
+                }
+                else
+                {
+                    await LoadServicesBillInfo();
+                }
             }
-            else
+            catch (System.Data.SqlClient.SqlException)
             {
-                LoadServicesBillInfo();
+                MessageBox.Show("Đã xảy ra lỗi khi tải thông tin từ server");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                cts.Cancel();
+                cts.Dispose();
+                cts = new CancellationTokenSource();
             }
         }
 
-        private void cbBillorServicesBill_CheckedChanged(object sender, EventArgs e)
+        private async void cbBillorServicesBill_CheckedChanged(object sender, EventArgs e)
         {
-            if (!cbBillorServicesBill.Checked)
+            try
             {
-                LoadRoomNSvcsBillInfo();
+                OverlayForm overlay = new OverlayForm(ParentRef, new LoadingForm(cts.Token));
+                overlay.Show();
+
+                if (!cbBillorServicesBill.Checked)
+                {
+                    await LoadRoomNSvcsBillInfo();
+                }
+                else
+                {
+                    await LoadServicesBillInfo();
+                }
             }
-            else
+            catch (System.Data.SqlClient.SqlException)
             {
-                LoadServicesBillInfo();
+                MessageBox.Show("Đã xảy ra lỗi khi tải thông tin từ server");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                cts.Cancel();
+                cts.Dispose();
+                cts = new CancellationTokenSource();
             }
         }
 
-        private void cbBillorServicesBill_Click(object sender, EventArgs e)
+        private async void Form_ReportBill_Load(object sender, EventArgs e)
         {
-
+            try
+            {
+                OverlayForm overlay = new OverlayForm(ParentRef, new LoadingForm(cts.Token));
+                overlay.Show();
+                await LoadStaffData();
+                await LoadRoomNSvcsBillInfo();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                cts.Cancel();
+                cts.Dispose();
+                cts = new CancellationTokenSource();
+            }
         }
     }
 }

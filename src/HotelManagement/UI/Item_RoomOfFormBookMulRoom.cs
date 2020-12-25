@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.Windows.Forms;
 using HotelManagement.Properties;
+using System.Threading.Tasks;
 
 namespace HotelManagement.UI
 {
@@ -166,7 +167,7 @@ namespace HotelManagement.UI
             pbShadow.Hide();
         }
 
-        private void pbRoomType_Click(object sender, EventArgs e)
+        private async void pbRoomType_Click(object sender, EventArgs e)
         {
             if (roomStatus == RoomStatus.Cleaning)
             {
@@ -177,12 +178,29 @@ namespace HotelManagement.UI
                 }
                 else
                 {
-                    this._RoomStatus = RoomStatus.Empty;
-                    this.ParentRefItemRoom._RoomStatus = RoomStatus.Empty;
-                    this.ParentRefItemRoom.ParentRef.Empty = this.ParentRefItemRoom.ParentRef.Empty + 1;
-                    this.ParentRefItemRoom.ParentRef.Cleaning = this.ParentRefItemRoom.ParentRef.Cleaning - 1;
+                    try
+                    {
+                        int RowsAffected = await Task.Run(() => {
+                            try
+                            {
+                                return DataAccess.RoomDA.SetRoomStatus(RoomID, RoomStatus.Empty);
+                            }
+                            catch
+                            {
+                                return -2;
+                            }
+                        });
+                        if (RowsAffected == -2) throw new Exception("Đã xảy ra lỗi khi kết nối tới server");
 
-                    DataAccess.RoomDA.SetRoomStatus(RoomID, RoomStatus.Empty);
+                        this._RoomStatus = RoomStatus.Empty;
+                        this.ParentRefItemRoom._RoomStatus = RoomStatus.Empty;
+                        this.ParentRefItemRoom.ParentRef.Empty = this.ParentRefItemRoom.ParentRef.Empty + 1;
+                        this.ParentRefItemRoom.ParentRef.Cleaning = this.ParentRefItemRoom.ParentRef.Cleaning - 1;
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, "Lỗi");
+                    }
                 }
             }
 

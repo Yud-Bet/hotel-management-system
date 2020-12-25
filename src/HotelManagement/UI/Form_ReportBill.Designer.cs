@@ -144,7 +144,6 @@
             this.cbBillorServicesBill.TabIndex = 4;
             this.cbBillorServicesBill.TabStop = false;
             this.cbBillorServicesBill.CheckedChanged += new System.EventHandler(this.cbBillorServicesBill_CheckedChanged);
-            this.cbBillorServicesBill.Click += new System.EventHandler(this.cbBillorServicesBill_Click);
             // 
             // panel7
             // 
@@ -367,6 +366,7 @@
             this.Controls.Add(this.lbTitle);
             this.Name = "Form_ReportBill";
             this.Size = new System.Drawing.Size(968, 665);
+            this.Load += new System.EventHandler(this.Form_ReportBill_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel5.ResumeLayout(false);

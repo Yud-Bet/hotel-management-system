@@ -96,16 +96,21 @@ namespace HotelManagement.UI
                 Price = Convert.ToInt32(tbRoomPrice.Text);
                 Type = GetValueOfControl.GetRoomType(rbtNor, rbtVip, rbtSingle, rbtDouble);
 
-                int RowsAffected = await Task.Run(() => DataAccess.RoomDA.EditRoomInfo(Convert.ToInt32(tbRoomID.Text),
-                    Type, RoomSize, Price));
-
+                int RowsAffected = await Task.Run(() => {
+                    try
+                    {
+                        return DataAccess.RoomDA.EditRoomInfo(Convert.ToInt32(tbRoomID.Text),
+                                Type, RoomSize, Price);
+                    }
+                    catch
+                    {
+                        return -2;
+                    }
+                });
+                if (RowsAffected == -2) throw new Exception("Lỗi khi kết nối đến server!");
                 if (RowsAffected > 0) DialogResult = DialogResult.OK;
 
                 this.Close();
-            }
-            catch (System.Data.SqlClient.SqlException)
-            {
-                MessageBox.Show("Lỗi khi kết nối đến server!", "Lỗi");
             }
             catch (Exception ex)
             {
