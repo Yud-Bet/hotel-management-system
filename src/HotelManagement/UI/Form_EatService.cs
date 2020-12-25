@@ -288,29 +288,40 @@ namespace HotelManagement.UI
         int countItem = 0;
         private void bill_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
-            DTO.RoomServices svc = new DTO.RoomServices();
-            DrawBill drawBill = new DrawBill(e.Graphics);
-            drawBill.drawBillHeader();
-            drawBill.drawServiceInfo();
-            for (int i = countItem; i < svc.items.Count; i++)
+            try
             {
-                drawBill.drawItem(svc.items[i].Name, svc.items[i].Count, svc.items[i].Price, svc.items[i].IntoMoney);
-                TotalMoney += svc.items[i].Count * svc.items[i].Price;
-                countItem++;
-                if (numOfItemPerPage > 16)
+                DTO.RoomServices svc = new DTO.RoomServices();
+                DrawBill drawBill = new DrawBill(e.Graphics);
+                drawBill.drawBillHeader();
+                drawBill.drawServiceInfo();
+                for (int i = countItem; i < svc.items.Count; i++)
                 {
-                    e.HasMorePages = true;
-                    numOfItemPerPage = 0;
-                    return;
+                    drawBill.drawItem(svc.items[i].Name, svc.items[i].Count, svc.items[i].Price, svc.items[i].IntoMoney);
+                    TotalMoney += svc.items[i].Count * svc.items[i].Price;
+                    countItem++;
+                    if (numOfItemPerPage > 16)
+                    {
+                        e.HasMorePages = true;
+                        numOfItemPerPage = 0;
+                        return;
+                    }
+                    else
+                    {
+                        e.HasMorePages = false;
+                        numOfItemPerPage++;
+                    }
                 }
-                else
-                {
-                    e.HasMorePages = false;
-                    numOfItemPerPage++;
-                }
+                DTO.StaffOverview staff = new DTO.StaffOverview(Username);
+                drawBill.drawEndOfBill(staff.Name, TotalMoney, 0);
             }
-            DTO.StaffOverview staff = new DTO.StaffOverview(Username);
-            drawBill.drawEndOfBill(staff.Name, TotalMoney, 0);
+            catch (System.Data.SqlClient.SqlException)
+            {
+                MessageBox.Show("Lỗi khi kết nối đến server!", "Lỗi");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private async void Form_EatService_Load(object sender, EventArgs e)

@@ -508,30 +508,41 @@ namespace HotelManagement.UI
         int countItem = 0;
         private void bill_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
-            DTO.RoomServices svc = new DTO.RoomServices(0, 0, RoomID);
-            DrawBill drawBill = new DrawBill(e.Graphics);
-            drawBill.drawBillHeader();
-            drawBill.drawCustomerInfo(Customer.Name, Customer.PhoneNumber, Customer.Addr,
-                dtpCheckInDate.Text, dtpCheckOutDate.Text);
-            for (int i = countItem; i < svc.items.Count; i++)
+            try
             {
-                drawBill.drawItem(svc.items[i].Name, svc.items[i].Count, svc.items[i].Price, svc.items[i].IntoMoney);
-                TotalMoney += svc.items[i].IntoMoney;
-                countItem++;
-                if (numOfItemPerPage > 16)
+                DTO.RoomServices svc = new DTO.RoomServices(0, 0, RoomID);
+                DrawBill drawBill = new DrawBill(e.Graphics);
+                drawBill.drawBillHeader();
+                drawBill.drawCustomerInfo(Customer.Name, Customer.PhoneNumber, Customer.Addr,
+                    dtpCheckInDate.Text, dtpCheckOutDate.Text);
+                for (int i = countItem; i < svc.items.Count; i++)
                 {
-                    e.HasMorePages = true;
-                    numOfItemPerPage = 0;
-                    return;
-                } 
-                else
-                {
-                    e.HasMorePages = false;
-                    numOfItemPerPage++;
+                    drawBill.drawItem(svc.items[i].Name, svc.items[i].Count, svc.items[i].Price, svc.items[i].IntoMoney);
+                    TotalMoney += svc.items[i].IntoMoney;
+                    countItem++;
+                    if (numOfItemPerPage > 16)
+                    {
+                        e.HasMorePages = true;
+                        numOfItemPerPage = 0;
+                        return;
+                    }
+                    else
+                    {
+                        e.HasMorePages = false;
+                        numOfItemPerPage++;
+                    }
                 }
+                DTO.StaffOverview staff = new DTO.StaffOverview(this.ParentRef.ParentRef.Username);
+                drawBill.drawEndOfBill(staff.Name, TotalMoney, 0);
             }
-            DTO.StaffOverview staff = new DTO.StaffOverview(this.ParentRef.ParentRef.Username);
-            drawBill.drawEndOfBill(staff.Name, TotalMoney, 0);
+            catch (System.Data.SqlClient.SqlException)
+            {
+                MessageBox.Show("Lỗi khi tải thông tin từ server");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void tbCustomerName_TextChanged(object sender, EventArgs e)

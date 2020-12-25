@@ -197,13 +197,13 @@ namespace HotelManagement.UI
             cts = new CancellationTokenSource();
         }
 
-        private void cbSort_SelectedIndexChanged(object sender, EventArgs e)
+        private async void cbSort_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
             {
                 OverlayForm overlay = new OverlayForm(parentRef, new LoadingForm(cts.Token));
                 overlay.Show();
-                load_AllStaffInfo();
+                await load_AllStaffInfo();
                 resetStaffValues();
             }
             catch (System.Data.SqlClient.SqlException)
