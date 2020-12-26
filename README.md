@@ -27,7 +27,6 @@
 
 **3. Yêu cầu báo biểu:**
 - In hóa đơn.
-- Báo cáo thông tin kho hàng.
 - Thống kê doanh thu khách sạn theo ngày, tháng và năm.
 
 *Đang cập nhật thêm...*
