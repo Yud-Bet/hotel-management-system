@@ -132,7 +132,16 @@ namespace HotelManagement.UI
         {
             if (!checkValidityOfValue())
                 return;
-            
+
+            try
+            {
+                string[] staffImageFiles = Directory.GetFiles(@".\\staffimage", parentRef_EditStaff._IDNo + "*");
+
+                File.Move(@".\\staffimage\\" + parentRef_EditStaff._IDNo + Path.GetExtension(staffImageFiles[0]),
+                    @".\\staffimage\\" + tbIDNo.Text + Path.GetExtension(staffImageFiles[0]));
+            }
+            catch { }
+
             parentRef_EditStaff._Name = tbName.Text;
             parentRef_EditStaff._Birthdate = dtBirthdate.Value;
             parentRef_EditStaff._Sex = rbFemale.Checked;
@@ -173,15 +182,23 @@ namespace HotelManagement.UI
                     staffImage.Image = image;
                     parentRef_EditStaff.setStaffImage();
                     parentRef_EditStaff.parentRef._staffImage.Image = image;
-                    parentRef_EditStaff.parentRef.parentRef.setStaffImage();
                 }
             }
             catch {}
             
             if (ef > 0)
             {
-                MessageBox.Show("Sửa thông tin thành công!", "Thông báo!");
-                this.Close();
+                if (parentRef_EditStaff._IsUsingThisAcc)
+                {
+                    MessageBox.Show("Bạn vừa sửa thông tin nhân viên đang đăng nhập.\nVui lòng đăng nhập lại để cập nhật thông tin!", "Thông báo!");
+                    this.Close();
+                    this.parentRef_EditStaff.parentRef.parentRef.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Sửa thông tin thành công!", "Thông báo!");
+                    this.Close();
+                }
             }
         }
 

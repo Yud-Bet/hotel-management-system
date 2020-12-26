@@ -22,6 +22,10 @@ namespace HotelManagement.UI
             InitializeComponent();
             ParentRef = parent;
             ParentRef.ParentRef._lbRoomID.Show();
+            if(ParentRef.ParentRef.ParentRef.StaffPosition=="Nhân viên")
+            {
+                btSettingRoom.Hide();
+            }
 
             dropDownList1.Hide();
             dropDownList1.ChooseItem += delegate

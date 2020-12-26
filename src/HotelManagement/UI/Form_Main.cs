@@ -11,7 +11,8 @@ namespace HotelManagement.UI
     {
         private string Username;
         private string StaffName;
-        private string IDNo;
+        public string StaffIDNo; 
+        public string StaffPosition;
         private Panel pnToAddForm;
         
         public Form_Main(string Username)
@@ -87,9 +88,15 @@ namespace HotelManagement.UI
             if (staff != null)
             {
                 lbStaffname.Text = StaffName = staff.Name;
-                lbStaffPosition.Text = staff.Position;
-                IDNo = staff.IDNo;
+                lbStaffPosition.Text = StaffPosition = staff.Position;
+                StaffIDNo = staff.IDNo;
                 setStaffImage();
+
+                if(StaffPosition=="Nhân viên")
+                {
+                    btReport.Hide();
+                    btManage.Hide();
+                }
             }
         }
         private async void Form_Main_Load(object sender, EventArgs e)
@@ -604,7 +611,7 @@ namespace HotelManagement.UI
         {
             try
             {
-                string[] staffImageFiles = Directory.GetFiles(@".\\staffimage", IDNo + "*");
+                string[] staffImageFiles = Directory.GetFiles(@".\\staffimage", StaffIDNo + "*");
                 Image image;
                 using (Stream stream = File.OpenRead(staffImageFiles[0]))
                 {

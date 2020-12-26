@@ -24,6 +24,17 @@ namespace HotelManagement.UI
 
         #region properties
         public Form_Staff parentRef;
+        private bool isUsingThisAcc;
+
+        public bool _IsUsingThisAcc
+        {
+            get { return isUsingThisAcc; }
+            set 
+            { 
+                isUsingThisAcc = value;
+                if (value) pbRemove.Hide();
+            }
+        }
 
         private int ID;
 
