@@ -167,26 +167,29 @@ namespace HotelManagement.UI
                     throw new ArgumentException();
                 }
 
-                OverlayForm overlay = new OverlayForm(ParentRef, new LoadingForm(cts.Token));
-                overlay.Show();
-
-                for (int i = 0; i < SelectedItems.Count; i++)
+                if (MessageBox.Show("Bạn có chắc chắn muốn thêm những dịch vụ này không?", "Thông báo!", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    int RoomID = rooms.Items[cbRoomSelection.SelectedIndex - 1].ID;
-                    int a = await Task.Run(() => {
-                        try
+                    OverlayForm overlay = new OverlayForm(ParentRef, new LoadingForm(cts.Token));
+                    overlay.Show();
+                    for (int i = 0; i < SelectedItems.Count; i++)
+                    {
+                        int RoomID = rooms.Items[cbRoomSelection.SelectedIndex - 1].ID;
+                        int a = await Task.Run(() =>
                         {
-                            return DataAccess.Services.InsertServicetoBillDetail(RoomID, SelectedItems[i]._itemID, SelectedItems[i]._count);
-                        }
-                        catch
-                        {
-                            return -2;
-                        }
-                    });
-                    if (a == -2) throw new Exception("Không thể kết nối đến server");
+                            try
+                            {
+                                return DataAccess.Services.InsertServicetoBillDetail(RoomID, SelectedItems[i]._itemID, SelectedItems[i]._count);
+                            }
+                            catch
+                            {
+                                return -2;
+                            }
+                        });
+                        if (a == -2) throw new Exception("Không thể kết nối đến server");
+                    }
+                    MessageBox.Show("Thêm thành công!", "Thông báo");
+                    StatusLabel.Text = "";
                 }
-                MessageBox.Show("Thêm thành công!", "Thông báo");
-                StatusLabel.Text = "";
             }
             catch (ArgumentException) { }
             catch (Exception ex)
@@ -204,6 +207,7 @@ namespace HotelManagement.UI
 
         private async void btPay_Click(object sender, EventArgs e)
         {
+
             try
             {
                 if (SelectedItems.Count == 0)
@@ -216,58 +220,64 @@ namespace HotelManagement.UI
                     MessageBox.Show("Thanh toán trực tiếp, vui lòng không chọn phòng!", "Lỗi");
                     throw new ArgumentException();
                 }
-
-                OverlayForm overlay = new OverlayForm(ParentRef, new LoadingForm(cts.Token));
-                overlay.Show();
-
-                int InsSvcsBill = await Task.Run(() => {
-                    try
-                    {
-                        return DataAccess.Services.InsertNewServicesBillOnly(Username);
-                    }
-                    catch
-                    {
-                        return -2;
-                    }
-                });
-                if (InsSvcsBill == -2) throw new Exception("Không thể kết nối đến server");
-
-                for (int i = 0; i < SelectedItems.Count; i++)
+                if (MessageBox.Show("Bạn chắc chắn muốn thanh toán?", "Thông báo!", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    int InsItemToBill = await Task.Run(() => {
+
+                    OverlayForm overlay = new OverlayForm(ParentRef, new LoadingForm(cts.Token));
+                    overlay.Show();
+
+                    int InsSvcsBill = await Task.Run(() =>
+                    {
                         try
                         {
-                            return DataAccess.Services.InsertServiceToServicesBillOnlyDetail(SelectedItems[i]._itemID, SelectedItems[i]._count);
+                            return DataAccess.Services.InsertNewServicesBillOnly(Username);
                         }
                         catch
                         {
                             return -2;
                         }
                     });
-                    if (InsItemToBill == -2) throw new Exception("Không thể kết nối đến server");
-                }
-                int RowEffected = await Task.Run(() => {
-                    try
+                    if (InsSvcsBill == -2) throw new Exception("Không thể kết nối đến server");
+
+                    for (int i = 0; i < SelectedItems.Count; i++)
                     {
-                        return DataAccess.Services.PayForServicesOnly();
+                        int InsItemToBill = await Task.Run(() =>
+                        {
+                            try
+                            {
+                                return DataAccess.Services.InsertServiceToServicesBillOnlyDetail(SelectedItems[i]._itemID, SelectedItems[i]._count);
+                            }
+                            catch
+                            {
+                                return -2;
+                            }
+                        });
+                        if (InsItemToBill == -2) throw new Exception("Không thể kết nối đến server");
                     }
-                    catch
+                    int RowEffected = await Task.Run(() =>
                     {
-                        return -2;
+                        try
+                        {
+                            return DataAccess.Services.PayForServicesOnly();
+                        }
+                        catch
+                        {
+                            return -2;
+                        }
+                    });
+                    if (RowEffected == -2) throw new Exception("Không thể kết nối đến server");
+                    if (RowEffected > 0)
+                    {
+                        TotalMoney = 0;
+                        numOfItemPerPage = 0;
+                        countItem = 0;
+                        printPreviewDialogBill.Document = bill;
+                        printPreviewDialogBill.ShowDialog();
+                        pnSelectedServices.Controls.Clear();
+                        SelectedItems.Clear();
                     }
-                });
-                if (RowEffected == -2) throw new Exception("Không thể kết nối đến server");
-                if (RowEffected > 0)
-                {
-                    TotalMoney = 0;
-                    numOfItemPerPage = 0;
-                    countItem = 0;
-                    printPreviewDialogBill.Document = bill;
-                    printPreviewDialogBill.ShowDialog();
-                    pnSelectedServices.Controls.Clear();
-                    SelectedItems.Clear();
+                    StatusLabel.Text = "";
                 }
-                StatusLabel.Text = "";
             }
             catch (ArgumentException) { }
             catch (Exception ex)
@@ -281,6 +291,7 @@ namespace HotelManagement.UI
                 cts.Dispose();
                 cts = new CancellationTokenSource();
             }
+
         }
 
         int TotalMoney = 0;
