@@ -155,6 +155,10 @@ namespace HotelManagement.UI
             temp._Position = position;
             temp._Name = name;
             temp._IDNo = IDNo;
+            if (IDNo == this.parentRef.StaffIDNo)
+            {
+                temp._IsUsingThisAcc = true;
+            }
             temp._Birthdate = birthdate;
             temp._Sex = sex;
             temp._Address = address;

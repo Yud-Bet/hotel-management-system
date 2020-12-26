@@ -71,7 +71,7 @@ namespace HotelManagement.UI
             posY += 20;
             g.DrawString("Giảm giá:          " + discount.ToString() + " %", font15, brush, new Point(500, posY));
             posY += 20;
-            g.DrawString("Tổng tiền trả:   " + (total - total * ((float)discount / 100)).ToString() + " VNĐ", font15, brush, new Point(500, posY));
+            g.DrawString("Tổng tiền trả:   " + (total - (total * (int)((float)discount / 100))).ToString() + " VNĐ", font15, brush, new Point(500, posY));
         }
 
         public void drawTitle(int posY)

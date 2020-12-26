@@ -141,7 +141,7 @@ namespace HotelManagement.UI
             set { 
                 totalMoney = value;
                 lbTotalMoney.Text = value.ToString();
-                lbTotalPayable.Text = (totalMoney - ((float)totalMoney * discount / 100)).ToString();
+                lbTotalPayable.Text = (totalMoney - (int)((float)totalMoney * discount / 100)).ToString();
             }
         }
 

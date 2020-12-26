@@ -136,10 +136,15 @@ namespace HotelManagement.UI
             if (!checkValidityOfValue())
                 return;
 
+            try
+            {
+                string[] staffImageFiles = Directory.GetFiles(@".\\staffimage", parentRef_EditStaff._IDNo + "*");
 
-            int ef = DataAccess.Manager.SetStaffInfo(parentRef_EditStaff._ID, tbName.Text, dtBirthdate.Value, rbFemale.Checked,
-                                                     tbAddress.Text, tbPhonenum.Text, tbIDNo.Text, rbNorStaff.Checked,
-                                                     dtStartDate.Value, Convert.ToInt32(tbSalary.Text), "");
+                File.Move(@".\\staffimage\\" + parentRef_EditStaff._IDNo + Path.GetExtension(staffImageFiles[0]),
+                    @".\\staffimage\\" + tbIDNo.Text + Path.GetExtension(staffImageFiles[0]));
+            }
+            catch { }
+
             parentRef_EditStaff._Name = tbName.Text;
             parentRef_EditStaff._Birthdate = dtBirthdate.Value;
             parentRef_EditStaff._Sex = rbFemale.Checked;
@@ -151,6 +156,9 @@ namespace HotelManagement.UI
             parentRef_EditStaff._Salary = Convert.ToInt32(tbSalary.Text);
 
             parentRef_EditStaff.parentRef.setStaffValues(parentRef_EditStaff);
+            int ef = DataAccess.Manager.SetStaffInfo(parentRef_EditStaff._ID, parentRef_EditStaff._Name, parentRef_EditStaff._Birthdate, parentRef_EditStaff._Sex,
+                                                     parentRef_EditStaff._Address, parentRef_EditStaff._Phonenum, parentRef_EditStaff._IDNo, parentRef_EditStaff._Position,
+                                                     parentRef_EditStaff._StartDate, parentRef_EditStaff._Salary, "");
             try
             {
                 if (open.FileName != "")
@@ -177,15 +185,23 @@ namespace HotelManagement.UI
                     staffImage.Image = image;
                     parentRef_EditStaff.setStaffImage();
                     parentRef_EditStaff.parentRef._staffImage.Image = image;
-                    parentRef_EditStaff.parentRef.parentRef.setStaffImage();
                 }
             }
             catch {}
             
             if (ef > 0)
             {
-                MessageBox.Show("Sửa thông tin thành công!", "Thông báo!");
-                this.Close();
+                if (parentRef_EditStaff._IsUsingThisAcc)
+                {
+                    MessageBox.Show("Bạn vừa sửa thông tin nhân viên đang đăng nhập.\nVui lòng đăng nhập lại để cập nhật thông tin!", "Thông báo!");
+                    this.Close();
+                    this.parentRef_EditStaff.parentRef.parentRef.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Sửa thông tin thành công!", "Thông báo!");
+                    this.Close();
+                }
             }
         }
 

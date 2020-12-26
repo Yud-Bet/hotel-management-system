@@ -8,12 +8,12 @@ namespace HotelManagement.UI
 {
     public partial class Form_Room : UserControl
     {
-        public Form ParentRef;
+        public Form_Main ParentRef;
         public string Username;
         public List<Item_Room> listRoom = new List<Item_Room>();
         private CancellationTokenSource cts;
 
-        public Form_Room(string Username, Form Parent)
+        public Form_Room(string Username, Form_Main Parent)
         {
             InitializeComponent();
             this.Dock = DockStyle.Fill;
@@ -210,6 +210,11 @@ namespace HotelManagement.UI
 
         private void btAddRoom_Click(object sender, System.EventArgs e)
         {
+            if(this.ParentRef.StaffPosition == "Nhân viên")
+            {
+                MessageBox.Show("Chỉ có quản lý được dùng tính năng này!","Thông báo");
+                return;
+            }
             btThreeDot_Click(sender, e);
             Form_AddEditRoom form_AddEditRoom = new Form_AddEditRoom(this);
             form_AddEditRoom.ShowDialog();

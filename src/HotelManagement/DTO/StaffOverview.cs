@@ -17,7 +17,7 @@ namespace HotelManagement.DTO
             }
             Name = data.Rows[0].ItemArray[1].ToString();
             Position = ((StaffPosition)Convert.ToInt32(data.Rows[0].ItemArray[2]) == StaffPosition.Manager) ?
-                "Manager" : "Receptionist";
+                "Quản lý" : "Nhân viên";
             IDNo = data.Rows[0].ItemArray[4].ToString();
         }
     }
