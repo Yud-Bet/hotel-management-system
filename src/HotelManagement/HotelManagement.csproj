@@ -120,13 +120,13 @@
     <Compile Include="DTO\ServicesInfo.cs" />
     <Compile Include="DTO\StaffOverview.cs" />
     <Compile Include="EnumDefinition.cs" />
-    <Compile Include="UI\CirclePictureBox.cs">
+    <Compile Include="UI\Others\CirclePictureBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="UI\CustomDateTime.cs">
+    <Compile Include="UI\Others\CustomDateTime.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UI\CustomDateTime.Designer.cs">
+    <Compile Include="UI\Others\CustomDateTime.Designer.cs">
       <DependentUpon>CustomDateTime.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
@@ -134,69 +134,69 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="UI\DropDownList.cs">
+    <Compile Include="UI\Others\DropDownList.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UI\DropDownList.Designer.cs">
+    <Compile Include="UI\Others\DropDownList.Designer.cs">
       <DependentUpon>DropDownList.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\exportExcel.cs" />
-    <Compile Include="UI\Form_AddEditService.cs">
+    <Compile Include="UI\Others\exportExcel.cs" />
+    <Compile Include="UI\Managerment\Form_AddEditService.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Form_AddEditService.Designer.cs">
+    <Compile Include="UI\Managerment\Form_AddEditService.Designer.cs">
       <DependentUpon>Form_AddEditService.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Form_AddEditStaff.cs">
+    <Compile Include="UI\Managerment\Form_AddEditStaff.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Form_AddEditStaff.Designer.cs">
+    <Compile Include="UI\Managerment\Form_AddEditStaff.Designer.cs">
       <DependentUpon>Form_AddEditStaff.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Form_BookMulRooms.cs">
+    <Compile Include="UI\Room\Form_BookMulRooms.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UI\Form_BookMulRooms.Designer.cs">
+    <Compile Include="UI\Room\Form_BookMulRooms.Designer.cs">
       <DependentUpon>Form_BookMulRooms.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Form_Customer.cs">
+    <Compile Include="UI\Managerment\Form_Customer.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UI\Form_Customer.Designer.cs">
+    <Compile Include="UI\Managerment\Form_Customer.Designer.cs">
       <DependentUpon>Form_Customer.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Form_CustomerBill.cs">
+    <Compile Include="UI\Managerment\Form_CustomerBill.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Form_CustomerBill.Designer.cs">
+    <Compile Include="UI\Managerment\Form_CustomerBill.Designer.cs">
       <DependentUpon>Form_CustomerBill.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Form_EatService.cs">
+    <Compile Include="UI\Services\Form_EatService.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UI\Form_EatService.Designer.cs">
+    <Compile Include="UI\Services\Form_EatService.Designer.cs">
       <DependentUpon>Form_EatService.cs</DependentUpon>
     </Compile>
     <Compile Include="Helper.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UI\DrawBill.cs" />
-    <Compile Include="UI\Form_AddEditRoom.cs">
+    <Compile Include="UI\Others\DrawBill.cs" />
+    <Compile Include="UI\Room\Form_AddEditRoom.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Form_AddEditRoom.Designer.cs">
+    <Compile Include="UI\Room\Form_AddEditRoom.Designer.cs">
       <DependentUpon>Form_AddEditRoom.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Form_EditAccount.cs">
+    <Compile Include="UI\Managerment\Form_EditAccount.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Form_EditAccount.Designer.cs">
+    <Compile Include="UI\Managerment\Form_EditAccount.Designer.cs">
       <DependentUpon>Form_EditAccount.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Form_LaundryService.cs">
+    <Compile Include="UI\Services\Form_LaundryService.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UI\Form_LaundryService.Designer.cs">
+    <Compile Include="UI\Services\Form_LaundryService.Designer.cs">
       <DependentUpon>Form_LaundryService.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Form_Login.cs">
@@ -211,135 +211,135 @@
     <Compile Include="UI\Form_Main.Designer.cs">
       <DependentUpon>Form_Main.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Form_ReportBill.cs">
+    <Compile Include="UI\Report\Form_ReportBill.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UI\Form_ReportBill.Designer.cs">
+    <Compile Include="UI\Report\Form_ReportBill.Designer.cs">
       <DependentUpon>Form_ReportBill.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Form_Revenue.cs">
+    <Compile Include="UI\Report\Form_Revenue.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UI\Form_Revenue.Designer.cs">
+    <Compile Include="UI\Report\Form_Revenue.Designer.cs">
       <DependentUpon>Form_Revenue.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Form_Room.cs">
+    <Compile Include="UI\Room\Form_Room.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UI\Form_Room.Designer.cs">
+    <Compile Include="UI\Room\Form_Room.Designer.cs">
       <DependentUpon>Form_Room.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Form_RoomInfo.cs">
+    <Compile Include="UI\Room\Form_RoomInfo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UI\Form_RoomInfo.Designer.cs">
+    <Compile Include="UI\Room\Form_RoomInfo.Designer.cs">
       <DependentUpon>Form_RoomInfo.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Form_ServiceManager.cs">
+    <Compile Include="UI\Managerment\Form_ServiceManager.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UI\Form_ServiceManager.Designer.cs">
+    <Compile Include="UI\Managerment\Form_ServiceManager.Designer.cs">
       <DependentUpon>Form_ServiceManager.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Form_Staff.cs">
+    <Compile Include="UI\Managerment\Form_Staff.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UI\Form_Staff.Designer.cs">
+    <Compile Include="UI\Managerment\Form_Staff.Designer.cs">
       <DependentUpon>Form_Staff.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\GetValueOfControl.cs" />
-    <Compile Include="UI\Item_Customer.cs">
+    <Compile Include="UI\Room\GetValueOfControl.cs" />
+    <Compile Include="UI\Managerment\Item_Customer.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UI\Item_Customer.Designer.cs">
+    <Compile Include="UI\Managerment\Item_Customer.Designer.cs">
       <DependentUpon>Item_Customer.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Item_EatService1.cs">
+    <Compile Include="UI\Services\Item_EatService1.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UI\Item_EatService1.Designer.cs">
+    <Compile Include="UI\Services\Item_EatService1.Designer.cs">
       <DependentUpon>Item_EatService1.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Item_EatService2.cs">
+    <Compile Include="UI\Services\Item_EatService2.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UI\Item_EatService2.Designer.cs">
+    <Compile Include="UI\Services\Item_EatService2.Designer.cs">
       <DependentUpon>Item_EatService2.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Item_LaundryService.cs">
+    <Compile Include="UI\Services\Item_LaundryService.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UI\Item_LaundryService.Designer.cs">
+    <Compile Include="UI\Services\Item_LaundryService.Designer.cs">
       <DependentUpon>Item_LaundryService.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Item_ReportBill.cs">
+    <Compile Include="UI\Report\Item_ReportBill.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UI\Item_ReportBill.Designer.cs">
+    <Compile Include="UI\Report\Item_ReportBill.Designer.cs">
       <DependentUpon>Item_ReportBill.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Item_Room.cs">
+    <Compile Include="UI\Room\Item_Room.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UI\Item_Room.Designer.cs">
+    <Compile Include="UI\Room\Item_Room.Designer.cs">
       <DependentUpon>Item_Room.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Item_RoomOfFormBookMulRoom.cs">
+    <Compile Include="UI\Room\Item_RoomOfFormBookMulRoom.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UI\Item_RoomOfFormBookMulRoom.Designer.cs">
+    <Compile Include="UI\Room\Item_RoomOfFormBookMulRoom.Designer.cs">
       <DependentUpon>Item_RoomOfFormBookMulRoom.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Item_ServiceManager.cs">
+    <Compile Include="UI\Managerment\Item_ServiceManager.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UI\Item_ServiceManager.Designer.cs">
+    <Compile Include="UI\Managerment\Item_ServiceManager.Designer.cs">
       <DependentUpon>Item_ServiceManager.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\LoadingForm.cs">
+    <Compile Include="UI\Others\LoadingForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\LoadingForm.Designer.cs">
+    <Compile Include="UI\Others\LoadingForm.Designer.cs">
       <DependentUpon>LoadingForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\OverlayForm.cs">
+    <Compile Include="UI\Others\OverlayForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Item_Staff.cs">
+    <Compile Include="UI\Managerment\Item_Staff.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UI\Item_Staff.Designer.cs">
+    <Compile Include="UI\Managerment\Item_Staff.Designer.cs">
       <DependentUpon>Item_Staff.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\SetValueForControl.cs" />
-    <Compile Include="UI\Form_ChangePassword.cs">
+    <Compile Include="UI\Room\SetValueForControl.cs" />
+    <Compile Include="UI\Managerment\Form_ChangePassword.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Form_ChangePassword.Designer.cs">
+    <Compile Include="UI\Managerment\Form_ChangePassword.Designer.cs">
       <DependentUpon>Form_ChangePassword.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="UI\CustomDateTime.resx">
+    <EmbeddedResource Include="UI\Others\CustomDateTime.resx">
       <DependentUpon>CustomDateTime.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\DropDownList.resx">
+    <EmbeddedResource Include="UI\Others\DropDownList.resx">
       <DependentUpon>DropDownList.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Form_AddEditService.resx">
+    <EmbeddedResource Include="UI\Managerment\Form_AddEditService.resx">
       <DependentUpon>Form_AddEditService.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Form_AddEditStaff.resx">
+    <EmbeddedResource Include="UI\Managerment\Form_AddEditStaff.resx">
       <DependentUpon>Form_AddEditStaff.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Form_BookMulRooms.resx">
+    <EmbeddedResource Include="UI\Room\Form_BookMulRooms.resx">
       <DependentUpon>Form_BookMulRooms.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Form_Customer.resx">
+    <EmbeddedResource Include="UI\Managerment\Form_Customer.resx">
       <DependentUpon>Form_Customer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Form_CustomerBill.resx">
+    <EmbeddedResource Include="UI\Managerment\Form_CustomerBill.resx">
       <DependentUpon>Form_CustomerBill.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Form_EatService.resx">
+    <EmbeddedResource Include="UI\Services\Form_EatService.resx">
       <DependentUpon>Form_EatService.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -347,13 +347,13 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Form_AddEditRoom.resx">
+    <EmbeddedResource Include="UI\Room\Form_AddEditRoom.resx">
       <DependentUpon>Form_AddEditRoom.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Form_EditAccount.resx">
+    <EmbeddedResource Include="UI\Managerment\Form_EditAccount.resx">
       <DependentUpon>Form_EditAccount.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Form_LaundryService.resx">
+    <EmbeddedResource Include="UI\Services\Form_LaundryService.resx">
       <DependentUpon>Form_LaundryService.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Form_Login.resx">
@@ -362,58 +362,58 @@
     <EmbeddedResource Include="UI\Form_Main.resx">
       <DependentUpon>Form_Main.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Form_ReportBill.resx">
+    <EmbeddedResource Include="UI\Report\Form_ReportBill.resx">
       <DependentUpon>Form_ReportBill.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Form_Revenue.resx">
+    <EmbeddedResource Include="UI\Report\Form_Revenue.resx">
       <DependentUpon>Form_Revenue.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Form_Room.resx">
+    <EmbeddedResource Include="UI\Room\Form_Room.resx">
       <DependentUpon>Form_Room.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Form_RoomInfo.resx">
+    <EmbeddedResource Include="UI\Room\Form_RoomInfo.resx">
       <DependentUpon>Form_RoomInfo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Form_ServiceManager.resx">
+    <EmbeddedResource Include="UI\Managerment\Form_ServiceManager.resx">
       <DependentUpon>Form_ServiceManager.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Form_Staff.resx">
+    <EmbeddedResource Include="UI\Managerment\Form_Staff.resx">
       <DependentUpon>Form_Staff.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Item_Customer.resx">
+    <EmbeddedResource Include="UI\Managerment\Item_Customer.resx">
       <DependentUpon>Item_Customer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Item_EatService1.resx">
+    <EmbeddedResource Include="UI\Services\Item_EatService1.resx">
       <DependentUpon>Item_EatService1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Item_EatService2.resx">
+    <EmbeddedResource Include="UI\Services\Item_EatService2.resx">
       <DependentUpon>Item_EatService2.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Item_LaundryService.resx">
+    <EmbeddedResource Include="UI\Services\Item_LaundryService.resx">
       <DependentUpon>Item_LaundryService.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Item_ReportBill.resx">
+    <EmbeddedResource Include="UI\Report\Item_ReportBill.resx">
       <DependentUpon>Item_ReportBill.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Item_Room.resx">
+    <EmbeddedResource Include="UI\Room\Item_Room.resx">
       <DependentUpon>Item_Room.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Item_RoomOfFormBookMulRoom.resx">
+    <EmbeddedResource Include="UI\Room\Item_RoomOfFormBookMulRoom.resx">
       <DependentUpon>Item_RoomOfFormBookMulRoom.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Item_ServiceManager.resx">
+    <EmbeddedResource Include="UI\Managerment\Item_ServiceManager.resx">
       <DependentUpon>Item_ServiceManager.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\LoadingForm.resx">
+    <EmbeddedResource Include="UI\Others\LoadingForm.resx">
       <DependentUpon>LoadingForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\OverlayForm.resx">
+    <EmbeddedResource Include="UI\Others\OverlayForm.resx">
       <DependentUpon>OverlayForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Item_Staff.resx">
+    <EmbeddedResource Include="UI\Managerment\Item_Staff.resx">
       <DependentUpon>Item_Staff.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Form_ChangePassword.resx">
+    <EmbeddedResource Include="UI\Managerment\Form_ChangePassword.resx">
       <DependentUpon>Form_ChangePassword.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />

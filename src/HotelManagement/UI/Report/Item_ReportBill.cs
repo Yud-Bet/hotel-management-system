@@ -126,23 +126,13 @@ namespace HotelManagement.UI
         int TotalMoney = 0;
         int numOfItemPerPage = 0;
         int countItem = 0;
-        private async void PrintDocument_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        private void PrintDocument_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
             try
             {
                 if (!ofCustommer && billType == BillType.Services)
                 {
-                    DataTable SvcBillDetail = await Task.Run(() => {
-                        try
-                        {
-                            return DataAccess.Services.GetServiceBillOnlyDetail(billID);
-                        }
-                        catch
-                        {
-                            return null;
-                        }
-                    });
-                    if (SvcBillDetail == null) throw new Exception("Lỗi khi kết nối đến server!");
+                    DataTable SvcBillDetail = DataAccess.Services.GetServiceBillOnlyDetail(billID);
                     DrawBill drawBill = new DrawBill(e.Graphics);
                     drawBill.drawBillHeader();
                     drawBill.drawServiceInfo();
@@ -173,30 +163,10 @@ namespace HotelManagement.UI
                 }
                 else
                 {
-                    DTO.RoomServices svc = await Task.Run(() => {
-                        try
-                        {
-                            return new DTO.RoomServices(billID, 0, 0);
-                        }
-                        catch
-                        {
-                            return null;
-                        }
-                    });
-                    if (svc == null) throw new Exception("Lỗi khi kết nối đến server!");
+                    DTO.RoomServices svc = new DTO.RoomServices(billID, 0, 0);
                     DrawBill drawBill = new DrawBill(e.Graphics);
                     drawBill.drawBillHeader();
-                    DataTable additionalData = await Task.Run(() => {
-                        try
-                        {
-                            return DataAccess.AdditionalInfoForBillViewing.GetData(billID);
-                        }
-                        catch
-                        {
-                            return null;
-                        }
-                    });
-                    if (additionalData == null) throw new Exception("Lỗi khi kết nối đến server!");
+                    DataTable additionalData = DataAccess.AdditionalInfoForBillViewing.GetData(billID);
                     string CustomerName = additionalData.Rows[0].ItemArray[1].ToString();
                     string CustomerPhoneNo = additionalData.Rows[0].ItemArray[2].ToString();
                     string CustomerAddr = additionalData.Rows[0].ItemArray[3].ToString();
