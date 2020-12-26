@@ -215,6 +215,10 @@ namespace HotelManagement.UI
                     }
                     if (listRoomID.Count > 0)
                     {
+                        if (tbCustomerName.Text == "")
+                        {
+                            setCustomerInfoAlreadyExists("1");
+                        }
                         if (ClientID <= 0)
                         {
                             int a = await Task.Run(() =>
@@ -235,7 +239,7 @@ namespace HotelManagement.UI
                         {
                             try
                             {
-                                int b = DataAccess.CustomerDA.InsertNewRoomReservation(dtpCheckInDate.Value, 0, ParentRef.Username, 0, tbNote.Text);
+                                int b = DataAccess.CustomerDA.InsertNewRoomReservation(dtpCheckInDate.Value, ClientID, ParentRef.Username, 0, tbNote.Text);
                                 int d = DataAccess.CustomerDA.InsertNewBill(0, ParentRef.Username);
                                 return (b, d);
                             }
