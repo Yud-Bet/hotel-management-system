@@ -7,16 +7,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Threading;
 
 namespace HotelManagement.UI
 {
     public partial class Form_ServiceManager : UserControl
     {
         public List<Item_ServiceManager> Services;
-        public Form_ServiceManager()
+        public Form_Main ParentRef;
+        CancellationTokenSource cts = new CancellationTokenSource();
+        public Form_ServiceManager(Form_Main ParentRef)
         {
             InitializeComponent();
-            loadAllService();
+            this.ParentRef = ParentRef;
             //pnToAddItem.Controls.Add(new Item_ServiceManager(this));
             Disposed += (s, e) =>
               {
@@ -36,11 +39,21 @@ namespace HotelManagement.UI
         public Item_ServiceManager ItemIron { get => itemIron; set => itemIron = value; }
         #endregion
 
-        private void loadAllService()
+        private async Task loadAllService()
         {
             Services = new List<Item_ServiceManager>();
             pnToAddItem.Controls.Clear();
-            DataTable dataEatServices = DataAccess.Services.GetServicesInfo(ServiceType.Eating);
+            DataTable dataEatServices = await Task.Run(()=> {
+                try
+                {
+                    return DataAccess.Services.GetServicesInfo(ServiceType.Eating);
+                }
+                catch
+                {
+                    return null;
+                }
+            });
+            if (dataEatServices == null) throw new Exception("Lỗi khi kết nối tới server");
             for (int i = 0; i < dataEatServices.Rows.Count; i++)
             {
                 Item_ServiceManager item = new Item_ServiceManager(Convert.ToInt32(dataEatServices.Rows[i].ItemArray[0]),
@@ -51,7 +64,17 @@ namespace HotelManagement.UI
             }
 
             pnToAddItem.Controls.AddRange(Services.ToArray());
-            DataTable dataLaundryServices = DataAccess.Services.GetServicesInfo(ServiceType.Laundry);
+            DataTable dataLaundryServices = await Task.Run(()=> {
+                try
+                {
+                    return DataAccess.Services.GetServicesInfo(ServiceType.Laundry);
+                }
+                catch
+                {
+                    return null;
+                }
+            });
+            if (dataLaundryServices == null) throw new Exception("Lỗi khi kết nối tới server");
             ItemLaundry = new Item_ServiceManager(Convert.ToInt32(dataLaundryServices.Rows[0].ItemArray[0]),
                                                 dataLaundryServices.Rows[0].ItemArray[1].ToString(),
                                                 Convert.ToInt32(dataLaundryServices.Rows[0].ItemArray[2]),
@@ -119,6 +142,27 @@ namespace HotelManagement.UI
                 List<Item_ServiceManager> SearchRes = await Task.Run(() => SearchForSvcs(tbSearch.Text));
                 pnToAddItem.Controls.Clear();
                 pnToAddItem.Controls.AddRange(SearchRes.ToArray());
+            }
+        }
+
+        private async void Form_ServiceManager_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                OverlayForm overlay = new OverlayForm(ParentRef, new LoadingForm(cts.Token));
+                overlay.Show();
+
+                await loadAllService();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Lỗi");
+            }
+            finally
+            {
+                cts.Cancel();
+                cts.Dispose();
+                cts = new CancellationTokenSource();
             }
         }
     }

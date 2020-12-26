@@ -8,11 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using System.Threading;
 
 namespace HotelManagement.UI
 {
     public partial class Item_ServiceManager : UserControl
     {
+        CancellationTokenSource cts = new CancellationTokenSource();
         public Item_ServiceManager(int id, string name, int price, Form_ServiceManager parentRef)
         {
             InitializeComponent();
@@ -67,28 +69,54 @@ namespace HotelManagement.UI
 
         #endregion
 
-        private void pbRemove_Click(object sender, EventArgs e)
+        private async void pbRemove_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn xóa dịch vụ này không?", "Thông báo!", MessageBoxButtons.YesNo);
-            if (result == DialogResult.Yes)
+            try
             {
-                int ef = DataAccess.Manager.RemoveService(this._itemID);
-                if (ef > 0)
+                OverlayForm overlay = new OverlayForm(parentRef.ParentRef, new LoadingForm(cts.Token));
+                overlay.Show();
+
+                if (result == DialogResult.Yes)
                 {
-                    this.parentRef._pnToAddItem.Controls.Remove(this);
-                    this.parentRef.Services.Remove(this);
-
-                    try
-                    {
-                        string[] staffImageFiles = Directory.GetFiles(@".\\serviceimage", name + "*");
-
-                        foreach (string i in staffImageFiles)
+                    int ef = await Task.Run(() => {
+                        try
                         {
-                            File.Delete(i);
+                            return DataAccess.Manager.RemoveService(this._itemID);
                         }
+                        catch
+                        {
+                            return -2;
+                        }
+                    });
+                    if (ef == -2) throw new Exception("Lỗi khi kết nối đến server");
+                    else if (ef > 0)
+                    {
+                        this.parentRef._pnToAddItem.Controls.Remove(this);
+                        this.parentRef.Services.Remove(this);
+
+                        try
+                        {
+                            string[] staffImageFiles = Directory.GetFiles(@".\\serviceimage", name + "*");
+
+                            foreach (string i in staffImageFiles)
+                            {
+                                File.Delete(i);
+                            }
+                        }
+                        catch { }
                     }
-                    catch { }
                 }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Lỗi");
+            }
+            finally
+            {
+                cts.Cancel();
+                cts.Dispose();
+                cts = new CancellationTokenSource();
             }
         }
 

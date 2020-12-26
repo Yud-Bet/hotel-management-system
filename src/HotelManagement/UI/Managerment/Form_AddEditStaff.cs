@@ -14,6 +14,7 @@ namespace HotelManagement.UI
     {
         OpenFileDialog open = new OpenFileDialog();
         CancellationTokenSource cts = new CancellationTokenSource();
+        string Username;
 
         //Use add staff
         public Form_AddEditStaff(Form_Staff parentRef)
@@ -58,7 +59,8 @@ namespace HotelManagement.UI
             dtBirthdate.Enabled = false;
             dtStartDate.Enabled = false;
 
-            loadDataIfShowInfo(username);
+            Username = username;
+            Load += new EventHandler(loadDataIfShowInfo);
         }
 
         #region properties
@@ -66,25 +68,51 @@ namespace HotelManagement.UI
         Form_Staff parentRef_Addstaff;
         #endregion
 
-        void loadDataIfShowInfo(string username)
+        private async void loadDataIfShowInfo(object sender, EventArgs e)
         {
-            DataTable data = DataAccess.Account.GetStaffInfor(username);
-            if (data.Rows.Count > 0)
+            try
             {
-                tbID.Text = data.Rows[0].ItemArray[0].ToString();
-                tbName.Text = data.Rows[0].ItemArray[1].ToString();
-                if (Convert.ToInt32(data.Rows[0].ItemArray[2]) == 0)
-                    rbManager.Checked = true;
-                else rbNorStaff.Checked = true;
-                tbIDNo.Text = data.Rows[0].ItemArray[4].ToString();
-                dtBirthdate.Value = Convert.ToDateTime(data.Rows[0].ItemArray[5]);
-                if (Convert.ToInt32(data.Rows[0].ItemArray[6]) == 0)
-                    rbMale.Checked = true;
-                else rbFemale.Checked = true;
-                tbAddress.Text = data.Rows[0].ItemArray[7].ToString();
-                tbPhonenum.Text = data.Rows[0].ItemArray[8].ToString();
-                dtStartDate.Value = Convert.ToDateTime(data.Rows[0].ItemArray[9]);
-                tbSalary.Text = data.Rows[0].ItemArray[10].ToString();
+                OverlayForm overlay = new OverlayForm(this, new LoadingForm(cts.Token));
+                overlay.Show();
+
+                DataTable data = await Task.Run(() => {
+                    try
+                    {
+                        return DataAccess.Account.GetStaffInfor(Username);
+                    }
+                    catch
+                    {
+                        return null;
+                    }
+                });
+                if (data == null) throw new Exception("Lỗi khi kết nối đến server");
+                if (data.Rows.Count > 0)
+                {
+                    tbID.Text = data.Rows[0].ItemArray[0].ToString();
+                    tbName.Text = data.Rows[0].ItemArray[1].ToString();
+                    if (Convert.ToInt32(data.Rows[0].ItemArray[2]) == 0)
+                        rbManager.Checked = true;
+                    else rbNorStaff.Checked = true;
+                    tbIDNo.Text = data.Rows[0].ItemArray[4].ToString();
+                    dtBirthdate.Value = Convert.ToDateTime(data.Rows[0].ItemArray[5]);
+                    if (Convert.ToInt32(data.Rows[0].ItemArray[6]) == 0)
+                        rbMale.Checked = true;
+                    else rbFemale.Checked = true;
+                    tbAddress.Text = data.Rows[0].ItemArray[7].ToString();
+                    tbPhonenum.Text = data.Rows[0].ItemArray[8].ToString();
+                    dtStartDate.Value = Convert.ToDateTime(data.Rows[0].ItemArray[9]);
+                    tbSalary.Text = data.Rows[0].ItemArray[10].ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Lỗi");
+            }
+            finally
+            {
+                cts.Cancel();
+                cts.Dispose();
+                cts = new CancellationTokenSource();
             }
         }
 
@@ -131,77 +159,111 @@ namespace HotelManagement.UI
             }
         }
 
-        private void btSave_Click(object sender, EventArgs e)
+        private async void btSave_Click(object sender, EventArgs e)
         {
             if (!checkValidityOfValue())
                 return;
-
             try
             {
-                string[] staffImageFiles = Directory.GetFiles(@".\\staffimage", parentRef_EditStaff._IDNo + "*");
+                OverlayForm overlay = new OverlayForm(parentRef_EditStaff.parentRef.parentRef, new LoadingForm(cts.Token));
+                overlay.Show();
 
-                File.Move(@".\\staffimage\\" + parentRef_EditStaff._IDNo + Path.GetExtension(staffImageFiles[0]),
-                    @".\\staffimage\\" + tbIDNo.Text + Path.GetExtension(staffImageFiles[0]));
-            }
-            catch { }
-
-            parentRef_EditStaff._Name = tbName.Text;
-            parentRef_EditStaff._Birthdate = dtBirthdate.Value;
-            parentRef_EditStaff._Sex = rbFemale.Checked;
-            parentRef_EditStaff._Address = tbAddress.Text;
-            parentRef_EditStaff._Phonenum = tbPhonenum.Text;
-            parentRef_EditStaff._IDNo = tbIDNo.Text;
-            parentRef_EditStaff._Position = rbNorStaff.Checked;
-            parentRef_EditStaff._StartDate = dtStartDate.Value;
-            parentRef_EditStaff._Salary = Convert.ToInt32(tbSalary.Text);
-
-            parentRef_EditStaff.parentRef.setStaffValues(parentRef_EditStaff);
-            int ef = DataAccess.Manager.SetStaffInfo(parentRef_EditStaff._ID, parentRef_EditStaff._Name, parentRef_EditStaff._Birthdate, parentRef_EditStaff._Sex,
-                                                     parentRef_EditStaff._Address, parentRef_EditStaff._Phonenum, parentRef_EditStaff._IDNo, parentRef_EditStaff._Position,
-                                                     parentRef_EditStaff._StartDate, parentRef_EditStaff._Salary, "");
-            try
-            {
-                if (open.FileName != "")
-                {
-                    if (!Directory.Exists(@".\\staffimage"))
+                string StaffName = tbName.Text;
+                DateTime BirthDay = dtBirthdate.Value;
+                bool Sex = rbFemale.Checked;
+                string Address = tbAddress.Text;
+                string Phonenum = tbPhonenum.Text;
+                string IDno = tbIDNo.Text;
+                bool Position = rbNorStaff.Checked;
+                DateTime StartDate = dtStartDate.Value;
+                int Salary = Convert.ToInt32(tbSalary.Text);
+                int ef = await Task.Run(()=> {
+                    try
                     {
-                        Directory.CreateDirectory(@".\\staffimage");
+                        return DataAccess.Manager.SetStaffInfo(parentRef_EditStaff._ID, StaffName, BirthDay, Sex,
+                                                         Address, Phonenum, IDno, Position, StartDate, Salary, "");
                     }
+                    catch
+                    {
+                        return -2;
+                    }
+                });
+                if (ef == -2) throw new Exception("Lỗi khi kết nối đến server");
 
+                try
+                {
                     string[] staffImageFiles = Directory.GetFiles(@".\\staffimage", parentRef_EditStaff._IDNo + "*");
 
-                    foreach (string i in staffImageFiles)
-                    {
-                        File.Delete(i);
-                    }
+                    File.Move(@".\\staffimage\\" + parentRef_EditStaff._IDNo + Path.GetExtension(staffImageFiles[0]),
+                        @".\\staffimage\\" + tbIDNo.Text + Path.GetExtension(staffImageFiles[0]));
+                }
+                catch { }
 
-                    File.Copy(open.FileName, @".\\staffimage\\" + parentRef_EditStaff._IDNo + Path.GetExtension(open.FileName));
-                    
-                    Image image;
-                    using (Stream stream = File.OpenRead(@".\\staffimage\\" + parentRef_EditStaff._IDNo + Path.GetExtension(open.FileName)))
+                parentRef_EditStaff._Name = StaffName;
+                parentRef_EditStaff._Birthdate = BirthDay;
+                parentRef_EditStaff._Sex = Sex;
+                parentRef_EditStaff._Address = Address;
+                parentRef_EditStaff._Phonenum = Phonenum;
+                parentRef_EditStaff._IDNo = IDno;
+                parentRef_EditStaff._Position = Position;
+                parentRef_EditStaff._StartDate = StartDate;
+                parentRef_EditStaff._Salary = Salary;
+
+                parentRef_EditStaff.parentRef.setStaffValues(parentRef_EditStaff);
+                try
+                {
+                    if (open.FileName != "")
                     {
-                        image = System.Drawing.Image.FromStream(stream);
+                        if (!Directory.Exists(@".\\staffimage"))
+                        {
+                            Directory.CreateDirectory(@".\\staffimage");
+                        }
+
+                        string[] staffImageFiles = Directory.GetFiles(@".\\staffimage", parentRef_EditStaff._IDNo + "*");
+
+                        foreach (string i in staffImageFiles)
+                        {
+                            File.Delete(i);
+                        }
+
+                        File.Copy(open.FileName, @".\\staffimage\\" + parentRef_EditStaff._IDNo + Path.GetExtension(open.FileName));
+
+                        Image image;
+                        using (Stream stream = File.OpenRead(@".\\staffimage\\" + parentRef_EditStaff._IDNo + Path.GetExtension(open.FileName)))
+                        {
+                            image = System.Drawing.Image.FromStream(stream);
+                        }
+                        staffImage.Image = image;
+                        parentRef_EditStaff.setStaffImage();
+                        parentRef_EditStaff.parentRef._staffImage.Image = image;
                     }
-                    staffImage.Image = image;
-                    parentRef_EditStaff.setStaffImage();
-                    parentRef_EditStaff.parentRef._staffImage.Image = image;
+                }
+                catch { }
+
+                if (ef > 0)
+                {
+                    if (parentRef_EditStaff._IsUsingThisAcc)
+                    {
+                        MessageBox.Show("Bạn vừa sửa thông tin nhân viên đang đăng nhập.\nVui lòng đăng nhập lại để cập nhật thông tin!", "Thông báo!");
+                        this.Close();
+                        this.parentRef_EditStaff.parentRef.parentRef.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Sửa thông tin thành công!", "Thông báo!");
+                        this.Close();
+                    }
                 }
             }
-            catch {}
-            
-            if (ef > 0)
+            catch (Exception ex)
             {
-                if (parentRef_EditStaff._IsUsingThisAcc)
-                {
-                    MessageBox.Show("Bạn vừa sửa thông tin nhân viên đang đăng nhập.\nVui lòng đăng nhập lại để cập nhật thông tin!", "Thông báo!");
-                    this.Close();
-                    this.parentRef_EditStaff.parentRef.parentRef.Close();
-                }
-                else
-                {
-                    MessageBox.Show("Sửa thông tin thành công!", "Thông báo!");
-                    this.Close();
-                }
+                MessageBox.Show(ex.Message, "Lỗi");
+            }
+            finally
+            {
+                cts.Cancel();
+                cts.Dispose();
+                cts = new CancellationTokenSource();
             }
         }
 

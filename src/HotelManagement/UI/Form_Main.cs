@@ -568,7 +568,7 @@ namespace HotelManagement.UI
                 pnToAddForm.Dispose();
                 System.GC.Collect();
                 createPanelToAddForm();
-                pnToAddForm.Controls.Add(new Form_ServiceManager());
+                pnToAddForm.Controls.Add(new Form_ServiceManager(this));
             }
         }
 

@@ -1,21 +1,23 @@
 ﻿using HotelManagement.Properties;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Threading;
 
 namespace HotelManagement.UI
 {
     public partial class Form_AddEditService : MetroFramework.Forms.MetroForm
     {
         OpenFileDialog open = new OpenFileDialog();
+        CancellationTokenSource cts = new CancellationTokenSource();
+        #region Icon
+        private static Bitmap Washing = Resources.washing;
+        private static Bitmap Iron = Resources.iron;
+        #endregion
 
         public Form_AddEditService(Item_ServiceManager parentRefItem, Form_ServiceManager parentRefForm, ServiceManagerType type)
         {
@@ -53,14 +55,14 @@ namespace HotelManagement.UI
                     btAddService.Hide();
                     this.tbName.Text = this.parentRefForm.ItemLaundry._name;
                     this.tbPrice.Text = this.parentRefForm.ItemLaundry._price.ToString();
-                    pbServiceImage.Image = Resources.washing;
+                    pbServiceImage.Image = Washing;
                     btAddServiceImage.Hide();
                     break;
                 case ServiceManagerType.EditIronService:
                     btAddService.Hide();
                     this.tbName.Text = this.parentRefForm.ItemIron._name;
                     this.tbPrice.Text = this.parentRefForm.ItemIron._price.ToString();
-                    pbServiceImage.Image = Resources.iron;
+                    pbServiceImage.Image = Iron;
                     btAddServiceImage.Hide();
                     break;
                 default:
@@ -75,113 +77,201 @@ namespace HotelManagement.UI
         Form_ServiceManager parentRefForm;
         #endregion
 
-        private void btAddService_Click(object sender, EventArgs e)
+        private async void btAddService_Click(object sender, EventArgs e)
         {
             if (!checkValidValue()) return;
 
-            int ef = DataAccess.Manager.AddNewService(ServiceType.Eating, tbName.Text, Convert.ToInt32(tbPrice.Text));
-            if (ef > 0)
+            try
             {
-                DataTable data = DataAccess.Manager.GetServiceIdOfNewService();
-                Item_ServiceManager item = new Item_ServiceManager(Convert.ToInt32(data.Rows[0].ItemArray[0]), tbName.Text, Convert.ToInt32(tbPrice.Text), this.parentRefForm);
-                this.parentRefForm._pnToAddItem.Controls.Add(item);
-                this.parentRefForm.Services.Add(item);
+                OverlayForm overlay = new OverlayForm(this, new LoadingForm(cts.Token));
+                overlay.Show();
 
-                try
-                {
-                    if (open.FileName != "")
+                string ItemName = tbName.Text;
+                int Price = Convert.ToInt32(tbPrice.Text);
+                int ef = await Task.Run(()=> {
+                    try
                     {
-                        if (!Directory.Exists(@".\\serviceimage"))
-                        {
-                            Directory.CreateDirectory(@".\\serviceimage");
-                        }
-
-                        string[] staffImageFiles = Directory.GetFiles(@".\\serviceimage", item._name + "*");
-
-                        foreach (string i in staffImageFiles)
-                        {
-                            File.Delete(i);
-                        }
-
-                        File.Copy(open.FileName, @".\\serviceimage\\" + item._name + Path.GetExtension(open.FileName));
-                        item.setServiceImage();
+                        return DataAccess.Manager.AddNewService(ServiceType.Eating, ItemName, Price);
                     }
-                }
-                catch { }
+                    catch
+                    {
+                        return -2;
+                    }
+                });
+                if (ef == -2) throw new Exception("Lỗi khi kết nối đến server");
+                else if (ef > 0)
+                {
+                    DataTable data = await Task.Run(()=> {
+                        try
+                        {
+                            return DataAccess.Manager.GetServiceIdOfNewService();
+                        }
+                        catch
+                        {
+                            return null;
+                        }
+                    });
+                    if (data == null) throw new Exception("Lỗi khi kết nối đến server");
+                    Item_ServiceManager item = new Item_ServiceManager(Convert.ToInt32(data.Rows[0].ItemArray[0]), tbName.Text, Convert.ToInt32(tbPrice.Text), this.parentRefForm);
+                    this.parentRefForm._pnToAddItem.Controls.Add(item);
+                    this.parentRefForm.Services.Add(item);
 
-                MessageBox.Show("Thêm dịch vụ mới thành công!", "Thông báo!");
-                this.Close();
+                    try
+                    {
+                        if (open.FileName != "")
+                        {
+                            if (!Directory.Exists(@".\\serviceimage"))
+                            {
+                                Directory.CreateDirectory(@".\\serviceimage");
+                            }
+
+                            string[] staffImageFiles = Directory.GetFiles(@".\\serviceimage", item._name + "*");
+
+                            foreach (string i in staffImageFiles)
+                            {
+                                File.Delete(i);
+                            }
+
+                            File.Copy(open.FileName, @".\\serviceimage\\" + item._name + Path.GetExtension(open.FileName));
+                            item.setServiceImage();
+                        }
+                    }
+                    catch { }
+
+                    MessageBox.Show("Thêm dịch vụ mới thành công!", "Thông báo!");
+                    this.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Lỗi");
+            }
+            finally
+            {
+                cts.Cancel();
+                cts.Dispose();
+                cts = new CancellationTokenSource();
             }
         }
 
-        private void btSave_Click(object sender, EventArgs e)
+        private async void btSave_Click(object sender, EventArgs e)
         {
             if (!checkValidValue()) return;
-            switch (formType)
+            try
             {
-                case ServiceManagerType.EditEatService:
-                    int ef  = DataAccess.Manager.SetServiceInfo(this.parentRefItem._itemID, tbName.Text, Convert.ToInt32(tbPrice.Text));
-                    if (ef > 0)
-                    {
-                        this.parentRefItem._name = tbName.Text;
-                        this.parentRefItem._price = Convert.ToInt32(tbPrice.Text);
+                OverlayForm overlay = new OverlayForm(this, new LoadingForm(cts.Token));
+                overlay.Show();
 
+                string ItemName = tbName.Text;
+                int Price = Convert.ToInt32(tbPrice.Text);
+                switch (formType)
+                {
+                    case ServiceManagerType.EditEatService:
+                        int ItemID = this.parentRefItem._itemID;
+                        int ef = await Task.Run(() => {
                         try
                         {
-                            if (open.FileName != "")
-                            {
-                                if (!Directory.Exists(@".\\serviceimage"))
-                                {
-                                    Directory.CreateDirectory(@".\\serviceimage");
-                                }
-
-                                string[] staffImageFiles = Directory.GetFiles(@".\\serviceimage", parentRefItem._name + "*");
-
-                                foreach (string i in staffImageFiles)
-                                {
-                                    File.Delete(i);
-                                }
-
-                                File.Copy(open.FileName, @".\\serviceimage\\" + parentRefItem._name + Path.GetExtension(open.FileName));
-                                parentRefItem.setServiceImage();
-                            }
+                            return DataAccess.Manager.SetServiceInfo(ItemID, ItemName, Price);
                         }
-                        catch { }
+                        catch
+                        {
+                            return -2;
+                        }
+                        });
+                        if (ef == -2) throw new Exception("Lỗi khi kết nối đến server");
+                        else if (ef > 0)
+                        {
+                            this.parentRefItem._name = tbName.Text;
+                            this.parentRefItem._price = Convert.ToInt32(tbPrice.Text);
 
-                        MessageBox.Show("Sửa thông tin dịch vụ thành công!", "Thông báo!");
-                        this.Close();
-                    }
-                    break;
-                case ServiceManagerType.EditWashService:
-                    int Ef = DataAccess.Manager.SetServiceInfo(this.parentRefForm.ItemLaundry._itemID, tbName.Text, Convert.ToInt32(tbPrice.Text));
-                    if (Ef > 0)
-                    {
-                        this.parentRefForm.ItemLaundry._name = tbName.Text;
-                        this.parentRefForm.LbLaundryName.Text = tbName.Text;
+                            try
+                            {
+                                if (open.FileName != "")
+                                {
+                                    if (!Directory.Exists(@".\\serviceimage"))
+                                    {
+                                        Directory.CreateDirectory(@".\\serviceimage");
+                                    }
 
-                        this.parentRefForm.ItemLaundry._price = Convert.ToInt32(tbPrice.Text);
-                        this.parentRefForm.LbLaundryPrice.Text = tbPrice.Text;
+                                    string[] staffImageFiles = Directory.GetFiles(@".\\serviceimage", parentRefItem._name + "*");
 
-                        MessageBox.Show("Sửa thông tin dịch vụ thành công!", "Thông báo!");
-                        this.Close();
-                    }
-                    break;
-                case ServiceManagerType.EditIronService:
-                    int EF = DataAccess.Manager.SetServiceInfo(this.parentRefForm.ItemIron._itemID, tbName.Text, Convert.ToInt32(tbPrice.Text));
-                    if (EF > 0)
-                    {
-                        this.parentRefForm.ItemIron._name = tbName.Text;
-                        this.parentRefForm.LbIronName.Text = tbName.Text;
+                                    foreach (string i in staffImageFiles)
+                                    {
+                                        File.Delete(i);
+                                    }
 
-                        this.parentRefForm.ItemIron._price = Convert.ToInt32(tbPrice.Text);
-                        this.parentRefForm.LbIronPrice.Text = tbPrice.Text;
+                                    File.Copy(open.FileName, @".\\serviceimage\\" + parentRefItem._name + Path.GetExtension(open.FileName));
+                                    parentRefItem.setServiceImage();
+                                }
+                            }
+                            catch { }
 
-                        MessageBox.Show("Sửa thông tin dịch vụ thành công!", "Thông báo!");
-                        this.Close();
-                    }
-                    break;
+                            MessageBox.Show("Sửa thông tin dịch vụ thành công!", "Thông báo!");
+                            this.Close();
+                        }
+                        break;
+                    case ServiceManagerType.EditWashService:
+                        int WashID = this.parentRefForm.ItemLaundry._itemID;
+                        int Ef = await Task.Run(()=> {
+                            try
+                            {
+                                return DataAccess.Manager.SetServiceInfo(WashID, ItemName, Price);
+                            }
+                            catch
+                            {
+                                return -2;
+                            }
+                        });
+                        if (Ef == -2) throw new Exception("Lỗi khi kết nối đến server");
+                        else if (Ef > 0)
+                        {
+                            this.parentRefForm.ItemLaundry._name = tbName.Text;
+                            this.parentRefForm.LbLaundryName.Text = tbName.Text;
+
+                            this.parentRefForm.ItemLaundry._price = Convert.ToInt32(tbPrice.Text);
+                            this.parentRefForm.LbLaundryPrice.Text = tbPrice.Text;
+
+                            MessageBox.Show("Sửa thông tin dịch vụ thành công!", "Thông báo!");
+                            this.Close();
+                        }
+                        break;
+                    case ServiceManagerType.EditIronService:
+                        int IronID = this.parentRefForm.ItemIron._itemID;
+                        int EF = await Task.Run(()=> {
+                            try
+                            {
+                                return DataAccess.Manager.SetServiceInfo(IronID, ItemName, Price);
+                            }
+                            catch
+                            {
+                                return -2;
+                            }
+                        });
+                        if (EF == -2) throw new Exception("Lỗi khi kết nối đến server");
+                        if (EF > 0)
+                        {
+                            this.parentRefForm.ItemIron._name = tbName.Text;
+                            this.parentRefForm.LbIronName.Text = tbName.Text;
+
+                            this.parentRefForm.ItemIron._price = Convert.ToInt32(tbPrice.Text);
+                            this.parentRefForm.LbIronPrice.Text = tbPrice.Text;
+
+                            MessageBox.Show("Sửa thông tin dịch vụ thành công!", "Thông báo!");
+                            this.Close();
+                        }
+                        break;
+                }
             }
-
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Lỗi");
+            }
+            finally
+            {
+                cts.Cancel();
+                cts.Dispose();
+                cts = new CancellationTokenSource();
+            }
         }
 
         private bool checkValidValue()

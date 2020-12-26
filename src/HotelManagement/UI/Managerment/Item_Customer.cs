@@ -22,7 +22,7 @@ namespace HotelManagement.UI
             lbIDNO.Text = IDNo;
             lbPhonenum.Text = Phonenum;
             lbBirthdate.Text = Birthdate.ToShortDateString();
-            lbSex.Text = (sex) ? "Nam" : "Nữ";
+            lbSex.Text = (sex) ? "Nữ" : "Nam";
             lbAddress.Text = Address;
             lbRevenue.Text = Revenue.ToString("C", CultureInfo.GetCultureInfo("vi-VN"));
 
