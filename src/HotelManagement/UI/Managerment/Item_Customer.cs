@@ -10,6 +10,7 @@ namespace HotelManagement.UI
     {
         bool isHide = true;
         Form_Customer parentRef;
+        public string _Name;
 
         public Item_Customer(int ID, string Name, string IDNo, string Phonenum, DateTime Birthdate, bool sex, string Address, int Revenue, Form_Customer ParentRef)
         {
@@ -17,7 +18,7 @@ namespace HotelManagement.UI
             this.Size = new Size(815, 33);
 
             lbID.Text = ID.ToString();
-            lbName.Text = Name;
+            lbName.Text = _Name = Name;
             lbIDNO.Text = IDNo;
             lbPhonenum.Text = Phonenum;
             lbBirthdate.Text = Birthdate.ToShortDateString();

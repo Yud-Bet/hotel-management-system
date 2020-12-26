@@ -214,6 +214,7 @@
             this.tbSearch.TextBackgroundColor = System.Drawing.SystemColors.Control;
             this.tbSearch.UseSystemPasswordChar = false;
             this.tbSearch.WordWrap = true;
+            this.tbSearch.TextChanged += new System.EventHandler(this.tbSearch_TextChanged);
             // 
             // cbSort
             // 
@@ -267,6 +268,7 @@
             this.Controls.Add(this.lbTitle);
             this.Name = "Form_Customer";
             this.Size = new System.Drawing.Size(968, 666);
+            this.Load += new System.EventHandler(this.Form_Customer_Load);
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             this.pnAddItem.ResumeLayout(false);

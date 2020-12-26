@@ -101,8 +101,17 @@ namespace HotelManagement.UI
                 Price = Convert.ToInt32(tbRoomPrice.Text);
                 Type = GetValueOfControl.GetRoomType(rbtNor, rbtVip, rbtSingle, rbtDouble);
 
-                int RowsAffected = await Task.Run(() => DataAccess.RoomDA.AddNewRoom(Type, RoomSize));
-
+                int RowsAffected = await Task.Run(() => {
+                    try
+                    {
+                        return DataAccess.RoomDA.AddNewRoom(Type, RoomSize);
+                    }
+                    catch
+                    {
+                        return -2;
+                    }
+                });
+                if (RowsAffected == -2) throw new Exception("Lỗi khi kết nối đến server!");
                 if (RowsAffected > 0)
                 {
                     MessageBox.Show("Thêm phòng mới thành công!", "Thông báo!");
@@ -123,10 +132,6 @@ namespace HotelManagement.UI
                 }
 
                 this.Close();
-            }
-            catch (System.Data.SqlClient.SqlException)
-            {
-                MessageBox.Show("Lỗi khi kết nối đến server!", "Lỗi");
             }
             catch (Exception ex)
             {

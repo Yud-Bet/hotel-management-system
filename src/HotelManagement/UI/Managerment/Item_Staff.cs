@@ -11,6 +11,7 @@ namespace HotelManagement.UI
     public partial class Item_Staff : UserControl
     {
         CancellationTokenSource cts;
+        static Bitmap DefaultUserImage = Resources.profile_user;
         public Item_Staff(Form_Staff parentRef)
         {
             InitializeComponent();
@@ -149,7 +150,17 @@ namespace HotelManagement.UI
                 }
                 try
                 {
-                    int a = await Task.Run(() => DataAccess.Manager.RemoveStaff(this._ID));
+                    int a = await Task.Run(() => {
+                        try
+                        {
+                            return DataAccess.Manager.RemoveStaff(this._ID);
+                        }
+                        catch
+                        {
+                            return -2;
+                        }
+                    });
+                    if (a == -2) throw new Exception("Lỗi khi kết nối đến server!");
                     if (!Directory.Exists(@".\\staffimage"))
                     {
                         Directory.CreateDirectory(@".\\staffimage");
@@ -164,13 +175,9 @@ namespace HotelManagement.UI
                     parentRef._pnToAddItem.Controls.Remove(this);
                     parentRef.item_Staffs.Remove(this);
                 }
-                catch (System.Data.SqlClient.SqlException)
-                {
-                    MessageBox.Show("Lỗi khi kết nối đến server!", "Lỗi");
-                }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message);
+                    MessageBox.Show(ex.Message, "Lỗi");
                 }
                 finally
                 {
@@ -222,7 +229,7 @@ namespace HotelManagement.UI
             }
             catch
             {
-                staffImage.Image = Resources.profile_user;
+                staffImage.Image = DefaultUserImage;
             }
         } 
     }

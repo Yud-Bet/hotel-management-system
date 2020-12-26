@@ -1,39 +1,78 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
 using System.Data;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Threading;
 
 namespace HotelManagement.UI
 {
+    using Customers = List<Item_Customer>; 
     public partial class Form_Customer : UserControl
     {
-        public Form_Customer()
+        Customers customers;
+        Form_Main ParentRef;
+        CancellationTokenSource cts;
+        public Form_Customer(Form_Main ParentRef)
         {
             InitializeComponent();
-            load_AllCustomer();
+            customers = new Customers();
+            this.ParentRef = ParentRef;
+            cts = new CancellationTokenSource();
         }
 
-        private void load_AllCustomer()
+        private async void Form_Customer_Load(object sender, EventArgs e)
         {
-            DataTable dataAllCustomer = DataAccess.Manager.GetAllCustomer(Convert.ToInt32(cbSort.SelectedIndex));
-            pnAddItem.Controls.Clear();
-            for (int i=0; i<dataAllCustomer.Rows.Count; i++)
-            {
+            await load_AllCustomer();
+        }
 
-                pnAddItem.Controls.Add(new Item_Customer(Convert.ToInt32(dataAllCustomer.Rows[i].ItemArray[0]),
-                                                        dataAllCustomer.Rows[i].ItemArray[1].ToString(),
-                                                        dataAllCustomer.Rows[i].ItemArray[2].ToString(),
-                                                        dataAllCustomer.Rows[i].ItemArray[3].ToString(),
-                                                        Convert.ToDateTime(dataAllCustomer.Rows[i].ItemArray[4]),
-                                                        Convert.ToBoolean(dataAllCustomer.Rows[i].ItemArray[5]),
-                                                        dataAllCustomer.Rows[i].ItemArray[6].ToString(),
-                                                        Convert.ToInt32(dataAllCustomer.Rows[i].ItemArray[7]),
-                                                        this));
+        private async Task load_AllCustomer()
+        {
+            try
+            {
+                OverlayForm overlay = new OverlayForm(ParentRef, new LoadingForm(cts.Token));
+                overlay.Show();
+
+                int cbSortSelectedIndex = cbSort.SelectedIndex;
+                (DataTable, bool) tuple = await Task.Run(() =>
+                {
+                    try
+                    {
+                        return (DataAccess.Manager.GetAllCustomer(cbSortSelectedIndex), false);
+                    }
+                    catch
+                    {
+                        return (null, true);
+                    }
+                });
+                if (tuple.Item2) throw new Exception("Lỗi khi kết nối tới server");
+                DataTable dataAllCustomer = tuple.Item1;
+                pnAddItem.Controls.Clear();
+                customers.Clear();
+                for (int i = 0; i < dataAllCustomer.Rows.Count; i++)
+                {
+
+                    customers.Add(new Item_Customer(Convert.ToInt32(dataAllCustomer.Rows[i].ItemArray[0]),
+                                                            dataAllCustomer.Rows[i].ItemArray[1].ToString(),
+                                                            dataAllCustomer.Rows[i].ItemArray[2].ToString(),
+                                                            dataAllCustomer.Rows[i].ItemArray[3].ToString(),
+                                                            Convert.ToDateTime(dataAllCustomer.Rows[i].ItemArray[4]),
+                                                            Convert.ToBoolean(dataAllCustomer.Rows[i].ItemArray[5]),
+                                                            dataAllCustomer.Rows[i].ItemArray[6].ToString(),
+                                                            Convert.ToInt32(dataAllCustomer.Rows[i].ItemArray[7]),
+                                                            this));
+                }
+                pnAddItem.Controls.AddRange(customers.ToArray());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Lỗi");
+            }
+            finally
+            {
+                cts.Cancel();
+                cts.Dispose();
+                cts = new CancellationTokenSource();
             }
         }
 
@@ -49,9 +88,9 @@ namespace HotelManagement.UI
             GC.Collect();
         }
 
-        private void cbSort_SelectedIndexChanged(object sender, EventArgs e)
+        private async void cbSort_SelectedIndexChanged(object sender, EventArgs e)
         {
-            load_AllCustomer();
+            await load_AllCustomer();
         }
 
         private void pnAddItem_ControlAdded(object sender, ControlEventArgs e)
@@ -64,6 +103,37 @@ namespace HotelManagement.UI
             if (pnAddItem.Controls.Count == 1)
             {
                 lbListCustomerIsEmpty.Show();
+            }
+        }
+
+        private async Task<Customers> SearchForCustomers(string Criteria)
+        {
+            Customers res = new Customers();
+            await Task.Run(() =>
+            {
+                for (int i = 0; i < customers.Count; i++)
+                {
+                    if (customers[i]._Name.ToLower().Contains(Criteria.ToLower()))
+                    {
+                        res.Add(customers[i]);
+                    }
+                }
+            });
+            return res;
+        }
+
+        private async void tbSearch_TextChanged(object sender, EventArgs e)
+        {
+            if (tbSearch.Text == "")
+            {
+                _pnToAddItem.Controls.Clear();
+                _pnToAddItem.Controls.AddRange(customers.ToArray());
+            }
+            else
+            {
+                Customers SearchRes = await SearchForCustomers(tbSearch.Text);
+                _pnToAddItem.Controls.Clear();
+                _pnToAddItem.Controls.AddRange(SearchRes.ToArray());
             }
         }
     }

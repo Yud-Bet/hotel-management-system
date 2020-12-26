@@ -5,12 +5,15 @@ using System.Windows.Forms;
 using System.Data;
 using System.Text.RegularExpressions;
 using HotelManagement.Properties;
+using System.Threading.Tasks;
+using System.Threading;
 
 namespace HotelManagement.UI
 {
     public partial class Form_AddEditStaff : MetroFramework.Forms.MetroForm
     {
         OpenFileDialog open = new OpenFileDialog();
+        CancellationTokenSource cts = new CancellationTokenSource();
 
         //Use add staff
         public Form_AddEditStaff(Form_Staff parentRef)
@@ -132,7 +135,11 @@ namespace HotelManagement.UI
         {
             if (!checkValidityOfValue())
                 return;
-            
+
+
+            int ef = DataAccess.Manager.SetStaffInfo(parentRef_EditStaff._ID, tbName.Text, dtBirthdate.Value, rbFemale.Checked,
+                                                     tbAddress.Text, tbPhonenum.Text, tbIDNo.Text, rbNorStaff.Checked,
+                                                     dtStartDate.Value, Convert.ToInt32(tbSalary.Text), "");
             parentRef_EditStaff._Name = tbName.Text;
             parentRef_EditStaff._Birthdate = dtBirthdate.Value;
             parentRef_EditStaff._Sex = rbFemale.Checked;
@@ -144,9 +151,6 @@ namespace HotelManagement.UI
             parentRef_EditStaff._Salary = Convert.ToInt32(tbSalary.Text);
 
             parentRef_EditStaff.parentRef.setStaffValues(parentRef_EditStaff);
-            int ef = DataAccess.Manager.SetStaffInfo(parentRef_EditStaff._ID, parentRef_EditStaff._Name, parentRef_EditStaff._Birthdate, parentRef_EditStaff._Sex,
-                                                     parentRef_EditStaff._Address, parentRef_EditStaff._Phonenum, parentRef_EditStaff._IDNo, parentRef_EditStaff._Position,
-                                                     parentRef_EditStaff._StartDate, parentRef_EditStaff._Salary, "");
             try
             {
                 if (open.FileName != "")
@@ -240,55 +244,91 @@ namespace HotelManagement.UI
 
             return true;
         }
-        private void btAddStaff_Click(object sender, EventArgs e)
+        private async void btAddStaff_Click(object sender, EventArgs e)
         {
             if (!checkValidityOfValue())
                 return;
-            Item_Staff item_Staff = new Item_Staff(parentRef_Addstaff);
-            item_Staff._Username = "";
-            item_Staff._Pass = "";
-            item_Staff._Name = tbName.Text;
-            item_Staff._Birthdate = dtBirthdate.Value;
-            item_Staff._Sex = rbMale.Checked;
-            item_Staff._Address = tbAddress.Text;
-            item_Staff._Phonenum = tbPhonenum.Text;
-            item_Staff._IDNo = tbIDNo.Text;
-            item_Staff._Position = rbNorStaff.Checked;
-            item_Staff._StartDate = dtStartDate.Value;
-            item_Staff._Salary = Convert.ToInt32(tbSalary.Text);
-            //int a = DataAccess.Manager.AddNewStaff("new", "new", "new", DateTime.Now, false , "", "", "100", false, DateTime.Now, 1000, "");
-            int a = DataAccess.Manager.AddNewStaff(item_Staff._Name, item_Staff._Username, item_Staff._Pass, item_Staff._Birthdate, item_Staff._Sex, item_Staff._Address,
-                                            item_Staff._Phonenum, item_Staff._IDNo, item_Staff._Position, item_Staff._StartDate, item_Staff._Salary, "");
-            if (a > 0)
+            try
             {
-                DataTable id = DataAccess.Manager.GetStaffIdOfNewStaff();
-                item_Staff._ID = Convert.ToInt32(id.Rows[0].ItemArray[0].ToString());
-                item_Staff._Username = item_Staff._ID.ToString();
-                item_Staff._Pass = item_Staff._ID.ToString();
-                MessageBox.Show("Thêm nhân viên thành công!");
-            }
-                    
+                OverlayForm overlay = new OverlayForm(this, new LoadingForm(cts.Token));
+                overlay.Show();
 
-            //Form_EditAccount temp = new Form_EditAccount(item_Staff, 1);// showform để nó
-            //temp.ShowDialog();
-            if (item_Staff._Username == "")
-            {
-                return;
-            }
-
-            if (open.FileName != "")
-            {
-                if (!Directory.Exists(@".\\staffimage"))
+                Item_Staff item_Staff = new Item_Staff(parentRef_Addstaff);
+                item_Staff._Username = "";
+                item_Staff._Pass = "";
+                item_Staff._Name = tbName.Text;
+                item_Staff._Birthdate = dtBirthdate.Value;
+                item_Staff._Sex = rbMale.Checked;
+                item_Staff._Address = tbAddress.Text;
+                item_Staff._Phonenum = tbPhonenum.Text;
+                item_Staff._IDNo = tbIDNo.Text;
+                item_Staff._Position = rbNorStaff.Checked;
+                item_Staff._StartDate = dtStartDate.Value;
+                item_Staff._Salary = Convert.ToInt32(tbSalary.Text);
+                //int a = DataAccess.Manager.AddNewStaff("new", "new", "new", DateTime.Now, false , "", "", "100", false, DateTime.Now, 1000, "");
+                int a = await Task.Run(()=> {
+                    try
+                    {
+                        return DataAccess.Manager.AddNewStaff(item_Staff._Name, item_Staff._Username, item_Staff._Pass, item_Staff._Birthdate, item_Staff._Sex, item_Staff._Address,
+                                                item_Staff._Phonenum, item_Staff._IDNo, item_Staff._Position, item_Staff._StartDate, item_Staff._Salary, "");
+                    }
+                    catch
+                    {
+                        return -2;
+                    }
+                });
+                if (a == -2) throw new Exception("Đã xảy ra lỗi khi kết nối tới server (1)");
+                else if (a > 0)
                 {
-                    Directory.CreateDirectory(@".\\staffimage");
+                    DataTable id = await Task.Run(()=> {
+                        try
+                        {
+                            return DataAccess.Manager.GetStaffIdOfNewStaff();
+                        }
+                        catch
+                        {
+                            return null;
+                        }
+                    });
+                    if (id == null) throw new Exception("Đã xảy ra lỗi khi kết nối tới server (2)");
+                    item_Staff._ID = Convert.ToInt32(id.Rows[0].ItemArray[0].ToString());
+                    item_Staff._Username = item_Staff._ID.ToString();
+                    item_Staff._Pass = item_Staff._ID.ToString();
+                    MessageBox.Show("Thêm nhân viên thành công!");
                 }
 
-                File.Copy(open.FileName, @".\\staffimage\\" + tbIDNo.Text.ToString() + Path.GetExtension(open.FileName));
+
+                //Form_EditAccount temp = new Form_EditAccount(item_Staff, 1);// showform để nó
+                //temp.ShowDialog();
+                if (item_Staff._Username == "")
+                {
+                    return;
+                }
+
+                if (open.FileName != "")
+                {
+                    if (!Directory.Exists(@".\\staffimage"))
+                    {
+                        Directory.CreateDirectory(@".\\staffimage");
+                    }
+
+                    File.Copy(open.FileName, @".\\staffimage\\" + tbIDNo.Text.ToString() + Path.GetExtension(open.FileName));
+                }
+
+                this.parentRef_Addstaff.addItem(item_Staff._ID, item_Staff._Position, item_Staff._Name, item_Staff._IDNo, item_Staff._Birthdate, item_Staff._Sex,
+                                                item_Staff._Address, item_Staff._Phonenum, item_Staff._StartDate, item_Staff._Salary, item_Staff._Username, item_Staff._Pass);
+                this.Close();
             }
-            
-            this.parentRef_Addstaff.addItem(item_Staff._ID, item_Staff._Position,item_Staff._Name, item_Staff._IDNo, item_Staff._Birthdate, item_Staff._Sex,
-                                            item_Staff._Address, item_Staff._Phonenum, item_Staff._StartDate, item_Staff._Salary, item_Staff._Username, item_Staff._Pass);
-            this.Close();
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Lỗi");
+            }
+            finally
+            {
+                cts.Cancel();
+                cts.Dispose();
+                cts = new CancellationTokenSource();
+            }
         }
 
         private void staffImage_Click(object sender, EventArgs e)

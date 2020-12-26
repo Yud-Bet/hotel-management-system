@@ -38,13 +38,9 @@ namespace HotelManagement.UI
                 overlay.Show();
                 await load_AllStaffInfo();
             }
-            catch (System.Data.SqlClient.SqlException)
-            {
-                MessageBox.Show("Lỗi khi kết nối đến server!", "Lỗi");
-            }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Lỗi");
             }
             finally
             {
@@ -56,7 +52,18 @@ namespace HotelManagement.UI
 
         private async Task load_AllStaffInfo()
         {
-            DataTable StaffInfo = await Task.Run(() => DataAccess.Report.GetAllStaffInfo(Convert.ToInt32(cbSort.SelectedIndex)));
+            int SelectedSortTypeIndex = cbSort.SelectedIndex;
+            DataTable StaffInfo = await Task.Run(() => {
+                try
+                {
+                    return DataAccess.Report.GetAllStaffInfo(SelectedSortTypeIndex);
+                }
+                catch
+                {
+                    return null;
+                }
+            });
+            if (StaffInfo == null) throw new Exception("Lỗi khi kết nối đến server!");
             item_Staffs.Clear();
             pnToAddItem.Controls.Clear();
             for (int i = 0; i < StaffInfo.Rows.Count; i++)
@@ -205,10 +212,6 @@ namespace HotelManagement.UI
                 overlay.Show();
                 await load_AllStaffInfo();
                 resetStaffValues();
-            }
-            catch (System.Data.SqlClient.SqlException)
-            {
-                MessageBox.Show("Lỗi khi kết nối đến server!", "Lỗi");
             }
             catch (Exception ex)
             {
