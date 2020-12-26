@@ -338,9 +338,9 @@
             this.label2.Font = new System.Drawing.Font("Segoe UI", 17F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(179, 495);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(38, 31);
+            this.label2.Size = new System.Drawing.Size(65, 31);
             this.label2.TabIndex = 11;
-            this.label2.Text = "Ủi";
+            this.label2.Text = "Là ủi";
             this.label2.Click += new System.EventHandler(this.btItemIron_Click);
             // 
             // lbIronPrice
@@ -394,9 +394,9 @@
             this.label1.Font = new System.Drawing.Font("Segoe UI", 17F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(179, 274);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(58, 31);
+            this.label1.Size = new System.Drawing.Size(98, 31);
             this.label1.TabIndex = 11;
-            this.label1.Text = "Giặt";
+            this.label1.Text = "Giặt sấy";
             this.label1.Click += new System.EventHandler(this.btItemLaundry_Click);
             // 
             // lbLaundryPrice

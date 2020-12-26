@@ -53,6 +53,7 @@ namespace HotelManagement.UI
                 case ServiceManagerType.EditWashService:
                     formType = ServiceManagerType.EditWashService;
                     btAddService.Hide();
+                    this.tbName.Enabled = false;
                     this.tbName.Text = this.parentRefForm.ItemLaundry._name;
                     this.tbPrice.Text = this.parentRefForm.ItemLaundry._price.ToString();
                     pbServiceImage.Image = Washing;
@@ -60,6 +61,7 @@ namespace HotelManagement.UI
                     break;
                 case ServiceManagerType.EditIronService:
                     btAddService.Hide();
+                    this.tbName.Enabled = false;
                     this.tbName.Text = this.parentRefForm.ItemIron._name;
                     this.tbPrice.Text = this.parentRefForm.ItemIron._price.ToString();
                     pbServiceImage.Image = Iron;
