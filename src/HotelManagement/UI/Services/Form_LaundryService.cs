@@ -211,26 +211,30 @@ namespace HotelManagement.UI
                     MessageBox.Show("Phòng này chưa được thuê!", "Lỗi");
                     throw new ArgumentException();
                 }
-
-                OverlayForm overlay = new OverlayForm(ParentRef, new LoadingForm(cts.Token));
-                overlay.Show();
-
-                for (int i = 0; i < SelectedItems.Count; i++)
+                if (MessageBox.Show("Bạn có chắc chắn muốn thêm những dịch vụ này không?", "Thông báo!", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    int RoomID = rooms.Items[cbRoomSelection.SelectedIndex - 1].ID;
-                    int a = await Task.Run(() => {
-                        try
+
+                    OverlayForm overlay = new OverlayForm(ParentRef, new LoadingForm(cts.Token));
+                    overlay.Show();
+
+                    for (int i = 0; i < SelectedItems.Count; i++)
+                    {
+                        int RoomID = rooms.Items[cbRoomSelection.SelectedIndex - 1].ID;
+                        int a = await Task.Run(() =>
                         {
-                            return DataAccess.Services.InsertServicetoBillDetail(RoomID, SelectedItems[i]._itemID, SelectedItems[i]._count);
-                        }
-                        catch
-                        {
-                            return -2;
-                        }
-                    });
-                    if (a == -2) throw new Exception("Không thể kết nối đến server");
+                            try
+                            {
+                                return DataAccess.Services.InsertServicetoBillDetail(RoomID, SelectedItems[i]._itemID, SelectedItems[i]._count);
+                            }
+                            catch
+                            {
+                                return -2;
+                            }
+                        });
+                        if (a == -2) throw new Exception("Không thể kết nối đến server");
+                    }
+                    MessageBox.Show("Thêm thành công!", "Thông báo");
                 }
-                MessageBox.Show("Thêm thành công!", "Thông báo");
             }
             catch (ArgumentException) { }
             catch (Exception ex)

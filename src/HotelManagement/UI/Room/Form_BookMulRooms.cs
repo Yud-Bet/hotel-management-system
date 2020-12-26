@@ -20,6 +20,9 @@ namespace HotelManagement.UI
         public Form_BookMulRooms(Form_Room parentRef)
         {
             InitializeComponent();
+            this.dtpCustomerBirthday.Value = Convert.ToDateTime("2000-01-01");
+            this.rbtMale.Checked = true;
+
             ParentRef = parentRef;
 
             dropDownList1.Hide();
@@ -196,81 +199,88 @@ namespace HotelManagement.UI
         private async void btBookRoom_Click(object sender, EventArgs e)
         {
             if (!checkValidityOfValue()) return;
-            try
+            if (MessageBox.Show("Bạn có chắc chắn muốn đặt phòng?", "Thông báo!", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                OverlayForm overlay = new OverlayForm(ParentRef.ParentRef, new LoadingForm(cts.Token));
-                overlay.Show();
-                List<Item_RoomOfFormBookMulRoom> listRoomID = new List<Item_RoomOfFormBookMulRoom>();
-                foreach (Item_RoomOfFormBookMulRoom item in RoomList)
+                try
                 {
-                    if (item.isChoose)
+                    OverlayForm overlay = new OverlayForm(ParentRef.ParentRef, new LoadingForm(cts.Token));
+                    overlay.Show();
+                    List<Item_RoomOfFormBookMulRoom> listRoomID = new List<Item_RoomOfFormBookMulRoom>();
+                    foreach (Item_RoomOfFormBookMulRoom item in RoomList)
                     {
-                        listRoomID.Add(item);
+                        if (item.isChoose)
+                        {
+                            listRoomID.Add(item);
+                        }
                     }
-                }
-                if (listRoomID.Count > 0)
-                {
-                    if (ClientID <= 0)
+                    if (listRoomID.Count > 0)
                     {
-                        int a = await Task.Run(() => {
+                        if (ClientID <= 0)
+                        {
+                            int a = await Task.Run(() =>
+                            {
+                                try
+                                {
+                                    return DataAccess.CustomerDA.InsertNewCustomer(tbCustomerName.Text, dtpCustomerBirthday.Value,
+                                        tbIDNo.Text, tbPassport.Text, tbCustomerAddress.Text, tbCustomerPhoneNum.Text, rbtMale.Checked ? Sex.Male : Sex.Female);
+                                }
+                                catch
+                                {
+                                    return -2;
+                                }
+                            });
+                            if (a == -2) throw new Exception("Đã xảy ra lỗi khi tải thông tin từ server");
+                        }
+                        (int, int) bd = await Task.Run(() =>
+                        {
                             try
                             {
-                                return DataAccess.CustomerDA.InsertNewCustomer(tbCustomerName.Text, dtpCustomerBirthday.Value,
-                                    tbIDNo.Text, tbPassport.Text, tbCustomerAddress.Text, tbCustomerPhoneNum.Text, rbtMale.Checked ? Sex.Male : Sex.Female);
+                                int b = DataAccess.CustomerDA.InsertNewRoomReservation(dtpCheckInDate.Value, 0, ParentRef.Username, 0, tbNote.Text);
+                                int d = DataAccess.CustomerDA.InsertNewBill(0, ParentRef.Username);
+                                return (b, d);
                             }
                             catch
                             {
-                                return -2;
+                                return (-2, -2);
                             }
                         });
-                        if (a == -2) throw new Exception("Đã xảy ra lỗi khi tải thông tin từ server");
-                    }
-                    (int, int) bd = await Task.Run(() => {
-                        try
-                        {
-                            int b = DataAccess.CustomerDA.InsertNewRoomReservation(dtpCheckInDate.Value, 0, ParentRef.Username, 0, tbNote.Text);
-                            int d = DataAccess.CustomerDA.InsertNewBill(0, ParentRef.Username);
-                            return (b, d);
-                        }
-                        catch
-                        {
-                            return (-2, -2);
-                        }
-                    });
-                    if (bd == (-2, -2)) throw new Exception("Đã xảy ra lỗi khi tải thông tin từ server");
+                        if (bd == (-2, -2)) throw new Exception("Đã xảy ra lỗi khi tải thông tin từ server");
+                        else 
 
-                    foreach (Item_RoomOfFormBookMulRoom item in listRoomID)
-                    {
+                        foreach (Item_RoomOfFormBookMulRoom item in listRoomID)
+                        {
 
-                        int c = await Task.Run(() => {
-                            try
+                            int c = await Task.Run(() =>
                             {
-                                return DataAccess.CustomerDA.InsertRoomReservationDetail(0, item._RoomID);
-                            }
-                            catch
-                            {
-                                return -2;
-                            }
-                        });
-                        if (c == -2) throw new Exception("Đã xảy ra lỗi khi tải thông tin từ server");
-                        item.ParentRefItemRoom._RoomStatus = RoomStatus.Rented;
+                                try
+                                {
+                                    return DataAccess.CustomerDA.InsertRoomReservationDetail(0, item._RoomID);
+                                }
+                                catch
+                                {
+                                    return -2;
+                                }
+                            });
+                            if (c == -2) throw new Exception("Đã xảy ra lỗi khi tải thông tin từ server");
+                            item.ParentRefItemRoom._RoomStatus = RoomStatus.Rented;
+                        }
+                        ParentRef.Empty -= listRoomID.Count;
+                        ParentRef.Rented += listRoomID.Count;
+                        pbArrowBack_Click(sender, e);
                     }
-                    ParentRef.Empty -= listRoomID.Count;
-                    ParentRef.Rented += listRoomID.Count;
-                    pbArrowBack_Click(sender, e);
+                    else MessageBox.Show("Vui lòng chọn phòng!", "Thông báo!");
                 }
-                else MessageBox.Show("Vui lòng chọn phòng!", "Thông báo!");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-                StatusLabel.Text = "Đặt phòng không thành công";
-            }
-            finally
-            {
-                cts.Cancel();
-                cts.Dispose();
-                cts = new CancellationTokenSource();
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    StatusLabel.Text = "Đặt phòng không thành công";
+                }
+                finally
+                {
+                    cts.Cancel();
+                    cts.Dispose();
+                    cts = new CancellationTokenSource();
+                }
             }
         }
 
