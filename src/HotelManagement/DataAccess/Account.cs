@@ -7,7 +7,7 @@ namespace HotelManagement.DataAccess
 {
     public static class Account
     {
-        private static string Encrypt(string text)
+        public static string Encrypt(string text)
         {
             using (MD5CryptoServiceProvider md5 = new MD5CryptoServiceProvider())
             {
@@ -19,15 +19,15 @@ namespace HotelManagement.DataAccess
         public static bool Login(string Username, string Password)
         {
             string EncryptedPass = Encrypt(Password);
-            DataTable data = ExecuteQuery.ExecuteReader("QLKS_SearchAccount @Username , @Password", new object[] { Username, /*EncryptedPass*/ Password });
+            DataTable data = ExecuteQuery.ExecuteReader("QLKS_SearchAccount @Username , @Password", new object[] { Username, EncryptedPass});
             return data.Rows.Count == 1;
         }
         public static int ChangePassword(string Username, string oldPass, string newPass)
         {
-            //string EncryptedPass = Encrypt(Password);
+            string EncryptedOldPass = Encrypt(oldPass);
+            string EncryptedNewPass = Encrypt(newPass);
             return ExecuteQuery.ExecuteNoneQuery("QLKS_ChangePassword @Username , @OldPassword , @NewPassword",
-                new object[] { Username, oldPass, newPass });
-                //new object[] { Username, EncryptedPass }) > 0;
+                new object[] { Username, EncryptedOldPass, EncryptedNewPass });
         }
         public static DataTable GetStaffInfor(string Username)
         {

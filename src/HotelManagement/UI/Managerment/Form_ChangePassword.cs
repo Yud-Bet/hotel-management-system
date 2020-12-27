@@ -1,13 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using HotelManagement.Properties;
+using System.Threading.Tasks;
+using System.Threading;
 
 
 namespace HotelManagement.UI
@@ -15,22 +11,17 @@ namespace HotelManagement.UI
     public partial class Form_ChangePassword : MetroFramework.Forms.MetroForm
     {
         Item_Staff staff = new Item_Staff();
+        CancellationTokenSource cts = new CancellationTokenSource();
 
         public Form_ChangePassword(string user)
         {
             InitializeComponent();
             tbUsername.Text = user;
             staff._Username = user;
-            DataTable staffInfo = DataAccess.Account.GetStaffInfor(user);
-            if (staffInfo.Rows.Count > 0)
-            {
-                staff._Pass = staffInfo.Rows[0].ItemArray[3].ToString();
-                staff._ID = Convert.ToInt32(staffInfo.Rows[0].ItemArray[0]);
-            }
         }
-        private void btCharge_Click(object sender, EventArgs e)
+        private async void btCharge_Click(object sender, EventArgs e)
         {
-            if (tbOldPass.Text != staff._Pass)
+            if (DataAccess.Account.Encrypt(tbOldPass.Text) != staff._Pass)
             {
                 MessageBox.Show("Mật khẩu cũ không đúng!", "Thông báo!");
                 return;
@@ -40,11 +31,38 @@ namespace HotelManagement.UI
                 MessageBox.Show("Mật mới không khớp!", "Thông báo!");
                 return;
             }
-            int ef = DataAccess.Account.ChangePassword(staff._Username, staff._Pass, tbNewPass.Text);
-            if (ef > 0)
+            try
             {
-                MessageBox.Show("Đã đổi mật khẩu thành công!", "Thông báo!");
-                this.Close();
+                OverlayForm overlay = new OverlayForm(this, new LoadingForm(cts.Token));
+                overlay.Show();
+
+                int ef = await Task.Run(() => {
+                    try
+                    {
+                        return DataAccess.Account.ChangePassword(staff._Username, tbOldPass.Text, tbNewPass.Text);
+                    }
+                    catch
+                    {
+                        return -2;
+                    }
+                });
+                if (ef == -2) throw new Exception("Đã xảy ra lỗi khi kết nối đến server");
+                if (ef > 0)
+                {
+                    MessageBox.Show("Đã đổi mật khẩu thành công!", "Thông báo!");
+                    this.DialogResult = DialogResult.OK;
+                    this.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Lỗi");
+            }
+            finally
+            {
+                cts.Cancel();
+                cts.Dispose();
+                cts = new CancellationTokenSource();
             }
         }
         private void btCancel_Click(object sender, EventArgs e)
@@ -81,6 +99,42 @@ namespace HotelManagement.UI
         {
             changeStatusPass(tbNewPass1, pbShowHidePass2);
 
+        }
+
+        private async void Form_ChangePassword_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                OverlayForm overlay = new OverlayForm(this, new LoadingForm(cts.Token));
+                overlay.Show();
+
+                DataTable staffInfo = await Task.Run(() => {
+                    try
+                    {
+                        return DataAccess.Account.GetStaffInfor(staff._Username);
+                    }
+                    catch
+                    {
+                        return null;
+                    }
+                });
+                if (staffInfo == null) throw new Exception("Đã xảy ra lỗi khi kết nối đến server");
+                if (staffInfo.Rows.Count > 0)
+                {
+                    staff._Pass = staffInfo.Rows[0].ItemArray[3].ToString();
+                    staff._ID = Convert.ToInt32(staffInfo.Rows[0].ItemArray[0]);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Lỗi");
+            }
+            finally
+            {
+                cts.Cancel();
+                cts.Dispose();
+                cts = new CancellationTokenSource();
+            }
         }
     }
 }

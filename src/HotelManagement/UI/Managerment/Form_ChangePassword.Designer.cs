@@ -447,6 +447,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "Form_ChangePassword";
             this.Resizable = false;
+            this.Load += new System.EventHandler(this.Form_ChangePassword_Load);
             this.panel1.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel2.ResumeLayout(false);

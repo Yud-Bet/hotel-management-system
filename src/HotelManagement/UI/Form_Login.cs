@@ -193,12 +193,25 @@ namespace HotelManagement.UI
             }
             else if (loginState == LoginState.Successful)
             {
-                Form_Main main = new Form_Main(tbUsername.Text);
                 this.Hide();
-                main.ShowDialog();
+                Form_ChangePassword changepass = new Form_ChangePassword(tbUsername.Text);
 
-                main.Dispose();
+                DialogResult result;
 
+                string EncryptedPass = DataAccess.Account.Encrypt(tbPassword.Text);
+
+                if (tbUsername.Text == "1" && EncryptedPass == DataAccess.Account.Encrypt("1"))
+                {
+                    result = changepass.ShowDialog();
+                }
+                else result = DialogResult.OK;
+
+                if (result == DialogResult.OK)
+                {
+                    Form_Main main = new Form_Main(tbUsername.Text);
+                    main.ShowDialog();
+                    main.Dispose();
+                }
                 this.Show();
                 StatusLabel.Text = "";
             }
