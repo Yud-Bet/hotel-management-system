@@ -273,7 +273,7 @@
         "DisplayName" = "8:Debug"
         "IsDebugOnly" = "11:TRUE"
         "IsReleaseOnly" = "11:FALSE"
-        "OutputFilename" = "8:Debug\\Installer.msi"
+        "OutputFilename" = "8:Debug\\Hotel Management Installer.msi"
         "PackageFilesAs" = "3:2"
         "PackageFileSize" = "3:-2147483648"
         "CabType" = "3:1"
@@ -287,7 +287,7 @@
             {
             "Enabled" = "11:TRUE"
             "PromptEnabled" = "11:TRUE"
-            "PrerequisitesLocation" = "2:2"
+            "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
                 "Items"
@@ -1513,7 +1513,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_15F0A908E29E494B8F99C267A0823A75"
             {
-            "SourcePath" = "8:..\\HotelManagement\\obj\\Release\\HotelManagement.exe"
+            "SourcePath" = "8:..\\HotelManagement\\obj\\Debug\\HotelManagement.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_26D989FB69594032A56EA4FE135157DB"
