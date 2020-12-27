@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Main));
             this.panel1 = new System.Windows.Forms.Panel();
             this.pnSubMenu_Manage = new System.Windows.Forms.Panel();
             this.btService_manage = new System.Windows.Forms.Panel();
@@ -801,6 +802,7 @@
             this.ClientSize = new System.Drawing.Size(1229, 710);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(1229, 710);
             this.MinimumSize = new System.Drawing.Size(1229, 710);

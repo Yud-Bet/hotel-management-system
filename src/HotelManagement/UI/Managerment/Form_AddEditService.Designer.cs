@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_AddEditService));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btAddServiceImage = new XanderUI.XUIButton();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.btAddService = new XanderUI.XUIButton();
             this.btSave = new XanderUI.XUIButton();
@@ -38,7 +39,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.pbServiceImage = new System.Windows.Forms.PictureBox();
-            this.btAddServiceImage = new XanderUI.XUIButton();
             this.panel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbServiceImage)).BeginInit();
@@ -58,6 +58,29 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(519, 228);
             this.panel1.TabIndex = 13;
+            // 
+            // btAddServiceImage
+            // 
+            this.btAddServiceImage.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
+            this.btAddServiceImage.ButtonImage = null;
+            this.btAddServiceImage.ButtonStyle = XanderUI.XUIButton.Style.MaterialRounded;
+            this.btAddServiceImage.ButtonText = "Thêm Ảnh";
+            this.btAddServiceImage.ClickBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(130)))), ((int)(((byte)(200)))));
+            this.btAddServiceImage.ClickTextColor = System.Drawing.Color.White;
+            this.btAddServiceImage.CornerRadius = 5;
+            this.btAddServiceImage.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btAddServiceImage.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.btAddServiceImage.Horizontal_Alignment = System.Drawing.StringAlignment.Center;
+            this.btAddServiceImage.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
+            this.btAddServiceImage.HoverTextColor = System.Drawing.Color.White;
+            this.btAddServiceImage.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
+            this.btAddServiceImage.Location = new System.Drawing.Point(49, 204);
+            this.btAddServiceImage.Name = "btAddServiceImage";
+            this.btAddServiceImage.Size = new System.Drawing.Size(127, 20);
+            this.btAddServiceImage.TabIndex = 34;
+            this.btAddServiceImage.TextColor = System.Drawing.Color.White;
+            this.btAddServiceImage.Vertical_Alignment = System.Drawing.StringAlignment.Center;
+            this.btAddServiceImage.Click += new System.EventHandler(this.btAddServiceImage_Click);
             // 
             // flowLayoutPanel1
             // 
@@ -195,35 +218,13 @@
             this.pbServiceImage.TabIndex = 0;
             this.pbServiceImage.TabStop = false;
             // 
-            // btAddServiceImage
-            // 
-            this.btAddServiceImage.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
-            this.btAddServiceImage.ButtonImage = null;
-            this.btAddServiceImage.ButtonStyle = XanderUI.XUIButton.Style.MaterialRounded;
-            this.btAddServiceImage.ButtonText = "Thêm Ảnh";
-            this.btAddServiceImage.ClickBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(130)))), ((int)(((byte)(200)))));
-            this.btAddServiceImage.ClickTextColor = System.Drawing.Color.White;
-            this.btAddServiceImage.CornerRadius = 5;
-            this.btAddServiceImage.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btAddServiceImage.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.btAddServiceImage.Horizontal_Alignment = System.Drawing.StringAlignment.Center;
-            this.btAddServiceImage.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
-            this.btAddServiceImage.HoverTextColor = System.Drawing.Color.White;
-            this.btAddServiceImage.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
-            this.btAddServiceImage.Location = new System.Drawing.Point(49, 204);
-            this.btAddServiceImage.Name = "btAddServiceImage";
-            this.btAddServiceImage.Size = new System.Drawing.Size(127, 20);
-            this.btAddServiceImage.TabIndex = 34;
-            this.btAddServiceImage.TextColor = System.Drawing.Color.White;
-            this.btAddServiceImage.Vertical_Alignment = System.Drawing.StringAlignment.Center;
-            this.btAddServiceImage.Click += new System.EventHandler(this.btAddServiceImage_Click);
-            // 
             // Form_AddEditService
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(531, 261);
             this.Controls.Add(this.panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Form_AddEditService";
             this.Resizable = false;
