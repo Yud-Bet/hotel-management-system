@@ -15,6 +15,8 @@ namespace HotelManagement.UI
     public partial class Item_ServiceManager : UserControl
     {
         CancellationTokenSource cts = new CancellationTokenSource();
+        string serviceImageDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\\hotel_management\\serviceimage\\";
+
         public Item_ServiceManager(int id, string name, int price, Form_ServiceManager parentRef)
         {
             InitializeComponent();
@@ -97,7 +99,7 @@ namespace HotelManagement.UI
 
                         try
                         {
-                            string[] staffImageFiles = Directory.GetFiles(@".\\serviceimage", name + "*");
+                            string[] staffImageFiles = Directory.GetFiles(serviceImageDirectory, name + "*");
 
                             foreach (string i in staffImageFiles)
                             {
@@ -129,7 +131,7 @@ namespace HotelManagement.UI
         {
             try
             {
-                string[] staffImageFiles = Directory.GetFiles(@".\\serviceimage", name + "*");
+                string[] staffImageFiles = Directory.GetFiles(serviceImageDirectory, name + "*");
                 Image image;
                 using (Stream stream = File.OpenRead(staffImageFiles[0]))
                 {
