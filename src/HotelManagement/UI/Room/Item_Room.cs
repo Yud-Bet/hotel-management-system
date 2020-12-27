@@ -13,10 +13,6 @@ namespace HotelManagement.UI
             InitializeComponent();
             this.ParentRef = parent;
         }
-        public Item_Room()
-        {
-            InitializeComponent();
-        }
 
         #region Icon
         private static Bitmap VIPIcon = Resources.icVip;

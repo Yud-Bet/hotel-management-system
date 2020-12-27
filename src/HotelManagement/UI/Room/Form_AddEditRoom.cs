@@ -121,7 +121,7 @@ namespace HotelManagement.UI
                         DataTable data = DataAccess.RoomDA.GetRoomInfo(Convert.ToInt32(idNewRoom.Rows[0].ItemArray[0]));
                         if (data.Rows.Count > 0)
                         {
-                            Item_Room newRoom = new Item_Room();
+                            Item_Room newRoom = new Item_Room(parentRef);
                             newRoom._RoomID = Convert.ToInt32(idNewRoom.Rows[0].ItemArray[0]);
                             newRoom._RoomStatus = (RoomStatus)(Convert.ToInt32(data.Rows[0].ItemArray[3]));
                             newRoom._RoomType = (RoomType)(Convert.ToInt32(data.Rows[0].ItemArray[0]));
