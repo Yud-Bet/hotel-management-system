@@ -15,6 +15,7 @@ namespace HotelManagement.UI
         OpenFileDialog open = new OpenFileDialog();
         CancellationTokenSource cts = new CancellationTokenSource();
         string Username;
+        string staffImageDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\\hotel_management\\staffimage\\";
 
         //Use add staff
         public Form_AddEditStaff(Form_Staff parentRef)
@@ -145,7 +146,7 @@ namespace HotelManagement.UI
 
             try
             {
-                string[] staffImageFiles = Directory.GetFiles(@".\\staffimage", parentRef_EditStaff._IDNo + "*");
+                string[] staffImageFiles = Directory.GetFiles(staffImageDirectory, parentRef_EditStaff._IDNo + "*");
                 Image image;
                 using (Stream stream = File.OpenRead(staffImageFiles[0]))
                 {
@@ -192,10 +193,10 @@ namespace HotelManagement.UI
 
                 try
                 {
-                    string[] staffImageFiles = Directory.GetFiles(@".\\staffimage", parentRef_EditStaff._IDNo + "*");
+                    string[] staffImageFiles = Directory.GetFiles(staffImageDirectory, parentRef_EditStaff._IDNo + "*");
 
-                    File.Move(@".\\staffimage\\" + parentRef_EditStaff._IDNo + Path.GetExtension(staffImageFiles[0]),
-                        @".\\staffimage\\" + tbIDNo.Text + Path.GetExtension(staffImageFiles[0]));
+                    File.Move(staffImageDirectory + parentRef_EditStaff._IDNo + Path.GetExtension(staffImageFiles[0]),
+                        staffImageDirectory + tbIDNo.Text + Path.GetExtension(staffImageFiles[0]));
                 }
                 catch { }
 
@@ -214,22 +215,22 @@ namespace HotelManagement.UI
                 {
                     if (open.FileName != "")
                     {
-                        if (!Directory.Exists(@".\\staffimage"))
+                        if (!Directory.Exists(staffImageDirectory))
                         {
-                            Directory.CreateDirectory(@".\\staffimage");
+                            Directory.CreateDirectory(staffImageDirectory);
                         }
 
-                        string[] staffImageFiles = Directory.GetFiles(@".\\staffimage", parentRef_EditStaff._IDNo + "*");
+                        string[] staffImageFiles = Directory.GetFiles(staffImageDirectory, parentRef_EditStaff._IDNo + "*");
 
                         foreach (string i in staffImageFiles)
                         {
                             File.Delete(i);
                         }
 
-                        File.Copy(open.FileName, @".\\staffimage\\" + parentRef_EditStaff._IDNo + Path.GetExtension(open.FileName));
+                        File.Copy(open.FileName, staffImageDirectory + parentRef_EditStaff._IDNo + Path.GetExtension(open.FileName));
 
                         Image image;
-                        using (Stream stream = File.OpenRead(@".\\staffimage\\" + parentRef_EditStaff._IDNo + Path.GetExtension(open.FileName)))
+                        using (Stream stream = File.OpenRead(staffImageDirectory + parentRef_EditStaff._IDNo + Path.GetExtension(open.FileName)))
                         {
                             image = System.Drawing.Image.FromStream(stream);
                         }
@@ -385,12 +386,12 @@ namespace HotelManagement.UI
 
                 if (open.FileName != "")
                 {
-                    if (!Directory.Exists(@".\\staffimage"))
+                    if (!Directory.Exists(staffImageDirectory))
                     {
-                        Directory.CreateDirectory(@".\\staffimage");
+                        Directory.CreateDirectory(staffImageDirectory);
                     }
 
-                    File.Copy(open.FileName, @".\\staffimage\\" + tbIDNo.Text.ToString() + Path.GetExtension(open.FileName));
+                    File.Copy(open.FileName, staffImageDirectory + tbIDNo.Text.ToString() + Path.GetExtension(open.FileName));
                 }
 
                 this.parentRef_Addstaff.addItem(item_Staff._ID, item_Staff._Position, item_Staff._Name, item_Staff._IDNo, item_Staff._Birthdate, item_Staff._Sex,

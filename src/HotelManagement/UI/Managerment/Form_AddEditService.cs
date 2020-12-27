@@ -14,6 +14,8 @@ namespace HotelManagement.UI
     {
         OpenFileDialog open = new OpenFileDialog();
         CancellationTokenSource cts = new CancellationTokenSource();
+        string serviceImageDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\\hotel_management\\serviceimage\\";
+
         #region Icon
         private static Bitmap Washing = Resources.washing;
         private static Bitmap Iron = Resources.iron;
@@ -40,7 +42,7 @@ namespace HotelManagement.UI
                     this.tbPrice.Text = this.parentRefItem._price.ToString();
                     try
                     {
-                        string[] staffImageFiles = Directory.GetFiles(@".\\serviceimage", parentRefItem._name + "*");
+                        string[] staffImageFiles = Directory.GetFiles(serviceImageDirectory, parentRefItem._name + "*");
                         Image image;
                         using (Stream stream = File.OpenRead(staffImageFiles[0]))
                         {
@@ -122,19 +124,19 @@ namespace HotelManagement.UI
                     {
                         if (open.FileName != "")
                         {
-                            if (!Directory.Exists(@".\\serviceimage"))
+                            if (!Directory.Exists(serviceImageDirectory))
                             {
-                                Directory.CreateDirectory(@".\\serviceimage");
+                                Directory.CreateDirectory(serviceImageDirectory);
                             }
 
-                            string[] staffImageFiles = Directory.GetFiles(@".\\serviceimage", item._name + "*");
+                            string[] staffImageFiles = Directory.GetFiles(serviceImageDirectory, item._name + "*");
 
                             foreach (string i in staffImageFiles)
                             {
                                 File.Delete(i);
                             }
 
-                            File.Copy(open.FileName, @".\\serviceimage\\" + item._name + Path.GetExtension(open.FileName));
+                            File.Copy(open.FileName, serviceImageDirectory + item._name + Path.GetExtension(open.FileName));
                             item.setServiceImage();
                         }
                     }
@@ -190,19 +192,19 @@ namespace HotelManagement.UI
                             {
                                 if (open.FileName != "")
                                 {
-                                    if (!Directory.Exists(@".\\serviceimage"))
+                                    if (!Directory.Exists(serviceImageDirectory))
                                     {
-                                        Directory.CreateDirectory(@".\\serviceimage");
+                                        Directory.CreateDirectory(serviceImageDirectory);
                                     }
 
-                                    string[] staffImageFiles = Directory.GetFiles(@".\\serviceimage", parentRefItem._name + "*");
+                                    string[] staffImageFiles = Directory.GetFiles(serviceImageDirectory, parentRefItem._name + "*");
 
                                     foreach (string i in staffImageFiles)
                                     {
                                         File.Delete(i);
                                     }
 
-                                    File.Copy(open.FileName, @".\\serviceimage\\" + parentRefItem._name + Path.GetExtension(open.FileName));
+                                    File.Copy(open.FileName, serviceImageDirectory + parentRefItem._name + Path.GetExtension(open.FileName));
                                     parentRefItem.setServiceImage();
                                 }
                             }

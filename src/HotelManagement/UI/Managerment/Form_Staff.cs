@@ -113,9 +113,10 @@ namespace HotelManagement.UI
             lbStartDate.Text = item_Staff._StartDate.ToShortDateString().ToString();
             lbSalary.Text = item_Staff._Salary.ToString("C", CultureInfo.GetCultureInfo("vi-VN"));
 
+            string staffImageDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\\hotel_management\\staffimage\\";
             try
             {
-                string[] staffImageFiles = Directory.GetFiles(@".\\staffimage", item_Staff._IDNo + "*");
+                string[] staffImageFiles = Directory.GetFiles(staffImageDirectory, item_Staff._IDNo + "*");
                 Image image;
                 using (Stream stream = File.OpenRead(staffImageFiles[0]))
                 {

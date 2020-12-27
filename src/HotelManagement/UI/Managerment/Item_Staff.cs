@@ -228,9 +228,10 @@ namespace HotelManagement.UI
         //}
         public void setStaffImage()
         {
+            string staffImageDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\\hotel_management\\staffimage\\";
             try
             {
-                string[] staffImageFiles = Directory.GetFiles(@".\\staffimage", IDNo + "*");
+                string[] staffImageFiles = Directory.GetFiles(staffImageDirectory, IDNo + "*");
                 Image image;
                 using (Stream stream = File.OpenRead(staffImageFiles[0]))
                 {

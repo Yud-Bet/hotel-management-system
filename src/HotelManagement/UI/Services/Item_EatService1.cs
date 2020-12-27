@@ -87,9 +87,10 @@ namespace HotelManagement.UI
 
         public void setServiceImage()
         {
+            string serviceImageDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\\hotel_management\\serviceimage\\";
             try
             {
-                string[] staffImageFiles = Directory.GetFiles(@".\\serviceimage", name + "*");
+                string[] staffImageFiles = Directory.GetFiles(serviceImageDirectory, name + "*");
                 Image image;
                 using (Stream stream = File.OpenRead(staffImageFiles[0]))
                 {
