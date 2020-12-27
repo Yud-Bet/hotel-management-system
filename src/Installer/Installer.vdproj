@@ -964,7 +964,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Hotel Managerment App"
         "ProductCode" = "8:{F70BA7CC-049A-4019-A864-D5026D3831DB}"
-        "PackageCode" = "8:{36A26DD7-9F71-4296-9FF6-AC17D4D2BC32}"
+        "PackageCode" = "8:{3B378059-FCEE-4458-8B80-4982A89B8531}"
         "UpgradeCode" = "8:{10D07EF5-E8D4-49A0-AF67-61EF6C0698DE}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
@@ -1086,7 +1086,7 @@
         {
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_4BEAAD9C11C045BC9CD88F21E636ED94"
             {
-            "Name" = "8:Hote lManagement App"
+            "Name" = "8:Hotel Management App"
             "Arguments" = "8:"
             "Description" = "8:"
             "ShowCmd" = "3:1"
@@ -1513,7 +1513,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_15F0A908E29E494B8F99C267A0823A75"
             {
-            "SourcePath" = "8:..\\HotelManagement\\obj\\Debug\\HotelManagement.exe"
+            "SourcePath" = "8:..\\HotelManagement\\obj\\Release\\HotelManagement.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_26D989FB69594032A56EA4FE135157DB"
