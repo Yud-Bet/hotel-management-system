@@ -15,8 +15,9 @@ namespace HotelManagement.DataAccess
         }
         public static int AddNewStaff(string name, string user, string pass, DateTime birthday, bool sex, string addr, string phone, string idNo, bool position, DateTime startDate, int salary, string note)
         {
+            string EncryptPass = Account.Encrypt(pass);
             return ExecuteQuery.ExecuteNoneQuery("QLKS_AddNewStaff @Name , @Username , @Password , @Birthday , @Sex , @Addr , @PhoneNumber , @IdentityNumber , @Position , @StartingDate , @Salary , @Note",
-                new object[] { name, user, pass, birthday, sex, addr, phone, idNo, position, startDate, salary, note});
+                new object[] { name, user, EncryptPass, birthday, sex, addr, phone, idNo, position, startDate, salary, note});
         }
         public static int SetStaffInfo(int ID, string name, DateTime birthday, bool sex, string addr, string phone, string idNo, bool position, DateTime startDate, int salary, string note)
         {

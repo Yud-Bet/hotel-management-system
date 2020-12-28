@@ -331,10 +331,11 @@ namespace HotelManagement.UI
             {
                 OverlayForm overlay = new OverlayForm(this, new LoadingForm(cts.Token));
                 overlay.Show();
-
+                DataTable data = DataAccess.Manager.GetStaffIdOfNewStaff();
+                int idpass = Convert.ToInt32(data.Rows[0].ItemArray[0]) + 1;
                 Item_Staff item_Staff = new Item_Staff(parentRef_Addstaff);
                 item_Staff._Username = "";
-                item_Staff._Pass = "";
+                item_Staff._Pass = idpass.ToString();
                 item_Staff._Name = tbName.Text;
                 item_Staff._Birthdate = dtBirthdate.Value;
                 item_Staff._Sex = rbMale.Checked;

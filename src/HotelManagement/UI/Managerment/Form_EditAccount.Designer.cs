@@ -150,7 +150,6 @@
             this.pbShowHidePass.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbShowHidePass.TabIndex = 21;
             this.pbShowHidePass.TabStop = false;
-            this.pbShowHidePass.Click += new System.EventHandler(this.pbShowHidePass_Click);
             // 
             // label2
             // 
