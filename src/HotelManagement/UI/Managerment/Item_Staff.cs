@@ -152,6 +152,7 @@ namespace HotelManagement.UI
         {
             if(MessageBox.Show("Bạn muốn xóa nhân viên này chứ?","Thông Báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
+                string staffImageDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\\hotel_management\\staffimage\\";
                 OverlayForm overlay = new OverlayForm(parentRef.parentRef, new LoadingForm(cts.Token));
                 overlay.Show();
                 if (this == this.parentRef.selectedItem)
@@ -172,12 +173,12 @@ namespace HotelManagement.UI
                         }
                     });
                     if (a == -2) throw new Exception("Lỗi khi kết nối đến server!");
-                    if (!Directory.Exists(@".\\staffimage"))
+                    if (!Directory.Exists(staffImageDirectory))
                     {
-                        Directory.CreateDirectory(@".\\staffimage");
+                        Directory.CreateDirectory(staffImageDirectory);
                     }
 
-                    string[] staffImageFiles = Directory.GetFiles(@".\\staffimage", this._IDNo + "*");
+                    string[] staffImageFiles = Directory.GetFiles(staffImageDirectory, this._IDNo + "*");
 
                     foreach (string i in staffImageFiles)
                     {
