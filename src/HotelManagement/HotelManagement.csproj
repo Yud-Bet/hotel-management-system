@@ -34,7 +34,20 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>hotel.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup />
   <ItemGroup>
+    <Reference Include="LiveCharts, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiveCharts.0.9.7\lib\net45\LiveCharts.dll</HintPath>
+    </Reference>
+    <Reference Include="LiveCharts.WinForms, Version=0.9.7.1, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiveCharts.WinForms.0.9.7.1\lib\net45\LiveCharts.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="LiveCharts.Wpf, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiveCharts.Wpf.0.9.7\lib\net45\LiveCharts.Wpf.dll</HintPath>
+    </Reference>
     <Reference Include="MaterialSkin, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MaterialSkin.0.2.1\lib\MaterialSkin.dll</HintPath>
     </Reference>
@@ -48,10 +61,13 @@
       <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.Fonts.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Design" />
+    <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -61,6 +77,8 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="WindowsFormsIntegration" />
     <Reference Include="XanderUI">
       <HintPath>..\packages\Xander\XanderUI.dll</HintPath>
     </Reference>
@@ -91,8 +109,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataAccess\Account.cs" />
+    <Compile Include="DataAccess\AdditionalInfoForBillViewing.cs" />
     <Compile Include="DataAccess\CustomerDA.cs" />
     <Compile Include="DataAccess\ExecuteQuery.cs" />
+    <Compile Include="DataAccess\Manager.cs" />
+    <Compile Include="DataAccess\Report.cs" />
     <Compile Include="DataAccess\RoomDA.cs" />
     <Compile Include="DataAccess\Services.cs" />
     <Compile Include="DTO\CustomerOverview.cs" />
@@ -103,43 +124,83 @@
     <Compile Include="DTO\ServicesInfo.cs" />
     <Compile Include="DTO\StaffOverview.cs" />
     <Compile Include="EnumDefinition.cs" />
+    <Compile Include="UI\Others\CirclePictureBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\Others\CustomDateTime.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Others\CustomDateTime.Designer.cs">
+      <DependentUpon>CustomDateTime.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="UI\DropDownList.cs">
+    <Compile Include="UI\Others\DropDownList.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UI\DropDownList.Designer.cs">
+    <Compile Include="UI\Others\DropDownList.Designer.cs">
       <DependentUpon>DropDownList.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Form_BookMulRooms.cs">
+    <Compile Include="UI\Others\exportExcel.cs" />
+    <Compile Include="UI\Managerment\Form_AddEditService.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Managerment\Form_AddEditService.Designer.cs">
+      <DependentUpon>Form_AddEditService.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Managerment\Form_AddEditStaff.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Managerment\Form_AddEditStaff.Designer.cs">
+      <DependentUpon>Form_AddEditStaff.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Room\Form_BookMulRooms.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UI\Form_BookMulRooms.Designer.cs">
+    <Compile Include="UI\Room\Form_BookMulRooms.Designer.cs">
       <DependentUpon>Form_BookMulRooms.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Form_EatService.cs">
+    <Compile Include="UI\Managerment\Form_Customer.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UI\Form_EatService.Designer.cs">
+    <Compile Include="UI\Managerment\Form_Customer.Designer.cs">
+      <DependentUpon>Form_Customer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Managerment\Form_CustomerBill.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Managerment\Form_CustomerBill.Designer.cs">
+      <DependentUpon>Form_CustomerBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Services\Form_EatService.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Services\Form_EatService.Designer.cs">
       <DependentUpon>Form_EatService.cs</DependentUpon>
     </Compile>
     <Compile Include="Helper.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UI\DrawBill.cs" />
-    <Compile Include="UI\Form_AddEditRoom.cs">
+    <Compile Include="UI\Others\DrawBill.cs" />
+    <Compile Include="UI\Room\Form_AddEditRoom.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Form_AddEditRoom.Designer.cs">
+    <Compile Include="UI\Room\Form_AddEditRoom.Designer.cs">
       <DependentUpon>Form_AddEditRoom.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Form_LaundryService.cs">
+    <Compile Include="UI\Managerment\Form_EditAccount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Managerment\Form_EditAccount.Designer.cs">
+      <DependentUpon>Form_EditAccount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Services\Form_LaundryService.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UI\Form_LaundryService.Designer.cs">
+    <Compile Include="UI\Services\Form_LaundryService.Designer.cs">
       <DependentUpon>Form_LaundryService.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Form_Login.cs">
@@ -154,66 +215,135 @@
     <Compile Include="UI\Form_Main.Designer.cs">
       <DependentUpon>Form_Main.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Form_Room.cs">
+    <Compile Include="UI\Report\Form_ReportBill.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UI\Form_Room.Designer.cs">
+    <Compile Include="UI\Report\Form_ReportBill.Designer.cs">
+      <DependentUpon>Form_ReportBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Report\Form_Revenue.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Report\Form_Revenue.Designer.cs">
+      <DependentUpon>Form_Revenue.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Room\Form_Room.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Room\Form_Room.Designer.cs">
       <DependentUpon>Form_Room.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Form_RoomInfo.cs">
+    <Compile Include="UI\Room\Form_RoomInfo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UI\Form_RoomInfo.Designer.cs">
+    <Compile Include="UI\Room\Form_RoomInfo.Designer.cs">
       <DependentUpon>Form_RoomInfo.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\GetValueOfControl.cs" />
-    <Compile Include="UI\Item_EatService1.cs">
+    <Compile Include="UI\Managerment\Form_ServiceManager.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UI\Item_EatService1.Designer.cs">
+    <Compile Include="UI\Managerment\Form_ServiceManager.Designer.cs">
+      <DependentUpon>Form_ServiceManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Managerment\Form_Staff.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Managerment\Form_Staff.Designer.cs">
+      <DependentUpon>Form_Staff.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Room\GetValueOfControl.cs" />
+    <Compile Include="UI\Managerment\Item_Customer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Managerment\Item_Customer.Designer.cs">
+      <DependentUpon>Item_Customer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Services\Item_EatService1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Services\Item_EatService1.Designer.cs">
       <DependentUpon>Item_EatService1.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Item_EatService2.cs">
+    <Compile Include="UI\Services\Item_EatService2.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UI\Item_EatService2.Designer.cs">
+    <Compile Include="UI\Services\Item_EatService2.Designer.cs">
       <DependentUpon>Item_EatService2.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Item_LaundryService.cs">
+    <Compile Include="UI\Services\Item_LaundryService.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UI\Item_LaundryService.Designer.cs">
+    <Compile Include="UI\Services\Item_LaundryService.Designer.cs">
       <DependentUpon>Item_LaundryService.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Item_Room.cs">
+    <Compile Include="UI\Report\Item_ReportBill.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UI\Item_Room.Designer.cs">
+    <Compile Include="UI\Report\Item_ReportBill.Designer.cs">
+      <DependentUpon>Item_ReportBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Room\Item_Room.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Room\Item_Room.Designer.cs">
       <DependentUpon>Item_Room.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Item_RoomOfFormBookMulRoom.cs">
+    <Compile Include="UI\Room\Item_RoomOfFormBookMulRoom.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UI\Item_RoomOfFormBookMulRoom.Designer.cs">
+    <Compile Include="UI\Room\Item_RoomOfFormBookMulRoom.Designer.cs">
       <DependentUpon>Item_RoomOfFormBookMulRoom.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\LoadingForm.cs">
+    <Compile Include="UI\Managerment\Item_ServiceManager.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Managerment\Item_ServiceManager.Designer.cs">
+      <DependentUpon>Item_ServiceManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Others\LoadingForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\LoadingForm.Designer.cs">
+    <Compile Include="UI\Others\LoadingForm.Designer.cs">
       <DependentUpon>LoadingForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\OverlayForm.cs">
+    <Compile Include="UI\Others\OverlayForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\SetValueForControl.cs" />
-    <EmbeddedResource Include="UI\DropDownList.resx">
+    <Compile Include="UI\Managerment\Item_Staff.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Managerment\Item_Staff.Designer.cs">
+      <DependentUpon>Item_Staff.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Room\SetValueForControl.cs" />
+    <Compile Include="UI\Managerment\Form_ChangePassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Managerment\Form_ChangePassword.Designer.cs">
+      <DependentUpon>Form_ChangePassword.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="UI\Others\CustomDateTime.resx">
+      <DependentUpon>CustomDateTime.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Others\DropDownList.resx">
       <DependentUpon>DropDownList.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Form_BookMulRooms.resx">
+    <EmbeddedResource Include="UI\Managerment\Form_AddEditService.resx">
+      <DependentUpon>Form_AddEditService.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Managerment\Form_AddEditStaff.resx">
+      <DependentUpon>Form_AddEditStaff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Room\Form_BookMulRooms.resx">
       <DependentUpon>Form_BookMulRooms.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Form_EatService.resx">
+    <EmbeddedResource Include="UI\Managerment\Form_Customer.resx">
+      <DependentUpon>Form_Customer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Managerment\Form_CustomerBill.resx">
+      <DependentUpon>Form_CustomerBill.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Services\Form_EatService.resx">
       <DependentUpon>Form_EatService.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -221,10 +351,13 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Form_AddEditRoom.resx">
+    <EmbeddedResource Include="UI\Room\Form_AddEditRoom.resx">
       <DependentUpon>Form_AddEditRoom.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Form_LaundryService.resx">
+    <EmbeddedResource Include="UI\Managerment\Form_EditAccount.resx">
+      <DependentUpon>Form_EditAccount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Services\Form_LaundryService.resx">
       <DependentUpon>Form_LaundryService.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Form_Login.resx">
@@ -233,32 +366,59 @@
     <EmbeddedResource Include="UI\Form_Main.resx">
       <DependentUpon>Form_Main.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Form_Room.resx">
+    <EmbeddedResource Include="UI\Report\Form_ReportBill.resx">
+      <DependentUpon>Form_ReportBill.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Report\Form_Revenue.resx">
+      <DependentUpon>Form_Revenue.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Room\Form_Room.resx">
       <DependentUpon>Form_Room.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Form_RoomInfo.resx">
+    <EmbeddedResource Include="UI\Room\Form_RoomInfo.resx">
       <DependentUpon>Form_RoomInfo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Item_EatService1.resx">
+    <EmbeddedResource Include="UI\Managerment\Form_ServiceManager.resx">
+      <DependentUpon>Form_ServiceManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Managerment\Form_Staff.resx">
+      <DependentUpon>Form_Staff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Managerment\Item_Customer.resx">
+      <DependentUpon>Item_Customer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Services\Item_EatService1.resx">
       <DependentUpon>Item_EatService1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Item_EatService2.resx">
+    <EmbeddedResource Include="UI\Services\Item_EatService2.resx">
       <DependentUpon>Item_EatService2.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Item_LaundryService.resx">
+    <EmbeddedResource Include="UI\Services\Item_LaundryService.resx">
       <DependentUpon>Item_LaundryService.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Item_Room.resx">
+    <EmbeddedResource Include="UI\Report\Item_ReportBill.resx">
+      <DependentUpon>Item_ReportBill.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Room\Item_Room.resx">
       <DependentUpon>Item_Room.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Item_RoomOfFormBookMulRoom.resx">
+    <EmbeddedResource Include="UI\Room\Item_RoomOfFormBookMulRoom.resx">
       <DependentUpon>Item_RoomOfFormBookMulRoom.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\LoadingForm.resx">
+    <EmbeddedResource Include="UI\Managerment\Item_ServiceManager.resx">
+      <DependentUpon>Item_ServiceManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Others\LoadingForm.resx">
       <DependentUpon>LoadingForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\OverlayForm.resx">
+    <EmbeddedResource Include="UI\Others\OverlayForm.resx">
       <DependentUpon>OverlayForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Managerment\Item_Staff.resx">
+      <DependentUpon>Item_Staff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Managerment\Form_ChangePassword.resx">
+      <DependentUpon>Form_ChangePassword.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -482,9 +642,6 @@
     <None Include="Resources\icSingleRoom.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\icPayment.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\icManage3.png" />
   </ItemGroup>
   <ItemGroup>
@@ -495,15 +652,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icYes.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icYes1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icDelete.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icManage1.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icSave.png" />
@@ -521,7 +669,69 @@
     <None Include="Resources\icThreeDot.png" />
   </ItemGroup>
   <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>8</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Excel">
+      <Guid>{00020813-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>9</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icShowPass.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icHidePass.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icYes1.png" />
+  </ItemGroup>
+  <ItemGroup>
     <None Include="Resources\fast-food.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icPayment.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icDelete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icManage1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icSearch.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iron.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\washing.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="hotel.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

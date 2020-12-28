@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Main));
             this.panel1 = new System.Windows.Forms.Panel();
             this.pnSubMenu_Manage = new System.Windows.Forms.Panel();
             this.btService_manage = new System.Windows.Forms.Panel();
@@ -36,9 +37,6 @@
             this.btStaff = new System.Windows.Forms.Panel();
             this.lbStaff = new System.Windows.Forms.Label();
             this.pbStaff = new System.Windows.Forms.PictureBox();
-            this.btWarehouse = new System.Windows.Forms.Panel();
-            this.lbWarehouse = new System.Windows.Forms.Label();
-            this.pbWarehouse = new System.Windows.Forms.PictureBox();
             this.btCustomer = new System.Windows.Forms.Panel();
             this.lbCustomer = new System.Windows.Forms.Label();
             this.pbCustomer = new System.Windows.Forms.PictureBox();
@@ -78,16 +76,16 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.lbStaffPosition = new System.Windows.Forms.Label();
             this.lbStaffname = new System.Windows.Forms.Label();
-            this.pbStaffAvatar = new System.Windows.Forms.PictureBox();
-            this.panel4 = new System.Windows.Forms.Panel();
+            this.menuStaff = new MaterialSkin.Controls.MaterialContextMenuStrip();
+            this.menubtShowStaffInfo = new System.Windows.Forms.ToolStripMenuItem();
+            this.menubtChangePass = new System.Windows.Forms.ToolStripMenuItem();
+            this.pbStaffImage = new HotelManagement.UI.CirclePictureBox();
             this.panel1.SuspendLayout();
             this.pnSubMenu_Manage.SuspendLayout();
             this.btService_manage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbSubService)).BeginInit();
             this.btStaff.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbStaff)).BeginInit();
-            this.btWarehouse.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbWarehouse)).BeginInit();
             this.btCustomer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbCustomer)).BeginInit();
             this.btManage.SuspendLayout();
@@ -112,7 +110,8 @@
             this.btRoom.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbRoom)).BeginInit();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbStaffAvatar)).BeginInit();
+            this.menuStaff.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbStaffImage)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -136,12 +135,11 @@
             // 
             this.pnSubMenu_Manage.Controls.Add(this.btService_manage);
             this.pnSubMenu_Manage.Controls.Add(this.btStaff);
-            this.pnSubMenu_Manage.Controls.Add(this.btWarehouse);
             this.pnSubMenu_Manage.Controls.Add(this.btCustomer);
             this.pnSubMenu_Manage.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnSubMenu_Manage.Location = new System.Drawing.Point(0, 396);
             this.pnSubMenu_Manage.Name = "pnSubMenu_Manage";
-            this.pnSubMenu_Manage.Size = new System.Drawing.Size(243, 191);
+            this.pnSubMenu_Manage.Size = new System.Drawing.Size(243, 141);
             this.pnSubMenu_Manage.TabIndex = 13;
             // 
             // btService_manage
@@ -150,7 +148,7 @@
             this.btService_manage.Controls.Add(this.lbSubService);
             this.btService_manage.Controls.Add(this.pbSubService);
             this.btService_manage.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btService_manage.Location = new System.Drawing.Point(13, 143);
+            this.btService_manage.Location = new System.Drawing.Point(13, 97);
             this.btService_manage.Name = "btService_manage";
             this.btService_manage.Size = new System.Drawing.Size(216, 40);
             this.btService_manage.TabIndex = 3;
@@ -229,49 +227,6 @@
             this.pbStaff.Click += new System.EventHandler(this.btStaff_Click);
             this.pbStaff.MouseLeave += new System.EventHandler(this.btStaff_MouseLeave);
             this.pbStaff.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btStaff_MouseMove);
-            // 
-            // btWarehouse
-            // 
-            this.btWarehouse.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.btWarehouse.Controls.Add(this.lbWarehouse);
-            this.btWarehouse.Controls.Add(this.pbWarehouse);
-            this.btWarehouse.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btWarehouse.Location = new System.Drawing.Point(13, 97);
-            this.btWarehouse.Name = "btWarehouse";
-            this.btWarehouse.Size = new System.Drawing.Size(216, 40);
-            this.btWarehouse.TabIndex = 2;
-            this.btWarehouse.Click += new System.EventHandler(this.btWarehouse_Click);
-            this.btWarehouse.MouseLeave += new System.EventHandler(this.btWarehouse_MouseLeave);
-            this.btWarehouse.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btWarehouse_MouseMove);
-            // 
-            // lbWarehouse
-            // 
-            this.lbWarehouse.AutoSize = true;
-            this.lbWarehouse.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lbWarehouse.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
-            this.lbWarehouse.ForeColor = System.Drawing.Color.Black;
-            this.lbWarehouse.Location = new System.Drawing.Point(77, 6);
-            this.lbWarehouse.Name = "lbWarehouse";
-            this.lbWarehouse.Size = new System.Drawing.Size(88, 25);
-            this.lbWarehouse.TabIndex = 1;
-            this.lbWarehouse.Text = "Kho hàng";
-            this.lbWarehouse.Click += new System.EventHandler(this.btWarehouse_Click);
-            this.lbWarehouse.MouseLeave += new System.EventHandler(this.btWarehouse_MouseLeave);
-            this.lbWarehouse.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btWarehouse_MouseMove);
-            // 
-            // pbWarehouse
-            // 
-            this.pbWarehouse.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbWarehouse.Image = global::HotelManagement.Properties.Resources.icWarehouse;
-            this.pbWarehouse.Location = new System.Drawing.Point(50, 6);
-            this.pbWarehouse.Name = "pbWarehouse";
-            this.pbWarehouse.Size = new System.Drawing.Size(26, 26);
-            this.pbWarehouse.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbWarehouse.TabIndex = 0;
-            this.pbWarehouse.TabStop = false;
-            this.pbWarehouse.Click += new System.EventHandler(this.btWarehouse_Click);
-            this.pbWarehouse.MouseLeave += new System.EventHandler(this.btWarehouse_MouseLeave);
-            this.pbWarehouse.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btWarehouse_MouseMove);
             // 
             // btCustomer
             // 
@@ -725,7 +680,6 @@
             this.btRoom.Size = new System.Drawing.Size(243, 50);
             this.btRoom.TabIndex = 3;
             this.btRoom.Click += new System.EventHandler(this.btRoom_Click);
-            this.btRoom.Paint += new System.Windows.Forms.PaintEventHandler(this.btRoom_Paint);
             this.btRoom.MouseLeave += new System.EventHandler(this.btRoom_MouseLeave);
             this.btRoom.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btRoom_MouseMove);
             // 
@@ -770,31 +724,31 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.panel2.Controls.Add(this.pbStaffImage);
             this.panel2.Controls.Add(this.lbStaffPosition);
             this.panel2.Controls.Add(this.lbStaffname);
-            this.panel2.Controls.Add(this.pbStaffAvatar);
-            this.panel2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.panel2.Cursor = System.Windows.Forms.Cursors.Default;
             this.panel2.Location = new System.Drawing.Point(6, 27);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(243, 97);
             this.panel2.TabIndex = 0;
-            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // lbStaffPosition
             // 
-            this.lbStaffPosition.Cursor = System.Windows.Forms.Cursors.Default;
+            this.lbStaffPosition.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbStaffPosition.Font = new System.Drawing.Font("Calibri", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbStaffPosition.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(148)))), ((int)(((byte)(148)))));
             this.lbStaffPosition.Location = new System.Drawing.Point(66, 48);
             this.lbStaffPosition.Name = "lbStaffPosition";
-            this.lbStaffPosition.Size = new System.Drawing.Size(102, 35);
+            this.lbStaffPosition.Size = new System.Drawing.Size(177, 35);
             this.lbStaffPosition.TabIndex = 3;
             this.lbStaffPosition.Text = "Chức Vụ";
             this.lbStaffPosition.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lbStaffPosition.Click += new System.EventHandler(this.pbStaffAvatar_Click);
             // 
             // lbStaffname
             // 
-            this.lbStaffname.Cursor = System.Windows.Forms.Cursors.Default;
+            this.lbStaffname.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbStaffname.Font = new System.Drawing.Font("Calibri", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbStaffname.ForeColor = System.Drawing.Color.Black;
             this.lbStaffname.Location = new System.Drawing.Point(66, 22);
@@ -803,26 +757,43 @@
             this.lbStaffname.TabIndex = 4;
             this.lbStaffname.Text = "Tên Nhân Viên";
             this.lbStaffname.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lbStaffname.Click += new System.EventHandler(this.pbStaffAvatar_Click);
             // 
-            // pbStaffAvatar
+            // menuStaff
             // 
-            this.pbStaffAvatar.Image = global::HotelManagement.Properties.Resources.profile_user;
-            this.pbStaffAvatar.Location = new System.Drawing.Point(6, 22);
-            this.pbStaffAvatar.Name = "pbStaffAvatar";
-            this.pbStaffAvatar.Size = new System.Drawing.Size(58, 56);
-            this.pbStaffAvatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbStaffAvatar.TabIndex = 0;
-            this.pbStaffAvatar.TabStop = false;
+            this.menuStaff.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.menuStaff.Depth = 0;
+            this.menuStaff.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menubtShowStaffInfo,
+            this.menubtChangePass});
+            this.menuStaff.MouseState = MaterialSkin.MouseState.HOVER;
+            this.menuStaff.Name = "menuStaff";
+            this.menuStaff.Size = new System.Drawing.Size(151, 48);
             // 
-            // panel4
+            // menubtShowStaffInfo
             // 
-            this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.panel4.Location = new System.Drawing.Point(255, 27);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(968, 666);
-            this.panel4.TabIndex = 1;
+            this.menubtShowStaffInfo.Name = "menubtShowStaffInfo";
+            this.menubtShowStaffInfo.Size = new System.Drawing.Size(150, 22);
+            this.menubtShowStaffInfo.Text = "Xem thông tin";
+            this.menubtShowStaffInfo.Click += new System.EventHandler(this.menubtShowStaffInfo_Click);
+            // 
+            // menubtChangePass
+            // 
+            this.menubtChangePass.Name = "menubtChangePass";
+            this.menubtChangePass.Size = new System.Drawing.Size(150, 22);
+            this.menubtChangePass.Text = "Đổi mật khẩu";
+            this.menubtChangePass.Click += new System.EventHandler(this.menubtChangePass_Click);
+            // 
+            // pbStaffImage
+            // 
+            this.pbStaffImage.Image = global::HotelManagement.Properties.Resources.profile_user;
+            this.pbStaffImage.Location = new System.Drawing.Point(3, 22);
+            this.pbStaffImage.Name = "pbStaffImage";
+            this.pbStaffImage.Size = new System.Drawing.Size(58, 61);
+            this.pbStaffImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbStaffImage.TabIndex = 1;
+            this.pbStaffImage.TabStop = false;
+            this.pbStaffImage.Click += new System.EventHandler(this.pbStaffAvatar_Click);
             // 
             // Form_Main
             // 
@@ -830,11 +801,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1229, 710);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(1229, 710);
             this.MinimumSize = new System.Drawing.Size(1229, 710);
             this.Name = "Form_Main";
+            this.Resizable = false;
             this.ShadowType = MetroFramework.Forms.MetroFormShadowType.DropShadow;
             this.Load += new System.EventHandler(this.Form_Main_Load);
             this.panel1.ResumeLayout(false);
@@ -845,9 +818,6 @@
             this.btStaff.ResumeLayout(false);
             this.btStaff.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbStaff)).EndInit();
-            this.btWarehouse.ResumeLayout(false);
-            this.btWarehouse.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbWarehouse)).EndInit();
             this.btCustomer.ResumeLayout(false);
             this.btCustomer.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbCustomer)).EndInit();
@@ -881,7 +851,8 @@
             this.btRoom.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbRoom)).EndInit();
             this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pbStaffAvatar)).EndInit();
+            this.menuStaff.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbStaffImage)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -896,9 +867,6 @@
         private System.Windows.Forms.Panel btStaff;
         private System.Windows.Forms.Label lbStaff;
         private System.Windows.Forms.PictureBox pbStaff;
-        private System.Windows.Forms.Panel btWarehouse;
-        private System.Windows.Forms.Label lbWarehouse;
-        private System.Windows.Forms.PictureBox pbWarehouse;
         private System.Windows.Forms.Panel btCustomer;
         private System.Windows.Forms.Label lbCustomer;
         private System.Windows.Forms.PictureBox pbCustomer;
@@ -938,7 +906,9 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label lbStaffPosition;
         private System.Windows.Forms.Label lbStaffname;
-        private System.Windows.Forms.PictureBox pbStaffAvatar;
-        private System.Windows.Forms.Panel panel4;
+        private MaterialSkin.Controls.MaterialContextMenuStrip menuStaff;
+        private System.Windows.Forms.ToolStripMenuItem menubtShowStaffInfo;
+        private System.Windows.Forms.ToolStripMenuItem menubtChangePass;
+        private CirclePictureBox pbStaffImage;
     }
 }

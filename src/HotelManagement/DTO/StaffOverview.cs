@@ -7,6 +7,7 @@ namespace HotelManagement.DTO
     {
         public string Name;
         public string Position;
+        public string IDNo;
         public StaffOverview(string Username)
         {
             DataTable data = DataAccess.Account.GetStaffInfor(Username);
@@ -16,7 +17,8 @@ namespace HotelManagement.DTO
             }
             Name = data.Rows[0].ItemArray[1].ToString();
             Position = ((StaffPosition)Convert.ToInt32(data.Rows[0].ItemArray[2]) == StaffPosition.Manager) ?
-                "Manager" : "Receptionist";
+                "Quản lý" : "Nhân viên";
+            IDNo = data.Rows[0].ItemArray[4].ToString();
         }
     }
 }

@@ -1,18 +1,25 @@
 ﻿using HotelManagement.Properties;
 using System;
 using System.Drawing;
+using System.IO;
 using System.Windows.Forms;
+using System.Threading.Tasks;
 
 namespace HotelManagement.UI
 {
     public partial class Form_Main : MetroFramework.Forms.MetroForm
     {
         private string Username;
+        private string StaffName;
+        public string StaffIDNo; 
+        public string StaffPosition;
+        private Panel pnToAddForm;
+        
         public Form_Main(string Username)
         {
             InitializeComponent();
+            createPanelToAddForm();
             this.Username = Username;
-            LoadStaffInfo();
             this.DoubleBuffered = true;
         }
 
@@ -48,23 +55,51 @@ namespace HotelManagement.UI
 
         private bool isChoosebtRoom = false, isChoosebtService = false, isChoosebtReport = false, isChoosebtManage = false,
                     isChoosebtEatService = false, isChoosebtLaundryService = false, isChoosebtRevenue = false, isChoosebtBill = false,
-                    isChoosebtStaff = false, isChoosebtCustomer = false, isChoosebtWarehouse = false, isChoosebtSubService = false;
+                    isChoosebtStaff = false, isChoosebtCustomer = false, isChoosebtSubService = false;
         private Color colorChoose = Color.FromArgb(27, 152, 224), colorNChoose = Color.Black;
 
-        private void LoadStaffInfo()
+        void createPanelToAddForm()
         {
-            try
+            this.pnToAddForm = new Panel();
+            this.Controls.Add(pnToAddForm);
+            this.pnToAddForm.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.pnToAddForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.pnToAddForm.Location = new System.Drawing.Point(255, 27);
+            this.pnToAddForm.Name = "pnToAddForm";
+            this.pnToAddForm.Size = new System.Drawing.Size(968, 666);
+            this.pnToAddForm.TabIndex = 1;
+        }
+
+        private async Task LoadStaffInfo()
+        {
+            DTO.StaffOverview staff = await Task.Run(() =>
             {
-                DTO.StaffOverview staff = new DTO.StaffOverview(Username);
-                lbStaffname.Text = staff.Name;
-                lbStaffPosition.Text = staff.Position;
-            }
-            catch
+                try
+                {
+                    return new DTO.StaffOverview(Username);
+                }
+                catch
+                {
+                    MessageBox.Show("Đã xảy ra lỗi khi tải thông tin người dùng", "Lỗi");
+                    return null;
+                }
+            });
+            if (staff != null)
             {
-                MessageBox.Show("Đã xảy ra lỗi khi tải thông tin người dùng", "Lỗi");
+                lbStaffname.Text = StaffName = staff.Name;
+                lbStaffPosition.Text = StaffPosition = staff.Position;
+                StaffIDNo = staff.IDNo;
+                setStaffImage();
+
+                if(StaffPosition=="Nhân viên")
+                {
+                    btReport.Hide();
+                    btManage.Hide();
+                }
             }
         }
-        private void Form_Main_Load(object sender, EventArgs e)
+        private async void Form_Main_Load(object sender, EventArgs e)
         {
             isChoosebtRoom = true;
             ChooseAButton();
@@ -73,7 +108,9 @@ namespace HotelManagement.UI
             pnSubMenu_Report.Hide();
             pnSubMenu_Manage.Hide();
             Form_Room temp = new Form_Room(Username, this);
-            panel4.Controls.Add(temp);
+            pnToAddForm.Controls.Add(temp);
+
+            await LoadStaffInfo();
         }
 
         private void setStatus(PictureBox pb, Label lb, Panel pn, Image img, bool stt)
@@ -145,11 +182,9 @@ namespace HotelManagement.UI
         {
             isChoosebtStaff = false;
             isChoosebtCustomer = false;
-            isChoosebtWarehouse = false;
             isChoosebtSubService = false;
             setStatus(pbStaff, lbStaff, StaffIcon, false);
             setStatus(pbCustomer, lbCustomer, CustomerIcon, false);
-            setStatus(pbWarehouse, lbWarehouse, WarehouseIcon, false);
             setStatus(pbSubService, lbSubService, SubservicesIcon, false);
         }
 
@@ -197,8 +232,11 @@ namespace HotelManagement.UI
                 isChoosebtRoom = true;
                 setStatus(pbRoom, lbRoom, pnTickChooseBtRoom, ChoseRoomIcon, true);
 
-                panel4.Controls.Clear();
-                panel4.Controls.Add(new Form_Room(Username, this));
+                //pnToAddForm.Controls.Clear();
+                pnToAddForm.Dispose();
+                createPanelToAddForm();
+                pnToAddForm.Controls.Add(new Form_Room(Username, this));
+                System.GC.Collect();
             }
         }
 
@@ -333,8 +371,10 @@ namespace HotelManagement.UI
                 isChoosebtEatService = true;
                 setStatus(pbEatService, lbEatService, ChoseEatingServicesIcon, true);
 
-                panel4.Controls.Clear();
-                panel4.Controls.Add(new Form_EatService(this, Username));
+                pnToAddForm.Dispose();
+                createPanelToAddForm();
+                pnToAddForm.Controls.Add(new Form_EatService(this, Username));
+                System.GC.Collect();
             }
         }
 
@@ -362,8 +402,10 @@ namespace HotelManagement.UI
                 isChoosebtLaundryService = true;
                 setStatus(pbLaundryService, lbLaundryService, ChoseLaundryServicesIcon, true);
 
-                panel4.Controls.Clear();
-                panel4.Controls.Add(new Form_LaundryService(this));
+                pnToAddForm.Dispose();
+                createPanelToAddForm();
+                pnToAddForm.Controls.Add(new Form_LaundryService(this));
+                System.GC.Collect();
             }
         }
 
@@ -394,6 +436,11 @@ namespace HotelManagement.UI
                 resetReportSubmenu();
                 isChoosebtRevenue = true;
                 setStatus(pbRevenue, lbRevenue, ChoseRevenueIcon, true);
+
+                pnToAddForm.Dispose();
+                System.GC.Collect();
+                createPanelToAddForm();
+                pnToAddForm.Controls.Add(new Form_Revenue(StaffName, this));
             }
         }
 
@@ -420,6 +467,11 @@ namespace HotelManagement.UI
                 resetReportSubmenu();
                 isChoosebtBill = true;
                 setStatus(pbBill, lbBill, ChoseBillIcon, true);
+
+                pnToAddForm.Dispose();
+                System.GC.Collect();
+                createPanelToAddForm();
+                pnToAddForm.Controls.Add(new Form_ReportBill(this));
             }
         }
 
@@ -439,16 +491,6 @@ namespace HotelManagement.UI
             }
         }
 
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void btRoom_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         #endregion
 
         #region SubMenu Manage Event
@@ -460,6 +502,11 @@ namespace HotelManagement.UI
                 resetManageSubmenu();
                 isChoosebtStaff = true;
                 setStatus(pbStaff, lbStaff, ChoseStaffIcon, true);
+
+                pnToAddForm.Dispose();
+                System.GC.Collect();
+                createPanelToAddForm();
+                pnToAddForm.Controls.Add(new Form_Staff(this));
             }
         }
 
@@ -486,6 +533,11 @@ namespace HotelManagement.UI
                 resetManageSubmenu();
                 isChoosebtCustomer = true;
                 setStatus(pbCustomer, lbCustomer, ChoseCustomerIcon, true);
+
+                pnToAddForm.Dispose();
+                System.GC.Collect();
+                createPanelToAddForm();
+                pnToAddForm.Controls.Add(new Form_Customer(this));
             }
         }
 
@@ -505,32 +557,6 @@ namespace HotelManagement.UI
             }
         }
 
-        private void btWarehouse_Click(object sender, EventArgs e)
-        {
-            if (!isChoosebtWarehouse)
-            {
-                resetManageSubmenu();
-                isChoosebtWarehouse = true;
-                setStatus(pbWarehouse, lbWarehouse, ChoseWarehouseIcon, true);
-            }
-        }
-
-        private void btWarehouse_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (!isChoosebtWarehouse)
-            {
-                setStatus(pbWarehouse, lbWarehouse, ChoseWarehouseIcon, true);
-            }
-        }
-
-        private void btWarehouse_MouseLeave(object sender, EventArgs e)
-        {
-            if (!isChoosebtWarehouse)
-            {
-                setStatus(pbWarehouse, lbWarehouse, WarehouseIcon, false);
-            }
-        }
-
         private void btService_manage_Click(object sender, EventArgs e)
         {
             if (!isChoosebtSubService)
@@ -538,6 +564,11 @@ namespace HotelManagement.UI
                 resetManageSubmenu();
                 isChoosebtSubService = true;
                 setStatus(pbSubService, lbSubService, ChoseSubservicesIcon, true);
+
+                pnToAddForm.Dispose();
+                System.GC.Collect();
+                createPanelToAddForm();
+                pnToAddForm.Controls.Add(new Form_ServiceManager(this));
             }
         }
 
@@ -558,5 +589,41 @@ namespace HotelManagement.UI
         }
 
         #endregion
+
+        private void pbStaffAvatar_Click(object sender, EventArgs e)
+        {
+            menuStaff.Show(MousePosition);
+        }
+
+        private void menubtChangePass_Click(object sender, EventArgs e)
+        {
+            Form_ChangePassword temp = new Form_ChangePassword(this.Username);
+            temp.ShowDialog();
+        }
+
+        private void menubtShowStaffInfo_Click(object sender, EventArgs e)
+        {
+            Form_AddEditStaff temp = new Form_AddEditStaff(this.Username);
+            temp.ShowDialog();
+        }
+
+        public void setStaffImage()
+        {
+            string staffImageDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\\hotel_management\\staffimage\\";
+            try
+            {
+                string[] staffImageFiles = Directory.GetFiles(staffImageDirectory, StaffIDNo + "*");
+                Image image;
+                using (Stream stream = File.OpenRead(staffImageFiles[0]))
+                {
+                    image = System.Drawing.Image.FromStream(stream);
+                }
+                pbStaffImage.Image = image;
+            }
+            catch
+            {
+                pbStaffImage.Image = Resources.profile_user;
+            }
+        }
     }
 }

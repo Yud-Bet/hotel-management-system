@@ -118,104 +118,62 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="icDoubleRoom" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icDoubleRoom.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icEatService2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icEatService2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icSingleRoom" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icSingleRoom.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icEatService" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icEatService.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icRoom" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icRoom.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icHorizontalArrow" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icHorizontalArrow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icYes1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icYes1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icSave" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icSave.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icReport" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icReport.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="bongform" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bongform.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icPassLogin2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icPassLogin2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icBill2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icBill2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icRevenue" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icRevenue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icAddRoom2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icAddRoom2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icHorizontalArrow2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icHorizontalArrow2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icSevice2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icSevice2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icManage" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icManage.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icCustomer2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icCustomer2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icStaff2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icStaff2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icRoom2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icRoom2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icPassLogin1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icPassLogin1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icUserLogin2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icUserLogin2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icStaff" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icStaff.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icReport2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icReport2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icManage2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icManage2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icVerticalArrow2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icVerticalArrow2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icFix" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icFix.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icSubService2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icSubService2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icWarehouse2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icWarehouse2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icSearch" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\magnifying-glass.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icRevenue2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icRevenue2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="fast_food" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\fast-food.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icAddRoom" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icAddRoom.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="icAddRoom2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icAddRoom2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icBackArrow" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icBackArrow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icBill" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icBill.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icBill2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icBill2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icBookMulRoom" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icBookMulRoom.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icClean" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icClean.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icCustomer" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icCustomer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icCustomer2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icCustomer2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="icDelete" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icDelete.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icDoubleRoom" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icDoubleRoom.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icEatService" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icEatService.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icEatService2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icEatService2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icFix" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icFix.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icHidePass" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icHidePass.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icHorizontalArrow" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icHorizontalArrow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icHorizontalArrow2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icHorizontalArrow2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icLaundryService" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icLaundryService.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -223,64 +181,118 @@
   <data name="icLaundryService2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icLaundryService2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icRented_DB" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icRented_DB.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icCustomer" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icCustomer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icVip" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icVip.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="icManage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icManage.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icManage1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icManage1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="imgBackground" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\imgNen.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="icManage2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icManage2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icYes" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icYes.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="icPassLogin1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icPassLogin1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="profile_user" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\profile-user.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icRented_SR" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icRented_SR.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icBackArrow" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icBackArrow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icWarehouse" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icWarehouse.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icSubService" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icSubService.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icClean" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icClean.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icThreeDot" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icThreeDot.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icBookMulRoom" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icBookMulRoom.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="icPassLogin2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icPassLogin2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icPayment" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icPayment.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icUserLogin1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icUserLogin1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="icReceptionist" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icLeTan.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icRented_DB" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icRented_DB.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icRented_SR" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icRented_SR.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icReport" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icReport.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icReport2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icReport2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icRevenue" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icRevenue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icRevenue2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icRevenue2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icRoom" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icRoom.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icRoom2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icRoom2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icSave" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icSave.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icSearch" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icSearch.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icSevice" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icSevice.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icBill" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icBill.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="icSevice2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icSevice2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icReceptionist" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icLeTan.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="icShowPass" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icShowPass.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="fast-food" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\fast-food.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="icSingleRoom" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icSingleRoom.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icStaff" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icStaff.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icStaff2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icStaff2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icSubService" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icSubService.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icSubService2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icSubService2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icThreeDot" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icThreeDot.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icUserLogin1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icUserLogin1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icUserLogin2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icUserLogin2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icVerticalArrow2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icVerticalArrow2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icVip" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icVip.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icWarehouse" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icWarehouse.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icWarehouse2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icWarehouse2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icYes" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icYes.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icYes1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icYes1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="imgBackground" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\imgNen.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="iron" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\iron.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="profile_user" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\profile-user.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="washing" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\washing.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

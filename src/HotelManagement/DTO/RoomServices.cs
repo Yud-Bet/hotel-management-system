@@ -7,17 +7,18 @@ namespace HotelManagement.DTO
     class RoomServices
     {
         public List<ServiceProperties> items;
-        public RoomServices(int RoomID)
+        public RoomServices(int BillID = 0, int ReservationID = 0, int RoomID = 0)
         {
             items = new List<ServiceProperties>();
-            DataTable roomTB = DataAccess.CustomerDA.GetRoomReservationDetailInfo(0, 0, RoomID);
-            DataTable serviceTB = DataAccess.CustomerDA.GetBillDetailInfo(0, 0, RoomID);
-            int RowsAffected = DataAccess.CustomerDA.SetRoomReservationStatus(0, 0, RoomID);
+            //DataTable roomTB = DataAccess.CustomerDA.GetRoomReservationDetailInfo(0, 0, RoomID);
+            //DataTable serviceTB = DataAccess.CustomerDA.GetBillDetailInfo(0, 0, RoomID);
+            DataTable roomTB = DataAccess.CustomerDA.GetRoomReservationDetailInfo(BillID, ReservationID, RoomID);
+            DataTable serviceTB = DataAccess.CustomerDA.GetBillDetailInfo(BillID, ReservationID, RoomID);
 
             for (int i = 0; i < roomTB.Rows.Count; i++)
             {
                 ServiceProperties item = new ServiceProperties();
-                item.Name = "Phòng" + Convert.ToString(roomTB.Rows[i].ItemArray[0]);
+                item.Name = "Phòng " + Convert.ToString(roomTB.Rows[i].ItemArray[0]);
                 item.Count = Convert.ToInt32(roomTB.Rows[i].ItemArray[1]);
                 item.Price = Convert.ToInt32(roomTB.Rows[i].ItemArray[2]);
                 item.IntoMoney = Convert.ToInt32(roomTB.Rows[i].ItemArray[3]);

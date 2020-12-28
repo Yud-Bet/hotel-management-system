@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace HotelManagement
+﻿namespace HotelManagement
 {
+    public enum BillType
+    {
+        RoomNSvcs = 0,
+        Services = 1
+    }
     public enum RoomType
     {
         SingleVIP = 1,
@@ -41,5 +40,21 @@ namespace HotelManagement
     {
         Eating = 1,
         Laundry = 2
+    }
+
+    public enum RevenueType
+    {
+        DateRevenue = 1,
+        MonthRevenue = 2,
+        QuarterRevenue = 3,
+        YearRevenue = 4,
+    }
+
+    public enum ServiceManagerType
+    {
+        AddEatService = 1,
+        EditEatService = 2,
+        EditWashService = 3,
+        EditIronService = 4,
     }
 }

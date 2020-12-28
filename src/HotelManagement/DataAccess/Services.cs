@@ -4,7 +4,7 @@ namespace HotelManagement.DataAccess
 {
     public static class Services
     {
-        public static DataTable GetServices(ServiceType type)
+        public static DataTable GetServicesInfo(ServiceType type)
         {
             return ExecuteQuery.ExecuteReader("QLKS_GetServiceInfo @SeviceType", new object[] { type });
         }
@@ -27,6 +27,10 @@ namespace HotelManagement.DataAccess
         {
             string Query = "QLKS_PayForServices";
             return ExecuteQuery.ExecuteNoneQuery(Query);
+        }
+        public static DataTable GetServiceBillOnlyDetail(int SvcBillID)
+        {
+            return ExecuteQuery.ExecuteReader("QLKS_GetServicesBillOnlyDetailInfo @ServiceBillID", new object[] { SvcBillID });
         }
     }
 }

@@ -75,7 +75,7 @@ namespace HotelManagement.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap fast_food {
             get {
-                object obj = ResourceManager.GetObject("fast-food", resourceCulture);
+                object obj = ResourceManager.GetObject("fast_food", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -216,6 +216,16 @@ namespace HotelManagement.Properties {
         internal static System.Drawing.Bitmap icFix {
             get {
                 object obj = ResourceManager.GetObject("icFix", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icHidePass {
+            get {
+                object obj = ResourceManager.GetObject("icHidePass", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -453,6 +463,16 @@ namespace HotelManagement.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icShowPass {
+            get {
+                object obj = ResourceManager.GetObject("icShowPass", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icSingleRoom {
             get {
                 object obj = ResourceManager.GetObject("icSingleRoom", resourceCulture);
@@ -603,9 +623,29 @@ namespace HotelManagement.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap iron {
+            get {
+                object obj = ResourceManager.GetObject("iron", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap profile_user {
             get {
                 object obj = ResourceManager.GetObject("profile_user", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap washing {
+            get {
+                object obj = ResourceManager.GetObject("washing", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
