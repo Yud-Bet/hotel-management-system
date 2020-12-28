@@ -612,7 +612,7 @@ BEGIN
     -- Insert statements for procedure here
 	
 	insert into Staff (Name_, Username, Password, BirthDay,Sex, Addr, PhoneNumber, IdentityNumber, Position, StartingDate, Salary, Note)
-	values (@Name, CONVERT(nvarchar(50),IDENT_CURRENT('Staff')), CONVERT(nvarchar(100),IDENT_CURRENT('Staff')), @Birthday, @Sex, @Addr, @PhoneNumber, @IdentityNumber, @Position, @StartingDate, @Salary, @Note)
+	values (@Name, CONVERT(nvarchar(50),IDENT_CURRENT('Staff')), @Password, @Birthday, @Sex, @Addr, @PhoneNumber, @IdentityNumber, @Position, @StartingDate, @Salary, @Note)
 	select IDENT_CURRENT('Staff')
 END
 GO
