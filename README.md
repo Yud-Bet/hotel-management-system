@@ -23,7 +23,6 @@
 - Quản lí phòng.
 - Quản lí hóa đơn.
 - Quản lí dịch vụ.
-- Quản lí phiếu đăng kí thuê, nhận và trả phòng.
 
 **3. Yêu cầu báo biểu:**
 - In hóa đơn.
