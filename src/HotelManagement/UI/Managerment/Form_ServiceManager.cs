@@ -46,7 +46,7 @@ namespace HotelManagement.UI
             DataTable dataEatServices = await Task.Run(()=> {
                 try
                 {
-                    return DataAccess.Services.GetServicesInfo(ServiceType.Eating);
+                    return DataAccess.Service.GetServicesInfo(ServiceType.Eating);
                 }
                 catch
                 {
@@ -67,7 +67,7 @@ namespace HotelManagement.UI
             DataTable dataLaundryServices = await Task.Run(()=> {
                 try
                 {
-                    return DataAccess.Services.GetServicesInfo(ServiceType.Laundry);
+                    return DataAccess.Service.GetServicesInfo(ServiceType.Laundry);
                 }
                 catch
                 {

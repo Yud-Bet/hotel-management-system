@@ -84,7 +84,7 @@ namespace HotelManagement.UI
                     int ef = await Task.Run(() => {
                         try
                         {
-                            return DataAccess.Manager.RemoveService(this._itemID);
+                            return DataAccess.Service.RemoveService(this._itemID);
                         }
                         catch
                         {

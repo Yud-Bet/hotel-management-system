@@ -104,7 +104,7 @@ namespace HotelManagement.UI
                 int RowsAffected = await Task.Run(() => {
                     try
                     {
-                        return DataAccess.RoomDA.AddNewRoom(Type, RoomSize);
+                        return DataAccess.Room.AddNewRoom(Type, RoomSize);
                     }
                     catch
                     {
@@ -115,10 +115,10 @@ namespace HotelManagement.UI
                 if (RowsAffected > 0)
                 {
                     MessageBox.Show("Thêm phòng mới thành công!", "Thông báo!");
-                    DataTable idNewRoom = DataAccess.RoomDA.GetRoomIdOfNewRoom();
+                    DataTable idNewRoom = DataAccess.Room.GetRoomIdOfNewRoom();
                     if (idNewRoom.Rows.Count > 0)
                     {
-                        DataTable data = DataAccess.RoomDA.GetRoomInfo(Convert.ToInt32(idNewRoom.Rows[0].ItemArray[0]));
+                        DataTable data = DataAccess.Room.GetRoomInfo(Convert.ToInt32(idNewRoom.Rows[0].ItemArray[0]));
                         if (data.Rows.Count > 0)
                         {
                             Item_Room newRoom = new Item_Room(parentRef);
@@ -165,7 +165,7 @@ namespace HotelManagement.UI
                 int RowsAffected = await Task.Run(() => {
                     try
                     {
-                        return DataAccess.RoomDA.EditRoomInfo(Convert.ToInt32(tbRoomID.Text),
+                        return DataAccess.Room.EditRoomInfo(Convert.ToInt32(tbRoomID.Text),
                                 Type, RoomSize, Price);
                     }
                     catch

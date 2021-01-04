@@ -132,7 +132,7 @@ namespace HotelManagement.UI
             {
                 if (!ofCustommer && billType == BillType.Services)
                 {
-                    DataTable SvcBillDetail = DataAccess.Services.GetServiceBillOnlyDetail(billID);
+                    DataTable SvcBillDetail = DataAccess.Bill.GetServiceBillOnlyDetail(billID);
                     DrawBill drawBill = new DrawBill(e.Graphics);
                     drawBill.drawBillHeader();
                     drawBill.drawServiceInfo();
@@ -166,7 +166,7 @@ namespace HotelManagement.UI
                     DTO.RoomServices svc = new DTO.RoomServices(billID, 0, 0);
                     DrawBill drawBill = new DrawBill(e.Graphics);
                     drawBill.drawBillHeader();
-                    DataTable additionalData = DataAccess.AdditionalInfoForBillViewing.GetData(billID);
+                    DataTable additionalData = DataAccess.Bill.GetData(billID);
                     string CustomerName = additionalData.Rows[0].ItemArray[1].ToString();
                     string CustomerPhoneNo = additionalData.Rows[0].ItemArray[2].ToString();
                     string CustomerAddr = additionalData.Rows[0].ItemArray[3].ToString();

@@ -183,7 +183,7 @@ namespace HotelManagement.UI
                         int RowsAffected = await Task.Run(() => {
                             try
                             {
-                                return DataAccess.RoomDA.SetRoomStatus(RoomID, RoomStatus.Empty);
+                                return DataAccess.Room.SetRoomStatus(RoomID, RoomStatus.Empty);
                             }
                             catch
                             {

@@ -49,9 +49,11 @@ namespace HotelManagement.UI
                         pbRoomType.Image = DoubleIcon;
                         break;
                     case RoomType.Single:
+                        pbVip.Image = null;
                         pbRoomType.Image = SingleIcon;
                         break;
                     case RoomType.Double:
+                        pbVip.Image = null;
                         pbRoomType.Image = DoubleIcon;
                         break;
                 }
@@ -187,7 +189,7 @@ namespace HotelManagement.UI
                             int RowsAffected = await Task.Run(() => {
                                 try
                                 {
-                                    return DataAccess.RoomDA.SetRoomStatus(RoomID, RoomStatus.Empty);
+                                    return DataAccess.Room.SetRoomStatus(RoomID, RoomStatus.Empty);
                                 }
                                 catch
                                 {
@@ -221,7 +223,7 @@ namespace HotelManagement.UI
                             int RowsAffected = await Task.Run(() => {
                                 try
                                 {
-                                    return DataAccess.RoomDA.SetRoomStatus(RoomID, RoomStatus.Empty);
+                                    return DataAccess.Room.SetRoomStatus(RoomID, RoomStatus.Empty);
                                 }
                                 catch
                                 {
@@ -281,7 +283,7 @@ namespace HotelManagement.UI
                 {
                     try
                     {
-                        return DataAccess.RoomDA.SetRoomStatus(RoomID, RoomStatus.Repairing);
+                        return DataAccess.Room.SetRoomStatus(RoomID, RoomStatus.Repairing);
                     }
                     catch
                     {
@@ -317,7 +319,7 @@ namespace HotelManagement.UI
                 {
                     try
                     {
-                        return DataAccess.RoomDA.SetRoomStatus(RoomID, RoomStatus.Empty);
+                        return DataAccess.Room.SetRoomStatus(RoomID, RoomStatus.Empty);
                     }
                     catch
                     {
@@ -344,7 +346,7 @@ namespace HotelManagement.UI
                 {
                     try
                     {
-                        return DataAccess.RoomDA.SetRoomStatus(RoomID, RoomStatus.Cleaning);
+                        return DataAccess.Room.SetRoomStatus(RoomID, RoomStatus.Cleaning);
                     }
                     catch
                     {
@@ -380,7 +382,7 @@ namespace HotelManagement.UI
                 {
                     try
                     {
-                        return DataAccess.RoomDA.SetRoomStatus(RoomID, RoomStatus.Empty);
+                        return DataAccess.Room.SetRoomStatus(RoomID, RoomStatus.Empty);
                     }
                     catch
                     {

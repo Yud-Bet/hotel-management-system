@@ -33,7 +33,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.tbCount = new System.Windows.Forms.TextBox();
             this.lbName = new Zeroit.Framework.Labels.ZeroitMultiFormatLabel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lbRemove = new System.Windows.Forms.Label();
             this.btMinus = new System.Windows.Forms.PictureBox();
             this.btPlus = new System.Windows.Forms.PictureBox();
             this.zeroitUltraTextBox1 = new Zeroit.Framework.Labels.ZeroitUltraTextBox();
@@ -48,7 +48,7 @@
             this.lbPrice.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbPrice.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbPrice.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
-            this.lbPrice.Location = new System.Drawing.Point(207, 3);
+            this.lbPrice.Location = new System.Drawing.Point(205, 4);
             this.lbPrice.Name = "lbPrice";
             this.lbPrice.Size = new System.Drawing.Size(100, 24);
             this.lbPrice.TabIndex = 10;
@@ -60,12 +60,13 @@
             // 
             this.panel1.Controls.Add(this.tbCount);
             this.panel1.Controls.Add(this.lbName);
-            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.lbPrice);
+            this.panel1.Controls.Add(this.lbRemove);
             this.panel1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(403, 30);
+            this.panel1.Size = new System.Drawing.Size(408, 30);
             this.panel1.TabIndex = 14;
             this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Item_EatService2_MouseMove);
             // 
@@ -99,20 +100,20 @@
             this.lbName.TabIndex = 0;
             this.lbName.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Item_EatService2_MouseMove);
             // 
-            // label1
+            // lbRemove
             // 
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label1.Location = new System.Drawing.Point(-1, 2);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(19, 24);
-            this.label1.TabIndex = 10;
-            this.label1.Text = "x";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label1.Click += new System.EventHandler(this.label1_Click);
-            this.label1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Item_EatService2_MouseMove);
+            this.lbRemove.BackColor = System.Drawing.Color.Transparent;
+            this.lbRemove.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lbRemove.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbRemove.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.lbRemove.Location = new System.Drawing.Point(-1, 2);
+            this.lbRemove.Name = "lbRemove";
+            this.lbRemove.Size = new System.Drawing.Size(19, 24);
+            this.lbRemove.TabIndex = 10;
+            this.lbRemove.Text = "x";
+            this.lbRemove.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lbRemove.Click += new System.EventHandler(this.lbRemove_Click);
+            this.lbRemove.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Item_EatService2_MouseMove);
             // 
             // btMinus
             // 
@@ -172,11 +173,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.btMinus);
             this.Controls.Add(this.btPlus);
-            this.Controls.Add(this.lbPrice);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.zeroitUltraTextBox1);
             this.Name = "Item_EatService2";
-            this.Size = new System.Drawing.Size(403, 33);
+            this.Size = new System.Drawing.Size(408, 33);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btMinus)).EndInit();
@@ -191,7 +191,7 @@
         private System.Windows.Forms.PictureBox btMinus;
         private System.Windows.Forms.Panel panel1;
         private Zeroit.Framework.Labels.ZeroitMultiFormatLabel lbName;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lbRemove;
         private System.Windows.Forms.TextBox tbCount;
         private Zeroit.Framework.Labels.ZeroitUltraTextBox zeroitUltraTextBox1;
     }

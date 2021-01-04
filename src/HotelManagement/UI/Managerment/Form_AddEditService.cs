@@ -95,7 +95,7 @@ namespace HotelManagement.UI
                 int ef = await Task.Run(()=> {
                     try
                     {
-                        return DataAccess.Manager.AddNewService(ServiceType.Eating, ItemName, Price);
+                        return DataAccess.Service.AddNewService(ServiceType.Eating, ItemName, Price);
                     }
                     catch
                     {
@@ -108,7 +108,7 @@ namespace HotelManagement.UI
                     DataTable data = await Task.Run(()=> {
                         try
                         {
-                            return DataAccess.Manager.GetServiceIdOfNewService();
+                            return DataAccess.Service.GetServiceIdOfNewService();
                         }
                         catch
                         {
@@ -175,7 +175,7 @@ namespace HotelManagement.UI
                         int ef = await Task.Run(() => {
                         try
                         {
-                            return DataAccess.Manager.SetServiceInfo(ItemID, ItemName, Price);
+                            return DataAccess.Service.SetServiceInfo(ItemID, ItemName, Price);
                         }
                         catch
                         {
@@ -219,7 +219,7 @@ namespace HotelManagement.UI
                         int Ef = await Task.Run(()=> {
                             try
                             {
-                                return DataAccess.Manager.SetServiceInfo(WashID, ItemName, Price);
+                                return DataAccess.Service.SetServiceInfo(WashID, ItemName, Price);
                             }
                             catch
                             {
@@ -244,7 +244,7 @@ namespace HotelManagement.UI
                         int EF = await Task.Run(()=> {
                             try
                             {
-                                return DataAccess.Manager.SetServiceInfo(IronID, ItemName, Price);
+                                return DataAccess.Service.SetServiceInfo(IronID, ItemName, Price);
                             }
                             catch
                             {

@@ -61,7 +61,7 @@ namespace HotelManagement.UI
                 tbUsername.Focus();
                 return;
             }
-            int ef = DataAccess.Account.ChangePassword(this.parentRef._Username, this.parentRef._Pass, tbPass.Text);
+            int ef = DataAccess.Staff.ChangePassword(this.parentRef._Username, this.parentRef._Pass, tbPass.Text);
             if (ef > 0)
             {
                 this.parentRef._Username = tbUsername.Text;

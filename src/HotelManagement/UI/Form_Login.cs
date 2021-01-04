@@ -157,7 +157,7 @@ namespace HotelManagement.UI
         {
             try
             {
-                bool LoginSuccessful = DataAccess.Account.Login(tbUsername.Text, tbPassword.Text);
+                bool LoginSuccessful = DataAccess.Staff.Login(tbUsername.Text, tbPassword.Text);
                 if (LoginSuccessful) LoginBGWorker.ReportProgress(100);
                 else LoginBGWorker.ReportProgress(50);
             }
@@ -198,9 +198,9 @@ namespace HotelManagement.UI
 
                 DialogResult result;
 
-                string EncryptedPass = DataAccess.Account.Encrypt(tbPassword.Text);
+                string EncryptedPass = DataAccess.Staff.Encrypt(tbPassword.Text);
 
-                if (tbUsername.Text == "1" && EncryptedPass == DataAccess.Account.Encrypt("1"))
+                if (tbUsername.Text == "1" && EncryptedPass == DataAccess.Staff.Encrypt("1"))
                 {
                     result = changepass.ShowDialog();
                 }

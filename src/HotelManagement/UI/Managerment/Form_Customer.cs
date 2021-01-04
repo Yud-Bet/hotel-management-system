@@ -38,7 +38,7 @@ namespace HotelManagement.UI
                 {
                     try
                     {
-                        return (DataAccess.Manager.GetAllCustomer(cbSortSelectedIndex), false);
+                        return (DataAccess.Customer.GetAllCustomer(cbSortSelectedIndex), false);
                     }
                     catch
                     {

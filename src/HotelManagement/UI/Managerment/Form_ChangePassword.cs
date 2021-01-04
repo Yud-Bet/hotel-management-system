@@ -21,7 +21,7 @@ namespace HotelManagement.UI
         }
         private async void btCharge_Click(object sender, EventArgs e)
         {
-            if (DataAccess.Account.Encrypt(tbOldPass.Text) != staff._Pass)
+            if (DataAccess.Staff.Encrypt(tbOldPass.Text) != staff._Pass)
             {
                 MessageBox.Show("Mật khẩu cũ không đúng!", "Thông báo!");
                 return;
@@ -39,7 +39,7 @@ namespace HotelManagement.UI
                 int ef = await Task.Run(() => {
                     try
                     {
-                        return DataAccess.Account.ChangePassword(staff._Username, tbOldPass.Text, tbNewPass.Text);
+                        return DataAccess.Staff.ChangePassword(staff._Username, tbOldPass.Text, tbNewPass.Text);
                     }
                     catch
                     {
@@ -111,7 +111,7 @@ namespace HotelManagement.UI
                 DataTable staffInfo = await Task.Run(() => {
                     try
                     {
-                        return DataAccess.Account.GetStaffInfor(staff._Username);
+                        return DataAccess.Staff.GetStaffInfor(staff._Username);
                     }
                     catch
                     {

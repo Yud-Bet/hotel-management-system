@@ -178,7 +178,7 @@ namespace HotelManagement.UI
                         {
                             try
                             {
-                                return DataAccess.Services.InsertServicetoBillDetail(RoomID, SelectedItems[i]._itemID, SelectedItems[i]._count);
+                                return DataAccess.Bill.InsertServicetoBillDetail(RoomID, SelectedItems[i]._itemID, SelectedItems[i]._count);
                             }
                             catch
                             {
@@ -230,7 +230,7 @@ namespace HotelManagement.UI
                     {
                         try
                         {
-                            return DataAccess.Services.InsertNewServicesBillOnly(Username);
+                            return DataAccess.Bill.InsertNewServicesBillOnly(Username);
                         }
                         catch
                         {
@@ -245,7 +245,7 @@ namespace HotelManagement.UI
                         {
                             try
                             {
-                                return DataAccess.Services.InsertServiceToServicesBillOnlyDetail(SelectedItems[i]._itemID, SelectedItems[i]._count);
+                                return DataAccess.Bill.InsertServiceToServicesBillOnlyDetail(SelectedItems[i]._itemID, SelectedItems[i]._count);
                             }
                             catch
                             {
@@ -258,7 +258,7 @@ namespace HotelManagement.UI
                     {
                         try
                         {
-                            return DataAccess.Services.PayForServicesOnly();
+                            return DataAccess.Service.PayForServicesOnly();
                         }
                         catch
                         {

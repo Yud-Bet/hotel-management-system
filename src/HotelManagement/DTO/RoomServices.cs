@@ -12,8 +12,8 @@ namespace HotelManagement.DTO
             items = new List<ServiceProperties>();
             //DataTable roomTB = DataAccess.CustomerDA.GetRoomReservationDetailInfo(0, 0, RoomID);
             //DataTable serviceTB = DataAccess.CustomerDA.GetBillDetailInfo(0, 0, RoomID);
-            DataTable roomTB = DataAccess.CustomerDA.GetRoomReservationDetailInfo(BillID, ReservationID, RoomID);
-            DataTable serviceTB = DataAccess.CustomerDA.GetBillDetailInfo(BillID, ReservationID, RoomID);
+            DataTable roomTB = DataAccess.Room.GetRoomReservationDetailInfo(BillID, ReservationID, RoomID);
+            DataTable serviceTB = DataAccess.Bill.GetBillDetailInfo(BillID, ReservationID, RoomID);
 
             for (int i = 0; i < roomTB.Rows.Count; i++)
             {
@@ -38,7 +38,7 @@ namespace HotelManagement.DTO
         {
             items = new List<ServiceProperties>();
             DataTable servicesDB = DataAccess.ExecuteQuery.ExecuteReader(
-                "QLKS_PayForServices");
+                "Eco_Hotel_PayForServices");
             for (int i = 0; i < servicesDB.Rows.Count; i++)
             {
                 ServiceProperties item = new ServiceProperties();

@@ -22,6 +22,7 @@ namespace HotelManagement.UI
             InitializeComponent();
             this.dtpCustomerBirthday.Value = Convert.ToDateTime("2000-01-01");
             this.rbtMale.Checked = true;
+            this.lbArrivalDate.Text = DateTime.Now.ToString();
 
             ParentRef = parentRef;
 
@@ -43,7 +44,7 @@ namespace HotelManagement.UI
                 DataTable data = await Task.Run(() => {
                     try
                     {
-                        return DataAccess.ExecuteQuery.ExecuteReader("QLKS_GetAllCustomerInfo");
+                        return DataAccess.Customer.GetAllCustomerInfo();
                     }
                     catch
                     {
@@ -225,7 +226,7 @@ namespace HotelManagement.UI
                             {
                                 try
                                 {
-                                    return DataAccess.CustomerDA.InsertNewCustomer(tbCustomerName.Text, dtpCustomerBirthday.Value,
+                                    return DataAccess.Customer.InsertNewCustomer(tbCustomerName.Text, dtpCustomerBirthday.Value,
                                         tbIDNo.Text, tbPassport.Text, tbCustomerAddress.Text, tbCustomerPhoneNum.Text, rbtMale.Checked ? Sex.Male : Sex.Female);
                                 }
                                 catch
@@ -239,8 +240,8 @@ namespace HotelManagement.UI
                         {
                             try
                             {
-                                int b = DataAccess.CustomerDA.InsertNewRoomReservation(dtpCheckInDate.Value, ClientID, ParentRef.Username, 0, tbNote.Text);
-                                int d = DataAccess.CustomerDA.InsertNewBill(0, ParentRef.Username);
+                                int b = DataAccess.Room.InsertNewRoomReservation(Convert.ToDateTime(lbArrivalDate.Text), ClientID, ParentRef.Username, 0, tbNote.Text);
+                                int d = DataAccess.Bill.InsertNewBill(0, ParentRef.Username);
                                 return (b, d);
                             }
                             catch
@@ -258,7 +259,7 @@ namespace HotelManagement.UI
                             {
                                 try
                                 {
-                                    return DataAccess.CustomerDA.InsertRoomReservationDetail(0, item._RoomID);
+                                    return DataAccess.Room.InsertRoomReservationDetail(0, item._RoomID);
                                 }
                                 catch
                                 {

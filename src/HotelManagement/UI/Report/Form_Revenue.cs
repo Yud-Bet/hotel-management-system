@@ -269,7 +269,7 @@ namespace HotelManagement.UI
                 DataTable dataRoomRevenue = await Task.Run(() => {
                     try
                     {
-                        return DataAccess.Report.GetRoomRevenue(revenueType, dtStart.Value, dtEnd.Value);
+                        return DataAccess.Room.GetRoomRevenue(revenueType, dtStart.Value, dtEnd.Value);
                     }
                     catch
                     {
@@ -281,7 +281,7 @@ namespace HotelManagement.UI
                 DataTable dataEatServiceRevenue = await Task.Run(() => {
                     try
                     {
-                        return DataAccess.Report.GetEatServiceRevenue(revenueType, dtStart.Value, dtEnd.Value);
+                        return DataAccess.Service.GetEatServiceRevenue(revenueType, dtStart.Value, dtEnd.Value);
                     }
                     catch
                     {
@@ -293,7 +293,7 @@ namespace HotelManagement.UI
                 DataTable dataLaudryServiceRevenue = await Task.Run(() => {
                     try
                     {
-                        return DataAccess.Report.GetLaudryServiceRevenue(revenueType, dtStart.Value, dtEnd.Value);
+                        return DataAccess.Service.GetLaudryServiceRevenue(revenueType, dtStart.Value, dtEnd.Value);
                     }
                     catch
                     {

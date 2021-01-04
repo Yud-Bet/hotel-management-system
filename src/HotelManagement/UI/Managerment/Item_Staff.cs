@@ -165,7 +165,7 @@ namespace HotelManagement.UI
                     int a = await Task.Run(() => {
                         try
                         {
-                            return DataAccess.Manager.RemoveStaff(this._ID);
+                            return DataAccess.Staff.RemoveStaff(this._ID);
                         }
                         catch
                         {

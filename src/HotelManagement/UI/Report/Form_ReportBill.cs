@@ -22,7 +22,7 @@ namespace HotelManagement.UI
             DataTable dataStaff = await Task.Run(() => {
                 try
                 {
-                    return DataAccess.Report.GetAllStaffInfo(-1);
+                    return DataAccess.Staff.GetAllStaffInfo(-1);
                 }
                 catch
                 {
@@ -49,7 +49,7 @@ namespace HotelManagement.UI
                 DataTable dataBillInfo = await Task.Run(() => {
                     try
                     {
-                        return DataAccess.Report.GetAllBillInfo(Start, End, SelectedStaff, SelectedSort);
+                        return DataAccess.Bill.GetAllBillInfo(Start, End, SelectedStaff, SelectedSort);
                     }
                     catch
                     {
@@ -112,7 +112,7 @@ namespace HotelManagement.UI
                 DataTable dataSVBillInfo = await Task.Run(() => {
                     try
                     {
-                        return DataAccess.Report.GetAllServicesBillOnlyInfo(Start, End, SelectedStaff, SelectedSort);
+                        return DataAccess.Bill.GetAllServicesBillOnlyInfo(Start, End, SelectedStaff, SelectedSort);
                     }
                     catch
                     {

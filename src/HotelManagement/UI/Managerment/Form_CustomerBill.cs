@@ -24,7 +24,7 @@ namespace HotelManagement.UI
         #endregion
         private void loadData()
         {
-            DataTable dataBillInfo = DataAccess.Manager.GetBillInfoOfCustomer(this.customerID);
+            DataTable dataBillInfo = DataAccess.Bill.GetBillInfoOfCustomer(this.customerID);
             for (int i = 0; i < dataBillInfo.Rows.Count; i++)
             {
                 Item_ReportBill itemBillInfo = new Item_ReportBill( this,

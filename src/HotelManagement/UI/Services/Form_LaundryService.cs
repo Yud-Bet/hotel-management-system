@@ -224,7 +224,7 @@ namespace HotelManagement.UI
                         {
                             try
                             {
-                                return DataAccess.Services.InsertServicetoBillDetail(RoomID, SelectedItems[i]._itemID, SelectedItems[i]._count);
+                                return DataAccess.Bill.InsertServicetoBillDetail(RoomID, SelectedItems[i]._itemID, SelectedItems[i]._count);
                             }
                             catch
                             {

@@ -11,7 +11,7 @@ namespace HotelManagement.DTO
         public int Price;
         public RoomDetail(int RoomID)
         {
-            DataTable data = DataAccess.RoomDA.GetRoomInfo(RoomID);
+            DataTable data = DataAccess.Room.GetRoomInfo(RoomID);
             ID = RoomID;
             Type = (RoomType)Convert.ToInt32(data.Rows[0].ItemArray[0]);
             Size = Convert.ToInt32(data.Rows[0].ItemArray[1]);

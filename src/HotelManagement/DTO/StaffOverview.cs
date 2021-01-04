@@ -10,7 +10,7 @@ namespace HotelManagement.DTO
         public string IDNo;
         public StaffOverview(string Username)
         {
-            DataTable data = DataAccess.Account.GetStaffInfor(Username);
+            DataTable data = DataAccess.Staff.GetStaffInfor(Username);
             if (data.Rows.Count == 0)
             {
                 throw new NullReferenceException("Load data failed!");

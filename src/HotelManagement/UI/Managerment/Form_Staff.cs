@@ -56,7 +56,7 @@ namespace HotelManagement.UI
             DataTable StaffInfo = await Task.Run(() => {
                 try
                 {
-                    return DataAccess.Report.GetAllStaffInfo(SelectedSortTypeIndex);
+                    return DataAccess.Staff.GetAllStaffInfo(SelectedSortTypeIndex);
                 }
                 catch
                 {

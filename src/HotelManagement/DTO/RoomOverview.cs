@@ -10,7 +10,7 @@ namespace HotelManagement.DTO
         public RoomOverview()
         {
             RoomCount = new int[5];
-            DataTable data = DataAccess.RoomDA.GetAllRoom();
+            DataTable data = DataAccess.Room.GetAllRoom();
             RoomCount[0] = data.Rows.Count;
             Items = new RoomInfo[RoomCount[0]];
 

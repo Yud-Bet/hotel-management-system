@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_RoomInfo));
             this.pnCustomerInfo = new System.Windows.Forms.Panel();
+            this.dropDownList1 = new HotelManagement.UI.DropDownList();
             this.tbNote = new Zeroit.Framework.Labels.ZeroitUltraTextBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.rbtMale = new MaterialSkin.Controls.MaterialRadioButton();
@@ -72,10 +73,7 @@
             this.label19 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pnBookingInfo = new System.Windows.Forms.Panel();
-            this.cbCheckOutDate = new Zeroit.Framework.MaterialDesign.Controls.ZeroitMaterialCheckBox();
-            this.dtpCheckOutDate = new MetroFramework.Controls.MetroDateTime();
-            this.dtpCheckInDate = new MetroFramework.Controls.MetroDateTime();
-            this.label15 = new System.Windows.Forms.Label();
+            this.lbArrivalDate = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
@@ -89,7 +87,13 @@
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.StatusLabel = new Zeroit.Framework.MiscControls.ZeroitLabel();
             this.pbArrowBack = new System.Windows.Forms.PictureBox();
-            this.dropDownList1 = new HotelManagement.UI.DropDownList();
+            this.panel = new System.Windows.Forms.Panel();
+            this.btSaveSevice = new XanderUI.XUIButton();
+            this.lbTotalMoney = new System.Windows.Forms.Label();
+            this.pnAddSevice = new System.Windows.Forms.FlowLayoutPanel();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.panel4 = new System.Windows.Forms.Panel();
             this.pnCustomerInfo.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.pnRoomInfo.SuspendLayout();
@@ -99,6 +103,7 @@
             this.pnButton.SuspendLayout();
             this.customerAlreadyEixstsMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbArrowBack)).BeginInit();
+            this.panel.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnCustomerInfo
@@ -129,9 +134,20 @@
             this.pnCustomerInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.25F);
             this.pnCustomerInfo.Location = new System.Drawing.Point(31, 50);
             this.pnCustomerInfo.Name = "pnCustomerInfo";
-            this.pnCustomerInfo.Size = new System.Drawing.Size(491, 467);
+            this.pnCustomerInfo.Size = new System.Drawing.Size(491, 491);
             this.pnCustomerInfo.TabIndex = 8;
             this.pnCustomerInfo.Click += new System.EventHandler(this.pnCustomerInfo_Click);
+            // 
+            // dropDownList1
+            // 
+            this.dropDownList1.AutoScroll = true;
+            this.dropDownList1.AutoSize = true;
+            this.dropDownList1.BackColor = System.Drawing.Color.White;
+            this.dropDownList1.Location = new System.Drawing.Point(17, 102);
+            this.dropDownList1.MaximumSize = new System.Drawing.Size(300, 300);
+            this.dropDownList1.Name = "dropDownList1";
+            this.dropDownList1.Size = new System.Drawing.Size(273, 25);
+            this.dropDownList1.TabIndex = 9;
             // 
             // tbNote
             // 
@@ -151,7 +167,7 @@
             this.tbNote.PlaceHolderText = "";
             this.tbNote.PlaceHolderTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
             this.tbNote.ReadOnly = false;
-            this.tbNote.Size = new System.Drawing.Size(440, 81);
+            this.tbNote.Size = new System.Drawing.Size(440, 98);
             this.tbNote.TabIndex = 5;
             this.tbNote.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left;
             this.tbNote.TextBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
@@ -171,7 +187,7 @@
             // 
             this.rbtMale.AutoSize = true;
             this.rbtMale.Depth = 0;
-            this.rbtMale.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.rbtMale.Font = new System.Drawing.Font("Roboto", 10F);
             this.rbtMale.Location = new System.Drawing.Point(0, 0);
             this.rbtMale.Margin = new System.Windows.Forms.Padding(0);
             this.rbtMale.MouseLocation = new System.Drawing.Point(-1, -1);
@@ -188,7 +204,7 @@
             // 
             this.rbtFemale.AutoSize = true;
             this.rbtFemale.Depth = 0;
-            this.rbtFemale.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.rbtFemale.Font = new System.Drawing.Font("Roboto", 10F);
             this.rbtFemale.Location = new System.Drawing.Point(58, 0);
             this.rbtFemale.Margin = new System.Windows.Forms.Padding(0);
             this.rbtFemale.MouseLocation = new System.Drawing.Point(-1, -1);
@@ -355,7 +371,7 @@
             this.cbPassport.AllowTransparency = true;
             this.cbPassport.Checked = false;
             this.cbPassport.Depth = 0;
-            this.cbPassport.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.cbPassport.Font = new System.Drawing.Font("Roboto", 10F);
             this.cbPassport.Location = new System.Drawing.Point(351, 200);
             this.cbPassport.Margin = new System.Windows.Forms.Padding(0);
             this.cbPassport.MouseLocation = new System.Drawing.Point(-1, -1);
@@ -372,7 +388,7 @@
             this.cbIDNo.AllowTransparency = true;
             this.cbIDNo.Checked = true;
             this.cbIDNo.Depth = 0;
-            this.cbIDNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.cbIDNo.Font = new System.Drawing.Font("Roboto", 10F);
             this.cbIDNo.Location = new System.Drawing.Point(189, 200);
             this.cbIDNo.Margin = new System.Windows.Forms.Padding(0);
             this.cbIDNo.MouseLocation = new System.Drawing.Point(-1, -1);
@@ -559,7 +575,7 @@
             // 
             this.rbtSingle.AutoSize = true;
             this.rbtSingle.Depth = 0;
-            this.rbtSingle.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.rbtSingle.Font = new System.Drawing.Font("Roboto", 10F);
             this.rbtSingle.Location = new System.Drawing.Point(0, 0);
             this.rbtSingle.Margin = new System.Windows.Forms.Padding(0);
             this.rbtSingle.MouseLocation = new System.Drawing.Point(-1, -1);
@@ -576,7 +592,7 @@
             // 
             this.rbtDouble.AutoSize = true;
             this.rbtDouble.Depth = 0;
-            this.rbtDouble.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.rbtDouble.Font = new System.Drawing.Font("Roboto", 10F);
             this.rbtDouble.Location = new System.Drawing.Point(54, 0);
             this.rbtDouble.Margin = new System.Windows.Forms.Padding(0);
             this.rbtDouble.MouseLocation = new System.Drawing.Point(-1, -1);
@@ -602,7 +618,7 @@
             // 
             this.rbtVip.AutoSize = true;
             this.rbtVip.Depth = 0;
-            this.rbtVip.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.rbtVip.Font = new System.Drawing.Font("Roboto", 10F);
             this.rbtVip.Location = new System.Drawing.Point(0, 0);
             this.rbtVip.Margin = new System.Windows.Forms.Padding(0);
             this.rbtVip.MouseLocation = new System.Drawing.Point(-1, -1);
@@ -619,7 +635,7 @@
             // 
             this.rbtNor.AutoSize = true;
             this.rbtNor.Depth = 0;
-            this.rbtNor.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.rbtNor.Font = new System.Drawing.Font("Roboto", 10F);
             this.rbtNor.Location = new System.Drawing.Point(49, 0);
             this.rbtNor.Margin = new System.Windows.Forms.Padding(0);
             this.rbtNor.MouseLocation = new System.Drawing.Point(-1, -1);
@@ -756,74 +772,36 @@
             // pnBookingInfo
             // 
             this.pnBookingInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
-            this.pnBookingInfo.Controls.Add(this.cbCheckOutDate);
-            this.pnBookingInfo.Controls.Add(this.dtpCheckOutDate);
-            this.pnBookingInfo.Controls.Add(this.dtpCheckInDate);
-            this.pnBookingInfo.Controls.Add(this.label15);
+            this.pnBookingInfo.Controls.Add(this.lbArrivalDate);
             this.pnBookingInfo.Controls.Add(this.label16);
             this.pnBookingInfo.Controls.Add(this.label23);
             this.pnBookingInfo.Controls.Add(this.panel7);
-            this.pnBookingInfo.Location = new System.Drawing.Point(533, 243);
+            this.pnBookingInfo.Location = new System.Drawing.Point(533, 239);
             this.pnBookingInfo.Name = "pnBookingInfo";
-            this.pnBookingInfo.Size = new System.Drawing.Size(403, 199);
+            this.pnBookingInfo.Size = new System.Drawing.Size(403, 58);
             this.pnBookingInfo.TabIndex = 12;
             // 
-            // cbCheckOutDate
+            // lbArrivalDate
             // 
-            this.cbCheckOutDate.AllowTransparency = true;
-            this.cbCheckOutDate.Checked = false;
-            this.cbCheckOutDate.Depth = 0;
-            this.cbCheckOutDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.cbCheckOutDate.Location = new System.Drawing.Point(95, 117);
-            this.cbCheckOutDate.Margin = new System.Windows.Forms.Padding(0);
-            this.cbCheckOutDate.MouseLocation = new System.Drawing.Point(-1, -1);
-            this.cbCheckOutDate.MouseState = Zeroit.Framework.MaterialDesign.MouseState.HOVER;
-            this.cbCheckOutDate.Name = "cbCheckOutDate";
-            this.cbCheckOutDate.Ripple = true;
-            this.cbCheckOutDate.Size = new System.Drawing.Size(27, 23);
-            this.cbCheckOutDate.TabIndex = 0;
-            this.cbCheckOutDate.TabStop = false;
-            this.cbCheckOutDate.Click += new System.EventHandler(this.cbCheckOutDate_Click);
-            // 
-            // dtpCheckOutDate
-            // 
-            this.dtpCheckOutDate.Enabled = false;
-            this.dtpCheckOutDate.Location = new System.Drawing.Point(27, 144);
-            this.dtpCheckOutDate.MinimumSize = new System.Drawing.Size(0, 29);
-            this.dtpCheckOutDate.Name = "dtpCheckOutDate";
-            this.dtpCheckOutDate.Size = new System.Drawing.Size(211, 29);
-            this.dtpCheckOutDate.TabIndex = 13;
-            // 
-            // dtpCheckInDate
-            // 
-            this.dtpCheckInDate.Enabled = false;
-            this.dtpCheckInDate.Location = new System.Drawing.Point(27, 70);
-            this.dtpCheckInDate.MinimumSize = new System.Drawing.Size(0, 29);
-            this.dtpCheckInDate.Name = "dtpCheckInDate";
-            this.dtpCheckInDate.Size = new System.Drawing.Size(211, 29);
-            this.dtpCheckInDate.TabIndex = 12;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.label15.ForeColor = System.Drawing.Color.Black;
-            this.label15.Location = new System.Drawing.Point(23, 117);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(70, 21);
-            this.label15.TabIndex = 2;
-            this.label15.Text = "Ngày trả";
+            this.lbArrivalDate.AutoSize = true;
+            this.lbArrivalDate.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.lbArrivalDate.ForeColor = System.Drawing.Color.Black;
+            this.lbArrivalDate.Location = new System.Drawing.Point(168, 32);
+            this.lbArrivalDate.Name = "lbArrivalDate";
+            this.lbArrivalDate.Size = new System.Drawing.Size(153, 21);
+            this.lbArrivalDate.TabIndex = 15;
+            this.lbArrivalDate.Text = "Thời gian đặt phòng:";
             // 
             // label16
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.label16.ForeColor = System.Drawing.Color.Black;
-            this.label16.Location = new System.Drawing.Point(23, 46);
+            this.label16.Location = new System.Drawing.Point(9, 32);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(86, 21);
+            this.label16.Size = new System.Drawing.Size(153, 21);
             this.label16.TabIndex = 2;
-            this.label16.Text = "Ngày nhận";
+            this.label16.Text = "Thời gian đặt phòng:";
             // 
             // label23
             // 
@@ -839,7 +817,7 @@
             // panel7
             // 
             this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
-            this.panel7.Location = new System.Drawing.Point(7, 27);
+            this.panel7.Location = new System.Drawing.Point(7, 26);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(300, 3);
             this.panel7.TabIndex = 3;
@@ -849,9 +827,9 @@
             this.pnButton.Controls.Add(this.btBookRoom);
             this.pnButton.Controls.Add(this.btPay);
             this.pnButton.Controls.Add(this.btSettingRoom);
-            this.pnButton.Location = new System.Drawing.Point(533, 452);
+            this.pnButton.Location = new System.Drawing.Point(533, 515);
             this.pnButton.Name = "pnButton";
-            this.pnButton.Size = new System.Drawing.Size(435, 197);
+            this.pnButton.Size = new System.Drawing.Size(435, 134);
             this.pnButton.TabIndex = 26;
             // 
             // btBookRoom
@@ -978,22 +956,98 @@
             this.pbArrowBack.TabStop = false;
             this.pbArrowBack.Click += new System.EventHandler(this.pbArrowBack_Click);
             // 
-            // dropDownList1
+            // panel
             // 
-            this.dropDownList1.AutoScroll = true;
-            this.dropDownList1.AutoSize = true;
-            this.dropDownList1.BackColor = System.Drawing.Color.White;
-            this.dropDownList1.Location = new System.Drawing.Point(17, 102);
-            this.dropDownList1.MaximumSize = new System.Drawing.Size(300, 300);
-            this.dropDownList1.Name = "dropDownList1";
-            this.dropDownList1.Size = new System.Drawing.Size(273, 25);
-            this.dropDownList1.TabIndex = 9;
+            this.panel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this.panel.Controls.Add(this.btSaveSevice);
+            this.panel.Controls.Add(this.lbTotalMoney);
+            this.panel.Controls.Add(this.pnAddSevice);
+            this.panel.Controls.Add(this.label22);
+            this.panel.Controls.Add(this.label17);
+            this.panel.Controls.Add(this.panel4);
+            this.panel.Location = new System.Drawing.Point(533, 303);
+            this.panel.Name = "panel";
+            this.panel.Size = new System.Drawing.Size(403, 214);
+            this.panel.TabIndex = 27;
+            // 
+            // btSaveSevice
+            // 
+            this.btSaveSevice.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
+            this.btSaveSevice.ButtonImage = null;
+            this.btSaveSevice.ButtonStyle = XanderUI.XUIButton.Style.MaterialRounded;
+            this.btSaveSevice.ButtonText = "Lưu";
+            this.btSaveSevice.ClickBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(130)))), ((int)(((byte)(200)))));
+            this.btSaveSevice.ClickTextColor = System.Drawing.Color.White;
+            this.btSaveSevice.CornerRadius = 5;
+            this.btSaveSevice.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btSaveSevice.Font = new System.Drawing.Font("Segoe UI", 14F);
+            this.btSaveSevice.Horizontal_Alignment = System.Drawing.StringAlignment.Center;
+            this.btSaveSevice.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
+            this.btSaveSevice.HoverTextColor = System.Drawing.Color.White;
+            this.btSaveSevice.ImagePosition = XanderUI.XUIButton.imgPosition.Left;
+            this.btSaveSevice.Location = new System.Drawing.Point(355, 184);
+            this.btSaveSevice.Name = "btSaveSevice";
+            this.btSaveSevice.Size = new System.Drawing.Size(45, 27);
+            this.btSaveSevice.TabIndex = 19;
+            this.btSaveSevice.TextColor = System.Drawing.Color.White;
+            this.btSaveSevice.Vertical_Alignment = System.Drawing.StringAlignment.Center;
+            this.btSaveSevice.Click += new System.EventHandler(this.btSaveSevice_Click);
+            // 
+            // lbTotalMoney
+            // 
+            this.lbTotalMoney.AutoSize = true;
+            this.lbTotalMoney.Font = new System.Drawing.Font("Segoe UI", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.lbTotalMoney.ForeColor = System.Drawing.Color.Black;
+            this.lbTotalMoney.Location = new System.Drawing.Point(127, 186);
+            this.lbTotalMoney.Name = "lbTotalMoney";
+            this.lbTotalMoney.Size = new System.Drawing.Size(19, 23);
+            this.lbTotalMoney.TabIndex = 8;
+            this.lbTotalMoney.Text = "0";
+            // 
+            // pnAddSevice
+            // 
+            this.pnAddSevice.AutoScroll = true;
+            this.pnAddSevice.Location = new System.Drawing.Point(0, 30);
+            this.pnAddSevice.Name = "pnAddSevice";
+            this.pnAddSevice.Size = new System.Drawing.Size(432, 153);
+            this.pnAddSevice.TabIndex = 4;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Segoe UI", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.label22.ForeColor = System.Drawing.Color.Black;
+            this.label22.Location = new System.Drawing.Point(9, 186);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(83, 23);
+            this.label22.TabIndex = 9;
+            this.label22.Text = "Tổng tiền";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Segoe UI", 19F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.label17.ForeColor = System.Drawing.Color.Black;
+            this.label17.Location = new System.Drawing.Point(3, 0);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(159, 25);
+            this.label17.TabIndex = 2;
+            this.label17.Text = "Thông tin dịch vụ";
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(152)))), ((int)(((byte)(224)))));
+            this.panel4.Location = new System.Drawing.Point(7, 27);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(300, 3);
+            this.panel4.TabIndex = 3;
             // 
             // Form_RoomInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.Controls.Add(this.panel);
             this.Controls.Add(this.StatusLabel);
             this.Controls.Add(this.pnButton);
             this.Controls.Add(this.pbArrowBack);
@@ -1018,6 +1072,8 @@
             this.pnButton.ResumeLayout(false);
             this.customerAlreadyEixstsMenu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbArrowBack)).EndInit();
+            this.panel.ResumeLayout(false);
+            this.panel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1044,21 +1100,17 @@
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel pnBookingInfo;
-        private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.PictureBox pbArrowBack;
         private System.Windows.Forms.FlowLayoutPanel pnButton;
         private MetroFramework.Controls.MetroDateTime dtpCustomerBirthday;
-        private MetroFramework.Controls.MetroDateTime dtpCheckOutDate;
-        private MetroFramework.Controls.MetroDateTime dtpCheckInDate;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.FlowLayoutPanel pnSignle_Dou;
         private System.Windows.Forms.FlowLayoutPanel pnVip_Nor;
         private Zeroit.Framework.MaterialDesign.Controls.ZeroitMaterialCheckBox cbPassport;
         private Zeroit.Framework.MaterialDesign.Controls.ZeroitMaterialCheckBox cbIDNo;
-        private Zeroit.Framework.MaterialDesign.Controls.ZeroitMaterialCheckBox cbCheckOutDate;
         private XanderUI.XUIButton btBookRoom;
         private XanderUI.XUIButton btPay;
         private XanderUI.XUIButton btSettingRoom;
@@ -1085,5 +1137,13 @@
         private DropDownList dropDownList1;
         private XanderUI.XUIButton btSave;
         private Zeroit.Framework.MiscControls.ZeroitLabel StatusLabel;
+        private System.Windows.Forms.Label lbArrivalDate;
+        private System.Windows.Forms.Panel panel;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.FlowLayoutPanel pnAddSevice;
+        private System.Windows.Forms.Label lbTotalMoney;
+        private System.Windows.Forms.Label label22;
+        private XanderUI.XUIButton btSaveSevice;
     }
 }

@@ -16,7 +16,7 @@ namespace HotelManagement.DTO
         public DateTime CheckInDate;
         public FullCustomerInfo(int RoomID)
         {
-            DataTable data = DataAccess.CustomerDA.GetCustomerInfo(RoomID);
+            DataTable data = DataAccess.Customer.GetCustomerInfo(RoomID);
             Name = data.Rows[0].ItemArray[0].ToString();
             Birthday = Convert.ToDateTime(data.Rows[0].ItemArray[1]);
             PhoneNumber = data.Rows[0].ItemArray[2].ToString();
